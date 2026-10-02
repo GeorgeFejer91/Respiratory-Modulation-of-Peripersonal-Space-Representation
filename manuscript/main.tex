@@ -1,0 +1,110 @@
+% Standalone single-column preprint build aligned with the Study 3 preprint.
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[natbibapa]{apacite}
+\usepackage[mathlines,switch]{lineno}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{caption}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\IfFileExists{wrapfig2.sty}{\usepackage{wrapfig2}}{\usepackage{wrapfig}}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{authblk}
+
+\urlstyle{same}
+\raggedbottom
+\onehalfspacing
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1.2em}
+\setlength{\affilsep}{0.4em}
+\renewcommand\Authfont{\normalsize\bfseries}
+\renewcommand\Affilfont{\small\normalfont}
+\renewcommand\Authands{, }
+\renewcommand{\linenumberfont}{\normalfont\tiny\sffamily\color{gray}}
+\modulolinenumbers[1]
+\pretolerance=4000
+\tolerance=3500
+\emergencystretch=4em
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\doublehyphendemerits=100000
+\finalhyphendemerits=100000
+\DeclareCaptionFont{snfigurecaption}{\rmfamily\fontsize{8}{9.5}\selectfont}
+\captionsetup[figure]{
+  font=snfigurecaption,
+  labelfont=bf,
+  textfont=normalfont,
+  justification=raggedright,
+  singlelinecheck=false,
+  labelsep=space,
+  name=Fig.,
+  skip=6pt
+}
+\setlength{\abovecaptionskip}{6pt plus 2pt minus 1pt}
+\setlength{\belowcaptionskip}{2pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+\title{Respiratory Modulation of Peripersonal Space Representation}
+
+\author[1,2,3]{George Fejer\thanks{Correspondence: george.fejer@aliusresearch.org}}
+\author[4]{Till Holzapfel}
+% Temporarily omitted; restore if reinstated:
+% \author[6]{Anestis Lalidis Mateo}
+% \author[4]{Taru Hirvonen}
+% \author[5]{Johannes Blum}
+\author[2]{Michael Gaebler}
+\author[7,8]{Bigna Lenggenhager}
+
+\affil[1]{University of Konstanz, Konstanz, Germany}
+\affil[2]{Max Planck Institute for Human Cognitive and Brain Sciences, Germany}
+\affil[3]{ALIUS Research Network, Germany}
+\affil[4]{Sensory Citizens, Germany}
+% Temporarily omitted; restore alongside the omitted authors if reinstated:
+% \affil[5]{P\"adagogische Hochschule Schaffhausen, Schaffhausen, Switzerland}
+% \affil[6]{Institute for Building Intelligence, Hochschule Bielefeld - University of Applied Sciences and Arts, Bielefeld, Germany}
+\affil[7]{Association for Independent Research, Zurich, Switzerland}
+\affil[8]{University Hospital of Psychiatry, Zurich, Switzerland}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\noindent\textbf{Keywords:} peripersonal space, respiration, virtual reality, interoception, embodied cognition
+
+\linenumbers
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+
+\nolinenumbers
+
+\input{sections/acknowledgements}
+
+\bibliographystyle{apacite}
+\bibliography{references}
+
+\end{document}

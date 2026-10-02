@@ -38,16 +38,28 @@ Before implementation, name:
 
 ## Gate 2: focused change
 
-Run the narrowest real check for the change. Add the exact commands here when
-the project selects its stack. A syntax check proves syntax; a unit test proves
-its tested logic; neither proves UI, deployment, hardware, performance, safety,
-or scientific validity unless it directly observes that surface.
+From the repository root, check the deidentified participant and trial keys:
+
+```powershell
+py for-ai/orchestration/public_data.py check data/raw
+```
+
+The current candidate should have `P000`-`P041` and 17,114 unique trial rows.
+The checker rejects unexpected columns, source codes and paths, duplicate IDs,
+and trial rows without a participant. It does not establish consent or eliminate
+all reidentification risk.
 
 ## Gate 3: integrated readiness
 
-Run proportionate build, test, lint, type, runtime, visual, device, security,
-and compatibility checks for every affected boundary. Do not run an expensive
-or irrelevant full matrix for a documentation-only edit.
+Compile `manuscript/main.tex` from inside `manuscript/` using pdfLaTeX and
+BibTeX or `latexmk -pdf`; inspect the resulting PDF for missing figures,
+citations, and layout defects. Only the `manuscript/` contents may be needed in
+Overleaf. Before claiming current results, rerun the approved models on the
+42-person CSVs and reconcile every sample size, statistic, and result figure.
+Classify deviations from the preregistration explicitly.
+
+Public release additionally requires a documented consent, ethics, and access
+review; the private repository setting is not that review.
 
 ## Gate 4: publication
 
@@ -57,6 +69,9 @@ or irrelevant full matrix for a documentation-only edit.
 4. Create one coherent commit under normal repository policy.
 5. Push without force and without bypassing protection or secret scanning.
 6. Verify the remote commit and required CI/deployment for that exact SHA.
+
+Do not change visibility to public while the consent review or 42-person
+manuscript refresh remains open.
 
 ## Handoff evidence
 

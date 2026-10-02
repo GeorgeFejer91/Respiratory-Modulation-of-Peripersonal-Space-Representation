@@ -27,6 +27,18 @@ Do not store chat transcripts, daily narration, raw logs, transient branch
 names, private machine paths, speculative ideas, secrets, participant data, or
 facts already obvious from source and tests.
 
+## Analysis promotion
+
+Keep exploratory analysis code and diagnostics in `for-ai/orchestration/`.
+Record the planned estimand, cohort, exclusions, checks, and registration status
+before moving an agreed pipeline to `analysis/`. Regenerate final figures and
+statistics into their publication folders, then update manuscript claims from
+those exact outputs. Preserve the older prose only in `writing-archive/`.
+
+The data export must stay free of private crosswalks and source paths. Recheck
+it after every refresh. Public release is a separate decision after the
+consent, ethics, access, and scientific gates pass.
+
 ## Git checkpoints and publication
 
 - Inspect status and diff before and after edits.

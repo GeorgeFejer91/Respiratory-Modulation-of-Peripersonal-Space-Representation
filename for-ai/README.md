@@ -29,6 +29,8 @@ the easiest interpretation.
 | Acceptance criteria, commands, gates, evidence limits | [`VERIFICATION.md`](./VERIFICATION.md) |
 | Session loop, updates, Git publication, handoff | [`WORKFLOW.md`](./WORKFLOW.md) |
 | Why a durable choice was made or superseded | [`DECISIONS.md`](./DECISIONS.md) |
+| Rebuild or check publication CSVs; stage exploratory analyses | [`orchestration/README.md`](./orchestration/README.md) |
+| Compare prior manuscript versions | [`writing-archive/README.md`](./writing-archive/README.md) |
 
 Do not read every file by default. Read this router, then only what the current
 task touches.
@@ -46,10 +48,6 @@ task touches.
    changed.
 7. Report evidence, limitations, commit/remote state, and any blocker.
 
-## New-project state
+## Publication boundary
 
-Created: 2026-10-02
-Repository: https://github.com/GeorgeFejer91/Study5_Publication
-Visibility at initialization: private
-
-No product stack or output tree is implied by this bootstrap.
+The repository is private. `manuscript/` and `data/raw/` are publication candidates; `analysis/`, `figures/`, and `results/` receive only reviewed final work. Exploratory analyses and older drafts remain under `for-ai/`. Do not make the repository public until the gates in `VERIFICATION.md` are satisfied.

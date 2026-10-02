@@ -1,0 +1,86 @@
+% ACTIVE-STUDY-SOURCE: Study 5 results.
+% Edit here for both standalone and dissertation builds.
+
+\section{Results}
+
+%% ---------------------------------------------------------------------
+%% RESULTS -- ROADMAP
+%% Reports the analysed batch (N=16, Viscereality-first / Control-second).
+%% Section order:
+%%   1. Sample, performance integrity, paradigm validation.
+%%   2. Sigmoid viability and group-level model selection.
+%%   3. Within-subjects ANOVA on cell-mean facilitation.
+%%   4. Selected log-linear model parameter analysis.
+%%   5. Trial-level nested mixed-model decomposition.
+%%   6. Condition-by-SOA flattening and SOA-level paired contrasts.
+%%   7. Order confound and exploratory caveats.
+%% Statistical conventions and exclusions are detailed in
+%% Section~\ref{study5:sec:stats}.
+%% ---------------------------------------------------------------------
+
+\subsection{Sample and paradigm validation}
+
+Sixteen participants completed the full session, contributing 6{,}528 raw trials. After application of the preregistered cleaning path (mean $\pm$ 2.5~SD outlier rule, $<200$~ms anticipations, missing-response exclusion), 3{,}456 Audio--Tactile trials were retained for analysis. No participants exceeded the preregistered catch false-alarm threshold of 30\%, and only one participant fell below the 70\% baseline-hit-rate flag and was retained for sensitivity analysis. Mean Audio--Tactile hit rate was 0.93, mean baseline hit rate 0.91, and the mean catch false-alarm rate was 0.009, indicating that participants performed the task with high accuracy and exercised the response-inhibition rule on Catch trials. A single trial fell below the 200~ms anticipation threshold across the entire dataset.
+
+The paradigm produced clear matched-baseline audio--tactile facilitation. Pooled across Condition, Phase, and SOA, the mean Audio--Tactile reaction time was 31.75~ms shorter than the matched tactile-only baseline ($p < .001$), and the corresponding mean facilitation was negative at all five SOAs (range $-28.5$ to $-36.1$~ms; all $p < .005$). Facilitation was therefore present across the full SOA range, satisfying the precondition for downstream PPS-shape analyses.
+
+\subsection{Sigmoid viability and group-level model selection}
+
+The preregistered sigmoid-boundary path required that each participant's four-parameter logistic fit achieve $R^{2} \geq .70$ in all four Condition $\times$ Phase cells. Zero of sixteen participants met this strict viability rule, so a sigmoid PPS-boundary parameterisation was not interpretable as the primary outcome and the analysis defaulted to the model-comparison track described in Section~\ref{study5:sec:stats}.
+
+Within the model-comparison track, three candidate functions were compared at the participant-collapsed level: linear-in-SOA, log-linear-in-SOA, and a three-parameter sigmoid with the lower asymptote fixed to zero. Aggregated across the sixteen participants, the log-linear-in-SOA model was selected decisively under both information criteria ($\mathrm{AIC}_{c}$ weight $= 0.996$; BIC weight $= 0.996$). The linear model was the closest competitor ($\Delta\mathrm{AIC}_{c} = 10.83$), and the zero-asymptote sigmoid was rejected ($\Delta\mathrm{AIC}_{c} = 376.15$; 12 of 16 participants had at least one boundary-bound sigmoid fit). At the per-participant level, $\mathrm{AIC}_{c}$ winners split between linear-in-SOA (9 participants) and log-linear-in-SOA (7); no participant favoured a sigmoid (Fig.~\ref{study5:fig:model_selection}). Chi-square tests of the winner distribution by Condition, Phase, and Condition $\times$ Phase showed no systematic departure from a homogeneous distribution (minimum descriptive $p = 0.337$), so a single canonical functional form (log-linear in SOA) was carried forward into the parameter-level tests.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{collapsed_participant_model_fit_sigmoid_linear_log.png}
+\caption{\textbf{Participant-collapsed model selection on the SOA axis.} For each participant, baseline-corrected facilitation was averaged across Condition and Phase and compared under three candidate models. Aggregated $\mathrm{AIC}_{c}$ and BIC selected log-linear SOA decisively ($\mathrm{AIC}_{c}$ weight $= 0.996$; BIC weight $= 0.996$). Sigmoid fits hit a parameter boundary in 12 of 16 participants and were rejected.}
+\label{study5:fig:model_selection}
+\end{figure}
+
+\subsection{Three-way ANOVA on cell-mean facilitation}
+
+The 2 (Condition: Viscereality, Control) $\times$ 2 (Phase: Inhale, Exhale) $\times$ 5 (SOA) repeated-measures ANOVA on cell-mean facilitation showed no main effect of Condition ($F(1,15) = 0.33$, $p = .574$), no main effect of Phase ($F(1,15) = 1.63$, $p = .222$), and no main effect of SOA ($F(4,60) = 0.53$, $p = .714$). Of the two-way interactions, Condition $\times$ Phase was at trend level ($F(1,15) = 4.09$, $p = .061$), Condition $\times$ SOA was reliable ($F(4,60) = 3.49$, $p = .013$), and Phase $\times$ SOA was not ($F(4,60) = 1.53$, $p = .206$). The registered three-way Condition $\times$ Phase $\times$ SOA interaction was not significant ($F(4,60) = 0.76$, $p = .553$). The data did not therefore support the registered prediction that respiratory phase modulates the SOA-distance gradient differently across the two VR conditions.
+
+\subsection{Selected-model parameter analysis}
+
+Each participant's log-linear slope was extracted within each Condition $\times$ Phase cell and entered into a 2 $\times$ 2 repeated-measures ANOVA. The slope showed a main effect of Condition ($F(1,15) = 6.98$, $p = .018$): the slope of facilitation on $\log\mathrm{SOA}$ was less steep in the Viscereality cell than in the Control cell. The Phase main effect was not significant ($F(1,15) = 2.23$, $p = .156$), and the Condition $\times$ Phase interaction was absent ($F(1,15) = 0.43$, $p = .521$). Pairwise contrasts on the slope reproduced this asymmetry: relative to Control, Viscereality flattened the slope by 10.6 units within Inhale ($t(15) = 2.01$, $p = .063$, $d_{z} = 0.50$) and by 14.4 units within Exhale ($t(15) = 2.48$, $p = .025$, $d_{z} = 0.62$). Within-condition Phase contrasts were not reliable in either condition (both $p > .13$). The intercept of the same model also showed a Condition main effect ($F(1,15) = 7.39$, $p = .016$), with Viscereality producing larger overall facilitation than Control by approximately 90~ms (Inhale: $t(15) = -2.36$, $p = .032$, $d_{z} = -0.59$; Exhale: $t(15) = -2.37$, $p = .032$, $d_{z} = -0.59$). The pattern is therefore one in which the breath-coupled VR environment shifts overall facilitation toward stronger values and flattens the slope across SOA, without a systematic phase-dependent reorganisation of either feature (Fig.~\ref{study5:fig:slope_flattening}).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{slope_flattening_summary.png}
+\caption{\textbf{Viscereality flattens the SOA gradient of audio--tactile facilitation.} \textbf{A}, Per-participant log-linear slopes shown for the four Condition $\times$ Phase cells. Background bands group the two phases (blue tint, Inhale; peach tint, Exhale). Within each phase band, points are colored by Condition (blue, Control; pink, Viscereality), and thin gray connectors link the same participant across Conditions. Larger filled markers with vertical bars show the cell mean and within-subjects SEM, and the bold black line connecting the two cell means visualises the Condition shift in slope within each phase. Slopes near zero indicate that facilitation is approximately constant across SOA; more negative slopes index a steeper near-versus-far gradient (in this dataset, stronger facilitation at longer/nearer SOAs). The Condition main effect is reliable ($F(1,15) = 6.98$, $p = .018$); Phase ($p = .156$) and Condition $\times$ Phase ($p = .521$) are not. Viscereality slopes are shifted by approximately $+12.5$~ms per $\log$-unit toward zero relative to Control, with the same direction in both phases. \textbf{B}, Group-level log-linear fits in each Condition $\times$ Phase cell, plotted on the original SOA axis. Markers are cell means with within-subjects SEM; lines are the cell-level log-linear fits used in the parameter ANOVA. Inhale is dashed with open markers, Exhale is solid with filled markers; the Viscereality fits (pink) are visibly flatter than the Control fits (blue) at both phases. The y-axis is inverted by convention so that stronger facilitation appears upward.}
+\label{study5:fig:slope_flattening}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{facilitation_by_condition_phase_soa.png}
+\caption{\textbf{Baseline-corrected facilitation by Condition, Phase, and SOA.} Group means with within-subjects standard error are plotted across the five SOAs (300--2700~ms; longer SOAs map to nearer source positions in the looming convention). Facilitation is expressed in the conventional direction as $\mathrm{RT}_{\mathrm{AT}} - \mathrm{RT}_{\mathrm{baseline}}$, so more negative values indicate stronger multisensory facilitation. The data show a Condition $\times$ SOA interaction ($p = .013$) but no three-way interaction with respiratory phase ($p = .553$).}
+\label{study5:fig:fac_by_cell}
+\end{figure}
+
+\subsection{Trial-level nested mixed-model decomposition}
+
+To partition the omnibus interaction into nested contributions, trial-level models with participant fixed effects were compared by likelihood-ratio test on baseline-corrected facilitation. Adding a linear SOA gradient to the intercept-only model did not improve fit (LR $= 2.49$, $p = .114$). Adding Condition and Phase main effects over the SOA-only model improved fit ($\Delta\chi^{2}(2) = 6.78$, $p = .034$). Adding the three two-way interactions (Condition $\times$ Phase, Condition $\times$ SOA, Phase $\times$ SOA) improved fit further and reliably ($\Delta\chi^{2}(3) = 22.21$, $p < .001$; $\mathrm{BF}_{10}^{\mathrm{BIC}} = 0.33$). Adding the registered three-way interaction did not improve fit ($\Delta\chi^{2}(1) = 0.09$, $p = .761$; $\mathrm{BF}_{10}^{\mathrm{BIC}} = 0.018$). The same hierarchy on raw Audio--Tactile reaction time produced the same conclusion: Condition and Phase main effects were significant ($\Delta\chi^{2}(2) = 15.32$, $p < .001$), two-way interactions added ($\Delta\chi^{2}(3) = 11.86$, $p = .008$), and the three-way interaction was indistinguishable from zero ($\Delta\chi^{2}(1) = 0.01$, $p = .906$; $\mathrm{BF}_{10}^{\mathrm{BIC}} = 0.017$). Baseline reaction time itself did not depend on Condition or Phase ($\Delta\chi^{2}(2) = 1.88$, $p = .391$; $\mathrm{BF}_{10}^{\mathrm{BIC}} = 0.040$), supporting per-cell baseline matching as an unbiased correction.
+
+\subsection[Condition x SOA flattening collapsed across phase]{Condition $\times$ SOA flattening collapsed across phase}
+
+Because the Condition $\times$ SOA interaction was the only systematic two-way deviation from null, paired contrasts were computed at each SOA, collapsing across phase, to characterise its shape (Fig.~\ref{study5:fig:flattening}). At the two near-far ends of the SOA range, Viscereality produced more facilitation than Control at far SOAs (300~ms: $\mathrm{V}-\mathrm{C} = -16.2$~ms, 95\%~CI $[-39.0, +6.5]$, $d_{z} = -0.38$; 800~ms: $-17.9$~ms, 95\%~CI $[-39.0, +3.2]$, $p = .090$, $d_{z} = -0.45$), and less facilitation than Control at near SOAs (2200~ms: $+15.1$~ms, 95\%~CI $[-1.0, +31.3]$, $p = .065$, $d_{z} = +0.50$). The crossover gives the Condition $\times$ SOA interaction its sign: Viscereality compresses the SOA gradient toward a flatter, distance-insensitive facilitation profile, whereas Control shows a stronger near-versus-far gradient. None of the individual SOA-level Viscereality-versus-Control differences cleared a $p < .05$ threshold under two-sided testing, so the effect is anchored in the omnibus interaction and the slope-on-$\log\mathrm{SOA}$ contrast rather than in isolated SOA cells.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{condition_x_soa_flattening_collapsed_phase.png}
+\caption{\textbf{Condition $\times$ SOA flattening collapsed across phase.} Mean baseline-corrected facilitation is plotted against SOA for Viscereality and Control conditions. The crossover at intermediate SOAs is the descriptive signature of the Condition $\times$ SOA interaction reported in the ANOVA ($p = .013$): Viscereality is roughly distance-insensitive across the SOA range, while Control shows a stronger near-versus-far gradient.}
+\label{study5:fig:flattening}
+\end{figure}
+
+\subsection{SOA-level Phase and Condition contrasts}
+
+For completeness, paired contrasts at each SOA level decomposed the Phase, Condition, and Phase $\times$ Condition components. The strongest single-SOA effect was at 1500~ms, where Inhale showed less facilitation than Exhale within the Control condition ($+41.7$~ms, $t(15) = 2.98$, $p = .009$, $d_{z} = 0.75$), and Viscereality produced more facilitation than Control within Inhale ($-31.1$~ms, $t(15) = -2.38$, $p = .031$, $d_{z} = -0.60$). At 2200~ms, the Control-condition Phase difference was non-significant but in the same direction as at 1500~ms ($+26.0$~ms, $p = .123$). No SOA showed a Phase $\times$ Condition interaction at the conventional threshold (minimum $p = .080$ at 1500~ms). These contrasts are descriptive secondary outputs and are interpreted under the registered ANOVA framework rather than as independent significance claims.
+
+\subsection{Order confound and interpretive limits}
+
+In this analysed batch, all sixteen participants completed the Viscereality condition first and the Control condition second. Any effect attributed to Condition is therefore not separable from a Part~1-versus-Part~2 order effect using the present data; baseline RT differed between parts at the descriptive level, although the Condition $\times$ Phase interaction on baseline RT itself was not significant ($p = .234$). The Condition main effect on the log-linear slope and the Condition $\times$ SOA flattening pattern reported above are therefore best read as a Condition--order composite within this batch, with a counterbalanced sample held back for the registered identification of the Condition contribution.
+
+A second secondary caveat concerns noise type. The four-noise homogeneity test on raw Audio--Tactile RT crossed the conventional threshold ($p = .029$), so noise type contributes a small descriptive variance component that the present main analyses pooled across rather than modelling as a covariate. Given the within-subjects, fully counterbalanced assignment of noise type to SOA cells, the noise-type signal is not expected to bias the Condition, Phase, or SOA contrasts.
+
+\subsection{Summary}
+
+The analysed batch yielded clear matched-baseline audio--tactile facilitation across all five SOAs, but did not support a sigmoid-boundary parameterisation: zero of sixteen participants met the preregistered $R^{2} \geq .70$ criterion in all four Condition $\times$ Phase cells, and the canonical functional form selected by aggregated $\mathrm{AIC}_{c}$ and BIC was log-linear in SOA. The registered three-way Condition $\times$ Phase $\times$ SOA interaction was not detected (cell-mean ANOVA $p = .553$; trial-level mixed-model LRT $p = .761$, $\mathrm{BF}_{10}^{\mathrm{BIC}} = 0.018$). The reliable signal in the data was a Condition $\times$ SOA flattening: relative to Control, the Viscereality condition flattened the slope of facilitation on $\log\mathrm{SOA}$ ($p = .018$), shifted overall facilitation toward stronger values ($p = .016$), and produced a crossover with Control across SOAs (Condition $\times$ SOA $p = .013$). Phase did not enter any of these effects in a statistically reliable way. The Condition pattern is, however, confounded with VR-condition order in this batch, and is left as a candidate effect to be tested under counterbalanced VR-condition order in the registered larger sample.

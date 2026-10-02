@@ -17,16 +17,17 @@ Higher-priority instructions and the current user request always win.
 | Work | Skill | Policy |
 | --- | --- | --- |
 | Any coding, refactor, fix, or code review | `ponytail` | Required when installed: reuse existing owners, prefer native/standard features, and implement the smallest complete change. If unavailable, disclose that and apply the YAGNI rules in `PROJECT.md`. |
-| Current or uncertain public facts, APIs, standards, libraries, or online research | `multi-source-web-search` | Conditional: open primary sources, run a blind-spot pass for nontrivial work, and cite the pages actually inspected. |
-| Architecture, ownership, contracts, authority, observability, or durable handoff design | `system-engineering` | Conditional when the task materially changes these surfaces. |
-| Large repository inventory, instruction audit, dependency pressure, or broad impact mapping | `rust-work-graph` | Conditional only when repository complexity justifies graph analysis. |
-| HTML/CSS or frontend UI generation | `uncodixfy` | Conditional for visible frontend code; preserve the product's chosen identity. |
+| Academic literature and scientific evidence | `consensus-mcp` | Conditional: use the configured Consensus server first when available. |
+| Current external facts outside academic literature | `multi-source-web-search` | Conditional: verify unstable claims with primary sources. |
 
 ## Project-specific routes
 
-None yet. Add exact identifiers only after the project selects a stack or
-domain that genuinely needs them. Record required vs conditional status,
-nesting order, fallback behavior, and source revision for vendored skills.
+| Work | Skill | Policy |
+| --- | --- | --- |
+| Design or review statistical estimands and models | `statistical-analysis` | Conditional; distinguish preregistered and exploratory analyses. |
+| Implement a confirmed R/Python analysis | `psy-ana-coder` | Conditional; keep new exploratory code in `orchestration/` until promoted. |
+| Audit an analysis plan or script | `psy-ana-reviewer` | Conditional; record readiness findings before promotion. |
+| Verify a final PDF's visual layout | `pdf:pdf` | Conditional for PDF deliverables, after the LaTeX build. |
 
 ## Supply-chain rule
 

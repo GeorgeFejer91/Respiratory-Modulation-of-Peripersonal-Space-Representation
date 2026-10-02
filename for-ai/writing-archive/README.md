@@ -1,0 +1,3 @@
+# Earlier writing drafts
+
+These prior versions are retained for internal comparison. The active Overleaf manuscript is in `../../manuscript/`; none of the files in this folder should be imported into its build or treated as current results.
