@@ -22,7 +22,7 @@ Add project-specific non-goals only after they prevent a plausible wrong turn.
 ## Product/control-plane boundary
 
 - Product source and deliverables: `manuscript/`, `data/raw/`, `analysis/`,
-  `figures/`, and `results/`.
+  `figures/`, `results/`, and `workbook/`.
 - Agent orchestration and durable project memory: `for-ai/`.
 - Local generated diagnostics and scratch evidence: `.for-ai-local/` (ignored).
 
@@ -35,6 +35,12 @@ owns data-export checking and exploratory analyses. Once an analysis is agreed,
 its reproducible pipeline moves to `analysis/`, with accepted figures and
 machine-readable statistics in `figures/` and `results/`. Prior prose stays in
 `for-ai/writing-archive/`.
+
+`workbook/` owns the marimo browser tool for exploratory preparation and the
+shared CSV schema/key checks used by `public_data.py`. Its Pages artifact contains
+only code and a synthetic-data generator; uploaded observations are processed in
+the browser. Publishing this tool does not promote an analysis or release the
+participant dataset. The repository stays private.
 
 ## Current verified state
 

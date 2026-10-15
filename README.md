@@ -9,6 +9,7 @@ Study 5 manuscript and deidentified behavioral data. The [preregistration](https
 | [`analysis/`](analysis/) | Publication analysis pipeline after methodological approval |
 | [`figures/`](figures/) | Final reproducible figure outputs |
 | [`results/`](results/) | Final statistical tables and reports |
+| [`workbook/`](workbook/) | Live marimo data preparation tool, browser editor, and GitHub Pages build |
 | [`for-ai/`](for-ai/) | Internal decisions, checks, older writing, and exploratory orchestration |
 
 The data contain 42 independent participants (`P000`–`P041`) and 17,114 primary trial rows. These are the retained behavioral observations; original recordings and private identity records are not part of this repository.
@@ -16,3 +17,8 @@ The data contain 42 independent participants (`P000`–`P041`) and 17,114 primar
 **Current status:** the manuscript text and its two result figures still describe an earlier 40-person analysis. They are included as the working preprint, not as current 42-person results. Regenerate and review the analysis, figures, and reporting before submission. The repository is private while consent, ethics, and release terms are checked.
 
 Project and agent instructions start at [`for-ai/README.md`](for-ai/README.md).
+
+The [data preparation workbook](workbook/README.md) runs interactively in the
+browser using marimo and Pyodide. Its public default uses synthetic examples;
+uploaded CSV pairs stay in the browser on the published page. The GitHub Pages
+workflow publishes the tool without embedding the repository's participant data.

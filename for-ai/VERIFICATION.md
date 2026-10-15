@@ -49,6 +49,25 @@ The checker rejects unexpected columns, source codes and paths, duplicate IDs,
 and trial rows without a participant. It does not establish consent or eliminate
 all reidentification risk.
 
+For the browser preparation workbook, also run from the repository root:
+
+```bash
+python3 -m unittest discover -s workbook -p 'test_*.py' -v
+marimo check workbook/data_preparation.py --strict
+marimo check workbook/data_preparation.py --select MW --strict
+python3 workbook/build_site.py
+```
+
+Use the environment containing `workbook/requirements.txt` and `uv`. Exercise the
+exported page over HTTP in a modern browser: change an RT window, check downstream
+row counts, upload a complete CSV pair, reject malformed inputs, and inspect a
+downloaded CSV/manifest. A native notebook run or successful export alone does
+not verify browser execution. The Pages artifact must contain only workbook code,
+synthetic generation logic, and runtime assets, without participant CSVs or saved
+session outputs. A deployment claim additionally requires the matching GitHub
+Actions result and the deployed page. See `workbook/README.md` for startup and
+private-repository Pages prerequisites.
+
 ## Gate 3: integrated readiness
 
 Compile `manuscript/main.tex` from inside `manuscript/` using pdfLaTeX and

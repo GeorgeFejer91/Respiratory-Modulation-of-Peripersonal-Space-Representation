@@ -1,5 +1,7 @@
 # Local agent/runtime artifacts
 .for-ai-local/
+.venv/
+__marimo__/
 
 # Local configuration and credentials
 .env

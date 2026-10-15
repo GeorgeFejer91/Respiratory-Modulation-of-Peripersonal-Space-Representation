@@ -7,27 +7,15 @@ are saved in this repository.
 import argparse
 import csv
 import re
+import sys
 from collections import Counter
 from hashlib import sha256
 from pathlib import Path
 
 
-PARTICIPANT_COLUMNS = (
-    ["participant_id", "data_availability", "age_years", "gender", "handedness",
-     "condition_order", "planned_trials", "analysis_trials", "spfrref_viscereality",
-     "spfrref_viscereality_ordinal", "spfrref_control", "spfrref_control_ordinal"]
-    + [f"maia2_item_{i:02d}" for i in range(1, 38)]
-    + [f"maia2_{name}" for name in (
-        "noticing", "not_distracting", "not_worrying", "attention_regulation",
-        "emotional_awareness", "self_regulation", "body_listening", "trusting")]
-)
-TRIAL_COLUMNS = [
-    "participant_id", "trial_id", "trial_index", "part_number", "condition",
-    "block_number", "trial_number", "phase", "noise_type", "trial_type",
-    "soa_ms", "distance_bin", "response_given", "outcome", "reaction_time_ms",
-    "rt_valid_100_2000", "rt_valid_200_2000",
-]
-FILES = ("study5_participants.csv", "study5_pps_trials.csv")
+# Share the schema and existing key/privacy checks with the browser workbook.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "workbook"))
+from preparation import FILES, PARTICIPANT_COLUMNS, TRIAL_COLUMNS, validate_public_rows
 
 
 def read_csv(path, expected):
@@ -51,23 +39,7 @@ def write_csv(path, columns, rows):
 def check(folder):
     people = read_csv(folder / FILES[0], PARTICIPANT_COLUMNS)
     trials = read_csv(folder / FILES[1], TRIAL_COLUMNS)
-    ids = [row["participant_id"] for row in people]
-    expected = [f"P{i:03d}" for i in range(len(people))]
-    if ids != expected:
-        raise ValueError("Participant IDs are not unique and contiguous from P000")
-    per_person = Counter()
-    seen_trials = set()
-    for row in trials:
-        participant = row["participant_id"]
-        if participant not in ids:
-            raise ValueError(f"Trial references an unknown participant: {participant}")
-        per_person[participant] += 1
-        trial_id = f"{participant}_T{per_person[participant]:04d}"
-        if row["trial_id"] != trial_id or trial_id in seen_trials:
-            raise ValueError(f"Invalid or duplicate trial ID: {row['trial_id']}")
-        seen_trials.add(trial_id)
-    if set(per_person) != set(ids):
-        raise ValueError("At least one participant has no trials")
+    validate_public_rows(people, trials)
     for filename in FILES:
         content = (folder / filename).read_text(encoding="utf-8")
         if re.search(r"(?i)dataset0[1-9]|PUB\d+|[A-Z]:\\|[/\\]Users[/\\]", content):
