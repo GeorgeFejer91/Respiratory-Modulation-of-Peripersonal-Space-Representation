@@ -76,6 +76,16 @@ reported; do not manufacture values when the gate fails.
 
 ## Post hoc four-curve descriptive extension
 
+The active goal additionally requires a visibly S-shaped PPS-like transition
+inside the measured range, with midpoint sampling and steepness diagnostics,
+fair predictive comparisons and visual figure review. The extension now includes
+320 explicitly shape-constrained pipelines and 160 equally processed linear
+pipelines alongside the original 320 sigmoids. Six outer participant folds repeat
+selection inside the training set. Raw unsmoothed curvature is tested separately
+and is not a sigmoid-specific test. Full methods, thresholds, failure findings,
+literature-access limits and the distinction between imposed shape and empirical
+support are recorded in [SIGMOID_EXPLORATION.md](SIGMOID_EXPLORATION.md).
+
 The owner subsequently requested four uniform group sigmoid approximations,
 including signal extraction and smoothing when useful. This separate analysis
 does not require the participant fit gate: it estimates descriptive group shapes,

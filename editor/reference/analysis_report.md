@@ -67,12 +67,32 @@ Participant cluster percentile intervals conditional on chosen method and nonfla
 
 Only five positions were sampled. Full S-shaped extrapolations and asymptotes are model assumptions. The report includes all candidate scores and parameters, a fixed robust reference, trajectory-axis and expanded-bound sensitivity, and paired descriptive comparisons.
 
+## Visible PPS-like shape: stronger exploratory audit
+
+At least 10–90% of the logistic amplitude inside 10–100 cm; at least two sampled positions on each side of the midpoint; at least one in the 20–80% transition; maximum departure from the best dense-grid line at least 5% of the fitted observed range; positive nonflat amplitude. These post hoc display/sampling thresholds are not a validated physiological PPS definition.
+
+Original pipelines satisfying the criterion in all four curves: 0/320. Shape-constrained selection: `trim10/gaussian_isotonic/0.15/separate`; tuning RMSE 47.086 ms. Fair tuned line: `median/gaussian_isotonic/0.3/separate`; tuning RMSE 47.178 ms.
+
+| Prediction family | Nested outer RMSE (ms) |
+| --- | ---: |
+| logistic | 47.772 |
+| visible | 47.634 |
+| linear | 47.701 |
+| constant | 47.437 |
+
+Six outer participant folds; five inner participant folds crossed with omitted positions. Each family selects its full pipeline using training participants only. Outer predictions also omit the target position from fitting. Inner selection sees all design positions in training participants. This estimates prediction for new people at the known design; families/criteria were developed post hoc. Overlapping training sets preclude treating folds as independent replicates or this evaluation as a confirmatory test.
+
+Shape-constrained curves satisfy the geometry by construction when nonflat. Their existence is not evidence that the measurements contain an S-shaped transition. Intervals condition on the selected pipeline and shape constraints. Neither smoothing nor display interpolation adds independent observed positions.
+
+The four imposed-shape midpoint/width estimates, constraint hits and conditional intervals are exported separately. Raw-mean curvature tests assess any nonlinearity, not sigmoid shape; see their exported statistics and assumptions. Evaluate empirical support separately from the imposed geometry.
+
 ## Interpretation and unavailable provenance
 
 - No failure to reject is interpreted as equivalence or proof of zero effect.
 - Same-SOA-label Baseline subtraction is not a verified cue-time-matched contrast.
 - Sigmoid bounds are an explicit reimplementation; saturated R² ceilings independently bound viability.
 - Four post hoc group sigmoid approximations use one selected extraction/smoothing/fitting pipeline. They do not supply participant boundary inference; bootstrap intervals condition on the chosen method.
+- The PPS-shape extension compares explicit measured-range shape constraints with equally processed lines using nested participant prediction. Imposed S shapes do not establish empirical curvature or physiological boundaries.
 - JZS paired-contrast Bayes factors are exploratory and are not a mixed-model Bayes factor.
 - Waveform cue-time and RT-onset validation: original recordings are not in the released CSVs.
 - Measured respiratory compliance: phase labels are scheduled/instructed, not belt-verified.
