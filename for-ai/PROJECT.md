@@ -1,56 +1,46 @@
 # Project contract
 
-## Purpose
+## Purpose and primary goal
 
-Publication manuscript, deidentified dataset, and reproducible analysis materials for the Study 5 peripersonal-space experiment.
-
-## Primary goal
-
-Prepare a standalone, Overleaf-compatible Study 5 preprint and a deidentified,
-unified behavioral dataset, then promote only reviewed analyses to the
-publication-facing folders.
+Publish the Study 5 paper's reproducible analysis as a live marimo companion on
+GitHub Pages. Readers must be able to run preparation, every data-supported model,
+diagnostics and figures entirely in the browser and download the analysis record.
+Maintain a self-contained Overleaf draft reconciled to an actual 42-person browser
+run. The project owner authorised public release of the deidentified data and
+confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
 
 ## Non-goals
 
-- No participant names, original source IDs, acquisition paths, private
-  crosswalks, collection dates, or raw recordings in this repository.
-- No public release before consent, ethics, and access terms are confirmed.
-- No exploratory result presented as a preregistered or final analysis.
+- No names, source IDs/paths, private crosswalks, collection dates or recordings
+  in the public artifact; keep verified backups outside it.
+- Do not change the source repository's private visibility.
+- No exploratory result presented as preregistered or author-approved final work.
+- Do not fabricate physiological compliance, provenance or gated boundary results.
 
-Add project-specific non-goals only after they prevent a plausible wrong turn.
+## Ownership
 
-## Product/control-plane boundary
+- `workbook/`: marimo application/editor, shared schema and preparation checks,
+  fixed analysis contract, portable inference, reports, figures and Pages build.
+- `data/raw/`: audited release CSV pair, arbitrary contiguous participant IDs.
+- `analysis/prepare_publication.py`: consumes verified browser results to refresh
+  manuscript statistics, tables, figure assets and the compiled draft manifest;
+  it does not recompute models.
+- `manuscript/`: self-contained Overleaf source and figures. `results/` and
+  `figures/`: browser-produced publication-draft artifacts and native validation.
+- `for-ai/`: agent instructions, historical writing and source analyses.
+  `.for-ai-local/`: ignored builds and local diagnostics.
 
-- Product source and deliverables: `manuscript/`, `data/raw/`, `analysis/`,
-  `figures/`, `results/`, and `workbook/`.
-- Agent orchestration and durable project memory: `for-ai/`.
-- Local generated diagnostics and scratch evidence: `.for-ai-local/` (ignored).
+## Verified scientific boundaries
 
-## Architecture and ownership
+The released cohort contains 42 independent people (`P000`–`P041`) and 17,114
+observed trials. The active manuscript now derives from that browser analysis;
+the 40-person text/figures are archived. Author review remains necessary before
+submission, including collection/stopping history, ethics-statement details and
+registration interpretations. The public CSVs cannot reproduce waveform timing,
+measured belt compliance, dates, version labels or private source-onset exclusions.
 
-`manuscript/main.tex` is the self-contained Overleaf entry point; its active
-sections, bibliography, and figures are adjacent. `data/raw/` holds two
-deidentified CSVs with one contiguous person ID system. `for-ai/orchestration/`
-owns data-export checking and exploratory analyses. Once an analysis is agreed,
-its reproducible pipeline moves to `analysis/`, with accepted figures and
-machine-readable statistics in `figures/` and `results/`. Prior prose stays in
-`for-ai/writing-archive/`.
-
-`workbook/` owns the marimo browser tool for exploratory preparation and the
-shared CSV schema/key checks used by `public_data.py`. Its Pages artifact contains
-only code and a synthetic-data generator; uploaded observations are processed in
-the browser. Publishing this tool does not promote an analysis or release the
-participant dataset. The repository stays private.
-
-## Current verified state
-
-- Private GitHub repository initialized on 2026-10-02.
-- Data candidate contains 42 independent people (`P000`-`P041`) and 17,114
-  selected primary behavioral trial rows; both CSVs passed the ID/privacy check.
-- The active preprint text still reports the older 40-person analysis. Its
-  statistical claims and result figures are pending a 42-person rerun.
-- The [AsPredicted registration](https://aspredicted.org/az9f89.pdf) is the
-  public preregistration source. It does not by itself clear analysis departures.
-
-Git and runnable checks are the authority for branch, revision, and behavior.
-Do not turn this section into a second status ledger.
+The [registration](https://aspredicted.org/az9f89.pdf) remains the registration
+source. `workbook/ANALYSIS_PLAN.md` states the executable operationalisation,
+explicit ambiguities and computational bounds. Fit-gated follow-ups remain not
+estimable when the gate fails. Native numerical agreement is distinct from
+browser verification; source pushes are distinct from successful deployment.

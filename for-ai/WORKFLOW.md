@@ -29,15 +29,18 @@ facts already obvious from source and tests.
 
 ## Analysis promotion
 
-Keep exploratory analysis code and diagnostics in `for-ai/orchestration/`.
-Record the planned estimand, cohort, exclusions, checks, and registration status
-before moving an agreed pipeline to `analysis/`. Regenerate final figures and
-statistics into their publication folders, then update manuscript claims from
-those exact outputs. Preserve the older prose only in `writing-archive/`.
+The browser publication pipeline is explicitly authorised by the project owner.
+Its estimands, cohort, cleaning and registration interpretations are recorded in
+`workbook/ANALYSIS_PLAN.md`. Keep historical source analyses in orchestration;
+maintain the executable browser engine in `workbook/`. Promote only verified actual
+browser downloads with `analysis/prepare_publication.py`, then reconcile manuscript
+claims and preserve older prose in `writing-archive/`.
 
-The data export must stay free of private crosswalks and source paths. Recheck
-it after every refresh. Public release is a separate decision after the
-consent, ethics, access, and scientific gates pass.
+The export must remain free of private crosswalks and source paths. Owner data-release
+authorisation and ethical approval are recorded in DATA_RELEASE.md; no further
+release confirmation is needed for this exact audited dataset. A refresh requires
+a new field audit and verified private backup. Submission readiness still requires
+author review of scientific interpretations and missing provenance.
 
 ## Git checkpoints and publication
 

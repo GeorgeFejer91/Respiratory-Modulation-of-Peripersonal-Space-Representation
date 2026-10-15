@@ -190,3 +190,47 @@ def demo_pair():
                 "rt_valid_200_2000": str(not missing and 200 <= rt <= 2000),
             })
     return encode_csv(PARTICIPANT_COLUMNS, people), encode_csv(TRIAL_COLUMNS, trials)
+
+
+def local_release_pair():
+    """Explicit native-mode access to the canonical release; unused in browsers."""
+    from pathlib import Path
+    folder=Path(__file__).resolve().parents[1]/"data"/"raw"
+    return tuple((folder/name).read_bytes() for name in FILES)
+
+
+def audit_release(people,trials):
+    """Reject free text hidden in the allowlisted deidentified release fields."""
+    validate_public_rows(people,trials)
+    categories={
+        "data_availability":{"full_measures","pps_only"},"gender":{"female","male"},
+        "handedness":{"left","right"},
+        "condition_order":{"Control-Viscereality","Viscereality-Control"},
+    }
+    for person in people:
+        for key,allowed in categories.items():
+            if person[key] not in allowed:raise ValueError(f"Unexpected free text in release field {key}.")
+        for key,value in person.items():
+            if key=="participant_id" or key in categories or value=="":continue
+            if key in ("spfrref_viscereality","spfrref_control"):
+                if value not in set("ABCDEFGH"):raise ValueError("Unexpected rating label.")
+            else:
+                try: number=float(value)
+                except ValueError as error:raise ValueError(f"Unexpected free text in numeric release field {key}.") from error
+                if not math.isfinite(number):raise ValueError("Nonfinite participant value in release.")
+                if key.startswith("maia2_") and not 0<=number<=5:raise ValueError("MAIA response/score outside 0–5.")
+    trial_categories={"condition":{"Control","Viscereality"},"phase":{"Inhale","Exhale"},
+        "noise_type":{"blue","brown","pink","white","nan","N/A",""},
+        "trial_type":{"Audio-Tactile","Baseline","Catch"},
+        "outcome":{"hit","miss","false_alarm","correct_rejection"},
+        "distance_bin":{"","D1","D2","D3","D4","D5"},
+        "response_given":{"True","False"},"rt_valid_100_2000":{"True","False"},"rt_valid_200_2000":{"True","False"}}
+    for trial in trials:
+        for key,allowed in trial_categories.items():
+            if trial[key] not in allowed:raise ValueError(f"Unexpected free text in trial release field {key}.")
+        for key,value in trial.items():
+            if key in trial_categories or key in ("participant_id","trial_id") or value=="":continue
+            try:number=float(value)
+            except ValueError as error:raise ValueError(f"Unexpected free text in numeric trial field {key}.") from error
+            if not math.isfinite(number):raise ValueError("Nonfinite numeric trial value.")
+    return {"status":"passed schema and full field-value release audit","participants":len(people),"trial_rows":len(trials)}

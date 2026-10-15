@@ -7,6 +7,11 @@ This folder contains one participant table and one primary trial table for 42 in
 
 These files are deidentified trial-level behavioral data from the cleared publication cohort. They are not the complete acquisition archive: original recordings, review cases, restarts, a secondary repeat session, provenance records, private identifiers, and collection dates are excluded. The exported values retain recorded responses; the trial rows have already passed the cohort and primary-analysis selection.
 
-MAIA-2 item responses use the administered 0-5 scale; subscale means reflect reverse scoring where applicable. SpFrRef letters A-H are also encoded as 1-8. Select an RT-window flag according to the stated analysis plan.
+MAIA-2 item responses use the administered 0-5 scale; subscale means reflect reverse scoring where applicable. SpFrRef letters A-H are also encoded as 1-8. The stored RT-window flags support exploratory views. The fixed paper analysis
+uses its documented participant-wide trim; it does not silently add these flags.
 
-The files are a release candidate in a private repository. Public release still requires confirmation of consent, ethics, and repository-access terms.
+The project owner authorised public release after name removal and a verified
+separate backup, and confirmed existing ethical approval. See
+[the release record](../../workbook/DATA_RELEASE.md) for the exact field audit and
+source hashes. The source repository stays private; the audited CSV pair is included
+in the public companion artifact.

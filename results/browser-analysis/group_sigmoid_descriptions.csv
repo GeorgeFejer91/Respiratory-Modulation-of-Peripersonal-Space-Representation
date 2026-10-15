@@ -1,0 +1,9 @@
+axis,condition,phase,scope,points,residual_df,midpoint_cm,width_cm,r2,bound_hit
+registered,Control,Exhale,group description only; no participant replicates,5,1,52.27553270173705,0.7057155076868635,0.920681948861316,False
+registered,Control,Inhale,group description only; no participant replicates,5,1,99.99999999999984,18.207408184503137,0.9692409663613004,True
+registered,Viscereality,Exhale,group description only; no participant replicates,5,1,72.61213345315745,0.20356356736502323,0.8804219938938639,False
+registered,Viscereality,Inhale,group description only; no participant replicates,5,1,27.10122657532025,0.1056026919614693,0.6504460203153772,True
+trajectory,Control,Exhale,group description only; no participant replicates,5,1,61.7473661857966,0.5419142185168629,0.920681948861344,False
+trajectory,Control,Inhale,group description only; no participant replicates,5,1,99.99999999999923,10.360766498382818,0.9594608886187284,True
+trajectory,Viscereality,Exhale,group description only; no participant replicates,5,1,82.74806826523837,0.30716401298505563,0.8804219938938639,False
+trajectory,Viscereality,Inhale,group description only; no participant replicates,5,1,36.76839129845374,0.10612228212811442,0.6504460203153772,True

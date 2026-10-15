@@ -1,0 +1,290 @@
+%% =====================================================================
+%% METHODS -- MACRO ROADMAP
+%% ---------------------------------------------------------------------
+%% What this Methods section must convey:
+%%   The full signal path from pre-generated per-participant stereo WAV
+%%   files through a dual-channel audio interface to the participant,
+%%   into a live event log, and back out via a loopback recording that
+%%   is decoded offline to recover trial-wise reaction times.
+%%   Participant responses are captured as an audible click tone
+%%   routed to the tactile channel, loopback-recorded alongside the
+%%   played stimulus, and recovered post-hoc by cross-correlation
+%%   against a click template. This procedure decouples response
+%%   timing from operating-system event latency and lets reaction
+%%   time be computed in the sample domain of the audio stream that
+%%   reached the hardware.
+%%
+%% ARGUMENTATIVE CHAIN (subsection-level):
+%%   [Sub 1] Apparatus: what hardware carried the stimuli and captured
+%%           the responses.
+%%     -->
+%%   [Sub 2] Stimulus generation: how the per-trial 8 s stereo WAV
+%%           was built, from the box-breathing voice guide to the
+%%           FABIAN-spatialised looming noise to the Woojer tactile
+%%           pulse, and how per-participant 6-block sequences were
+%%           assembled under a Gellermann-inspired constrained
+%%           randomisation.
+%%     -->
+%%   [Sub 3] Trial design: what the 408 trials in a session consisted
+%%           of (2 parts x 6 blocks x 34 trials) and how respiratory
+%%           phase, SOA, and noise type were counterbalanced.
+%%     -->
+%%   [Sub 4] Stimulus delivery and response capture: how sounddevice
+%%           routed the two WAV channels to the Sennheiser headphones
+%%           and the Woojer Strap, how mouse responses were echoed as
+%%           a click tone onto the tactile channel, and how WASAPI
+%%           loopback captured both outputs.
+%%     -->
+%%   [Sub 5] Reaction-time reconstruction: how the continuous loopback
+%%           recordings and live event logs were decoded to recover
+%%           per-trial cue onset, click onset, and RT, and how outcomes
+%%           were labelled.
+%%     -->
+%%   [Sub 6] Peripersonal-space quantification: how SOAs were converted
+%%           into looming-source distances, how audio-tactile
+%%           facilitation was computed, and how the PPS boundary was
+%%           defined.
+%%     -->
+%%   [Sub 7] Respiratory compliance and participants.
+%%
+%% STYLE: prose avoids em-dashes, superfluous parentheses, and
+%% redundant colons. Every factual claim is cited (peer-reviewed
+%% where available, otherwise manufacturer or software reference).
+%% =====================================================================
+
+\section{Materials and Methods}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{Fig1.png}
+\caption{\textbf{Experimental setup and protocol.} \textbf{A}, Control condition setup with participant wearing headphones (blue cord) and a chest-mounted vibrotactile stimulator (red cord) positioned above the breast area as depicted on the strap itself, providing only the minimal breath-performance feedback indicator without spatial cues. \textbf{B}, Viscereality condition setup with the breath-responsive VR headset providing visual feedback of respiratory state. \textbf{C}, Box-breathing protocol with looming sounds and tactile stimuli presented during breath-hold phases. D1--D5 represent stimulus onset asynchronies between audio and tactile stimuli.}
+\label{study5:fig:exp_setup}
+\end{figure}
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 1 GOAL
+%% One paragraph listing the hardware chain: soundcard, headphones,
+%% haptic transducer, respiratory belt, response device, HMD. Ends
+%% with the relationship between the two physical outputs of the
+%% soundcard and the two transducers reaching the participant.
+%% ---------------------------------------------------------------------
+\subsection{Apparatus}
+
+%% ---
+%% PARAGRAPH GOAL (one idea): enumerate the hardware chain and fix
+%% the two-channel output-to-transducer mapping that the rest of
+%% the section depends on.
+%% ---
+Auditory and tactile stimuli were delivered through a Komplete Audio 6 MK2 USB audio interface \citep{komplete_audio_6_mk2}. The audio channel was routed to a pair of Sennheiser HD 560S open-back reference headphones \citep{sennheiser_hd560s}, worn over the ears, and the tactile channel was routed to a Woojer Strap 4 haptic transducer \citep{woojer_strap4}, worn over the chest just above the breast area. Placement was standardised across participants by following the positioning illustration printed on the strap itself, which the operator used as a fitting guide. Participant responses were collected with a standard USB mouse. Respiratory compliance was monitored throughout the session with a chest-mounted respiratory belt transducer positioned around the lower ribcage. In the Viscereality condition, participants additionally wore a head-mounted display delivering the breath-coupled visual environment. In the Control condition, participants viewed the same dark field used as the black-screen control in Study~3, containing only the central breathing performance indicator that scaled with respiratory excursion. This provided minimal feedback stimuli for breath performance without the spatial depth cues, color, or aesthetic properties of the Viscereality environment, and participants did not wear an eye shade (Fig.~\ref{study5:fig:exp_setup}).
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 2 GOAL
+%% Describe how the per-participant stereo WAV files were built. Five
+%% sub-blocks, one idea per paragraph:
+%%   2a  Box-breathing voice guide (pre-recorded MP3).
+%%   2b  Looming auditory stimulus (FABIAN HRTF spatialisation).
+%%   2c  Tactile pulse (Woojer 4 spec).
+%%   2d  Per-trial stereo WAV assembly.
+%%   2e  Per-participant sequence construction.
+%% ---------------------------------------------------------------------
+\subsection{Stimulus generation}
+\label{study5:sec:stim_gen}
+
+%% ---
+%% PARAGRAPH 2a GOAL (one idea): state that the box-breathing guide
+%% is a pre-recorded human-voice MP3 (not a synthesised track), with
+%% exact filename, resampling, volume, and channel placement. Keeps
+%% the paragraph short and factual.
+%% ---
+The box-breathing guide was built from two pre-recorded human-voice audio files, one for the inhalation half-cycle and one for the exhalation half-cycle \citep{pydub_audiosegment_note}. Each file voiced a count of ``two, three, four, hold'' over four seconds so that a full 4--4--4--4 cycle of inhalation, post-inhalation hold, exhalation, and post-exhalation hold lasted sixteen seconds. Files were loaded at their source rate and resampled to 44.1~kHz using \texttt{librosa} where available and otherwise \texttt{scipy.signal.resample} \citep{Virtanen2020SciPy, librosa_resample_note}. Amplitude was attenuated to 30\% of source level so that the voice guide remained audible without masking the looming stimuli. The guide occupied the right channel of the per-trial stereo WAV, with the left channel set to silence over the same four-second span.
+
+%% ---
+%% PARAGRAPH 2b GOAL (one idea): describe the looming-sound pipeline
+%% in enough detail that a reader could reproduce it. Emphasise the
+%% FABIAN HRTF source (TU Berlin DepositOnce), the head-diameter and
+%% inverse-square scaling, the four counterbalanced noise types,
+%% the 110 to 10 cm frontal trajectory at 33.3 cm/s, and the
+%% per-trial 500 ms silent padding that fixes the stimulus segment
+%% to exactly 4 s.
+%% ---
+Binaural looming stimuli were initially synthesised from four noise types, namely pink, white, brown, and blue noise; later acquisition versions used a subset, predominantly pink and white \citep{brinkmann2017fabian}. For each noise type, a 3-second trajectory was rendered in which a point source approached the head frontally from 1.1~m to 0.1~m at a constant 33.3~cm/s, at zero azimuth and zero elevation. Source-to-ear distances were computed for an 18~cm interaural distance, and amplitude was scaled by the inverse square of source-to-ear distance. Head-related transfer function filtering used the measured FABIAN head-related impulse response at neutral head-above-torso orientation, specifically the \texttt{FABIAN\_HRIR\_measured\_HATO\_0.sofa} file from the FABIAN database hosted on the Technische Universit\"at Berlin DepositOnce repository \citep{fabian_database_2017, brinkmann2017fabian}. The SOFA file was parsed with the \texttt{sofar} Python library \citep{sofar_python}, the left and right impulse responses for the azimuth-zero, elevation-zero position were extracted, and each was convolved with the per-channel noise trajectory using \texttt{scipy.signal.fftconvolve} \citep{Virtanen2020SciPy}. Each looming file was normalised to 95\% of maximum amplitude to prevent digital clipping and was padded with 500~ms of silence before and after the 3-second approach, yielding a 4-second stimulus segment.
+
+%% ---
+%% PARAGRAPH 2c GOAL (one idea): specify the tactile pulse used for
+%% the Woojer Strap 4 transducer. The current generator selects a
+%% 50 Hz pure sine at amplitude 1.0 with an instant on/off block
+%% envelope for 100 ms, so calibration is tuned to transducer
+%% resonance rather than to perceptual thresholding.
+%% ---
+Tactile pulses were generated for the Woojer Strap 4 transducer, whose resonance is near 50~Hz. Each pulse was a 100~ms pure-tone 50~Hz sine at digital amplitude 1.0 with an instant-on, instant-off block envelope, chosen to deliver the maximum mechanical impulse the transducer supports \citep{woojer_strap4}. The stimulus-generation scripts can instantiate pulses at 0, 300, 800, 1500, 2200, and 2700~ms after looming onset, with the 0~ms file serving as an audio--tactile simultaneity stimulus. The participant master blocks used the five non-zero PPS SOAs, namely 300, 800, 1500, 2200, and 2700~ms, so that tactile cues sampled the approaching sound after it had begun moving toward the body.
+
+%% ---
+%% PARAGRAPH 2d GOAL (one idea): describe how the breathing guide,
+%% looming sound, and tactile pulse are combined into a single 8 s
+%% stereo WAV. Fixing the channel layout here matters because the
+%% delivery section in Subsection 4 refers back to it.
+%% ---
+Each trial was compiled as an 8-second stereo WAV file at 44.1~kHz in 32-bit float using \texttt{soundfile} \citep{sounddevice_python}. The file contained a 4-second breathing-guide segment followed by a 4-second stimulus segment. Within the stimulus segment, the looming noise occupied the right channel and the tactile pulse occupied the left channel, positioned at the trial-specific SOA within the 4-second window. Baseline trials carried the tactile pulse without a looming sound, and catch trials carried the looming sound without a tactile pulse. Total trial duration was verified at assembly to within one millisecond of the 352{,}800-sample target.
+
+Source-timing inspection revealed a qualification to the nominal cue schedule. In 167 hash-verified original block recordings from 14 cleared participants, tactile pulses were matched to the archived played-order CSVs; all block-median Audio--Tactile tactile cues occurred 500~ms later within the eight-second trial than Baseline cues with the same nominal SOA label. An independently decoded session from a fifteenth cleared participant showed the same block-median offset in all 12 comparable blocks. The archived generator loads looming inputs already padded by 500~ms and has a path that prepends another 500~ms to assembled Audio--Tactile trials while Baseline trials receive one prepend. This shifts absolute cue time while preserving the within-trial auditory-to-tactile SOA, verified directly where both onsets were decoded in the independent session. The other 25 cleared participants lack comparable cue-time verification, so shared nominal labels cannot establish matched absolute timing across trial types in the full cohort.
+
+%% ---
+%% PARAGRAPH 2e GOAL (one idea): describe the three-level randomisation
+%% logic: macro-structure preservation, within-block randomisation, and
+%% block-order randomisation, including the acknowledged predictability
+%% imposed by the 4-4-4-4 rhythm and the mitigation strategies adopted.
+%% ---
+Per-participant trial sequences were generated under a three-level randomisation logic intended to preserve the planned design at the session level while limiting trial-to-trial predictability within a block. At the macro level, the Condition $\times$ respiratory Phase $\times$ five-SOA grid for Audio--Tactile trials and the trial-type counts were fixed across full sessions. Available noise types varied by acquisition version, so sound-type balance was version-specific rather than common to every participant. Within each block, trial order was drawn from a Gellermann-inspired constrained randomisation in which post-inhalation and post-exhalation trials were interleaved, with the algorithm rejecting any sequence that placed more than three consecutive trials of the same type or distributed a trial type asymmetrically across the two halves of a block \citep{gellermann_1933}. Each session was organised as two parts of six blocks each (12 blocks in total), with the six blocks within each part labelled a through f, and each participant was assigned one block-order permutation drawn from the 720 orderings of the six block labels, applied within both parts. This block-order randomisation distributes any block-level position effects across participants without disturbing the within-block constraints. Each block was concatenated into a single continuous WAV of the stimulus-delivery length, accompanied by a trial-order CSV that recorded the trial type, SOA, noise type, and respiratory phase per trial.
+
+A residual source of predictability is unavoidable in this design. The 4--4--4--4 box-breathing rhythm fixes the within-cycle position of the breath-hold phases at which stimuli can be delivered, so participants can in principle anticipate \emph{when}, within each respiratory cycle, an audio--tactile event might arrive. Removing this regularity is not feasible, because a stable respiratory cycle is the precondition for systematically assessing inhale versus exhale as a test variable; an irregular cycle would compromise phase assignment, which is the central manipulation of the study. We therefore adopted the regular 4--4--4--4 rhythm and limited predictability by other means. \emph{Which} stimulus arrives was randomised across the noise types available in each acquisition version. \emph{Whether} a tactile pulse arrives at all was randomised through the inclusion of catch trials (sound-only, no vibration), which required response inhibition. Together with the within-block constrained randomisation and the per-participant block-order permutation, these manipulations limited cues that a participant could exploit to anticipate any individual trial.
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 3 GOAL
+%% One paragraph summarising the within-subjects trial design, trial
+%% type proportions, total N per session, and session duration. Cross-
+%% references to the trial-design figure.
+%% ---------------------------------------------------------------------
+\subsection{Trial design}
+
+%% ---
+%% PARAGRAPH GOAL (one idea): give the reader the per-session counts
+%% and durations so the rest of the methods have scale.
+%% ---
+The experiment used a within-subjects design adapted from the protocol used to test PPS modulation by vestibular stimulation \citep{pfeiffer2018vestibular}, modified for scheduled audio--tactile measurement during box breathing. Each full session planned 408 trials, organised into two parts of six blocks each (12 blocks of 34 trials), with 240 Audio--Tactile trials, 120 Baseline trials, and 48 Catch trials. Audio--Tactile trials delivered a looming sound followed by a tactile pulse at one of five SOAs (300, 800, 1500, 2200, and 2700~ms; \citealt{lee2021altered, mine2022adaptation, teneggi2013social}). The initial acquisition version used blue, brown, pink, and white spectral noise; later versions predominantly used pink and white, the two sound types present across the whole publication cohort. Within each version, Audio--Tactile trials were planned across the 2 (respiratory phase) $\times$ 5 (SOA) design grid at 24 trials per phase $\times$ SOA cell. Baseline trials delivered only the tactile pulse, used the same five nominal delay labels, and were balanced across respiratory phase (60 inhale, 60 exhale). They provide a tactile-only response reference but have no auditory distance; their absolute cue timing cannot be presumed equal to Audio--Tactile trials at the same label. Catch trials delivered only the looming sound and required response inhibition (48 planned trials), yielding a planned catch rate of approximately 12\%. Each trial lasted 8 seconds, so a full 408-trial session took approximately 54 minutes of stimulus time excluding block-level breaks and instructions (Fig.~\ref{study5:fig:trial_design}). One included session ended before all 408 planned trials had been observed; its missing slots and an exclusion sensitivity are documented in the Results.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{trial_design.png}
+\caption{\textbf{Planned per-session trial distribution across conditions, respiratory phases, and stimulus onset asynchronies.} A full session plans 408 trials, organised as two parts of six blocks (12 blocks of 34). Audio--Tactile trials are distributed evenly across five SOAs (D1--D5; 24 trials per phase $\times$ SOA cell). Available noise types differ by acquisition version. Baseline trials have no auditory SOA or distance; they carry the same five nominal delay labels and are balanced across respiratory phase. Catch trials are balanced across phase and distributed across SOAs and the available noise types.}
+\label{study5:fig:trial_design}
+\end{figure}
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 4 GOAL
+%% Describe stimulus delivery and response capture at run time.
+%% Three paragraphs, three ideas:
+%%   4a  Playback pipeline and channel routing.
+%%   4b  Response capture via a click tone onto the tactile channel.
+%%   4c  WASAPI loopback recording of both outputs.
+%% The loopback recording is the methodological component that
+%% Subsection 5 decodes.
+%% ---------------------------------------------------------------------
+\subsection{Stimulus delivery and response capture}
+
+%% ---
+%% PARAGRAPH 4a GOAL (one idea): how the per-block WAV reaches the
+%% participant. Two-channel output, sounddevice callback, WASAPI
+%% driver, and the channel-swap that maps file-left to Output 2
+%% (Woojer) and file-right to Output 1 (headphones).
+%% ---
+At run time, each per-block WAV was fully pre-loaded into memory and streamed to the Komplete Audio 6 MK2 on WASAPI via the \texttt{sounddevice} Python binding to the PortAudio library \citep{sounddevice_python}, with a 4096-sample callback block size and a target output latency of 100~ms for stable long-block playback. Python swapped the two channels at the callback boundary so that the left channel of the file was sent to physical Output 2, wired to the Woojer Strap 4 haptic transducer, and the right channel of the file was sent to physical Output 1, wired to the Sennheiser HD 560S headphones. The audio and tactile streams originated from the same file and passed through the same stereo callback, preserving their sample alignment in the digital output stream. Relative acoustic and mechanical onset latencies at the participant were not independently measured.
+
+%% ---
+%% PARAGRAPH 4b GOAL (one idea): response capture via click-tone
+%% feedback. Each mouse click triggers a short synthetic tone on the
+%% tactile channel. The tone is audible to the participant and is
+%% what the offline analysis detects, not the OS-level mouse event.
+%% ---
+Mouse clicks were monitored with the \texttt{pynput} library \citep{pynput_python}, and each click triggered a 1200~Hz, 50~ms synthetic click tone on a separate low-latency \texttt{sounddevice} stream that was routed only to Output 2. The click tone served two purposes. It provided the participant with immediate auditory feedback that the response had registered, and it inserted a detectable event onto the tactile channel that was captured in the loopback recording described below and used for post-hoc reaction-time estimation.
+
+%% ---
+%% PARAGRAPH 4c GOAL (one idea): the validated output profile, the
+%% continuous WASAPI loopback recording that captures exactly what was
+%% sent to the soundcard outputs, and the live event CSV that provides
+%% an online behavioural record.
+%% ---
+Before participant playback, the selected stereo output profile was required to pass a routing preflight in which calibration pulses were sent separately to Output~1 and Output~2 and verified through the corresponding WASAPI loopback endpoint. The documented acquisition profile used the Komplete Audio 6 MK2, with Output~1 assigned to the headphones and Output~2 assigned to the tactile transducer, but the same software could be run on another wired two-channel interface only after the same channel-separation preflight passed. Once participant playback began, the acquisition software was designed to mirror both physical outputs to a WASAPI loopback device and capture them through the \texttt{PyAudioWPatch} extension of the PortAudio interface \citep{pyaudiowpatch}. These source recordings are not presently linked and independently checked for every dataset in the publication pool. Available session WAV files and behavioural CSVs were written to participant-specific data folders with identifying metadata; only coded participant IDs appear in analysis outputs.
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 5 GOAL
+%% Describe how the loopback recordings are decoded offline to recover
+%% per-trial reaction times. Four paragraphs:
+%%   5a  Channel-role inference and tactile-cue detection, plus the
+%%       8 s trial grid fit.
+%%   5b  Looming onset identification via cross-correlation.
+%%   5c  Click-tone detection and RT calculation.
+%%   5d  Outcome labelling and alignment to the trial-order CSV.
+%% ---------------------------------------------------------------------
+\subsection{Reaction-time reconstruction from loopback recordings}
+
+%% ---
+%% PARAGRAPH 5a GOAL (one idea): the preprocessing step that turns a
+%% continuous loopback recording into a set of per-trial tactile-cue
+%% onsets, anchored to an 8 s trial grid. This is the scaffold that
+%% every later detection hangs off.
+%% ---
+For the loopback data to which the waveform-decoding pipeline was applied, reaction times were reconstructed in Python using \texttt{numpy} and \texttt{scipy} \citep{Virtanen2020SciPy}. In that pipeline, audio and tactile channels were identified by the ratio of mean absolute amplitude to root-mean-square amplitude, with the sparser channel assigned as tactile. Tactile cue events were then detected by smoothing the absolute tactile signal with a 10~ms rectangular envelope and thresholding at 0.45 of the envelope peak, subject to a minimum run of 60~ms and a minimum peak amplitude. The resulting cue-onset train was fitted to an 8-second trial grid by jointly minimising the median absolute error between detected onsets and the nominal SOA set, yielding a per-trial cue-onset time in the sample domain of the recorded WAV.
+
+%% ---
+%% PARAGRAPH 5b GOAL (one idea): looming onset detection via
+%% cross-correlation with the four noise-type templates. This is
+%% what lets us label each trial with the noise type actually
+%% played and get a second independent anchor for trial timing.
+%% ---
+For each trial processed by that pipeline, the candidate looming templates for its acquisition version were trimmed to their first 1.5~s of non-silent content, downsampled fivefold for speed, and z-standardised. Each template was cross-correlated with the audio channel of the recording inside the 4.45~s to 7.85~s window relative to the trial origin, using frequency-domain convolution \citep{Virtanen2020SciPy}. The highest-scoring template above threshold assigned the trial its observed noise type and returned the template-onset timestamp, giving an independent anchor for SOA verification where such recording evidence was available.
+
+%% ---
+%% PARAGRAPH 5c GOAL (one idea): click-tone detection and RT
+%% calculation. The click tone is the actual response event in the
+%% recording, and RT is the latency from cue onset to click onset.
+%% Emphasises that response timing is measured in the same sample
+%% domain as the stimulus.
+%% ---
+Where the loopback recording and both event markers were available, the 1200~Hz, 50~ms click tone template was z-standardised and cross-correlated with the tactile channel starting at each detected cue onset. Click events were accepted when the local correlation peak exceeded a dynamic threshold of eight median absolute deviations above the local median and were separated from any prior click by at least 100~ms. For such recordings, reaction time was the sample-domain difference between click-tone onset and tactile-cue onset, converted to milliseconds at 44{,}100~Hz. The pooled publication dataset also contains source-recorded reaction times from acquisition versions for which this exact waveform-based definition has not been independently re-harmonised. Consequently the sample-domain timing advantage cannot be assumed for every pooled trial; source-specific timing definitions and verification status are retained in the private provenance crosswalk.
+
+At this analysis freeze, original-recording origins were catalogued for 31 of 40 cleared participants. At least one original asset had a verified hash for each of the 17 participants in the earliest acquisition version. The 14 linked sessions in the next version had only unverified cloud placeholders, while nine participants in later versions had no linked original recording. A verified file hash establishes source identity, not trial-level waveform remeasurement or respiratory-phase accuracy. The private audit records two explicit early-version RT-onset variants and 12 source click-count warnings classified as non-exclusionary.
+
+%% ---
+%% PARAGRAPH 5d GOAL (one idea): outcome labelling and alignment to
+%% the per-participant trial-order CSV, producing the analysable
+%% dataset. Final sentence returns the reader to the scientific
+%% level of abstraction.
+%% ---
+Trials were labelled against their scheduled trial order and, where available, checked against runtime and recording evidence. Audio--Tactile and Baseline trials with a detected response were labelled hits; Catch trials with a response were false alarms. Unobserved planned slots were kept explicit in the participant audit tables and excluded from reaction-time analysis. Hit-labelled trials without a recorded reaction time contributed to response-quality summaries but not to reaction-time models; missing reaction times were not imputed. The publication-pool analysis table contains only observed planned trials, with trial type, SOA, noise type, scheduled respiratory phase, condition, response outcome, and source-recorded reaction time. Event-marker availability and source location are recorded separately; the analysis table does not imply that every reaction time was newly decoded from a common waveform.
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 6 GOAL
+%% Describe how the trial-wise RT table becomes a PPS measure.
+%% ---------------------------------------------------------------------
+\subsection{Peripersonal-space quantification}
+
+Peripersonal space was operationalised as SOA-dependent audio--tactile reaction time in a looming-sound tactile-detection paradigm \citep{Canzoneri2012, teneggi2013social, noel2015peripersonal}. The tactile pulse occurred at one of five nominal SOAs (300, 800, 1500, 2200, or 2700~ms); longer SOAs corresponded to nearer nominal source positions. The registration labels these SOAs as approximately 100, 73, 50, 27, and 10~cm, although its stated linear 110-to-10~cm, three-second trajectory instead implies approximately 100, 83, 60, 37, and 20~cm at those times. The primary predictor was therefore nominal SOA in milliseconds, not an inferred physical distance. The historical sigmoid implementation retained the registered distance labels for its viability gate; a sensitivity repeated that gate using trajectory-implied positions. It subtracts mean tactile-only Baseline reaction time within each participant $\times$ Condition $\times$ Phase cell: $\mathrm{RT}_{\mathrm{AT}}-\mathrm{RT}_{\mathrm{baseline}}$, with negative values indicating faster Audio--Tactile responses. Baseline trials have no auditory stimulus or acoustic distance. We also compared Audio--Tactile and Baseline RTs at the same nominal SOA label descriptively, without treating the labels as proof of equal cue time. Misses, Catch outcomes, and unobserved planned slots were retained for quality summaries but did not supply reaction times to these curves.
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 6B GOAL
+%% Statistical analysis: hierarchical pipeline, sigmoid viability test,
+%% model selection, mixed models, ANOVA, contrasts.
+%% ---------------------------------------------------------------------
+\subsection{Statistical analysis}
+\label{study5:sec:stats}
+
+The analysis plan was registered on AsPredicted (\url{https://aspredicted.org/az9f89.pdf}). The publication analysis read only the cleared 40-person trial pool, preserving one participant as the repeated-measures unit. Audio--Tactile and Baseline hits with recorded reaction time were eligible for the preregistered participant-wide mean $\pm$ 2.5-SD RT trim. Participants with more than 30\% false alarms on Catch trials would have been excluded; none met this rule. The preregistration did not specify a 200-ms anticipation cutoff, so that cutoff was used only in sensitivity checks. One documented partial session remained in the primary pool because all 20 Condition $\times$ Phase $\times$ SOA cells were estimable; every principal comparison was repeated without it.
+
+The primary preregistered test was a maximum-likelihood linear mixed model of individual Audio--Tactile reaction times. The fixed effects were Condition, respiratory Phase, numeric SOA, and their interactions, with a random intercept for participant. Condition and Phase were coded as $-0.5$ and $+0.5$, and SOA was centred and divided by its trial-level standard deviation. We compared the full model to an otherwise identical model without the Condition $\times$ Phase $\times$ SOA term using a likelihood-ratio test. Both L-BFGS and Powell optimisers were attempted for each nested model, retaining the converged finite solution with the higher likelihood. The registered secondary analysis repeated this nested comparison for Phase $\times$ SOA within Control alone. Because the preregistration did not specify numeric versus categorical SOA coding, five-level SOA models were labelled sensitivities. To examine dependence on the random-intercept covariance assumption, we also fitted the numeric-SOA trial regression with participant-cluster-robust standard errors and tested the difference of Condition-by-Phase SOA slopes calculated from five equal-weighted SOA means per participant. The latter test gives each person, rather than each trial, one interaction estimate. A mixed model with a participant-specific SOA slope and a log-RT regression with participant-cluster-robust uncertainty probed random-effect and RT-scale assumptions. Order and dataset subgroup estimates are descriptive sensitivities because those two features are partly confounded. A further source-definition sensitivity excluded the two participants whose documented RT onsets differed explicitly from the source-recorded majority; this exclusion did not establish waveform harmonisation for the retained data. Exploratory response-selection and time-on-task checks used a participant-cluster-robust binomial model of Audio--Tactile hit probability and an RT regression adjusted for within-condition trial position and its Condition $\times$ Phase terms.
+
+As a post hoc missing-RT stress test, each hit-labelled Audio--Tactile trial without an RT was assigned the observed median from its participant $\times$ Condition $\times$ Phase $\times$ SOA cell. We then added or subtracted 100 or 200~ms according to the sign of the three-way contrast, rerunning the registered RT trim and mixed-model comparison. These fixed scenarios probe specified departures from observed cell values; they do not identify the unobserved RTs or their missingness mechanism.
+
+The preregistered PPS-boundary analysis required a sigmoid fit in each participant $\times$ Condition $\times$ Phase cell with $R^{2}\geq .70$, followed by midpoint and sharpness tests only for interpretable fits. The registration listed $R^{2}<.70$ under participant-level exclusions but did not say whether this gate also applied to the separate raw-RT interaction model. Applying the historical trial-level fit gate to that model would exclude every participant, so we applied it to boundary-parameter inference and reported the raw-RT interaction for the cleared cohort; this is an explicit interpretation of an ambiguous registered rule. The registration did not fully define the four-parameter form or whether $R^{2}$ applied to trials or SOA means. We used the historical trial-level implementation as the main viability check, compared its in-sample root-mean-square error with a linear fit, and separately tested fits to five within-person SOA means. A four-parameter fit to five means has one residual degree of freedom and was not treated as a rescue of a failed trial-level gate. Group curves were plotted as participant-weighted descriptions only; no participant boundary or sharpness comparison was inferred when the gate failed.
+
+Supplementary checks compared tactile-only Baseline RT across Condition and Phase, overall Baseline-matched facilitation, the far-minus-near Audio--Tactile contrast, and pink versus white Audio--Tactile RT within participants. A within-version Friedman comparison examined all four noise types among the 17 participants who heard each sound; later acquisition versions did not support a pooled four-noise test. Null-hypothesis tests were accompanied by 95\% confidence intervals where the outcome was a single participant contrast; a non-significant difference was not interpreted as equivalence. A 2 $\times$ 2 $\times$ 5 participant-cell ANOVA with Greenhouse--Geisser correction examined the categorical three-way interaction. These checks were interpreted as sensitivities or task diagnostics, not additional confirmatory discoveries.
+
+The preregistration named a Cauchy prior with width 0.707 for Bayesian analysis but did not specify the full mixed-model prior and random-effects comparison needed to define a unique Bayes factor. We therefore do not label any BIC approximation as the preregistered Bayes factor. As explicitly exploratory Bayesian sensitivities, the single participant-level SOA-slope interaction contrast and the participant-level Baseline and sound-type assumption contrasts were tested against zero with two-sided Jeffreys--Zellner--Siow Bayes factors and Cauchy $\sqrt{2}/2$ priors on their standardized mean effects \citep{Rouder2009BayesianT}. These results address paired-contrast models under a normal likelihood, not the unspecified Bayesian mixed-model comparison. Participant-contrast normality and the several assumption tests were considered when interpreting them.
+
+%% ---------------------------------------------------------------------
+%% SUBSECTION 7 GOAL
+%% Brief: respiratory compliance monitoring and participants. One
+%% paragraph each.
+%% ---------------------------------------------------------------------
+\subsection{Respiratory compliance and participants}
+
+%% ---
+%% PARAGRAPH GOAL (one idea): clarify that the respiratory belt
+%% signal is a compliance check, not an online gating signal, because
+%% phase assignment is baked into the WAV structure at generation.
+%% ---
+Respiratory phase was assigned in the trial schedule under the instructed 4--4--4--4 box-breathing pattern; trials were not gated online by the belt signal. The archived decoder identifies which prerecorded breathing instruction played and can reconstruct final phase labels from trial-order parity. These procedures identify the instructed half-cycle, not the participant's measured inhalation or exhalation. A respiratory belt was part of the acquisition protocol, but the current publication-pool trial table contains protocol phase labels rather than independently belt-verified phases. The available source recordings do not yet support a uniform trial-by-trial respiratory-compliance audit across all four acquisition versions. Phase-related effects must therefore be interpreted as effects of instructed phase under the compliance assumption.
+
+%% ---
+%% PARAGRAPH GOAL (one idea): participants. Reports the actual N for
+%% the analysed batch and flags the order-condition confound that
+%% future counterbalanced data are intended to resolve.
+%% ---
+The cleared publication pool contained 40 adults aged 19 to 37 years. At this analysis freeze, the private decision register listed 50 candidate source records: 40 cleared and ten held for source or identity review. Some review records may represent duplicate identities, so 50 is not an enrollment count. The preregistration disclosed that eight pilot participants had already been collected before registration; these sessions were retained in the pooled analysis and should not be presented as prospectively collected after registration. Source dates are available for 36/40 cleared sessions; assuming the recorded timestamps are local, eight predate registration, consistent with the disclosed pilot count. Its stopping target was 30 complete datasets, 15 in each condition order. The cleared cohort has 39 complete sessions and one admitted partial session. The two earliest acquisition versions together contributed 30 complete sessions, but with a 17/13 rather than 15/15 order split; the reason collection continued to 39 complete sessions is not documented in the current source archive. Each participant was scheduled to complete both VR conditions in one session. Twenty-one completed Control first and 19 completed Viscereality first. Order was associated with acquisition batch, so the marginal order balance does not by itself remove version-specific confounding. Cohort admission and the one partial-session exception were documented before this analysis in the private decision register; source provenance, timing definitions, and missing original recordings remain part of the interpretation.

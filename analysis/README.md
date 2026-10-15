@@ -1,3 +1,14 @@
-# Publication analysis pipeline
+# Publication analysis
 
-Approved, reproducible analyses of `../data/raw/` belong here. No analysis has been promoted yet; current exploratory work remains in `../for-ai/orchestration/`. A final pipeline must regenerate the reported sample, models, sensitivity analyses, figures, and result tables before manuscript claims are refreshed.
+The executable analysis owner is the [marimo browser workbook](../workbook/README.md),
+with its fixed [analysis contract](../workbook/ANALYSIS_PLAN.md). All data-supported
+statistics run in the browser; native checks validate the engine independently.
+Historical source-dependent work remains in `../for-ai/orchestration/`.
+
+`prepare_publication.py` accepts a complete browser result ZIP, verifies its
+input/output/code hashes and browser runtime, then copies report/tables to
+`../results/browser-analysis/`, SVGs to `../figures/`, and renders the report's
+figure data to the Overleaf PNGs. It generates the abstract and Results from that
+exact report; it does not recompute models. After compiling and visually checking
+the manuscript, `--preprint-pdf` archives the draft and source hashes for Pages.
+See the workbook guide for commands.

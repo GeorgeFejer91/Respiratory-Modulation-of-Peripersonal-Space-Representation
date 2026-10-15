@@ -1,98 +1,78 @@
 # Verification and readiness gates
 
-Evidence must match the claim. Missing dependencies, credentials, hardware, or
-runtime access produce `BLOCKED` or `NOT RUN`, never `VERIFIED`.
+Evidence must match the claim. Use VERIFIED, PARTIAL, BLOCKED and NOT RUN precisely;
+unavailable metadata and fit-gated outcomes are not computed null results.
 
-## Result vocabulary
+## Bootstrap and task contract
 
-- `VERIFIED`: the named check directly observed the claimed surface and passed.
-- `PARTIAL`: some required evidence passed and the missing scope is named.
-- `BLOCKED`: a concrete external or authority blocker prevented the check.
-- `NOT RUN`: the check was intentionally not applicable or not attempted, with
-  the reason stated.
+Read the routed context, inspect status, and name the observable outcome and owner.
+Preserve unrelated work. Run `pwsh -NoProfile -File for-ai/scripts/check-context.ps1
+-ProjectRoot . -RequireRemote`; remote mismatch during intentional development
+must be reconciled by a normal validated push, never by resetting user work.
 
-## Gate 0: bootstrap readiness
+## Workbook and data
 
-From the repository root:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File for-ai/scripts/check-context.ps1 -ProjectRoot . -RequireRemote
-git status --short
-git rev-parse HEAD
-git ls-remote origin refs/heads/main
-```
-
-Pass when the context checker succeeds, the intended tree is clean, and local
-`HEAD` equals `origin/main`.
-
-## Gate 1: task contract
-
-Before implementation, name:
-
-- the observable user outcome;
-- affected product surface and owner;
-- acceptance criteria;
-- focused check that can fail for the requested behavior;
-- broader checks required by affected boundaries;
-- explicitly deferred work.
-
-## Gate 2: focused change
-
-From the repository root, check the deidentified participant and trial keys:
-
-```powershell
-py for-ai/orchestration/public_data.py check data/raw
-```
-
-The current candidate should have `P000`-`P041` and 17,114 unique trial rows.
-The checker rejects unexpected columns, source codes and paths, duplicate IDs,
-and trial rows without a participant. It does not establish consent or eliminate
-all reidentification risk.
-
-For the browser preparation workbook, also run from the repository root:
+From the repository root in the pinned workbook environment:
 
 ```bash
-python3 -m unittest discover -s workbook -p 'test_*.py' -v
+python for-ai/orchestration/public_data.py check data/raw
+python -m unittest discover -s workbook -p 'test_*.py' -v
 marimo check workbook/data_preparation.py --strict
 marimo check workbook/data_preparation.py --select MW --strict
-python3 workbook/build_site.py
+python workbook/build_site.py
 ```
 
-Use the environment containing `workbook/requirements.txt` and `uv`. Exercise the
-exported page over HTTP in a modern browser: change an RT window, check downstream
-row counts, upload a complete CSV pair, reject malformed inputs, and inspect a
-downloaded CSV/manifest. A native notebook run or successful export alone does
-not verify browser execution. The Pages artifact must contain only workbook code,
-synthetic generation logic, and runtime assets, without participant CSVs or saved
-session outputs. A deployment claim additionally requires the matching GitHub
-Actions result and the deployed page. See `workbook/README.md` for startup and
-private-repository Pages prerequisites.
+Expected release: 42 people and 17,114 unique observed trials. Exact schema, field,
+key, source-pattern and release hash checks must pass. A refreshed dataset requires
+a new field audit and verified separate private backup before changing the build
+allowlist. Owner authorisation/ethical approval is recorded in DATA_RELEASE.md.
 
-## Gate 3: integrated readiness
+The artifact intentionally includes only the audited participant/trial CSV pair in
+each application/editor view, executable source/runtime assets, release/analysis
+records, the browser reference download and the hashed working preprint. No private
+backup, crosswalk, recordings, historical source archive or execution cache belongs
+in it. A build checks allowlisted CSVs and preprint/reference provenance.
 
-Compile `manuscript/main.tex` from inside `manuscript/` using pdfLaTeX and
-BibTeX or `latexmk -pdf`; inspect the resulting PDF for missing figures,
-citations, and layout defects. Only the `manuscript/` contents may be needed in
-Overleaf. Before claiming current results, rerun the approved models on the
-42-person CSVs and reconcile every sample size, statistic, and result figure.
-Classify deviations from the preregistration explicitly.
+Exercise the export over HTTP in a modern browser: published data load, full
+analysis, preview-filter independence, complete download, editable view, valid
+uploads, malformed input and partial-upload rejection. Inspect results, manifests
+and figures. A native run or export alone cannot establish browser execution.
 
-Public release additionally requires a documented consent, ethics, and access
-review; the private repository setting is not that review.
+## Numerical and manuscript checks
 
-## Gate 4: publication
+With `workbook/requirements-validation.txt` installed, run
+`python workbook/validate_statistics.py`. Its independent statsmodels ML,
+linear/binomial sandwich, ANOVA and quadrature comparisons must pass. Compare an
+actual Pyodide report to native engine outputs at the recorded tolerances, including
+cohort, estimates, likelihoods and gate results. Record different optimizer-bound
+diagnostics honestly; they cannot alter the saturated trial R² ceiling conclusion.
 
-1. Review status and diff; preserve unrelated changes.
-2. Confirm only intended paths are staged.
-3. Confirm all required gates passed or are honestly reported.
-4. Create one coherent commit under normal repository policy.
-5. Push without force and without bypassing protection or secret scanning.
-6. Verify the remote commit and required CI/deployment for that exact SHA.
+Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
+Reconcile all sample counts, models, captions and scientific interpretation with
+that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
+inspect the resulting PDF visually, especially tables, figures, captions and
+references. Archive the checked PDF with `--preprint-pdf` and rebuild the site.
+Only manuscript contents are required for Overleaf.
 
-Do not change visibility to public while the consent review or 42-person
-manuscript refresh remains open.
+Author review before submission remains distinct from computation: document
+collection/stopping history, registration choices, ethics-statement details and
+source-provenance limits. Never invent missing source-dependent checks or promote
+an exploratory paired Bayes factor to the registered mixed-model comparison.
 
-## Handoff evidence
+## Publication
 
-Report exact commands or observed surfaces, results, untested scope, commit SHA,
-remote synchronization, CI/deployment state, and whether `for-ai/` changed.
+Review/stage intended paths, commit, push without force or bypassing protections,
+and verify exact remote SHA. Preserve private repository visibility. Check GitHub
+Pages configuration and the exact deployment outcome, then visit both live views
+and exercise browser analysis. Do not call the site live from a push alone.
+
+A GitHub Actions budget block or denied Pages administration is an external
+blocker. Prepare the tested artifact and publishing branch, then report the exact
+repository-settings action required; do not ask again for already-given data-release
+authorisation. Saving a cloud environment draft is separate from deploying Pages.
+
+## Handoff
+
+Report changes, checks and limits, control-plane updates, commit/remote state,
+actual deployment status and the smallest remaining action. Keep raw logs and
+transient run IDs outside the control plane.

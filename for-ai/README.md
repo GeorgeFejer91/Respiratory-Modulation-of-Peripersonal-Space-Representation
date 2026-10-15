@@ -50,4 +50,9 @@ task touches.
 
 ## Publication boundary
 
-The repository is private. `manuscript/` and `data/raw/` are publication candidates; `analysis/`, `figures/`, and `results/` receive only reviewed final work. Exploratory analyses and older drafts remain under `for-ai/`. Do not make the repository public until the gates in `VERIFICATION.md` are satisfied.
+The source repository stays private. The project owner authorised public release
+of the audited deidentified CSV pair and confirmed ethical approval; see
+`workbook/DATA_RELEASE.md`. The Pages artifact contains the browser companion,
+that dataset and reproducible publication-draft materials. Author review before
+paper submission and successful Pages deployment remain separate gates. Private
+backups, identity/provenance archives and raw recordings stay outside deployment.

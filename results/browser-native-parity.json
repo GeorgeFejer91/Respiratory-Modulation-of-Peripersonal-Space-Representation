@@ -1,0 +1,142 @@
+{
+  "browser_zip_sha256": "eefd8572dfa6b803317716677f683a7000cada07afdd7e3864d52caababd3170",
+  "native_runtime": {
+    "python": "3.12.14",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8",
+    "platform": "Linux",
+    "execution": "native validation"
+  },
+  "browser_runtime": {
+    "python": "3.14.2",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8",
+    "platform": "Emscripten",
+    "execution": "browser Pyodide"
+  },
+  "models": [
+    {
+      "name": "primary numeric interaction",
+      "max_log_likelihood_error": 1.3169483281672e-09,
+      "max_coefficient_error": 1.863850229710806e-08
+    },
+    {
+      "name": "Control-only numeric interaction",
+      "max_log_likelihood_error": 1.2005330063402653e-10,
+      "max_coefficient_error": 8.191591405193321e-09
+    },
+    {
+      "name": "categorical SOA",
+      "max_log_likelihood_error": 1.2660166248679161e-09,
+      "max_coefficient_error": 2.4755973271339826e-08
+    },
+    {
+      "name": "Control-only categorical SOA",
+      "max_log_likelihood_error": 1.2369127944111824e-10,
+      "max_coefficient_error": 3.077340338109025e-08
+    },
+    {
+      "name": "exclude partial session; all conditions; numeric",
+      "max_log_likelihood_error": 1.2587406672537327e-09,
+      "max_coefficient_error": 5.2241944104025606e-08
+    },
+    {
+      "name": "exclude partial session; all conditions; categorical",
+      "max_log_likelihood_error": 1.3023964129388332e-09,
+      "max_coefficient_error": 1.3763512995979e-08
+    },
+    {
+      "name": "exclude partial session; Control; numeric",
+      "max_log_likelihood_error": 2.874003257602453e-10,
+      "max_coefficient_error": 1.4479269339062739e-08
+    },
+    {
+      "name": "exclude partial session; Control; categorical",
+      "max_log_likelihood_error": 2.582964953035116e-10,
+      "max_coefficient_error": 1.4943047688120714e-08
+    },
+    {
+      "name": "RT \u2265200 ms sensitivity; all conditions; numeric",
+      "max_log_likelihood_error": 1.3169483281672e-09,
+      "max_coefficient_error": 1.863850229710806e-08
+    },
+    {
+      "name": "RT \u2265200 ms sensitivity; all conditions; categorical",
+      "max_log_likelihood_error": 1.2660166248679161e-09,
+      "max_coefficient_error": 2.4755973271339826e-08
+    },
+    {
+      "name": "RT \u2265200 ms sensitivity; Control; numeric",
+      "max_log_likelihood_error": 1.2005330063402653e-10,
+      "max_coefficient_error": 8.191591405193321e-09
+    },
+    {
+      "name": "RT \u2265200 ms sensitivity; Control; categorical",
+      "max_log_likelihood_error": 1.2369127944111824e-10,
+      "max_coefficient_error": 3.077340338109025e-08
+    },
+    {
+      "name": "random SOA slope",
+      "max_log_likelihood_error": 1.3242242857813835e-09,
+      "max_coefficient_error": 9.923026977887162e-08
+    },
+    {
+      "name": "missing RT signed shift 0 ms",
+      "max_log_likelihood_error": 1.3023964129388332e-09,
+      "max_coefficient_error": 3.4644017432583496e-08
+    },
+    {
+      "name": "missing RT signed shift -100 ms",
+      "max_log_likelihood_error": 1.1204974725842476e-09,
+      "max_coefficient_error": 1.224814241140848e-07
+    },
+    {
+      "name": "missing RT signed shift 100 ms",
+      "max_log_likelihood_error": 1.1641532182693481e-09,
+      "max_coefficient_error": 6.62145112073631e-08
+    },
+    {
+      "name": "missing RT signed shift -200 ms",
+      "max_log_likelihood_error": 1.2514647096395493e-09,
+      "max_coefficient_error": 4.9035406846087426e-08
+    },
+    {
+      "name": "missing RT signed shift 200 ms",
+      "max_log_likelihood_error": 1.2587406672537327e-09,
+      "max_coefficient_error": 1.736793819873128e-08
+    }
+  ],
+  "sigmoid_diagnostics": [
+    {
+      "axis": "registered",
+      "level": "trials",
+      "r2_pass_cells": 0,
+      "native_bound_hits": 58,
+      "browser_bound_hits": 57
+    },
+    {
+      "axis": "registered",
+      "level": "five_means",
+      "r2_pass_cells": 79,
+      "native_bound_hits": 46,
+      "browser_bound_hits": 47
+    },
+    {
+      "axis": "trajectory",
+      "level": "trials",
+      "r2_pass_cells": 0,
+      "native_bound_hits": 47,
+      "browser_bound_hits": 47
+    },
+    {
+      "axis": "trajectory",
+      "level": "five_means",
+      "r2_pass_cells": 78,
+      "native_bound_hits": 46,
+      "browser_bound_hits": 49
+    }
+  ],
+  "status": "passed; identical cohort, gate pass counts and likelihood/coefficient agreement within 1e-5/1e-4; bound-hit diagnostics may differ numerically"
+}

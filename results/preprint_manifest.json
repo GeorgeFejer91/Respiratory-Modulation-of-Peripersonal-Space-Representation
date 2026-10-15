@@ -1,0 +1,19 @@
+{
+  "status": "Analysis draft for author review",
+  "pdf_sha256": "b833ea4892a729a8f353ce42d40fa2c1c4f44b26430440c02af48ea9ccf8d0ee",
+  "manuscript_sha256": {
+    "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
+    "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
+    "manuscript/figures/study5_delay_matched_facilitation.png": "0ddbf58649883a90654372c5ce962070021fe47f8befe2a37061009cdf1a2e2d",
+    "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
+    "manuscript/main.tex": "a7a065b2e2d63c4fed63f041cd1a386b6c1f28f87a02618b0b8c415ac373b1ed",
+    "manuscript/references.bib": "ffef97b7f02599605425282c2f57dce5ef272fb39a51d3efe14ff99d46236de6",
+    "manuscript/sections/abstract.tex": "af9cc85120288697410a81939a1f144df7e4eb66f362ee69226e35114cd8cd51",
+    "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
+    "manuscript/sections/discussion.tex": "56fcf1925e0af3ff73d3b4b002f65bb63d040ca08ac630c7a6896635af3ba301",
+    "manuscript/sections/introduction.tex": "64d6ffba3fd7001883380a2a8130eb5ef481c810130da7dcc22b4c949316a7b4",
+    "manuscript/sections/methods.tex": "db7bb13854391ae472c03ba6ef7640c05368a1019884ab54f2effd6146a04f43",
+    "manuscript/sections/results.tex": "0247842aeb2553bce8c8bb86b511603c04d1361927315d26a4edeaf0763e2f55"
+  },
+  "browser_zip_sha256": "eefd8572dfa6b803317716677f683a7000cada07afdd7e3864d52caababd3170"
+}

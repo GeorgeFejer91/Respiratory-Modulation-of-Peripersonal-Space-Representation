@@ -1,42 +1,58 @@
-# Live data preparation workbook
+# Browser publication companion
 
-This marimo workbook provides a reactive view of Study 5 data preparation:
-input checks, trial and condition choices, recorded RT-window flags, sequential
-row counts, an RT histogram, candidate rows, and a downloadable CSV with a JSON
-preparation manifest. The manifest records settings and source/output hashes.
-Inputs are kept intact and missing values are not imputed. All preparation
-choices remain exploratory; no statistical model or final analysis is promoted.
+The marimo application executes the released Study 5 analysis entirely in the
+reader's browser using Pyodide. The published default loads the deidentified
+42-person, 17,114-trial dataset. Select **Run complete paper analysis** to compute
+models, diagnostics, figures and the complete result download. The fixed
+[analysis contract](ANALYSIS_PLAN.md) governs this run; exploratory preparation
+filters above it do not change the paper's estimates.
 
-## Work in the browser
+## How Codex connects to marimo
 
-The GitHub Pages build publishes two views:
+The GitHub repository is the connection. Codex edits `data_preparation.py` and its
+Python helpers here; marimo turns those cells into a reactive workbook. Changes
+pushed to `main` trigger the Pages workflow. No marimo account, API token or
+Python server is needed for this browser deployment.
 
-- `/Study5_Publication/`: interactive application with preparation controls.
-- `/Study5_Publication/editor/`: editable Python workbook running in the browser.
+The application is at `/Study5_Publication/`; `/Study5_Publication/editor/` exposes
+the editable Python cells. Browser edits can be downloaded but do not automatically
+commit to GitHub. Commit reviewed edits to the repository to update the shared site.
+In the editor, use the run button to start the cells.
 
-The public default is generated synthetic data: eight invented participants and
-480 invented trials. Use **Upload CSV pair** to select the documented participant
-and trial CSVs. Both files are required, schema/order must match `data/raw/README.md`,
-and partial uploads never fall back to synthetic inputs. The published workbook
-uses Pyodide: CSV contents are processed in browser memory, with no data-processing
-backend. Runtime and package files download from marimo/Pyodide hosts. A modern
-browser and an internet connection are required for the first load.
+## Use the companion
 
-Refresh clears the current inputs and choices. Use **Download prepared data +
-manifest** to save your result. Edits made in the online Python editor can be
-downloaded; they do not automatically commit to GitHub or update the published
-workbook. Use the navigation link in the workbook to switch between its application
-and editor views.
+1. Open the application and inspect the published-data audit.
+2. Explore preparation controls or upload a complete CSV pair using the documented
+   schemas. A partial upload stops; it never falls back to demonstration data.
+3. Run the complete analysis and inspect model status, uncertainty, sigmoid gates
+   and the unavailable-provenance record.
+4. Download the complete analysis before refreshing. It includes JSON, Markdown,
+   model/diagnostic CSVs, retained RTs, SVG figures, source code and SHA-256 hashes.
 
-The published site is a public tool, not a publication of participant observations.
-The build exports only workbook source and its local helper module. It never reads
-or copies `data/raw/`, and it does not embed execution snapshots. Publishing the
-real data or refreshing the manuscript's older 40-person results remains a
-separate scientific/release task.
+Synthetic demonstration data are a separate labelled option. Uploaded file
+contents are processed in browser memory without a processing backend. Refresh
+clears the session. Runtime/package downloads need internet access and a modern
+browser. The published reference download and working preprint are labelled as a
+prior browser run and an author-review draft; live results compute from the selected
+inputs. An unsuccessful fit or unavailable source check is never silently replaced.
 
-## Run and develop locally
+## Analysis and numerical verification
 
-From the repository root, with Python 3.12 or later:
+`paper_analysis.py` owns the pipeline; `inference.py` implements portable NumPy/SciPy
+statistics; `preparation.py` owns shared schemas, preparation and release checks;
+`publication_report.py` generates result bundles and Matplotlib figures. The
+[contract](ANALYSIS_PLAN.md) distinguishes primary questions, sensitivities,
+supplementary analyses and registration ambiguities. It documents fixed nonlinear
+bounds and the unavailable private metadata.
+
+Native reference validation uses statsmodels independently of the browser engine.
+The archived report and [results](../results/README.md) record both execution surfaces.
+No participant boundary or related questionnaire inference is produced when the
+trial-level sigmoid gate fails. Same-label Baseline subtraction is descriptive.
+
+## Develop, verify and build
+
+From the repository root, with Python 3.12 or later and `uv` installed:
 
 ```bash
 python3 -m venv .for-ai-local/workbook-venv
@@ -44,46 +60,64 @@ python3 -m venv .for-ai-local/workbook-venv
 .for-ai-local/workbook-venv/bin/marimo edit workbook/data_preparation.py
 ```
 
-Use `marimo run workbook/data_preparation.py` for the application view. Python
-executes on your local machine in these modes. When using the prepared Codex cloud
-environment, first `source /workspace/.study5-environment/env.sh`; this provides
-writable configuration/cache locations. Do not expose the local editor as a public
-server; the Pages deployment uses the browser runtime.
-
-## Verify and build
+Use `marimo run workbook/data_preparation.py` for a native application. In the
+prepared Codex environment first source `/workspace/.study5-environment/env.sh`.
+Native modes execute on that machine; the exported Pages site runs in the browser.
+Do not expose an unauthenticated native editor publicly.
 
 ```bash
-python3 -m unittest discover -s workbook -p 'test_*.py' -v
-python3 for-ai/orchestration/public_data.py check data/raw
-.for-ai-local/workbook-venv/bin/marimo check workbook/data_preparation.py --strict
-.for-ai-local/workbook-venv/bin/marimo check workbook/data_preparation.py --select MW --strict
-.for-ai-local/workbook-venv/bin/python workbook/build_site.py
-python3 -m http.server --directory .for-ai-local/site
+python -m unittest discover -s workbook -p 'test_*.py' -v
+python for-ai/orchestration/public_data.py check data/raw
+marimo check workbook/data_preparation.py --strict
+marimo check workbook/data_preparation.py --select MW --strict
+python workbook/build_site.py
 ```
 
-The exporter needs `uv` to package the local `preparation.py` helper. The build
-produces `.for-ai-local/site/index.html`, an editable `editor/` view, their assets,
-and `.nojekyll`. Serve that directory over HTTP; opening `index.html` as a local
-file does not load its relative assets reliably. Generated files, runtime caches,
-and downloads should remain ignored.
+For independent numerical checks:
 
-`preparation.py` owns the shared schemas and publication key/source-code checks.
-The existing `public_data.py` CLI imports those checks, preserving its commands.
-The workbook additionally validates Boolean fields and numeric RTs before filtering.
+```bash
+python -m pip install -r workbook/requirements-validation.txt
+python workbook/validate_statistics.py
+```
 
-## Publish with GitHub Pages
+The build exports both application and editor with their local helper modules,
+without execution snapshots. It includes exactly the two audited CSVs in each
+view, release/analysis records, the reference browser download and the working
+preprint. Changed release hashes or preprint sources stop the build. Keep private
+backups, crosswalks, recordings and execution caches outside the public artifact.
+Serve `.for-ai-local/site` over HTTP for browser verification, including real
+analysis/downloads and malformed/partial-upload handling. Native execution and
+HTML export alone do not verify browser computation.
 
-`.github/workflows/workbook-pages.yml` tests and rebuilds the site whenever workbook
-changes reach `main`; it also supports **Actions → Publish browser workbook → Run
-workflow**. It uploads only `.for-ai-local/site` and deploys through GitHub Pages.
-The workflow uses the repository's GitHub Actions publishing source without
-changing repository visibility.
+After a new browser analysis, refresh the paper and tables without re-running models:
 
-Enable **Repository Settings → Pages → Build and deployment → Source: GitHub
-Actions** before the first deployment, then run the workflow. A private
-repository needs a GitHub plan that supports Pages for private repositories; the
-published site can still be public. Preserve this repository's private visibility.
-Confirm the deployment URL and a successful action before reporting the site live.
+```bash
+python analysis/prepare_publication.py path/to/browser-results.zip
+cd manuscript
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=../.for-ai-local/build main.tex
+cd ..
+# Visually inspect the compiled PDF before archiving it.
+python analysis/prepare_publication.py path/to/browser-results.zip --preprint-pdf .for-ai-local/build/main.pdf
+python workbook/build_site.py
+```
 
-Only the generated tool artifact is public. Do not add participant CSVs, private
-exports, or notebook execution caches to the artifact.
+## Publish on GitHub Pages
+
+The source repository stays private. Its GitHub plan must support Pages for private
+repositories; the Pages artifact is intended to be public. Dataset publication is
+explicitly authorised in [DATA_RELEASE.md](DATA_RELEASE.md).
+
+For automatic builds, choose **Settings → Pages → Build and deployment → Source:
+GitHub Actions**. The **Publish browser workbook** workflow tests/builds/deploys on
+relevant pushes to `main`, and can be run manually. GitHub Actions must have an
+available budget; source write access does not imply permission to enable Pages.
+
+An already-built `gh-pages` branch is an alternative publishing source. Select
+**Deploy from a branch → gh-pages → / (root)** and save. GitHub still manages its
+Pages deployment; confirm its outcome. Refresh that branch with reviewed output
+from `python workbook/build_site.py`, using a normal commit and push without force.
+Do not merge generated site files into `main`.
+
+After successful deployment, verify both the application and editor at
+`https://georgefejer91.github.io/Study5_Publication/`. A pushed commit or a prepared
+publishing branch is not proof that the website is live.
