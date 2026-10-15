@@ -64,31 +64,31 @@
   "anova": [
     {
       "effect": "condition",
-      "F_error": 6.709585144426544e-15
+      "F_error": 6.709476724209296e-15
     },
     {
       "effect": "phase",
-      "F_error": 7.105427357601002e-15
+      "F_error": 1.5987211554602254e-14
     },
     {
       "effect": "soa",
-      "F_error": 1.4210854715202004e-14
+      "F_error": 2.6201263381153694e-14
     },
     {
       "effect": "condition:phase",
-      "F_error": 3.241851231905457e-14
+      "F_error": 4.5852210917018965e-14
     },
     {
       "effect": "condition:soa",
-      "F_error": 2.2093438190040615e-14
+      "F_error": 4.440892098500626e-15
     },
     {
       "effect": "phase:soa",
-      "F_error": 1.3100631690576847e-14
+      "F_error": 6.217248937900877e-15
     },
     {
       "effect": "condition:phase:soa",
-      "F_error": 1.2212453270876722e-15
+      "F_error": 1.4432899320127035e-15
     }
   ],
   "jzs": [

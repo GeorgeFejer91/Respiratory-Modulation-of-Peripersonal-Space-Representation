@@ -5,7 +5,8 @@ publication companion. [Preregistration](https://aspredicted.org/az9f89.pdf).
 
 The companion runs the full data-supported analysis in your browser: input checks,
 RT preparation, mixed models, sensitivity analyses, participant contrasts,
-repeated-measures ANOVA, sigmoid diagnostics, figures, and downloadable results.
+repeated-measures ANOVA, a 320-pipeline descriptive sigmoid search, 1,000 participant
+bootstrap resamples, sigmoid diagnostics, figures, and downloadable results.
 The Python editor also runs in the browser. No processing server or API key is needed.
 
 The data contain **42 independent participants and 17,114 observed trials**.
@@ -25,7 +26,9 @@ See [release record](workbook/DATA_RELEASE.md).
 | [for-ai](for-ai/README.md) | Agent instructions, decisions, earlier drafts and historical source analyses |
 
 The refreshed paper is an **analysis draft for author review**, not a submitted
-publication. Boundary/questionnaire follow-ups are explicitly not estimable when
+publication. Four uniformly fitted descriptive group sigmoid curves now have
+midpoint and steepness estimates; their broad uncertainty and extrapolation
+limits are reported. Participant boundary/questionnaire follow-ups remain not estimable when
 the sigmoid gate fails. Waveform timing, belt compliance and private provenance
 cannot be reconstructed from the public CSVs. Collection/stopping history,
 registration interpretations and ethics-statement details need author review.

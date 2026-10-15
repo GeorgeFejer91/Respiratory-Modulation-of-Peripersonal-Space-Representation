@@ -1,19 +1,21 @@
 {
   "status": "Analysis draft for author review",
-  "pdf_sha256": "b833ea4892a729a8f353ce42d40fa2c1c4f44b26430440c02af48ea9ccf8d0ee",
+  "pdf_sha256": "dadd0fa6e833f95d10b8f0eb3d5301c1e06ec5bb3ce85458cceb0de981c31c6e",
   "manuscript_sha256": {
     "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
     "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
     "manuscript/figures/study5_delay_matched_facilitation.png": "0ddbf58649883a90654372c5ce962070021fe47f8befe2a37061009cdf1a2e2d",
+    "manuscript/figures/study5_descriptive_sigmoids.png": "f43c12ee8b79b8578b8e9502d9a4d358d08291422862feb92c7f0efdd5776cd4",
+    "manuscript/figures/study5_sigmoid_extrapolation.png": "390c525e595fcfd4e878173c33711a164dd9344fbb35e6917762555d7e6c9ff4",
     "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
     "manuscript/main.tex": "a7a065b2e2d63c4fed63f041cd1a386b6c1f28f87a02618b0b8c415ac373b1ed",
-    "manuscript/references.bib": "ffef97b7f02599605425282c2f57dce5ef272fb39a51d3efe14ff99d46236de6",
-    "manuscript/sections/abstract.tex": "af9cc85120288697410a81939a1f144df7e4eb66f362ee69226e35114cd8cd51",
+    "manuscript/references.bib": "3728fef453c9ed277d88bc7da93e028dbe624d7e31e2524f97cf76fb16548eda",
+    "manuscript/sections/abstract.tex": "86c4b1b086126778e3aee108246c29f8471a42b57afa464ad45530d63ba2b90d",
     "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
-    "manuscript/sections/discussion.tex": "56fcf1925e0af3ff73d3b4b002f65bb63d040ca08ac630c7a6896635af3ba301",
+    "manuscript/sections/discussion.tex": "a09d640777943ce208d7e33d051a57412d124f5fa64dc12140f29976d9749936",
     "manuscript/sections/introduction.tex": "64d6ffba3fd7001883380a2a8130eb5ef481c810130da7dcc22b4c949316a7b4",
-    "manuscript/sections/methods.tex": "db7bb13854391ae472c03ba6ef7640c05368a1019884ab54f2effd6146a04f43",
-    "manuscript/sections/results.tex": "0247842aeb2553bce8c8bb86b511603c04d1361927315d26a4edeaf0763e2f55"
+    "manuscript/sections/methods.tex": "ad5fdb6c14c74788fd3a47b4537ba93716795d0d1eed29874d2d66958d64e3ec",
+    "manuscript/sections/results.tex": "7c47774302dad406bea34a99ddcffff0915e33eecf7731ac223aa825053cf082"
   },
-  "browser_zip_sha256": "eefd8572dfa6b803317716677f683a7000cada07afdd7e3864d52caababd3170"
+  "browser_zip_sha256": "8af030387ba129ef7e8eb79d6dfabeb6716516a6cdd5ce07134531bf66589083"
 }

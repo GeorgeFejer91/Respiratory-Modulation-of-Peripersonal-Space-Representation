@@ -9,6 +9,20 @@ Maintain a self-contained Overleaf draft reconciled to an actual 42-person brows
 run. The project owner authorised public release of the deidentified data and
 confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
 
+The current analysis goal is to obtain four uniformly estimated descriptive
+sigmoid approximations (Control/Viscereality × Exhale/Inhale), with explicit
+midpoints, widths and midpoint derivatives, using justified signal extraction
+and smoothing where useful. Compare candidate methods and retain their complete
+audit. Complete the Results section from the resulting browser run. Distinguish
+descriptive regularized shape estimates from the original participant-level fit
+gate and from evidence for a physiological PPS boundary.
+
+This four-curve goal is computationally achieved: 320 uniform candidates and
+1,000 participant bootstrap draws run in Pyodide; the selected winsorized/Gaussian
+pipeline supplies all four nonflat group curves. The Results and figures derive
+from that browser download. Preserve the broad-uncertainty, post hoc and
+extrapolation qualifications when continuing the paper.
+
 ## Non-goals
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings

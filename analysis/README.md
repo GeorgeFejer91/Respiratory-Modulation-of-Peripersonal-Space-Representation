@@ -12,3 +12,9 @@ figure data to the Overleaf PNGs. It generates the abstract and Results from tha
 exact report; it does not recompute models. After compiling and visually checking
 the manuscript, `--preprint-pdf` archives the draft and source hashes for Pages.
 See the workbook guide for commands.
+
+The post hoc four-sigmoid extension is documented in
+`../workbook/SIGMOID_EXPLORATION.md`; `sigmoid_literature_sources.json` records the
+accessed implementation/documentation sources and their hashes. Scientific
+sources support the methods, not a claim that the study establishes physiological
+sigmoid boundaries.

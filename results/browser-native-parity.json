@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "eefd8572dfa6b803317716677f683a7000cada07afdd7e3864d52caababd3170",
+  "browser_zip_sha256": "8af030387ba129ef7e8eb79d6dfabeb6716516a6cdd5ce07134531bf66589083",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -138,5 +138,12 @@
       "browser_bound_hits": 49
     }
   ],
-  "status": "passed; identical cohort, gate pass counts and likelihood/coefficient agreement within 1e-5/1e-4; bound-hit diagnostics may differ numerically"
+  "descriptive_sigmoids": {
+    "candidate_count": 320,
+    "bootstrap_draws": 1000,
+    "numeric_values_compared": 16588,
+    "max_absolute_numeric_error": 1.170050722976157e-10,
+    "scope": "Every descriptive result value, including all candidates, intervals, comparisons, sensitivity and prediction bands"
+  },
+  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive value within 1e-8; legacy nonlinear-bound diagnostics may differ"
 }

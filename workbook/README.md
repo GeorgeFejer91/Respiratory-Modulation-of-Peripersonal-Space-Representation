@@ -78,6 +78,7 @@ For independent numerical checks:
 ```bash
 python -m pip install -r workbook/requirements-validation.txt
 python workbook/validate_statistics.py
+python workbook/validate_sigmoids.py
 ```
 
 The build exports both application and editor with their local helper modules,
@@ -100,6 +101,18 @@ cd ..
 python analysis/prepare_publication.py path/to/browser-results.zip --preprint-pdf .for-ai-local/build/main.pdf
 python workbook/build_site.py
 ```
+
+When the engine changes, first use `python workbook/build_site.py --development`
+to create an unpublished browser verification build. It deliberately omits the
+stale reference record and PDF. Run/download the new analysis in the browser,
+promote it, rebuild/review/archive the PDF, then run the default release build.
+The default build still requires all engine/reference/paper hashes to match.
+
+The [descriptive sigmoid extension](SIGMOID_EXPLORATION.md) searches 320 uniform
+pipelines and produces four midpoint/width/slope estimates with participant
+bootstrap uncertainty. The workbook exposes the complete ranking, paired
+comparisons and clearly marked extrapolations. These group approximations remain
+distinct from participant boundary inference under the original fit gate.
 
 ## Publish on GitHub Pages
 

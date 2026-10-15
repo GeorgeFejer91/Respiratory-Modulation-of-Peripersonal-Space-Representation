@@ -13,7 +13,7 @@ from pathlib import Path
 from preparation import FILES,load_pair,audit_release
 
 
-def build(output):
+def build(output, development=False):
     notebook = Path(__file__).resolve().with_name("data_preparation.py")
     root=notebook.parent.parent
     sources=tuple((root/"data"/"raw"/name).read_bytes() for name in FILES)
@@ -42,8 +42,15 @@ def build(output):
                 raise RuntimeError("Published CSV hash mismatch.")
             allowed.append(path.resolve())
         (data_dir/"sha256.json").write_text(json.dumps(expected,indent=2)+"\n")
-        for name in ("ANALYSIS_PLAN.md","DATA_RELEASE.md"):
+        for name in ("ANALYSIS_PLAN.md","DATA_RELEASE.md","SIGMOID_EXPLORATION.md"):
             shutil.copyfile(notebook.parent/name,target/name)
+        if development:
+            # Run the changed engine in a real browser before a new reference/PDF exists.
+            # Never copy stale publication records into this development artifact.
+            for stale in (target/"paper.pdf",target/"reference"):
+                if stale.is_dir():shutil.rmtree(stale)
+                elif stale.exists():stale.unlink()
+            continue
         reference=target/"reference"
         reference.mkdir(exist_ok=True)
         for name in ("analysis_report.md","browser-results.zip"):
@@ -65,6 +72,11 @@ def build(output):
                 raise RuntimeError("Engine changed: rerun the browser analysis and refresh its reference record.")
         (target/"paper.pdf").write_bytes(pdf)
     (output / ".nojekyll").touch()
+    marker=output/"DEVELOPMENT_ONLY.txt"
+    if development:
+        marker.write_text("Unpublished browser verification build. No reference report or paper.\n")
+    elif marker.exists():
+        marker.unlink()
     if set(p.resolve() for p in output.rglob("*.csv"))!=set(allowed):
         raise RuntimeError("Unexpected CSV in the publication artifact.")
     if list(output.rglob("__marimo__")) or list(output.rglob("private-backups")):
@@ -78,4 +90,6 @@ def build(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path(".for-ai-local/site"))
-    build(parser.parse_args().output.resolve())
+    parser.add_argument("--development",action="store_true",help="Unpublished verification build without a reference report or PDF; release checks remain mandatory by default.")
+    args=parser.parse_args()
+    build(args.output.resolve(),development=args.development)

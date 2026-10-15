@@ -41,6 +41,8 @@ def promote(path):
         for name, measure, paper_name in (
             ("raw_at_curves.svg", "raw_at", "study5_current_rt_soa_curves.png"),
             ("same_label_facilitation.svg", "same_label_at_minus_baseline", "study5_delay_matched_facilitation.png"),
+            ("descriptive_sigmoids.svg", "descriptive_sigmoids", "study5_descriptive_sigmoids.png"),
+            ("sigmoid_extrapolation.svg", "sigmoid_extrapolation", "study5_sigmoid_extrapolation.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -58,6 +60,7 @@ def write_text(r):
     raw_anova = next(a for a in r["repeated_measures_anova"] if a["measure"] == "raw AT" and a["effect"] == "Condition × Phase × SOA")
     sigmoid = r["sigmoid_summary"][0]
     means = r["sigmoid_summary"][1]
+    d = r["descriptive_sigmoids"]
 
     def p(value):
         return "<.001" if value < .001 else "=" + f"{value:.3f}".lstrip("0")
@@ -69,6 +72,10 @@ def write_text(r):
 """
     # LaTeX thousands separators must not introduce punctuation into math.
     abstract = abstract.replace(f"{c['retained_at']:,}", f"{c['retained_at']:,}".replace(",", "{,}"))
+    abstract = abstract.replace("Boundary, sharpness, and boundary-related questionnaire inference therefore remained unestimated.",
+        "Participant-boundary and boundary-related questionnaire inference therefore remained unestimated. "
+        "A separate post hoc search across 320 uniform extraction/smoothing pipelines produced four descriptive group sigmoids, with midpoint and steepness estimates. "
+        "The selected winsorized, Gaussian-kernel-smoothed curves had broad bootstrap uncertainty and only a small prediction-score advantage over a line; their extrapolated asymptotes do not establish physiological boundaries.")
     results = rf"""\section{{Results}}
 
 \subsection{{Released cohort and response quality}}
@@ -106,6 +113,47 @@ The equal-participant five-SOA slope contrast was {slopes['estimate']:.2f}~ms pe
 None of {sigmoid['cells']} trial-level participant $\times$ Condition $\times$ Phase sigmoid fits reached $R^{{2}}\geq .70$ (median $R^{{2}}={sigmoid['median_r2']:.3f}$; maximum {sigmoid['max_r2']:.3f}). The largest saturated five-SOA trial-level $R^{{2}}$ ceiling was {sigmoid['max_trial_r2_ceiling']:.3f}. Thus no deterministic sigmoid of these SOAs could reach .70 in any cell, independent of the particular nonlinear optimizer or parameter bounds. Sigmoids improved unpenalized in-sample RMSE over a line in {sigmoid['sigmoid_better_rmse']}/{sigmoid['cells']} cells; this does not establish stable boundaries.
 
 Fitting four parameters to five SOA means instead yielded {means['r2_pass_cells']}/{means['cells']} qualifying cells and {means['all_four_r2_participants']} participants passing all four cells, with none having four bound-free fits. Such fits have one residual degree of freedom and were not used to rescue the failed trial-level gate. Replacing approximate registered distances with trajectory-implied positions left the trial-level pass count at zero. Parameter-bound diagnostics and group fits are supplied descriptively. Participant midpoint/sharpness contrasts and their MAIA-2 or pictographic associations were not estimable under the planned fit gate.
+
+"""
+    results += rf"""\subsection{{Four uniformly estimated descriptive sigmoid curves}}
+
+A separate post hoc analysis obtained nonflat sigmoid approximations for all four Condition $\times$ Phase groups using a single extraction, smoothing, and fitting rule (Figure~\ref{{study5:fig:descriptive_sigmoids}}). All 42 participants contributed all five positions with equal person weight. The search compared {d['candidate_count']} pipelines spanning mean, median, trimmed-mean and winsorized summaries; Gaussian local-constant/local-linear and tricube local-linear smoothing; curvature penalization; isotonic projection; and separate versus shared logistic widths. The original trial-level gate above was retained as a distinct analysis.
+
+The lowest crossed participant/position prediction score selected 20\% per-tail winsorization within participant cells, Gaussian local-constant smoothing with bandwidth 0.5 of the nominal distance span (45~cm), and separate logistic widths. This same pipeline was applied to all four curves. The tuning RMSE was {d['selected_tuning_rmse_ms']:.3f}~ms, compared with {d['validation']['linear_shape_rmse_ms']:.3f}~ms for a line and {d['validation']['constant_shape_rmse_ms']:.3f}~ms for a constant. The fixed prediction target was each held-out person's raw mean at the omitted position minus that person's raw mean across the other four positions. The small advantage over a line is a post-selection descriptive score, not independent evidence of sigmoid superiority.
+
+For $f(d)=a+A\operatorname{{expit}}((d-m)/s)$, $m$ is the half-amplitude midpoint, $s$ is the logistic width, and the RT derivative at the midpoint is $A/(4s)$. Smaller widths indicate sharper normalized transitions; RT slopes additionally depend on amplitude. Width is not a Gaussian standard deviation. Estimates refer to the registration's approximate distance labels.
+
+\begin{{center}}
+\small
+\begin{{tabular}}{{lrrr}}
+Condition / phase & $m$ (cm) & $s$ (cm) & $f'(m)$ (ms/cm) \\
+\hline
+"""
+    for row in d["parameters"]:
+        results += rf"{row['condition']} / {row['phase']} & {row['midpoint_cm']:.2f} & {row['width_cm']:.2f} & {row['midpoint_slope_ms_per_cm']:.4f} \\" + "\n"
+    results += "\\end{tabular}\n\\end{center}\n\n"
+    midpoint_intervals = "; ".join(f"[{row['midpoint_cm_conditional_bootstrap_low']:.1f}, {row['midpoint_cm_conditional_bootstrap_high']:.1f}]" for row in d["parameters"])
+    widths = ", ".join(f"{row['transition_10_90_cm']:.1f}" for row in d["parameters"])
+    flat = ", ".join(f"{100*row['bootstrap_flat_fraction']:.1f}\\%" for row in d["parameters"])
+    bounds = ", ".join(f"{100*row['bootstrap_midpoint_bound_fraction']:.1f}\\%" for row in d["parameters"])
+    contrast = next(row for row in d["comparisons"] if row["contrast"] == "Condition × Phase" and row["parameter"] == "midpoint_cm")
+    phase_contrasts = [next(row for row in d["comparisons"] if row["contrast"] == label and row["parameter"] == "midpoint_cm") for label in ("Control Inhale − Exhale", "Viscereality Inhale − Exhale")]
+    reference = d["sensitivity"]
+    alternative = ", ".join(f"{row['midpoint_cm']:.1f}" for row in reference["robust_reference_parameters"])
+    trajectory = ", ".join(f"{row['midpoint_cm']:.1f}" for row in reference["trajectory_axis_parameters"])
+    expanded = ", ".join(f"{row['midpoint_cm']:.1f}" for row in reference["expanded_bounds_parameters"])
+    results += rf"""The 1{{,}}000 whole-participant bootstrap resamples preserved each person's four curves together and refitted smoothing and the sigmoid model. Conditional 95\% percentile intervals for the four midpoints, in table order, were {midpoint_intervals}~cm. Flat fits occurred in {flat} of resamples; midpoint-bound hits, including flat draws, occurred in {bounds}. Midpoint and width intervals exclude flat draws, for which these parameters are unidentified, and condition on the selected pipeline. They do not include uncertainty from choosing among 320 methods and should not be treated as unconditional coverage guarantees.
+
+Descriptively, the Inhale-minus-Exhale midpoint difference was {phase_contrasts[0]['estimate']:.2f}~cm in Control and {phase_contrasts[1]['estimate']:.2f}~cm in Viscereality. Their difference was {contrast['estimate']:.2f}~cm, conditional bootstrap interval [{contrast['conditional_bootstrap_low']:.2f}, {contrast['conditional_bootstrap_high']:.2f}]~cm, based on {contrast['nonflat_draws']} resamples with all contributing curves nonflat. No confirmatory test was assigned to this post hoc group-parameter contrast. The report includes all paired midpoint, width and RT-slope comparisons.
+
+The fitted 10--90\% transition spans were {widths}~cm, each exceeding the sampled 90-cm span. Consequently, the complete S shapes and their asymptotes depend on extrapolation. A fixed alternative using 20\% trimmed means and a narrower Gaussian bandwidth of 0.3 yielded midpoints {alternative}~cm, with tuning RMSE {reference['robust_reference_tuning_rmse_ms']:.3f}~ms. Applying the selected rule to trajectory-implied coordinates yielded {trajectory}~cm; expanding the midpoint/width/amplitude search bounds yielded {expanded}~cm. These method and coordinate sensitivities limit a literal boundary interpretation. All candidate scores and parameter estimates, including edge and flat solutions, remain available in the companion.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_descriptive_sigmoids.png}}
+\caption{{\textbf{{Four uniformly estimated descriptive sigmoids.}} Open gray circles are raw participant-weighted means; black points are participant-weighted winsorized cell summaries; crosses show Gaussian-kernel-smoothed summaries. Solid curves are logistic approximations fitted to the five smoothed design points, with no interpolated observations added to the fit. Vertical dotted lines mark the fitted midpoints. Bands are pointwise participant-bootstrap percentiles conditional on the selected pipeline, including flat resamples. The full search, parameter uncertainty, and model extrapolations are available in the browser companion.}}
+\label{{study5:fig:descriptive_sigmoids}}
+\end{{figure}}
 
 \subsection{{Baseline, sound, and order diagnostics}}
 

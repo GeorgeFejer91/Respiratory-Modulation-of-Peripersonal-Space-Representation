@@ -42,6 +42,39 @@ None of 168 trial-level participant $\times$ Condition $\times$ Phase sigmoid fi
 
 Fitting four parameters to five SOA means instead yielded 79/168 qualifying cells and 3 participants passing all four cells, with none having four bound-free fits. Such fits have one residual degree of freedom and were not used to rescue the failed trial-level gate. Replacing approximate registered distances with trajectory-implied positions left the trial-level pass count at zero. Parameter-bound diagnostics and group fits are supplied descriptively. Participant midpoint/sharpness contrasts and their MAIA-2 or pictographic associations were not estimable under the planned fit gate.
 
+\subsection{Four uniformly estimated descriptive sigmoid curves}
+
+A separate post hoc analysis obtained nonflat sigmoid approximations for all four Condition $\times$ Phase groups using a single extraction, smoothing, and fitting rule (Figure~\ref{study5:fig:descriptive_sigmoids}). All 42 participants contributed all five positions with equal person weight. The search compared 320 pipelines spanning mean, median, trimmed-mean and winsorized summaries; Gaussian local-constant/local-linear and tricube local-linear smoothing; curvature penalization; isotonic projection; and separate versus shared logistic widths. The original trial-level gate above was retained as a distinct analysis.
+
+The lowest crossed participant/position prediction score selected 20\% per-tail winsorization within participant cells, Gaussian local-constant smoothing with bandwidth 0.5 of the nominal distance span (45~cm), and separate logistic widths. This same pipeline was applied to all four curves. The tuning RMSE was 47.053~ms, compared with 47.317~ms for a line and 47.437~ms for a constant. The fixed prediction target was each held-out person's raw mean at the omitted position minus that person's raw mean across the other four positions. The small advantage over a line is a post-selection descriptive score, not independent evidence of sigmoid superiority.
+
+For $f(d)=a+A\operatorname{expit}((d-m)/s)$, $m$ is the half-amplitude midpoint, $s$ is the logistic width, and the RT derivative at the midpoint is $A/(4s)$. Smaller widths indicate sharper normalized transitions; RT slopes additionally depend on amplitude. Width is not a Gaussian standard deviation. Estimates refer to the registration's approximate distance labels.
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+Condition / phase & $m$ (cm) & $s$ (cm) & $f'(m)$ (ms/cm) \\
+\hline
+Control / Exhale & 71.50 & 35.29 & 0.0907 \\
+Control / Inhale & 96.25 & 42.56 & 0.0846 \\
+Viscereality / Exhale & 82.75 & 35.29 & 0.0900 \\
+Viscereality / Inhale & 25.38 & 30.38 & 0.0686 \\
+\end{tabular}
+\end{center}
+
+The 1{,}000 whole-participant bootstrap resamples preserved each person's four curves together and refitted smoothing and the sigmoid model. Conditional 95\% percentile intervals for the four midpoints, in table order, were [37.6, 88.0]; [18.5, 100.0]; [31.8, 100.0]; [10.0, 93.3]~cm. Flat fits occurred in 0.9\%, 8.7\%, 3.2\%, 8.7\% of resamples; midpoint-bound hits, including flat draws, occurred in 2.0\%, 21.0\%, 6.3\%, 14.1\%. Midpoint and width intervals exclude flat draws, for which these parameters are unidentified, and condition on the selected pipeline. They do not include uncertainty from choosing among 320 methods and should not be treated as unconditional coverage guarantees.
+
+Descriptively, the Inhale-minus-Exhale midpoint difference was 24.75~cm in Control and -57.38~cm in Viscereality. Their difference was -82.12~cm, conditional bootstrap interval [-107.25, 25.62]~cm, based on 828 resamples with all contributing curves nonflat. No confirmatory test was assigned to this post hoc group-parameter contrast. The report includes all paired midpoint, width and RT-slope comparisons.
+
+The fitted 10--90\% transition spans were 155.1, 187.0, 155.1, 133.5~cm, each exceeding the sampled 90-cm span. Consequently, the complete S shapes and their asymptotes depend on extrapolation. A fixed alternative using 20\% trimmed means and a narrower Gaussian bandwidth of 0.3 yielded midpoints 61.7, 84.6, 68.1, 31.4~cm, with tuning RMSE 48.784~ms. Applying the selected rule to trajectory-implied coordinates yielded 74.7, 87.3, 82.0, 34.3~cm; expanding the midpoint/width/amplitude search bounds yielded 70.8, 94.8, 84.2, 25.8~cm. These method and coordinate sensitivities limit a literal boundary interpretation. All candidate scores and parameter estimates, including edge and flat solutions, remain available in the companion.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{study5_descriptive_sigmoids.png}
+\caption{\textbf{Four uniformly estimated descriptive sigmoids.} Open gray circles are raw participant-weighted means; black points are participant-weighted winsorized cell summaries; crosses show Gaussian-kernel-smoothed summaries. Solid curves are logistic approximations fitted to the five smoothed design points, with no interpolated observations added to the fit. Vertical dotted lines mark the fitted midpoints. Bands are pointwise participant-bootstrap percentiles conditional on the selected pipeline, including flat resamples. The full search, parameter uncertainty, and model extrapolations are available in the browser companion.}
+\label{study5:fig:descriptive_sigmoids}
+\end{figure}
+
 \subsection{Baseline, sound, and order diagnostics}
 
 Across ten supplementary paired contrasts, Holm adjustment was applied as one family. Overall Audio--Tactile minus within-Condition/Phase mean Baseline RT was -18.81~ms, 95\% CI $[-27.00, -10.63]$, unadjusted $p<.001$, Holm $p<.001$. Baseline Inhale minus Exhale RT was 18.08~ms, 95\% CI $[3.28, 32.88]$, unadjusted $p=.018$, Holm $p=.143$. The Baseline Condition $\times$ Phase contrast was 17.43~ms, 95\% CI $[1.56, 33.30]$, unadjusted $p=.032$, Holm $p=.225$. These checks neither establish phase invariance nor provide adjusted evidence of a Baseline phase difference.

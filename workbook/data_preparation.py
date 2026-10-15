@@ -50,6 +50,7 @@ def _(mo):
 
     [Working preprint · author-review draft](./paper.pdf) ·
     [Analysis contract](./ANALYSIS_PLAN.md) · [Data release record](./DATA_RELEASE.md) ·
+    [Descriptive sigmoid methods and sources](./SIGMOID_EXPLORATION.md) ·
     [Reference browser run](./reference/browser-results.zip)
     """)
     return
@@ -208,7 +209,7 @@ def _(columns, make_bundle, mo, prepared, settings, source_bytes, stages, synthe
 def _(mo):
     run_analysis = mo.ui.run_button(label="Run complete paper analysis")
     mo.vstack([
-        mo.md("## 7 · Reproduce the paper analysis\nThe complete run performs participant-wide mean ±2.5-SD RT trimming, ML mixed models, cohort/coding/scale sensitivities, cluster-robust models, participant contrasts, repeated-measures ANOVA, sigmoid gates, and missing-RT stress tests. Preview filters above do not affect this run."),
+        mo.md("## 7 · Reproduce the paper analysis\nThe complete run performs participant-wide mean ±2.5-SD RT trimming, ML mixed models, cohort/coding/scale sensitivities, cluster-robust models, participant contrasts, repeated-measures ANOVA, sigmoid gates, missing-RT stress tests, and a 320-pipeline descriptive sigmoid search with 1,000 participant bootstrap resamples. Preview filters above do not affect this run."),
         mo.callout("A full run computes in this browser. Source recordings and private acquisition metadata cannot be reconstructed from the CSVs; those checks are explicitly marked unavailable. Models and tables are a reproducible draft for author review.",kind="info"),
         run_analysis,
     ])
@@ -225,8 +226,8 @@ def _():
 @app.cell
 def _(analyze, mo, people, run_analysis, trials):
     mo.stop(not run_analysis.value, mo.md("Choose **Run complete paper analysis** to calculate the publication results."))
-    with mo.status.spinner(title="Computing the complete behavioral analysis in Python…"):
-        paper_results, paper_retained = analyze(people, trials)
+    with mo.status.spinner(title="Computing the complete behavioral analysis in Python…") as _spinner:
+        paper_results, paper_retained = analyze(people, trials, progress=lambda _text: _spinner.update(title=_text))
     return paper_results, paper_retained
 
 
@@ -259,9 +260,30 @@ def _(figure_svg, mo, paper_results):
 
 
 @app.cell
+def _(figure_svg, mo, paper_results):
+    _d = paper_results["descriptive_sigmoids"]
+    mo.stop(_d["status"] != "computed", mo.callout(_d.get("reason", "Descriptive curves unavailable."), kind="warn"))
+    mo.vstack([
+        mo.md(f"## 10 · Four descriptive sigmoid curves\nAll four curves use **{_d['selected_method']}**, selected uniformly from **{_d['candidate_count']} pipelines**. Each person has equal weight. These post hoc approximations describe the extracted RT summaries; the original participant fit gate remains separate."),
+        mo.md("**Midpoint m** locates half of the fitted asymptotic RT change. **Width s** controls the transition: smaller s means a steeper curve. It is a logistic scale, not a Gaussian standard deviation. The RT slope at the midpoint is amplitude/(4s)."),
+        mo.Html(figure_svg(paper_results,"descriptive_sigmoids")),
+        mo.ui.table([{k:r[k] for k in ("condition","phase","midpoint_cm","width_cm","midpoint_slope_ms_per_cm","midpoint_cm_conditional_bootstrap_low","midpoint_cm_conditional_bootstrap_high","bootstrap_flat_fraction","bootstrap_midpoint_bound_fraction")} for r in _d["parameters"]],selection=None,pagination=False,label="Midpoint, width and steepness; conditional bootstrap intervals"),
+        mo.callout(f"Prediction-error tuning score: {_d['selected_tuning_rmse_ms']:.3f} ms; straight-line benchmark: {_d['validation']['linear_shape_rmse_ms']:.3f} ms. The improvement is small. Five sampled positions cannot establish the full S shape or its asymptotes. Bootstrap intervals condition on this selected method and nonflat draws; flat and boundary-hit fractions are reported explicitly.",kind="warn"),
+        mo.accordion({
+            "Full sigmoid extrapolation · model assumptions outside the data":mo.Html(figure_svg(paper_results,"sigmoid_extrapolation")),
+            "All 320 extraction/smoothing candidates":mo.ui.table([{k:v for k,v in r.items() if k not in ("parameters","fold_rmse_ms")} for r in _d["candidates"]],selection=None,page_size=10),
+            "Paired descriptive midpoint and steepness comparisons":mo.ui.table(_d["comparisons"],selection=None),
+            "Robust reference, coordinate and bound sensitivity":mo.json(_d["sensitivity"]),
+            "Parameter definitions, bounds and bootstrap scope":mo.json({k:_d[k] for k in ("formula","parameter_definitions","bounds","grid","selection","bootstrap_scope")}),
+        }),
+    ])
+    return
+
+
+@app.cell
 def _(mo, paper_results):
     mo.vstack([
-        mo.md("## 10 · Diagnostics, assumptions and gated follow-ups"),
+        mo.md("## 11 · Diagnostics, assumptions and gated follow-ups"),
         mo.accordion({
             "Cohort and cleaning":mo.json(paper_results["cohort"]),
             "Participant quality":mo.ui.table(paper_results["participant_quality"],selection=None,page_size=10),
@@ -286,7 +308,7 @@ def _(mo, paper_results):
 def _(markdown_report, mo, paper_results, paper_retained, result_bundle, source_bytes):
     analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
     mo.vstack([
-        mo.md("## 11 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, curve/sigmoid/ANOVA tables, publication SVGs, and source/output hashes. All files are generated from this run."),
+        mo.md("## 12 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, curve/sigmoid/ANOVA tables, all 320 descriptive candidate scores, four-curve midpoint/steepness comparisons, publication SVGs, and source/output hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])

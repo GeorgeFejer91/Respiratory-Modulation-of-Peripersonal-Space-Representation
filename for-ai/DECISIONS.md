@@ -75,3 +75,20 @@ decision and link both entries.
   history and ethics-statement details remain necessary before paper submission.
 - Supersedes: D-0002's restriction on this exact CSV release and D-0003's active
   40-person draft state; their privacy and preservation principles remain.
+
+## D-0005 — Uniform descriptive sigmoid extension
+
+- Date: 2026-10-15
+- Status: Accepted
+- Context: The owner explicitly requested broad signal extraction and smoothing
+  to obtain four descriptive sigmoids with midpoint/steepness comparisons and
+  complete the Results, even if participant-level boundary inference fails.
+- Decision: Retain the original tests and gate; add a post hoc 320-pipeline
+  uniform group analysis, common-target prediction scores, 1,000 participant
+  bootstrap draws and full method/coordinate/bound sensitivity. Use the exact
+  browser download for the expanded Results and figures.
+- Consequences: Four computable group curves achieve the descriptive goal.
+  Their broad intervals, flat resamples, small advantage over a line and
+  extrapolated plateaus prevent a precise physiological-boundary claim.
+- Supersedes: Any reading of D-0004 that would prevent this expressly authorized
+  descriptive extension. Its participant inference gate and privacy rules remain.

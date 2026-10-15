@@ -12,6 +12,8 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
+import numpy as np
+from scipy.special import expit
 
 from preparation import FILES,TRIAL_COLUMNS,encode_csv
 
@@ -37,6 +39,8 @@ def primary_summary(report):
 
 def markdown_report(report):
     s=primary_summary(report);c=report["cohort"]
+    def value_or_missing(value):
+        return "unidentified" if value is None else f"{value:.2f}"
     lines=["# Study 5 · Reproducible publication companion analysis", "",
         report["status"],"",
         f"The released dataset contains {s['participants']} independent participants and {c['trial_rows_input']:,} observed trials "
@@ -58,6 +62,21 @@ def markdown_report(report):
         "## Supplementary participant contrasts", "", "| Contrast | n | Estimate (ms) | 95% CI | p | Holm p |", "| --- | ---: | ---: | --- | ---: | ---: |"]
     for r in report["supplementary_contrasts"]:
         if r["status"]=="computed":lines.append(f"| {r['name']} | {r['n']} | {r['estimate']:.4f} | [{r['ci_low']:.4f}, {r['ci_high']:.4f}] | {r['p']:.6g} | {r.get('p_holm',float('nan')):.6g} |")
+    d=report["descriptive_sigmoids"]
+    if d["status"]=="computed":
+        lines += ["", "## Four uniformly estimated descriptive sigmoids", "",
+            f"Selected from {d['candidate_count']} pipelines: `{d['selected_method']}`. "
+            f"Tuning shape RMSE {d['selected_tuning_rmse_ms']:.3f} ms; linear benchmark "
+            f"{d['validation']['linear_shape_rmse_ms']:.3f} ms; constant benchmark {d['validation']['constant_shape_rmse_ms']:.3f} ms. "
+            "These are post hoc selection scores, not an independent test of sigmoid superiority. "
+            "The fits describe the extracted RT summary; winsorized summaries need not equal raw means.", "",
+            "| Condition / phase | Midpoint (cm) | Width (cm) | RT slope at midpoint (ms/cm) | Conditional midpoint interval (cm) | Flat bootstrap draws |",
+            "| --- | ---: | ---: | ---: | --- | ---: |"]
+        for r in d["parameters"]:
+            lines.append(f"| {r['condition']} / {r['phase']} | {r['midpoint_cm']:.2f} | {r['width_cm']:.2f} | {r['midpoint_slope_ms_per_cm']:.4f} | [{value_or_missing(r['midpoint_cm_conditional_bootstrap_low'])}, {value_or_missing(r['midpoint_cm_conditional_bootstrap_high'])}] | {r['bootstrap_flat_fraction']:.1%} |")
+        lines += ["", d["parameter_definitions"]+".", "", d["bootstrap_scope"], "",
+            "Only five positions were sampled. Full S-shaped extrapolations and asymptotes are model assumptions. "
+            "The report includes all candidate scores and parameters, a fixed robust reference, trajectory-axis and expanded-bound sensitivity, and paired descriptive comparisons."]
     lines += ["", "## Interpretation and unavailable provenance", "", *[f"- {r}" for r in report["interpretation"]+report["unavailable_checks"]],"",
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
@@ -66,6 +85,8 @@ def markdown_report(report):
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure in ("descriptive_sigmoids","sigmoid_extrapolation"):
+        return sigmoid_figure_bytes(report,format,extrapolate=measure=="sigmoid_extrapolation")
     data=[r for r in report["group_curves"] if r["measure"]==measure]
     title="Audio–Tactile reaction time by SOA" if measure=="raw_at" else "AT minus Baseline at the same nominal SOA label"
     subtitle=f"Participant-weighted means and pointwise 95% t intervals · {report['cohort']['participants_input']} participants"
@@ -95,12 +116,54 @@ def figure_svg(report,measure):
     return figure_bytes(report,measure).decode("utf-8")
 
 
+def sigmoid_figure_bytes(report,format="svg",extrapolate=False):
+    d=report["descriptive_sigmoids"]
+    if d["status"]!="computed":
+        raise ValueError("Descriptive sigmoid figure requires a complete analysis.")
+    colors=["#2563a6","#2563a6","#c94c50","#c94c50"]
+    with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-sigmoids-v1","axes.spines.top":False,"axes.spines.right":False}):
+        fig,axes=plt.subplots(2,2,figsize=(10,7.6),dpi=200,sharex=True)
+        for j,(ax,r,color) in enumerate(zip(axes.flat,d["parameters"],colors)):
+            x=np.array(d["display_distance_cm"])
+            if extrapolate:
+                extended=np.linspace(0,220,400)
+                y=r["lower_asymptote_ms"]+r["amplitude_ms"]*expit((extended-r["midpoint_cm"])/r["width_cm"])
+                ax.plot(extended,y,color=color,linestyle="--",alpha=.7,label="Model extrapolation")
+                ax.axvspan(10,100,color="#dfe6e9",alpha=.55,label="Sampled range")
+            else:
+                ax.fill_between(x,d["pointwise_bootstrap_low_ms"][j],d["pointwise_bootstrap_high_ms"][j],color=color,alpha=.12,label="95% pointwise bootstrap")
+            ax.scatter(d["distances_cm"],d["raw_points_ms"][j],facecolors="none",edgecolors="#777777",s=30,label="Raw mean")
+            ax.scatter(d["distances_cm"],d["extracted_points_ms"][j],color="#222222",s=22,label="Extracted summary",zorder=4)
+            ax.scatter(d["distances_cm"],d["smoothed_points_ms"][j],color=color,marker="x",s=30,label="Kernel-smoothed summary",zorder=4)
+            ax.plot(x,d["predictions_ms"][j],color=color,lw=2,label="Selected logistic")
+            ax.axvline(r["midpoint_cm"],color=color,lw=.8,linestyle=":")
+            ax.set_title(f"{r['condition']} · {r['phase']}\nm = {r['midpoint_cm']:.1f} cm; width = {r['width_cm']:.1f} cm",fontsize=11)
+            ax.set(xlabel="Nominal distance (cm)",ylabel="Reaction time summary (ms)")
+            ax.grid(axis="y",alpha=.15)
+        handles,labels=axes.flat[0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc="lower center",ncol=3,fontsize=8,bbox_to_anchor=(.5,.025))
+        fig.suptitle("Four descriptive sigmoid approximations"+(" · extrapolation" if extrapolate else ""),fontsize=15,y=.98)
+        fig.text(.5,.935,f"One uniform extraction/smoothing rule · {d['participants']} participants · five observed positions per curve",ha="center",fontsize=9)
+        fig.text(.5,.008,"Dashed extensions are model predictions outside the sampled range." if extrapolate else "Bands condition on the selected pipeline; group curves do not establish individual PPS boundaries.",ha="center",fontsize=8)
+        fig.subplots_adjust(top=.84,bottom=.19,left=.09,right=.98,hspace=.5,wspace=.27)
+        stream=io.BytesIO()
+        fig.savefig(stream,format=format,dpi=300,metadata={"Date":None,"Creator":"Study 5 marimo publication companion"} if format=="svg" else None)
+        plt.close(fig)
+        return stream.getvalue()
+
+
 def result_bundle(report,retained,sources):
     files={"analysis_report.md":markdown_report(report).encode(),
         "analysis_results.json":json.dumps(report,indent=2,allow_nan=False).encode(),
         "retained_rt_trials.csv":encode_csv(TRIAL_COLUMNS,retained),
         "raw_at_curves.svg":figure_svg(report,"raw_at").encode(),
         "same_label_facilitation.svg":figure_svg(report,"same_label_at_minus_baseline").encode()}
+    d=report["descriptive_sigmoids"]
+    if d["status"]=="computed":
+        for measure in ("descriptive_sigmoids","sigmoid_extrapolation"):
+            files[measure+".svg"]=figure_svg(report,measure).encode()
+        for key in ("parameters","comparisons","candidates"):
+            files["descriptive_sigmoid_"+key+".csv"]=as_table(d[key])
     for key in ("participant_quality","supplementary_contrasts","sigmoid_summary","sigmoid_fits",
                 "repeated_measures_anova","group_curves","order_sensitivities","questionnaire_descriptives",
                 "group_sigmoid_descriptions"):
@@ -111,7 +174,7 @@ def result_bundle(report,retained,sources):
             model_rows.append(dict(model,category=category))
             coefficient_rows.extend(dict(row,model=model["name"],category=category) for row in model.get("coefficients",[]))
     files["models.csv"]=as_table(model_rows);files["coefficients.csv"]=as_table(coefficient_rows)
-    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py")}
+    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py")}
     files.update({"analysis_source/"+name:content for name,content in source_code.items()})
     manifest={"analysis_version":report["analysis_version"],"status":report["status"],
         "source_sha256":dict(zip(FILES,[sha256(b).hexdigest() for b in sources])),

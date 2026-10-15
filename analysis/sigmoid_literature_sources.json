@@ -1,0 +1,92 @@
+{
+  "scope": "Method-source inspection, not an exhaustive full-paper literature review",
+  "blocked_destinations": [
+    "www.ebi.ac.uk",
+    "api.crossref.org",
+    "journals.plos.org"
+  ],
+  "block": "HTTP CONNECT 403 from cloud network policy; saved domain draft does not apply until published",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/main/statsmodels/nonparametric/kernel_regression.py",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "e2399f96eb1ffc7038ca2cfa35bce7b89935ee4a28c41d05c8ad2dc357a62ae2",
+      "bytes": 41980,
+      "supports": "Li and Racine (2007); local constant/local linear kernel methods",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/main/statsmodels/nonparametric/smoothers_lowess.py",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "9db1ebf034b2b0037cc5b7fdeac8ab49751b93f3c6ca7e6f0d7d58f92bf35140",
+      "bytes": 10234,
+      "supports": "Cleveland (1979); local weighted regression",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/interpolate/_bsplines.py",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "407e8e83dabfae50ff201cee6b25ea6d5c3d731c963d6e2a7906a7ad878ebc84",
+      "bytes": 133889,
+      "supports": "Wahba (1990); penalized smoothing and cross-validation",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/optimize/_isotonic.py",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "a69f3086c45a8b800df22ab91a02bbdbfdd106e7a34dd6814e0b1d2258032d99",
+      "bytes": 6049,
+      "supports": "Busing (2022); isotonic least squares",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/DoseResponse/drc/master/man/logistic.Rd",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "f21fb4dc2e1c6bf9f23f1b65da6fb8e6505a374799da1c4825269dcd38c0b0cc",
+      "bytes": 2978,
+      "supports": "Ordinary four-parameter logistic and distinction from log-logistic",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/DoseResponse/drc/master/man/drm.Rd",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "edf89f48e5450667d060ff8aff2200936ac846b8084443aeaad21aa2720de4e2",
+      "bytes": 6185,
+      "supports": "Joint/shared parameter and robust response-model fitting",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/DoseResponse/drc/master/inst/citation",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "08de70c0522b14e609c176482a2e83df58b90624e71f23ecba32033cc0072625",
+      "bytes": 457,
+      "supports": "Ritz et al. (2019) bibliographic record",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/scipy/scipy/main/scipy/stats/_resampling.py",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "29de2953213e22d4a091324c52f2c6c6d0237be9c95c1a649bdfd97a5f60645d",
+      "bytes": 106490,
+      "supports": "Efron and Tibshirani (1993); bootstrap methods",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ctu-vras/pps-normative-model/master/README.md",
+      "accessed_date": "2026-10-15",
+      "source_type": "official software documentation/source or author repository",
+      "sha256": "a4be722420877dcb85e491d5235a317ff8bf5e947665babf6622b7fc9dbaf761",
+      "bytes": 1218,
+      "supports": "Straka et al. (2022); PPS impact-prediction model author repository",
+      "full_cited_paper_or_book_read": false
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "kernel_reference": "statsmodels KernelReg local-constant Gaussian, bw=.5",
+  "sigmoid_reference": "SciPy least_squares, continuously optimized four parameters",
+  "checks": [
+    {
+      "kernel_max_error_ms": 2.2737367544323206e-13,
+      "continuous_reference_midpoint_cm": 71.26178043302195,
+      "continuous_reference_width_cm": 34.78908969840508,
+      "grid_midpoint_cm": 71.5,
+      "grid_width_cm": 35.291542106379495,
+      "prediction_grid_vs_continuous_max_error_ms": 0.003802022944228156
+    },
+    {
+      "kernel_max_error_ms": 1.1368683772161603e-13,
+      "continuous_reference_midpoint_cm": 95.87126077156168,
+      "continuous_reference_width_cm": 42.43510108912129,
+      "grid_midpoint_cm": 96.25,
+      "grid_width_cm": 42.558372405142904,
+      "prediction_grid_vs_continuous_max_error_ms": 0.0014867064135160035
+    },
+    {
+      "kernel_max_error_ms": 1.1368683772161603e-13,
+      "continuous_reference_midpoint_cm": 83.4331250583472,
+      "continuous_reference_width_cm": 35.90950522708069,
+      "grid_midpoint_cm": 82.75,
+      "grid_width_cm": 35.291542106379495,
+      "prediction_grid_vs_continuous_max_error_ms": 0.0036362693838327687
+    },
+    {
+      "kernel_max_error_ms": 1.1368683772161603e-13,
+      "continuous_reference_midpoint_cm": 24.560997737757404,
+      "continuous_reference_width_cm": 30.869844783648116,
+      "grid_midpoint_cm": 25.375,
+      "grid_width_cm": 30.382194244336826,
+      "prediction_grid_vs_continuous_max_error_ms": 0.0034095760878471992
+    }
+  ]
+}

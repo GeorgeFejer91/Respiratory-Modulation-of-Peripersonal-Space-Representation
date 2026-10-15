@@ -47,6 +47,12 @@ actual Pyodide report to native engine outputs at the recorded tolerances, inclu
 cohort, estimates, likelihoods and gate results. Record different optimizer-bound
 diagnostics honestly; they cannot alter the saturated trial R² ceiling conclusion.
 
+For the descriptive extension also run `python workbook/validate_sigmoids.py`:
+statsmodels KernelReg independently checks the selected Gaussian smoother and a
+continuous nonlinear least-squares fit checks the profile grid's curve predictions.
+Verify all 320 tuning scores, the four selected curves, and bootstrap outputs
+against a real browser run. Preserve conditional-interval and selection limits.
+
 Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
