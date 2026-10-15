@@ -1,5 +1,5 @@
 {
-  "scope": "Method-source inspection, not an exhaustive full-paper literature review",
+  "scope": "Official method sources, author code and PPS PubMed abstracts; not an exhaustive or full-paper review",
   "blocked_destinations": [
     "www.ebi.ac.uk",
     "api.crossref.org",
@@ -87,6 +87,69 @@
       "bytes": 1218,
       "supports": "Straka et al. (2022); PPS impact-prediction model author repository",
       "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Dynamic+sounds+capture%22&format=pubmed",
+      "accessed_date": "2026-10-15",
+      "source_type": "indexed abstract PMID 23028516",
+      "sha256": "be54eb78fa6c20e4b012e0378af4603350376f718e56441f4f5b6de07896fe67",
+      "bytes": 50537,
+      "supports": "Motivates distance-dependent audiotactile boundary assessment; not validation of smoothing",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=32377673&format=pubmed",
+      "accessed_date": "2026-10-15",
+      "source_type": "indexed abstract PMID 32377673",
+      "sha256": "d21a24f43664066080b0d29c8ad81fa0ee3ef6bb6281c6b426f7d6fe050f7683",
+      "bytes": 12397,
+      "supports": "Reports sigmoid visuotactile facilitation and trial-history recalibration; different paradigm",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Capturing+the+dynamics+of+peripersonal+space%22&format=pubmed",
+      "accessed_date": "2026-10-15",
+      "source_type": "indexed abstract PMID 31805302",
+      "sha256": "6e10996da49cb735ba83cb9d4c1dd92e13de4153581c685453fb4c7cb130aebc",
+      "bytes": 51627,
+      "supports": "Expectation control and logarithmic distance response challenge mandatory sigmoid assumption",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Do+sounds+near+the+hand+facilitate+tactile+reaction+times%22&format=pubmed",
+      "accessed_date": "2026-10-15",
+      "source_type": "indexed abstract PMID 32193585",
+      "sha256": "6192a59172a4a5097f31eff2b9770bf06cfa440aa1f0d7e986ca9da48cdc14bd",
+      "bytes": 12599,
+      "supports": "Mixed support and small effects; controls and flexible-analysis concerns",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ctu-vras/pps-normative-model/main/FN_std_PPS_properties.m",
+      "accessed_date": "2026-10-15",
+      "source_type": "full author source code",
+      "sha256": "dded33388c30f9e3165ec90c81871cdb659106bd73609a42b8db4b00efa5b260",
+      "bytes": 3022,
+      "supports": "Model beginning and slope summaries; not empirical validation or a sigmoid-fitting protocol",
+      "full_cited_paper_or_book_read": false
     }
-  ]
+  ],
+  "search_skill": {
+    "repository": "https://github.com/GeorgeFejer91/multi-source-web-search",
+    "commit": "7f3e70744d1fffbf7c59e084d48384bae09c1e6f",
+    "providers_used": [
+      "PubMed public web search/indexed abstracts",
+      "GitHub repository search and direct source files"
+    ],
+    "providers_unavailable": [
+      "Consensus MCP",
+      "general web-search MCP"
+    ]
+  },
+  "pps_search": {
+    "broad_query": "\"peripersonal space\" AND (sigmoid OR logistic OR boundary)",
+    "narrowing": "Exact titles: Dynamic sounds capture; Rapid Recalibration; Capturing the dynamics; Do sounds near the hand",
+    "selection": "Direct experimental precedent, methodological alternative and critical meta-analysis; author code for computational interpretation. Unrelated search matches excluded.",
+    "limits": "Full-text attempts returned challenge pages; blocked API/publisher hosts were not bypassed. Scientific synthesis limited to inspected abstracts and author code."
+  }
 }

@@ -11,10 +11,12 @@ from pathlib import Path
 import numpy as np
 from scipy import optimize
 from statsmodels.nonparametric.kernel_regression import KernelReg
+from statsmodels.stats.multivariate import test_mvmean
 
 from descriptive_sigmoid import ProfileGrid, extract_cells, predict, smooth
 from paper_analysis import clean
 from preparation import FILES, load_pair
+from sigmoid_shape import curvature_test
 
 
 def validate(root):
@@ -44,8 +46,17 @@ def validate(root):
         raise AssertionError("Independent kernel estimate differs.")
     if max(r["prediction_grid_vs_continuous_max_error_ms"] for r in checks)>=.015:
         raise AssertionError("Grid resolution is insufficient for curve prediction.")
+    # A separate SVD basis and statsmodels implementation verify the curvature test.
+    basis=np.linalg.svd(np.column_stack([np.ones(5),x]).T,full_matrices=True)[2][2:].T
+    actual=curvature_test(cubes["mean"],x)["rows"]
+    curvature=[]
+    for j,r in enumerate(actual):
+        ref=test_mvmean(cubes["mean"][:,j]@basis)
+        np.testing.assert_allclose([r["f"],r["p"]],[ref.statistic,ref.pvalue],atol=1e-10)
+        curvature.append({"curve":j,"f_error":float(abs(r["f"]-ref.statistic)),"p_error":float(abs(r["p"]-ref.pvalue))})
     return {"status":"passed","kernel_reference":"statsmodels KernelReg local-constant Gaussian, bw=.5",
-        "sigmoid_reference":"SciPy least_squares, continuously optimized four parameters","checks":checks}
+        "sigmoid_reference":"SciPy least_squares, continuously optimized four parameters","checks":checks,
+        "curvature_reference":"statsmodels test_mvmean with independent SVD contrast basis","curvature_checks":curvature}
 
 
 if __name__=="__main__":

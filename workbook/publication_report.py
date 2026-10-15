@@ -77,6 +77,17 @@ def markdown_report(report):
         lines += ["", d["parameter_definitions"]+".", "", d["bootstrap_scope"], "",
             "Only five positions were sampled. Full S-shaped extrapolations and asymptotes are model assumptions. "
             "The report includes all candidate scores and parameters, a fixed robust reference, trajectory-axis and expanded-bound sensitivity, and paired descriptive comparisons."]
+        a=d["shape_audit"]
+        lines += ["", "## Visible PPS-like shape: stronger exploratory audit", "", a["criteria"], "",
+            f"Original pipelines satisfying the criterion in all four curves: {a['original_candidates_with_four_visible_transitions']}/{d['candidate_count']}. "
+            f"Shape-constrained selection: `{a['visible_method']}`; tuning RMSE {a['visible_tuning_rmse_ms']:.3f} ms. "
+            f"Fair tuned line: `{a['linear_method']}`; tuning RMSE {a['linear_tuning_rmse_ms']:.3f} ms.", "",
+            "| Prediction family | Nested outer RMSE (ms) |", "| --- | ---: |"]
+        lines.extend(f"| {r['family']} | {r['outer_rmse_ms']:.3f} |" for r in a["nested_prediction"]["scores"])
+        lines += ["",a["nested_prediction"]["scope"],"",a["interpretation"],"",
+            "The four imposed-shape midpoint/width estimates, constraint hits and conditional intervals are exported separately. "
+            "Raw-mean curvature tests assess any nonlinearity, not sigmoid shape; see their exported statistics and assumptions. "
+            "Evaluate empirical support separately from the imposed geometry."]
     lines += ["", "## Interpretation and unavailable provenance", "", *[f"- {r}" for r in report["interpretation"]+report["unavailable_checks"]],"",
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
@@ -85,6 +96,8 @@ def markdown_report(report):
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure in ("pps_shape","sigmoid_geometry"):
+        return shape_figure_bytes(report,format,normalized=measure=="sigmoid_geometry")
     if measure in ("descriptive_sigmoids","sigmoid_extrapolation"):
         return sigmoid_figure_bytes(report,format,extrapolate=measure=="sigmoid_extrapolation")
     data=[r for r in report["group_curves"] if r["measure"]==measure]
@@ -122,7 +135,7 @@ def sigmoid_figure_bytes(report,format="svg",extrapolate=False):
         raise ValueError("Descriptive sigmoid figure requires a complete analysis.")
     colors=["#2563a6","#2563a6","#c94c50","#c94c50"]
     with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-sigmoids-v1","axes.spines.top":False,"axes.spines.right":False}):
-        fig,axes=plt.subplots(2,2,figsize=(10,7.6),dpi=200,sharex=True)
+        fig,axes=plt.subplots(2,2,figsize=(10,7.6),dpi=200,sharex=True,sharey=True)
         for j,(ax,r,color) in enumerate(zip(axes.flat,d["parameters"],colors)):
             x=np.array(d["display_distance_cm"])
             if extrapolate:
@@ -152,6 +165,52 @@ def sigmoid_figure_bytes(report,format="svg",extrapolate=False):
         return stream.getvalue()
 
 
+def shape_figure_bytes(report,format="svg",normalized=False):
+    d=report["descriptive_sigmoids"];a=d["shape_audit"]
+    x=np.array(d["display_distance_cm"]);observed=np.array(d["distances_cm"])
+    with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-pps-shape-v1",
+                         "axes.spines.top":False,"axes.spines.right":False}):
+        fig,axes=plt.subplots(2,2,figsize=(10,8),sharex=True,sharey=True)
+        for j,(ax,r) in enumerate(zip(axes.flat,a["visible_parameters"])):
+            color="#2563a6" if r["condition"]=="Control" else "#c94c50"
+            if normalized:
+                original=d["parameters"][j]
+                if not original["flat_unidentified"]:
+                    ax.plot(x,expit((x-original["midpoint_cm"])/original["width_cm"]),color=".5",ls="--",lw=1.5,label="Original best-score sigmoid")
+                if not r["flat_unidentified"]:
+                    ax.plot(x,expit((x-r["midpoint_cm"])/r["width_cm"]),color=color,lw=2.5,label="Shape-constrained sigmoid")
+                else:
+                    ax.text(.5,.5,"Flat fit: normalized shape unidentified",transform=ax.transAxes,ha="center",fontsize=8)
+                ax.axhspan(.1,.9,color=".9",alpha=.5,zorder=-2,label="10–90% transition")
+                ax.set(ylim=(-.05,1.05),yticks=[0,.1,.5,.9,1],ylabel="Fraction of fitted asymptotic change")
+            else:
+                center=np.mean(a["visible_points_ms"][j])
+                ax.fill_between(x,a["visible_centered_bootstrap_low_ms"][j],a["visible_centered_bootstrap_high_ms"][j],color=color,alpha=.13,label="95% conditional bootstrap")
+                raw=np.array(d["raw_points_ms"][j]);points=np.array(a["visible_points_ms"][j])
+                ax.scatter(observed,raw-raw.mean(),facecolors="none",edgecolors=".4",s=35,label="Raw means, centered",zorder=4)
+                ax.scatter(observed,points-center,color=".15",s=23,label="Extracted means, centered",zorder=4)
+                ax.plot(x,np.array(a["linear_predictions_ms"][j])-np.mean(a["linear_points_ms"][j]),color=".5",ls="--",label="Tuned linear benchmark")
+                ax.plot(x,np.array(a["visible_predictions_ms"][j])-center,color=color,lw=2.5,label="Shape-constrained sigmoid")
+                ax.axhline(0,color=".8",lw=.6,zorder=-2)
+                ax.set(ylabel="Centered reaction time (ms)")
+            ax.axvline(r["midpoint_cm"],color=color,ls=":",lw=.8)
+            flag="*" if r["width_at_bound"] or r["midpoint_at_sampling_limit"] else ""
+            ax.set_title(f"{r['condition']} · {r['phase']}\nm = {r['midpoint_cm']:.1f} cm; width = {r['width_cm']:.1f} cm{flag}",fontsize=11)
+            ax.set(xlim=(7,103),xticks=observed,xlabel="Nominal distance (cm)")
+            ax.grid(axis="y",alpha=.15)
+        handles,labels=axes.flat[0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc="lower center",ncol=3,fontsize=8,bbox_to_anchor=(.5,.027))
+        fig.suptitle("PPS-shaped approximations · imposed-shape sensitivity",fontsize=15,y=.98)
+        fig.text(.5,.94,"Model geometry only · amplitude normalized; no observations on this scale" if normalized else
+                 f"{d['participants']} participants · five observed positions · same axes and uniform processing for every curve",ha="center",fontsize=9)
+        fig.text(.5,.008,"* Width or midpoint reaches a constraint. Visible S shapes are imposed; assess empirical support separately.",ha="center",fontsize=8)
+        fig.subplots_adjust(top=.84,bottom=.19,left=.10,right=.98,hspace=.48,wspace=.25)
+        stream=io.BytesIO()
+        fig.savefig(stream,format=format,dpi=300,metadata={"Date":None,"Creator":"Study 5 marimo publication companion"} if format=="svg" else None)
+        plt.close(fig)
+        return stream.getvalue()
+
+
 def result_bundle(report,retained,sources):
     files={"analysis_report.md":markdown_report(report).encode(),
         "analysis_results.json":json.dumps(report,indent=2,allow_nan=False).encode(),
@@ -160,10 +219,15 @@ def result_bundle(report,retained,sources):
         "same_label_facilitation.svg":figure_svg(report,"same_label_at_minus_baseline").encode()}
     d=report["descriptive_sigmoids"]
     if d["status"]=="computed":
-        for measure in ("descriptive_sigmoids","sigmoid_extrapolation"):
+        for measure in ("descriptive_sigmoids","sigmoid_extrapolation","pps_shape","sigmoid_geometry"):
             files[measure+".svg"]=figure_svg(report,measure).encode()
         for key in ("parameters","comparisons","candidates"):
             files["descriptive_sigmoid_"+key+".csv"]=as_table(d[key])
+        a=d["shape_audit"]
+        for key in ("original_geometry","visible_geometry","visible_parameters","visible_candidates","linear_candidates"):
+            files["pps_shape_"+key+".csv"]=as_table(a[key])
+        files["pps_shape_nested_prediction.csv"]=as_table(a["nested_prediction"]["scores"])
+        files["pps_shape_raw_curvature.csv"]=as_table(a["raw_curvature"]["rows"])
     for key in ("participant_quality","supplementary_contrasts","sigmoid_summary","sigmoid_fits",
                 "repeated_measures_anova","group_curves","order_sensitivities","questionnaire_descriptives",
                 "group_sigmoid_descriptions"):
@@ -174,7 +238,7 @@ def result_bundle(report,retained,sources):
             model_rows.append(dict(model,category=category))
             coefficient_rows.extend(dict(row,model=model["name"],category=category) for row in model.get("coefficients",[]))
     files["models.csv"]=as_table(model_rows);files["coefficients.csv"]=as_table(coefficient_rows)
-    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py")}
+    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py","sigmoid_shape.py")}
     files.update({"analysis_source/"+name:content for name,content in source_code.items()})
     manifest={"analysis_version":report["analysis_version"],"status":report["status"],
         "source_sha256":dict(zip(FILES,[sha256(b).hexdigest() for b in sources])),

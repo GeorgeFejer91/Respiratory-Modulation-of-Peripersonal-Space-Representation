@@ -12,13 +12,19 @@ records cross-runtime likelihood/coefficient agreement and nonlinear-bound
 diagnostic differences. `study5-preprint.pdf` is the
 compiled working draft, with source/PDF/browser-ZIP hashes in `preprint_manifest.json`.
 
-The descriptive extension includes all 320 candidate scores/parameters, four
-selected group midpoints/widths/slopes, 1,000 participant bootstrap resamples
-summarized as conditional intervals and bands, paired descriptive contrasts,
-and method/coordinate/bound sensitivity. It does not replace the original
-participant fit gate. `sigmoid-independent-validation.json` records independent
-kernel-smoothing and continuously optimized sigmoid checks. Cross-runtime
-comparison covers every descriptive numeric value at tolerance 1e-8.
+The extension includes 320 original and 320 constrained sigmoid pipelines plus
+160 equally processed lines; six nested outer participant folds with all inner
+selection scores; unsmoothed curvature tests; and 1,000 participant bootstrap
+refits per selected sigmoid family. All four constrained curves visibly bend,
+but active constraints and weak predictive support leave the data-supported PPS
+goal unresolved. Centered observations and normalized model geometry are separate
+figures. The original participant fit gate is retained.
+
+`sigmoid-independent-validation.json` records independent kernel, continuous
+sigmoid and Hotelling checks. Cross-runtime comparison covers every descriptive
+and shape-audit number at tolerance 1e-8. Candidate records are matched by method
+identity because mathematically tied linear projections can reorder by roundoff;
+selected methods must match exactly and any ranking changes must be score ties.
 
 Regenerate only from an actual browser download using
 `analysis/prepare_publication.py`; follow `workbook/README.md` for PDF preparation.

@@ -422,7 +422,7 @@ def analyze(people,trials,progress=None):
             "sd":float(values.std(ddof=1)) if len(values)>1 else None,"median":float(np.median(values)) if len(values) else None})
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
-    report={"analysis_version":"1.1","status":"reproducible analysis draft for author review",
+    report={"analysis_version":"1.2","status":"reproducible analysis draft for author review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
@@ -445,6 +445,7 @@ def analyze(people,trials,progress=None):
             "Same-SOA-label Baseline subtraction is not a verified cue-time-matched contrast.",
             "Sigmoid bounds are an explicit reimplementation; saturated R² ceilings independently bound viability.",
             "Four post hoc group sigmoid approximations use one selected extraction/smoothing/fitting pipeline. They do not supply participant boundary inference; bootstrap intervals condition on the chosen method.",
+            "The PPS-shape extension compares explicit measured-range shape constraints with equally processed lines using nested participant prediction. Imposed S shapes do not establish empirical curvature or physiological boundaries.",
             "JZS paired-contrast Bayes factors are exploratory and are not a mixed-model Bayes factor."]}
     notify("Analysis complete")
     return report,retained

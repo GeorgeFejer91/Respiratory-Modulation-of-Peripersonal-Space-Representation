@@ -9,19 +9,21 @@ Maintain a self-contained Overleaf draft reconciled to an actual 42-person brows
 run. The project owner authorised public release of the deidentified data and
 confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
 
-The current analysis goal is to obtain four uniformly estimated descriptive
-sigmoid approximations (Control/Viscereality × Exhale/Inhale), with explicit
-midpoints, widths and midpoint derivatives, using justified signal extraction
-and smoothing where useful. Compare candidate methods and retain their complete
-audit. Complete the Results section from the resulting browser run. Distinguish
-descriptive regularized shape estimates from the original participant-level fit
-gate and from evidence for a physiological PPS boundary.
+The active goal is to extend the analysis to four sigmoid transitions
+characteristic of peripersonal-space experiments (Control/Viscereality ×
+Exhale/Inhale): visible lower and upper bends within the sampled range, an
+interpretable midpoint, and measurable steepness. Use a uniform, scientifically
+justified extraction/smoothing/fitting procedure; evaluate predictive performance
+against equally processed lines and inspect the figures visually. Report when
+the measurements do not support the desired shape. An imposed S shape or a
+sigmoid that appears only after extrapolation does not complete this goal.
 
-This four-curve goal is computationally achieved: 320 uniform candidates and
-1,000 participant bootstrap draws run in Pyodide; the selected winsorized/Gaussian
-pipeline supplies all four nonflat group curves. The Results and figures derive
-from that browser download. Preserve the broad-uncertainty, post hoc and
-extrapolation qualifications when continuing the paper.
+The earlier 320-pipeline analysis produced four computable descriptive curves,
+but all four 10–90% transitions exceed the measured range. That computational
+milestone does not satisfy the new shape requirement. Maintain the full method
+audit and uncertainty, run the extension in the browser, and reconcile the Results
+to the actual browser download. The original participant fit gate and the evidence
+needed for a physiological PPS boundary remain separate.
 
 ## Non-goals
 

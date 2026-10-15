@@ -57,6 +57,10 @@ jobs:
           assert report["descriptive_sigmoids"]["candidate_count"] == 320
           assert len(report["descriptive_sigmoids"]["parameters"]) == 4
           assert all(not r["flat_unidentified"] for r in report["descriptive_sigmoids"]["parameters"])
+          shape = report["descriptive_sigmoids"]["shape_audit"]
+          assert len(shape["visible_candidates"]) == 320 and len(shape["linear_candidates"]) == 160
+          assert all(r["visible_transition"] for r in shape["visible_geometry"])
+          assert len(shape["nested_prediction"]["outer_folds"]) == 6
           print(f"Executed workbook successfully: {len(outputs)} outputs")
           PY
       - name: Independent numerical validation

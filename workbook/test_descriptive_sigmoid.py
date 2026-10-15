@@ -1,12 +1,14 @@
 """Scientific behavior checks for the descriptive extraction and sigmoid model."""
 
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 from scipy import optimize
 
 from descriptive_sigmoid import (ProfileGrid, extract_cells, parameter_rows,
-                                 predict, smooth, smoother_specs)
+                                 predict, smooth, smoother_specs, fit_line, predict_line)
+from sigmoid_shape import geometry, curvature_test, nested_prediction
 
 
 class DescriptiveSigmoidTests(unittest.TestCase):
@@ -60,6 +62,44 @@ class DescriptiveSigmoidTests(unittest.TestCase):
         self.assertAlmostEqual(row["midpoint_slope_ms_per_cm"],derivative,places=8)
         self.assertAlmostEqual(row["transition_10_90_cm"],2*np.log(9)*18)
         self.assertEqual(row["midpoint_cm"],55.)
+
+    def test_visible_geometry_rejects_nearly_linear_and_unsampled_steps(self):
+        x=np.array([0.,17/90,40/90,63/90,1.])
+        for width,expected in ((1.,False),(.1,True),(.001,False)):
+            p=np.array([[600.,20.,.5,width]])
+            self.assertEqual(geometry(p,x)[0]["visible_transition"],expected)
+        self.assertFalse(geometry(np.array([[600.,0.,.5,.1]]),x)[0]["visible_transition"])
+
+    def test_visible_constraint_preserves_flat_outcome_and_recovers_real_transition(self):
+        x=np.array([0.,17/90,40/90,63/90,1.])
+        grid=ProfileGrid(fine=True,visible=True)
+        signal=predict(np.array([[600.,20.,.5,.1]]),x)
+        fit=grid.fit(x,signal)
+        self.assertTrue(geometry(fit,x)[0]["visible_transition"])
+        self.assertLess(np.max(np.abs(predict(fit,x)-signal)),.1)
+        self.assertEqual(grid.fit(x,np.array([5-3*x]))[0,1],0.)
+
+    def test_fair_line_fit_recovers_affine_curve_and_curvature_test_ignores_offsets(self):
+        x=np.array([0.,17/90,40/90,63/90,1.])
+        y=np.array([600+20*x,650-5*x])
+        np.testing.assert_allclose(predict_line(fit_line(x,y),x),y,atol=1e-10)
+        raw=np.random.default_rng(2026).normal(0,5,(42,4,5))
+        a,b=curvature_test(raw,x),curvature_test(raw+500+12*x,x)
+        np.testing.assert_allclose([r["f"] for r in a["rows"]],[r["f"] for r in b["rows"]],atol=1e-10)
+
+    def test_outer_test_outcomes_cannot_change_inner_pipeline_selection(self):
+        x=np.array([0.,17/90,40/90,63/90,1.])
+        cube=np.random.default_rng(9).normal(600,20,(12,4,5))
+        ids=[str(i) for i in range(12)]
+        # Limit only the candidate catalogue; exercise the real nested splitting/fitting.
+        with patch("descriptive_sigmoid.smoother_specs",return_value=[("none",0.)]):
+            before=nested_prediction({"mean":cube},x,ids)
+            test=[int(i) for i in before["outer_folds"][0]["test_participant_ids"]]
+            changed=cube.copy();changed[test,:,2]+=1000
+            after=nested_prediction({"mean":changed},x,ids)
+        self.assertEqual(before["outer_folds"][0]["methods"],after["outer_folds"][0]["methods"])
+        self.assertNotEqual(before["scores"][0]["per_participant_mse"][test[0]],
+                            after["scores"][0]["per_participant_mse"][test[0]])
 
 
 if __name__=="__main__":

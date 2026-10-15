@@ -1,4 +1,18 @@
-# Four-curve descriptive sigmoid goal
+# PPS sigmoid-shape goal
+
+The current goal goes beyond obtaining four mathematical sigmoid fits: seek a
+PPS-like transition whose lower and upper bends are visible within the measured
+10–100 cm range, with an interpretable midpoint and steepness. Inspect every
+publication figure visually. Use common linear axes and centered RTs to reveal
+curvature without changing it; retain observed points, uncertainty and clear
+labels for any imposed shape or extrapolation.
+
+Numerical correctness, visible model geometry, predictive support and a
+physiological interpretation are separate requirements. A software test or a
+constraint cannot establish that the data contain an S shape. This goal remains
+open if a defensible uniform analysis cannot support the transition in all four
+conditions. The 10–90% coverage and sampling criteria used below are explicit
+post hoc diagnostics, not a published universal definition of PPS.
 
 The owner explicitly requested a broad investigation of signal extraction,
 local/kernel smoothing and smooth approximations, with a uniform analysis yielding
@@ -28,6 +42,106 @@ fit-gated boundary analysis remain identifiable as their original analyses.
   to tuning/bounds. Identify model-dependent extrapolation beyond sampled support.
 - Complete the paper's Results from these exact outputs and make the full
   extension executable/downloadable in the marimo browser workbook.
+
+## Stronger measured-range audit
+
+The new `sigmoid_shape.py` module separates geometry from empirical support.
+The geometry criterion requires all of the following: the fitted 10–90%
+transition lies within 10–100 cm; at least two observed positions are strictly
+below and two above the midpoint; at least one position lies in the 20–80%
+transition; maximum departure from a fitted line on a uniform 181-point display
+grid is at least 5% of the curve's fitted observed-range change; amplitude is
+nonflat. These are post hoc sampling/display criteria, not literature-derived
+physiological thresholds. The display grid is never additional fit data.
+
+None of the original 320 pipelines met these criteria in all four curves.
+Restricting the profile grid to allowed shapes adds 320 sensitivity pipelines;
+the five extraction methods and 32 smoothers also produce 160 fair linear
+comparators. All models retain the same people, cleaning, target and equal
+person weights. Shape constraints use the known design, never held-out outcomes.
+No participant or position is discarded to obtain an S shape. A flat amplitude
+remains allowed even in the restricted family.
+
+The restricted winner is `trim10/gaussian_isotonic/0.15/separate`: 10% per-tail
+trimmed participant cells, 13.5-cm Gaussian local-constant smoothing, increasing
+isotonic projection, and identical restricted bounds for four separate widths.
+Its tuning RMSE is 47.086 ms; the best tuned line scores 47.178 ms. Conditional
+whole-participant bootstrap intervals use 1,000 resamples, with the same resampled
+people in all four groups. Width-floor and midpoint-sampling-limit hits are
+reported. Method selection is not repeated inside these conditional intervals.
+
+| Curve | Midpoint (cm) | Width (cm) | Midpoint slope (ms/cm) | Active constraint |
+| --- | ---: | ---: | ---: | --- |
+| Control / Exhale | 56.125 | 4.500 | .9194 | Width floor |
+| Control / Inhale | 72.625 | 8.505 | .4234 | Midpoint sampling limit |
+| Viscereality / Exhale | 69.250 | 4.500 | .7733 | Width floor |
+| Viscereality / Inhale | 30.625 | 4.500 | .6310 | Width floor |
+
+### Prediction and observed curvature
+
+Six outer participant folds (seed 20261026) each repeat pipeline selection inside
+their training set. Five inner participant folds are crossed with five omitted
+positions. Outer predictions fit the selected method on the training participants
+at the other four positions. Inner selection sees all positions in training
+people; this tests prediction for new people at the known design, not a new
+experimental design. Errors are averaged with participant-count weights. Every
+inner candidate score and outer test-person ID is retained in the JSON report.
+
+| Family | Outer prediction RMSE (ms) |
+| --- | ---: |
+| Original logistic | 47.772 |
+| Restricted visible logistic | 47.634 |
+| Equally processed/tuned line | 47.701 |
+| Constant shape | 47.437 |
+
+The visible sigmoid slightly improves on tuned lines but does not improve on
+the constant. Family development remains post hoc; training sets overlap and
+folds are not independent significance-test replicates. The source also tests
+raw, unsmoothed participant means using the three contrasts orthogonal to a line.
+Hotelling tests assume independent people, multivariate-normal contrasts and a
+nonsingular covariance. Holm-adjusted p values across four curves are .215,
+1.000, 1.000 and 1.000. These assess any nonlinearity, not specifically sigmoid
+shape; non-detection does not prove a linear population response.
+
+### Figure requirement and goal status
+
+The centered RT figure uses common linear x/y axes, all five raw and extracted
+points, conditional bootstrap bands and the tuned line. Each data series and
+model is centered on its corresponding five-position summary mean; each bootstrap
+draw is recentered in the same way. This additive shift preserves curvature.
+The companion geometry-only figure uses a common 0–1 asymptotic-amplitude scale
+and explicitly displays no observations or uncertainty on that scale. Both
+figures retain constraint warnings and were visually inspected. The old broad
+fits and their extrapolation remain available separately.
+
+Four visibly S-shaped approximations have been obtained under explicit
+constraints. **The goal of data-supported PPS-like sigmoids remains unresolved.**
+Active constraints, weak outer prediction and uncertain unsmoothed curvature
+prevent treating these as established physiological boundaries. More densely
+sampled transitions and plateaus, independently specified processing, and
+expectancy-matched controls would strengthen a future test. Log-distance models
+are also a literature-motivated future comparison; they have not been tested in
+this extension and would not establish a sigmoid by themselves.
+
+### PPS-specific online evidence checked
+
+The owner’s multi-source-web-search skill was installed and used. Actual source
+lanes were PubMed indexed records/abstracts and public author/official software
+repositories via GitHub. No Consensus MCP or general web-search provider was
+available. PubMed broad and narrowing searches were followed by specific title
+retrieval; unrelated search matches were discarded. PMC/publisher full texts
+could not be read in this run (network restrictions or challenge pages). This is
+an abstract-and-source-code review, not a systematic full-text review or a claim
+of field-wide consensus. Retrieval hashes and scope are in
+[the literature evidence ledger](./sigmoid_literature_sources.json).
+
+| Source | Inspected evidence | What it supports / qualifies |
+| --- | --- | --- |
+| [Canzoneri, Magosso & Serino (2012)](https://doi.org/10.1371/journal.pone.0044306) | PubMed indexed abstract | Dynamic audiotactile distance effects and boundary estimation motivate the research question; does not validate our smoothing or thresholds. |
+| [Noel et al. (2020)](https://doi.org/10.1093/cercor/bhaa103) | PubMed indexed abstract | Reports sigmoid facilitation and rapid recalibration in a visuotactile paradigm; relevant precedent, not proof for these audiotactile data. |
+| [Hobeika et al. (2020)](https://doi.org/10.1016/j.jneumeth.2019.108534) | PubMed indexed abstract | Fixed-distance expectancy control and logarithmic sampling; reports a logarithmic distance effect and explicitly questions mandatory sigmoid fitting. Our released design does not supply that control. |
+| [Holmes et al. (2020)](https://doi.org/10.1007/s00221-020-05771-5) | PubMed indexed abstract | Four experiments and meta-analysis report mixed support, small effects, expectancy/control and flexible-analysis concerns. |
+| [Straka, Noel & Hoffmann (2022), author code](https://github.com/ctu-vras/pps-normative-model/blob/main/FN_std_PPS_properties.m) | Full source file and repository README | Impact-prediction model summarizes transition location and slope, supporting descriptive summaries beyond one particular fit. It neither supplies empirical Study 5 evidence nor validates imposed S shapes. |
 
 ## Selection rule and interpretation
 

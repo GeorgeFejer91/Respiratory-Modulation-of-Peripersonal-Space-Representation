@@ -44,6 +44,7 @@ def build(output, development=False):
         (data_dir/"sha256.json").write_text(json.dumps(expected,indent=2)+"\n")
         for name in ("ANALYSIS_PLAN.md","DATA_RELEASE.md","SIGMOID_EXPLORATION.md"):
             shutil.copyfile(notebook.parent/name,target/name)
+        shutil.copyfile(root/"analysis/sigmoid_literature_sources.json",target/"sigmoid_literature_sources.json")
         if development:
             # Run the changed engine in a real browser before a new reference/PDF exists.
             # Never copy stale publication records into this development artifact.

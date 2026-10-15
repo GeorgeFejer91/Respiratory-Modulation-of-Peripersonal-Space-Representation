@@ -43,11 +43,57 @@ def promote(path):
             ("same_label_facilitation.svg", "same_label_at_minus_baseline", "study5_delay_matched_facilitation.png"),
             ("descriptive_sigmoids.svg", "descriptive_sigmoids", "study5_descriptive_sigmoids.png"),
             ("sigmoid_extrapolation.svg", "sigmoid_extrapolation", "study5_sigmoid_extrapolation.png"),
+            ("pps_shape.svg", "pps_shape", "study5_pps_shape.png"),
+            ("sigmoid_geometry.svg", "sigmoid_geometry", "study5_sigmoid_geometry.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
     write_text(report)
     print("Promoted verified browser report, tables, figures and manuscript statistics.")
+
+
+def shape_results(d):
+    a=d["shape_audit"]
+    scores={row["family"]:row["outer_rmse_ms"] for row in a["nested_prediction"]["scores"]}
+    pvalues=", ".join(f"{row['p_holm']:.3f}" for row in a["raw_curvature"]["rows"])
+    intervals="; ".join(f"[{row['midpoint_cm_conditional_bootstrap_low']:.2f}, {row['midpoint_cm_conditional_bootstrap_high']:.2f}]" for row in a["visible_parameters"])
+    table="\n".join(f"{r['condition']} & {r['phase']} & {r['midpoint_cm']:.2f} & {r['width_cm']:.2f} & {r['midpoint_slope_ms_per_cm']:.4f} & {'Yes' if r['width_at_bound'] else 'No'} \\\\" for r in a["visible_parameters"])
+    return rf"""\subsection{{Measured-range PPS shape and predictive support}}
+
+The stronger exploratory goal required a visible transition within the observed range, rather than a sigmoid that is nearly linear over that range. None of the {d['candidate_count']} original pipelines met all measured-range criteria in all four curves. An additional {len(a['visible_candidates'])} pipelines imposed those criteria, while {len(a['linear_candidates'])} linear pipelines received the same extraction and smoothing options. The lowest-scoring constrained method used 10\% per-tail trimming, a Gaussian bandwidth of 13.5~cm, increasing isotonic projection and separate logistic widths. Its tuning RMSE was {a['visible_tuning_rmse_ms']:.3f}~ms, versus {a['linear_tuning_rmse_ms']:.3f}~ms for the tuned linear family. These are method-selection scores.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{llrrrr}}
+\hline
+Condition & Phase & Midpoint (cm) & Width (cm) & Slope (ms/cm) & Width floor \\
+\hline
+{table}
+\hline
+\end{{tabular}}
+\caption{{Imposed-shape descriptive estimates. A visible transition is enforced by the model constraints; it is not an empirical finding. Conditional intervals and constraint-hit frequencies are provided in the companion.}}
+\end{{table}}
+
+Three of the four width estimates reached the 4.5-cm minimum, and the Control/Inhale midpoint reached the upper sampling constraint. Conditional 95\% midpoint intervals, in table order, were {intervals}~cm. These intervals are truncated by the shape restrictions and exclude flat resamples; they do not establish stable physiological boundaries.
+
+Six outer participant folds repeated the complete pipeline selection inside each training set, using five inner participant folds crossed with omitted positions. Outer RMSE was {scores['logistic']:.3f}~ms for the original sigmoid family, {scores['visible']:.3f}~ms for the constrained family, {scores['linear']:.3f}~ms for tuned lines and {scores['constant']:.3f}~ms for a constant. The constrained curve's small advantage over tuned lines did not extend to the constant benchmark. These exploratory estimates address new participants at the known design positions; overlapping training sets and post hoc family development preclude a confirmatory model-superiority claim.
+
+A separate unsmoothed participant-level test projected each five-position curve onto the three contrasts orthogonal to an intercept and distance. Hotelling tests of these nonlinear components gave Holm-adjusted $p$ values of {pvalues}, in table order. This test concerns any nonlinearity, not specifically a sigmoid, and assumes multivariate-normal participant contrasts. Failure to detect curvature does not prove linearity. Together, the predictive results and active constraints leave the data-supported PPS-shape goal unresolved, despite obtaining four visibly S-shaped model approximations.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_pps_shape.png}}
+\caption{{\textbf{{Measured-range PPS-shaped sensitivity.}} Common linear axes preserve between-curve scale comparisons. Raw means (open circles), trimmed summaries (black points), fitted curves and the tuned line are each centered on their corresponding five-position mean; subtracting a constant cannot create curvature. Bands resample participants jointly, refit the constrained model and recenter each draw. They condition on the selected extraction and shape restrictions. Asterisks mark active width or midpoint constraints. All five observed positions remain visible.}}
+\label{{study5:fig:pps_shape}}
+\end{{figure}}
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_sigmoid_geometry.png}}
+\caption{{\textbf{{Fitted shape separated from empirical support.}} The vertical axis normalizes each fitted asymptotic RT change to 0--1. Colored lines show the imposed-shape family; dashed gray lines retain the original best-score family. This diagnostic displays model geometry only, without observations or empirical uncertainty on this scale. It shows why the original curves did not display both plateaus within the measured range, and how explicit constraints produce an S shape. It is not additional evidence for that shape in the measurements.}}
+\label{{study5:fig:sigmoid_geometry}}
+\end{{figure}}
+"""
 
 
 def write_text(r):
@@ -74,8 +120,8 @@ def write_text(r):
     abstract = abstract.replace(f"{c['retained_at']:,}", f"{c['retained_at']:,}".replace(",", "{,}"))
     abstract = abstract.replace("Boundary, sharpness, and boundary-related questionnaire inference therefore remained unestimated.",
         "Participant-boundary and boundary-related questionnaire inference therefore remained unestimated. "
-        "A separate post hoc search across 320 uniform extraction/smoothing pipelines produced four descriptive group sigmoids, with midpoint and steepness estimates. "
-        "The selected winsorized, Gaussian-kernel-smoothed curves had broad bootstrap uncertainty and only a small prediction-score advantage over a line; their extrapolated asymptotes do not establish physiological boundaries.")
+        "A separate post hoc comparison of 800 uniformly processed sigmoid and linear pipelines produced four explicit shape-constrained approximations. "
+        "Their visible S shapes were imposed; nested participant prediction did not improve on a constant, and unsmoothed curvature tests did not establish nonlinearity. Midpoint and steepness estimates remain assumption-dependent descriptions.")
     results = rf"""\section{{Results}}
 
 \subsection{{Released cohort and response quality}}
@@ -154,6 +200,8 @@ The fitted 10--90\% transition spans were {widths}~cm, each exceeding the sample
 \caption{{\textbf{{Four uniformly estimated descriptive sigmoids.}} Open gray circles are raw participant-weighted means; black points are participant-weighted winsorized cell summaries; crosses show Gaussian-kernel-smoothed summaries. Solid curves are logistic approximations fitted to the five smoothed design points, with no interpolated observations added to the fit. Vertical dotted lines mark the fitted midpoints. Bands are pointwise participant-bootstrap percentiles conditional on the selected pipeline, including flat resamples. The full search, parameter uncertainty, and model extrapolations are available in the browser companion.}}
 \label{{study5:fig:descriptive_sigmoids}}
 \end{{figure}}
+
+{shape_results(d)}
 
 \subsection{{Baseline, sound, and order diagnostics}}
 

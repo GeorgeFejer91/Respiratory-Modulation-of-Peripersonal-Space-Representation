@@ -108,11 +108,15 @@ stale reference record and PDF. Run/download the new analysis in the browser,
 promote it, rebuild/review/archive the PDF, then run the default release build.
 The default build still requires all engine/reference/paper hashes to match.
 
-The [descriptive sigmoid extension](SIGMOID_EXPLORATION.md) searches 320 uniform
-pipelines and produces four midpoint/width/slope estimates with participant
-bootstrap uncertainty. The workbook exposes the complete ranking, paired
-comparisons and clearly marked extrapolations. These group approximations remain
-distinct from participant boundary inference under the original fit gate.
+The [PPS sigmoid-shape extension](SIGMOID_EXPLORATION.md) compares 320 original
+sigmoid pipelines, 320 explicitly shape-constrained pipelines and 160 equally
+processed lines. It reports four midpoint/width/slope estimates per sigmoid
+family, conditional participant-bootstrap uncertainty, nested participant
+prediction and unsmoothed curvature tests. Centered data plots and normalized
+model-only plots expose the difference between visible geometry and empirical
+support. The latter remains weak in the reference dataset; four imposed S shapes
+do not establish physiological boundaries. Full rankings, inner selection scores,
+comparisons, constraints and extrapolations are downloadable.
 
 ## Publish on GitHub Pages
 

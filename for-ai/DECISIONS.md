@@ -79,7 +79,7 @@ decision and link both entries.
 ## D-0005 — Uniform descriptive sigmoid extension
 
 - Date: 2026-10-15
-- Status: Accepted
+- Status: Accepted; computational completion criterion superseded by D-0006
 - Context: The owner explicitly requested broad signal extraction and smoothing
   to obtain four descriptive sigmoids with midpoint/steepness comparisons and
   complete the Results, even if participant-level boundary inference fails.
@@ -92,3 +92,17 @@ decision and link both entries.
   extrapolated plateaus prevent a precise physiological-boundary claim.
 - Supersedes: Any reading of D-0004 that would prevent this expressly authorized
   descriptive extension. Its participant inference gate and privacy rules remain.
+
+## D-0006 — Visible, supported PPS-like transition
+
+- Date: 2026-10-15
+- Status: Accepted
+- Context: The owner requires visible sigmoid curvature rather than a fitted
+  sigmoid that looks linear, and extends the goal to a characteristic PPS shape.
+- Decision: Assess measured-range transition coverage, midpoint sampling,
+  curvature, equally processed linear prediction and visual figure quality.
+  Evaluate explicit shape constraints as a labeled sensitivity; never count
+  enforced geometry as empirical support. Retain unsuccessful alternatives.
+- Consequences: Four computational curves alone no longer complete the goal.
+  Report an unresolved scientific goal when the observed data do not support it.
+- Supersedes: D-0005's claim that computable curves alone achieve completion.

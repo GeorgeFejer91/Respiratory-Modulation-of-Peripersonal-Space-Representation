@@ -51,6 +51,7 @@ def _(mo):
     [Working preprint · author-review draft](./paper.pdf) ·
     [Analysis contract](./ANALYSIS_PLAN.md) · [Data release record](./DATA_RELEASE.md) ·
     [Descriptive sigmoid methods and sources](./SIGMOID_EXPLORATION.md) ·
+    [Literature evidence ledger](./sigmoid_literature_sources.json) ·
     [Reference browser run](./reference/browser-results.zip)
     """)
     return
@@ -209,7 +210,7 @@ def _(columns, make_bundle, mo, prepared, settings, source_bytes, stages, synthe
 def _(mo):
     run_analysis = mo.ui.run_button(label="Run complete paper analysis")
     mo.vstack([
-        mo.md("## 7 · Reproduce the paper analysis\nThe complete run performs participant-wide mean ±2.5-SD RT trimming, ML mixed models, cohort/coding/scale sensitivities, cluster-robust models, participant contrasts, repeated-measures ANOVA, sigmoid gates, missing-RT stress tests, and a 320-pipeline descriptive sigmoid search with 1,000 participant bootstrap resamples. Preview filters above do not affect this run."),
+        mo.md("## 7 · Reproduce the paper analysis\nThe complete run performs participant-wide mean ±2.5-SD RT trimming, ML mixed models, cohort/coding/scale sensitivities, cluster-robust models, participant contrasts, repeated-measures ANOVA, sigmoid gates, missing-RT stress tests, and an 800-pipeline shape comparison: 320 original sigmoids, 320 shape-constrained sigmoids and 160 equally processed lines. It includes nested participant prediction and 1,000 participant bootstrap resamples for each selected sigmoid family. Preview filters above do not affect this run."),
         mo.callout("A full run computes in this browser. Source recordings and private acquisition metadata cannot be reconstructed from the CSVs; those checks are explicitly marked unavailable. Models and tables are a reproducible draft for author review.",kind="info"),
         run_analysis,
     ])
@@ -263,13 +264,25 @@ def _(figure_svg, mo, paper_results):
 def _(figure_svg, mo, paper_results):
     _d = paper_results["descriptive_sigmoids"]
     mo.stop(_d["status"] != "computed", mo.callout(_d.get("reason", "Descriptive curves unavailable."), kind="warn"))
+    _a = _d["shape_audit"]
     mo.vstack([
         mo.md(f"## 10 · Four descriptive sigmoid curves\nAll four curves use **{_d['selected_method']}**, selected uniformly from **{_d['candidate_count']} pipelines**. Each person has equal weight. These post hoc approximations describe the extracted RT summaries; the original participant fit gate remains separate."),
         mo.md("**Midpoint m** locates half of the fitted asymptotic RT change. **Width s** controls the transition: smaller s means a steeper curve. It is a logistic scale, not a Gaussian standard deviation. The RT slope at the midpoint is amplitude/(4s)."),
+        mo.md("### New goal: a visible, data-supported PPS transition\nThe goal now requires both bends inside the measured range, adequate sampling around the midpoint, fair predictive comparisons, and visual inspection. A mathematical sigmoid alone does not meet it."),
+        mo.Html(figure_svg(paper_results,"pps_shape")),
+        mo.Html(figure_svg(paper_results,"sigmoid_geometry")),
+        mo.callout(f"The shape-constrained method is {_a['visible_method']}. These S shapes are imposed by explicit criteria. {_a['original_candidates_with_four_visible_transitions']}/{_d['candidate_count']} original pipelines met those criteria in all four curves. Compare the outer prediction errors below before interpreting a physiological boundary.",kind="warn"),
+        mo.ui.table([{k:v for k,v in r.items() if k in ("family","outer_rmse_ms")} for r in _a["nested_prediction"]["scores"]],selection=None,pagination=False,label="Nested participant prediction; lower error is better"),
+        mo.ui.table(_a["visible_parameters"],selection=None,pagination=False,label="Imposed-shape estimates and conditional uncertainty"),
+        mo.md("### Original unconstrained-shape search\nThe following broad sigmoids and their uncertainty retain the original best-score result for comparison."),
         mo.Html(figure_svg(paper_results,"descriptive_sigmoids")),
         mo.ui.table([{k:r[k] for k in ("condition","phase","midpoint_cm","width_cm","midpoint_slope_ms_per_cm","midpoint_cm_conditional_bootstrap_low","midpoint_cm_conditional_bootstrap_high","bootstrap_flat_fraction","bootstrap_midpoint_bound_fraction")} for r in _d["parameters"]],selection=None,pagination=False,label="Midpoint, width and steepness; conditional bootstrap intervals"),
         mo.callout(f"Prediction-error tuning score: {_d['selected_tuning_rmse_ms']:.3f} ms; straight-line benchmark: {_d['validation']['linear_shape_rmse_ms']:.3f} ms. The improvement is small. Five sampled positions cannot establish the full S shape or its asymptotes. Bootstrap intervals condition on this selected method and nonflat draws; flat and boundary-hit fractions are reported explicitly.",kind="warn"),
         mo.accordion({
+            "Shape criteria and measured-range diagnostics":mo.json({k:_a[k] for k in ("criteria","original_geometry","visible_geometry","interpretation")}),
+            "Nested prediction and all inner selection scores":mo.json(_a["nested_prediction"]),
+            "Unsmoothed curvature test · any nonlinearity, not specifically sigmoid":mo.vstack([mo.md(_a["raw_curvature"]["method"]),mo.ui.table(_a["raw_curvature"]["rows"],selection=None)]),
+            "320 shape-constrained and 160 tuned-linear candidates":mo.ui.table([{k:v for k,v in r.items() if k not in ("parameters","fold_rmse_ms")} for r in _a["visible_candidates"]+_a["linear_candidates"]],selection=None,page_size=10),
             "Full sigmoid extrapolation · model assumptions outside the data":mo.Html(figure_svg(paper_results,"sigmoid_extrapolation")),
             "All 320 extraction/smoothing candidates":mo.ui.table([{k:v for k,v in r.items() if k not in ("parameters","fold_rmse_ms")} for r in _d["candidates"]],selection=None,page_size=10),
             "Paired descriptive midpoint and steepness comparisons":mo.ui.table(_d["comparisons"],selection=None),
@@ -308,7 +321,7 @@ def _(mo, paper_results):
 def _(markdown_report, mo, paper_results, paper_retained, result_bundle, source_bytes):
     analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
     mo.vstack([
-        mo.md("## 12 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, curve/sigmoid/ANOVA tables, all 320 descriptive candidate scores, four-curve midpoint/steepness comparisons, publication SVGs, and source/output hashes. All files are generated from this run."),
+        mo.md("## 12 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, curve/sigmoid/ANOVA tables, all 800 candidate scores, nested prediction, measured-range shape checks, four-curve midpoint/steepness comparisons, publication SVGs, and source/output hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])

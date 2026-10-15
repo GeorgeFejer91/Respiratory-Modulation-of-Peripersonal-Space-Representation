@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "8af030387ba129ef7e8eb79d6dfabeb6716516a6cdd5ce07134531bf66589083",
+  "browser_zip_sha256": "e69b65c3211ca99f82d99211c75aac66eee6b0b0a9a7876ed0581b4dfde04532",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -141,9 +141,10 @@
   "descriptive_sigmoids": {
     "candidate_count": 320,
     "bootstrap_draws": 1000,
-    "numeric_values_compared": 16588,
+    "numeric_values_compared": 41976,
     "max_absolute_numeric_error": 1.170050722976157e-10,
-    "scope": "Every descriptive result value, including all candidates, intervals, comparisons, sensitivity and prediction bands"
+    "tied_candidate_lists_reordered": 7,
+    "scope": "Every descriptive and PPS-shape result value, including all 800 candidates, nested inner scores, intervals and bands. Candidate records matched by unique method; any ranking change must be a score tie within 1e-8. Selected method labels must match exactly."
   },
   "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive value within 1e-8; legacy nonlinear-bound diagnostics may differ"
 }

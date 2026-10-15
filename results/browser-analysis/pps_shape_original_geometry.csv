@@ -1,0 +1,5 @@
+condition,phase,nonflat,near_fraction,far_fraction,positions_below_midpoint,positions_above_midpoint,positions_in_20_80_transition,relative_departure_from_line,visible_transition
+Control,Exhale,True,0.14897954299688013,0.6915890833991871,3,2,4,0.06193908832448403,False
+Control,Inhale,True,0.1164353526416891,0.5220143263328328,4,1,3,0.07827299069558459,False
+Viscereality,Exhale,True,0.1129054901809829,0.619820325174989,4,1,3,0.08266681499942816,False
+Viscereality,Inhale,True,0.3761192534910885,0.9210142736079671,1,4,3,0.10578558331212205,False

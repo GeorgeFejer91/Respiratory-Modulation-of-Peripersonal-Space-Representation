@@ -35,5 +35,28 @@
       "grid_width_cm": 30.382194244336826,
       "prediction_grid_vs_continuous_max_error_ms": 0.0034095760878471992
     }
+  ],
+  "curvature_reference": "statsmodels test_mvmean with independent SVD contrast basis",
+  "curvature_checks": [
+    {
+      "curve": 0,
+      "f_error": 5.773159728050814e-15,
+      "p_error": 1.3183898417423734e-16
+    },
+    {
+      "curve": 1,
+      "f_error": 4.6629367034256575e-15,
+      "p_error": 3.4416913763379853e-15
+    },
+    {
+      "curve": 2,
+      "f_error": 3.3306690738754696e-15,
+      "p_error": 1.6653345369377348e-15
+    },
+    {
+      "curve": 3,
+      "f_error": 2.1094237467877974e-15,
+      "p_error": 1.1102230246251565e-15
+    }
   ]
 }

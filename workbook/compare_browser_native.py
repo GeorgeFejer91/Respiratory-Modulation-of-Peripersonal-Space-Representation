@@ -29,6 +29,7 @@ def compare(native_path, browser_directory):
         out["sigmoid_diagnostics"].append({"axis":a["axis"],"level":a["level"],
             "r2_pass_cells":a["r2_pass_cells"],"native_bound_hits":a["bound_hit_cells"],"browser_bound_hits":z["bound_hit_cells"]})
     numeric_errors=[]
+    tied_order_lists=[]
 
     def walk(a,z):
         if isinstance(a,dict):
@@ -36,6 +37,16 @@ def compare(native_path, browser_directory):
             for k in a:walk(a[k],z[k])
         elif isinstance(a,list):
             if len(a)!=len(z):raise AssertionError("Descriptive list length mismatch.")
+            if a and all(isinstance(r,dict) and "method" in r for r in a+z):
+                if len({r["method"] for r in a})!=len(a) or len({r["method"] for r in z})!=len(z):
+                    raise AssertionError("Duplicate method identity.")
+                # Curvature penalties preserve linear projections: exact ties can reorder by roundoff.
+                if [r["method"] for r in a]!=[r["method"] for r in z]:
+                    score="tuning_rmse_ms" if "tuning_rmse_ms" in a[0] else "rmse_ms"
+                    if any(abs(u[score]-v[score])>1e-8 for u,v in zip(a,z)):
+                        raise AssertionError("Candidate ranking differs beyond roundoff.")
+                    tied_order_lists.append(len(a))
+                a,z=sorted(a,key=lambda r:r["method"]),sorted(z,key=lambda r:r["method"])
             for u,v in zip(a,z):walk(u,v)
         elif isinstance(a,(int,float)) and not isinstance(a,bool):
             numeric_errors.append(abs(a-z))
@@ -47,7 +58,8 @@ def compare(native_path, browser_directory):
     out["descriptive_sigmoids"]={"candidate_count":b["descriptive_sigmoids"]["candidate_count"],
         "bootstrap_draws":b["descriptive_sigmoids"]["bootstrap_draws"],
         "numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors),
-        "scope":"Every descriptive result value, including all candidates, intervals, comparisons, sensitivity and prediction bands"}
+        "tied_candidate_lists_reordered":len(tied_order_lists),
+        "scope":"Every descriptive and PPS-shape result value, including all 800 candidates, nested inner scores, intervals and bands. Candidate records matched by unique method; any ranking change must be a score tie within 1e-8. Selected method labels must match exactly."}
     out["status"]="passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive value within 1e-8; legacy nonlinear-bound diagnostics may differ"
     return out
 

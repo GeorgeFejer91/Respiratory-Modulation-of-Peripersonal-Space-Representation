@@ -53,6 +53,13 @@ continuous nonlinear least-squares fit checks the profile grid's curve predictio
 Verify all 320 tuning scores, the four selected curves, and bootstrap outputs
 against a real browser run. Preserve conditional-interval and selection limits.
 
+For the PPS-shape extension, verify all 800 candidates, six nested outer folds,
+explicit measured-range geometry, fair tuned-linear comparison and unsmoothed
+curvature diagnostics. `validate_sigmoids.py` additionally checks Hotelling
+statistics with statsmodels and an independent contrast basis. Visually inspect
+both centered-data and normalized-model figures at publication size. A visible
+curve imposed by constraints is not evidence of an observed PPS transition.
+
 Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
