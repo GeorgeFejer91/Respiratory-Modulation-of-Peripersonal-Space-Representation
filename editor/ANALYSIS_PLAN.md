@@ -74,6 +74,25 @@ curves pass the gate without parameter-bound hits. Any conditional MAIA/SpFrRef
 associations are explicitly exploratory, with their estimand and multiplicity
 reported; do not manufacture values when the gate fails.
 
+## Post hoc four-curve descriptive extension
+
+The owner subsequently requested four uniform group sigmoid approximations,
+including signal extraction and smoothing when useful. This separate analysis
+does not require the participant fit gate: it estimates descriptive group shapes,
+not participant boundaries or their questionnaire associations. Its full contract,
+scientific sources and limitations are in [SIGMOID_EXPLORATION.md](SIGMOID_EXPLORATION.md).
+
+Use the same cleaned AT trials, equal participant weights and all five positions.
+Compare 320 combinations of five cell extractions, 32 smoothers and separate/shared
+width fitting. Select one pipeline for all four curves by a common raw-mean shape
+prediction target with held-out participants and positions; retain constant and
+linear benchmarks and all alternatives. Report midpoint, logistic width, 10–90%
+span and midpoint derivative, with bounds and coordinate sensitivity. Resample
+whole participants together across the four curves 1,000 times, report flat and
+bound-hit fractions, and distinguish conditional intervals from uncertainty in
+the method search. Show observed summaries and clearly marked extrapolations.
+Do not treat smoothing/interpolation as new independent observations.
+
 ## Numerical and browser verification
 
 Profile ML uses Woodbury sufficient statistics, preserving the exact Gaussian

@@ -50,11 +50,29 @@ The Condition × Phase × numeric SOA random-intercept ML comparison gives χ²(
 | AT minus Baseline far-minus-near label contrast | 42 | 2.1083 | [-18.4429, 22.6596] | 0.836892 | 1 |
 | Pink minus white AT | 42 | -2.8577 | [-9.2964, 3.5810] | 0.375306 | 1 |
 
+## Four uniformly estimated descriptive sigmoids
+
+Selected from 320 pipelines: `winsor20/gaussian_constant/0.5/separate`. Tuning shape RMSE 47.053 ms; linear benchmark 47.317 ms; constant benchmark 47.437 ms. These are post hoc selection scores, not an independent test of sigmoid superiority. The fits describe the extracted RT summary; winsorized summaries need not equal raw means.
+
+| Condition / phase | Midpoint (cm) | Width (cm) | RT slope at midpoint (ms/cm) | Conditional midpoint interval (cm) | Flat bootstrap draws |
+| --- | ---: | ---: | ---: | --- | ---: |
+| Control / Exhale | 71.50 | 35.29 | 0.0907 | [37.56, 88.00] | 0.9% |
+| Control / Inhale | 96.25 | 42.56 | 0.0846 | [18.48, 100.00] | 8.7% |
+| Viscereality / Exhale | 82.75 | 35.29 | 0.0900 | [31.82, 100.00] | 3.2% |
+| Viscereality / Inhale | 25.38 | 30.38 | 0.0686 | [10.00, 93.32] | 8.7% |
+
+width is logistic scale, not a Gaussian SD; normalized midpoint steepness = 1/(4*width), RT derivative = amplitude/(4*width), 10–90% span = 2*ln(9)*width.
+
+Participant cluster percentile intervals conditional on chosen method and nonflat curves; method selection is not repeated. Boundary mass is reported separately. Bands include flat draws.
+
+Only five positions were sampled. Full S-shaped extrapolations and asymptotes are model assumptions. The report includes all candidate scores and parameters, a fixed robust reference, trajectory-axis and expanded-bound sensitivity, and paired descriptive comparisons.
+
 ## Interpretation and unavailable provenance
 
 - No failure to reject is interpreted as equivalence or proof of zero effect.
 - Same-SOA-label Baseline subtraction is not a verified cue-time-matched contrast.
 - Sigmoid bounds are an explicit reimplementation; saturated R² ceilings independently bound viability.
+- Four post hoc group sigmoid approximations use one selected extraction/smoothing/fitting pipeline. They do not supply participant boundary inference; bootstrap intervals condition on the chosen method.
 - JZS paired-contrast Bayes factors are exploratory and are not a mixed-model Bayes factor.
 - Waveform cue-time and RT-onset validation: original recordings are not in the released CSVs.
 - Measured respiratory compliance: phase labels are scheduled/instructed, not belt-verified.
