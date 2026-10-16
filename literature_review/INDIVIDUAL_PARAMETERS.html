@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Individual sigmoid parameters and common RT plateaus · Study 5</title><style>
+body{font:17px/1.65 system-ui,sans-serif;color:#1f2937;margin:2rem auto;padding:0 1.2rem;max-width:1050px}
+a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}p,li{max-width:82ch}
+table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px;line-height:1.5}
+th,td{padding:.65rem;text-align:left;vertical-align:top;border:1px solid #ccd5df;min-width:170px}
+th{background:#edf3f8}code{background:#f0f3f6;overflow-wrap:anywhere}blockquote{border-left:3px solid #8aaac6;padding-left:1rem}
+nav{font-size:15px;margin-bottom:2rem}:focus-visible{outline:3px solid #c75c12}
+</style><nav><a href="../">Workbook</a> · <a href="index.html">Review</a> ·
+<a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
+<a href="QUESTIONNAIRES.html">Questionnaires</a> · <a href="INDIVIDUAL_PARAMETERS.html">Individual curves</a> · <a href="SEARCH_LOG.html">Search record</a> · <a href="INDIVIDUAL_PARAMETERS.md">Markdown source</a></nav>
+<main><h1>Individual sigmoid parameters and common RT plateaus</h1>
+<p>Evidence checked 16 October 2026. This is an exploratory extension requested after
+the original participant fit gate failed. Four Condition × Phase curves per person
+remain the primary specification. All numerical results and the complete method
+comparison are generated in the browser; the original gated hypotheses remain
+unestimated. The <a href="../ANALYSIS_PLAN.md">analysis contract</a> records the
+protocol and subsequent amendments.</p>
+<h2>Scientific motivation and limits</h2>
+<p>The <a href="EVIDENCE_TABLE.html">PPS evidence review</a> provides both sigmoid precedents and
+contrary evidence about expectancy and response shape. Those findings motivate a
+candidate model, rather than a requirement that these data follow it. The earlier
+review also explains local regression, identifiability and nested prediction.</p>
+<p><a href="https://doi.org/10.1037/a0020684">Ahn et al. (2011)</a> report that hierarchical
+Bayesian estimation improved parameter recovery over individual- or group-level
+maximum likelihood in an Iowa Gambling Task simulation. This motivates examining
+partial pooling and recovery here. Our estimator is a penalized finite-grid point
+fit with bootstrap uncertainty, <strong>not that paper's Bayesian model</strong>. Its penalty,
+bandwidth and visible-shape constraints are explicitly exploratory choices.</p>
+<p><a href="https://doi.org/10.3758/s13428-017-0935-1">Hedge, Powell and Sumner (2018)</a>
+show that robust group effects in common cognitive tasks need not yield reliable
+individual differences for correlation studies. This supports assessing reliability
+directly before interpreting PPS–MAIA links. Their results do not determine the
+reliability of this experiment; our split-half and recovery analyses address it
+with their own limited scope. Random split halves assess within-session stability,
+not test–retest reliability, and simulation recovery depends on its assumed signal
+and empirical residual distribution.</p>
+<h2>What normalization does</h2>
+<p>For <code>RT(d) = b + a expit((d − m)/s)</code>, define the lower plateau
+<code>L = min(b, b+a)</code> and separation <code>A = |a|</code>. Then
+<code>normalized_RT = (RT − L)/A</code>. The fitted lower and upper plateaus are exactly
+0 and 1. This affine transformation preserves midpoint <code>m</code> and width <code>s</code> and
+retains decreasing curves. Normalized steepness magnitude is <code>1/(4s)</code> per cm;
+the original signed RT derivative is <code>a/(4s)</code> ms/cm. These are different estimands.
+This algebra is our derivation, not a claim borrowed from the cited papers.</p>
+<p>The plateaus are fitted asymptotes, not necessarily observed endpoints. Observed
+RTs can lie outside 0–1 and are never clipped. Flat curves cannot be normalized;
+an amplitude interval containing zero flags an unstable denominator. Scaling a
+weak response to unit amplitude can make it look strong, so every participant's
+atlas page places raw means and uncertainty above the normalized <strong>model-only</strong>
+geometry. Shared axes and identical panel sizes make the four shapes comparable.</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>Purpose</th>
+<th>Important assumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Separate plateaus for four individual curves</td>
+<td>Primary flexible descriptive proxy</td>
+<td>Five positions must inform four parameters; visible geometry and pooling can dominate</td>
+</tr>
+<tr>
+<td>Pooled shape penalty, with strength selected uniformly</td>
+<td>Stabilize weak shape estimates using other records</td>
+<td>Individuals share useful shape information; not evidence that their boundaries are equal</td>
+</tr>
+<tr>
+<td>Shared RT plateaus across one person's four curves</td>
+<td>Reduce nuisance parameters; normalization sensitivity</td>
+<td>All four responses share baseline and amplitude, including direction</td>
+</tr>
+<tr>
+<td>Unregularized and finer-grid sensitivities</td>
+<td>Show dependence on penalty/discretization</td>
+<td>Neither removes sparse sampling or fixes linkage</td>
+</tr>
+<tr>
+<td>Broad sigmoid, line and constant benchmarks</td>
+<td>Assess prediction without requiring visible bends</td>
+<td>Lower prediction error alone does not establish parameter recovery</td>
+</tr>
+</tbody>
+</table>
+<p>All 84 candidates use the same outcome target. Six outer folds repeat tuning,
+holding linked recordings together. No questionnaire association enters selection.
+The shared-plateau optimizer uses three starts and alternating exact conditional
+updates; convergence is reported and is not a proof of a global optimum. Five
+observed positions cannot justify adding fictitious plateau observations.</p>
+<h2>Questionnaire links and recording integrity</h2>
+<p>MAIA-2 is a baseline trait; spatial ratings follow each intervention. The main
+links correlate each of eight subscales with the Viscereality−Control parameter
+difference (equal phase weights), and correlate that difference with the numerical
+spatial-rating difference. Four separate curves remain the fitted units; averaging
+their parameters to define a condition contrast does not replace those curves.
+There are 27 main comparisons per model, 96 supplementary cell-specific MAIA links,
+and three ordinal-direction sensitivities: 126 per model. Both plateau models and
+three recording-exclusion specifications give 1,008 reported unadjusted tests.
+Intervals are pointwise. No multiple-testing correction is applied, as requested.
+Point-estimate permutation p values condition on estimated proxies; hierarchical
+bootstrap intervals refit the parameters and therefore address additional uncertainty.
+They need not give matching significance decisions.</p>
+<p>The audit found that <strong>P011 and P033 share all 408 behavioural records with
+intervention labels swapped, despite different questionnaire responses</strong>. Their
+original recording-to-person mapping must be resolved. Source CSVs are preserved;
+both curves are flagged. Linked copies are excluded together from each other's
+pool and kept together in outer folds. Excluding both, or each separately, repeats
+method selection and all associations. These sensitivities do not identify the
+correct mapping. Full-release behavioural inference and RT–questionnaire links are
+provisional; the questionnaire-only spatial/MAIA analysis does not use these RTs.</p>
+<h2>Search and access record</h2>
+<p>The <a href="../participant_literature_sources.json">machine-readable ledger</a>
+records queries, exact URLs, retrieval hashes and failed access. Searches refined
+from general hierarchical nonlinear individual estimation to cognitive-model
+individual differences and exact titles. Ahn's PubMed abstract/metadata and Hedge's
+indexed MEDLINE abstract were read. Ahn's publication year is <strong>2011</strong> (PubMed
+indexing in 2013 is not the publication date). PMC attempts returned challenges.
+Wilson and Collins' <em>Ten simple rules for the computational modeling of behavioral
+data</em> was discovered, but its text was inaccessible and supplies no substantive
+claim here. Consensus and a general web-search connector were unavailable; this
+was a focused PubMed search, not a multi-provider or systematic review. No tool
+or access capability is implied by the review's existence.</p>
+<p>Implementations: <a href="analysis_source/participant_sigmoid.py">fitting and resampling</a>,
+<a href="analysis_source/participant_report.py">normalization and atlas</a>, and the full
+<a href="../reference/analysis_report.md">browser results</a>.</p></main></html>

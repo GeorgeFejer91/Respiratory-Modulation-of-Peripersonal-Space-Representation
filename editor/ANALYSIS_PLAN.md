@@ -216,6 +216,110 @@ bound-hit fractions, and distinguish conditional intervals from uncertainty in
 the method search. Show observed summaries and clearly marked extrapolations.
 Do not treat smoothing/interpolation as new independent observations.
 
+## Individual sigmoid proxies: owner-authorised exploratory extension
+
+The owner selected four Condition × Phase curves per person as primary and
+requested a common-plateau normalized display. This amendment is fixed before
+new individual-proxy results. It neither changes the original trial-level R²
+gate nor relabels its unavailable follow-ups as recovered boundaries.
+
+Use the existing retained AT trials and nominal distances (10, 27, 50, 73,
+100 cm). Every complete participant receives four records; report missing cells
+explicitly without imputation. Preserve signed amplitudes and flat outcomes.
+Fit `b + a*logistic((x-m)/w)` on scaled distance, with a in [-500,500] ms,
+m in [0,1] and w in [.05,1]. The primary descriptive family restricts geometry
+using the existing measured-range criteria (10–90% coverage, two positions on
+each side, at least one in the 20–80% transition, ≥5% departure from a line).
+These restrictions impose curvature. A broad-shape family omits them. Offsets
+and signed amplitudes are solved exactly at each shape; no positive amplitude
+floor is permitted. A flat fit has no identified midpoint, even when a
+regularizer supplies a numeric proxy.
+
+Compare 3 summaries (mean, median, 20% trimmed mean), 4 smoothers (none,
+Gaussian local constant at .15/.30 of the distance span, Gaussian local linear
+at .30), and 3 shape penalties (0,1,4) uniformly: 36 methods per sigmoid family,
+12 equally processed lines, and a constant. The penalty shrinks midpoint and
+log width toward a leave-one-person-out same-cell pooled shape, with scales
+.25 of the span and log(2), respectively. Divide profile SSE by a working
+mean-variance estimate from available trial cells (floor 1 ms²). This is
+penalized profile estimation, not a fully Bayesian posterior. Select one
+method for all people/cells using omitted-position prediction; do not tune
+against MAIA, spatial ratings or their p values. Six outer participant folds
+repeat tuning on training people only and then predict each held-out person's
+omitted position from their remaining four. Pooled shapes for held-out people
+use training people only. Compare the broad, visible, line and constant families.
+These evaluations condition on the original cleaning and the known design;
+they are post hoc, not independent confirmatory evidence. Use seed 20261018.
+
+Use the existing 61×35 shape grid and a 241×81 resolution sensitivity. Apply
+500 fixed-person, within-cell trial bootstrap draws, refitting pooled shapes,
+for pointwise parameter intervals. Separately perform 500 hierarchical
+person-plus-trial bootstrap draws for association intervals, recomputing pools
+and excluding all copies of the target person from its pool. These intervals
+condition on the selected method and shape restrictions. Report 10 repeated
+stratified split-half reliability checks and 30 simulation replicates each
+under flat, linear and known-sigmoid signals with empirical residuals and
+trial counts. Recovery is a design-specific diagnostic, not population validity
+or full confidence-interval calibration.
+
+Export midpoint (cm), width (cm), normalized steepness magnitude 1/(4w), signed
+RT derivative a/(4w), signed amplitude, fit error, all uncertainty and diagnostics.
+Keep direct unregularized and grid-resolution sensitivities. A joint sensitivity
+shares lower/upper asymptotes across the four curves within each person, using
+the selected preprocessing/penalty; compare its omitted-position prediction.
+Normalize displays as `(RT-min(b,b+a))/abs(a)`, retaining direction and values
+outside [0,1] without clipping. Normalized model curves have common 0/1 plateaus
+by definition. When amplitude is zero normalization is undefined; when its
+bootstrap interval includes zero, mark observed-point normalization unstable.
+Show raw observations/curves alongside normalized geometry for every person.
+An affine rescaling does not change midpoint or width or create empirical
+curvature. Shared-plateau fits make an additional measurement assumption.
+
+The new association catalogue is 126 tests: 8 MAIA subscales × 3 parameters
+(midpoint, normalized steepness, signed RT derivative) × 5 summaries (four
+Condition × Phase cells and equal-phase Viscereality–Control contrast), plus
+the 3 parameter contrasts versus numerical spatial delta and its direction-only
+sensitivity. The 27 numerical contrast associations are the main follow-up;
+96 cell-specific correlations and 3 directional correlations are supplementary.
+Use complete people, Spearman rho and 19,999 absolute-tail pairing permutations
+with the plus-one rule, all unadjusted. Undefined/tied constants remain
+unestimated. Pointwise intervals use the hierarchical bootstrap above, not
+naive repeated-observation sampling. Each participant contributes once to each
+test. Baseline MAIA is a trait correlate; spatial delta compares two
+post-intervention ratings. Preserve all 42 earlier questionnaire correlations
+and 16 moderation fits. Report sensitivity of correlations to unregularized,
+finer-grid and shared-plateau estimates descriptively, without selecting a
+specification by significance. These tests concern fitted proxies; they cannot
+establish a latent physiological boundary or mediation.
+
+Before calculating the new correlations, individual fitting exposed identical
+408-row behavioural records for P011 and P033 with reversed condition labels
+and different questionnaire responses. The correct recording-to-person mapping
+is unresolved. Preserve all source rows, flag both fits and all full-release
+RT–questionnaire inference as provisional, and repeat RT-only method selection
+and all 126 correlations excluding both records, excluding P011, and excluding
+P033. These three sensitivities add 378 unadjusted tests, all reported; they
+do not identify the correct mapping. Keep linked records together in outer
+prediction folds, exclude them together from shape pools, and resample linked
+record groups together in the association bootstrap. Within-cell trial noise
+is still resampled separately for ambiguous records, so full-release intervals
+remain conditional diagnostics. The standalone MAIA–spatial analysis does not
+use these RT records. Original behavioural results require provenance review
+before treating the release as 42 independent recordings.
+
+After the initial RT-only prediction/recovery pass, the shared-plateau extension
+is expanded to the same 500 parameter/association bootstrap draws, split-half
+checks and 126 tests in each of the four linkage specifications. This is a
+post-results extension, not preregistration or an independent confirmation.
+It fulfils the owner's common-plateau normalization request and follows the
+shared model's lower prediction error; no result is selected by its questionnaire
+p value. Both models remain fully reported (1,008 unadjusted association tests
+across models and linkage specifications). Simulations add a shared-plateau
+sigmoid-generating scenario, keeping the original flat, linear and
+condition-varying-plateau scenarios; each known sigmoid has an 80-ms signed
+amplitude and randomly sampled interior grid shapes. This distinguishes recovery
+under the added plateau assumption from recovery when it is violated.
+
 ## Numerical and browser verification
 
 Profile ML uses Woodbury sufficient statistics, preserving the exact Gaussian

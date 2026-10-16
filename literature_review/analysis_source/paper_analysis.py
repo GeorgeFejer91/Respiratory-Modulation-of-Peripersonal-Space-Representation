@@ -19,6 +19,7 @@ from inference import (cluster_regression, holm, mixed_comparison, paired,
                        repeated_anova, sign_flip)
 from descriptive_sigmoid import run as descriptive_sigmoid_analysis
 from questionnaires import run as questionnaire_analysis
+from participant_sigmoid import run as participant_sigmoid_analysis
 
 
 SOAS = (300.,800.,1500.,2200.,2700.)
@@ -422,7 +423,8 @@ def analyze(people,trials,progress=None):
     ages=np.array([numeric(p,"age_years") for p in people]);ages=ages[np.isfinite(ages)]
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
-    report={"analysis_version":"1.5","status":"reproducible analysis draft for author review",
+    individual=participant_sigmoid_analysis(retained,questionnaires,progress=notify,source_trials=trials)
+    report={"analysis_version":"1.6","status":"reproducible analysis draft; recording linkage requires review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
@@ -435,6 +437,7 @@ def analyze(people,trials,progress=None):
         "sigmoid_fits":fits,"sigmoid_summary":sigmoid_summary,"boundary_followups":boundary,
         "missing_rt_stress":stresses,"group_curves":curves,"group_sigmoid_descriptions":descriptive_group_fits(curves),
         "descriptive_sigmoids":descriptions,
+        "participant_sigmoids":individual,
         "questionnaire_descriptives":questionnaires["scales"],"questionnaires":questionnaires,
         "data_coverage":[
             {"domain":"Participant roster, demographics and order","status":"analysed","output":"Cohort age/gender/handedness/order, availability and participant QC"},
@@ -444,6 +447,7 @@ def analyze(people,trials,progress=None):
             {"domain":"37 MAIA-2 items and eight dimensions","status":"analysed","output":"Scoring audit, distributions, alpha intervals and all fixed exploratory associations"},
             {"domain":"Paired spatial-frame ratings","status":"analysed","output":"Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities"},
             {"domain":"Participant PPS boundary and related questionnaire inference","status":boundary["status"],"output":"Fit gate retained; group approximations remain descriptive"},
+            {"domain":"Exploratory individual sigmoid proxies and normalized RT","status":individual["status"],"output":"Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit"},
             {"domain":"Repeated MAIA, body-boundary and small-self measures","status":"unavailable","output":"No corresponding repeated/measure columns in released tables"},
             {"domain":"Waveforms, measured breathing and acquisition provenance","status":"unavailable","output":"Source recordings and private metadata are outside the release"}],
         "unavailable_checks":[
@@ -451,6 +455,7 @@ def analyze(people,trials,progress=None):
             "Measured respiratory compliance: phase labels are scheduled/instructed, not belt-verified.",
             "Pilot dates, acquisition-version effects and two source-onset exclusions: required provenance metadata are not released."],
         "interpretation":[
+            "Recording-linkage audit: "+individual.get("linkage_audit",{}).get("status","unavailable")+". Full-release behavioural inference requires provenance review; the questionnaire-only spatial analysis is separate.",
             "No failure to reject is interpreted as equivalence or proof of zero effect.",
             "Same-SOA-label Baseline subtraction is not a verified cue-time-matched contrast.",
             "Sigmoid bounds are an explicit reimplementation; saturated R² ceilings independently bound viability.",

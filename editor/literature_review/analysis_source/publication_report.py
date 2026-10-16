@@ -16,6 +16,8 @@ import numpy as np
 from scipy.special import expit
 
 from preparation import FILES,TRIAL_COLUMNS,encode_csv
+from participant_report import (markdown as participant_markdown, curve_bytes,
+    diagnostic_figure_bytes, atlas_bytes, normalized_trials, diagnostics)
 
 
 def as_table(rows):
@@ -43,10 +45,11 @@ def markdown_report(report):
         return "unidentified" if value is None else f"{value:.{digits}f}"
     lines=["# Study 5 · Reproducible publication companion analysis", "",
         report["status"],"",
-        f"The released dataset contains {s['participants']} independent participants and {c['trial_rows_input']:,} observed trials "
+        f"The released dataset contains {s['participants']} participant records and {c['trial_rows_input']:,} observed trials "
         f"of {c['planned_trials']:,} planned slots. The primary participant-wide mean ±2.5 sample-SD trim removed {c['removed_2_5_sd']:,} "
         f"recorded hits, retaining {s['retained_at']:,} Audio–Tactile and {s['retained_baseline']:,} Baseline RTs. "
         f"There were {c['missing_hit_rt']} hit-labelled trials without RT ({c['missing_at_hit_rt']} Audio–Tactile).", "",
+        "**Recording-linkage review:** "+report["participant_sigmoids"].get("linkage_audit",{}).get("status","unavailable")+". Check the recording audit before interpreting behavioural inference and RT–questionnaire links; questionnaire-only results are separate.", "",
         "## Primary question", "",
         f"The Condition × Phase × numeric SOA random-intercept ML comparison gives χ²(1)={s['lr']:.6f}, p={s['p']:.6f}. "
         f"The interaction is {s['estimate']:.6f} ms per SOA SD, model-based 95% Wald CI [{s['ci_low']:.6f}, {s['ci_high']:.6f}]. "
@@ -128,10 +131,15 @@ def markdown_report(report):
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
         "The manifest records exact input/output hashes. Primary models always use the fixed analysis contract and are independent of the preparation preview controls."]
-    return "\n".join(lines)+"\n"
+    return "\n".join(lines)+"\n"+participant_markdown(report["participant_sigmoids"])
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure=="participant_diagnostics":
+        return diagnostic_figure_bytes(report["participant_sigmoids"],format)
+    if measure=="participant_example":
+        r=report["participant_sigmoids"]
+        return curve_bytes(r,r["plot_data"]["participant_ids"][0],format)
     if measure=="spatial_change":
         return spatial_change_figure_bytes(report,format)
     if measure in ("questionnaire_summary", "questionnaire_associations"):
@@ -349,6 +357,22 @@ def result_bundle(report,retained,sources):
     for key in ("order_counts","transitions","distributions","descriptives","delta_distribution"):
         files["spatial_"+key+".csv"]=as_table(q["spatial"][key])
     files["data_coverage.csv"]=as_table(report["data_coverage"])
+    individual=report["participant_sigmoids"]
+    if individual["status"]=="computed":
+        for measure in ("participant_example","participant_diagnostics"):
+            files[measure+".svg"]=figure_bytes(report,measure)
+        files["participant_curve_atlas.pdf"]=atlas_bytes(individual)
+        files["participant_normalized_rt.csv"]=as_table(normalized_trials(individual,retained))
+        files["participant_diagnostics.csv"]=as_table(diagnostics(individual))
+        for key in ("parameters","shared_parameters","participant_scores","shared_participant_scores",
+                    "associations","shared_associations","candidates","reliability","recovery"):
+            files["participant_"+key+".csv"]=as_table(individual[key])
+        files["participant_prediction.csv"]=as_table(individual["prediction"]["scores"])
+        files["participant_linkage_audit.json"]=json.dumps(individual["linkage_audit"],indent=2).encode()
+        for key in ("associations","shared_associations","participant_scores","shared_participant_scores"):
+            files["participant_linkage_sensitivity_"+key+".csv"]=as_table([
+                row|{"excluded_ids":",".join(s["excluded_ids"]),"selected_method":s["selected_method"]}
+                for s in individual["linkage_sensitivities"] for row in s[key]])
     d=report["descriptive_sigmoids"]
     if d["status"]=="computed":
         for measure in ("descriptive_sigmoids","sigmoid_extrapolation","pps_shape","sigmoid_geometry"):
@@ -370,7 +394,7 @@ def result_bundle(report,retained,sources):
             model_rows.append(dict(model,category=category))
             coefficient_rows.extend(dict(row,model=model["name"],category=category) for row in model.get("coefficients",[]))
     files["models.csv"]=as_table(model_rows);files["coefficients.csv"]=as_table(coefficient_rows)
-    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py","sigmoid_shape.py","questionnaires.py")}
+    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py","sigmoid_shape.py","questionnaires.py","participant_sigmoid.py","participant_report.py")}
     files.update({"analysis_source/"+name:content for name,content in source_code.items()})
     manifest={"analysis_version":report["analysis_version"],"status":report["status"],
         "source_sha256":dict(zip(FILES,[sha256(b).hexdigest() for b in sources])),
