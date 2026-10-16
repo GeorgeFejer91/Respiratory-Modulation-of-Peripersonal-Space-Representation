@@ -1,0 +1,186 @@
+{
+  "review_date": "2026-10-16",
+  "scope": "Individual sigmoid estimation, reliability and plateau normalization; focused narrative extension",
+  "providers": {
+    "Consensus": "unavailable; not used",
+    "general_web_search_connector": "unavailable; not used",
+    "retrieval": "PubMed public HTTPS; full-text challenges were not bypassed"
+  },
+  "included_works": [
+    {
+      "id": "Ahn2011",
+      "title": "A Model-Based fMRI Analysis with Hierarchical Bayesian Parameter Estimation",
+      "year": 2011,
+      "pmid": "23795233",
+      "doi": "10.1037/a0020684",
+      "access": "indexed abstract and citation metadata",
+      "supports": "Partial pooling and parameter-recovery evaluation can improve cognitive-model estimation",
+      "limits": "Iowa Gambling Task and hierarchical Bayesian inference; does not validate PPS fits or our penalized point estimator"
+    },
+    {
+      "id": "Hedge2018",
+      "title": "The reliability paradox: Why robust cognitive tasks do not produce reliable individual differences.",
+      "year": 2018,
+      "pmid": "28726177",
+      "doi": "10.3758/s13428-017-0935-1",
+      "access": "indexed abstract and MEDLINE metadata via exact-title search export",
+      "supports": "Group task effects need not provide reliable individual-difference measures for correlations",
+      "limits": "Seven other cognitive tasks; direct Study 5 reliability assessment is still necessary"
+    }
+  ],
+  "queries": [
+    {
+      "query": "hierarchical parameter estimation individual differences cognitive models",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=hierarchical%20parameter%20estimation%20individual%20differences%20cognitive%20models&size=10",
+      "http_status": 200,
+      "candidates": [
+        {
+          "pmid": "41868475",
+          "title": "Joint Cognitive Models Reveal Sources of Robust Individual Differences in Conflict Processing."
+        },
+        {
+          "pmid": "42557472",
+          "title": "Disentangling within- and between-subject correlations in cognitive models: The essential role of hierarchical estimation."
+        },
+        {
+          "pmid": "36805245",
+          "title": "Adaptive Design Optimization as a Promising Tool for Reliable and Efficient Computational Fingerprinting."
+        },
+        {
+          "pmid": "40475538",
+          "title": "Network-based Near-Scalp Personalized Brain Stimulation Targets."
+        },
+        {
+          "pmid": "23795233",
+          "title": "A Model-Based fMRI Analysis with Hierarchical Bayesian Parameter Estimation."
+        },
+        {
+          "pmid": "40222501",
+          "title": "Bayesian deconvolution for computational cognitive modeling of fMRI data."
+        },
+        {
+          "pmid": "42180178",
+          "title": "Network-based near-scalp personalized brain stimulation targets."
+        },
+        {
+          "pmid": "32341121",
+          "title": "Dopamine and Risky Decision-Making in Gambling Disorder."
+        },
+        {
+          "pmid": "28685273",
+          "title": "Bayesian techniques for analyzing group differences in the Iowa Gambling Task: A case study of intuitive and deliberate decision-makers."
+        },
+        {
+          "pmid": "33274657",
+          "title": "Reliability and Convergence of Conflict Effects."
+        }
+      ]
+    },
+    {
+      "query": "The reliability paradox Hedge Powell Sumner",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The%20reliability%20paradox%20Hedge%20Powell%20Sumner&size=10",
+      "http_status": 200,
+      "candidates": []
+    },
+    {
+      "query": "Ten simple rules for the computational modeling of behavioral data",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Ten%20simple%20rules%20for%20the%20computational%20modeling%20of%20behavioral%20data&size=10",
+      "http_status": 200,
+      "candidates": [
+        {
+          "pmid": "31769410",
+          "title": "Ten simple rules for the computational modeling of behavioral data."
+        },
+        {
+          "pmid": "31769410",
+          "title": "Ten simple rules for the computational modeling of behavioral data."
+        },
+        {
+          "pmid": "19914382",
+          "title": "Ten simple rules for dynamic causal modeling."
+        },
+        {
+          "pmid": "37784002",
+          "title": "Explicit and implicit category learning in categorical visual search."
+        },
+        {
+          "pmid": "19052545",
+          "title": "A simple model of bipartite cooperation for ecological and organizational networks."
+        }
+      ]
+    }
+  ],
+  "access_records": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31769410/",
+      "final_url": "https://pubmed.ncbi.nlm.nih.gov/31769410/",
+      "status": 203,
+      "sha256": "875a5840dc22bb1cfb19b151d2a6b68e8bbbef1ec51e77fe7d6b5896736640d0",
+      "title": null,
+      "abstract": null,
+      "pmc": []
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23795233/",
+      "final_url": "https://pubmed.ncbi.nlm.nih.gov/23795233/",
+      "status": 200,
+      "sha256": "9875b6e9930c28aca479b6add11bd81ebe59e11ccbb88c1599e8e2cc0de6196e",
+      "title": "A Model-Based fMRI Analysis with Hierarchical Bayesian Parameter Estimation",
+      "abstract": "A recent trend in decision neuroscience is the use of model-based fMRI using mathematical models of cognitive processes. However, most previous model-based fMRI studies have ignored individual differences due to the challenge of obtaining reliable parameter estimates for individual participants. Meanwhile, previous cognitive science studies have demonstrated that hierarchical Bayesian analysis is useful for obtaining reliable parameter estimates in cognitive models while allowing for individual differences. Here we demonstrate the application of hierarchical Bayesian parameter estimation to model-based fMRI using the example of decision making in the Iowa Gambling Task. First we use a simulation study to demonstrate that hierarchical Bayesian analysis outperforms conventional (individual- or group-level) maximum likelihood estimation in recovering true parameters. Then we perform model-based fMRI analyses on experimental data to examine how the fMRI results depend upon the estimation method.",
+      "pmc": [
+        "PMC3686299"
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22The+reliability+paradox%22",
+      "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22The+reliability+paradox%22",
+      "status": 200,
+      "sha256": "96963951cf5ef578f2e888392702ed64540611e7bbe84adcbf0206974f9f341e",
+      "title": null,
+      "abstract": null,
+      "pmc": []
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3686299/",
+      "status": 200,
+      "bytes": 21312,
+      "sha256": "638872b4613c29eef9ef9c0c6e3c86fdb69cc7d89895dea5b54a7aafdc621160",
+      "title": "Checking your browser - reCAPTCHA",
+      "text_preview": " Checking your browser - reCAPTCHA Checking your browser before accessing pmc.ncbi.nlm.nih.gov ... Click here if you are not automatically redirected after 5 seconds. "
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6879303/",
+      "status": 200,
+      "bytes": 21312,
+      "sha256": "2dea61642c9b29f56ee00c519807693e1dab6368b56a586551b8f3b0a2838f65",
+      "title": "Checking your browser - reCAPTCHA",
+      "text_preview": " Checking your browser - reCAPTCHA Checking your browser before accessing pmc.ncbi.nlm.nih.gov ... Click here if you are not automatically redirected after 5 seconds. "
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28726177/",
+      "status": 203,
+      "bytes": 5590,
+      "sha256": "06e08361cf023bfe9b4f7adf39383aa5aca3aa0c84e6c686c511ab888f361b8b",
+      "title": "pubmed.ncbi.nlm.nih.gov",
+      "text_preview": " pubmed.ncbi.nlm.nih.gov Cookies must be enabled Enable cookies for pubmed.ncbi.nlm.nih.gov and reload this page to continue. HHS Vulnerability Disclosure "
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22The%20reliability%20paradox%22&format=pubmed",
+      "status": 200,
+      "sha256": "c02cd40a4a81dba2347cf0a07577e350d584f4fadf3fb3cc5e9272f0968d0c78",
+      "hits": [
+        {
+          "pmid": "28726177",
+          "record": "PMID- 28726177\r\nOWN - NLM\r\nSTAT- MEDLINE\r\nDCOM- 20190225\r\nLR  - 20240318\r\nIS  - 1554-3528 (Electronic)\r\nIS  - 1554-351X (Print)\r\nIS  - 1554-351X (Linking)\r\nVI  - 50\r\nIP  - 3\r\nDP  - 2018 Jun\r\nTI  - The reliability paradox: Why robust cognitive tasks do not produce reliable \r\n      individual differences.\r\nPG  - 1166-1186\r\nLID - 10.3758/s13428-017-0935-1 [doi]\r\nAB  - Individual differences in cognitive paradigms are increasingly employed to relate \r\n      cognition to brain structure, chemistry, and function. However, such efforts are \r\n      often unfruitful, even with the most well established tasks. Here we offer an \r\n      explanation for failures in the application of robust cognitive paradigms to the \r\n      study of individual differences. Experimental effects become well established - \r\n      and thus those tasks become popular - when between-subject variability is low. \r\n      However, low between-subject variability causes low reliability for individual \r\n      differences, destroying replicable correlations with other factors and \r\n      potentially undermining published conclusions drawn from correlational \r\n      relationships. Though these statistical issues have a long history in psychology, \r\n      they are widely overlooked in cognitive psychology and neuroscience today. In \r\n      three studies, we assessed test-retest reliability of seven classic tasks: \r\n      Eriksen Flanker, Stroop, stop-signal, go/no-go, Posner cueing, Navon, and \r\n      Spatial-Numerical Association of Response Code (SNARC). Reliabilities ranged from \r\n      0 to .82, being surprisingly low for most tasks given their common use. As we \r\n      predicted, this emerged from low variance between individuals rather than high \r\n      measurement variance. In other words, the very reason such tasks produce robust \r\n      and easily replicable experimental effects - low between-participant variability \r\n      - makes their use as correlational tools problematic. We demonstrate that taking \r\n      such reliability estimates into account has the potential to qualitatively change \r\n      theoretical conclusions. The implications of our findings are that \r\n      well-established approaches in experimental psychology and neuropsychology may \r\n      not directly translate to the study of individual differences in brain structure, \r\n      chemistry, and function, and alternative metrics may be required.\r\nFAU - Hedge, Craig\r\nAU  - Hedge C\r\nAD  - School of Psychology, Cardiff University, Park Place, Cardiff, CF10 3AT, UK. \r\n      hedgec@cardiff.ac.uk.\r\nFAU - Powell, Georgina\r\nAU  - Powell G\r\nAD  - School of Psychology, Cardiff University, Park Place, Cardiff, CF10 3AT, UK.\r\nFAU - Sumner, Petroc\r\nAU  - Sumner P\r\nAD  - School of Psychology, Cardiff University, Park Place, Cardiff, CF10 3AT, UK.\r\nLA  - eng\r\nGR  - Wellcome Trust/United Kingdom\r\nGR  - 104943/Z/14/Z/Wellcome Trust/United Kingdom\r\nPT  - Journal Article\r\nPT  - Research Support, Non-U.S. Gov't\r\nPL  - United States\r\nTA  - Behav Res Methods\r\nJT  - Behavior research methods\r\nJID - 101244316\r\nSB  - IM\r\nMH  - Brain/physiology\r\nMH  - Cognition/*physiology\r\nMH  - Cues\r\nMH  - Female\r\nMH  - Humans\r\nMH  - *Individuality\r\nMH  - Male\r\nMH  - Neuropsychology\r\nMH  - Reaction Time/*physiology\r\nMH  - Reproducibility of Results\r\nMH  - Task Performance and Analysis\r\nPMC - PMC5990556\r\nOTO - NOTNLM\r\nOT  - Difference scores\r\nOT  - Individual differences\r\nOT  - Reaction time\r\nOT  - Reliability\r\nOT  - Response control\r\nEDAT- 2017/07/21 06:00\r\nMHDA- 2019/02/26 06:00\r\nPMCR- 2017/07/19\r\nCRDT- 2017/07/21 06:00\r\nPHST- 2017/07/21 06:00 [pubmed]\r\nPHST- 2019/02/26 06:00 [medline]\r\nPHST- 2017/07/21 06:00 [entrez]\r\nPHST- 2017/07/19 00:00 [pmc-release]\r\nAID - 10.3758/s13428-017-0935-1 [pii]\r\nAID - 935 [pii]\r\nAID - 10.3758/s13428-017-0935-1 [doi]\r\nPST - ppublish\r\nSO  - Behav Res Methods. 2018 Jun;50(3):1166-1186. doi: 10.3758/s13428-017-0935-1.\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Ten%20simple%20rules%20for%20the%20computational%20modeling%20of%20behavioral%20data%22&format=pubmed",
+      "status": 200,
+      "sha256": "4d109db290a7d41618d4019e8d7b90271e6461dd39189cf09b924d6f5d233ecf",
+      "hits": []
+    }
+  ],
+  "not_used": "Wilson and Collins 2019 was discovered by title; direct record and PMC access returned challenges. No substantive claim attributed to its unread text."
+}

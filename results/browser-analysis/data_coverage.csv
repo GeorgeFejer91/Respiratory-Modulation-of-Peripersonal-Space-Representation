@@ -6,5 +6,6 @@ Condition × Phase × SOA reaction times,analysed,"Mixed/cluster models, partici
 37 MAIA-2 items and eight dimensions,analysed,"Scoring audit, distributions, alpha intervals and all fixed exploratory associations"
 Paired spatial-frame ratings,analysed,"Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities"
 Participant PPS boundary and related questionnaire inference,not_estimable,Fit gate retained; group approximations remain descriptive
+Exploratory individual sigmoid proxies and normalized RT,computed,"Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit"
 "Repeated MAIA, body-boundary and small-self measures",unavailable,No corresponding repeated/measure columns in released tables
 "Waveforms, measured breathing and acquisition provenance",unavailable,Source recordings and private metadata are outside the release

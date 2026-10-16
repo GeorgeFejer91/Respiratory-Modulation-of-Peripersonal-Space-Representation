@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "workbook"))
 from publication_report import figure_bytes
+from participant_report import diagnostics
 
 
 def promote(path):
@@ -47,6 +48,8 @@ def promote(path):
             ("sigmoid_geometry.svg", "sigmoid_geometry", "study5_sigmoid_geometry.png"),
             ("questionnaire_summary.svg", "questionnaire_summary", "study5_questionnaires.png"),
             ("spatial_change.svg", "spatial_change", "study5_spatial_change.png"),
+            ("participant_diagnostics.svg", "participant_diagnostics", "study5_participant_diagnostics.png"),
+            ("participant_example.svg", "participant_example", "study5_participant_example.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -188,6 +191,64 @@ These are exploratory associations and trait-moderation estimates, not mediation
 """
 
 
+def individual_results(r):
+    scores={a['family']:a['outer_rmse_ms'] for a in r['prediction']['scores']}
+    summary=diagnostics(r)
+    stat=lambda model,metric:next(a for a in summary if a['model']==model and a['parameter']==metric and a['scenario']=='sigmoid')
+    separate=stat('individual_plateaus','midpoint_cm');shared=stat('shared_plateaus','midpoint_cm')
+    stable=[sum(a['normalization_stable'] for a in r[k]) for k in ('parameters','shared_parameters')]
+    labels=[('maia2_noticing','Noticing'),('maia2_not_distracting','Not Distracting'),('maia2_not_worrying','Not Worrying'),
+            ('maia2_attention_regulation','Attention Regulation'),('maia2_emotional_awareness','Emotional Awareness'),
+            ('maia2_self_regulation','Self-Regulation'),('maia2_body_listening','Body Listening'),('maia2_trusting','Trusting'),('spfrref_delta','Spatial code difference')]
+    table=[]
+    for field,label in labels:
+        values=[]
+        for key in ('associations','shared_associations'):
+            for metric in ('midpoint_cm','normalized_steepness_per_cm','midpoint_slope_ms_per_cm'):
+                a=next(a for a in r[key] if a['x']==field and a['y']==metric+'_condition_delta')
+                values.append(f"{a['rho']:.2f} ({a['p']:.3f})")
+        table.append((label,values))
+    rows='\n'.join(label+' & '+' & '.join(values[:3])+r' \\' for label,values in table)
+    shared_rows='\n'.join(label+' & '+' & '.join(values[3:])+r' \\' for label,values in table)
+    return rf"""\subsection{{Individual sigmoid proxies and plateau normalization}}
+
+The additional exploratory extension obtained {r['curve_count']} four-cell sigmoid approximations from {r['participants']} participant records. Uniform selection among 84 candidates chose mean extraction, Gaussian local-constant smoothing with a 27-cm bandwidth, and a shape penalty of 4. Separate plateaus were primary; sharing both plateaus across each person's four curves was a sensitivity. Expected increasing direction occurred in {sum(a['expected_direction'] for a in r['parameters'])}/168 primary fits; decreasing responses were retained. The visible S shape was imposed by the measured-range constraints, so numerical parameter availability does not establish physiological boundaries.
+
+Nested omitted-position prediction RMSE was {scores['visible']:.3f}~ms for the visible family, {scores['broad']:.3f} for broad sigmoids, {scores['linear']:.3f} for lines, {scores['constant']:.3f} for a constant, and {scores['shared_plateaus']:.3f} for shared plateaus (Fig.~\ref{{study5:fig:individual_diagnostics}}). The shared-plateau improvement over a constant was only {scores['constant']-scores['shared_plateaus']:.3f}~ms. These descriptive scores do not test the significance of differences between overlapping folds.
+
+Normalizing by each fitted lower plateau and absolute amplitude gives common asymptotes 0 and 1 while preserving midpoint and width. Raw observations were not clipped. The plateau-separation bootstrap interval excluded zero for only {stable[0]}/168 separate-plateau fits and {stable[1]}/168 shared-plateau fits; the latter represent ten people with four repeated flags. All 42 shared-model point fits converged under the specified alternating solver, without a guarantee of global optimality. The 42-page downloadable atlas shows all four raw-RT profiles with standard errors above their normalized model geometry, with recording-linkage flags.
+
+Midpoint split-half rank reliability was low: medians {separate['median_split_half_rho']:.3f} and {shared['median_split_half_rho']:.3f} for separate and shared plateaus, respectively, across ten splits and four cells. Corresponding median conditional midpoint interval widths were {separate['median_interval_width']:.2f} and {shared['median_interval_width']:.2f}~cm. With known 80-ms sigmoids and cell-specific baselines, median midpoint recovery correlations across 30 simulations were {separate['median_recovery_rho']:.3f} and {shared['median_recovery_rho']:.3f}. Under shared-baseline simulated truth, shared-model midpoint recovery improved to {next(a['median_recovery_rho'] for a in summary if a['model']=='shared_plateaus' and a['parameter']=='midpoint_cm' and a['scenario']=='sigmoid_shared_plateaus'):.3f}. Width-derived steepness remained poorly recovered. These checks concern the stated simulations and within-session splits; they do not measure test--retest reliability or interval coverage.
+
+Table~\ref{{study5:tab:individual_links}} gives all 27 main questionnaire associations for each model. Four primary or shared-model point-estimate tests had unadjusted $p<.05$, but all 54 refit-bootstrap intervals included zero. For example, the spatial-change/midpoint-change correlation moved from approximately zero under separate plateaus to $\rho=.331$ under shared plateaus. This model dependence and weak parameter reliability preclude a stable boundary association claim. Different nominal findings appeared for MAIA Not Distracting, Emotional Awareness and Attention Regulation across specifications; no finding was selected as the primary outcome after inspection. Both complete sets of 126 associations and three linkage-exclusion specifications are retained, yielding 1,008 unadjusted tests. Excluding both ambiguous records, or each separately, repeated RT-only method selection; the selected smoothing/penalty choices differed. Those sensitivity analyses cannot determine the correct recording mapping. All RT--questionnaire inference remains provisional until that linkage is resolved.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lrrr}}
+\multicolumn{{4}}{{c}}{{Separate plateaus}} \\
+Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
+\hline
+{rows}
+\hline
+\multicolumn{{4}}{{c}}{{Shared plateaus}} \\
+Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
+\hline
+{shared_rows}
+\end{{tabular}}
+\caption{{Exploratory Spearman correlations of baseline MAIA-2 or spatial-code difference with Viscereality--Control parameter differences (equal phase weights; $n=41$). Cells give $\rho$ (unadjusted pairing-permutation $p$). Parameters come from four fitted curves per person. All refit-bootstrap intervals include zero; complete intervals, cell-specific correlations and recording-exclusion sensitivities are in the companion. Full-release RT linkage is unresolved.}}
+\label{{study5:tab:individual_links}}
+\end{{table}}
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_participant_diagnostics.png}}
+\caption{{Individual-parameter audit. Prediction differences are small; midpoint intervals are wide and split-half reliability is low. The lower-right panel compares the same 27 main association estimates under the two plateau assumptions. Neither normalized appearance nor numerical fit availability establishes a reliable PPS boundary.}}
+\label{{study5:fig:individual_diagnostics}}
+\end{{figure}}
+
+"""
+
+
 def write_text(r):
     c = r["cohort"]
     models = r["mixed_models"]
@@ -319,7 +380,13 @@ The released CSVs do not contain waveforms, belt recordings, acquisition-version
     q=r["questionnaires"];s=q["spatial"]
     trust=q["delta_associations"][7]
     abstract=abstract.replace("The full data-supported pipeline", rf"An exploratory paired ordinal comparison in {s['n_pairs']} participants found higher post-intervention spatial-frame codes under Viscereality (exact sign-test $p={s['p']:.4f}$). Pre-experiment MAIA-2 Trusting correlated with the numerical Viscereality--Control difference ($\rho={trust['rho']:.3f}$, unadjusted $p={trust['p']:.4f}$); its moderation estimate remained positive with order and HC3 sensitivities. These post hoc associations are not evidence of mediation. The full data-supported pipeline")
-    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+"\\subsection{Reproducibility and evidence limits}")
+    abstract=abstract.replace(f"{c['participants_input']} participants and",f"{c['participants_input']} participant records and")
+    abstract=abstract.replace("The full data-supported pipeline", "A further exploratory extension produced 168 individual sigmoid proxies and common-plateau displays, but midpoint reliability was low and all main refit-bootstrap association intervals included zero. An audit found two identical behavioural recordings with reversed intervention labels and different questionnaire responses; full-release behavioural inference is provisional pending source mapping. The full data-supported pipeline")
+    results=results.replace(f"all {c['participants_input']} participants in",f"all {c['participants_input']} participant records in")
+    results=results.replace("\\subsection{Primary interaction and sensitivity analyses}",
+        "A recording-integrity audit found that P011 and P033 share all 408 behavioural trial records, with Control/Viscereality labels swapped, despite different questionnaire responses. The CSVs were preserved; the correct recording-to-person mapping is unresolved. Full-release behavioural inference below is provisional and cannot assume 42 independent recordings. The new individual-parameter extension reports explicit exclusions of both records and of each separately. Questionnaire-only spatial/MAIA results do not depend on the RT mapping.\n\n\\subsection{Primary interaction and sensitivity analyses}")
+    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+"\\subsection{Reproducibility and evidence limits}")
+    results=results.replace("A failed or unavailable check is distinguished", "For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)
 

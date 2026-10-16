@@ -49,6 +49,7 @@ def _(mo):
     committing the workbook source to GitHub.
 
     [Working preprint · author-review draft](./paper.pdf) ·
+    [Individual curve atlas · exploratory](./individual-curves.pdf) ·
     [Analysis contract](./ANALYSIS_PLAN.md) · [Data release record](./DATA_RELEASE.md) ·
     [Descriptive sigmoid methods and sources](./SIGMOID_EXPLORATION.md) ·
     [Miniature literature review](./literature_review/index.html) ·
@@ -212,7 +213,7 @@ def _(mo):
     run_analysis = mo.ui.run_button(label="Run complete paper analysis")
     mo.vstack([
         mo.md("## 7 · Reproduce the paper analysis\nThe complete run performs participant-wide mean ±2.5-SD RT trimming, ML mixed models, cohort/coding/scale sensitivities, cluster-robust models, participant contrasts, repeated-measures ANOVA, sigmoid gates, missing-RT stress tests, and an 800-pipeline shape comparison: 320 original sigmoids, 320 shape-constrained sigmoids and 160 equally processed lines. It includes nested participant prediction and 1,000 participant bootstrap resamples for each selected sigmoid family. Preview filters above do not affect this run."),
-        mo.callout("A full run computes in this browser. Source recordings and private acquisition metadata cannot be reconstructed from the CSVs; those checks are explicitly marked unavailable. Models and tables are a reproducible draft for author review.",kind="info"),
+        mo.callout("A full run computes in this browser, including 84 individual-curve methods, separate/shared plateau normalization, 500-resample intervals, reliability/recovery checks and questionnaire links. Source recordings and private acquisition metadata cannot be reconstructed from the CSVs; those checks are explicitly marked unavailable. Models and tables are a reproducible draft for author review.",kind="info"),
         run_analysis,
     ])
     return (run_analysis,)
@@ -222,7 +223,8 @@ def _(mo):
 def _():
     from paper_analysis import analyze
     from publication_report import result_bundle, primary_summary, figure_svg, markdown_report
-    return analyze, figure_svg, markdown_report, primary_summary, result_bundle
+    from participant_report import curve_bytes, diagnostics
+    return analyze, curve_bytes, diagnostics, figure_svg, markdown_report, primary_summary, result_bundle
 
 
 @app.cell
@@ -238,6 +240,7 @@ def _(mo, paper_results, primary_summary, synthetic):
     _summary = primary_summary(paper_results)
     mo.vstack([
         mo.md("## 8 · Primary results and robustness"),
+        mo.callout(paper_results["participant_sigmoids"].get("linkage_audit",{}).get("status","Individual profiles unavailable")+". Full-release behavioural inference requires the source-recording linkage to be verified; see the individual-profile audit below.",kind="warn"),
         mo.callout("These results use synthetic example data." if synthetic else "These results were computed from the selected deidentified dataset.",kind="warn" if synthetic else "success"),
         mo.hstack([
             mo.stat(str(_summary["participants"]),label="Participants",bordered=True),
@@ -351,10 +354,45 @@ def _(figure_svg, mo, paper_results):
 
 
 @app.cell
+def _(diagnostics, figure_svg, mo, paper_results):
+    _r=paper_results["participant_sigmoids"]
+    mo.stop(_r["status"]!="computed",mo.md(_r.get("reason","Individual profiles unavailable")))
+    participant_view=mo.ui.dropdown(_r["plot_data"]["participant_ids"],value=_r["plot_data"]["participant_ids"][0],label="Participant curve atlas")
+    mo.vstack([
+        mo.md("## 13 · Individual curves and common RT plateaus\nFour condition × phase curves per person. [Scientific rationale](./literature_review/INDIVIDUAL_PARAMETERS.html)."),
+        mo.callout(_r["linkage_audit"]["status"]+". "+_r["linkage_audit"]["interpretation"],kind="warn"),
+        mo.md(f"**{_r['curve_count']} exploratory curves** using `{_r['selected_method']['method']}`. "+_r["interpretation"]),
+        mo.md("**Common plateaus:** subtract each fitted lower plateau and divide by its fitted plateau separation. The lower plateau becomes 0 and the upper becomes 1. Midpoint is unchanged; normalized steepness is 1/(4 × width). Raw RT slope additionally depends on amplitude and direction. No observations are clipped. A second model shares the RT plateaus across each person's four curves."),
+        mo.Html(figure_svg(paper_results,"participant_diagnostics")),
+        mo.ui.table(diagnostics(_r),selection=None,label="Reliability, known-signal recovery and uncertainty"),
+        mo.accordion({
+            "Main questionnaire links · individual plateaus":mo.ui.table([r for r in _r["associations"] if r["scope"]=="main"],selection=None,page_size=27),
+            "Main questionnaire links · shared plateaus":mo.ui.table([r for r in _r["shared_associations"] if r["scope"]=="main"],selection=None,page_size=27),
+            "All parameters and conditional intervals":mo.ui.table(_r["parameters"]+_r["shared_parameters"],selection=None,page_size=8),
+            "All 84 candidate methods and prediction scores":mo.vstack([mo.ui.table(_r["candidates"],selection=None),mo.json(_r["prediction"])]),
+            "Recording audit and exclusion sensitivities":mo.json({"audit":_r["linkage_audit"],"exclusions":_r["linkage_sensitivities"]}),
+            "All questionnaire links · two models":mo.ui.table([r|{"model":k} for k in ("associations","shared_associations") for r in _r[k]],selection=None),
+            "Uncertainty and method scope":mo.md(_r["selection_scope"]+"\n\n"+_r["uncertainty"]),
+        }),
+        participant_view,
+    ])
+    return (participant_view,)
+
+
+@app.cell
+def _(curve_bytes, mo, paper_results, participant_view):
+    mo.vstack([
+        mo.md(f"### Participant {participant_view.value} · raw RT and normalized curves"),
+        mo.Html(curve_bytes(paper_results["participant_sigmoids"],participant_view.value).decode()),
+    ])
+    return
+
+
+@app.cell
 def _(markdown_report, mo, paper_results, paper_retained, result_bundle, source_bytes):
     analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
     mo.vstack([
-        mo.md("## 13 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, questionnaire scoring/reliability/associations, spatial transitions and paired comparison, data coverage, curve/sigmoid/ANOVA tables, all 800 candidate scores, nested prediction, publication SVGs, and source/output hashes. All files are generated from this run."),
+        mo.md("## 14 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])

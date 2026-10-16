@@ -23,16 +23,17 @@ def build_review(root, target):
     destination.mkdir(exist_ok=True)
     pages = {"README.md": "index.html", "EVIDENCE_TABLE.md": "EVIDENCE_TABLE.html",
              "ANALYSIS_RATIONALE.md": "ANALYSIS_RATIONALE.html", "SEARCH_LOG.md": "SEARCH_LOG.html",
-             "QUESTIONNAIRES.md": "QUESTIONNAIRES.html"}
+             "QUESTIONNAIRES.md": "QUESTIONNAIRES.html", "INDIVIDUAL_PARAMETERS.md":"INDIVIDUAL_PARAMETERS.html"}
     links = dict(pages)
     links.update({"../analysis/sigmoid_literature_sources.json": "../sigmoid_literature_sources.json",
                   "../analysis/questionnaire_literature_sources.json": "../questionnaire_literature_sources.json",
+                  "../analysis/participant_literature_sources.json": "../participant_literature_sources.json",
                   "../results/browser-analysis/analysis_report.md": "../reference/analysis_report.md"})
     for name in ("ANALYSIS_PLAN.md", "SIGMOID_EXPLORATION.md"):
         links["../workbook/" + name] = "../" + name
     code = destination / "analysis_source"
     code.mkdir(exist_ok=True)
-    for name in ("paper_analysis.py", "descriptive_sigmoid.py", "sigmoid_shape.py", "publication_report.py", "questionnaires.py"):
+    for name in ("paper_analysis.py", "descriptive_sigmoid.py", "sigmoid_shape.py", "publication_report.py", "questionnaires.py", "participant_sigmoid.py", "participant_report.py"):
         shutil.copyfile(root / "workbook" / name, code / name)
         links["../workbook/" + name] = "analysis_source/" + name
     for name in (*pages, "searches.json", "references.bib"):
@@ -54,7 +55,7 @@ th{{background:#edf3f8}}code{{background:#f0f3f6;overflow-wrap:anywhere}}blockqu
 nav{{font-size:15px;margin-bottom:2rem}}:focus-visible{{outline:3px solid #c75c12}}
 </style><nav><a href="../">Workbook</a> · <a href="index.html">Review</a> ·
 <a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
-<a href="QUESTIONNAIRES.html">Questionnaires</a> · <a href="SEARCH_LOG.html">Search record</a> · <a href="{name}">Markdown source</a></nav>
+<a href="QUESTIONNAIRES.html">Questionnaires</a> · <a href="INDIVIDUAL_PARAMETERS.html">Individual curves</a> · <a href="SEARCH_LOG.html">Search record</a> · <a href="{name}">Markdown source</a></nav>
 <main>{body}</main></html>''')
 
 
@@ -94,6 +95,7 @@ def build(output, development=False):
             (target/name).write_text(document)
         shutil.copyfile(root/"analysis/sigmoid_literature_sources.json",target/"sigmoid_literature_sources.json")
         shutil.copyfile(root/"analysis/questionnaire_literature_sources.json",target/"questionnaire_literature_sources.json")
+        shutil.copyfile(root/"analysis/participant_literature_sources.json",target/"participant_literature_sources.json")
         build_review(root, target)
         if development:
             # Run the changed engine in a real browser before a new reference/PDF exists.
@@ -118,6 +120,10 @@ def build(output, development=False):
             raise RuntimeError("Preprint/reference browser run mismatch.")
         with zipfile.ZipFile(io.BytesIO(browser_zip)) as archive:
             manifest=json.loads(archive.read("manifest.json"))
+            atlas=archive.read("participant_curve_atlas.pdf")
+            if sha256(atlas).hexdigest()!=manifest["artifact_sha256"]["participant_curve_atlas.pdf"]:
+                raise RuntimeError("Individual curve atlas hash mismatch.")
+            (target/"individual-curves.pdf").write_bytes(atlas)
         for name,expected_hash in manifest["code_sha256"].items():
             if sha256((notebook.parent/name).read_bytes()).hexdigest()!=expected_hash:
                 raise RuntimeError("Engine changed: rerun the browser analysis and refresh its reference record.")

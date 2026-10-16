@@ -1,0 +1,26 @@
+{
+  "status": "unresolved recording-to-questionnaire linkage",
+  "groups": [
+    {
+      "participant_ids": [
+        "P011",
+        "P033"
+      ],
+      "trial_count_per_record": 408,
+      "condition_label_relationship": [
+        "swapped"
+      ]
+    }
+  ],
+  "matching_fields": [
+    "trial_index",
+    "trial_type",
+    "phase",
+    "soa_ms",
+    "noise_type",
+    "reaction_time_ms",
+    "outcome",
+    "response_given"
+  ],
+  "interpretation": "Matching recordings with different questionnaire records cannot establish independent participants. Preserve source rows; resolve the original mapping. New RT\u2013questionnaire results are provisional; exclusion sensitivities do not identify the correct mapping."
+}

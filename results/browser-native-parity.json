@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "8cc6a3c720d6f49fccbc2d085a48286ddf13c89aa6a281f65ab8384b02b8fdcc",
+  "browser_zip_sha256": "73605d56a5a95483d5981135803154d01ee6c81a5ff3509da99f6d9b33329a0d",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -151,5 +151,10 @@
     "max_absolute_numeric_error": 1.1546319456101628e-14,
     "scope": "All item/scoring/reliability, paired ordinal/delta, 42 rank associations, 16 OLS/HC3 moderation models and bootstrap values, labels and coverage statuses."
   },
-  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire value within 1e-8; legacy nonlinear-bound diagnostics may differ"
+  "participant_sigmoids": {
+    "numeric_values_compared": 31823,
+    "max_absolute_numeric_error": 1.469743438065052e-09,
+    "scope": "Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, linkage sensitivities, split-half and recovery result."
+  },
+  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire/individual-proxy value within 1e-8; legacy nonlinear-bound diagnostics may differ"
 }

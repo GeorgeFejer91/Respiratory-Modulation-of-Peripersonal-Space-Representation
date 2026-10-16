@@ -5,7 +5,7 @@
 Publish the Study 5 paper's reproducible analysis as a live marimo companion on
 GitHub Pages. Readers must be able to run preparation, every data-supported model,
 diagnostics and figures entirely in the browser and download the analysis record.
-Maintain a self-contained Overleaf draft reconciled to an actual 42-person browser
+Maintain a self-contained Overleaf draft reconciled to an actual 42-record browser
 run. The project owner authorised public release of the deidentified data and
 confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
 
@@ -62,6 +62,18 @@ the 33 earlier associations as supplementary results. See
 [D-0008](DECISIONS.md#d-0008--baseline-maia-and-post-intervention-spatial-contrasts)
 for the accepted analysis direction and execution contract.
 
+The owner has extended the active analysis goal to four participant-specific
+Condition × Phase sigmoid approximations for every person (168 curves in the
+released cohort), with midpoint, width and midpoint slope, visual inspection,
+and additional links to baseline MAIA-2 and signed spatial-rating differences.
+Use a uniform, outcome-blind fitting comparison, assess local smoothing and
+partial pooling, and retain uncertainty, simpler-model prediction and recovery
+diagnostics. A finite regularized estimate is a model-dependent proxy; it does
+not reverse the original failed participant boundary gate. Never create a
+nonzero response amplitude or discard reverse/flat profiles to guarantee a
+visible physiological transition. See D-0009 and the participant extension in
+`workbook/ANALYSIS_PLAN.md`.
+
 ## Non-goals
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings
@@ -87,8 +99,14 @@ for the accepted analysis direction and execution contract.
 
 ## Verified scientific boundaries
 
-The released cohort contains 42 independent people (`P000`–`P041`) and 17,114
-observed trials. The active manuscript now derives from that browser analysis;
+The released cohort contains 42 participant records (`P000`–`P041`) and 17,114
+observed trials. An individual-profile audit found identical behavioural records
+for P011/P033 with opposite condition labels and different questionnaires; the
+recording-to-person linkage is unresolved. Do not claim 42 independent recordings
+until source provenance resolves it. Keep their fits flagged and report the
+specified exclusion sensitivities for new RT–questionnaire associations. The
+standalone MAIA–spatial comparison does not use RT records.
+The active manuscript derives from the browser analysis;
 the 40-person text/figures are archived. Author review remains necessary before
 submission, including collection/stopping history, ethics-statement details and
 registration interpretations. The public CSVs cannot reproduce waveform timing,
@@ -99,3 +117,16 @@ source. `workbook/ANALYSIS_PLAN.md` states the executable operationalisation,
 explicit ambiguities and computational bounds. Fit-gated follow-ups remain not
 estimable when the gate fails. Native numerical agreement is distinct from
 browser verification; source pushes are distinct from successful deployment.
+
+## Individual-proxy implementation outcome
+
+The companion computes 168 four-cell sigmoid proxies under one selected rule and
+an additional shared-plateau specification, with unclipped fitted-asymptote RT
+normalization, 500-resample intervals, nested prediction, split-half stability,
+known-signal recovery and all fixed questionnaire links. The computational and
+visual-output goal is implemented; reliable individual PPS boundary identification
+remains unsupported. Full-release midpoint split-half rho is .047 (separate) and
+.106 (shared), and all 54 main association intervals include zero. The atlas shows
+raw evidence alongside normalized geometry. P011/P033 source mapping remains
+unresolved; retain flagged outputs and all three exclusion sensitivities. See
+`literature_review/INDIVIDUAL_PARAMETERS.md` and the archived browser results.

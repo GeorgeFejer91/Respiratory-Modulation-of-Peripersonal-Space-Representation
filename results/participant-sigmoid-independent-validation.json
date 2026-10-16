@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "individual_grid_max_parameter_error": 6.536993168992922e-13,
+  "shared_conditional_ols_max_error": 4.547473508864641e-13,
+  "correlation_checks": 1008,
+  "max_spearman_error": 1.1102230246251565e-16,
+  "normalized_trials_checked": 8916,
+  "source_records_matched": 408,
+  "folds_checked": 6,
+  "scope": "Independent KernelReg + scalar lstsq grid objective and pooling; common-plateau conditional weighted OLS; parameter units/deltas; SciPy correlations across both models and exclusions; source linkage and folds. Numerical agreement does not establish scientific identification or global shared-model optimality."
+}

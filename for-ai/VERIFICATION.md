@@ -22,7 +22,9 @@ marimo check workbook/data_preparation.py --select MW --strict
 python workbook/build_site.py
 ```
 
-Expected release: 42 people and 17,114 unique observed trials. Exact schema, field,
+Expected release: 42 participant records and 17,114 unique trial IDs. P011 and
+P033 share identical behavioural records with reversed condition labels; unique
+IDs do not establish independent recordings. Exact schema, field,
 key, source-pattern and release hash checks must pass. A refreshed dataset requires
 a new field audit and verified separate private backup before changing the build
 allowlist. Owner authorisation/ethical approval is recorded in DATA_RELEASE.md.
@@ -82,6 +84,15 @@ rating direction, numerical category steps, unverified pictogram anchors and
 unavailable PPS boundaries. Preserve owner-confirmed baseline-MAIA and
 post-intervention spatial timing. Inspect the spatial-change correlation and
 moderation figure, including all eight dimensions and both order specifications.
+
+For individual proxies, run `python workbook/validate_participant_sigmoids.py`.
+Verify 168 curves per plateau specification, 84 candidates, 500 parameter and
+association resamples, six linked-record-safe outer folds and all 1,008 unadjusted
+association tests including exclusion sensitivities. Check normalized trial RTs
+against the unchanged source, retain zero-amplitude/uncertain-denominator flags,
+and visually inspect every page of the raw/normalized atlas. Compare every
+individual-result value across native/Pyodide. Keep the linkage issue visible and
+do not equate constrained S shapes with reliable individual PPS boundaries.
 
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

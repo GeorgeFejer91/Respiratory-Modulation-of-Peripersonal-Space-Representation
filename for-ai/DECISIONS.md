@@ -186,3 +186,47 @@ decision and link both entries.
   manuscript reconciliation and visual PDF review before promotion/publication.
 - Supersedes: D-0007's unresolved timing, optional model and unexecuted-extension
   state. Preserves its estimand, full reporting, measurement limits and PPS gate.
+
+## D-0009 — Individual sigmoid proxies and questionnaire links
+
+- Date: 2026-10-16
+- Status: Accepted exploratory goal; execution subject to the existing gates.
+- Context: The owner requests the best defensible participant-specific sigmoid
+  approximations and additional questionnaire associations, with explicit
+  caveats in the paper. They selected four Condition × Phase curves per person
+  as primary, rather than pooling respiratory phases during curve fitting.
+- Decision: Compare one common catalogue of extraction, local smoothing and
+  shape-pooling methods across all people/cells, selected using RT prediction
+  without questionnaires. Fit both measured-range sigmoid geometry and a broad
+  shape sensitivity; compare lines/constants. Report signed response amplitude,
+  midpoint, width, normalized steepness and actual RT derivative, intervals,
+  stability, recovery and all person-level plots. Do not set an amplitude floor
+  or conceal reverse, flat or weakly informed fits. Link the estimates to all
+  eight baseline MAIA dimensions and Viscereality–Control spatial delta with
+  unadjusted inference and the complete comparison set fixed before calculation.
+- Interpretation: The requested complete parameter table is exploratory model
+  output, not a claim that every individual has an identified PPS boundary.
+  Constrained curvature, shrinkage and normalized model plots cannot supply
+  empirical evidence of a transition. The original trial-level gate and its
+  unavailable confirmatory follow-ups stay intact.
+- Supersedes: Any restriction against a separately labelled individual-proxy
+  extension after the failed original gate; preserves that gate and D-0006's
+  distinction between imposed geometry and observed PPS shape.
+
+### D-0009 implementation and linkage amendment
+
+The owner also requested common RT plateaus. Implement fitted lower/upper
+asymptote normalization to 0/1, preserving raw RTs, reverse direction and midpoint;
+flag amplitudes whose bootstrap interval includes zero. Retain separate and
+within-person shared plateau models. Full-release output contains 168 primary
+proxies and 168 shared-model sensitivities. Recovery and reliability do not support
+calling every proxy an identified boundary; preserve that distinction in paper,
+plots and workbook. All questionnaire p values remain unadjusted.
+
+The execution audit discovered matching 408-trial records for P011/P033 with
+swapped condition labels and different questionnaire responses. Preserve source
+CSVs, request source mapping, keep linked recordings together in new CV folds and
+out of each other's pooling priors, and report exclusions of both and each
+separately. Do not silently choose an identity or claim 42 independent behavioural
+recordings. Original full-release calculations remain an explicitly provisional
+audit record. Questionnaire-only MAIA/spatial results do not depend on RT mapping.

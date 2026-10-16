@@ -2,7 +2,7 @@
 
 The marimo application executes the released Study 5 analysis entirely in the
 reader's browser using Pyodide. The published default loads the deidentified
-42-person, 17,114-trial dataset. Select **Run complete paper analysis** to compute
+42-record, 17,114-trial dataset. Select **Run complete paper analysis** to compute
 models, diagnostics, figures and the complete result download. The fixed
 [analysis contract](ANALYSIS_PLAN.md) governs this run; exploratory preparation
 filters above it do not change the paper's estimates.
@@ -49,8 +49,13 @@ bounds and the unavailable private metadata.
 
 Native reference validation uses statsmodels independently of the browser engine.
 The archived report and [results](../results/README.md) record both execution surfaces.
-No participant boundary or related questionnaire inference is produced when the
-trial-level sigmoid gate fails. Same-label Baseline subtraction is descriptive.
+The original participant-boundary inference remains gated when trial-level fits fail.
+A separately labelled individual-proxy extension exports four exploratory curves
+per record, 0–1 fitted-plateau normalization, a shared-plateau sensitivity, all
+questionnaire links and a 42-page atlas. These proxies have weak reliability and
+do not meet the original boundary criterion. P011 and P033 share identical RT
+recordings with reversed condition labels; source linkage is unresolved, so
+full-release behavioural inference and RT–questionnaire links are provisional. Same-label Baseline subtraction is descriptive.
 
 ## Develop, verify and build
 
@@ -82,6 +87,7 @@ python -m pip install -r workbook/requirements-validation.txt
 python workbook/validate_statistics.py
 python workbook/validate_sigmoids.py
 python workbook/validate_questionnaires.py
+python workbook/validate_participant_sigmoids.py
 ```
 
 The build exports both application and editor with their local helper modules,

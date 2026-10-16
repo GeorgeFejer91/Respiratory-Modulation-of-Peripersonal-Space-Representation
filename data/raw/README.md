@@ -15,3 +15,11 @@ separate backup, and confirmed existing ethical approval. See
 [the release record](../../workbook/DATA_RELEASE.md) for the exact field audit and
 source hashes. The source repository stays private; the audited CSV pair is included
 in the public companion artifact.
+
+## Recording-linkage audit
+
+P011 and P033 have identical 408-trial behavioural records with intervention labels
+swapped, but different questionnaire responses. This release preserves the input
+rows. Unique participant/trial IDs do not verify independent recordings; correct
+source mapping remains unresolved. The companion flags both records and provides
+three exclusion sensitivities for the new individual-parameter links.

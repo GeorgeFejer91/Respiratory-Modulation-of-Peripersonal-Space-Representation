@@ -11,6 +11,7 @@ on:
       - literature_review/**
       - analysis/sigmoid_literature_sources.json
       - analysis/questionnaire_literature_sources.json
+      - analysis/participant_literature_sources.json
       - .github/workflows/workbook-pages.yml
   workflow_dispatch:
 
@@ -71,6 +72,13 @@ jobs:
           assert len(shape["visible_candidates"]) == 320 and len(shape["linear_candidates"]) == 160
           assert all(r["visible_transition"] for r in shape["visible_geometry"])
           assert len(shape["nested_prediction"]["outer_folds"]) == 6
+          individual = report["participant_sigmoids"]
+          assert individual["curve_count"] == 168 and individual["candidate_count"] == 84
+          assert len(individual["shared_parameters"]) == 168
+          assert len(individual["associations"]) == len(individual["shared_associations"]) == 126
+          assert individual["bootstrap_draws"] == 500
+          assert len(individual["linkage_sensitivities"]) == 3
+          assert individual["linkage_audit"]["groups"][0]["participant_ids"] == ["P011", "P033"]
           print(f"Executed workbook successfully: {len(outputs)} outputs")
           PY
       - name: Independent numerical validation
@@ -78,6 +86,7 @@ jobs:
           python workbook/validate_statistics.py
           python workbook/validate_sigmoids.py
           python workbook/validate_questionnaires.py
+          python workbook/validate_participant_sigmoids.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload audited publication companion

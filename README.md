@@ -7,20 +7,26 @@ The companion runs the full data-supported analysis in your browser: input check
 RT preparation, mixed models, sensitivity analyses, participant contrasts,
 repeated-measures ANOVA, an 800-pipeline sigmoid/linear shape comparison, nested
 participant prediction, 1,000 bootstrap resamples per selected sigmoid family,
-MAIA-2 scoring/reliability, paired spatial-frame ratings, 33 corrected rank
-associations, diagnostics, visually inspected figures, and downloadable results.
+MAIA-2 scoring/reliability, paired spatial-frame ratings, 42 unadjusted questionnaire
+correlations and 16 moderation models. The individual extension adds 168 four-cell
+sigmoid proxies, shared-plateau sensitivities, normalized RTs, reliability/recovery
+checks, all fixed questionnaire links and a 42-page curve atlas.
 The Python editor also runs in the browser. No processing server or API key is needed.
 
-The data contain **42 independent participants and 17,114 observed trials**.
+The data contain **42 participant records and 17,114 observed trial rows**.
 The project owner confirmed ethical approval and authorised public release of the
 deidentified CSVs after name removal and a verified separate backup. Original
 recordings, identity records, source paths, and collection dates are excluded.
-See [release record](workbook/DATA_RELEASE.md).
+See [release record](workbook/DATA_RELEASE.md). **Recording linkage requires review:**
+P011 and P033 share all 408 behavioural records with intervention labels swapped,
+despite different questionnaire responses. Full-release behavioural inference and
+RT–questionnaire links are provisional; source CSVs are unchanged and exclusion
+sensitivities are reported.
 
 | Folder | Contents |
 | --- | --- |
 | [workbook](workbook/README.md) | Browser application/editor, fixed analysis contract, engine, checks and Pages build |
-| [manuscript](manuscript/README.md) | Self-contained Overleaf draft refreshed from the 42-person browser run |
+| [manuscript](manuscript/README.md) | Self-contained Overleaf draft refreshed from the browser run |
 | [data/raw](data/raw/README.md) | Participant and trial CSVs and schemas |
 | [analysis](analysis/README.md) | Promotes verified browser downloads into manuscript/results; does not rerun models |
 | [literature_review](literature_review/README.md) | Miniature review, supporting/contrary evidence, analysis rationale, bibliography and search record |
@@ -32,8 +38,9 @@ The refreshed paper is an **analysis draft for author review**, not a submitted
 publication. The active goal is a visible, data-supported PPS-like transition in
 all four conditions. Four explicitly constrained S-shaped approximations have
 midpoint and steepness estimates, but their active constraints and weak predictive
-support leave the scientific goal unresolved. Participant boundaries and their questionnaire associations remain not estimable when
-the sigmoid gate fails. Waveform timing, belt compliance and private provenance
+support leave the scientific goal unresolved. Original boundary inference remains gated. The separately labelled individual
+proxies do not establish reliable individual PPS boundaries; all main refit-bootstrap
+association intervals include zero. Waveform timing, belt compliance and private provenance
 cannot be reconstructed from the public CSVs. Collection/stopping history,
 registration interpretations and ethics-statement details need author review.
 

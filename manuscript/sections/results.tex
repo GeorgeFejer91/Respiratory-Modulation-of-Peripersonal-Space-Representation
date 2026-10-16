@@ -2,9 +2,11 @@
 
 \subsection{Released cohort and response quality}
 
-The analysis used all 42 participants in the released tables (34 women, 8 men; mean age 23.0 years, SD 4.0, range 19--37). Twenty-one completed each condition order. There were 17{,}114 observed trials of 17{,}136 planned slots: 10{,}068 Audio--Tactile, 5{,}033 Baseline, and 2{,}013 Catch trials. Forty-one sessions were complete; one partial session lacked 22 trials but supplied all 20 Condition $\times$ Phase $\times$ SOA cells. There were 24 Catch false alarms, and no participant exceeded the 30\% Catch exclusion rule. Low-hit-rate flags are reported without adding an exclusion criterion.
+The analysis used all 42 participant records in the released tables (34 women, 8 men; mean age 23.0 years, SD 4.0, range 19--37). Twenty-one completed each condition order. There were 17{,}114 observed trials of 17{,}136 planned slots: 10{,}068 Audio--Tactile, 5{,}033 Baseline, and 2{,}013 Catch trials. Forty-one sessions were complete; one partial session lacked 22 trials but supplied all 20 Condition $\times$ Phase $\times$ SOA cells. There were 24 Catch false alarms, and no participant exceeded the 30\% Catch exclusion rule. Low-hit-rate flags are reported without adding an exclusion criterion.
 
 Among hit-labelled trials, 105 RTs were missing (80 Audio--Tactile and 25 Baseline). These trials remained in hit-rate denominators. The participant-wide mean $\pm$ 2.5-SD trim removed 382 of 13{,}694 recorded hit RTs, retaining 8{,}916 Audio--Tactile and 4{,}396 Baseline RTs. Adding a 200-ms minimum after trimming removed no further observations. Forty-one participants had the full questionnaire measures and one had PPS measures only.
+
+A recording-integrity audit found that P011 and P033 share all 408 behavioural trial records, with Control/Viscereality labels swapped, despite different questionnaire responses. The CSVs were preserved; the correct recording-to-person mapping is unresolved. Full-release behavioural inference below is provisional and cannot assume 42 independent recordings. The new individual-parameter extension reports explicit exclusions of both records and of each separately. Questionnaire-only spatial/MAIA results do not depend on the RT mapping.
 
 \subsection{Primary interaction and sensitivity analyses}
 
@@ -219,8 +221,60 @@ These are exploratory associations and trait-moderation estimates, not mediation
 \label{study5:fig:questionnaires}
 \end{figure}
 
+\subsection{Individual sigmoid proxies and plateau normalization}
+
+The additional exploratory extension obtained 168 four-cell sigmoid approximations from 42 participant records. Uniform selection among 84 candidates chose mean extraction, Gaussian local-constant smoothing with a 27-cm bandwidth, and a shape penalty of 4. Separate plateaus were primary; sharing both plateaus across each person's four curves was a sensitivity. Expected increasing direction occurred in 104/168 primary fits; decreasing responses were retained. The visible S shape was imposed by the measured-range constraints, so numerical parameter availability does not establish physiological boundaries.
+
+Nested omitted-position prediction RMSE was 48.507~ms for the visible family, 51.694 for broad sigmoids, 48.269 for lines, 47.437 for a constant, and 47.237 for shared plateaus (Fig.~\ref{study5:fig:individual_diagnostics}). The shared-plateau improvement over a constant was only 0.200~ms. These descriptive scores do not test the significance of differences between overlapping folds.
+
+Normalizing by each fitted lower plateau and absolute amplitude gives common asymptotes 0 and 1 while preserving midpoint and width. Raw observations were not clipped. The plateau-separation bootstrap interval excluded zero for only 29/168 separate-plateau fits and 40/168 shared-plateau fits; the latter represent ten people with four repeated flags. All 42 shared-model point fits converged under the specified alternating solver, without a guarantee of global optimality. The 42-page downloadable atlas shows all four raw-RT profiles with standard errors above their normalized model geometry, with recording-linkage flags.
+
+Midpoint split-half rank reliability was low: medians 0.047 and 0.106 for separate and shared plateaus, respectively, across ten splits and four cells. Corresponding median conditional midpoint interval widths were 39.79 and 39.00~cm. With known 80-ms sigmoids and cell-specific baselines, median midpoint recovery correlations across 30 simulations were 0.036 and 0.183. Under shared-baseline simulated truth, shared-model midpoint recovery improved to 0.360. Width-derived steepness remained poorly recovered. These checks concern the stated simulations and within-session splits; they do not measure test--retest reliability or interval coverage.
+
+Table~\ref{study5:tab:individual_links} gives all 27 main questionnaire associations for each model. Four primary or shared-model point-estimate tests had unadjusted $p<.05$, but all 54 refit-bootstrap intervals included zero. For example, the spatial-change/midpoint-change correlation moved from approximately zero under separate plateaus to $\rho=.331$ under shared plateaus. This model dependence and weak parameter reliability preclude a stable boundary association claim. Different nominal findings appeared for MAIA Not Distracting, Emotional Awareness and Attention Regulation across specifications; no finding was selected as the primary outcome after inspection. Both complete sets of 126 associations and three linkage-exclusion specifications are retained, yielding 1,008 unadjusted tests. Excluding both ambiguous records, or each separately, repeated RT-only method selection; the selected smoothing/penalty choices differed. Those sensitivity analyses cannot determine the correct recording mapping. All RT--questionnaire inference remains provisional until that linkage is resolved.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lrrr}
+\multicolumn{4}{c}{Separate plateaus} \\
+Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
+\hline
+Noticing & -0.12 (0.454) & -0.07 (0.682) & -0.01 (0.938) \\
+Not Distracting & 0.31 (0.048) & -0.15 (0.331) & -0.20 (0.202) \\
+Not Worrying & 0.25 (0.118) & 0.15 (0.349) & 0.05 (0.731) \\
+Attention Regulation & -0.03 (0.830) & -0.03 (0.840) & 0.17 (0.292) \\
+Emotional Awareness & -0.34 (0.032) & -0.18 (0.254) & 0.07 (0.648) \\
+Self-Regulation & -0.07 (0.650) & -0.07 (0.647) & 0.08 (0.623) \\
+Body Listening & 0.00 (0.996) & -0.28 (0.077) & -0.14 (0.367) \\
+Trusting & 0.02 (0.880) & -0.15 (0.351) & -0.00 (0.989) \\
+Spatial code difference & -0.00 (0.994) & 0.17 (0.290) & 0.14 (0.375) \\
+\hline
+\multicolumn{4}{c}{Shared plateaus} \\
+Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
+\hline
+Noticing & 0.09 (0.560) & -0.05 (0.771) & -0.07 (0.669) \\
+Not Distracting & 0.08 (0.636) & -0.11 (0.480) & -0.22 (0.164) \\
+Not Worrying & 0.06 (0.730) & 0.19 (0.220) & 0.21 (0.184) \\
+Attention Regulation & 0.16 (0.311) & -0.06 (0.710) & -0.39 (0.012) \\
+Emotional Awareness & -0.06 (0.724) & -0.14 (0.365) & -0.21 (0.181) \\
+Self-Regulation & 0.07 (0.647) & -0.08 (0.612) & -0.13 (0.419) \\
+Body Listening & 0.02 (0.907) & -0.23 (0.157) & -0.18 (0.258) \\
+Trusting & 0.30 (0.059) & -0.19 (0.237) & -0.27 (0.084) \\
+Spatial code difference & 0.33 (0.034) & 0.16 (0.329) & 0.17 (0.299) \\
+\end{tabular}
+\caption{Exploratory Spearman correlations of baseline MAIA-2 or spatial-code difference with Viscereality--Control parameter differences (equal phase weights; $n=41$). Cells give $\rho$ (unadjusted pairing-permutation $p$). Parameters come from four fitted curves per person. All refit-bootstrap intervals include zero; complete intervals, cell-specific correlations and recording-exclusion sensitivities are in the companion. Full-release RT linkage is unresolved.}
+\label{study5:tab:individual_links}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{study5_participant_diagnostics.png}
+\caption{Individual-parameter audit. Prediction differences are small; midpoint intervals are wide and split-half reliability is low. The lower-right panel compares the same 27 main association estimates under the two plateau assumptions. Neither normalized appearance nor numerical fit availability establishes a reliable PPS boundary.}
+\label{study5:fig:individual_diagnostics}
+\end{figure}
+
 \subsection{Reproducibility and evidence limits}
 
-All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, all 42 rank correlations, and all 16 moderation fits including ordinary and HC3 uncertainty. Independent long-format participant-intercept models verified the delta regression's Condition $\times$ MAIA slope, standard error, $F$ statistic and $p$ value. Every questionnaire result was also compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
+All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, all 42 rank correlations, and all 16 moderation fits including ordinary and HC3 uncertainty. Independent long-format participant-intercept models verified the delta regression's Condition $\times$ MAIA slope, standard error, $F$ statistic and $p$ value. Every questionnaire result was also compared across native and browser runtimes. For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
 
 The released CSVs do not contain waveforms, belt recordings, acquisition-version labels, collection dates, or the private provenance needed to identify two historically documented RT-onset variants. The browser analysis therefore does not rerun waveform timing, measured respiratory compliance, pilot-date classification, version-specific contrasts, or that source-definition exclusion. Historical source audits remain historical evidence, rather than new 42-person verification.

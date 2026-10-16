@@ -30,3 +30,10 @@ bootstrap intervals and the complete paired spatial transition matrix.
 the 33rd spatial-change/behaviour coefficient is printed below. Corrected p values
 and pointwise intervals are in the download. Neither plot converts recorded
 spatial codes to an unverified psychological anchor direction.
+
+`participant_example.svg` pairs the first public record's raw RT means/SE with
+normalized fitted geometry. `participant_diagnostics.svg` shows predictive error,
+parameter uncertainty, reliability and association sensitivity. All 42 records are
+in `results/browser-analysis/participant_curve_atlas.pdf`; no record was selected
+for having an attractive shape. Normalized 0/1 plateaus are imposed, and the atlas
+flags unresolved P011/P033 linkage.

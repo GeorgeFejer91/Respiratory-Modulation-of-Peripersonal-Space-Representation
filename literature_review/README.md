@@ -12,6 +12,8 @@ merely by producing a smooth S.
 
 ## Read this folder
 
+- [Individual curves and common plateaus](INDIVIDUAL_PARAMETERS.md): partial
+  pooling, reliability, parameter recovery, normalization and recording linkage.
 - [Questionnaires and spatial frame of reference](QUESTIONNAIRES.md): MAIA-2
   scoring, reliability, ordinal paired analysis, associations, registration
   crosswalk and coverage of every released data domain.

@@ -2,7 +2,7 @@
 
 `browser-analysis/` contains the exact Pyodide download, full JSON report,
 Markdown report, model/coefficient tables and diagnostics from the released
-42-person data. The ZIP also includes retained RTs, figure SVGs and exact engine
+42-participant-record data. The ZIP also includes retained RTs, figure SVGs and exact engine
 source. Its manifest hashes inputs, code and outputs. These are reproducible
 analysis-draft results for author review.
 
@@ -45,3 +45,21 @@ exact ordinal and rank-correlation references, all 16 OLS/HC3 comparisons and
 long-format repeated-measures interaction equivalence. Cross-runtime parity
 compares every questionnaire value and status at tolerance 1e-8. All questionnaire
 p values are unadjusted and intervals are pointwise.
+
+The individual extension adds 168 four-cell proxies, 84 candidate methods and
+separate/shared-plateau specifications. `participant_normalized_rt.csv` preserves
+all 8,916 retained AT RTs and adds unclipped fitted-plateau normalization and
+instability flags. `participant_curve_atlas.pdf` shows all 42 records, with raw RTs
+above common 0–1 fitted geometry. Midpoint split-half reliability is low (.047
+separate; .106 shared), and every main refit-bootstrap association interval includes
+zero. Complete parameter tables, 1,008 unadjusted tests across both models and
+three linkage exclusions, recovery checks and their inputs are retained.
+
+**Source linkage requires review:** P011 and P033 share all 408 behavioural trial
+records with condition labels swapped, despite different questionnaire responses.
+Source CSVs are unchanged. Full-release behavioural inference and RT–questionnaire
+links are provisional; numerical agreement is not evidence of independent
+recordings. `participant-sigmoid-independent-validation.json` checks scalar grid
+objectives, independent smoothing, conditional shared-plateau OLS, all 1,008
+Spearman coefficients, normalized RTs and linked-record folds. Cross-runtime parity
+covers every new result at tolerance 1e-8.

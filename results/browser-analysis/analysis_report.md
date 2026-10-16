@@ -1,8 +1,10 @@
 # Study 5 · Reproducible publication companion analysis
 
-reproducible analysis draft for author review
+reproducible analysis draft; recording linkage requires review
 
-The released dataset contains 42 independent participants and 17,114 observed trials of 17,136 planned slots. The primary participant-wide mean ±2.5 sample-SD trim removed 382 recorded hits, retaining 8,916 Audio–Tactile and 4,396 Baseline RTs. There were 105 hit-labelled trials without RT (80 Audio–Tactile).
+The released dataset contains 42 participant records and 17,114 observed trials of 17,136 planned slots. The primary participant-wide mean ±2.5 sample-SD trim removed 382 recorded hits, retaining 8,916 Audio–Tactile and 4,396 Baseline RTs. There were 105 hit-labelled trials without RT (80 Audio–Tactile).
+
+**Recording-linkage review:** unresolved recording-to-questionnaire linkage. Check the recording audit before interpreting behavioural inference and RT–questionnaire links; questionnaire-only results are separate.
 
 ## Primary question
 
@@ -170,11 +172,13 @@ The eight direction-only associations are ordinal sensitivities; all 33 earlier 
 | 37 MAIA-2 items and eight dimensions | analysed | Scoring audit, distributions, alpha intervals and all fixed exploratory associations |
 | Paired spatial-frame ratings | analysed | Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities |
 | Participant PPS boundary and related questionnaire inference | not_estimable | Fit gate retained; group approximations remain descriptive |
+| Exploratory individual sigmoid proxies and normalized RT | computed | Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit |
 | Repeated MAIA, body-boundary and small-self measures | unavailable | No corresponding repeated/measure columns in released tables |
 | Waveforms, measured breathing and acquisition provenance | unavailable | Source recordings and private metadata are outside the release |
 
 ## Interpretation and unavailable provenance
 
+- Recording-linkage audit: unresolved recording-to-questionnaire linkage. Full-release behavioural inference requires provenance review; the questionnaire-only spatial analysis is separate.
 - No failure to reject is interpreted as equivalence or proof of zero effect.
 - Same-SOA-label Baseline subtraction is not a verified cue-time-matched contrast.
 - Sigmoid bounds are an explicit reimplementation; saturated R² ceilings independently bound viability.
@@ -190,3 +194,93 @@ The eight direction-only associations are ordinal sensitivities; all 33 earlier 
 Runtime: {"execution": "browser Pyodide", "matplotlib": "3.10.8", "numpy": "2.4.3", "platform": "Emscripten", "python": "3.14.2", "scipy": "1.17.1"}
 
 The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. The manifest records exact input/output hashes. Primary models always use the fixed analysis contract and are independent of the preparation preview controls.
+
+## Individual sigmoid proxies and normalized RT
+
+All numbers are exploratory fitted proxies. Visible geometry is imposed, reverse responses are retained, and the original failed participant boundary gate is unchanged. Numeric midpoint/width values in flat or weak profiles reflect constraints/regularization, not identified physiological boundaries.
+
+**Recording-linkage audit:** unresolved recording-to-questionnaire linkage. Matching recordings with different questionnaire records cannot establish independent participants. Preserve source rows; resolve the original mapping. New RT–questionnaire results are provisional; exclusion sensitivities do not identify the correct mapping.
+
+168 curves; selected method `visible/mean/gaussian_constant/0.3/penalty4`. Subtract the fitted lower plateau and divide by absolute fitted amplitude. This is an affine display transformation, not new evidence. Do not clip observations; skip zero amplitude and flag intervals containing zero. Joint sensitivity shares plateaus across each person's four curves.
+
+84 methods: 36 visible, 36 broad and 12 lines, plus a constant. Six outer participant/linked-record-group folds repeat tuning on training people, using omitted-position prediction; test-person fits use four positions and pooling from training people only. Linked copies are excluded together from each person's pool. Scores condition on earlier cleaning. Shared-plateau sensitivity uses the selected visible preprocessing and penalty.
+
+500 fixed-record within-cell trial resamples for parameters; 500 person/linked-record-group plus trial resamples with refitted pools for association intervals. Conditional on selected method, original cleaning and constraints; no correction for method selection or within-cell serial dependence. 19,999 pairing permutations; all 126 p values per specification unadjusted. Unresolved linked records make full-release inference provisional; exclusion sensitivities report point estimates/p values without bootstrap intervals.
+
+| Family | Outer prediction RMSE (ms) |
+| --- | ---: |
+| visible | 48.507 |
+| broad | 51.694 |
+| linear | 48.269 |
+| constant | 47.437 |
+| shared_plateaus | 47.237 |
+
+### Individual plateaus: all 27 main contrast associations
+
+Intervals include refitting uncertainty; permutation p values condition on point estimates. All are unadjusted and provisional.
+
+| Questionnaire | Parameter difference | n | rho | 95% interval | p |
+| --- | --- | ---: | ---: | --- | ---: |
+| maia2_noticing | midpoint_cm | 41 | -0.1192 | [-0.3768, 0.3501] | 0.4543 |
+| maia2_not_distracting | midpoint_cm | 41 | 0.3126 | [-0.3810, 0.4585] | 0.0483 |
+| maia2_not_worrying | midpoint_cm | 41 | 0.2491 | [-0.3647, 0.4963] | 0.1185 |
+| maia2_attention_regulation | midpoint_cm | 41 | -0.0338 | [-0.5063, 0.3480] | 0.8298 |
+| maia2_emotional_awareness | midpoint_cm | 41 | -0.3403 | [-0.4673, 0.3580] | 0.0318 |
+| maia2_self_regulation | midpoint_cm | 41 | -0.0728 | [-0.4453, 0.3775] | 0.6496 |
+| maia2_body_listening | midpoint_cm | 41 | 0.0008 | [-0.4497, 0.3724] | 0.9964 |
+| maia2_trusting | midpoint_cm | 41 | 0.0242 | [-0.3670, 0.3552] | 0.8803 |
+| maia2_noticing | normalized_steepness_per_cm | 41 | -0.0668 | [-0.4539, 0.3334] | 0.6818 |
+| maia2_not_distracting | normalized_steepness_per_cm | 41 | -0.1540 | [-0.5206, 0.4178] | 0.3313 |
+| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1490 | [-0.4053, 0.4801] | 0.3488 |
+| maia2_attention_regulation | normalized_steepness_per_cm | 41 | -0.0321 | [-0.3846, 0.4835] | 0.8402 |
+| maia2_emotional_awareness | normalized_steepness_per_cm | 41 | -0.1812 | [-0.5190, 0.4054] | 0.2541 |
+| maia2_self_regulation | normalized_steepness_per_cm | 41 | -0.0728 | [-0.4222, 0.4175] | 0.6472 |
+| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2780 | [-0.5175, 0.3280] | 0.0768 |
+| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1485 | [-0.4598, 0.3182] | 0.3512 |
+| maia2_noticing | midpoint_slope_ms_per_cm | 41 | -0.0127 | [-0.2788, 0.3464] | 0.9377 |
+| maia2_not_distracting | midpoint_slope_ms_per_cm | 41 | -0.2017 | [-0.3699, 0.1753] | 0.2024 |
+| maia2_not_worrying | midpoint_slope_ms_per_cm | 41 | 0.0547 | [-0.2776, 0.3417] | 0.7313 |
+| maia2_attention_regulation | midpoint_slope_ms_per_cm | 41 | 0.1679 | [-0.1554, 0.4823] | 0.2917 |
+| maia2_emotional_awareness | midpoint_slope_ms_per_cm | 41 | 0.0743 | [-0.2951, 0.3524] | 0.6481 |
+| maia2_self_regulation | midpoint_slope_ms_per_cm | 41 | 0.0786 | [-0.2984, 0.3622] | 0.6226 |
+| maia2_body_listening | midpoint_slope_ms_per_cm | 41 | -0.1445 | [-0.3944, 0.2828] | 0.3668 |
+| maia2_trusting | midpoint_slope_ms_per_cm | 41 | -0.0022 | [-0.3422, 0.3024] | 0.9889 |
+| spfrref_delta | midpoint_cm | 41 | -0.0011 | [-0.4063, 0.4178] | 0.9942 |
+| spfrref_delta | normalized_steepness_per_cm | 41 | 0.1679 | [-0.3547, 0.4579] | 0.2903 |
+| spfrref_delta | midpoint_slope_ms_per_cm | 41 | 0.1432 | [-0.1602, 0.4586] | 0.3746 |
+
+### Shared-plateau sensitivity: all 27 main contrast associations
+
+Intervals include refitting uncertainty; permutation p values condition on point estimates. All are unadjusted and provisional.
+
+| Questionnaire | Parameter difference | n | rho | 95% interval | p |
+| --- | --- | ---: | ---: | --- | ---: |
+| maia2_noticing | midpoint_cm | 41 | 0.0947 | [-0.2920, 0.4089] | 0.5600 |
+| maia2_not_distracting | midpoint_cm | 41 | 0.0782 | [-0.3954, 0.4526] | 0.6362 |
+| maia2_not_worrying | midpoint_cm | 41 | 0.0555 | [-0.4072, 0.3749] | 0.7297 |
+| maia2_attention_regulation | midpoint_cm | 41 | 0.1605 | [-0.3647, 0.4108] | 0.3110 |
+| maia2_emotional_awareness | midpoint_cm | 41 | -0.0565 | [-0.3761, 0.4297] | 0.7242 |
+| maia2_self_regulation | midpoint_cm | 41 | 0.0736 | [-0.4015, 0.3934] | 0.6471 |
+| maia2_body_listening | midpoint_cm | 41 | 0.0186 | [-0.4042, 0.3998] | 0.9073 |
+| maia2_trusting | midpoint_cm | 41 | 0.2960 | [-0.3049, 0.4750] | 0.0594 |
+| maia2_noticing | normalized_steepness_per_cm | 41 | -0.0475 | [-0.4495, 0.3462] | 0.7707 |
+| maia2_not_distracting | normalized_steepness_per_cm | 41 | -0.1128 | [-0.5202, 0.4275] | 0.4798 |
+| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1932 | [-0.3798, 0.5074] | 0.2204 |
+| maia2_attention_regulation | normalized_steepness_per_cm | 41 | -0.0596 | [-0.3881, 0.4790] | 0.7096 |
+| maia2_emotional_awareness | normalized_steepness_per_cm | 41 | -0.1446 | [-0.4964, 0.3914] | 0.3648 |
+| maia2_self_regulation | normalized_steepness_per_cm | 41 | -0.0812 | [-0.4442, 0.4055] | 0.6119 |
+| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2261 | [-0.4929, 0.3346] | 0.1572 |
+| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1892 | [-0.4893, 0.3122] | 0.2367 |
+| maia2_noticing | midpoint_slope_ms_per_cm | 41 | -0.0682 | [-0.3595, 0.3086] | 0.6685 |
+| maia2_not_distracting | midpoint_slope_ms_per_cm | 41 | -0.2217 | [-0.4284, 0.3277] | 0.1643 |
+| maia2_not_worrying | midpoint_slope_ms_per_cm | 41 | 0.2099 | [-0.3205, 0.4386] | 0.1838 |
+| maia2_attention_regulation | midpoint_slope_ms_per_cm | 41 | -0.3901 | [-0.5271, 0.4066] | 0.0118 |
+| maia2_emotional_awareness | midpoint_slope_ms_per_cm | 41 | -0.2126 | [-0.4286, 0.3376] | 0.1812 |
+| maia2_self_regulation | midpoint_slope_ms_per_cm | 41 | -0.1301 | [-0.4348, 0.3176] | 0.4188 |
+| maia2_body_listening | midpoint_slope_ms_per_cm | 41 | -0.1824 | [-0.4785, 0.3239] | 0.2585 |
+| maia2_trusting | midpoint_slope_ms_per_cm | 41 | -0.2731 | [-0.4817, 0.3298] | 0.0843 |
+| spfrref_delta | midpoint_cm | 41 | 0.3310 | [-0.2602, 0.4609] | 0.0344 |
+| spfrref_delta | normalized_steepness_per_cm | 41 | 0.1556 | [-0.3732, 0.4234] | 0.3295 |
+| spfrref_delta | midpoint_slope_ms_per_cm | 41 | 0.1651 | [-0.3422, 0.3682] | 0.2989 |
+
+All 126 tests per model, all three linkage-exclusion specifications (1,008 tests total), parameter tables, reliability/recovery, normalized trial RTs and a 42-page curve atlas are in the download. Exclusion sensitivities do not determine the correct recording mapping.

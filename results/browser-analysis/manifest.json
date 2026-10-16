@@ -1,13 +1,13 @@
 {
-  "analysis_version": "1.5",
-  "status": "reproducible analysis draft for author review",
+  "analysis_version": "1.6",
+  "status": "reproducible analysis draft; recording linkage requires review",
   "source_sha256": {
     "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
     "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
   },
   "artifact_sha256": {
-    "analysis_report.md": "b4e7129fbe36b8931341629e9213443589490488eed67f5c64cd2d902faf412c",
-    "analysis_results.json": "9636d98c0b668de8055ef52e93b2fe38baca0de95a09ebdd00677a0339295794",
+    "analysis_report.md": "850afd20bbe79a1576cde27d8d47f97bab31baf0e987e7842be5d8c2c66bb6c4",
+    "analysis_results.json": "913d93bc2d79691c16faec35143552b02435e2688351ef28b8e320e44d0fb1f2",
     "retained_rt_trials.csv": "ecd83eeb20a44dd995ca50eb0bbb95cf5eb15e0596450761d2e3c4e0c6ce23e9",
     "raw_at_curves.svg": "7ceb6e014d0d54f456a289ce467fee12e4c560ec8086f4b6b0de50a5f8e9b8be",
     "same_label_facilitation.svg": "4a60d849169459b996f6a986f25c609af4b806df1968f8cd7191b22883e50f38",
@@ -28,7 +28,27 @@
     "spatial_distributions.csv": "9cd94afc3a97b5e6d3c9d7069af67d36854050ef82d85c507d5f050f58dd73c0",
     "spatial_descriptives.csv": "4c743ab5d28d2c26f0225449eeeb133b10c6c3e3fe6f5469ab02de15e2fba622",
     "spatial_delta_distribution.csv": "5688ca8a9e325de06559b334ae2431f2669b6c03996581ac47e4ecbbe10b8868",
-    "data_coverage.csv": "d3b24a1f6e6ad1a0823c11d2b2d107ee8717f9d32c719f2af8e8ccc50f63afaf",
+    "data_coverage.csv": "04b836ae50a3e4933b18702be9e9f5230db5f757d14fc93f93dfba6b6b64ba33",
+    "participant_example.svg": "876b16c2973956899bc9ed100d5d2fb29f63fc91218d580a79a5f6cd14cbf732",
+    "participant_diagnostics.svg": "c97f54d3bc6c57728b60be1166273329d662861a8324576b072dd2639a185e25",
+    "participant_curve_atlas.pdf": "b582ac23361fb1be767b39253eb6550d8d7854400a74e168b57f3d7dfcc8af3a",
+    "participant_normalized_rt.csv": "8ba21d8ca51c929e303e61a83486b70bafb5e28b3bc56aa0e756651e6828c5f5",
+    "participant_diagnostics.csv": "7f3aa210e27ba7e01254453f8a6e0037725015a2248fbfa65a9ba265af323866",
+    "participant_parameters.csv": "5bd759f2b54457f07e4781539b900ab877a59e43fc7e9b45ff2e97f0ea5e44a1",
+    "participant_shared_parameters.csv": "ff1994564504cea94bffe3f0b1c84897a7e615706e00f769a0d9d52706cf34a6",
+    "participant_participant_scores.csv": "f316a7301865d543b89d69d6fe688af2140c09aa79dd605e7384d289564e9421",
+    "participant_shared_participant_scores.csv": "697e264bd708bc9bec4dcda718532206b42fec5d29a385a66fc4f3e1cd09fcac",
+    "participant_associations.csv": "983f3493ca94438bf1f716fc8bd6442659e0add4360cc7bdd15cb6c3aab4b476",
+    "participant_shared_associations.csv": "8f9e172a82443de3b4366e3436b18aa28e314fe921270af8160143f23e019e7a",
+    "participant_candidates.csv": "c5920f8d381929617a7cd61c6e72784653126bc6aa8cae1967ff2b102f849072",
+    "participant_reliability.csv": "5373997c42dfa28ef9be6b0c2c9518bd7295f5d28a8f0d943d446eba51ba0725",
+    "participant_recovery.csv": "8d47d6a7b3e921cdff40afeaee698d413aca792d4107642e74b21821b4998fa4",
+    "participant_prediction.csv": "cb0eee66fc573ea9611db34bffe54c281d5c6cdc07a0abeafd31eb5b1dd308b8",
+    "participant_linkage_audit.json": "2fa14a3b6fed73e5ca63994332b6f277ea1604ce6395e43f581724ed35378744",
+    "participant_linkage_sensitivity_associations.csv": "07de2a51898bc8c5cfb25545890fd03dd72e9a4277d17a02e3334feffda3075b",
+    "participant_linkage_sensitivity_shared_associations.csv": "3f8b01ac240c3b08b184956313f9e4746316ea05cceefe46def1263a79349e35",
+    "participant_linkage_sensitivity_participant_scores.csv": "235bde3181380c59bc199cffd53f58a62ae0249abf26810331a29a015f3a7392",
+    "participant_linkage_sensitivity_shared_participant_scores.csv": "4ace82c97d7d61d4c171d3e70621b25893a97ee4d8cc52618d8472c0b58bc422",
     "descriptive_sigmoids.svg": "93710effbee022d422cdde25fceb45f49f834c8584d34b574f93783b38e40017",
     "sigmoid_extrapolation.svg": "0641be3ce715eebe4efb32ba454ce062704bfdc23638bef1a6159e27aa7465d8",
     "pps_shape.svg": "dbad48748360867626b74aab171c82a12a265955e1cac2708b1e8ee97ffb815a",
@@ -55,12 +75,14 @@
     "models.csv": "bac06a32f47df645ab65cb588800c3b3be029b6d4c73c8551e839947c36ff6f2",
     "coefficients.csv": "ffe3411d5456d2fe53facf458c49ddf2d572a983c3a3574217f0fbe1d35f5417",
     "analysis_source/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
-    "analysis_source/paper_analysis.py": "a6bf0a48e5e3d654371e76c78c2c795ab046db8c7a0137b99c2d83f44c797d34",
+    "analysis_source/paper_analysis.py": "35e6de20d6ef3d33428f2803d1162f6a158296d98fa7642a4e17bfc1464fae29",
     "analysis_source/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
-    "analysis_source/publication_report.py": "6c13150ac9202931016f3b305fcae3dc6723a315388643f7474e8036ee63535c",
+    "analysis_source/publication_report.py": "83cc1e6573590363b71b7b67368780b1d67488b9d9d524bfc0ebe92b92c116b8",
     "analysis_source/descriptive_sigmoid.py": "df97f3afa0ad497f1d541c97059d20ebf6b18e614f8270dfacf6b3056058229f",
     "analysis_source/sigmoid_shape.py": "6006be6f9e4cbbc27d51e82325cec1720eeaca7934566b6b89c549eb1734d9d2",
-    "analysis_source/questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2"
+    "analysis_source/questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
+    "analysis_source/participant_sigmoid.py": "55acbab139640f0d6f74b6756762d4854b51835cbf491b0ffa660dd5b1d364da",
+    "analysis_source/participant_report.py": "3e4d621c032eedc63e8fc8d2f63d87925ed0426e4c79b31a339373efffc62f73"
   },
   "runtime": {
     "python": "3.14.2",
@@ -73,12 +95,14 @@
   "contract": "workbook/ANALYSIS_PLAN.md",
   "code_sha256": {
     "inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
-    "paper_analysis.py": "a6bf0a48e5e3d654371e76c78c2c795ab046db8c7a0137b99c2d83f44c797d34",
+    "paper_analysis.py": "35e6de20d6ef3d33428f2803d1162f6a158296d98fa7642a4e17bfc1464fae29",
     "preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
-    "publication_report.py": "6c13150ac9202931016f3b305fcae3dc6723a315388643f7474e8036ee63535c",
+    "publication_report.py": "83cc1e6573590363b71b7b67368780b1d67488b9d9d524bfc0ebe92b92c116b8",
     "descriptive_sigmoid.py": "df97f3afa0ad497f1d541c97059d20ebf6b18e614f8270dfacf6b3056058229f",
     "sigmoid_shape.py": "6006be6f9e4cbbc27d51e82325cec1720eeaca7934566b6b89c549eb1734d9d2",
-    "questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2"
+    "questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
+    "participant_sigmoid.py": "55acbab139640f0d6f74b6756762d4854b51835cbf491b0ffa660dd5b1d364da",
+    "participant_report.py": "3e4d621c032eedc63e8fc8d2f63d87925ed0426e4c79b31a339373efffc62f73"
   },
   "preview_filters_affect_paper_analysis": false
 }
