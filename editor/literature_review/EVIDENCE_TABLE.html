@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence table · Study 5</title><style>
+body{font:17px/1.65 system-ui,sans-serif;color:#1f2937;margin:2rem auto;padding:0 1.2rem;max-width:1050px}
+a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}p,li{max-width:82ch}
+table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px;line-height:1.5}
+th,td{padding:.65rem;text-align:left;vertical-align:top;border:1px solid #ccd5df;min-width:170px}
+th{background:#edf3f8}code{background:#f0f3f6;overflow-wrap:anywhere}blockquote{border-left:3px solid #8aaac6;padding-left:1rem}
+nav{font-size:15px;margin-bottom:2rem}:focus-visible{outline:3px solid #c75c12}
+</style><nav><a href="../">Workbook</a> · <a href="index.html">Review</a> ·
+<a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
+<a href="SEARCH_LOG.html">Search record</a> · <a href="EVIDENCE_TABLE.md">Markdown source</a></nav>
+<main><h1>Evidence table</h1>
+<p>Checked 16 October 2026 (Europe/Berlin). <strong>Abstract</strong> means the complete indexed
+abstract and bibliographic record were inspected, not the full article. <strong>Source</strong>
+means official software documentation/code was read; the referenced book/paper was
+not read in full. Confidence below concerns transfer to this analysis, not an
+invented study-quality score. No formal risk-of-bias assessment was possible.</p>
+<h2>PPS evidence</h2>
+<table>
+<thead>
+<tr>
+<th>ID and reference</th>
+<th>Evidence inspected</th>
+<th>Contribution and direction</th>
+<th>Study 5 applicability and limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1</strong> <a href="https://doi.org/10.1371/journal.pone.0044306">Canzoneri, Magosso &amp; Serino (2012), Dynamic sounds capture the boundaries of peripersonal space representation in humans</a>. PLOS ONE 7, e44306. PMID 23028516.</td>
+<td>Abstract; human audiotactile experiment</td>
+<td>Supports investigating distance-dependent tactile facilitation and transitions</td>
+<td>Direct paradigm relevance; abstract does not validate this study's preprocessing or prove its curve shape</td>
+</tr>
+<tr>
+<td><strong>P2</strong> <a href="https://doi.org/10.1093/cercor/bhaa103">Noel et al. (2020), Rapid Recalibration of Peri-Personal Space</a>. Cerebral Cortex 30, 5088–5106. PMID 32377673.</td>
+<td>Abstract; psychophysical, electrophysiological and neural-model study</td>
+<td>Supports sigmoid facilitation and trial-history dependence in the reported paradigm</td>
+<td>Related visuotactile evidence; transfer across modalities and respiratory conditions is limited</td>
+</tr>
+<tr>
+<td><strong>P3</strong> <a href="https://doi.org/10.1016/j.jneumeth.2019.108534">Hobeika et al. (2020), Capturing the dynamics of peripersonal space by integrating expectancy effects and sound propagation properties</a>. J Neurosci Methods 332, 108534. PMID 31805302.</td>
+<td>Abstract; methodological audiotactile experiment</td>
+<td>Challenges obligatory sigmoid/binary-boundary interpretation; supports expectancy controls and a logarithmic alternative</td>
+<td>Strong conceptual relevance; Study 5 lacks an established equivalent fixed-distance expectancy control</td>
+</tr>
+<tr>
+<td><strong>P4</strong> <a href="https://doi.org/10.1007/s00221-020-05771-5">Holmes et al. (2020), Do sounds near the hand facilitate tactile reaction times?</a>. Exp Brain Res 238, 995–1009. PMID 32193585.</td>
+<td>Abstract; four experiments and meta-analysis</td>
+<td>Qualifies the evidence: mixed support, small effects, flexible-analysis/control concerns</td>
+<td>Critical counterevidence; full meta-analytic methods and individual-study bias could not be assessed</td>
+</tr>
+<tr>
+<td><strong>P5</strong> <a href="https://doi.org/10.1371/journal.pcbi.1010464">Straka, Noel &amp; Hoffmann (2022), A normative model of peripersonal space encoding as performing impact prediction</a>. PLOS Comput Biol 18, e1010464.</td>
+<td><a href="https://github.com/ctu-vras/pps-normative-model">Author README</a> and <a href="https://github.com/ctu-vras/pps-normative-model/blob/main/FN_std_PPS_properties.m">full analysis function</a></td>
+<td>Qualifies the interpretation: model profiles summarized by transition and slope</td>
+<td>Computational evidence only; does not validate observed RT sigmoids or provide a fitting protocol for Study 5</td>
+</tr>
+</tbody>
+</table>
+<h2>Methodological evidence</h2>
+<table>
+<thead>
+<tr>
+<th>ID and reference</th>
+<th>Evidence inspected</th>
+<th>Why it is relevant</th>
+<th>What it does not justify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M1</strong> <a href="https://doi.org/10.1037/0033-2909.114.3.510">Ratcliff (1993), Methods for dealing with reaction time outliers</a>. Psychol Bull 114, 510–532. PMID 8272468.</td>
+<td>Abstract; quantitative methodological comparison</td>
+<td>Robust summaries can be less sensitive to outliers and cutoffs; motivates sensitivity analysis</td>
+<td>This study's trim percentages, a universal optimum, removal of all slow valid responses, or equivalence of mean/median estimands</td>
+</tr>
+<tr>
+<td><strong>M2</strong> Li &amp; Racine (2007), <em>Nonparametric Econometrics: Theory and Practice</em>. Princeton University Press.</td>
+<td><a href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/nonparametric/kernel_regression.py">statsmodels KernelReg source</a>, including reference</td>
+<td>Local-constant/local-linear estimation and bandwidth assessment</td>
+<td>The selected 45-cm bandwidth or a biological sigmoid</td>
+</tr>
+<tr>
+<td><strong>M3</strong> <a href="https://doi.org/10.1080/01621459.1979.10481038">Cleveland (1979), Robust locally weighted regression and smoothing scatterplots</a>. JASA 74, 829–836.</td>
+<td><a href="https://github.com/statsmodels/statsmodels/blob/main/statsmodels/nonparametric/smoothers_lowess.py">statsmodels LOWESS source</a>, including reference</td>
+<td>Local weighted regression as a smoothing family</td>
+<td>Calling the study's fixed-bandwidth tricube fit the full robust LOWESS procedure</td>
+</tr>
+<tr>
+<td><strong>M4</strong> <a href="https://doi.org/10.1137/1.9781611970128">Wahba (1990), Spline Models for Observational Data</a>. SIAM.</td>
+<td><a href="https://github.com/scipy/scipy/blob/main/scipy/interpolate/_bsplines.py">SciPy spline source</a>, including reference</td>
+<td>Explicit fit–smoothness tradeoff</td>
+<td>Equating the study's finite-difference penalty with an exact smoothing spline</td>
+</tr>
+<tr>
+<td><strong>M5</strong> <a href="https://doi.org/10.18637/jss.v102.c01">Busing (2022), Monotone Regression: A Simple and Fast O(n) PAVA Implementation</a>. J Stat Softw 102, code snippet 1.</td>
+<td><a href="https://github.com/scipy/scipy/blob/main/scipy/optimize/_isotonic.py">SciPy isotonic source</a>, including reference</td>
+<td>Efficient order-constrained least squares</td>
+<td>Treating imposed monotonicity as discovered evidence or as proof of an S shape</td>
+</tr>
+<tr>
+<td><strong>M6</strong> <a href="https://doi.org/10.1201/b21966">Ritz et al. (2019), Dose-Response Analysis Using R</a>. CRC Press.</td>
+<td>drc <a href="https://github.com/DoseResponse/drc/blob/master/man/logistic.Rd">ordinary logistic</a>, <a href="https://github.com/DoseResponse/drc/blob/master/man/drm.Rd">fitting options</a>, and <a href="https://github.com/DoseResponse/drc/blob/master/inst/citation">citation</a></td>
+<td>Parameterized response curves; ordinary logistic differs from log-logistic; shared/fixed parameters</td>
+<td>Identifiability from five noisy distances or physiological meaning of every fitted midpoint</td>
+</tr>
+<tr>
+<td><strong>M7</strong> Efron &amp; Tibshirani (1993), <em>An Introduction to the Bootstrap</em>. Chapman &amp; Hall.</td>
+<td><a href="https://github.com/scipy/scipy/blob/main/scipy/stats/_resampling.py">SciPy bootstrap source</a>, including reference</td>
+<td>Resampling-based uncertainty; whole-person resampling preserves this study's repeated-measure unit</td>
+<td>Nominal unconditional coverage after model search, identification of flat-fit parameters, or eliminating boundary effects</td>
+</tr>
+<tr>
+<td><strong>M8</strong> <a href="https://doi.org/10.1186/1471-2105-7-91">Varma &amp; Simon (2006), Bias in error estimation when using cross-validation for model selection</a>. BMC Bioinformatics 7, 91. PMID 16504092.</td>
+<td>Abstract; classifier simulations with independent test sets</td>
+<td>Supports nesting tuning within evaluation; challenges interpreting the optimized tuning error as independent performance</td>
+<td>Unbiased performance for arbitrary post hoc searches; the paper's classifier numbers are not Study 5 error rates</td>
+</tr>
+<tr>
+<td><strong>M9</strong> <a href="https://doi.org/10.1177/1745691616658637">Steegen et al. (2016), Increasing Transparency Through a Multiverse Analysis</a>. Perspect Psychol Sci 11, 702–712. PMID 27694465.</td>
+<td>Abstract; methodological proposal/worked example</td>
+<td>Supports exposing how reasonable processing choices change conclusions</td>
+<td>Calling a finite post hoc grid exhaustive, preregistered or immune to selection bias</td>
+</tr>
+<tr>
+<td><strong>M10</strong> <a href="https://doi.org/10.1093/bioinformatics/btp358">Raue et al. (2009), Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood</a>. Bioinformatics 25, 1923–1929. PMID 19505944.</td>
+<td>Abstract; method for biological dynamical models</td>
+<td>Distinguishes model fit from how well measurements determine parameters</td>
+<td>Claiming Study 5 performed profile-likelihood inference, or applying its intervals without a suitable likelihood</td>
+</tr>
+<tr>
+<td><strong>M11</strong> <a href="https://doi.org/10.1016/j.neuroimage.2016.10.038">Varoquaux et al. (2017), Assessing and tuning brain decoders: Cross-validation, caveats, and guidelines</a>. NeuroImage 145, 166–179. PMID 27989847.</td>
+<td>Abstract; methodological review, empirical datasets and simulations</td>
+<td>Qualifies nested validation: performance estimates can remain variable; split strategy matters</td>
+<td>A quantitative error bound for this RT analysis or treating folds as independent experiments</td>
+</tr>
+</tbody>
+</table>
+<h2>Claim assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Assessment in the inspected source set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distance-related multisensory RT changes are a reasonable scientific target</td>
+<td>Supported by direct and related experimental precedent; not unique to PPS mechanisms</td>
+</tr>
+<tr>
+<td>A logistic is worth comparing</td>
+<td>Supported as a candidate; mandatory sigmoid fitting is contested</td>
+</tr>
+<tr>
+<td>Robust extraction/smoothing can reveal method dependence</td>
+<td>Methodologically supported; exact Study 5 choices remain exploratory</td>
+</tr>
+<tr>
+<td>A smoother or constrained fit establishes the shape in the observations</td>
+<td>Unsupported; imposing an assumption cannot test that assumption by itself</td>
+</tr>
+<tr>
+<td>Nested evaluation improves on reporting a tuned minimum alone</td>
+<td>Supported methodological principle, conditional on the actual evaluation pipeline</td>
+</tr>
+<tr>
+<td>Current fitted midpoints identify physiological PPS boundaries</td>
+<td>Unsupported by current Study 5 diagnostics and design controls</td>
+</tr>
+<tr>
+<td>This review establishes scientific consensus or submission readiness</td>
+<td>Unsupported; access and scope are insufficient for that claim</td>
+</tr>
+</tbody>
+</table></main></html>

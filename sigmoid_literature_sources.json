@@ -1,5 +1,5 @@
 {
-  "scope": "Official method sources, author code and PPS PubMed abstracts; not an exhaustive or full-paper review",
+  "scope": "Focused PPS and methodological review: indexed abstracts, official method sources and author code; not an exhaustive or full-paper review",
   "blocked_destinations": [
     "www.ebi.ac.uk",
     "api.crossref.org",
@@ -132,6 +132,51 @@
       "bytes": 3022,
       "supports": "Model beginning and slope summaries; not empirical validation or a sigmoid-fitting protocol",
       "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Bias%20in%20error%20estimation%20when%20using%20cross-validation%20for%20model%20selection%22&format=pubmed",
+      "accessed_date": "2026-10-16",
+      "source_type": "indexed abstract PMID 16504092",
+      "sha256": "b948011fff09f066ef75b68d4ed6393ed9115e7fcea801445dd36faea6a55884",
+      "bytes": 46290,
+      "supports": "Nested evaluation reduces tuning-selection optimism; classifier simulations, not Study 5 validation",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Bias%20in%20error%20estimation%20when%20using%20cross-validation%20for%20model%20selection%22&format=pubmed",
+      "accessed_date": "2026-10-16",
+      "source_type": "indexed abstract PMID 27989847",
+      "sha256": "b948011fff09f066ef75b68d4ed6393ed9115e7fcea801445dd36faea6a55884",
+      "bytes": 46290,
+      "supports": "Cross-validation variability and nested tuning; neuroimaging scope, not an RT-specific error bound",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Increasing%20Transparency%20Through%20a%20Multiverse%20Analysis%22&format=pubmed",
+      "accessed_date": "2026-10-16",
+      "source_type": "indexed abstract PMID 27694465",
+      "sha256": "edf008162285cfaf9170461a54a12118976e453a3219bfe4b9bcd3a834b32984",
+      "bytes": 46078,
+      "supports": "Reporting sensitivity across reasonable processing choices; finite grid is not exhaustive",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Methods%20for%20dealing%20with%20reaction%20time%20outliers%22&format=pubmed",
+      "accessed_date": "2026-10-16",
+      "source_type": "indexed abstract PMID 8272468",
+      "sha256": "7018e7a419ea652a56156b5ee147f2a67496050c9a9f139ac5d28bd024ab9e5b",
+      "bytes": 9492,
+      "supports": "RT outlier/cutoff sensitivity of robust versus moment-based summaries; no optimal percentage for Study 5",
+      "full_cited_paper_or_book_read": false
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Structural%20and%20practical%20identifiability%20analysis%22&format=pubmed",
+      "accessed_date": "2026-10-16",
+      "source_type": "indexed abstract PMID 19505944",
+      "sha256": "5f4f83c4b48feede0ea82ab0e21fed148f12bcb6730fdd5e00ab14f0c08656a7",
+      "bytes": 47687,
+      "supports": "Model fit versus parameter identifiability; no claim that Study 5 performed profile-likelihood inference",
+      "full_cited_paper_or_book_read": false
     }
   ],
   "search_skill": {
@@ -144,12 +189,15 @@
     "providers_unavailable": [
       "Consensus MCP",
       "general web-search MCP"
-    ]
+    ],
+    "latest_search_record": "literature_review/searches.json"
   },
   "pps_search": {
     "broad_query": "\"peripersonal space\" AND (sigmoid OR logistic OR boundary)",
     "narrowing": "Exact titles: Dynamic sounds capture; Rapid Recalibration; Capturing the dynamics; Do sounds near the hand",
     "selection": "Direct experimental precedent, methodological alternative and critical meta-analysis; author code for computational interpretation. Unrelated search matches excluded.",
     "limits": "Full-text attempts returned challenge pages; blocked API/publisher hosts were not bypassed. Scientific synthesis limited to inspected abstracts and author code."
-  }
+  },
+  "review_folder": "literature_review/",
+  "access_notes": "New full-text attempts at PMC returned challenge pages; JMLR and the attempted Columbia author-copy URL were blocked by the network proxy. New current-literature queries also returned challenges. No challenge or denied destination was bypassed; HTTP 200 alone was not treated as scholarly content."
 }
