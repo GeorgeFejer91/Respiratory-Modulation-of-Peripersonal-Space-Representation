@@ -7,7 +7,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 
 from descriptive_sigmoid import DISTANCES, LABELS, predict
-from participant_sigmoid import METRICS, X
+from participant_sigmoid import METRICS, CONTRASTS, X
 
 
 def diagnostics(r):
@@ -22,6 +22,22 @@ def diagnostics(r):
                     median_split_half_rho=float(np.median(reliability)) if reliability else None,
                     median_recovery_rho=float(np.median(recovery)) if recovery else None,
                     median_interval_width=float(np.median([a[metric+"_ci_high"]-a[metric+"_ci_low"] for a in rows]))))
+    return out
+
+
+def contrast_diagnostics(r):
+    out=[]
+    for model in ("individual_plateaus","shared_plateaus"):
+        for contrast in CONTRASTS:
+            for metric in METRICS:
+                values=[a["rho"] for a in r["contrast_reliability"] if a["model"]==model and a["contrast"]==contrast and a["parameter"]==metric and a["rho"] is not None]
+                row=dict(model=model,contrast=contrast,parameter=metric,
+                    median_split_half_rho=float(np.median(values)) if values else None)
+                for scenario in ("sigmoid","sigmoid_shared_plateaus"):
+                    key=metric+"_"+contrast+"_recovery_rho"
+                    recovered=[a[key] for a in r["recovery"] if a["model"]==model and a["scenario"]==scenario and a.get(key) is not None]
+                    row[scenario+"_median_recovery_rho"]=float(np.median(recovered)) if recovered else None
+                out.append(row)
     return out
 
 

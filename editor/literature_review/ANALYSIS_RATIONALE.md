@@ -73,34 +73,42 @@ display requirement explicit. Their numerical cutoffs and the 4.5-cm scale floor
 have no independently validated physiological status. A bound-hitting estimate
 reports an assumption-sensitive approximation.
 
-## Outstanding work, not completed evidence
+## Completed follow-up checks and remaining evidence limits
 
-1. **Compare a log-distance response fairly.** P3 motivates `a+b log(d)` alongside
-   constant, linear and logistic families under the same target and nested
-   selection. The current 800 candidates do not include this family. Such a
-   comparison could be exploratory with existing data, but would not reproduce
-   P3's expectancy-controlled experiment or repair Study 5's timing limitations.
-2. **Vary visible-shape thresholds and scale floors uniformly.** Existing expanded
-   bounds concern the original family; they do not provide a systematic sensitivity
-   analysis of all visible-shape criteria. Fix and disclose a finite grid before
-   examining additional fits; report all outcomes without choosing the most
-   attractive geometry.
-3. **Assess parameter identification beyond conditional intervals.** M10 motivates
-   checking how much data constrain parameters. The current profiled optimizer is
-   not a profile-likelihood confidence analysis. Repeating selection in resampling,
-   appropriate simulation/recovery checks and sensitivity to the participant split
-   would probe additional uncertainties; none has been demonstrated by this review.
-4. **Separate prospective preprocessing from target construction if forecasting is
-   claimed.** Re-estimate preprocessing without the omitted position and define a
-   deployable target. The present report makes the narrower cleaned-profile claim.
-5. **Obtain stronger external evidence.** Full-text examination, a functioning
-   Consensus search, and an independent dense-distance/expectancy-controlled study
-   remain necessary for broader literature or physiological claims.
+The post-results remaining-analysis amendment now addresses the feasible shape
+checks on the 40-record cohort excluding both ambiguous recordings:
 
-These are prioritized open checks, not a promise that a successful sigmoid will
-emerge. They do not prevent reporting the present exploratory findings with their
-limits. The empirical goal remains open while a constrained approximation lacks
-support beyond simpler benchmarks or has poorly identified parameters.
+- **Log distance:** 160 pipelines receive the same summaries and smoothers as
+  lines, with physical-distance smoothing and a log-distance response. All five
+  families use the same nested person/position target. Visible sigmoids improve
+  on a constant by only 0.105 ms; log distance does not improve prediction. This
+  compares response shapes and cannot reproduce P3's expectancy control.
+- **Geometry sensitivity:** nine fixed specifications cross three width floors
+  with permissive/existing/strict coverage, flank sampling and curvature criteria.
+  All are reported. Their descriptive leave-position RMSE spans 47.47–94.59 ms;
+  the poorest permissive specification is retained, not discarded.
+- **Selection stability:** 30 whole-person resamples repeat all 320 visible-method
+  selections, keeping repeated copies together in validation folds. They select
+  27 distinct methods; the most frequent appears three times. This diagnoses
+  instability, not selection-adjusted confidence coverage.
+- **Individual identification:** the individual extension includes known-signal
+  recovery, refit intervals and repeated split halves, now also for Condition,
+  Phase and interaction contrasts. Midpoint-change rank reliability is approximately
+  zero. All 72 mean-contrast and 216 main association intervals across plateau and
+  linkage specifications include zero. See [individual parameters](INDIVIDUAL_PARAMETERS.md).
+
+The finite checks do not establish a physiological sigmoid. Calibrated
+method-selection-adjusted intervals, serial-dependence calibration, formal
+profile-likelihood regions and recovery under a wider range of generating
+processes remain unestablished. These are additional research designs, not hidden
+completed evidence. Existing predictions condition on participant-wide cleaning;
+prospective forecasting would need preprocessing learned without the omitted
+position and a deployable target. The present report makes the narrower
+cleaned-profile claim.
+
+Source recording identity, timing/breathing traces, stronger full-text coverage,
+a functioning Consensus connector and independent dense-distance/expectancy
+controls remain unavailable. Further smoothing cannot resolve those limits.
 
 ## Wording suitable for the paper
 

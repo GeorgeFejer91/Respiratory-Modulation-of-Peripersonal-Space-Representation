@@ -16,6 +16,8 @@ BOOTSTRAPS = 500
 X = (DISTANCES-10)/90
 METRICS = ("midpoint_cm", "normalized_steepness_per_cm", "midpoint_slope_ms_per_cm")
 CELL_NAMES = ("control_exhale", "control_inhale", "viscereality_exhale", "viscereality_inhale")
+CONTRASTS = ("condition_delta", "phase_delta", "condition_by_phase")
+CONTRAST_WEIGHTS = np.array([[-.5,-.5,.5,.5],[-.5,.5,-.5,.5],[1.,-1.,-1.,1.]])
 SMOOTHERS = (("none", 0.), ("gaussian_constant", .15), ("gaussian_constant", .3), ("gaussian_linear", .3))
 
 
@@ -239,6 +241,35 @@ def metrics(parameters):
     return np.stack([10+90*parameters[...,2],1/(360*parameters[...,3]),parameters[...,1]/(360*parameters[...,3])],axis=-1)
 
 
+def parameter_contrasts(values):
+    """Equal-cell within-person contrasts, preserving any leading draw dimensions."""
+    return np.einsum("...jk,cj->...ck",values,CONTRAST_WEIGHTS)
+
+
+def contrast_correlation(x,y):
+    # Shared plateaus create exact cancellation ties; ignore sub-picounit roundoff.
+    return finite(rank_correlation(np.round(x,12),np.round(y,12)))
+
+
+def contrast_rows(parameters,draws,model):
+    point=parameter_contrasts(metrics(parameters))
+    # Draws are cohort means from person/group-plus-trial resampling with refitting.
+    intervals=np.percentile(draws,[2.5,97.5],axis=0)
+    return [dict(model=model,contrast=c,parameter=m,n=len(point),estimate=float(point[:,j,k].mean()),
+                 between_record_sd=float(point[:,j,k].std(ddof=1)),
+                 ci_low=float(intervals[0,j,k]),ci_high=float(intervals[1,j,k]),
+                 bootstrap_draws=len(draws),inference="Exploratory mean proxy contrast; conditional refit-bootstrap interval")
+            for j,c in enumerate(CONTRASTS) for k,m in enumerate(METRICS)]
+
+
+def attach_intervals(tests,draws):
+    for k,r in enumerate(tests):
+        valid=np.asarray(draws,dtype=float)[:,k];valid=valid[np.isfinite(valid)]
+        lo,hi=np.percentile(valid,[2.5,97.5]) if len(valid) else (None,None)
+        r.update(ci_low=finite(lo) if lo is not None else None,ci_high=finite(hi) if hi is not None else None,
+                 bootstrap_valid=len(valid),hierarchical_bootstrap_valid=len(valid))
+
+
 def catalogue():
     out=[]
     for summary in (*CELL_NAMES,"condition_delta"):
@@ -258,8 +289,8 @@ def person_records(parameters,ids,questionnaires):
     for i,pid in enumerate(ids):
         r=dict(source[pid])
         for k,name in enumerate(METRICS):
-            for j,cell in enumerate(CELL_NAMES):r[name+"_"+cell]=float(values[i,j,k])
-            r[name+"_condition_delta"]=float(values[i,2:,k].mean()-values[i,:2,k].mean())
+            for j,cell in enumerate(CELL_NAMES):r[name+"_"+cell]=float(np.round(values[i,j,k],12))
+            r[name+"_condition_delta"]=float(np.round(values[i,2:,k].mean()-values[i,:2,k].mean(),12))
         records.append(r)
     return records
 
@@ -294,6 +325,7 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
     fine,_,_=estimate(cube,variances,chosen,PenalizedGrid(fine=True),identities=identities)
     shared,shared_converged=shared_plateaus(smoothed,variances,chosen,grid,centers,pars)
     rng=np.random.default_rng(SEED+1);draws=[];association_draws=[];shared_draws=[];shared_association_draws=[]
+    contrast_draws=[];shared_contrast_draws=[]
     for b in range(bootstrap_draws):
         if progress and b%100==0:progress(f"Individual parameters and hierarchical associations: bootstrap {b}/{bootstrap_draws}")
         sample=resample_trials(tensor,rng);sy,sv=summarize(sample,chosen["aggregation"])
@@ -304,8 +336,10 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         indices=np.concatenate([np.flatnonzero(identities==g) for g in sampled_groups]);sample=resample_trials(tensor[indices],rng)
         sy,sv=summarize(sample,chosen["aggregation"]);bp,bc,by=estimate(sy,sv,chosen,grid,identities=identities[indices])
         association_draws.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires)))
+        contrast_draws.append(parameter_contrasts(metrics(bp)).mean(0))
         joint,_=shared_plateaus(by,sv,chosen,grid,bc,bp)
         shared_association_draws.append(correlations(person_records(joint,[ids[i] for i in indices],questionnaires)))
+        shared_contrast_draws.append(parameter_contrasts(metrics(joint)).mean(0))
     draws=np.array(draws);association_draws=np.array(association_draws,dtype=float)
     values=metrics(pars);boot_values=metrics(draws);parameters=[]
     for i,pid in enumerate(ids):
@@ -359,7 +393,7 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
                  bootstrap_valid=len(valid),hierarchical_bootstrap_valid=len(valid))
         shared_associations.append(r)
     if progress:progress("Individual sigmoid split-half stability and known-signal recovery")
-    reliability=[]
+    reliability=[];contrast_reliability=[]
     for repetition in range(10):
         halves=[np.full_like(tensor,np.nan),np.full_like(tensor,np.nan)]
         for index in np.ndindex(tensor.shape[:3]):
@@ -373,6 +407,11 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         for model,halffits in (("individual_plateaus",fits),("shared_plateaus",joint_fits)):
             for j,(c,p) in enumerate(LABELS):
                 for k,m in enumerate(METRICS):reliability.append(dict(model=model,repetition=repetition+1,condition=c,phase=p,parameter=m,rho=finite(rank_correlation(halffits[0][:,j,k],halffits[1][:,j,k]))))
+            delta=[parameter_contrasts(v) for v in halffits]
+            for j,c in enumerate(CONTRASTS):
+                for k,m in enumerate(METRICS):
+                    contrast_reliability.append(dict(model=model,repetition=repetition+1,contrast=c,parameter=m,
+                        rho=contrast_correlation(delta[0][:,j,k],delta[1][:,j,k])))
     residuals=tensor-cubes["mean"][...,None];simulation=[]
     eligible=grid.shapes[(grid.shapes[:,0]>=.3)&(grid.shapes[:,0]<=.6)&(grid.shapes[:,1]>=.08)&(grid.shapes[:,1]<=.16)]
     for scenario in ("flat","linear","sigmoid","sigmoid_shared_plateaus"):
@@ -394,10 +433,16 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
                         fitted,known=metrics(fit)[...,k].ravel(),metrics(truth)[...,k].ravel()
                         row[m+"_recovery_rho"]=finite(rank_correlation(fitted,known))
                         row[m+"_rmse"]=float(np.sqrt(np.mean((fitted-known)**2)))
+                        fitted_delta=parameter_contrasts(metrics(fit))[...,k]
+                        known_delta=parameter_contrasts(metrics(truth))[...,k]
+                        for j,c in enumerate(CONTRASTS):
+                            row[m+"_"+c+"_recovery_rho"]=contrast_correlation(fitted_delta[:,j],known_delta[:,j])
+                            row[m+"_"+c+"_rmse"]=float(np.sqrt(np.mean((fitted_delta[:,j]-known_delta[:,j])**2)))
                 simulation.append(row)
     linkage_sensitivities=[]
     flagged=sorted({pid for g in audit["groups"] for pid in g["participant_ids"] if pid in ids})
     exclusion_sets=([flagged]+[[pid] for pid in flagged]) if flagged else []
+    sensitivity_rng=np.random.default_rng(20261019)
     for drop in exclusion_sets:
         if progress:progress("Recording-linkage exclusion sensitivity: "+", ".join(drop))
         keep=np.array([i for i,pid in enumerate(ids) if pid not in drop]);subset={k:v[keep] for k,v in cubes.items()}
@@ -408,17 +453,33 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         for c in catalogue():tests.append(association(records,c["x"],c["y"],perm_rng,19999,0)|c)
         joint_records=person_records(joint,[ids[i] for i in keep],questionnaires)
         joint_tests=[association(joint_records,c["x"],c["y"],shared_rng,19999,0)|c for c in catalogue()]
+        boot_associations=[];boot_joint_associations=[];boot_contrasts=[];boot_joint_contrasts=[]
+        for b in range(bootstrap_draws):
+            if progress and b%100==0:progress(f"Linkage exclusion {','.join(drop)}: refit bootstrap {b}/{bootstrap_draws}")
+            groups=np.unique(identities[keep]);sampled=sensitivity_rng.choice(groups,len(groups),replace=True)
+            indices=np.concatenate([keep[identities[keep]==g] for g in sampled])
+            sample=resample_trials(tensor[indices],sensitivity_rng);by,bv=summarize(sample,method["aggregation"])
+            bp,bc,bs=estimate(by,bv,method,grid,identities=identities[indices])
+            bj,_=shared_plateaus(bs,bv,method,grid,bc,bp)
+            boot_associations.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires)))
+            boot_joint_associations.append(correlations(person_records(bj,[ids[i] for i in indices],questionnaires)))
+            boot_contrasts.append(parameter_contrasts(metrics(bp)).mean(0))
+            boot_joint_contrasts.append(parameter_contrasts(metrics(bj)).mean(0))
+        attach_intervals(tests,boot_associations);attach_intervals(joint_tests,boot_joint_associations)
         linkage_sensitivities.append({"excluded_ids":drop,"participants":len(keep),"selected_method":method["method"],"associations":tests,"shared_associations":joint_tests,
-                                     "participant_scores":records,"shared_participant_scores":joint_records})
+            "participant_scores":records,"shared_participant_scores":joint_records,
+            "contrasts":contrast_rows(sp,boot_contrasts,"individual_plateaus")+contrast_rows(joint,boot_joint_contrasts,"shared_plateaus")})
     return {"status":"computed","participants":len(ids),"curve_count":len(parameters),"incomplete_participants":missing,
         "linkage_audit":audit,"linkage_sensitivities":linkage_sensitivities,
         "selected_method":chosen,"candidate_count":len(candidates),"candidates":candidates,"parameters":parameters,
         "shared_parameters":shared_parameters,"shared_associations":shared_associations,"shared_participant_scores":shared_scored,
         "prediction":nested,"participant_scores":scored,"associations":associations,"reliability":reliability,"recovery":simulation,
+        "contrasts":contrast_rows(pars,contrast_draws,"individual_plateaus")+contrast_rows(shared,shared_contrast_draws,"shared_plateaus"),
+        "contrast_reliability":contrast_reliability,
         "plot_data":{"participant_ids":ids,"raw_means":cubes["mean"].tolist(),"raw_se":np.sqrt(variances).tolist(),
                      "extracted":cube.tolist(),"parameters":pars.tolist(),"shared_parameters":shared.tolist()},
         "shared_plateau_converged":int(shared_converged.sum()),"bootstrap_draws":bootstrap_draws,"seed":SEED,
         "interpretation":"All numbers are exploratory fitted proxies. Visible geometry is imposed, reverse responses are retained, and the original failed participant boundary gate is unchanged. Numeric midpoint/width values in flat or weak profiles reflect constraints/regularization, not identified physiological boundaries.",
         "normalization":"Subtract the fitted lower plateau and divide by absolute fitted amplitude. This is an affine display transformation, not new evidence. Do not clip observations; skip zero amplitude and flag intervals containing zero. Joint sensitivity shares plateaus across each person's four curves.",
-        "uncertainty":"500 fixed-record within-cell trial resamples for parameters; 500 person/linked-record-group plus trial resamples with refitted pools for association intervals. Conditional on selected method, original cleaning and constraints; no correction for method selection or within-cell serial dependence. 19,999 pairing permutations; all 126 p values per specification unadjusted. Unresolved linked records make full-release inference provisional; exclusion sensitivities report point estimates/p values without bootstrap intervals.",
+        "uncertainty":"500 fixed-record within-cell trial resamples for full-release parameters; 500 person/linked-record-group plus trial resamples with refitted pools for association and mean-contrast intervals in each of four linkage specifications. Conditional on cohort-specific selected method, original cleaning and constraints; no correction for method selection or within-cell serial dependence. 19,999 pairing permutations; all 126 p values per specification unadjusted. Unresolved linked records make full-release inference provisional; exclusions do not identify the correct mapping.",
         "selection_scope":"84 methods: 36 visible, 36 broad and 12 lines, plus a constant. Six outer participant/linked-record-group folds repeat tuning on training people, using omitted-position prediction; test-person fits use four positions and pooling from training people only. Linked copies are excluded together from each person's pool. Scores condition on earlier cleaning. Shared-plateau sensitivity uses the selected visible preprocessing and penalty."}

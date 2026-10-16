@@ -85,6 +85,22 @@ method selection and all associations. These sensitivities do not identify the
 correct mapping. Full-release behavioural inference and RT–questionnaire links are
 provisional; the questionnaire-only spatial/MAIA analysis does not use these RTs.
 
+## Completed remaining-analysis amendment
+
+The browser now adds 500 refits for each recording-exclusion cohort, rather than
+leaving those associations at point estimates. It also reports all 72 cohort-mean
+Condition, Phase and interaction contrasts across two models and four linkage
+specifications. Every interval includes zero, as do all 216 main association
+intervals across those specifications. No multiplicity adjustment was introduced.
+
+The changes used in correlations have weak split-half rank reliability. Median
+rho for midpoint change is −.074 with separate plateaus and .066 with shared
+plateaus; normalized-steepness change is .052 and −.009. Signed RT-slope change
+is .064 and .155. Known-signal contrast recovery is reported for both simulated
+plateau structures. A large model point difference can result from pooled shape
+centres without a well-identified physiological change; refitting uncertainty
+must accompany it. The protocol is a post-results extension, not a new confirmation.
+
 ## Search and access record
 
 The [machine-readable ledger](../analysis/participant_literature_sources.json)

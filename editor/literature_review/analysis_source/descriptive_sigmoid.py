@@ -70,16 +70,16 @@ def smooth(x, y, kind, strength):
 class ProfileGrid:
     """Global finite-grid search; offset/amplitude solved exactly at each shape."""
 
-    def __init__(self, fine=False, expanded=False, visible=False):
+    def __init__(self, fine=False, expanded=False, visible=False, width_floor=None, geometry_spec=None):
         self.midpoints = np.linspace(-.5 if expanded else 0., 1.5 if expanded else 1., 241 if fine else 61)
-        self.widths = np.geomspace(.01 if expanded else .05, 2. if expanded else 1., 81 if fine else 35)
+        self.widths = np.geomspace(width_floor if width_floor is not None else (.01 if expanded else .05), 2. if expanded else 1., 81 if fine else 35)
         m, w = np.meshgrid(self.midpoints, self.widths, indexing="ij")
         self.shapes = np.column_stack([m.ravel(), w.ravel()])
         self.amplitude_limit = 1000. if expanded else 500.
         self.cache = {}
         self.allowed = np.ones(len(self.shapes), dtype=bool)
         if visible:
-            self.allowed = visible_geometry(self.shapes, (DISTANCES-10)/90)[0]
+            self.allowed = visible_geometry(self.shapes, (DISTANCES-10)/90, **(geometry_spec or {}))[0]
             if not np.any(self.allowed):
                 raise ValueError("No grid shapes satisfy the measured-range criteria.")
 
@@ -109,7 +109,7 @@ def predict(parameters, x):
     return parameters[:, 0, None]+parameters[:, 1, None]*special.expit((np.asarray(x)[None, :]-parameters[:, 2, None])/parameters[:, 3, None])
 
 
-def visible_geometry(shapes, x):
+def visible_geometry(shapes, x, tail=.1, departure_min=.05, flank_positions=2, central_fraction=.2):
     """Post hoc display/sampling criteria, not a physiological significance test."""
     m, w = shapes[:, 0, None], shapes[:, 1, None]
     q = special.expit((x[None, :]-m)/w)
@@ -119,9 +119,9 @@ def visible_geometry(shapes, x):
     residual = curve-curve.mean(1)[:, None]-(curve@z/(z@z))[:, None]*z
     departure = np.max(np.abs(residual), axis=1)/np.maximum(np.ptp(curve, axis=1), 1e-30)
     below, above = np.sum(x[None, :] < m, axis=1), np.sum(x[None, :] > m, axis=1)
-    central = np.sum((q >= .2) & (q <= .8), axis=1)
-    coverage = (q[:, 0] <= .1) & (q[:, -1] >= .9)
-    passes = coverage & (below >= 2) & (above >= 2) & (central >= 1) & (departure >= .05)
+    central = np.sum((q >= central_fraction) & (q <= 1-central_fraction), axis=1)
+    coverage = (q[:, 0] <= tail) & (q[:, -1] >= 1-tail)
+    passes = coverage & (below >= flank_positions) & (above >= flank_positions) & (central >= 1) & (departure >= departure_min)
     return passes, q, below, above, central, departure
 
 
@@ -133,6 +133,10 @@ def fit_line(x, y):
 
 def predict_line(parameters, x):
     return parameters[:, :1]+parameters[:, 1:2]*np.asarray(x)[None, :]
+
+
+def response_coordinates(x,family):
+    return np.log(10+90*np.asarray(x)) if family=="logarithmic" else np.asarray(x)
 
 
 def parameter_rows(parameters, distances=DISTANCES):
@@ -157,14 +161,19 @@ def candidate_id(aggregation, kind, strength, shared):
     return f"{aggregation}/{kind}/{strength:g}/{'shared' if shared else 'separate'}"
 
 
-def score_candidates(cubes, x, progress=None, family="logistic", fold_count=6):
+def score_candidates(cubes, x, progress=None, family="logistic", fold_count=6, identities=None):
     """Hold out people AND positions before extraction/smoothing/model fitting.
 
     A fixed raw-mean within-person shape target permits aggregation comparisons.
     Scores select a method; they are not unbiased post-selection test estimates.
     """
     n = len(cubes["mean"])
-    folds = np.array_split(np.random.default_rng(SEED).permutation(n), min(fold_count, n))
+    identities=np.arange(n) if identities is None else np.asarray(identities)
+    unique=np.unique(identities)
+    folds = [np.flatnonzero(np.isin(identities,group)) for group in
+             np.array_split(np.random.default_rng(SEED).permutation(unique),min(fold_count,len(unique)))]
+    is_line=family in ("linear","logarithmic")
+    coordinates=response_coordinates(x,family)
     grid = ProfileGrid(visible=family=="visible")
     raw = cubes["mean"]
     prepared = []
@@ -187,17 +196,17 @@ def score_candidates(cubes, x, progress=None, family="logistic", fold_count=6):
         if progress:
             progress(f"{family} search: {aggregation} extraction (uniform four-curve methods)")
         for kind, strength in smoother_specs():
-            for shared in ((False,) if family=="linear" else (False, True)):
+            for shared in ((False,) if is_line else (False, True)):
                 sq = []
                 for train, keep, j, target in prepared:
                     y = cube[train].mean(0)[:, keep]
                     ys = smooth(x[keep], y, kind, strength)
-                    pars = fit_line(x[keep], ys) if family=="linear" else grid.fit(x[keep], ys, shared)
-                    pred = predict_line if family=="linear" else predict
-                    contrast = pred(pars, x[[j]])[:, 0]-y.mean(1)
+                    pars = fit_line(coordinates[keep], ys) if is_line else grid.fit(x[keep], ys, shared)
+                    pred = predict_line if is_line else predict
+                    contrast = pred(pars, coordinates[[j]])[:, 0]-y.mean(1)
                     sq.append(float(np.mean((target-contrast[None, :])**2)))
                 ys = smooth(x, cube.mean(0), kind, strength)
-                params = fit_line(x, ys) if family=="linear" else grid.fit(x, ys, shared)
+                params = fit_line(coordinates, ys) if is_line else grid.fit(x, ys, shared)
                 fold_rmse = np.sqrt(np.mean(np.array(sq).reshape(len(folds), len(x)), axis=1))
                 records.append({"method": candidate_id(aggregation, kind, strength, shared),
                                 "aggregation": aggregation, "smoother": kind, "strength": strength,
@@ -205,7 +214,7 @@ def score_candidates(cubes, x, progress=None, family="logistic", fold_count=6):
                                 "tuning_rmse_ms": float(np.sqrt(np.average(sq, weights=weights))),
                                 "fold_rmse_ms": fold_rmse.tolist(),
                                 "fold_rmse_se_ms": float(np.std(fold_rmse, ddof=1)/np.sqrt(len(folds))),
-                                "parameters": parameter_rows(params) if family!="linear" else params.tolist()})
+                                "parameters": parameter_rows(params) if not is_line else params.tolist()})
     records.sort(key=lambda r: (r["tuning_rmse_ms"], r["method"]))
     return records, {"constant_shape_rmse_ms": float(np.sqrt(np.average(constant_errors, weights=weights))),
                      "linear_shape_rmse_ms": float(np.sqrt(np.average(linear_errors, weights=weights))),
