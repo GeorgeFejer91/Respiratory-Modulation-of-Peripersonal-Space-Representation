@@ -366,6 +366,57 @@ checks do not provide end-to-end forecasting, model-selection-adjusted confidenc
 coverage, serial-dependence calibration, dense-distance physiological validation,
 or missing acquisition provenance. Those limits cannot be removed by smoothing.
 
+## Repeated-measures parameter amendment (post-results)
+
+Goal: answer how all four Condition × Phase fitted PPS profiles differ and how
+baseline MAIA-2 dimensions and spatial-rating change relate to midpoint and
+sharpness. Freeze this specification before inspecting its results. These are
+exploratory ANOVAs/ANCOVAs of fitted proxies, not a replacement for the failed
+registered boundary gate or evidence of causal questionnaire influence.
+
+- Outcomes: midpoint in cm and normalized midpoint sharpness, `1/(4*width_cm)`.
+  Higher sharpness means a narrower transition. Keep amplitude and signed RT
+  derivative separate; affine plateau normalization does not identify a boundary.
+- Retain each cohort's existing RT-selected visible fit and both separate/shared
+  plateau specifications. The shared model's prior predictive advantage motivates
+  reporting it alongside the original fit, not selecting results by significance.
+  Emphasise exclusion of both P011/P033 for the new question; report the full
+  release and each single exclusion as explicit sensitivities.
+- For each outcome, fit the complete 2×2 within-person ANOVA: Condition, Phase,
+  and Condition × Phase. These one-df effects need no sphericity correction.
+- Fit each of the eight continuous baseline MAIA-2 dimensions separately as a
+  between-person covariate; fit numerical spatial-code delta separately. Do not
+  dichotomise scales or fit all eight simultaneously in this small sample.
+  The spatial direction (−1/0/+1) is an ordinal-spacing sensitivity, not a second
+  independent outcome or manipulation. Spatial delta is not a baseline mediator.
+- Use four orthogonal participant summaries: four-cell mean, Viscereality−Control
+  averaged across phases, Inhale−Exhale averaged across conditions, and the
+  difference of those phase effects. Regress each on the centred covariate, with
+  and without centred presentation order. Covariate slopes give the between-person
+  main effect and the Condition/Phase/interaction moderation terms of the balanced
+  RM ANCOVA. The Condition slope is the main change-to-change question for spatial
+  ratings. All four cells contribute; phase is never collapsed out of the model.
+- Report beta, classical F=t², df, unadjusted p, partial eta² and HC3 sensitivity.
+  These condition on fitted outcomes and do not account for shared-pool or curve
+  uncertainty. Attach 95% percentile intervals from the existing 500 hierarchical
+  person/group-plus-trial curve refits in every cohort/model, including all model
+  slopes. Keep the selected method/cleaning fixed; count undefined resamples.
+  No multiplicity correction, selection on p, or claim of calibrated coverage.
+- Retain 6 ANOVA terms and 160 covariate terms per plateau model/cohort: 1,328
+  nominal tests overall, with HC3 as a sensitivity of the same covariate tests.
+  Primary presentation uses both-excluded ANOVAs and order-adjusted Condition
+  moderation by the eight MAIA dimensions and spatial delta; the full family is
+  downloadable. Missing predictors are excluded per model, never imputed.
+- Validate ANOVAs with statsmodels AnovaRM and all regression/HC3 terms with
+  independent OLS references; test effect signs, known interactions, invariance to
+  participant offsets, missingness, constant predictors and refit interval counts.
+  Compare every result across native/Pyodide and reconcile the paper and figures.
+
+The previous poor parameter/change reliability remains part of the answer.
+Partial pooling can produce small conventional ANOVA standard errors despite
+uncertain cohort-level curve shifts; refit intervals must accompany those tests.
+No result can repair the missing source mapping or prove a physiological boundary.
+
 ## Numerical and browser verification
 
 Profile ML uses Woodbury sufficient statistics, preserving the exact Gaussian

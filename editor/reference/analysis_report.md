@@ -174,6 +174,7 @@ The eight direction-only associations are ordinal sensitivities; all 33 earlier 
 | Participant PPS boundary and related questionnaire inference | not_estimable | Fit gate retained; group approximations remain descriptive |
 | Exploratory individual sigmoid proxies and normalized RT | computed | Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit |
 | Remaining behavioural/shape robustness checks | analysed | Primary-model linkage exclusions, mean parameter contrasts and change-score reliability/recovery, refit association intervals for every exclusion, log-distance benchmark, nine geometry specifications and repeated method selection |
+| PPS parameter repeated-measures ANOVA/ANCOVA | computed | 2×2 effects and continuous baseline MAIA/spatial-change covariates for midpoint/sharpness; both plateau models, four linkage cohorts, order/HC3 and 500 curve-refit intervals |
 | Repeated MAIA, body-boundary and small-self measures | unavailable | No corresponding repeated/measure columns in released tables |
 | Waveforms, measured breathing and acquisition provenance | unavailable | Source recordings and private metadata are outside the release |
 
@@ -410,3 +411,62 @@ Post-results exclusion-cohort audit. Nested scores compare five response familie
 All nine geometry specifications and 30 repeated-selection draws are exported. The repeated selections chose 27 distinct methods. No preferred appearance was selected after inspection.
 
 Remaining evidence limits: recording-to-person mapping, waveforms and breathing traces, acquisition timing, independent dense-distance validation, serial-dependence calibration and method-selection-adjusted interval coverage remain unavailable or unestablished.
+
+## PPS parameters: repeated-measures ANOVA and ANCOVA
+
+Exploratory 2×2 ANOVA and continuous-covariate ANCOVA of fitted midpoint and normalized sharpness; 1,328 unadjusted tests over both plateau models and four linkage cohorts. One-df contrast regressions give balanced RM effects; four-cell means give between-person covariate effects. Main presentation excludes both ambiguous records and adjusts moderation for order. Classical/HC3 tests condition on estimated parameters and ignore pooled-fit dependence; 500 hierarchical curve-refit intervals expose additional uncertainty. Spatial delta is a post-intervention correlate, not a causal mediator. Method selection and cleaning are fixed; poor reliability remains a limit.
+
+Main presentation: Exclude P011/P033. Sharpness = 1/(4 × width in cm); larger values mean a narrower transition. MAIA dimensions are fitted separately and kept continuous. Spatial delta is Viscereality − Control.
+
+| Model | Parameter | Effect / covariate | n | Estimate | F (1, df) | Unadjusted p | HC3 p | 95% curve-refit interval |
+| --- | --- | --- | ---: | ---: | --- | ---: | ---: | --- |
+| individual_plateaus | midpoint_cm | Condition | 40 | -16.069 | 5352.9 (1, 39) | 2.3008e-43 | 3.7562e-43 | [-28.166, 18.163] |
+| individual_plateaus | normalized_steepness_per_cm | Condition | 40 | 0.0021217 | 70.846 (1, 39) | 2.6527e-10 | 3.6574e-10 | [-0.019819, 0.026516] |
+| individual_plateaus | midpoint_cm | Phase | 40 | -15.056 | 3439.7 (1, 39) | 1.1861e-39 | 1.9326e-39 | [-27.675, 16.998] |
+| individual_plateaus | normalized_steepness_per_cm | Phase | 40 | 0.0033216 | 206.88 (1, 39) | 3.5145e-17 | 5.33e-17 | [-0.021875, 0.027727] |
+| individual_plateaus | midpoint_cm | Condition × Phase | 40 | -40.162 | 3420.3 (1, 39) | 1.3224e-39 | 2.1547e-39 | [-57.057, 29.706] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × Phase | 40 | 0.000135 | 0.11316 (1, 39) | 0.73838 | 0.74155 | [-0.046825, 0.041068] |
+| individual_plateaus | midpoint_cm | Condition × maia2_noticing | 39 | -0.14542 | 0.13427 (1, 36) | 0.71619 | 0.73304 | [-5.6159, 6.6963] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_noticing | 39 | 0.00024076 | 0.29508 (1, 36) | 0.59033 | 0.61018 | [-0.0052728, 0.0047924] |
+| individual_plateaus | midpoint_cm | Condition × maia2_not_distracting | 39 | -0.039922 | 0.016569 (1, 36) | 0.8983 | 0.9308 | [-4.8041, 4.9214] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_not_distracting | 39 | 6.8413e-05 | 0.038863 (1, 36) | 0.84483 | 0.88391 | [-0.0044813, 0.0037332] |
+| individual_plateaus | midpoint_cm | Condition × maia2_not_worrying | 39 | 0.093853 | 0.11008 (1, 36) | 0.74198 | 0.72251 | [-3.6171, 4.3169] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_not_worrying | 39 | 0.00028585 | 0.83141 (1, 36) | 0.36793 | 0.39171 | [-0.0035529, 0.0043253] |
+| individual_plateaus | midpoint_cm | Condition × maia2_attention_regulation | 39 | -0.056601 | 0.025642 (1, 36) | 0.87367 | 0.88868 | [-5.9981, 5.9628] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_attention_regulation | 39 | -2.1522e-05 | 0.0029576 (1, 36) | 0.95693 | 0.96261 | [-0.0042399, 0.0055319] |
+| individual_plateaus | midpoint_cm | Condition × maia2_emotional_awareness | 39 | -0.47404 | 2.1258 (1, 36) | 0.15351 | 0.22866 | [-5.1435, 4.996] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_emotional_awareness | 39 | -0.00097013 | 8.2482 (1, 36) | 0.0067965 | 0.037465 | [-0.0056918, 0.0042448] |
+| individual_plateaus | midpoint_cm | Condition × maia2_self_regulation | 39 | -0.38241 | 1.7009 (1, 36) | 0.20044 | 0.33824 | [-4.8833, 4.2247] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_self_regulation | 39 | -0.00031914 | 0.92623 (1, 36) | 0.34227 | 0.32025 | [-0.0044918, 0.0036644] |
+| individual_plateaus | midpoint_cm | Condition × maia2_body_listening | 39 | -0.12899 | 0.24134 (1, 36) | 0.62622 | 0.59062 | [-4.3681, 3.732] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_body_listening | 39 | -8.7877e-05 | 0.089039 (1, 36) | 0.76712 | 0.78454 | [-0.0042975, 0.0029107] |
+| individual_plateaus | midpoint_cm | Condition × maia2_trusting | 39 | -0.17079 | 0.46648 (1, 36) | 0.49898 | 0.43744 | [-3.3588, 3.9623] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × maia2_trusting | 39 | -0.00028313 | 1.0394 (1, 36) | 0.31475 | 0.44531 | [-0.0038734, 0.0031636] |
+| individual_plateaus | midpoint_cm | Condition × spfrref_delta | 39 | -0.040856 | 0.065979 (1, 36) | 0.79875 | 0.72795 | [-2.2474, 2.528] |
+| individual_plateaus | normalized_steepness_per_cm | Condition × spfrref_delta | 39 | 0.00026442 | 2.3455 (1, 36) | 0.13439 | 0.26417 | [-0.0018964, 0.0027085] |
+| shared_plateaus | midpoint_cm | Condition | 40 | -17.213 | 528.09 (1, 39) | 2.8045e-24 | 4.4433e-24 | [-29.122, 18.793] |
+| shared_plateaus | normalized_steepness_per_cm | Condition | 40 | 0.0020807 | 49.509 (1, 39) | 1.911e-08 | 2.5279e-08 | [-0.019567, 0.025897] |
+| shared_plateaus | midpoint_cm | Phase | 40 | -14.963 | 505.65 (1, 39) | 6.1725e-24 | 9.7659e-24 | [-27.138, 15.949] |
+| shared_plateaus | normalized_steepness_per_cm | Phase | 40 | 0.0034296 | 188.79 (1, 39) | 1.5706e-16 | 2.3674e-16 | [-0.021471, 0.027251] |
+| shared_plateaus | midpoint_cm | Condition × Phase | 40 | -34.875 | 588.26 (1, 39) | 3.9114e-25 | 6.217e-25 | [-51.876, 28.382] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × Phase | 40 | 0.0015381 | 5.9225 (1, 39) | 0.019633 | 0.021117 | [-0.046079, 0.040434] |
+| shared_plateaus | midpoint_cm | Condition × maia2_noticing | 39 | 0.98709 | 0.56967 (1, 36) | 0.4553 | 0.33503 | [-4.8088, 8.0768] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_noticing | 39 | 0.00030051 | 0.32976 (1, 36) | 0.56937 | 0.57473 | [-0.0052661, 0.0048238] |
+| shared_plateaus | midpoint_cm | Condition × maia2_not_distracting | 39 | 0.51529 | 0.25281 (1, 36) | 0.61817 | 0.58978 | [-5.0348, 5.5806] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_not_distracting | 39 | 0.00018299 | 0.20014 (1, 36) | 0.65729 | 0.72765 | [-0.0043327, 0.0039125] |
+| shared_plateaus | midpoint_cm | Condition × maia2_not_worrying | 39 | -0.50309 | 0.28924 (1, 36) | 0.59402 | 0.69086 | [-5.0997, 4.6582] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_not_worrying | 39 | 0.00051364 | 1.9839 (1, 36) | 0.16756 | 0.19605 | [-0.0034576, 0.0043403] |
+| shared_plateaus | midpoint_cm | Condition × maia2_attention_regulation | 39 | 1.6483 | 2.0922 (1, 36) | 0.1567 | 0.098762 | [-5.3213, 7.479] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_attention_regulation | 39 | -9.4529e-05 | 0.04093 (1, 36) | 0.84081 | 0.84462 | [-0.0041826, 0.0055614] |
+| shared_plateaus | midpoint_cm | Condition × maia2_emotional_awareness | 39 | 1.4997 | 1.9258 (1, 36) | 0.17375 | 0.40899 | [-5.7892, 7.5345] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_emotional_awareness | 39 | -0.0012186 | 9.6149 (1, 36) | 0.0037387 | 0.017192 | [-0.0055624, 0.0040532] |
+| shared_plateaus | midpoint_cm | Condition × maia2_self_regulation | 39 | -0.39354 | 0.1572 (1, 36) | 0.69409 | 0.64662 | [-5.395, 5.3519] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_self_regulation | 39 | -0.00036748 | 0.87892 (1, 36) | 0.35474 | 0.3025 | [-0.0044705, 0.0036972] |
+| shared_plateaus | midpoint_cm | Condition × maia2_body_listening | 39 | -0.81705 | 0.89704 (1, 36) | 0.34989 | 0.46859 | [-5.3606, 3.5289] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_body_listening | 39 | 8.0998e-05 | 0.054155 (1, 36) | 0.8173 | 0.80711 | [-0.0043973, 0.0029805] |
+| shared_plateaus | midpoint_cm | Condition × maia2_trusting | 39 | 1.2584 | 2.4282 (1, 36) | 0.12791 | 0.4118 | [-3.5522, 6.2485] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × maia2_trusting | 39 | -0.00053019 | 2.7314 (1, 36) | 0.10709 | 0.2364 | [-0.0039265, 0.003041] |
+| shared_plateaus | midpoint_cm | Condition × spfrref_delta | 39 | 0.65965 | 1.633 (1, 36) | 0.20946 | 0.20183 | [-2.2636, 3.2557] |
+| shared_plateaus | normalized_steepness_per_cm | Condition × spfrref_delta | 39 | 9.266e-05 | 0.19483 (1, 36) | 0.66157 | 0.75766 | [-0.001929, 0.0026058] |
+
+Conventional F/p and HC3 treat fitted parameters as outcomes. They do not propagate curve fitting or shared-pool uncertainty. Interpret them beside the refit intervals and the previously weak parameter-change reliability. All 1,328 terms, both order specifications, phase/three-way moderators, between-person effects and spatial-direction sensitivities are exported. No multiplicity correction was applied.

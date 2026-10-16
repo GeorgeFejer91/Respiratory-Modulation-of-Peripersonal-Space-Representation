@@ -10,6 +10,63 @@ from descriptive_sigmoid import DISTANCES, LABELS, predict
 from participant_sigmoid import METRICS, CONTRASTS, X
 
 
+def repeated_rows(r):
+    return [row|{"excluded_ids":','.join(cohort.get("excluded_ids",[])),
+                 "cohort":"Exclude "+','.join(cohort["excluded_ids"]) if cohort.get("excluded_ids") else "Full release (provisional)"}
+            for cohort in [r]+r["linkage_sensitivities"] for row in cohort["repeated_measures"]]
+
+
+def repeated_primary(r):
+    cohort=max(r["linkage_sensitivities"],key=lambda s:len(s["excluded_ids"])) if r["linkage_sensitivities"] else r
+    return cohort["repeated_measures"],"Exclude "+'/'.join(cohort["excluded_ids"]) if cohort.get("excluded_ids") else "Full release"
+
+
+def repeated_markdown(r):
+    if r["status"]!="computed":return ""
+    rows,label=repeated_primary(r)
+    lines=["\n## PPS parameters: repeated-measures ANOVA and ANCOVA","",r["repeated_measures_scope"],"",
+        f"Main presentation: {label}. Sharpness = 1/(4 × width in cm); larger values mean a narrower transition. MAIA dimensions are fitted separately and kept continuous. Spatial delta is Viscereality − Control.","",
+        "| Model | Parameter | Effect / covariate | n | Estimate | F (1, df) | Unadjusted p | HC3 p | 95% curve-refit interval |",
+        "| --- | --- | --- | ---: | ---: | --- | ---: | ---: | --- |"]
+    def f(value):return "NA" if value is None else f"{value:.5g}"
+    for a in rows:
+        if a["predictor"]!="none" and (a["effect"]!="Condition" or not a["order_adjusted"] or a["predictor"]=="spfrref_change_direction"):continue
+        term=a["effect"] if a["predictor"]=="none" else a["effect"]+" × "+a["predictor"]
+        lines.append(f"| {a['model']} | {a['parameter']} | {term} | {a['n']} | {f(a['estimate'])} | {f(a['F'])} (1, {a['df2']}) | {f(a['p'])} | {f(a['hc3_p'])} | [{f(a['refit_ci_low'])}, {f(a['refit_ci_high'])}] |")
+    lines.extend(["","Conventional F/p and HC3 treat fitted parameters as outcomes. They do not propagate curve fitting or shared-pool uncertainty. Interpret them beside the refit intervals and the previously weak parameter-change reliability. All 1,328 terms, both order specifications, phase/three-way moderators, between-person effects and spatial-direction sensitivities are exported. No multiplicity correction was applied."])
+    return "\n".join(lines)+"\n"
+
+
+def repeated_figure_bytes(r,format="svg"):
+    rows,label=repeated_primary(r)
+    with plt.rc_context({"font.family":"DejaVu Sans","font.size":9,"svg.hashsalt":"study5-rm-v1"}):
+        fig,axes=plt.subplots(2,2,figsize=(13,10.5))
+        predictors=list(dict.fromkeys(a["predictor"] for a in rows if a["predictor"] not in ("none","spfrref_change_direction")))
+        for column,metric in enumerate(METRICS[:2]):
+            for panel in (0,1):
+                ax=axes[panel,column];labels=["Condition","Phase","Condition × Phase"] if panel==0 else predictors
+                for model,offset,color,name in (("individual_plateaus",-.13,"#175b8d","Separate plateaus"),("shared_plateaus",.13,"#b65121","Shared plateaus")):
+                    for i,term in enumerate(labels):
+                        a=next(a for a in rows if a["model"]==model and a["parameter"]==metric and
+                               ((panel==0 and a["predictor"]=="none" and a["effect"]==term) or
+                                (panel==1 and a["predictor"]==term and a["effect"]=="Condition" and a["order_adjusted"])))
+                        y=i+offset
+                        if a["refit_ci_low"] is not None:ax.plot([a["refit_ci_low"],a["refit_ci_high"]],[y,y],color=color,lw=1.7)
+                        if a["estimate"] is not None:ax.plot(a["estimate"],y,"o",color=color,ms=4,label=name if i==0 else None)
+                ax.set_yticks(range(len(labels)),[s.replace("maia2_","").replace("spfrref_delta","Spatial change").replace("_"," ").title() for s in labels]);ax.invert_yaxis()
+                ax.axvline(0,color="#888888",lw=.8,ls=":");ax.spines[["top","right"]].set_visible(False)
+                units="cm" if column==0 else "1/cm"
+                ax.set_xlabel(("Fitted contrast ("+units+")") if panel==0 else "Condition-change slope ("+units+" per score point)")
+                ax.set_title(("Midpoint" if column==0 else "Normalized sharpness")+(" · 2×2 effects" if panel==0 else " · order-adjusted moderators"))
+        axes[0,0].legend(frameon=False,fontsize=8,loc="best")
+        fig.suptitle("PPS proxy ANOVA / ANCOVA · "+label,fontsize=14,y=.98)
+        fig.text(.5,.035,"Points: fitted contrasts/slopes. Lines: 95% hierarchical curve-refit intervals; method and cleaning fixed.",ha="center",fontsize=9)
+        fig.text(.5,.014,"Exploratory associations of unstable proxies; baseline MAIA and post-intervention spatial change do not establish causal influence.",ha="center",fontsize=9)
+        fig.subplots_adjust(left=.17,right=.97,top=.91,bottom=.10,wspace=.60,hspace=.45)
+        stream=io.BytesIO();fig.savefig(stream,format=format,dpi=250,metadata={"Date":None} if format=="svg" else None);plt.close(fig)
+        return stream.getvalue()
+
+
 def diagnostics(r):
     out=[]
     for model,key in (("individual_plateaus","parameters"),("shared_plateaus","shared_parameters")):

@@ -454,7 +454,7 @@ def analyze(people,trials,progress=None):
     linkage=linkage_model_sensitivities(people,trials,individual.get("linkage_audit",{"groups":[]}),notify)
     flagged=sorted({pid for g in individual.get("linkage_audit",{"groups":[]})["groups"] for pid in g["participant_ids"]})
     robustness={"recording_linkage":linkage,"group_shape":followup_audit(retained,flagged,notify)}
-    report={"analysis_version":"1.7","status":"reproducible analysis draft; recording linkage requires review",
+    report={"analysis_version":"1.8","status":"reproducible analysis draft; recording linkage requires review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
@@ -480,6 +480,7 @@ def analyze(people,trials,progress=None):
             {"domain":"Participant PPS boundary and related questionnaire inference","status":boundary["status"],"output":"Fit gate retained; group approximations remain descriptive"},
             {"domain":"Exploratory individual sigmoid proxies and normalized RT","status":individual["status"],"output":"Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit"},
             {"domain":"Remaining behavioural/shape robustness checks","status":"analysed","output":"Primary-model linkage exclusions, mean parameter contrasts and change-score reliability/recovery, refit association intervals for every exclusion, log-distance benchmark, nine geometry specifications and repeated method selection"},
+            {"domain":"PPS parameter repeated-measures ANOVA/ANCOVA","status":individual["status"],"output":"2×2 effects and continuous baseline MAIA/spatial-change covariates for midpoint/sharpness; both plateau models, four linkage cohorts, order/HC3 and 500 curve-refit intervals"},
             {"domain":"Repeated MAIA, body-boundary and small-self measures","status":"unavailable","output":"No corresponding repeated/measure columns in released tables"},
             {"domain":"Waveforms, measured breathing and acquisition provenance","status":"unavailable","output":"Source recordings and private metadata are outside the release"}],
         "unavailable_checks":[
