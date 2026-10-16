@@ -81,7 +81,10 @@ availability and the MAIA-2 development paper, before calculating the new
 questionnaire associations. It is post hoc, not a preregistration. Direct retrieval
 of the AsPredicted PDF returned HTTP 403; the existing manuscript describes trait
 and pictographic correlates as exploratory but is not an independent copy of the
-registration. Its exact questionnaire wording remains unverified.
+registration. Its exact questionnaire wording remains unverified. After inspecting
+the association results, the project owner requested unadjusted reporting instead
+of the initially specified Holm adjustment. This reporting amendment retains all
+33 comparisons and their exploratory status; it is not a preregistered decision.
 
 Recompute the eight MAIA-2 means from the 37 items using Mehling et al. (2018),
 Table 2: Noticing 1–4; Not-Distracting 5–10; Not-Worrying 11–15; Attention
@@ -115,9 +118,10 @@ behavioural contrast. Slopes use all five cell means, the primary cohort/trim an
 the primary SOA scaling. Positive contrast means (Viscereality Inhale−Exhale)
 minus (Control Inhale−Exhale); it is not a PPS boundary. Use pairwise-complete
 people, Spearman rho with average ranks, 19,999 random permutations and the
-(extreme+1)/(draws+1) two-sided absolute-statistic p value. Correct the entire
-33-test family with Holm; undefined tests occupy their planned slot with p=1 for
-adjustment but remain unestimated in output. Report 2,000 paired-participant
+(extreme+1)/(draws+1) two-sided absolute-statistic p value. Report all 33 p values
+without multiple-testing correction; undefined tests remain unestimated in output.
+The plus-one rule is part of Monte Carlo permutation inference, not a correction
+across tests. Report 2,000 paired-participant
 bootstrap percentile intervals, re-ranking each resample. Intervals are
 pointwise, not simultaneous; permutation inference assumes exchangeable people
 under independence and is not covariate-adjusted. Seed all new resampling with

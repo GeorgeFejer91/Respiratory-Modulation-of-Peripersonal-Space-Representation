@@ -90,8 +90,12 @@ participant cell means, in ms per primary SOA SD. It does not estimate a PPS bou
 
 Spearman rho uses complete participant pairs and average ranks. Use 19,999
 permutations under the independence null, a two-sided absolute-statistic tail and
-the plus-one p-value correction. Holm adjustment covers all 33 slots; undefined
-tests remain unestimated, with p=1 used internally for adjustment. Pointwise 95%
+the plus-one p-value rule. All 33 p values are reported without multiple-testing
+correction; undefined tests remain unestimated. The plus-one rule is part of Monte
+Carlo permutation inference, not adjustment across tests. The project owner
+requested unadjusted reporting after inspecting the initial results, replacing
+the initially specified Holm adjustment. This amendment does not make the
+analyses preregistered or confirmatory. Pointwise 95%
 intervals use 2,000 paired-person bootstrap draws, re-ranking within each draw;
 degenerate draws are excluded and counted. Intervals are not simultaneous.
 Permutation inference assumes exchangeable people under independence and does
@@ -126,7 +130,7 @@ more strongly, reinforcing the need to verify the original before submission.
 | MAIA/SpFrRef versus boundaries | Current contract treats conditional associations as exploratory | Unestimated when the boundary gate fails |
 | MAIA scoring/item/reliability audit | No newly verified registered prescription | Post hoc measurement audit |
 | Paired spatial condition comparison | No newly verified registered directional test | Two-sided exploratory sign test |
-| 33 rank associations | Newly fixed extension, not original registration | Report all with Holm and uncertainty |
+| 33 rank associations | Post hoc extension; unadjusted reporting chosen after inspecting results | Report all with unadjusted p values and pointwise uncertainty |
 | Repeated MAIA/body-boundary/small-self | Mentioned constructs do not establish available measurements | Unavailable without corresponding fields |
 
 See [ANALYSIS_PLAN.md](../workbook/ANALYSIS_PLAN.md) and
@@ -166,11 +170,18 @@ Both condition medians are D, illustrating why a median alone misses paired chan
 Higher/equal/lower counts are 13/6/2 for Control-first and 9/7/4 for Viscereality-first;
 these do not rule out period/carryover effects.
 
-None of the 33 associations has Holm p<.05 (minimum 0.762). Every estimate,
-raw/adjusted p and interval is exported; uncorrected findings are not selected
-as confirmed hypotheses. Absence of adjusted evidence does not establish
-independence. The spatial result does not rescue missing participant PPS boundaries
-or establish an interoceptive mechanism.
+All 33 associations are reported without multiple-testing correction; four have
+unadjusted p<.05. Among the 24 MAIA–spatial comparisons, Trusting correlates with
+Viscereality ratings (rho=0.322, pointwise 95% CI 0.004–0.602, p=0.04255) and with
+rating-change direction (rho=0.335, CI 0.025–0.606, p=0.03445). Direction means
+lower/same/higher, not the magnitude of change. These related outcomes are not
+independent replication. Self Regulation (rho=−0.357, CI −0.603 to −0.050,
+p=0.02310) and Body Listening (rho=−0.312, CI −0.545 to −0.018, p=0.04740) correlate
+with the raw-RT slope interaction. Each association uses 41 complete pairs.
+Every estimate, unadjusted p value and pointwise interval is exported. These
+post hoc associations are exploratory, with multiple comparisons and confounding
+limiting inference. They do not rescue missing participant PPS boundaries or
+establish an interoceptive mechanism; non-significance does not establish independence.
 
 ## Search and evidence limits
 

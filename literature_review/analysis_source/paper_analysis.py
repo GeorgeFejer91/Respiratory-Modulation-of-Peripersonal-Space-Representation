@@ -422,7 +422,7 @@ def analyze(people,trials,progress=None):
     ages=np.array([numeric(p,"age_years") for p in people]);ages=ages[np.isfinite(ages)]
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
-    report={"analysis_version":"1.3","status":"reproducible analysis draft for author review",
+    report={"analysis_version":"1.4","status":"reproducible analysis draft for author review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),

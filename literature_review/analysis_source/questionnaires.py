@@ -3,7 +3,6 @@
 import numpy as np
 from scipy import stats
 
-from inference import holm
 from preparation import validate_questionnaire_rows
 
 
@@ -192,9 +191,6 @@ def run(people, person_slopes, *, bootstrap_draws=BOOTSTRAPS, permutations=PERMU
     targets = ["spfrref_control_ordinal", "spfrref_viscereality_ordinal", "spfrref_change_direction", "rt_slope_interaction"]
     associations = [association(scored, x, y, rng, permutations, bootstrap_draws)
                     for x, y in [(x, y) for x in fields for y in targets] + [(targets[2], targets[3])]]
-    adjustment = holm([{"p": r["p"] if r["p"] is not None else 1.} for r in associations])
-    for row, adjusted in zip(associations, adjustment):
-        row["p_holm"] = adjusted["p_holm"] if row["p"] is not None else None
     interscale = []
     for i, x in enumerate(fields):
         for y in fields[i+1:]:
@@ -212,7 +208,8 @@ def run(people, person_slopes, *, bootstrap_draws=BOOTSTRAPS, permutations=PERMU
         "scoring_audit": audit, "scores": scored, "scales": scales, "items": items,
         "spatial": spatial, "associations": associations, "interscale_descriptive": interscale,
         "resampling": {"seed": SEED, "bootstrap_draws": bootstrap_draws, "permutations": permutations,
-            "association_family_size": 33, "adjustment": "Holm across all 33 planned slots; undefined tests retained as p=1 internally",
+            "association_family_size": 33, "adjustment": "none",
+            "reporting_change": "Unadjusted reporting requested after inspecting the association results; all 33 comparisons retained as exploratory.",
             "scope": "Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment."},
         "limitations": ["Exploratory extension; exact questionnaire wording in the registration could not be retrieved (HTTP 403).",
             "MAIA-2 measures self-reported interoceptive dimensions, not objective interoceptive accuracy.",

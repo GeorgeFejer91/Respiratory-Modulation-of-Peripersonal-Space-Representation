@@ -105,7 +105,7 @@ Alpha is a sample internal-consistency diagnostic, not evidence of validity or a
 
 Spatial-frame paired ratings: n=41; Viscereality higher=22, lower=6, tied=13. Two-sided exact sign-test p=0.0037191659212112427; ties are excluded only from the binomial denominator. Higher fraction among non-ties=0.79, exact 95% CI [0.59, 0.92]. This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.
 
-All 33 fixed associations are exported with Spearman rho, paired-person bootstrap intervals, permutation p and Holm p. 0/33 have Holm p<.05. The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment.
+All 33 fixed associations are exported with Spearman rho, pointwise paired-person bootstrap intervals and unadjusted permutation p values. 4/33 have unadjusted p<.05. No multiple-testing correction is applied. Unadjusted reporting requested after inspecting the association results; all 33 comparisons retained as exploratory. The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment.
 
 - Exploratory extension; exact questionnaire wording in the registration could not be retrieved (HTTP 403).
 - MAIA-2 measures self-reported interoceptive dimensions, not objective interoceptive accuracy.
