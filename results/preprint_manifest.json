@@ -1,6 +1,6 @@
 {
   "status": "Analysis draft for author review",
-  "pdf_sha256": "82a75313b73ce6beec4bc6d521ec0b70d139f0a5e57a7be392100b38d4cbc957",
+  "pdf_sha256": "f86f5fb5897c350a1a099eec1bd42ec0d4f79f7f2879a8e6fba66afbdc8350a3",
   "manuscript_sha256": {
     "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
     "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
@@ -11,13 +11,13 @@
     "manuscript/figures/study5_sigmoid_geometry.png": "e5619a86c6db244e24be941d4b069b678c3851597e0b48f1cec9c80a7271fe54",
     "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
     "manuscript/main.tex": "a7a065b2e2d63c4fed63f041cd1a386b6c1f28f87a02618b0b8c415ac373b1ed",
-    "manuscript/references.bib": "4a772b4a4ee5538374ea64377725ce919dabf04db4f1fb2f59ee9f4fe713ba06",
+    "manuscript/references.bib": "5ab9250b1be0df3d79ea33eb60297e893322a377248784b5e83a36313e8c89d8",
     "manuscript/sections/abstract.tex": "370e5a1fe71a67d64c5fbeab8f056c0e3ac4b2fc36a66167178a32e01b51a32f",
     "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
-    "manuscript/sections/discussion.tex": "d7bc001b889a774f1e51b63b77d030d813b29f6d6cde3b0e4a17346087a911e6",
-    "manuscript/sections/introduction.tex": "64d6ffba3fd7001883380a2a8130eb5ef481c810130da7dcc22b4c949316a7b4",
-    "manuscript/sections/methods.tex": "30975b02223ef4e4b547d28f6ac6101c69f65162283552a2b055243ec35b79ea",
+    "manuscript/sections/discussion.tex": "7ea16c8897057c632b85aaddb56a035963d774f206e36091fc190709af317f47",
+    "manuscript/sections/introduction.tex": "c5921b22cc3a0a4fcd0958812d29b5a8c3b750d43a213f321872fac7909f48a4",
+    "manuscript/sections/methods.tex": "ddce27955d2ac2fb756d635b84e8a5938fb1e902959cc0079bd1889ce5729431",
     "manuscript/sections/results.tex": "3cca86efe6265355f4b0537d4c6540d24ede3fe205fac90c269960c08122d67b"
   },
-  "browser_zip_sha256": "e69b65c3211ca99f82d99211c75aac66eee6b0b0a9a7876ed0581b4dfde04532"
+  "browser_zip_sha256": "15d42f9696109557643d52355c0b703a3ac81da47d90c5bb8ba3ada34dc38a99"
 }

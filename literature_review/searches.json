@@ -1,0 +1,302 @@
+{
+  "review_date": "2026-10-16",
+  "timezone": "Europe/Berlin",
+  "scope": "Focused narrative review; not exhaustive or systematic",
+  "workflow": "Installed multi-source-web-search skill; academic-consensus routing and source/access ledger",
+  "providers_used": [
+    "PubMed public search and indexed records",
+    "GitHub direct official/author source retrieval"
+  ],
+  "providers_unavailable": [
+    "Consensus MCP",
+    "general web-search MCP"
+  ],
+  "full_articles_read_in_this_review": 0,
+  "retrievals": [
+    {
+      "id": "cawley",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22On%20over-fitting%20in%20model%20selection%20and%20subsequent%20selection%20bias%20in%20performance%20evaluation%22&format=pubmed",
+      "status": 200,
+      "bytes": 16954,
+      "sha256": "463fa0d1934f3ffe8635b6d2b3d81657543f50797764f6c1b28f8f30b69fb4ec",
+      "challenge": false,
+      "checked_date": "2026-10-16",
+      "disposition": "Not selected: unrelated or less directly relevant matches. Previously verified PPS abstracts reused where available."
+    },
+    {
+      "id": "varma",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Bias%20in%20error%20estimation%20when%20using%20cross-validation%20for%20model%20selection%22&format=pubmed",
+      "status": 200,
+      "bytes": 46290,
+      "sha256": "b948011fff09f066ef75b68d4ed6393ed9115e7fcea801445dd36faea6a55884",
+      "challenge": false,
+      "checked_date": "2026-10-16",
+      "selected_pmids": [
+        "16504092",
+        "27989847"
+      ],
+      "disposition": "Selected exact matching records; other matches not used as evidence."
+    },
+    {
+      "id": "stegen",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22The%20multiverse%20analysis%22&format=pubmed",
+      "status": 200,
+      "bytes": 50883,
+      "sha256": "43015e66c0c7ece5baf4328b4d61246070f14abbb852caa863add07afc957676",
+      "challenge": false,
+      "checked_date": "2026-10-16",
+      "disposition": "Not selected: unrelated or less directly relevant matches. Previously verified PPS abstracts reused where available."
+    },
+    {
+      "id": "hobeika",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Capturing%20the%20dynamics%20of%20peripersonal%20space%22&format=pubmed",
+      "status": 200,
+      "bytes": 21754,
+      "sha256": "022f0ffbac431872b794376cff683bfb50e3e57e6291a7a7df9457b041236d70",
+      "challenge": true,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "holmes",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Do%20sounds%20near%20the%20hand%20facilitate%20tactile%20reaction%20times%22&format=pubmed",
+      "status": 200,
+      "bytes": 21861,
+      "sha256": "01370c3953c7e36a7f080444868e5516b4328f26fe07755622f279310488528b",
+      "challenge": true,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "raue",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Structural%20and%20practical%20identifiability%20analysis%20of%20partially%20observed%20dynamical%20models%20by%20exploiting%20the%20profile%20likelihood%22&format=pubmed",
+      "status": 200,
+      "bytes": 22317,
+      "sha256": "9961ff5ca957434674d56d71f245ad3c3810816ed884c50e80f27f472897665f",
+      "challenge": true,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "cawley-full",
+      "url": "https://jmlr.org/papers/volume11/cawley10a/cawley10a.pdf",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "varma-full",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1397873/",
+      "status": 200,
+      "bytes": 21311,
+      "sha256": "8fd3498d90e4e4b80f928d14aa9758134edbcbfd36e23d7493e613208e848376",
+      "challenge": true,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "holmes-full",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7181441/",
+      "status": 200,
+      "bytes": 21312,
+      "sha256": "8fa9cb6c44491a755c6af603b446dbcfd9c4c1e6e0d2f7c89ba727f24ce558f6",
+      "challenge": true,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "pps-current",
+      "query": "\"peripersonal space\" AND (sigmoid OR logistic OR expectancy) AND 2021:2026[dp]",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28sigmoid%20OR%20logistic%20OR%20expectancy%29%20AND%202021%3A2026%5Bdp%5D&format=pubmed",
+      "status": 200,
+      "bytes": 22036,
+      "sha256": "0ac9a2b27e0c4204e9fb0ea9862ca6207333082593da01b751c97d9518bcb775",
+      "indexed_records": 0,
+      "challenge": true,
+      "titles": [],
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "steegen-exact",
+      "query": "\"Increasing Transparency Through a Multiverse Analysis\"",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Increasing%20Transparency%20Through%20a%20Multiverse%20Analysis%22&format=pubmed",
+      "status": 200,
+      "bytes": 46078,
+      "sha256": "edf008162285cfaf9170461a54a12118976e453a3219bfe4b9bcd3a834b32984",
+      "indexed_records": 8,
+      "challenge": false,
+      "titles": [
+        {
+          "pmid": "27694465",
+          "title": "Increasing Transparency Through a Multiverse Analysis."
+        },
+        {
+          "pmid": "40848964",
+          "title": "A multiverse meta-analysis of oxytocin administration studies."
+        },
+        {
+          "pmid": "34272641",
+          "title": "Assessing the Robustness of Mediation Analysis Results Using Multiverse Analysis."
+        },
+        {
+          "pmid": "41164340",
+          "title": "The Systematic Multiverse Analysis Registration Tool for defining multiverse \r analyses."
+        },
+        {
+          "pmid": "35500540",
+          "title": "Multiverse analyses in fear conditioning research."
+        },
+        {
+          "pmid": "40965962",
+          "title": "Crowdsourcing multiverse analyses to explore the impact of different \r data-processing and analysis decisions: A tutorial."
+        },
+        {
+          "pmid": "37944560",
+          "title": "Symptom Network Analysis Tools for Applied Researchers With Cross-Sectional and \r Panel Data - A Brief Overview and Multiverse Analysis."
+        },
+        {
+          "pmid": "38934916",
+          "title": "Evaluating the robustness of parameter estimates in cognitive models: A \r meta-analytic review of multinomial processing tree models across the multiverse \r of estimation methods."
+        }
+      ],
+      "checked_date": "2026-10-16",
+      "selected_pmids": [
+        "27694465"
+      ],
+      "disposition": "Selected exact matching records; other matches not used as evidence."
+    },
+    {
+      "id": "ratcliff-exact",
+      "query": "\"Methods for dealing with reaction time outliers\"",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Methods%20for%20dealing%20with%20reaction%20time%20outliers%22&format=pubmed",
+      "status": 200,
+      "bytes": 9492,
+      "sha256": "7018e7a419ea652a56156b5ee147f2a67496050c9a9f139ac5d28bd024ab9e5b",
+      "indexed_records": 1,
+      "challenge": false,
+      "titles": [
+        {
+          "pmid": "8272468",
+          "title": "Methods for dealing with reaction time outliers."
+        }
+      ],
+      "checked_date": "2026-10-16",
+      "selected_pmids": [
+        "8272468"
+      ],
+      "disposition": "Selected exact matching records; other matches not used as evidence."
+    },
+    {
+      "id": "raue-exact",
+      "query": "\"Structural and practical identifiability analysis\"",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Structural%20and%20practical%20identifiability%20analysis%22&format=pubmed",
+      "status": 200,
+      "bytes": 47687,
+      "sha256": "5f4f83c4b48feede0ea82ab0e21fed148f12bcb6730fdd5e00ab14f0c08656a7",
+      "indexed_records": 10,
+      "challenge": false,
+      "titles": [
+        {
+          "pmid": "38438947",
+          "title": "Structural and practical identifiability analysis in bioengineering: a beginner's \r guide."
+        },
+        {
+          "pmid": "29477671",
+          "title": "Structural and practical identifiability analysis of outbreak models."
+        },
+        {
+          "pmid": "29948883",
+          "title": "Structural and Practical Identifiability Analysis of Zika Epidemiological Models."
+        },
+        {
+          "pmid": "37074575",
+          "title": "Systems Biology: Identifiability Analysis and Parameter Identification via \r Systems-Biology-Informed Neural Networks."
+        },
+        {
+          "pmid": "27651156",
+          "title": "Structural and Practical Identifiability Issues of Immuno-Epidemiological \r Vector-Host Models with Application to Rift Valley Fever."
+        },
+        {
+          "pmid": "26577163",
+          "title": "Structural and practical identifiability analysis of S-system."
+        },
+        {
+          "pmid": "19505944",
+          "title": "Structural and practical identifiability analysis of partially observed dynamical \r models by exploiting the profile likelihood."
+        },
+        {
+          "pmid": "38052613",
+          "title": "Modeling the interplay between albumin-globulin metabolism and HIV infection."
+        },
+        {
+          "pmid": "41325459",
+          "title": "Identification of dynamic models of microbial communities: A workflow addressing \r identifiability and modeling pitfalls."
+        },
+        {
+          "pmid": "30095007",
+          "title": "Identifiability Analysis of Three Control-Oriented Models for Use in Artificial \r Pancreas Systems."
+        }
+      ],
+      "checked_date": "2026-10-16",
+      "selected_pmids": [
+        "19505944"
+      ],
+      "disposition": "Selected exact matching records; other matches not used as evidence."
+    },
+    {
+      "id": "gelman-forking",
+      "query": "\"researcher degrees of freedom\" AND \"false-positive\"",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22researcher%20degrees%20of%20freedom%22%20AND%20%22false-positive%22&format=pubmed",
+      "status": 200,
+      "bytes": 21824,
+      "sha256": "74a30e5ba3806a5c4dcf7d14c79a2bd93ad94ff4bb7d0d055ecf74716ddbcdd7",
+      "indexed_records": 0,
+      "challenge": true,
+      "titles": [],
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "bertoni-exact",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22Computational%20models%20of%20peripersonal%20space%20representation%22&format=pubmed",
+      "status": 200,
+      "bytes": 21827,
+      "sha256": "083de443a99414f0460482a2027b6ce4b4e5a5c762bf559b3b2597b2524d3269",
+      "challenge": true,
+      "indexed_records": 0,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "wichmann-exact",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22The%20psychometric%20function%3A%20I.%20Fitting%2C%20sampling%2C%20and%20goodness%20of%20fit%22&format=pubmed",
+      "status": 200,
+      "bytes": 21950,
+      "sha256": "0618c1e6eb95d90b970ad0a77ef17e32c3ac61fcdf9f6a9bcc683b438ff5cf9d",
+      "challenge": true,
+      "indexed_records": 0,
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "steegen-author",
+      "url": "https://stat.columbia.edu/~gelman/research/published/Multiverse.pdf",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "checked_date": "2026-10-16",
+      "disposition": "No scholarly text obtained; excluded from substantive evidence."
+    },
+    {
+      "id": "normative-source",
+      "url": "https://raw.githubusercontent.com/ctu-vras/pps-normative-model/main/FN_std_PPS_properties.m",
+      "status": 200,
+      "bytes": 3022,
+      "sha256": "dded33388c30f9e3165ec90c81871cdb659106bd73609a42b8db4b00efa5b260",
+      "challenge": false,
+      "indexed_records": 0,
+      "checked_date": "2026-10-16",
+      "disposition": "Author code inspected; not the article full text."
+    }
+  ],
+  "prior_search": "Earlier PPS broad search and exact-title retrievals are preserved in analysis/sigmoid_literature_sources.json; accessible records reused, not claimed as new searches."
+}

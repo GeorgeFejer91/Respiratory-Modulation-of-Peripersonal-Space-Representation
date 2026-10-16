@@ -57,9 +57,12 @@ def nested_prediction(cubes, x, ids, progress=None):
     return {
         "outer_seed": SEED+10, "outer_folds": records,
         "scope": "Six outer participant folds; five inner participant folds crossed with omitted positions. "
-                 "Each family selects its full pipeline using training participants only. Outer predictions "
+                 "Each family selects extraction, smoothing and fitting using training participants only. Outer predictions "
                  "also omit the target position from fitting. Inner selection sees all design positions in "
-                 "training participants. This estimates prediction for new people at the known design; "
+                 "training participants. Evaluation conditions on profiles cleaned beforehand using each person's "
+                 "eligible AT and Baseline hit RTs across all positions. People do not share cleaning thresholds, "
+                 "but an omitted position can affect its own person's threshold. This is relative-profile prediction "
+                 "for new people at the known design, not end-to-end prediction from uncleaned trials; "
                  "families/criteria were developed post hoc. Overlapping training sets preclude treating "
                  "folds as independent replicates or this evaluation as a confirmatory test.",
         "scores": [{"family": f, "outer_rmse_ms": float(np.sqrt(e.mean())),

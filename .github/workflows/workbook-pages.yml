@@ -8,6 +8,8 @@ on:
       - data/raw/**
       - results/**
       - manuscript/**
+      - literature_review/**
+      - analysis/sigmoid_literature_sources.json
       - .github/workflows/workbook-pages.yml
   workflow_dispatch:
 

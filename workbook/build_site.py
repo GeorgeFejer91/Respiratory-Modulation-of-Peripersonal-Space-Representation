@@ -9,8 +9,51 @@ import zipfile
 import io
 from hashlib import sha256
 from pathlib import Path
+from html import escape
+
+import markdown
 
 from preparation import FILES,load_pair,audit_release
+
+
+def build_review(root, target):
+    """Render the reviewed Markdown using marimo's existing Markdown dependency."""
+    source = root / "literature_review"
+    destination = target / "literature_review"
+    destination.mkdir(exist_ok=True)
+    pages = {"README.md": "index.html", "EVIDENCE_TABLE.md": "EVIDENCE_TABLE.html",
+             "ANALYSIS_RATIONALE.md": "ANALYSIS_RATIONALE.html", "SEARCH_LOG.md": "SEARCH_LOG.html"}
+    links = dict(pages)
+    links.update({"../analysis/sigmoid_literature_sources.json": "../sigmoid_literature_sources.json",
+                  "../results/browser-analysis/analysis_report.md": "../reference/analysis_report.md"})
+    for name in ("ANALYSIS_PLAN.md", "SIGMOID_EXPLORATION.md"):
+        links["../workbook/" + name] = "../" + name
+    code = destination / "analysis_source"
+    code.mkdir(exist_ok=True)
+    for name in ("paper_analysis.py", "descriptive_sigmoid.py", "sigmoid_shape.py", "publication_report.py"):
+        shutil.copyfile(root / "workbook" / name, code / name)
+        links["../workbook/" + name] = "analysis_source/" + name
+    for name in (*pages, "searches.json", "references.bib"):
+        shutil.copyfile(source / name, destination / name)
+    for name, output_name in pages.items():
+        text = (source / name).read_text()
+        body = markdown.markdown(text, extensions=["tables", "fenced_code"])
+        for old, new in links.items():
+            body = body.replace('href="' + old + '"', 'href="' + new + '"')
+        title = escape(text.splitlines()[0].lstrip("# "))
+        (destination / output_name).write_text(f'''<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title} · Study 5</title><style>
+body{{font:17px/1.65 system-ui,sans-serif;color:#1f2937;margin:2rem auto;padding:0 1.2rem;max-width:1050px}}
+a{{color:#175b9e}}h1,h2{{line-height:1.25}}h2{{margin-top:2.2rem}}p,li{{max-width:82ch}}
+table{{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px;line-height:1.5}}
+th,td{{padding:.65rem;text-align:left;vertical-align:top;border:1px solid #ccd5df;min-width:170px}}
+th{{background:#edf3f8}}code{{background:#f0f3f6;overflow-wrap:anywhere}}blockquote{{border-left:3px solid #8aaac6;padding-left:1rem}}
+nav{{font-size:15px;margin-bottom:2rem}}:focus-visible{{outline:3px solid #c75c12}}
+</style><nav><a href="../">Workbook</a> · <a href="index.html">Review</a> ·
+<a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
+<a href="SEARCH_LOG.html">Search record</a> · <a href="{name}">Markdown source</a></nav>
+<main>{body}</main></html>''')
 
 
 def build(output, development=False):
@@ -43,8 +86,11 @@ def build(output, development=False):
             allowed.append(path.resolve())
         (data_dir/"sha256.json").write_text(json.dumps(expected,indent=2)+"\n")
         for name in ("ANALYSIS_PLAN.md","DATA_RELEASE.md","SIGMOID_EXPLORATION.md"):
-            shutil.copyfile(notebook.parent/name,target/name)
+            document = (notebook.parent/name).read_text().replace(
+                "../literature_review/README.md", "./literature_review/index.html")
+            (target/name).write_text(document)
         shutil.copyfile(root/"analysis/sigmoid_literature_sources.json",target/"sigmoid_literature_sources.json")
+        build_review(root, target)
         if development:
             # Run the changed engine in a real browser before a new reference/PDF exists.
             # Never copy stale publication records into this development artifact.

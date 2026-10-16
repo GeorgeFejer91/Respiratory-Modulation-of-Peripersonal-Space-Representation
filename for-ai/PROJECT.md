@@ -25,6 +25,15 @@ audit and uncertainty, run the extension in the browser, and reconcile the Resul
 to the actual browser download. The original participant fit gate and the evidence
 needed for a physiological PPS boundary remain separate.
 
+The current evidence goal is to make the rationale for this exploratory extension
+scientifically defensible. Maintain a miniature review in `literature_review/`
+with supporting and contrary PPS evidence, method-to-claim links, search/access
+records, and explicit unresolved checks. Use Consensus when configured and the
+installed multi-source search workflow; disclose unavailable providers. Completion
+means a traceable rationale and calibrated claims, not a guaranteed sigmoid or a
+retrospective claim of preregistration. Link the review from the browser companion
+and reconcile its conclusions with the manuscript.
+
 ## Non-goals
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings
@@ -43,6 +52,8 @@ needed for a physiological PPS boundary remain separate.
   it does not recompute models.
 - `manuscript/`: self-contained Overleaf source and figures. `results/` and
   `figures/`: browser-produced publication-draft artifacts and native validation.
+- `literature_review/`: focused scientific synthesis, evidence table, analysis
+  rationale and reproducible search record; no participant data or copied papers.
 - `for-ai/`: agent instructions, historical writing and source analyses.
   `.for-ai-local/`: ignored builds and local diagnostics.
 

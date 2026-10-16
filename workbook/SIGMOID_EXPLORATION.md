@@ -1,5 +1,10 @@
 # PPS sigmoid-shape goal
 
+The [miniature literature review](../literature_review/README.md) explains why
+this exploratory extension is scientifically motivated, what contrary evidence
+requires, and which checks remain open. It includes an evidence table, bibliography
+and search/access record; no claim of mandatory sigmoid shape follows from it.
+
 The current goal goes beyond obtaining four mathematical sigmoid fits: seek a
 PPS-like transition whose lower and upper bends are visible within the measured
 10–100 cm range, with an interpretable midpoint and steepness. Inspect every
@@ -199,6 +204,14 @@ different overall RT levels. The winner has the smallest mean squared error,
 averaged across participants, positions and four curves. Constant and linear
 benchmarks use the same folds/target. Reported scores are used for tuning and are
 not unbiased post-selection generalization estimates. Fold errors are dependent.
+
+These comparisons condition on the initially cleaned participant profiles.
+Participant-wide RT thresholds were calculated separately for each person before
+cross-validation, using eligible AT and Baseline hits at all positions. The
+omitted position can therefore affect its own person's cleaning threshold even
+though test people never determine training people's thresholds. Scores evaluate
+relative profiles at known design locations; they do not establish end-to-end
+prospective prediction from uncleaned trials or accuracy at new distances.
 
 Earlier prototypes compared within-extraction leave-position-out errors; those
 scores cannot compare the different extraction estimands directly. The final

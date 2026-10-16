@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "e69b65c3211ca99f82d99211c75aac66eee6b0b0a9a7876ed0581b4dfde04532",
+  "browser_zip_sha256": "15d42f9696109557643d52355c0b703a3ac81da47d90c5bb8ba3ada34dc38a99",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",

@@ -60,6 +60,12 @@ statistics with statsmodels and an independent contrast basis. Visually inspect
 both centered-data and normalized-model figures at publication size. A visible
 curve imposed by constraints is not evidence of an observed PPS transition.
 
+For literature/rationale updates, verify citation identity and actual access level,
+retain contrary evidence and failed-search records, and distinguish completed
+analyses from recommendations. Check rendered review links in both application
+and editor views. A source's abstract, software implementation and full paper are
+different evidence levels; unavailable Consensus access must remain explicit.
+
 Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

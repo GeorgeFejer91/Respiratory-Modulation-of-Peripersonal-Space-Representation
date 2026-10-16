@@ -51,6 +51,7 @@ def _(mo):
     [Working preprint · author-review draft](./paper.pdf) ·
     [Analysis contract](./ANALYSIS_PLAN.md) · [Data release record](./DATA_RELEASE.md) ·
     [Descriptive sigmoid methods and sources](./SIGMOID_EXPLORATION.md) ·
+    [Miniature literature review](./literature_review/index.html) ·
     [Literature evidence ledger](./sigmoid_literature_sources.json) ·
     [Reference browser run](./reference/browser-results.zip)
     """)
@@ -268,7 +269,7 @@ def _(figure_svg, mo, paper_results):
     mo.vstack([
         mo.md(f"## 10 · Four descriptive sigmoid curves\nAll four curves use **{_d['selected_method']}**, selected uniformly from **{_d['candidate_count']} pipelines**. Each person has equal weight. These post hoc approximations describe the extracted RT summaries; the original participant fit gate remains separate."),
         mo.md("**Midpoint m** locates half of the fitted asymptotic RT change. **Width s** controls the transition: smaller s means a steeper curve. It is a logistic scale, not a Gaussian standard deviation. The RT slope at the midpoint is amplitude/(4s)."),
-        mo.md("### New goal: a visible, data-supported PPS transition\nThe goal now requires both bends inside the measured range, adequate sampling around the midpoint, fair predictive comparisons, and visual inspection. A mathematical sigmoid alone does not meet it."),
+        mo.md("### New goal: a visible, data-supported PPS transition\nThe goal now requires both bends inside the measured range, adequate sampling around the midpoint, fair predictive comparisons, and visual inspection. A mathematical sigmoid alone does not meet it. The [literature review](./literature_review/index.html) explains the scientific rationale, contrary evidence and remaining checks. Prediction scores condition on already-cleaned participant profiles; they evaluate relative shape rather than absolute RT."),
         mo.Html(figure_svg(paper_results,"pps_shape")),
         mo.Html(figure_svg(paper_results,"sigmoid_geometry")),
         mo.callout(f"The shape-constrained method is {_a['visible_method']}. These S shapes are imposed by explicit criteria. {_a['original_candidates_with_four_visible_transitions']}/{_d['candidate_count']} original pipelines met those criteria in all four curves. Compare the outer prediction errors below before interpreting a physiological boundary.",kind="warn"),
