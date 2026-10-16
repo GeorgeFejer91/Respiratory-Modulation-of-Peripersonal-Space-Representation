@@ -92,6 +92,11 @@
   "contrasts_checked": 72,
   "geometry_checks": 36,
   "log_distance_rmse_error": 1.4210854715202004e-14,
-  "status": "passed; 12 independent full/reduced ML comparisons, 72 contrast identities, log-distance least-squares prediction and all feasible geometry constraints",
+  "parameter_repeated_measures": {
+    "anova_terms": 48,
+    "ancova_terms": 1280,
+    "max_F_absolute_error": 1.1546319456101628e-08
+  },
+  "status": "passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms and 1,280 ANCOVA terms including HC3",
   "limits": "Numerical checks do not validate physiology, source identity, interval coverage or method-selection assumptions. Log prediction reuses the already-tested smoother."
 }

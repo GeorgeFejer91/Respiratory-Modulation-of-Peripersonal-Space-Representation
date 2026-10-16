@@ -70,7 +70,7 @@ def compare(native_path, browser_directory):
     numeric_errors.clear()
     walk(n["participant_sigmoids"],b["participant_sigmoids"])
     out["participant_sigmoids"]={"numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors,default=0.),
-        "scope":"Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, linkage sensitivities, split-half and recovery result."}
+        "scope":"Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, 1328 parameter ANOVA/ANCOVA terms, linkage sensitivities, split-half and recovery result."}
     numeric_errors.clear()
     walk(n["robustness"]["group_shape"],b["robustness"]["group_shape"])
     for a,z in zip(n["robustness"]["recording_linkage"],b["robustness"]["recording_linkage"]):

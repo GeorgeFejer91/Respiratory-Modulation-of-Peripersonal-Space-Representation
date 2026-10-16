@@ -9,10 +9,47 @@ from scipy import optimize, special, stats
 from descriptive_sigmoid import predict
 from participant_sigmoid import (PenalizedGrid, X, catalogue, estimate, method_catalogue,
     linkage_audit, metrics, resample_trials, shared_plateaus, summarize, trial_tensor,
-    parameter_contrasts, contrast_correlation, person_records)
+    parameter_contrasts, contrast_correlation, person_records, repeated_parameter_models, attach_refit_intervals)
 
 
 class ParticipantSigmoidTests(unittest.TestCase):
+    def test_repeated_parameter_models_recover_interactions_and_respect_missingness(self):
+        rng=np.random.default_rng(72);n=48;x=rng.normal(size=n);order=np.arange(n)%2
+        c=np.array([-.5,-.5,.5,.5]);p=np.array([-.5,.5,-.5,.5])
+        midpoint=45+rng.normal(0,4,(n,1))+(2+3*x+.7*order)[:,None]*c+(-1+2*x)[:,None]*p+(4-x)[:,None]*c*p+rng.normal(0,.4,(n,4))
+        sharpness=.025+rng.normal(0,.002,(n,4))
+        pars=np.stack([np.full((n,4),600.),np.full((n,4),80.),(midpoint-10)/90,1/(360*sharpness)],axis=-1)
+        ids=[str(i) for i in range(n)]
+        q={"scores":[dict(participant_id=pid,maia2_trusting=x[i],condition_order=("Control-Viscereality","Viscereality-Control")[order[i]]) for i,pid in enumerate(ids)]}
+        rows=repeated_parameter_models(pars,ids,q,"individual_plateaus")
+        self.assertEqual(len(rows),166)
+        selected=lambda a:next(r for r in a if r['effect']=='Condition' and r['parameter']=='midpoint_cm' and r['predictor']=='maia2_trusting' and r['order_adjusted'])
+        r=selected(rows);self.assertAlmostEqual(r['estimate'],3.,delta=.12)
+        self.assertEqual((r['df1'],r['df2']),(1,n-3))
+        self.assertAlmostEqual(r['F'],(r['estimate']/r['se'])**2)
+        shifted=pars.copy();shifted[:,:,2]+=rng.normal(0,10,(n,1))
+        after=selected(repeated_parameter_models(shifted,ids,q,"individual_plateaus"))
+        for key in ('estimate','F','p','hc3_se'):self.assertAlmostEqual(r[key],after[key],places=8)
+        coefficients=repeated_parameter_models(pars,ids,q,"individual_plateaus",True)
+        for a,b in zip(rows,coefficients):self.assertEqual(a['estimate'],b)
+        q['scores'][0]['maia2_trusting']=None
+        self.assertEqual(selected(repeated_parameter_models(pars,ids,q,'individual_plateaus'))['n'],n-1)
+        q['scores'][1]['condition_order']='unknown'
+        incomplete=repeated_parameter_models(pars,ids,q,'individual_plateaus')
+        self.assertEqual(selected(incomplete)['n'],n-2)
+        unadjusted=next(a for a in incomplete if a['predictor']=='maia2_trusting' and not a['order_adjusted'])
+        self.assertEqual(unadjusted['n'],n-1)
+        constant=pars.copy();constant[:,:,2]=.5;constant[:,:,3]=.1
+        self.assertTrue(all(a['status']=='not_estimable' for a in repeated_parameter_models(constant,ids,q,'individual_plateaus')))
+        for record in q['scores']:record['maia2_trusting']=1.
+        self.assertEqual(selected(repeated_parameter_models(pars,ids,q,'individual_plateaus'))['status'],'not_estimable')
+
+    def test_refit_intervals_retain_undefined_draw_counts(self):
+        rows=[{},{}];attach_refit_intervals(rows,[[1.,None],[2.,None],[3.,4.]])
+        self.assertEqual(rows[0]['refit_bootstrap_valid'],3)
+        self.assertAlmostEqual(rows[0]['refit_ci_low'],1.05)
+        self.assertEqual(rows[1]['refit_bootstrap_valid'],1)
+
     def test_contrast_ranks_preserve_mathematical_ties_despite_machine_roundoff(self):
         truth=np.array([0.,0.,0.,1.,2.]);noise=np.array([0.,2e-15,-2e-15,0.,0.])
         y=np.arange(5.)

@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "f2adc07e299f504aedc0def2c8c9e843dcede4380e795a1553f5ed5f916dddbf",
+  "browser_zip_sha256": "c270faefc4c426b323504da50b5c39ac9b395283e3f0ad0b2a8448b1b95d2506",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -212,9 +212,9 @@
     "scope": "All item/scoring/reliability, paired ordinal/delta, 42 rank associations, 16 OLS/HC3 moderation models and bootstrap values, labels and coverage statuses."
   },
   "participant_sigmoids": {
-    "numeric_values_compared": 37040,
+    "numeric_values_compared": 64192,
     "max_absolute_numeric_error": 1.469743438065052e-09,
-    "scope": "Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, linkage sensitivities, split-half and recovery result."
+    "scope": "Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, 1328 parameter ANOVA/ANCOVA terms, linkage sensitivities, split-half and recovery result."
   },
   "robustness": {
     "numeric_values_compared": 10667,

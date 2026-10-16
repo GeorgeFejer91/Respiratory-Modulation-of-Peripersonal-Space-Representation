@@ -81,6 +81,8 @@ jobs:
           assert individual["linkage_audit"]["groups"][0]["participant_ids"] == ["P011", "P033"]
           assert len(individual["contrasts"]) == 18
           assert len(individual["contrast_reliability"]) == 180
+          assert len(individual["repeated_measures"]) == 332
+          assert sum(len(s["repeated_measures"]) for s in individual["linkage_sensitivities"]) == 996
           assert len(report["robustness"]["recording_linkage"]) == 3
           remaining = report["robustness"]["group_shape"]
           assert len(remaining["log_distance_candidates"]) == 160

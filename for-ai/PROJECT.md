@@ -74,6 +74,27 @@ nonzero response amplitude or discard reverse/flat profiles to guarantee a
 visible physiological transition. See D-0009 and the participant extension in
 `workbook/ANALYSIS_PLAN.md`.
 
+## Repeated-measures parameter goal
+
+The current analysis goal is to answer whether fitted PPS midpoint and normalized
+sharpness differ across all four Condition × Phase cells and whether those
+differences relate to baseline MAIA-2 dimensions or post-intervention spatial-code
+change. Implement 2×2 repeated-measures ANOVAs and continuous-covariate ANCOVAs,
+with order sensitivity and curve-refitting uncertainty. Emphasise the cohort
+excluding both ambiguous recordings; retain all records and each single exclusion
+as sensitivities, under both plateau models. Select fitting rules using RT
+prediction alone. Completion means the full model family, independent checks,
+browser execution and calibrated answers, not significant effects or validated
+physiological boundaries. See the repeated-measures amendment in
+`workbook/ANALYSIS_PLAN.md`.
+
+The implementation evaluates 1,328 nominal terms, with 500 curve refits per
+cohort/model. In the both-excluded cohort, all 12 ANOVA and 36 main
+order-adjusted Condition-moderation intervals include zero despite 11 small
+conventional ANOVA p values. Pooling-dependent point-parameter ANOVAs are not
+reliable significance tests for physiological changes; retain the refit intervals
+and weak-reliability finding prominently.
+
 ## Non-goals
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings

@@ -1,13 +1,13 @@
 {
-  "analysis_version": "1.7",
+  "analysis_version": "1.8",
   "status": "reproducible analysis draft; recording linkage requires review",
   "source_sha256": {
     "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
     "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
   },
   "artifact_sha256": {
-    "analysis_report.md": "a9ea1745adabb524fd317ded98d35723e84c0f5e149cb1591cc552dd6dfb86dc",
-    "analysis_results.json": "541e51cbf9f9d62aab4907dced13f079e6dd911759dd185bd5aedc4e437809f9",
+    "analysis_report.md": "e0fc080aa582431f3c6bc42fb37e253333fe8b1e0e82df39cf668b1d738f439c",
+    "analysis_results.json": "3a3ac3134900dce95e6b3abe64b9859e3c690a3a93f3fe1edaa7c1593981bad4",
     "retained_rt_trials.csv": "ecd83eeb20a44dd995ca50eb0bbb95cf5eb15e0596450761d2e3c4e0c6ce23e9",
     "raw_at_curves.svg": "7ceb6e014d0d54f456a289ce467fee12e4c560ec8086f4b6b0de50a5f8e9b8be",
     "same_label_facilitation.svg": "4a60d849169459b996f6a986f25c609af4b806df1968f8cd7191b22883e50f38",
@@ -28,9 +28,10 @@
     "spatial_distributions.csv": "9cd94afc3a97b5e6d3c9d7069af67d36854050ef82d85c507d5f050f58dd73c0",
     "spatial_descriptives.csv": "4c743ab5d28d2c26f0225449eeeb133b10c6c3e3fe6f5469ab02de15e2fba622",
     "spatial_delta_distribution.csv": "5688ca8a9e325de06559b334ae2431f2669b6c03996581ac47e4ecbbe10b8868",
-    "data_coverage.csv": "b03f05e428c2ba8cc9bf27b1a68332fe90cc38c5fb3f280278f397f06d172dc4",
+    "data_coverage.csv": "07651fdb5d209bc8ab85129b44b987f214cf79b2d366919f61d0b8a5e043a66f",
     "participant_example.svg": "876b16c2973956899bc9ed100d5d2fb29f63fc91218d580a79a5f6cd14cbf732",
     "participant_diagnostics.svg": "c97f54d3bc6c57728b60be1166273329d662861a8324576b072dd2639a185e25",
+    "parameter_repeated_measures.svg": "6bcf09d4f818aa4b132c0aebd7fb6e0a983e83f701a8b70cadcb1acc5b19f54a",
     "participant_curve_atlas.pdf": "b582ac23361fb1be767b39253eb6550d8d7854400a74e168b57f3d7dfcc8af3a",
     "participant_normalized_rt.csv": "8ba21d8ca51c929e303e61a83486b70bafb5e28b3bc56aa0e756651e6828c5f5",
     "participant_diagnostics.csv": "7f3aa210e27ba7e01254453f8a6e0037725015a2248fbfa65a9ba265af323866",
@@ -48,6 +49,7 @@
     "participant_prediction.csv": "cb0eee66fc573ea9611db34bffe54c281d5c6cdc07a0abeafd31eb5b1dd308b8",
     "participant_linkage_audit.json": "2fa14a3b6fed73e5ca63994332b6f277ea1604ce6395e43f581724ed35378744",
     "participant_contrast_diagnostics.csv": "8787ee0ca92525bbaeab4009e041e65d214dc49f67d81c9ae35ad90e467b95ee",
+    "participant_repeated_measures.csv": "e719432851a68bf4a3526c6777e7564ac9d025e0f75f4949f334e41bf0588cd4",
     "participant_linkage_sensitivity_associations.csv": "50bc1a363218196a25b10f9147811cbdf8d4205929a0f8088630f2206fcb9899",
     "participant_linkage_sensitivity_shared_associations.csv": "95cf2ad63546d88507129ac3a4e14f998db88ae302a3f34a0b411419a0b0938c",
     "participant_linkage_sensitivity_participant_scores.csv": "1670d0cf2184087b5598cc5a13b132d090d0bb7ab41ae7db24aa4c6902cd14dd",
@@ -89,14 +91,14 @@
     "models.csv": "bac06a32f47df645ab65cb588800c3b3be029b6d4c73c8551e839947c36ff6f2",
     "coefficients.csv": "ffe3411d5456d2fe53facf458c49ddf2d572a983c3a3574217f0fbe1d35f5417",
     "analysis_source/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
-    "analysis_source/paper_analysis.py": "74629f5b2b7f37e6537b14a0815c249ec5f6ae77ff5c23735c27ff82cacc4661",
+    "analysis_source/paper_analysis.py": "58431074c533515da0ad8a3df22d52e4fb5f26f8abb99af0014e1d75e121f6e8",
     "analysis_source/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
-    "analysis_source/publication_report.py": "73bdc5bdf0b53478053f36df316b6ce80c21aecc0df28d0d62ddd232216a71cd",
+    "analysis_source/publication_report.py": "6333ff392bb6b60a46240ea2454fb220a5e506c6611a86bd86371a2fb3250871",
     "analysis_source/descriptive_sigmoid.py": "69ad4d65171320f312c10e28010ed73ceb3b73c8de2565e47b60e5d8fbd980a2",
     "analysis_source/sigmoid_shape.py": "3964b9877737bce90b04fcb7f74ebd9e0b5a67ac9d1d63c6941c802c1c1d2ea4",
     "analysis_source/questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
-    "analysis_source/participant_sigmoid.py": "8c9a5e50ebedc4cd926c3b257eba21d9d53c4341a0bef99d2b7584e04f15c21b",
-    "analysis_source/participant_report.py": "3831bbf8e13cb34e7ed17bf2bd4cfa8256a961f1f27a711aca529e658c752268"
+    "analysis_source/participant_sigmoid.py": "5eb4e4818a81e69fb34756cef8184745a7675d94f8ded8d01d48bb7edd9bfb5f",
+    "analysis_source/participant_report.py": "7a864d9791b6d9d719995d7629f563fd6d8fe149b4a9cc983a991fa1ebef4cec"
   },
   "runtime": {
     "python": "3.14.2",
@@ -109,14 +111,14 @@
   "contract": "workbook/ANALYSIS_PLAN.md",
   "code_sha256": {
     "inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
-    "paper_analysis.py": "74629f5b2b7f37e6537b14a0815c249ec5f6ae77ff5c23735c27ff82cacc4661",
+    "paper_analysis.py": "58431074c533515da0ad8a3df22d52e4fb5f26f8abb99af0014e1d75e121f6e8",
     "preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
-    "publication_report.py": "73bdc5bdf0b53478053f36df316b6ce80c21aecc0df28d0d62ddd232216a71cd",
+    "publication_report.py": "6333ff392bb6b60a46240ea2454fb220a5e506c6611a86bd86371a2fb3250871",
     "descriptive_sigmoid.py": "69ad4d65171320f312c10e28010ed73ceb3b73c8de2565e47b60e5d8fbd980a2",
     "sigmoid_shape.py": "3964b9877737bce90b04fcb7f74ebd9e0b5a67ac9d1d63c6941c802c1c1d2ea4",
     "questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
-    "participant_sigmoid.py": "8c9a5e50ebedc4cd926c3b257eba21d9d53c4341a0bef99d2b7584e04f15c21b",
-    "participant_report.py": "3831bbf8e13cb34e7ed17bf2bd4cfa8256a961f1f27a711aca529e658c752268"
+    "participant_sigmoid.py": "5eb4e4818a81e69fb34756cef8184745a7675d94f8ded8d01d48bb7edd9bfb5f",
+    "participant_report.py": "7a864d9791b6d9d719995d7629f563fd6d8fe149b4a9cc983a991fa1ebef4cec"
   },
   "preview_filters_affect_paper_analysis": false
 }

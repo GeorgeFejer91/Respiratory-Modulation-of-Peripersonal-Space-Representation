@@ -270,6 +270,71 @@ def attach_intervals(tests,draws):
                  bootstrap_valid=len(valid),hierarchical_bootstrap_valid=len(valid))
 
 
+def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_only=False):
+    """Balanced 2×2 RM ANOVA/ANCOVA through one-df participant contrasts."""
+    values=metrics(parameters)[...,:2]
+    outcomes=np.concatenate([values.mean(1)[:,None,:],parameter_contrasts(values)],axis=1).reshape(len(ids),8)
+    source={r["participant_id"]:r for r in questionnaires["scores"]}
+    records=[source[pid] for pid in ids]
+    fields=["maia2_"+name for name in SCALES]+["spfrref_delta","spfrref_change_direction"]
+    effects=("Mean across cells","Condition","Phase","Condition × Phase")
+    order=np.array([{"Control-Viscereality":0.,"Viscereality-Control":1.}.get(r["condition_order"],np.nan) for r in records])
+    rows=[]
+    for field,adjust in [(None,False)]+[(f,a) for f in fields for a in (False,True)]:
+        x=np.array([r.get(field,np.nan) for r in records],dtype=float) if field else np.zeros(len(ids))
+        keep=np.isfinite(outcomes).all(1)&np.isfinite(x)&(np.isfinite(order) if adjust else True)
+        y=outcomes[keep];n=len(y);columns=[np.ones(n)]
+        if field:columns.append(x[keep]-x[keep].mean() if n else x[keep])
+        if adjust:columns.append(order[keep]-order[keep].mean() if n else order[keep])
+        design=np.column_stack(columns);k=design.shape[1];target=1 if field else 0
+        computed=n>k and np.linalg.matrix_rank(design)==k
+        beta=np.full(8,np.nan)
+        if computed:
+            coefficients=np.linalg.lstsq(design,y,rcond=None)[0];beta=coefficients[target]
+        indices=range(8) if field else range(2,8)
+        if coefficients_only:
+            rows.extend(finite(beta[j]) for j in indices)
+            continue
+        if computed:
+            bread=np.linalg.inv(design.T@design);residual=y-design@coefficients;rss=np.sum(residual**2,axis=0)
+            se=np.sqrt(np.maximum(0,rss/(n-k)*bread[target,target]));critical=stats.t.ppf(.975,n-k)
+            leverage=np.sum(design*(design@bread),axis=1)
+            robust=np.full(8,np.nan)
+            if np.all(1-leverage>1e-12):
+                # Each outcome has its own HC3 meat; no pooled error across within-person effects.
+                robust=np.sqrt(np.sum((residual/(1-leverage[:,None]))**2*(design@bread[:,target])[:,None]**2,axis=0))
+        for j in indices:
+            row=dict(model=model,analysis="RM ANCOVA" if field else "RM ANOVA",effect=effects[j//2],
+                parameter=METRICS[j%2],predictor=field or "none",order_adjusted=adjust,n=n,excluded=len(ids)-n,
+                estimate=finite(beta[j]),status="not_estimable",df1=1,df2=n-k,
+                se=None,F=None,p=None,partial_eta_squared=None,ci_low=None,ci_high=None,
+                hc3_se=None,hc3_F=None,hc3_p=None,hc3_ci_low=None,hc3_ci_high=None,
+                predictor_mean=finite(x[keep].mean()) if field and n else None,
+                order_beta=finite(coefficients[-1,j]) if adjust and computed else None)
+            if not computed:
+                row["reason"]="Insufficient complete records, or constant/collinear covariates."
+            elif rss[j]<=np.finfo(float).eps*max(1.,float(y[:,j]@y[:,j])):
+                row["reason"]="Zero residual variance; conventional sampling uncertainty is undefined."
+            else:
+                f=float((beta[j]/se[j])**2)
+                row.update(status="computed",se=float(se[j]),F=f,p=float(stats.f.sf(f,1,n-k)),
+                    partial_eta_squared=f/(f+n-k),ci_low=float(beta[j]-critical*se[j]),ci_high=float(beta[j]+critical*se[j]))
+                if np.isfinite(robust[j]) and robust[j]>0:
+                    rf=float((beta[j]/robust[j])**2)
+                    row.update(hc3_se=float(robust[j]),hc3_F=rf,hc3_p=float(stats.f.sf(rf,1,n-k)),
+                        hc3_ci_low=float(beta[j]-critical*robust[j]),hc3_ci_high=float(beta[j]+critical*robust[j]))
+            rows.append(row)
+    return rows
+
+
+def attach_refit_intervals(rows,draws):
+    for row,values in zip(rows,np.asarray(draws,dtype=float).T):
+        valid=values[np.isfinite(values)]
+        lo,hi=np.percentile(valid,[2.5,97.5]) if len(valid) else (None,None)
+        row.update(refit_ci_low=finite(lo) if lo is not None else None,
+            refit_ci_high=finite(hi) if hi is not None else None,refit_bootstrap_valid=len(valid))
+
+
 def catalogue():
     out=[]
     for summary in (*CELL_NAMES,"condition_delta"):
@@ -325,7 +390,7 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
     fine,_,_=estimate(cube,variances,chosen,PenalizedGrid(fine=True),identities=identities)
     shared,shared_converged=shared_plateaus(smoothed,variances,chosen,grid,centers,pars)
     rng=np.random.default_rng(SEED+1);draws=[];association_draws=[];shared_draws=[];shared_association_draws=[]
-    contrast_draws=[];shared_contrast_draws=[]
+    contrast_draws=[];shared_contrast_draws=[];rm_draws=[];shared_rm_draws=[]
     for b in range(bootstrap_draws):
         if progress and b%100==0:progress(f"Individual parameters and hierarchical associations: bootstrap {b}/{bootstrap_draws}")
         sample=resample_trials(tensor,rng);sy,sv=summarize(sample,chosen["aggregation"])
@@ -337,9 +402,11 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         sy,sv=summarize(sample,chosen["aggregation"]);bp,bc,by=estimate(sy,sv,chosen,grid,identities=identities[indices])
         association_draws.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires)))
         contrast_draws.append(parameter_contrasts(metrics(bp)).mean(0))
+        rm_draws.append(repeated_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
         joint,_=shared_plateaus(by,sv,chosen,grid,bc,bp)
         shared_association_draws.append(correlations(person_records(joint,[ids[i] for i in indices],questionnaires)))
         shared_contrast_draws.append(parameter_contrasts(metrics(joint)).mean(0))
+        shared_rm_draws.append(repeated_parameter_models(joint,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
     draws=np.array(draws);association_draws=np.array(association_draws,dtype=float)
     values=metrics(pars);boot_values=metrics(draws);parameters=[]
     for i,pid in enumerate(ids):
@@ -453,7 +520,7 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         for c in catalogue():tests.append(association(records,c["x"],c["y"],perm_rng,19999,0)|c)
         joint_records=person_records(joint,[ids[i] for i in keep],questionnaires)
         joint_tests=[association(joint_records,c["x"],c["y"],shared_rng,19999,0)|c for c in catalogue()]
-        boot_associations=[];boot_joint_associations=[];boot_contrasts=[];boot_joint_contrasts=[]
+        boot_associations=[];boot_joint_associations=[];boot_contrasts=[];boot_joint_contrasts=[];boot_rm=[];boot_joint_rm=[]
         for b in range(bootstrap_draws):
             if progress and b%100==0:progress(f"Linkage exclusion {','.join(drop)}: refit bootstrap {b}/{bootstrap_draws}")
             groups=np.unique(identities[keep]);sampled=sensitivity_rng.choice(groups,len(groups),replace=True)
@@ -465,10 +532,19 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
             boot_joint_associations.append(correlations(person_records(bj,[ids[i] for i in indices],questionnaires)))
             boot_contrasts.append(parameter_contrasts(metrics(bp)).mean(0))
             boot_joint_contrasts.append(parameter_contrasts(metrics(bj)).mean(0))
+            boot_rm.append(repeated_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
+            boot_joint_rm.append(repeated_parameter_models(bj,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
         attach_intervals(tests,boot_associations);attach_intervals(joint_tests,boot_joint_associations)
+        rm=repeated_parameter_models(sp,[ids[i] for i in keep],questionnaires,"individual_plateaus")
+        joint_rm=repeated_parameter_models(joint,[ids[i] for i in keep],questionnaires,"shared_plateaus")
+        attach_refit_intervals(rm,boot_rm);attach_refit_intervals(joint_rm,boot_joint_rm)
         linkage_sensitivities.append({"excluded_ids":drop,"participants":len(keep),"selected_method":method["method"],"associations":tests,"shared_associations":joint_tests,
             "participant_scores":records,"shared_participant_scores":joint_records,
+            "repeated_measures":rm+joint_rm,
             "contrasts":contrast_rows(sp,boot_contrasts,"individual_plateaus")+contrast_rows(joint,boot_joint_contrasts,"shared_plateaus")})
+    rm=repeated_parameter_models(pars,ids,questionnaires,"individual_plateaus")
+    joint_rm=repeated_parameter_models(shared,ids,questionnaires,"shared_plateaus")
+    attach_refit_intervals(rm,rm_draws);attach_refit_intervals(joint_rm,shared_rm_draws)
     return {"status":"computed","participants":len(ids),"curve_count":len(parameters),"incomplete_participants":missing,
         "linkage_audit":audit,"linkage_sensitivities":linkage_sensitivities,
         "selected_method":chosen,"candidate_count":len(candidates),"candidates":candidates,"parameters":parameters,
@@ -476,6 +552,8 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         "prediction":nested,"participant_scores":scored,"associations":associations,"reliability":reliability,"recovery":simulation,
         "contrasts":contrast_rows(pars,contrast_draws,"individual_plateaus")+contrast_rows(shared,shared_contrast_draws,"shared_plateaus"),
         "contrast_reliability":contrast_reliability,
+        "repeated_measures":rm+joint_rm,
+        "repeated_measures_scope":"Exploratory 2×2 ANOVA and continuous-covariate ANCOVA of fitted midpoint and normalized sharpness; 1,328 unadjusted tests over both plateau models and four linkage cohorts. One-df contrast regressions give balanced RM effects; four-cell means give between-person covariate effects. Main presentation excludes both ambiguous records and adjusts moderation for order. Classical/HC3 tests condition on estimated parameters and ignore pooled-fit dependence; 500 hierarchical curve-refit intervals expose additional uncertainty. Spatial delta is a post-intervention correlate, not a causal mediator. Method selection and cleaning are fixed; poor reliability remains a limit.",
         "plot_data":{"participant_ids":ids,"raw_means":cubes["mean"].tolist(),"raw_se":np.sqrt(variances).tolist(),
                      "extracted":cube.tolist(),"parameters":pars.tolist(),"shared_parameters":shared.tolist()},
         "shared_plateau_converged":int(shared_converged.sum()),"bootstrap_draws":bootstrap_draws,"seed":SEED,

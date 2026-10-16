@@ -17,7 +17,8 @@ from scipy.special import expit
 
 from preparation import FILES,TRIAL_COLUMNS,encode_csv
 from participant_report import (markdown as participant_markdown, curve_bytes,
-    diagnostic_figure_bytes, atlas_bytes, normalized_trials, diagnostics, contrast_diagnostics)
+    diagnostic_figure_bytes, atlas_bytes, normalized_trials, diagnostics, contrast_diagnostics,
+    repeated_rows, repeated_markdown, repeated_figure_bytes)
 
 
 def as_table(rows):
@@ -131,7 +132,7 @@ def markdown_report(report):
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
         "The manifest records exact input/output hashes. Primary models always use the fixed analysis contract and are independent of the preparation preview controls."]
-    return "\n".join(lines)+"\n"+participant_markdown(report["participant_sigmoids"])+robustness_markdown(report)
+    return "\n".join(lines)+"\n"+participant_markdown(report["participant_sigmoids"])+robustness_markdown(report)+repeated_markdown(report["participant_sigmoids"])
 
 
 def robustness_markdown(report):
@@ -206,6 +207,7 @@ def robustness_figure_bytes(report,format="svg"):
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure=="parameter_repeated_measures":return repeated_figure_bytes(report["participant_sigmoids"],format)
     if measure=="remaining_robustness":return robustness_figure_bytes(report,format)
     if measure=="participant_diagnostics":
         return diagnostic_figure_bytes(report["participant_sigmoids"],format)
@@ -431,7 +433,7 @@ def result_bundle(report,retained,sources):
     files["data_coverage.csv"]=as_table(report["data_coverage"])
     individual=report["participant_sigmoids"]
     if individual["status"]=="computed":
-        for measure in ("participant_example","participant_diagnostics"):
+        for measure in ("participant_example","participant_diagnostics","parameter_repeated_measures"):
             files[measure+".svg"]=figure_bytes(report,measure)
         files["participant_curve_atlas.pdf"]=atlas_bytes(individual)
         files["participant_normalized_rt.csv"]=as_table(normalized_trials(individual,retained))
@@ -442,6 +444,7 @@ def result_bundle(report,retained,sources):
         files["participant_prediction.csv"]=as_table(individual["prediction"]["scores"])
         files["participant_linkage_audit.json"]=json.dumps(individual["linkage_audit"],indent=2).encode()
         files["participant_contrast_diagnostics.csv"]=as_table(contrast_diagnostics(individual))
+        files["participant_repeated_measures.csv"]=as_table(repeated_rows(individual))
         for key in ("associations","shared_associations","participant_scores","shared_participant_scores","contrasts"):
             files["participant_linkage_sensitivity_"+key+".csv"]=as_table([
                 row|{"excluded_ids":",".join(s["excluded_ids"]),"selected_method":s["selected_method"]}

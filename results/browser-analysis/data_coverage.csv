@@ -8,5 +8,6 @@ Paired spatial-frame ratings,analysed,"Post-intervention code delta, exact sign 
 Participant PPS boundary and related questionnaire inference,not_estimable,Fit gate retained; group approximations remain descriptive
 Exploratory individual sigmoid proxies and normalized RT,computed,"Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit"
 Remaining behavioural/shape robustness checks,analysed,"Primary-model linkage exclusions, mean parameter contrasts and change-score reliability/recovery, refit association intervals for every exclusion, log-distance benchmark, nine geometry specifications and repeated method selection"
+PPS parameter repeated-measures ANOVA/ANCOVA,computed,"2×2 effects and continuous baseline MAIA/spatial-change covariates for midpoint/sharpness; both plateau models, four linkage cohorts, order/HC3 and 500 curve-refit intervals"
 "Repeated MAIA, body-boundary and small-self measures",unavailable,No corresponding repeated/measure columns in released tables
 "Waveforms, measured breathing and acquisition provenance",unavailable,Source recordings and private metadata are outside the release

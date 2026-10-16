@@ -240,3 +240,14 @@ grid and repeated method selection. Preserve all outcomes and report the earlier
 analyses separately. Selection frequencies are stability diagnostics, not
 selection-adjusted confidence coverage. Completion of these checks does not
 close the empirical boundary-identification goal or source-mapping requirement.
+
+### D-0010 — repeated-measures parameter question
+
+Use balanced 2×2 contrast ANOVAs/ANCOVAs for fitted midpoint and normalized
+sharpness, with baseline MAIA dimensions and spatial delta kept continuous.
+Each predictor enters separately, with order and HC3 sensitivities and hierarchical
+curve-refit intervals. Emphasise both-ambiguous-record exclusion for this new
+question; retain all four linkage specifications and both plateau models.
+Select curve fitting using RT prediction only. No significant-result or causal
+goal is implied; unreliable fitted differences remain unreliable after ANOVA.
+The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.

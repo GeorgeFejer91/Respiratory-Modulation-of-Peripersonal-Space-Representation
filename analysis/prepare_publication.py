@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "workbook"))
 from publication_report import figure_bytes
-from participant_report import diagnostics, contrast_diagnostics
+from participant_report import diagnostics, contrast_diagnostics, repeated_primary, repeated_rows
 
 
 def promote(path):
@@ -51,6 +51,7 @@ def promote(path):
             ("participant_diagnostics.svg", "participant_diagnostics", "study5_participant_diagnostics.png"),
             ("participant_example.svg", "participant_example", "study5_participant_example.png"),
             ("remaining_robustness.svg", "remaining_robustness", "study5_remaining_robustness.png"),
+            ("parameter_repeated_measures.svg", "parameter_repeated_measures", "study5_parameter_repeated_measures.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -250,6 +251,72 @@ Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
 """
 
 
+def repeated_results(r):
+    rows,label=repeated_primary(r["participant_sigmoids"])
+    anova=[a for a in rows if a["predictor"]=="none"]
+    moderators=[a for a in rows if a["predictor"]!="none" and a["effect"]=="Condition" and a["order_adjusted"] and a["predictor"]!="spfrref_change_direction"]
+    significant=lambda a:a["p"] is not None and a["p"]<.05
+    nonzero=lambda a:a["refit_ci_low"] is not None and (a["refit_ci_low"]>0 or a["refit_ci_high"]<0)
+    def fmt(x):return "NA" if x is None else f"{x:.4g}"
+    def interval(a):return f"[{fmt(a['refit_ci_low'])}, {fmt(a['refit_ci_high'])}]"
+    model_names={"individual_plateaus":"Separate","shared_plateaus":"Shared"}
+    metric_names={"midpoint_cm":"Midpoint","normalized_steepness_per_cm":"Sharpness"}
+    effect_names={"Condition":"C","Phase":"P","Condition × Phase":r"C $\times$ P"}
+    table="\n".join(f"{model_names[a['model']]} & {metric_names[a['parameter']]} & {effect_names[a['effect']]} & {fmt(a['F'])} & {fmt(a['p'])} & {interval(a)} \\\\" for a in anova)
+    covariates=[]
+    for a in moderators:
+        if a["model"]!="shared_plateaus":continue
+        other=next(b for b in moderators if b["model"]=="individual_plateaus" and b["parameter"]==a["parameter"] and b["predictor"]==a["predictor"])
+        name=a["predictor"].replace("maia2_","").replace("spfrref_delta","Spatial change").replace("_"," ").title()
+        covariates.append(f"{metric_names[a['parameter']]} & {name} & {fmt(a['estimate'])} & {fmt(a['p'])} & {interval(a)} & {interval(other)} \\\\")
+    covtable="\n".join(covariates)
+    exceptional=[a for a in repeated_rows(r["participant_sigmoids"]) if nonzero(a)]
+    exceptions="; ".join(
+        f"{model_names[a['model']]} plateaus, {metric_names[a['parameter']]}, {a['effect'].replace(' × ', ' by ')} by {a['predictor'].replace('maia2_','').replace('_',' ')}, "
+        f"{a['cohort']}, {'with' if a['order_adjusted'] else 'without'} order adjustment: {interval(a)}"
+        for a in exceptional) or "None"
+    return rf"""\subsection{{Repeated-measures analysis of PPS midpoint and sharpness}}
+
+The next exploratory question concerned all four fitted Condition $\times$ Phase profiles and their relationship to baseline MAIA-2 and post-intervention spatial change. The main presentation excludes both ambiguous recordings ({label}; {anova[0]['n']} behavioural records). Both plateau specifications remain reported; fitting methods were chosen from RT prediction without questionnaire outcomes. No multiple-testing correction was applied.
+
+The 2$\times$2 ANOVA on point estimates yielded {sum(map(significant,anova))} of {len(anova)} conventional terms with $p<.05$ across midpoint and normalized sharpness (Table~\ref{{study5:tab:parameter_anova}}). However, {sum(map(nonzero,anova))} of their 95\% curve-refit intervals excluded zero. These two uncertainty calculations answer different conditional questions: the conventional ANOVA treats the estimated parameters as observed data, whereas hierarchical resampling re-estimates the curves and shared pooling. Small conventional $p$ values cannot overcome unstable fitted parameters.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lllrrl}}
+Plateaus & Outcome & Effect & $F$ & $p$ & 95\% refit interval \\
+\hline
+{table}
+\end{{tabular}}
+\caption{{Exploratory parameter RM ANOVA. C denotes Viscereality minus Control, P denotes Inhale minus Exhale, and C $\times$ P is the difference of phase effects. Each $F$ has (1,{anova[0]['df2']}) df. Intervals describe the corresponding mean contrast in cm or normalized sharpness (cm$^{{-1}}$), not the $F$ statistic.}}
+\label{{study5:tab:parameter_anova}}
+\end{{table}}
+
+With presentation order included, {sum(map(significant,moderators))} of {len(moderators)} Condition-moderation terms had conventional $p<.05$; {sum(map(nonzero,moderators))} curve-refit intervals excluded zero. Table~\ref{{study5:tab:parameter_covariates}} reports all eight MAIA-2 dimensions and spatial-code change for both outcomes. Covariate slopes describe how Viscereality--Control parameter change varies per score point. The spatial model compares changes measured in the same participants; it cannot establish that spatial experience caused a PPS change. MAIA-2 is a baseline trait and is not an intervention mediator.
+
+\begin{{table}}[htbp]
+\centering\scriptsize
+\begin{{tabular}}{{llrrll}}
+Outcome & Covariate & Shared $\beta$ & Shared $p$ & Shared refit interval & Separate refit interval \\
+\hline
+{covtable}
+\end{{tabular}}
+\caption{{Order-adjusted Condition $\times$ covariate terms. Each MAIA-2 dimension and spatial delta enters a separate continuous-covariate model. Coefficients use cm or cm$^{{-1}}$ per score point. The companion also reports ordinary/HC3 uncertainty, both order specifications, between-person means, Phase and three-way moderation, ordinal-direction sensitivity and every recording exclusion.}}
+\label{{study5:tab:parameter_covariates}}
+\end{{table}}
+
+All 1,328 nominal ANOVA/ANCOVA terms across four linkage specifications and both plateau models were retained. Across that entire family, {len(exceptional)} refit intervals excluded zero: {exceptions}. These isolated sensitivity results were absent from the both-excluded primary presentation and do not establish a mapping-robust association. Hierarchical intervals used 500 curve-refitting resamples per specification; these condition on the earlier RT-selected method and cleaning and do not estimate selection-adjusted coverage. The previously near-zero change-score reliability remains a central limitation for interpreting questionnaire associations. A better-fitting numerical sigmoid is insufficient to identify a physiological boundary or establish questionnaire influence.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_parameter_repeated_measures.png}}
+\caption{{Repeated-measures parameter analysis excluding both ambiguous records. Upper panels show the three within-person effects; lower panels show order-adjusted Condition moderation. Points and 95\% hierarchical curve-refit intervals retain both plateau models. Sharpness is $1/(4s)$ for logistic width $s$ in cm. These are fitted proxies with previously weak reliability.}}
+\label{{study5:fig:parameter_repeated_measures}}
+\end{{figure}}
+
+"""
+
+
 def robustness_results(r):
     extension=r['robustness'];p=r['participant_sigmoids'];g=extension['group_shape']
     models=extension['recording_linkage'];scores={a['family']:a['outer_rmse_ms'] for a in g['prediction']['scores']}
@@ -437,7 +504,7 @@ The released CSVs do not contain waveforms, belt recordings, acquisition-version
     results=results.replace(f"all {c['participants_input']} participants in",f"all {c['participants_input']} participant records in")
     results=results.replace("\\subsection{Primary interaction and sensitivity analyses}",
         "A recording-integrity audit found that P011 and P033 share all 408 behavioural trial records, with Control/Viscereality labels swapped, despite different questionnaire responses. The CSVs were preserved; the correct recording-to-person mapping is unresolved. Full-release behavioural inference below is provisional and cannot assume 42 independent recordings. The new individual-parameter extension reports explicit exclusions of both records and of each separately. Questionnaire-only spatial/MAIA results do not depend on the RT mapping.\n\n\\subsection{Primary interaction and sensitivity analyses}")
-    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+robustness_results(r)+"\\subsection{Reproducibility and evidence limits}")
+    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+robustness_results(r)+repeated_results(r)+"\\subsection{Reproducibility and evidence limits}")
     results=results.replace("A failed or unavailable check is distinguished", "For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)

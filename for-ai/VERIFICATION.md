@@ -105,6 +105,14 @@ specifications have separate references. Compare all new results across runtimes
 candidates and 30 grouped-copy repeated selections. Inspect section 14 and the
 new robustness figure. Keep selection stability distinct from calibrated intervals.
 
+For parameter RM ANOVA/ANCOVA, the same robustness validator independently
+checks 48 one-df ANOVA terms with statsmodels AnovaRM and 1,280 covariate terms
+with OLS/HC3 references. Verify 332 terms per linkage cohort, 500 refits and valid
+interval counts, all four within-person cells, eight separate baseline MAIA
+dimensions, spatial delta/direction and both order specifications. Compare every
+model field across native/Pyodide, inspect section 15 and the new parameter
+figure, and retain conventional-versus-refit uncertainty distinctions.
+
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

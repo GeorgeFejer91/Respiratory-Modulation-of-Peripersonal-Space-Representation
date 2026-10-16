@@ -9,10 +9,54 @@ import numpy as np
 from scipy import stats
 from scipy.special import expit
 import statsmodels.api as sm
+from statsmodels.stats.anova import AnovaRM
+import pandas as pd
 
 from preparation import FILES, load_pair
 from paper_analysis import clean
 from descriptive_sigmoid import extract_cells, smooth, DISTANCES
+
+
+def validate_repeated_parameters(report):
+    p=report["participant_sigmoids"];evidence={"anova_terms":0,"ancova_terms":0,"max_F_absolute_error":0.}
+    cells=("control_exhale","control_inhale","viscereality_exhale","viscereality_inhale")
+    for cohort in [p]+p["linkage_sensitivities"]:
+        for model,key in (("individual_plateaus","participant_scores"),("shared_plateaus","shared_participant_scores")):
+            records=cohort[key];rows=[a for a in cohort["repeated_measures"] if a["model"]==model]
+            assert len(rows)==166
+            for metric in ("midpoint_cm","normalized_steepness_per_cm"):
+                v=np.array([[r[metric+"_"+c] for c in cells] for r in records])
+                outcomes={"Mean across cells":v.mean(1),"Condition":(v[:,2]+v[:,3]-v[:,0]-v[:,1])/2,
+                          "Phase":(v[:,1]+v[:,3]-v[:,0]-v[:,2])/2,"Condition × Phase":v[:,3]-v[:,2]-v[:,1]+v[:,0]}
+                frame=pd.DataFrame({"person":np.repeat(np.arange(len(records)),4),"Condition":np.tile([0,0,1,1],len(records)),
+                                    "Phase":np.tile([0,1,0,1],len(records)),"value":v.ravel()})
+                table=AnovaRM(frame,"value","person",within=["Condition","Phase"]).fit().anova_table
+                for row in [a for a in rows if a["parameter"]==metric]:
+                    field=row["predictor"];y=outcomes[row["effect"]]
+                    if field=="none":
+                        reference=table.loc[row["effect"].replace(" × ",":")]
+                        np.testing.assert_allclose([row["F"],row["p"],row["df1"],row["df2"]],reference[["F Value","Pr > F","Num DF","Den DF"]],rtol=1e-8,atol=1e-7)
+                        evidence["anova_terms"]+=1
+                        x=np.empty((len(records),0));keep=np.ones(len(records),dtype=bool)
+                    else:
+                        columns=[np.array([r.get(field) for r in records],dtype=float)]
+                        if row["order_adjusted"]:
+                            columns.append(np.array([{"Control-Viscereality":0.,"Viscereality-Control":1.}.get(r["condition_order"],np.nan) for r in records]))
+                        x=np.column_stack(columns);keep=np.isfinite(x).all(1)
+                        evidence["ancova_terms"]+=1
+                    design=np.column_stack([np.ones(keep.sum()),x[keep]-x[keep].mean(0)])
+                    assert keep.sum()==row["n"] and row["df2"]==len(y[keep])-design.shape[1]
+                    if row["status"]!="computed":continue
+                    target=0 if field=="none" else 1
+                    reference=sm.OLS(y[keep],design).fit();robust=reference.get_robustcov_results(cov_type="HC3",use_t=True)
+                    f=float(reference.tvalues[target]**2)
+                    np.testing.assert_allclose([row["estimate"],row["se"],row["F"],row["p"],row["ci_low"],row["ci_high"]],
+                        [reference.params[target],reference.bse[target],f,reference.pvalues[target],*reference.conf_int()[target]],rtol=1e-8,atol=1e-7)
+                    np.testing.assert_allclose([row["hc3_se"],row["hc3_F"],row["hc3_p"],row["hc3_ci_low"],row["hc3_ci_high"]],
+                        [robust.bse[target],robust.tvalues[target]**2,robust.pvalues[target],*robust.conf_int()[target]],rtol=1e-8,atol=1e-7)
+                    assert row["refit_bootstrap_valid"]>450 and row["refit_ci_low"]<=row["refit_ci_high"]
+                    evidence["max_F_absolute_error"]=max(evidence["max_F_absolute_error"],abs(row["F"]-f))
+    return evidence
 
 
 def validate(root,report):
@@ -97,7 +141,8 @@ def validate(root,report):
             assert np.max(abs(residual))/np.ptp(curve)>=rules["departure_min"]-1e-10
             assert width>=spec["width_floor_cm"]-1e-10
             evidence["geometry_checks"]+=1
-    evidence["status"]="passed; 12 independent full/reduced ML comparisons, 72 contrast identities, log-distance least-squares prediction and all feasible geometry constraints"
+    evidence["parameter_repeated_measures"]=validate_repeated_parameters(report)
+    evidence["status"]="passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms and 1,280 ANCOVA terms including HC3"
     evidence["limits"]="Numerical checks do not validate physiology, source identity, interval coverage or method-selection assumptions. Log prediction reuses the already-tested smoother."
     return evidence
 

@@ -168,3 +168,11 @@ sensitivities. All p values are unadjusted and intervals pointwise. The download
 retains the 33 earlier associations, complete scoring audit, reliability
 intervals, transition matrix and coverage table. The original registration wording
 and pictogram anchor direction remain unverified; these are explicit limits.
+
+The parameter repeated-measures section adds a complete 2×2 Condition × Phase
+ANOVA for midpoint and normalized sharpness, plus separate continuous MAIA-2 and
+spatial-change covariates. All 1,328 terms across both plateau models and four
+linkage cohorts are exported in participant_repeated_measures.csv, with ordinary,
+HC3 and hierarchical curve-refit uncertainty. The primary display excludes both
+ambiguous records. These are exploratory models of fitted proxies; they cannot
+remove the observed poor reliability or establish causal questionnaire influence.

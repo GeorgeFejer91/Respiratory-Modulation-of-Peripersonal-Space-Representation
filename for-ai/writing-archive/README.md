@@ -7,3 +7,6 @@ figures before the 42-person browser reanalysis. Its values are historical.
 
 `pre-remaining-robustness/` preserves the statistical sections before the primary
 recording-exclusion, parameter-change and group-shape robustness extension.
+
+- pre-parameter-rm-anova/: the checked manuscript sections before the
+  repeated-measures midpoint/sharpness and questionnaire-moderation extension.

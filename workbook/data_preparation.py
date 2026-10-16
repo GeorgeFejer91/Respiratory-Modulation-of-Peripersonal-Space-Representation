@@ -413,9 +413,26 @@ def _(contrast_diagnostics, figure_svg, mo, paper_results):
 
 
 @app.cell
+def _(figure_svg, mo, paper_results):
+    from participant_report import repeated_rows, repeated_primary, repeated_markdown
+    _p=paper_results["participant_sigmoids"]
+    mo.stop(_p["status"]!="computed",mo.md("Individual-parameter repeated-measures models unavailable."))
+    _rows,_label=repeated_primary(_p)
+    mo.vstack([
+        mo.md("## 15 · PPS boundary and sharpness: repeated-measures models\nAll four Condition × Phase cells contribute. MAIA-2 dimensions remain continuous baseline covariates; spatial-rating change is a post-intervention correlate. Classical tests condition on fitted proxies; curve-refit intervals and poor reliability limit physiological interpretation."),
+        mo.Html(figure_svg(paper_results,"parameter_repeated_measures")),
+        mo.ui.table([a for a in _rows if a["predictor"]=="none"],selection=None,label="2 × 2 repeated-measures ANOVA · "+_label),
+        mo.ui.table([a for a in _rows if a["effect"]=="Condition" and a["order_adjusted"] and a["predictor"]!="spfrref_change_direction"],selection=None,label="Condition × MAIA/spatial change · order-adjusted ANCOVA"),
+        mo.accordion({"Every cohort, effect and covariate":mo.ui.table(repeated_rows(_p),selection=None),
+                      "Model definitions and interpretation":mo.md(repeated_markdown(_p))}),
+    ])
+    return
+
+
+@app.cell
 def _(analysis_manifest, analysis_zip, markdown_report, mo, paper_results):
     mo.vstack([
-        mo.md("## 15 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities with refit intervals, parameter contrasts, log-distance and shape robustness checks, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
+        mo.md("## 16 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities with refit intervals, parameter ANOVA/ANCOVA models, log-distance and shape robustness checks, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])
