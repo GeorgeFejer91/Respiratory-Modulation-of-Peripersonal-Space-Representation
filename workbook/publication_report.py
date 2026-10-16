@@ -17,7 +17,7 @@ from scipy.special import expit
 
 from preparation import FILES,TRIAL_COLUMNS,encode_csv
 from participant_report import (markdown as participant_markdown, curve_bytes,
-    diagnostic_figure_bytes, atlas_bytes, normalized_trials, diagnostics)
+    diagnostic_figure_bytes, atlas_bytes, normalized_trials, diagnostics, contrast_diagnostics)
 
 
 def as_table(rows):
@@ -131,10 +131,82 @@ def markdown_report(report):
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
         "The manifest records exact input/output hashes. Primary models always use the fixed analysis contract and are independent of the preparation preview controls."]
-    return "\n".join(lines)+"\n"+participant_markdown(report["participant_sigmoids"])
+    return "\n".join(lines)+"\n"+participant_markdown(report["participant_sigmoids"])+robustness_markdown(report)
+
+
+def robustness_markdown(report):
+    r=report["robustness"];g=r["group_shape"];p=report["participant_sigmoids"]
+    if p["status"]!="computed":return "\n## Remaining-analysis checks\n\nIndividual proxies unavailable: "+p["reason"]+"\n"
+    lines=["\n## Remaining-analysis robustness checks", "",
+           "Post-results amendment: all specifications were fixed before this extension. Exclusions preserve the original CSVs and cannot resolve recording identity.","",
+           "| Excluded records | Comparison | n records | LR p (unadjusted) |", "| --- | --- | ---: | ---: |"]
+    for s in r["recording_linkage"]:
+        for m in s["mixed_models"]:
+            lines.append(f"| {', '.join(s['excluded_ids'])} | {m['name']} | {m.get('participants','NA')} | {m.get('p',float('nan')):.5f} |")
+    lines.extend(["","### Cohort mean fitted-parameter contrasts","",
+        "Pointwise 95% intervals resample people (linked records together) and trials and refit both models. They condition on the selected method and cleaning. These are model-dependent proxies, not validated PPS boundaries.","",
+        "| Cohort | Plateau model | Contrast | Parameter | Mean | 95% refit interval |",
+        "| --- | --- | --- | --- | ---: | --- |"])
+    for label,rows in [("Full release",p["contrasts"])]+[("Exclude "+','.join(s['excluded_ids']),s['contrasts']) for s in p['linkage_sensitivities']]:
+        for a in rows:
+            lines.append(f"| {label} | {a['model']} | {a['contrast']} | {a['parameter']} | {a['estimate']:.4f} | [{a['ci_low']:.4f}, {a['ci_high']:.4f}] |")
+    lines.extend(["","### Reliability of the changes used in correlations","",
+        "| Model | Parameter change | Median split-half rho | Recovery rho: cell-specific / shared baseline truth |",
+        "| --- | --- | ---: | --- |"])
+    for a in contrast_diagnostics(p):
+        if a["contrast"]=="condition_delta":
+            lines.append(f"| {a['model']} | {a['parameter']} | {a['median_split_half_rho']:.3f} | {a['sigmoid_median_recovery_rho']:.3f} / {a['sigmoid_shared_plateaus_median_recovery_rho']:.3f} |")
+    if g["status"]=="computed":
+        lines.extend(["","### Group shape comparison without ambiguous recordings","",g["interpretation"],"",
+                      "| Family | Outer prediction RMSE (ms) |","| --- | ---: |"])
+        lines.extend(f"| {a['family']} | {a['outer_rmse_ms']:.3f} |" for a in g["prediction"]["scores"])
+        lines.extend(["",f"All nine geometry specifications and {len(g['selection_resamples'])} repeated-selection draws are exported. The repeated selections chose {len(g['selection_frequencies'])} distinct methods. No preferred appearance was selected after inspection.","",
+            "Remaining evidence limits: recording-to-person mapping, waveforms and breathing traces, acquisition timing, independent dense-distance validation, serial-dependence calibration and method-selection-adjusted interval coverage remain unavailable or unestablished."])
+    return "\n".join(lines)+"\n"
+
+
+def robustness_figure_bytes(report,format="svg"):
+    with plt.rc_context({"font.family":"DejaVu Sans","font.size":9,"svg.hashsalt":"study5-remaining-v1"}):
+        fig,axes=plt.subplots(2,2,figsize=(12,8.5));r=report["robustness"];p=report["participant_sigmoids"]
+        models=[("Full release",report["mixed_models"][0])]+[("Exclude "+'/'.join(s["excluded_ids"]),s["mixed_models"][0]) for s in r["recording_linkage"]]
+        ax=axes[0,0]
+        for i,(label,m) in enumerate(models):
+            c=m["coefficients"][-1];scale=1000/m["soa_sd_ms"]
+            ax.plot([c["ci_low"]*scale,c["ci_high"]*scale],[i,i],color="#175b8d")
+            ax.plot(c["estimate"]*scale,i,"o",color="#175b8d")
+        ax.set_yticks(range(len(models)),[a[0] for a in models]);ax.invert_yaxis();ax.axvline(0,color="#777777",lw=.8,ls=":")
+        ax.set_title("Primary RT interaction · linkage sensitivities");ax.set_xlabel("Condition × Phase × SOA (ms per 1 s SOA)\nModel-based 95% intervals")
+        ax=axes[0,1];scores=r["group_shape"]["prediction"]["scores"]
+        labels={"logistic":"Broad sigmoid","visible":"Visible sigmoid","linear":"Linear","logarithmic":"Log distance","constant":"Constant"}
+        ax.barh([labels[a["family"]] for a in scores],[a["outer_rmse_ms"] for a in scores],color="#477f9e");ax.invert_yaxis()
+        ax.set_title("Group prediction · exclude both records");ax.set_xlabel("Nested omitted-position RMSE (ms)")
+        ax=axes[1,0];summary=contrast_diagnostics(p)
+        metrics=("midpoint_cm","normalized_steepness_per_cm","midpoint_slope_ms_per_cm")
+        for model,offset,color,label in (("individual_plateaus",-.16,"#175b8d","Separate plateaus"),("shared_plateaus",.16,"#b65121","Shared plateaus")):
+            values=[next(a["median_split_half_rho"] for a in summary if a["model"]==model and a["contrast"]=="condition_delta" and a["parameter"]==m) for m in metrics]
+            ax.bar(np.arange(3)+offset,values,.3,color=color,label=label)
+        ax.set_xticks(range(3),["Midpoint Δ","Steepness Δ","RT slope Δ"]);ax.set_ylim(-.4,1);ax.axhline(0,color="#777777",lw=.8)
+        ax.set_title("Condition-change rank reliability · full release");ax.set_ylabel("Median split-half Spearman rho");ax.legend(frameon=False,fontsize=8)
+        ax=axes[1,1];labels=[];j=0
+        both=next((s for s in p["linkage_sensitivities"] if len(s["excluded_ids"])>1),None)
+        for cohort,rows in [("Full release",p["contrasts"])]+([("Exclude both",both["contrasts"])] if both else []):
+            for a in rows:
+                if a["contrast"]!="condition_delta" or a["parameter"]!="midpoint_cm":continue
+                shared=a["model"]=="shared_plateaus";color="#b65121" if shared else "#175b8d"
+                ax.plot([a["ci_low"],a["ci_high"]],[j,j],color=color);ax.plot(a["estimate"],j,"o",color=color)
+                labels.append(cohort+"\n"+("Shared" if shared else "Separate"));j+=1
+        ax.set_yticks(range(j),labels);ax.invert_yaxis();ax.axvline(0,color="#777777",lw=.8,ls=":")
+        ax.set_title("Mean fitted-midpoint change");ax.set_xlabel("Viscereality − Control (cm)\n95% conditional refit intervals")
+        for ax in axes.ravel():ax.spines[["top","right"]].set_visible(False)
+        fig.suptitle("Remaining-analysis checks · post hoc specifications",fontsize=14,y=.98)
+        fig.text(.5,.025,"Exclusions do not identify the correct recording mapping. Fitted parameter changes remain model-dependent proxies.",ha="center",fontsize=9)
+        fig.subplots_adjust(left=.17,right=.97,top=.90,bottom=.13,wspace=.56,hspace=.55)
+        stream=io.BytesIO();fig.savefig(stream,format=format,dpi=250,metadata={"Date":None} if format=="svg" else None);plt.close(fig)
+        return stream.getvalue()
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure=="remaining_robustness":return robustness_figure_bytes(report,format)
     if measure=="participant_diagnostics":
         return diagnostic_figure_bytes(report["participant_sigmoids"],format)
     if measure=="participant_example":
@@ -365,14 +437,30 @@ def result_bundle(report,retained,sources):
         files["participant_normalized_rt.csv"]=as_table(normalized_trials(individual,retained))
         files["participant_diagnostics.csv"]=as_table(diagnostics(individual))
         for key in ("parameters","shared_parameters","participant_scores","shared_participant_scores",
-                    "associations","shared_associations","candidates","reliability","recovery"):
+                    "associations","shared_associations","candidates","reliability","recovery","contrasts","contrast_reliability"):
             files["participant_"+key+".csv"]=as_table(individual[key])
         files["participant_prediction.csv"]=as_table(individual["prediction"]["scores"])
         files["participant_linkage_audit.json"]=json.dumps(individual["linkage_audit"],indent=2).encode()
-        for key in ("associations","shared_associations","participant_scores","shared_participant_scores"):
+        files["participant_contrast_diagnostics.csv"]=as_table(contrast_diagnostics(individual))
+        for key in ("associations","shared_associations","participant_scores","shared_participant_scores","contrasts"):
             files["participant_linkage_sensitivity_"+key+".csv"]=as_table([
                 row|{"excluded_ids":",".join(s["excluded_ids"]),"selected_method":s["selected_method"]}
                 for s in individual["linkage_sensitivities"] for row in s[key]])
+    robustness=report["robustness"];group=robustness["group_shape"]
+    files["robustness_results.json"]=json.dumps(robustness,indent=2,allow_nan=False).encode()
+    files["robustness_linkage_models.csv"]=as_table([m|{"excluded_ids":','.join(s["excluded_ids"]),"category":category}
+        for s in robustness["recording_linkage"] for category in ("mixed_models","cluster_models") for m in s[category]])
+    files["robustness_linkage_coefficients.csv"]=as_table([c|{"excluded_ids":','.join(s["excluded_ids"]),"model":m["name"]}
+        for s in robustness["recording_linkage"] for category in ("mixed_models","cluster_models") for m in s[category] for c in m.get("coefficients",[])])
+    if group["status"]=="computed":
+        files["remaining_robustness.svg"]=figure_bytes(report,"remaining_robustness")
+        files["robustness_prediction.csv"]=as_table(group["prediction"]["scores"])
+        for key in ("log_distance_candidates","geometry_sensitivities","selection_frequencies"):
+            files["robustness_"+key+".csv"]=as_table(group[key])
+        files["robustness_geometry_parameters.csv"]=as_table([p|{"criteria":s["criteria"],"width_floor_cm":s["width_floor_cm"]}
+            for s in group["geometry_sensitivities"] for p in s.get("parameters",[])])
+        files["robustness_selection_resamples.csv"]=as_table([p|{"replicate":s["replicate"],"method":s["method"]}
+            for s in group["selection_resamples"] for p in s["parameters"]])
     d=report["descriptive_sigmoids"]
     if d["status"]=="computed":
         for measure in ("descriptive_sigmoids","sigmoid_extrapolation","pps_shape","sigmoid_geometry"):

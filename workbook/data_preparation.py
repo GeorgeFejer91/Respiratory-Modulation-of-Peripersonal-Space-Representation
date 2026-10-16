@@ -223,8 +223,8 @@ def _(mo):
 def _():
     from paper_analysis import analyze
     from publication_report import result_bundle, primary_summary, figure_svg, markdown_report
-    from participant_report import curve_bytes, diagnostics
-    return analyze, curve_bytes, diagnostics, figure_svg, markdown_report, primary_summary, result_bundle
+    from participant_report import curve_bytes, diagnostics, contrast_diagnostics
+    return analyze, contrast_diagnostics, curve_bytes, diagnostics, figure_svg, markdown_report, primary_summary, result_bundle
 
 
 @app.cell
@@ -392,9 +392,30 @@ def _(curve_bytes, mo, paper_results, participant_view):
 
 
 @app.cell
+def _(contrast_diagnostics, figure_svg, mo, paper_results):
+    _r=paper_results["robustness"];_g=_r["group_shape"];_p=paper_results["participant_sigmoids"]
+    mo.stop(_g["status"]!="computed" or _p["status"]!="computed",mo.md("Additional robustness checks unavailable for this cohort."))
+    mo.vstack([
+        mo.md("## 14 · Remaining-analysis robustness checks\nPrimary models excluding ambiguous recordings, uncertainty in fitted changes, log-distance comparison and shape-constraint sensitivity. All are post hoc; no new multiple-testing correction is applied."),
+        mo.Html(figure_svg(paper_results,"remaining_robustness")),
+        mo.ui.table(contrast_diagnostics(_p),selection=None,label="Reliability and recovery of within-person changes"),
+        mo.accordion({
+            "Primary RT linkage exclusions":mo.json(_r["recording_linkage"]),
+            "Parameter contrasts and refit intervals":mo.ui.table(_p["contrasts"]+[
+                a|{"excluded_ids":','.join(s["excluded_ids"])} for s in _p["linkage_sensitivities"] for a in s["contrasts"]],selection=None),
+            "Five-family nested prediction":mo.ui.table(_g["prediction"]["scores"],selection=None),
+            "All nine geometry specifications":mo.json(_g["geometry_sensitivities"]),
+            "Repeated method-selection stability":mo.ui.table(_g["selection_frequencies"],selection=None),
+            "Interpretation and limits":mo.md(_g["interpretation"]),
+        }),
+    ])
+    return
+
+
+@app.cell
 def _(analysis_manifest, analysis_zip, markdown_report, mo, paper_results):
     mo.vstack([
-        mo.md("## 14 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
+        mo.md("## 15 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities with refit intervals, parameter contrasts, log-distance and shape robustness checks, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])

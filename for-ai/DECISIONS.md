@@ -230,3 +230,13 @@ out of each other's pooling priors, and report exclusions of both and each
 separately. Do not silently choose an identity or claim 42 independent behavioural
 recordings. Original full-release calculations remain an explicitly provisional
 audit record. Questionnaire-only MAIA/spatial results do not depend on RT mapping.
+
+### D-0009 remaining-analysis amendment
+
+Complete the finite post-results checks in `workbook/ANALYSIS_PLAN.md`: primary
+behavioural linkage exclusions, uncertainty and stability of parameter changes,
+refit intervals for every exclusion, log-distance prediction, a fixed geometry
+grid and repeated method selection. Preserve all outcomes and report the earlier
+analyses separately. Selection frequencies are stability diagnostics, not
+selection-adjusted confidence coverage. Completion of these checks does not
+close the empirical boundary-identification goal or source-mapping requirement.

@@ -7,11 +7,24 @@ import numpy as np
 from scipy import optimize
 
 from descriptive_sigmoid import (ProfileGrid, extract_cells, parameter_rows,
-                                 predict, smooth, smoother_specs, fit_line, predict_line)
+                                 predict, smooth, smoother_specs, fit_line, predict_line,
+                                 score_candidates, response_coordinates)
 from sigmoid_shape import geometry, curvature_test, nested_prediction
 
 
 class DescriptiveSigmoidTests(unittest.TestCase):
+    def test_log_distance_predicts_known_response_and_validation_groups_duplicate_copies(self):
+        x=np.array([0.,17/90,40/90,63/90,1.]);distance=10+90*x
+        cube=500+np.arange(12)[:,None,None]*10+np.ones((12,4,1))*15*np.log(distance)
+        identities=np.repeat(np.arange(6),2)
+        with patch("descriptive_sigmoid.smoother_specs",return_value=[("none",0.)]):
+            ranking,validation=score_candidates({"mean":cube},x,family="logarithmic",identities=identities)
+        self.assertLess(ranking[0]["tuning_rmse_ms"],1e-10)
+        np.testing.assert_allclose(np.asarray(ranking[0]["parameters"])[:,1],15.)
+        for fold in validation["folds"]:
+            for i in fold:self.assertIn(i^1,fold)
+        np.testing.assert_allclose(response_coordinates(x,"logarithmic"),np.log(distance))
+
     def test_known_sigmoids_recovered_from_five_uneven_positions(self):
         x=np.array([0.,17/90,40/90,63/90,1.])
         expected=np.array([[630.,50.,.3,.15],[650.,30.,.6,.2],[610.,40.,.5,.1],[660.,25.,.7,.3]])

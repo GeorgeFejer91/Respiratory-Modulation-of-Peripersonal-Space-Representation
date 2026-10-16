@@ -95,22 +95,22 @@ maia2_emotional_awareness,midpoint_slope_ms_per_cm_viscereality_inhale,41,comput
 maia2_self_regulation,midpoint_slope_ms_per_cm_viscereality_inhale,41,computed,-0.15114819597220291,-0.42185295104288406,0.18657393093384134,0.34225,500,midpoint_slope_ms_per_cm,viscereality_inhale,supplementary,500
 maia2_body_listening,midpoint_slope_ms_per_cm_viscereality_inhale,41,computed,-0.18762540253757967,-0.4950971837423626,0.20100962365982544,0.24485,500,midpoint_slope_ms_per_cm,viscereality_inhale,supplementary,500
 maia2_trusting,midpoint_slope_ms_per_cm_viscereality_inhale,41,computed,-0.24046303061477842,-0.5170155021419415,0.1446880352020876,0.1269,500,midpoint_slope_ms_per_cm,viscereality_inhale,supplementary,500
-maia2_noticing,midpoint_cm_condition_delta,41,computed,0.09469202975606146,-0.2920376161272419,0.40890581598162123,0.56,500,midpoint_cm,condition_delta,main,500
+maia2_noticing,midpoint_cm_condition_delta,41,computed,0.09469202975606146,-0.29262143040431815,0.40890581598162123,0.56,500,midpoint_cm,condition_delta,main,500
 maia2_not_distracting,midpoint_cm_condition_delta,41,computed,0.07821917213147418,-0.3953890977387331,0.4525687704752135,0.6362,500,midpoint_cm,condition_delta,main,500
 maia2_not_worrying,midpoint_cm_condition_delta,41,computed,0.05554822864578259,-0.4071770107427265,0.37486062255891817,0.7297,500,midpoint_cm,condition_delta,main,500
 maia2_attention_regulation,midpoint_cm_condition_delta,41,computed,0.1604711478735153,-0.3647404764257714,0.41078031177070057,0.311,500,midpoint_cm,condition_delta,main,500
 maia2_emotional_awareness,midpoint_cm_condition_delta,41,computed,-0.05650090798493679,-0.37606922347832233,0.429746749002417,0.72425,500,midpoint_cm,condition_delta,main,500
-maia2_self_regulation,midpoint_cm_condition_delta,41,computed,0.07362125333277005,-0.40147622598442234,0.39341860301362225,0.64705,500,midpoint_cm,condition_delta,main,500
+maia2_self_regulation,midpoint_cm_condition_delta,41,computed,0.07362125333277005,-0.4007054438444148,0.39341860301362225,0.64705,500,midpoint_cm,condition_delta,main,500
 maia2_body_listening,midpoint_cm_condition_delta,41,computed,0.018635597900121207,-0.4041971047977844,0.3997660414370978,0.90735,500,midpoint_cm,condition_delta,main,500
 maia2_trusting,midpoint_cm_condition_delta,41,computed,0.29599666906016286,-0.3048979358785623,0.47500054558186033,0.0594,500,midpoint_cm,condition_delta,main,500
-maia2_noticing,normalized_steepness_per_cm_condition_delta,41,computed,-0.04747846363199101,-0.44953922709203703,0.3462280572903733,0.7707,500,normalized_steepness_per_cm,condition_delta,main,500
+maia2_noticing,normalized_steepness_per_cm_condition_delta,41,computed,-0.04747846363199101,-0.44953922709203703,0.34568755815462887,0.7707,500,normalized_steepness_per_cm,condition_delta,main,500
 maia2_not_distracting,normalized_steepness_per_cm_condition_delta,41,computed,-0.11280064262562503,-0.5201946215912933,0.4274684910604027,0.47985,500,normalized_steepness_per_cm,condition_delta,main,500
-maia2_not_worrying,normalized_steepness_per_cm_condition_delta,41,computed,0.19321182634312523,-0.37979964005099925,0.5073667664649143,0.2204,500,normalized_steepness_per_cm,condition_delta,main,500
+maia2_not_worrying,normalized_steepness_per_cm_condition_delta,41,computed,0.19321182634312523,-0.37516135598943384,0.5063898116761675,0.2204,500,normalized_steepness_per_cm,condition_delta,main,500
 maia2_attention_regulation,normalized_steepness_per_cm_condition_delta,41,computed,-0.05961373090643971,-0.38807402950707687,0.47896040211701807,0.7096,500,normalized_steepness_per_cm,condition_delta,main,500
 maia2_emotional_awareness,normalized_steepness_per_cm_condition_delta,41,computed,-0.14464653011901984,-0.49644352575752054,0.39136668540042013,0.3648,500,normalized_steepness_per_cm,condition_delta,main,500
 maia2_self_regulation,normalized_steepness_per_cm_condition_delta,41,computed,-0.08115994414450867,-0.4442292902678026,0.4054789567743485,0.6119,500,normalized_steepness_per_cm,condition_delta,main,500
-maia2_body_listening,normalized_steepness_per_cm_condition_delta,41,computed,-0.22610808758700485,-0.4928753879379057,0.3345587336949863,0.1572,500,normalized_steepness_per_cm,condition_delta,main,500
-maia2_trusting,normalized_steepness_per_cm_condition_delta,41,computed,-0.18923312246809287,-0.4892819270793217,0.3122426780134674,0.23675,500,normalized_steepness_per_cm,condition_delta,main,500
+maia2_body_listening,normalized_steepness_per_cm_condition_delta,41,computed,-0.22610808758700485,-0.4899478121094908,0.3347631635015503,0.1572,500,normalized_steepness_per_cm,condition_delta,main,500
+maia2_trusting,normalized_steepness_per_cm_condition_delta,41,computed,-0.18923312246809287,-0.49039151056192865,0.3122426780134674,0.23675,500,normalized_steepness_per_cm,condition_delta,main,500
 maia2_noticing,midpoint_slope_ms_per_cm_condition_delta,41,computed,-0.06820453362716007,-0.35951504081060803,0.30860242124727794,0.66855,500,midpoint_slope_ms_per_cm,condition_delta,main,500
 maia2_not_distracting,midpoint_slope_ms_per_cm_condition_delta,41,computed,-0.22167056962556284,-0.428384581262325,0.3277324518912743,0.16435,500,midpoint_slope_ms_per_cm,condition_delta,main,500
 maia2_not_worrying,midpoint_slope_ms_per_cm_condition_delta,41,computed,0.20987492345875394,-0.32046465046620876,0.4386119389798394,0.1838,500,midpoint_slope_ms_per_cm,condition_delta,main,500
@@ -123,5 +123,5 @@ spfrref_delta,midpoint_cm_condition_delta,41,computed,0.33104522376315815,-0.260
 spfrref_delta,normalized_steepness_per_cm_condition_delta,41,computed,0.15562300943829227,-0.37316042424108425,0.4234058551855853,0.32945,500,normalized_steepness_per_cm,condition_delta,main,500
 spfrref_delta,midpoint_slope_ms_per_cm_condition_delta,41,computed,0.16505851625080892,-0.3421669649679464,0.3682026357880595,0.29895,500,midpoint_slope_ms_per_cm,condition_delta,main,500
 spfrref_change_direction,midpoint_cm_condition_delta,41,computed,0.2801659229083505,-0.26697076995572305,0.4750184314845031,0.07655,500,midpoint_cm,condition_delta,direction sensitivity,500
-spfrref_change_direction,normalized_steepness_per_cm_condition_delta,41,computed,0.16647931003822766,-0.42314064550129,0.41861552157737464,0.29245,500,normalized_steepness_per_cm,condition_delta,direction sensitivity,500
+spfrref_change_direction,normalized_steepness_per_cm_condition_delta,41,computed,0.16647931003822766,-0.4231649848364061,0.41861552157737464,0.29245,500,normalized_steepness_per_cm,condition_delta,direction sensitivity,500
 spfrref_change_direction,midpoint_slope_ms_per_cm_condition_delta,41,computed,0.2838012637320837,-0.4091533205672816,0.4565185963099911,0.07155,500,midpoint_slope_ms_per_cm,condition_delta,direction sensitivity,500

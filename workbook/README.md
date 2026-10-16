@@ -127,6 +127,15 @@ support. The latter remains weak in the reference dataset; four imposed S shapes
 do not establish physiological boundaries. Full rankings, inner selection scores,
 comparisons, constraints and extrapolations are downloadable.
 
+The remaining-analysis section adds primary RT models for all three recording
+exclusions, 500 refits for every exclusion's associations and mean parameter
+contrasts, and reliability/recovery of the within-person changes. Its 40-record
+group audit compares five response families including log distance, nine fixed
+geometry specifications and 30 repeated method selections. These finite checks
+are complete and remain exploratory; waveform provenance, recording identity
+and validated physiological boundaries remain unresolved. Verify them with
+`python workbook/validate_robustness.py`.
+
 ## Publish on GitHub Pages
 
 The source repository stays private. Its GitHub plan must support Pages for private

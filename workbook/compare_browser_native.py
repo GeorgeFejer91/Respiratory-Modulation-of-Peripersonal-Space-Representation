@@ -15,7 +15,9 @@ def compare(native_path, browser_directory):
         raise AssertionError("Cohort mismatch.")
     out={"browser_zip_sha256":sha256((browser_directory/"browser-results.zip").read_bytes()).hexdigest(),
          "native_runtime":n["runtime"],"browser_runtime":b["runtime"],"models":[],"sigmoid_diagnostics":[]}
-    for a,z in zip(n["mixed_models"]+n["missing_rt_stress"],b["mixed_models"]+b["missing_rt_stress"]):
+    nm=n["mixed_models"]+n["missing_rt_stress"]+[m for s in n["robustness"]["recording_linkage"] for m in s["mixed_models"]]
+    bm=b["mixed_models"]+b["missing_rt_stress"]+[m for s in b["robustness"]["recording_linkage"] for m in s["mixed_models"]]
+    for a,z in zip(nm,bm):
         if a["name"]!=z["name"] or a["status"]!=z["status"]:
             raise AssertionError("Model/status mismatch.")
         ll=max(abs(a[k]-z[k]) for k in ("ll_full","ll_reduced"))
@@ -37,7 +39,7 @@ def compare(native_path, browser_directory):
             for k in a:walk(a[k],z[k])
         elif isinstance(a,list):
             if len(a)!=len(z):raise AssertionError("Descriptive list length mismatch.")
-            if a and all(isinstance(r,dict) and "method" in r for r in a+z):
+            if a and all(isinstance(r,dict) and "method" in r for r in a+z) and not all("replicate" in r for r in a+z):
                 if len({r["method"] for r in a})!=len(a) or len({r["method"] for r in z})!=len(z):
                     raise AssertionError("Duplicate method identity.")
                 # Curvature penalties preserve linear projections: exact ties can reorder by roundoff.
@@ -69,6 +71,12 @@ def compare(native_path, browser_directory):
     walk(n["participant_sigmoids"],b["participant_sigmoids"])
     out["participant_sigmoids"]={"numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors,default=0.),
         "scope":"Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, linkage sensitivities, split-half and recovery result."}
+    numeric_errors.clear()
+    walk(n["robustness"]["group_shape"],b["robustness"]["group_shape"])
+    for a,z in zip(n["robustness"]["recording_linkage"],b["robustness"]["recording_linkage"]):
+        walk({k:v for k,v in a.items() if k!="mixed_models"},{k:v for k,v in z.items() if k!="mixed_models"})
+    out["robustness"]={"numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors,default=0.),
+        "scope":"Every linkage cluster/participant result, five-family group prediction result/inner score, log-distance candidate, nine geometry specifications and 30 repeated selections. Linkage ML likelihoods/coefficients use the existing 1e-5/1e-4 tolerances above."}
     out["status"]="passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire/individual-proxy value within 1e-8; legacy nonlinear-bound diagnostics may differ"
     return out
 

@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "workbook"))
 from publication_report import figure_bytes
-from participant_report import diagnostics
+from participant_report import diagnostics, contrast_diagnostics
 
 
 def promote(path):
@@ -50,6 +50,7 @@ def promote(path):
             ("spatial_change.svg", "spatial_change", "study5_spatial_change.png"),
             ("participant_diagnostics.svg", "participant_diagnostics", "study5_participant_diagnostics.png"),
             ("participant_example.svg", "participant_example", "study5_participant_example.png"),
+            ("remaining_robustness.svg", "remaining_robustness", "study5_remaining_robustness.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -249,6 +250,57 @@ Baseline trait / spatial change & Midpoint & Steepness & RT slope \\
 """
 
 
+def robustness_results(r):
+    extension=r['robustness'];p=r['participant_sigmoids'];g=extension['group_shape']
+    models=extension['recording_linkage'];scores={a['family']:a['outer_rmse_ms'] for a in g['prediction']['scores']}
+    summary=[a for a in contrast_diagnostics(p) if a['contrast']=='condition_delta']
+    reliability=lambda model,metric:next(a['median_split_half_rho'] for a in summary if a['model']==model and a['parameter']==metric)
+    rows=[]
+    for s in models:
+        m=s['mixed_models'][0];b=m['coefficients'][-1]
+        rows.append(', '.join(s['excluded_ids'])+f" & {m['participants']} & {b['estimate']:.2f} & [{b['ci_low']:.2f}, {b['ci_high']:.2f}] & {m['p']:.3f}"+r' \\')
+    table='\n'.join(rows)
+    cohort=next(s for s in p['linkage_sensitivities'] if len(s['excluded_ids'])==2)
+    midpoint=next(a for a in cohort['contrasts'] if a['model']=='individual_plateaus' and a['contrast']=='condition_delta' and a['parameter']=='midpoint_cm')
+    all_cohorts=[p]+p['linkage_sensitivities']
+    associations=[a for s in all_cohorts for key in ('associations','shared_associations') for a in s[key] if a['scope']=='main']
+    nonzero=sum(a['ci_low']>0 or a['ci_high']<0 for a in associations)
+    contrasts=[a for s in all_cohorts for a in s['contrasts']]
+    contrast_nonzero=sum(a['ci_low']>0 or a['ci_high']<0 for a in contrasts)
+    geometry=[a['leave_position_rmse_ms'] for a in g['geometry_sensitivities'] if a['status']=='computed']
+    return rf"""\subsection{{Recording exclusions and remaining robustness checks}}
+
+An explicitly post-results amendment reran the primary behavioural models after excluding the two ambiguous records together and each separately. The numeric Condition $\times$ Phase $\times$ SOA result remained uncertain in every specification (Table~\ref{{study5:tab:linkage_models}}). All three categorical-interaction and Control-only numeric/categorical comparisons also had unadjusted $p>.05$. Raw/log cluster models, equal-person slope contrasts and raw-RT repeated-measures ANOVA are retained in the companion. These exclusions test sensitivity and do not identify the correct recording-to-person mapping.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lrrrr}}
+Excluded & Records & Estimate & 95\% interval & $p$ \\
+\hline
+{table}
+\end{{tabular}}
+\caption{{Primary numeric interaction after recording exclusions. Estimates are ms per cohort-specific SOA SD, with model-based Wald intervals; $p$ is the unadjusted full/reduced ML likelihood-ratio comparison. Cleaning and SOA scaling were recomputed for each cohort.}}
+\label{{study5:tab:linkage_models}}
+\end{{table}}
+
+For the four fitted curves per person, equal-phase Condition, equal-condition Phase and Condition $\times$ Phase contrasts were calculated for midpoint, normalized steepness and signed RT derivative under both plateau models. All four linkage specifications received 500 person/group-plus-trial refits. Across {len(contrasts)} mean contrasts, {contrast_nonzero} conditional refit intervals excluded zero; across {len(associations)} main questionnaire associations, {nonzero} did so. For example, the separate-plateau mean midpoint change excluding both ambiguous records was {midpoint['estimate']:.2f}~cm, with interval [{midpoint['ci_low']:.2f}, {midpoint['ci_high']:.2f}]~cm. The sizeable point shift reflects a fitted, partially pooled proxy; the wide interval and weak reliability prevent interpreting it as demonstrated PPS contraction.
+
+The changes used in correlations were themselves unstable. Across ten splits, median rank correlations for midpoint change were {reliability('individual_plateaus','midpoint_cm'):.3f} and {reliability('shared_plateaus','midpoint_cm'):.3f} for separate and shared plateaus, respectively. Corresponding normalized-steepness values were {reliability('individual_plateaus','normalized_steepness_per_cm'):.3f} and {reliability('shared_plateaus','normalized_steepness_per_cm'):.3f}; signed RT-slope values were {reliability('individual_plateaus','midpoint_slope_ms_per_cm'):.3f} and {reliability('shared_plateaus','midpoint_slope_ms_per_cm'):.3f}. Known-signal simulations also assessed all three contrasts. Shared-model midpoint-change recovery was better when truth shared plateaus, but this simulation-specific improvement does not establish reliable observed individual differences (Fig.~\ref{{study5:fig:remaining_robustness}}).
+
+The group-response audit excluded both ambiguous recordings ($n={g['participants']}$) and added 160 log-distance pipelines with the same extraction/smoothing choices as lines. Six-outer/five-inner participant/position prediction gave RMSEs {scores['logistic']:.3f}~ms for broad sigmoids, {scores['visible']:.3f} for visible sigmoids, {scores['linear']:.3f} for lines, {scores['logarithmic']:.3f} for log distance and {scores['constant']:.3f} for a constant. The visible family's improvement over a constant was {scores['constant']-scores['visible']:.3f}~ms; this small descriptive difference is not a significance test or physiological validation. The log-distance comparison does not reproduce the expectancy-controlled design of \citet{{hobeika2019capturing}}. Unsmoothed nonlinear-component tests in the four curves all had unadjusted $p>.05$.
+
+Nine fixed geometry specifications crossed three width floors with permissive, existing and strict visibility criteria. Their descriptive leave-position RMSE ranged from {min(geometry):.2f} to {max(geometry):.2f}~ms; the large error under one permissive specification illustrates instability when an omitted position leaves the transition poorly constrained. Thirty whole-person resamples repeated all 320 visible-method selections with repeated copies kept in the same validation fold. They selected {len(g['selection_frequencies'])} distinct pipelines, and the most frequent appeared only {max(a['draws'] for a in g['selection_frequencies'])} times. These finite sensitivity checks retain all outcomes; thirty draws describe selection instability and do not provide calibrated selection-adjusted tail intervals.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_remaining_robustness.png}}
+\caption{{Post-results robustness extension. Top left: primary RT interaction and model-based uncertainty across recording exclusions, rescaled to a common one-second SOA increment. Top right: five response families on the same 40-record prediction target. Bottom left: reliability of fitted Condition differences. Bottom right: midpoint-change point estimates and intervals that refit the models. Large fitted shifts can coexist with very uncertain, unreliable changes.}}
+\label{{study5:fig:remaining_robustness}}
+\end{{figure}}
+
+"""
+
+
 def write_text(r):
     c = r["cohort"]
     models = r["mixed_models"]
@@ -385,7 +437,7 @@ The released CSVs do not contain waveforms, belt recordings, acquisition-version
     results=results.replace(f"all {c['participants_input']} participants in",f"all {c['participants_input']} participant records in")
     results=results.replace("\\subsection{Primary interaction and sensitivity analyses}",
         "A recording-integrity audit found that P011 and P033 share all 408 behavioural trial records, with Control/Viscereality labels swapped, despite different questionnaire responses. The CSVs were preserved; the correct recording-to-person mapping is unresolved. Full-release behavioural inference below is provisional and cannot assume 42 independent recordings. The new individual-parameter extension reports explicit exclusions of both records and of each separately. Questionnaire-only spatial/MAIA results do not depend on the RT mapping.\n\n\\subsection{Primary interaction and sensitivity analyses}")
-    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+"\\subsection{Reproducibility and evidence limits}")
+    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+robustness_results(r)+"\\subsection{Reproducibility and evidence limits}")
     results=results.replace("A failed or unavailable check is distinguished", "For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)

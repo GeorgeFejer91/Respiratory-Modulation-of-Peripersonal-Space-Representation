@@ -1,0 +1,97 @@
+{
+  "mixed_models": [
+    {
+      "excluded_ids": [
+        "P011",
+        "P033"
+      ],
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.873631845228374e-07
+    },
+    {
+      "excluded_ids": [
+        "P011",
+        "P033"
+      ],
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 3.2971729524433613e-07
+    },
+    {
+      "excluded_ids": [
+        "P011",
+        "P033"
+      ],
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.926066033774987e-06
+    },
+    {
+      "excluded_ids": [
+        "P011",
+        "P033"
+      ],
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.968626747839153e-06
+    },
+    {
+      "excluded_ids": [
+        "P011"
+      ],
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 2.0330480765551329e-07
+    },
+    {
+      "excluded_ids": [
+        "P011"
+      ],
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.2451346265152097e-07
+    },
+    {
+      "excluded_ids": [
+        "P011"
+      ],
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 6.595008017029613e-06
+    },
+    {
+      "excluded_ids": [
+        "P011"
+      ],
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 6.808350008213893e-06
+    },
+    {
+      "excluded_ids": [
+        "P033"
+      ],
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.9367871573194861e-07
+    },
+    {
+      "excluded_ids": [
+        "P033"
+      ],
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.1837255442515016e-07
+    },
+    {
+      "excluded_ids": [
+        "P033"
+      ],
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 5.780522769782692e-06
+    },
+    {
+      "excluded_ids": [
+        "P033"
+      ],
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 5.9922385844402015e-06
+    }
+  ],
+  "contrasts_checked": 72,
+  "geometry_checks": 36,
+  "log_distance_rmse_error": 1.4210854715202004e-14,
+  "status": "passed; 12 independent full/reduced ML comparisons, 72 contrast identities, log-distance least-squares prediction and all feasible geometry constraints",
+  "limits": "Numerical checks do not validate physiology, source identity, interval coverage or method-selection assumptions. Log prediction reuses the already-tested smoother."
+}

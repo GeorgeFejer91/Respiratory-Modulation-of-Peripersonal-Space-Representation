@@ -1,0 +1,19 @@
+model,contrast,parameter,n,estimate,between_record_sd,ci_low,ci_high,bootstrap_draws,inference
+individual_plateaus,condition_delta,midpoint_cm,42,-15.125,1.570740465435362,-27.15218023255814,17.630030487804873,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,condition_delta,normalized_steepness_per_cm,42,0.009281375131702048,0.004603306549703407,-0.017585195551464997,0.028094132904631995,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,condition_delta,midpoint_slope_ms_per_cm,42,0.06760037874116004,0.8417035098222554,-0.5411602322503586,0.32560483550249575,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,phase_delta,midpoint_cm,42,-16.946428571428573,2.0759480014031215,-24.749712605708247,16.150892857142832,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,phase_delta,normalized_steepness_per_cm,42,0.006676375041783401,0.004388421329781287,-0.020786781917019128,0.02702987655680075,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,phase_delta,midpoint_slope_ms_per_cm,42,0.03303952630471426,1.0483759924952714,-0.5687238289475172,0.3316197194569022,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,condition_by_phase,midpoint_cm,42,-46.964285714285715,4.985824854259515,-55.143292682926834,30.07206010452959,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,condition_by_phase,normalized_steepness_per_cm,42,0.010145549261701284,0.009002154688696333,-0.039989834144806974,0.04030227250261011,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+individual_plateaus,condition_by_phase,midpoint_slope_ms_per_cm,42,0.20562202345865158,1.3527415576319652,-0.8230042110639785,0.8084995845620715,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_delta,midpoint_cm,42,-16.535714285714285,4.347893879186679,-27.785400498891352,17.243477787456417,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_delta,normalized_steepness_per_cm,42,0.008915215443409627,0.004530645355568636,-0.016987936560877395,0.027701266550423813,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_delta,midpoint_slope_ms_per_cm,42,0.23833876841465612,0.5080786801544177,-0.2478085466795919,0.4697929796276068,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,phase_delta,midpoint_cm,42,-16.821428571428573,4.154884619588201,-24.734520348837208,14.862842607973395,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,phase_delta,normalized_steepness_per_cm,42,0.006783727099925675,0.004437048027022653,-0.02064102472696689,0.026753134046324394,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,phase_delta,midpoint_slope_ms_per_cm,42,0.17821129470381644,0.4319715334029825,-0.3124661581617507,0.4436705327421465,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_by_phase,midpoint_cm,42,-42.57142857142857,9.393544376761529,-49.69186046511628,28.879660278745632,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_by_phase,normalized_steepness_per_cm,42,0.010708576506469229,0.0094013450977749,-0.03937832348473232,0.0397057208994345,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval
+shared_plateaus,condition_by_phase,midpoint_slope_ms_per_cm,42,0.3592731209967998,0.8166675137437676,-0.5489808334951605,0.7222224720681398,500,Exploratory mean proxy contrast; conditional refit-bootstrap interval

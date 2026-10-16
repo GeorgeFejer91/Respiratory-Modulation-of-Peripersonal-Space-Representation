@@ -320,6 +320,52 @@ condition-varying-plateau scenarios; each known sigmoid has an 80-ms signed
 amplitude and randomly sampled interior grid shapes. This distinguishes recovery
 under the added plateau assumption from recovery when it is violated.
 
+## Remaining-analysis amendment (post-results, fixed before this extension)
+
+Keep the earlier outputs intact. Resolve the following computational gaps without
+choosing specifications by questionnaire significance. This is an exploratory
+amendment after the original and individual-proxy results, not preregistration.
+
+1. Recompute cleaning, primary/Control-only numeric and categorical ML models,
+   raw/log participant-cluster regressions, equal-person slope contrasts and
+   raw-RT repeated-measures ANOVA excluding P011/P033 together and each alone.
+   Report all three specifications; exclusion cannot identify the correct mapping.
+2. For both individual plateau models, report equal-phase Condition, equal-condition
+   Phase and Condition × Phase contrasts for midpoint, normalized steepness and
+   signed RT derivative. Reuse the existing full-release hierarchical resamples
+   for pointwise intervals on the cohort mean contrasts. Add the same 500
+   person-plus-trial refits for each exclusion specification, including all 126
+   association intervals per model. These remain conditional on each cohort's
+   RT-selected method. Do not add tests to find a significant specification.
+   Extend the existing ten split halves and 30 known-signal simulations to all
+   three contrasts; distinguish individual-difference recovery from a group effect.
+3. On the cohort excluding both ambiguous recordings, compare constant, linear,
+   log-distance and broad/visible logistic group responses with the existing
+   six-outer/five-inner participant/omitted-position prediction target. The
+   log-distance family has the same 160 extraction/smoothing options as the
+   linear family; smoothing still uses physical-distance coordinates. This is
+   a response-shape comparison, not a replication of expectancy controls.
+4. Freeze that cohort's RT-selected visible preprocessing and evaluate nine
+   geometry specifications: width floors 2.25/4.5/9 cm crossed with permissive,
+   existing and strict criteria. Their (tail fraction, minimum departure from
+   line, positions per flank, central fraction) are (.20,.025,1,.10),
+   (.10,.05,2,.20), and (.05,.10,2,.30). Report all fits and leave-position errors;
+   do not choose a replacement by appearance. Use 30 whole-person resamples
+   repeating all 320 visible-method selections, grouping repeated copies during
+   validation, as a selection-stability diagnostic. Thirty draws are insufficient
+   for tail confidence intervals; report ranges, frequencies and flat fractions.
+
+Use independent seed 20261019 for the added resampling, preserving prior random
+streams and outputs. Derived-contrast reliability/recovery ranks round values to
+12 decimal places before ranking, as do the fitted scores used in associations:
+shared-plateau cancellation otherwise lets
+machine-precision noise split mathematical ties across native and browser runtimes.
+Point-parameter tables, cohort means and RMSEs retain their original precision.
+Existing cleaning remains fixed in group resampling; these
+checks do not provide end-to-end forecasting, model-selection-adjusted confidence
+coverage, serial-dependence calibration, dense-distance physiological validation,
+or missing acquisition provenance. Those limits cannot be removed by smoothing.
+
 ## Numerical and browser verification
 
 Profile ML uses Woodbury sufficient statistics, preserving the exact Gaussian

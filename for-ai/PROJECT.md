@@ -126,7 +126,12 @@ normalization, 500-resample intervals, nested prediction, split-half stability,
 known-signal recovery and all fixed questionnaire links. The computational and
 visual-output goal is implemented; reliable individual PPS boundary identification
 remains unsupported. Full-release midpoint split-half rho is .047 (separate) and
-.106 (shared), and all 54 main association intervals include zero. The atlas shows
+.106 (shared), and all 216 main association intervals across four linkage specifications include zero.
+All 72 mean parameter-contrast intervals include zero; midpoint-change split-half
+rho is −.074 (separate) and .066 (shared). The remaining-analysis amendment adds
+primary-model linkage exclusions, five-family group prediction with log distance,
+nine geometry specifications and 30 repeated method selections. These feasible
+checks are complete; stable physiological boundary identification is not. The atlas shows
 raw evidence alongside normalized geometry. P011/P033 source mapping remains
 unresolved; retain flagged outputs and all three exclusion sensitivities. See
 `literature_review/INDIVIDUAL_PARAMETERS.md` and the archived browser results.

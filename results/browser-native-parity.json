@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "73605d56a5a95483d5981135803154d01ee6c81a5ff3509da99f6d9b33329a0d",
+  "browser_zip_sha256": "f2adc07e299f504aedc0def2c8c9e843dcede4380e795a1553f5ed5f916dddbf",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -106,6 +106,66 @@
       "name": "missing RT signed shift 200 ms",
       "max_log_likelihood_error": 1.2587406672537327e-09,
       "max_coefficient_error": 1.736793819873128e-08
+    },
+    {
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.3751559890806675e-09,
+      "max_coefficient_error": 3.904654022335308e-08
+    },
+    {
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.3169483281672e-09,
+      "max_coefficient_error": 8.134787421454348e-08
+    },
+    {
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.7826096154749393e-10,
+      "max_coefficient_error": 3.870536602335051e-08
+    },
+    {
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 2.0736479200422764e-10,
+      "max_coefficient_error": 8.787196748016868e-09
+    },
+    {
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.4406396076083183e-09,
+      "max_coefficient_error": 7.605569862789707e-08
+    },
+    {
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.3387762010097504e-09,
+      "max_coefficient_error": 8.777436377727099e-08
+    },
+    {
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 2.4374458007514477e-10,
+      "max_coefficient_error": 6.393213425326394e-08
+    },
+    {
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 2.255546860396862e-10,
+      "max_coefficient_error": 5.725371465814533e-08
+    },
+    {
+      "name": "Primary numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.2951204553246498e-09,
+      "max_coefficient_error": 6.187019607750699e-08
+    },
+    {
+      "name": "Primary categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.2660166248679161e-09,
+      "max_coefficient_error": 1.3231273854330539e-09
+    },
+    {
+      "name": "Control-only numeric linkage sensitivity",
+      "max_log_likelihood_error": 1.8553691916167736e-10,
+      "max_coefficient_error": 6.409254638128914e-08
+    },
+    {
+      "name": "Control-only categorical linkage sensitivity",
+      "max_log_likelihood_error": 1.3096723705530167e-10,
+      "max_coefficient_error": 4.727428404294187e-08
     }
   ],
   "sigmoid_diagnostics": [
@@ -152,9 +212,14 @@
     "scope": "All item/scoring/reliability, paired ordinal/delta, 42 rank associations, 16 OLS/HC3 moderation models and bootstrap values, labels and coverage statuses."
   },
   "participant_sigmoids": {
-    "numeric_values_compared": 31823,
+    "numeric_values_compared": 37040,
     "max_absolute_numeric_error": 1.469743438065052e-09,
     "scope": "Every individual/shared-plateau parameter, 84 candidates, nested folds, 500-refit intervals, 1008 associations, linkage sensitivities, split-half and recovery result."
+  },
+  "robustness": {
+    "numeric_values_compared": 10667,
+    "max_absolute_numeric_error": 6.048139766789973e-11,
+    "scope": "Every linkage cluster/participant result, five-family group prediction result/inner score, log-distance candidate, nine geometry specifications and 30 repeated selections. Linkage ML likelihoods/coefficients use the existing 1e-5/1e-4 tolerances above."
   },
   "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire/individual-proxy value within 1e-8; legacy nonlinear-bound diagnostics may differ"
 }

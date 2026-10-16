@@ -273,6 +273,38 @@ Spatial code difference & 0.33 (0.034) & 0.16 (0.329) & 0.17 (0.299) \\
 \label{study5:fig:individual_diagnostics}
 \end{figure}
 
+\subsection{Recording exclusions and remaining robustness checks}
+
+An explicitly post-results amendment reran the primary behavioural models after excluding the two ambiguous records together and each separately. The numeric Condition $\times$ Phase $\times$ SOA result remained uncertain in every specification (Table~\ref{study5:tab:linkage_models}). All three categorical-interaction and Control-only numeric/categorical comparisons also had unadjusted $p>.05$. Raw/log cluster models, equal-person slope contrasts and raw-RT repeated-measures ANOVA are retained in the companion. These exclusions test sensitivity and do not identify the correct recording-to-person mapping.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+Excluded & Records & Estimate & 95\% interval & $p$ \\
+\hline
+P011, P033 & 40 & 0.86 & [-9.73, 11.45] & 0.873 \\
+P011 & 41 & 1.09 & [-9.41, 11.59] & 0.839 \\
+P033 & 41 & 0.58 & [-9.92, 11.08] & 0.913 \\
+\end{tabular}
+\caption{Primary numeric interaction after recording exclusions. Estimates are ms per cohort-specific SOA SD, with model-based Wald intervals; $p$ is the unadjusted full/reduced ML likelihood-ratio comparison. Cleaning and SOA scaling were recomputed for each cohort.}
+\label{study5:tab:linkage_models}
+\end{table}
+
+For the four fitted curves per person, equal-phase Condition, equal-condition Phase and Condition $\times$ Phase contrasts were calculated for midpoint, normalized steepness and signed RT derivative under both plateau models. All four linkage specifications received 500 person/group-plus-trial refits. Across 72 mean contrasts, 0 conditional refit intervals excluded zero; across 216 main questionnaire associations, 0 did so. For example, the separate-plateau mean midpoint change excluding both ambiguous records was -16.07~cm, with interval [-28.17, 18.16]~cm. The sizeable point shift reflects a fitted, partially pooled proxy; the wide interval and weak reliability prevent interpreting it as demonstrated PPS contraction.
+
+The changes used in correlations were themselves unstable. Across ten splits, median rank correlations for midpoint change were -0.074 and 0.066 for separate and shared plateaus, respectively. Corresponding normalized-steepness values were 0.052 and -0.009; signed RT-slope values were 0.064 and 0.155. Known-signal simulations also assessed all three contrasts. Shared-model midpoint-change recovery was better when truth shared plateaus, but this simulation-specific improvement does not establish reliable observed individual differences (Fig.~\ref{study5:fig:remaining_robustness}).
+
+The group-response audit excluded both ambiguous recordings ($n=40$) and added 160 log-distance pipelines with the same extraction/smoothing choices as lines. Six-outer/five-inner participant/position prediction gave RMSEs 47.993~ms for broad sigmoids, 47.915 for visible sigmoids, 48.087 for lines, 48.121 for log distance and 48.020 for a constant. The visible family's improvement over a constant was 0.105~ms; this small descriptive difference is not a significance test or physiological validation. The log-distance comparison does not reproduce the expectancy-controlled design of \citet{hobeika2019capturing}. Unsmoothed nonlinear-component tests in the four curves all had unadjusted $p>.05$.
+
+Nine fixed geometry specifications crossed three width floors with permissive, existing and strict visibility criteria. Their descriptive leave-position RMSE ranged from 47.47 to 94.59~ms; the large error under one permissive specification illustrates instability when an omitted position leaves the transition poorly constrained. Thirty whole-person resamples repeated all 320 visible-method selections with repeated copies kept in the same validation fold. They selected 27 distinct pipelines, and the most frequent appeared only 3 times. These finite sensitivity checks retain all outcomes; thirty draws describe selection instability and do not provide calibrated selection-adjusted tail intervals.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{study5_remaining_robustness.png}
+\caption{Post-results robustness extension. Top left: primary RT interaction and model-based uncertainty across recording exclusions, rescaled to a common one-second SOA increment. Top right: five response families on the same 40-record prediction target. Bottom left: reliability of fitted Condition differences. Bottom right: midpoint-change point estimates and intervals that refit the models. Large fitted shifts can coexist with very uncertain, unreliable changes.}
+\label{study5:fig:remaining_robustness}
+\end{figure}
+
 \subsection{Reproducibility and evidence limits}
 
 All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, all 42 rank correlations, and all 16 moderation fits including ordinary and HC3 uncertainty. Independent long-format participant-intercept models verified the delta regression's Condition $\times$ MAIA slope, standard error, $F$ statistic and $p$ value. Every questionnaire result was also compared across native and browser runtimes. For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.

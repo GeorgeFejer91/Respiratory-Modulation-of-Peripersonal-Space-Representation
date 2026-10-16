@@ -4,3 +4,6 @@ These prior versions are retained for internal comparison. The active Overleaf m
 
 `40-person-pre-browser/` preserves the active statistical sections and two result
 figures before the 42-person browser reanalysis. Its values are historical.
+
+`pre-remaining-robustness/` preserves the statistical sections before the primary
+recording-exclusion, parameter-change and group-shape robustness extension.

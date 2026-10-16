@@ -79,6 +79,13 @@ jobs:
           assert individual["bootstrap_draws"] == 500
           assert len(individual["linkage_sensitivities"]) == 3
           assert individual["linkage_audit"]["groups"][0]["participant_ids"] == ["P011", "P033"]
+          assert len(individual["contrasts"]) == 18
+          assert len(individual["contrast_reliability"]) == 180
+          assert len(report["robustness"]["recording_linkage"]) == 3
+          remaining = report["robustness"]["group_shape"]
+          assert len(remaining["log_distance_candidates"]) == 160
+          assert len(remaining["geometry_sensitivities"]) == 9
+          assert len(remaining["selection_resamples"]) == 30
           print(f"Executed workbook successfully: {len(outputs)} outputs")
           PY
       - name: Independent numerical validation
@@ -87,6 +94,7 @@ jobs:
           python workbook/validate_sigmoids.py
           python workbook/validate_questionnaires.py
           python workbook/validate_participant_sigmoids.py
+          python workbook/validate_robustness.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload audited publication companion

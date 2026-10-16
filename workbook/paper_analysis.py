@@ -20,6 +20,7 @@ from inference import (cluster_regression, holm, mixed_comparison, paired,
 from descriptive_sigmoid import run as descriptive_sigmoid_analysis
 from questionnaires import run as questionnaire_analysis
 from participant_sigmoid import run as participant_sigmoid_analysis
+from sigmoid_shape import followup_audit
 
 
 SOAS = (300.,800.,1500.,2200.,2700.)
@@ -341,6 +342,32 @@ def boundary_followups(records,people):
     return {"status":"computed","n":len(ids),"contrasts":contrasts,"correlations":holm(correlations)}
 
 
+def linkage_model_sensitivities(people,trials,audit,progress=None):
+    flagged=sorted({pid for group in audit["groups"] for pid in group["participant_ids"]})
+    results=[]
+    for drop in ([flagged]+[[pid] for pid in flagged] if flagged else []):
+        if progress:progress("Primary behavioural linkage sensitivity: "+", ".join(drop))
+        roster=[r for r in people if r["participant_id"] not in drop]
+        source=[r for r in trials if r["participant_id"] not in drop]
+        retained,_,counts=clean(roster,source)
+        models=[]
+        for control in (False,True):
+            for categorical in (False,True):
+                label=f"{'Control-only' if control else 'Primary'} {'categorical' if categorical else 'numeric'} linkage sensitivity"
+                models.append(safe_call(interaction,label,retained,control=control,categorical=categorical,label=label))
+        scale=(models[0]["soa_mean_ms"],models[0]["soa_sd_ms"])
+        at=[r for r in retained if r["trial_type"]=="Audio-Tactile"]
+        x,names,_,_=design(at,scale=scale);y=np.array([numeric(r,"reaction_time_ms") for r in at])
+        groups=np.array([r["participant_id"] for r in at])
+        clustered=[cluster_regression(x,y,groups,names,name="raw RT linkage sensitivity")]
+        clustered.append(cluster_regression(x,np.log(y),groups,names,name="log RT linkage sensitivity") if np.all(y>0)
+                         else {"status":"not_estimable","reason":"Retained RT is nonpositive."})
+        slope,_=slope_contrasts(retained,scale);ids,cube=cell_cube(retained)
+        results.append(dict(excluded_ids=drop,cohort=counts,mixed_models=models,cluster_models=clustered,
+            participant_slope_interaction=slope,repeated_measures_anova=repeated_anova(cube) if len(ids)>=3 else []))
+    return results
+
+
 def analyze(people,trials,progress=None):
     """Execute every data-supported analysis in the companion contract."""
     notify=progress or (lambda text:None)
@@ -424,7 +451,10 @@ def analyze(people,trials,progress=None):
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
     individual=participant_sigmoid_analysis(retained,questionnaires,progress=notify,source_trials=trials)
-    report={"analysis_version":"1.6","status":"reproducible analysis draft; recording linkage requires review",
+    linkage=linkage_model_sensitivities(people,trials,individual.get("linkage_audit",{"groups":[]}),notify)
+    flagged=sorted({pid for g in individual.get("linkage_audit",{"groups":[]})["groups"] for pid in g["participant_ids"]})
+    robustness={"recording_linkage":linkage,"group_shape":followup_audit(retained,flagged,notify)}
+    report={"analysis_version":"1.7","status":"reproducible analysis draft; recording linkage requires review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
@@ -438,6 +468,7 @@ def analyze(people,trials,progress=None):
         "missing_rt_stress":stresses,"group_curves":curves,"group_sigmoid_descriptions":descriptive_group_fits(curves),
         "descriptive_sigmoids":descriptions,
         "participant_sigmoids":individual,
+        "robustness":robustness,
         "questionnaire_descriptives":questionnaires["scales"],"questionnaires":questionnaires,
         "data_coverage":[
             {"domain":"Participant roster, demographics and order","status":"analysed","output":"Cohort age/gender/handedness/order, availability and participant QC"},
@@ -448,6 +479,7 @@ def analyze(people,trials,progress=None):
             {"domain":"Paired spatial-frame ratings","status":"analysed","output":"Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities"},
             {"domain":"Participant PPS boundary and related questionnaire inference","status":boundary["status"],"output":"Fit gate retained; group approximations remain descriptive"},
             {"domain":"Exploratory individual sigmoid proxies and normalized RT","status":individual["status"],"output":"Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit"},
+            {"domain":"Remaining behavioural/shape robustness checks","status":"analysed","output":"Primary-model linkage exclusions, mean parameter contrasts and change-score reliability/recovery, refit association intervals for every exclusion, log-distance benchmark, nine geometry specifications and repeated method selection"},
             {"domain":"Repeated MAIA, body-boundary and small-self measures","status":"unavailable","output":"No corresponding repeated/measure columns in released tables"},
             {"domain":"Waveforms, measured breathing and acquisition provenance","status":"unavailable","output":"Source recordings and private metadata are outside the release"}],
         "unavailable_checks":[

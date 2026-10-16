@@ -173,6 +173,7 @@ The eight direction-only associations are ordinal sensitivities; all 33 earlier 
 | Paired spatial-frame ratings | analysed | Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities |
 | Participant PPS boundary and related questionnaire inference | not_estimable | Fit gate retained; group approximations remain descriptive |
 | Exploratory individual sigmoid proxies and normalized RT | computed | Four fitted proxies per record, normalization, shared-plateau sensitivity, recovery/reliability and provisional questionnaire links; recording-linkage audit |
+| Remaining behavioural/shape robustness checks | analysed | Primary-model linkage exclusions, mean parameter contrasts and change-score reliability/recovery, refit association intervals for every exclusion, log-distance benchmark, nine geometry specifications and repeated method selection |
 | Repeated MAIA, body-boundary and small-self measures | unavailable | No corresponding repeated/measure columns in released tables |
 | Waveforms, measured breathing and acquisition provenance | unavailable | Source recordings and private metadata are outside the release |
 
@@ -205,7 +206,7 @@ All numbers are exploratory fitted proxies. Visible geometry is imposed, reverse
 
 84 methods: 36 visible, 36 broad and 12 lines, plus a constant. Six outer participant/linked-record-group folds repeat tuning on training people, using omitted-position prediction; test-person fits use four positions and pooling from training people only. Linked copies are excluded together from each person's pool. Scores condition on earlier cleaning. Shared-plateau sensitivity uses the selected visible preprocessing and penalty.
 
-500 fixed-record within-cell trial resamples for parameters; 500 person/linked-record-group plus trial resamples with refitted pools for association intervals. Conditional on selected method, original cleaning and constraints; no correction for method selection or within-cell serial dependence. 19,999 pairing permutations; all 126 p values per specification unadjusted. Unresolved linked records make full-release inference provisional; exclusion sensitivities report point estimates/p values without bootstrap intervals.
+500 fixed-record within-cell trial resamples for full-release parameters; 500 person/linked-record-group plus trial resamples with refitted pools for association and mean-contrast intervals in each of four linkage specifications. Conditional on cohort-specific selected method, original cleaning and constraints; no correction for method selection or within-cell serial dependence. 19,999 pairing permutations; all 126 p values per specification unadjusted. Unresolved linked records make full-release inference provisional; exclusions do not identify the correct mapping.
 
 | Family | Outer prediction RMSE (ms) |
 | --- | ---: |
@@ -228,15 +229,15 @@ Intervals include refitting uncertainty; permutation p values condition on point
 | maia2_emotional_awareness | midpoint_cm | 41 | -0.3403 | [-0.4673, 0.3580] | 0.0318 |
 | maia2_self_regulation | midpoint_cm | 41 | -0.0728 | [-0.4453, 0.3775] | 0.6496 |
 | maia2_body_listening | midpoint_cm | 41 | 0.0008 | [-0.4497, 0.3724] | 0.9964 |
-| maia2_trusting | midpoint_cm | 41 | 0.0242 | [-0.3670, 0.3552] | 0.8803 |
+| maia2_trusting | midpoint_cm | 41 | 0.0242 | [-0.3670, 0.3533] | 0.8803 |
 | maia2_noticing | normalized_steepness_per_cm | 41 | -0.0668 | [-0.4539, 0.3334] | 0.6818 |
 | maia2_not_distracting | normalized_steepness_per_cm | 41 | -0.1540 | [-0.5206, 0.4178] | 0.3313 |
-| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1490 | [-0.4053, 0.4801] | 0.3488 |
-| maia2_attention_regulation | normalized_steepness_per_cm | 41 | -0.0321 | [-0.3846, 0.4835] | 0.8402 |
-| maia2_emotional_awareness | normalized_steepness_per_cm | 41 | -0.1812 | [-0.5190, 0.4054] | 0.2541 |
-| maia2_self_regulation | normalized_steepness_per_cm | 41 | -0.0728 | [-0.4222, 0.4175] | 0.6472 |
-| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2780 | [-0.5175, 0.3280] | 0.0768 |
-| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1485 | [-0.4598, 0.3182] | 0.3512 |
+| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1490 | [-0.4053, 0.4786] | 0.3488 |
+| maia2_attention_regulation | normalized_steepness_per_cm | 41 | -0.0321 | [-0.3850, 0.4835] | 0.8402 |
+| maia2_emotional_awareness | normalized_steepness_per_cm | 41 | -0.1812 | [-0.5190, 0.4051] | 0.2541 |
+| maia2_self_regulation | normalized_steepness_per_cm | 41 | -0.0728 | [-0.4222, 0.4178] | 0.6472 |
+| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2780 | [-0.5175, 0.3285] | 0.0768 |
+| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1485 | [-0.4631, 0.3161] | 0.3512 |
 | maia2_noticing | midpoint_slope_ms_per_cm | 41 | -0.0127 | [-0.2788, 0.3464] | 0.9377 |
 | maia2_not_distracting | midpoint_slope_ms_per_cm | 41 | -0.2017 | [-0.3699, 0.1753] | 0.2024 |
 | maia2_not_worrying | midpoint_slope_ms_per_cm | 41 | 0.0547 | [-0.2776, 0.3417] | 0.7313 |
@@ -255,22 +256,22 @@ Intervals include refitting uncertainty; permutation p values condition on point
 
 | Questionnaire | Parameter difference | n | rho | 95% interval | p |
 | --- | --- | ---: | ---: | --- | ---: |
-| maia2_noticing | midpoint_cm | 41 | 0.0947 | [-0.2920, 0.4089] | 0.5600 |
+| maia2_noticing | midpoint_cm | 41 | 0.0947 | [-0.2926, 0.4089] | 0.5600 |
 | maia2_not_distracting | midpoint_cm | 41 | 0.0782 | [-0.3954, 0.4526] | 0.6362 |
 | maia2_not_worrying | midpoint_cm | 41 | 0.0555 | [-0.4072, 0.3749] | 0.7297 |
 | maia2_attention_regulation | midpoint_cm | 41 | 0.1605 | [-0.3647, 0.4108] | 0.3110 |
 | maia2_emotional_awareness | midpoint_cm | 41 | -0.0565 | [-0.3761, 0.4297] | 0.7242 |
-| maia2_self_regulation | midpoint_cm | 41 | 0.0736 | [-0.4015, 0.3934] | 0.6471 |
+| maia2_self_regulation | midpoint_cm | 41 | 0.0736 | [-0.4007, 0.3934] | 0.6471 |
 | maia2_body_listening | midpoint_cm | 41 | 0.0186 | [-0.4042, 0.3998] | 0.9073 |
 | maia2_trusting | midpoint_cm | 41 | 0.2960 | [-0.3049, 0.4750] | 0.0594 |
-| maia2_noticing | normalized_steepness_per_cm | 41 | -0.0475 | [-0.4495, 0.3462] | 0.7707 |
+| maia2_noticing | normalized_steepness_per_cm | 41 | -0.0475 | [-0.4495, 0.3457] | 0.7707 |
 | maia2_not_distracting | normalized_steepness_per_cm | 41 | -0.1128 | [-0.5202, 0.4275] | 0.4798 |
-| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1932 | [-0.3798, 0.5074] | 0.2204 |
+| maia2_not_worrying | normalized_steepness_per_cm | 41 | 0.1932 | [-0.3752, 0.5064] | 0.2204 |
 | maia2_attention_regulation | normalized_steepness_per_cm | 41 | -0.0596 | [-0.3881, 0.4790] | 0.7096 |
 | maia2_emotional_awareness | normalized_steepness_per_cm | 41 | -0.1446 | [-0.4964, 0.3914] | 0.3648 |
 | maia2_self_regulation | normalized_steepness_per_cm | 41 | -0.0812 | [-0.4442, 0.4055] | 0.6119 |
-| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2261 | [-0.4929, 0.3346] | 0.1572 |
-| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1892 | [-0.4893, 0.3122] | 0.2367 |
+| maia2_body_listening | normalized_steepness_per_cm | 41 | -0.2261 | [-0.4899, 0.3348] | 0.1572 |
+| maia2_trusting | normalized_steepness_per_cm | 41 | -0.1892 | [-0.4904, 0.3122] | 0.2367 |
 | maia2_noticing | midpoint_slope_ms_per_cm | 41 | -0.0682 | [-0.3595, 0.3086] | 0.6685 |
 | maia2_not_distracting | midpoint_slope_ms_per_cm | 41 | -0.2217 | [-0.4284, 0.3277] | 0.1643 |
 | maia2_not_worrying | midpoint_slope_ms_per_cm | 41 | 0.2099 | [-0.3205, 0.4386] | 0.1838 |
@@ -284,3 +285,128 @@ Intervals include refitting uncertainty; permutation p values condition on point
 | spfrref_delta | midpoint_slope_ms_per_cm | 41 | 0.1651 | [-0.3422, 0.3682] | 0.2989 |
 
 All 126 tests per model, all three linkage-exclusion specifications (1,008 tests total), parameter tables, reliability/recovery, normalized trial RTs and a 42-page curve atlas are in the download. Exclusion sensitivities do not determine the correct recording mapping.
+
+## Remaining-analysis robustness checks
+
+Post-results amendment: all specifications were fixed before this extension. Exclusions preserve the original CSVs and cannot resolve recording identity.
+
+| Excluded records | Comparison | n records | LR p (unadjusted) |
+| --- | --- | ---: | ---: |
+| P011, P033 | Primary numeric linkage sensitivity | 40 | 0.87344 |
+| P011, P033 | Primary categorical linkage sensitivity | 40 | 0.65222 |
+| P011, P033 | Control-only numeric linkage sensitivity | 40 | 0.45674 |
+| P011, P033 | Control-only categorical linkage sensitivity | 40 | 0.50197 |
+| P011 | Primary numeric linkage sensitivity | 41 | 0.83859 |
+| P011 | Primary categorical linkage sensitivity | 41 | 0.72489 |
+| P011 | Control-only numeric linkage sensitivity | 41 | 0.46371 |
+| P011 | Control-only categorical linkage sensitivity | 41 | 0.45171 |
+| P033 | Primary numeric linkage sensitivity | 41 | 0.91337 |
+| P033 | Primary categorical linkage sensitivity | 41 | 0.59934 |
+| P033 | Control-only numeric linkage sensitivity | 41 | 0.42288 |
+| P033 | Control-only categorical linkage sensitivity | 41 | 0.51447 |
+
+### Cohort mean fitted-parameter contrasts
+
+Pointwise 95% intervals resample people (linked records together) and trials and refit both models. They condition on the selected method and cleaning. These are model-dependent proxies, not validated PPS boundaries.
+
+| Cohort | Plateau model | Contrast | Parameter | Mean | 95% refit interval |
+| --- | --- | --- | --- | ---: | --- |
+| Full release | individual_plateaus | condition_delta | midpoint_cm | -15.1250 | [-27.1522, 17.6300] |
+| Full release | individual_plateaus | condition_delta | normalized_steepness_per_cm | 0.0093 | [-0.0176, 0.0281] |
+| Full release | individual_plateaus | condition_delta | midpoint_slope_ms_per_cm | 0.0676 | [-0.5412, 0.3256] |
+| Full release | individual_plateaus | phase_delta | midpoint_cm | -16.9464 | [-24.7497, 16.1509] |
+| Full release | individual_plateaus | phase_delta | normalized_steepness_per_cm | 0.0067 | [-0.0208, 0.0270] |
+| Full release | individual_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.0330 | [-0.5687, 0.3316] |
+| Full release | individual_plateaus | condition_by_phase | midpoint_cm | -46.9643 | [-55.1433, 30.0721] |
+| Full release | individual_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0101 | [-0.0400, 0.0403] |
+| Full release | individual_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.2056 | [-0.8230, 0.8085] |
+| Full release | shared_plateaus | condition_delta | midpoint_cm | -16.5357 | [-27.7854, 17.2435] |
+| Full release | shared_plateaus | condition_delta | normalized_steepness_per_cm | 0.0089 | [-0.0170, 0.0277] |
+| Full release | shared_plateaus | condition_delta | midpoint_slope_ms_per_cm | 0.2383 | [-0.2478, 0.4698] |
+| Full release | shared_plateaus | phase_delta | midpoint_cm | -16.8214 | [-24.7345, 14.8628] |
+| Full release | shared_plateaus | phase_delta | normalized_steepness_per_cm | 0.0068 | [-0.0206, 0.0268] |
+| Full release | shared_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.1782 | [-0.3125, 0.4437] |
+| Full release | shared_plateaus | condition_by_phase | midpoint_cm | -42.5714 | [-49.6919, 28.8797] |
+| Full release | shared_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0107 | [-0.0394, 0.0397] |
+| Full release | shared_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.3593 | [-0.5490, 0.7222] |
+| Exclude P011,P033 | individual_plateaus | condition_delta | midpoint_cm | -16.0688 | [-28.1662, 18.1631] |
+| Exclude P011,P033 | individual_plateaus | condition_delta | normalized_steepness_per_cm | 0.0021 | [-0.0198, 0.0265] |
+| Exclude P011,P033 | individual_plateaus | condition_delta | midpoint_slope_ms_per_cm | -0.0088 | [-0.5117, 0.4494] |
+| Exclude P011,P033 | individual_plateaus | phase_delta | midpoint_cm | -15.0563 | [-27.6755, 16.9983] |
+| Exclude P011,P033 | individual_plateaus | phase_delta | normalized_steepness_per_cm | 0.0033 | [-0.0219, 0.0277] |
+| Exclude P011,P033 | individual_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.0064 | [-0.6650, 0.4657] |
+| Exclude P011,P033 | individual_plateaus | condition_by_phase | midpoint_cm | -40.1625 | [-57.0572, 29.7056] |
+| Exclude P011,P033 | individual_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0001 | [-0.0468, 0.0411] |
+| Exclude P011,P033 | individual_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | -0.0669 | [-0.9610, 0.8733] |
+| Exclude P011,P033 | shared_plateaus | condition_delta | midpoint_cm | -17.2125 | [-29.1225, 18.7931] |
+| Exclude P011,P033 | shared_plateaus | condition_delta | normalized_steepness_per_cm | 0.0021 | [-0.0196, 0.0259] |
+| Exclude P011,P033 | shared_plateaus | condition_delta | midpoint_slope_ms_per_cm | 0.0662 | [-0.3025, 0.5005] |
+| Exclude P011,P033 | shared_plateaus | phase_delta | midpoint_cm | -14.9625 | [-27.1378, 15.9492] |
+| Exclude P011,P033 | shared_plateaus | phase_delta | normalized_steepness_per_cm | 0.0034 | [-0.0215, 0.0273] |
+| Exclude P011,P033 | shared_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.0805 | [-0.2908, 0.4872] |
+| Exclude P011,P033 | shared_plateaus | condition_by_phase | midpoint_cm | -34.8750 | [-51.8756, 28.3819] |
+| Exclude P011,P033 | shared_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0015 | [-0.0461, 0.0404] |
+| Exclude P011,P033 | shared_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.0661 | [-0.6462, 0.8764] |
+| Exclude P011 | individual_plateaus | condition_delta | midpoint_cm | 1.8293 | [-5.9547, 4.8590] |
+| Exclude P011 | individual_plateaus | condition_delta | normalized_steepness_per_cm | -0.0038 | [-0.0055, 0.0037] |
+| Exclude P011 | individual_plateaus | condition_delta | midpoint_slope_ms_per_cm | -0.0723 | [-0.4850, 0.2657] |
+| Exclude P011 | individual_plateaus | phase_delta | midpoint_cm | 1.7927 | [-4.8755, 5.0959] |
+| Exclude P011 | individual_plateaus | phase_delta | normalized_steepness_per_cm | -0.0011 | [-0.0038, 0.0049] |
+| Exclude P011 | individual_plateaus | phase_delta | midpoint_slope_ms_per_cm | -0.0537 | [-0.4503, 0.3184] |
+| Exclude P011 | individual_plateaus | condition_by_phase | midpoint_cm | -0.6585 | [-11.4704, 9.0284] |
+| Exclude P011 | individual_plateaus | condition_by_phase | normalized_steepness_per_cm | -0.0069 | [-0.0100, 0.0082] |
+| Exclude P011 | individual_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.0233 | [-0.7306, 0.7571] |
+| Exclude P011 | shared_plateaus | condition_delta | midpoint_cm | -4.9390 | [-11.2317, 4.1127] |
+| Exclude P011 | shared_plateaus | condition_delta | normalized_steepness_per_cm | 0.0028 | [-0.0023, 0.0048] |
+| Exclude P011 | shared_plateaus | condition_delta | midpoint_slope_ms_per_cm | -0.0001 | [-0.2302, 0.1783] |
+| Exclude P011 | shared_plateaus | phase_delta | midpoint_cm | -2.5976 | [-9.7989, 3.7765] |
+| Exclude P011 | shared_plateaus | phase_delta | normalized_steepness_per_cm | -0.0004 | [-0.0027, 0.0040] |
+| Exclude P011 | shared_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.1079 | [-0.1050, 0.2603] |
+| Exclude P011 | shared_plateaus | condition_by_phase | midpoint_cm | -0.6585 | [-9.0732, 11.4009] |
+| Exclude P011 | shared_plateaus | condition_by_phase | normalized_steepness_per_cm | -0.0003 | [-0.0069, 0.0062] |
+| Exclude P011 | shared_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.1521 | [-0.3039, 0.3266] |
+| Exclude P033 | individual_plateaus | condition_delta | midpoint_cm | -16.4817 | [-27.2401, 17.6936] |
+| Exclude P033 | individual_plateaus | condition_delta | normalized_steepness_per_cm | 0.0070 | [-0.0154, 0.0302] |
+| Exclude P033 | individual_plateaus | condition_delta | midpoint_slope_ms_per_cm | 0.0270 | [-0.5374, 0.3579] |
+| Exclude P033 | individual_plateaus | phase_delta | midpoint_cm | -16.2988 | [-30.1578, 20.6104] |
+| Exclude P033 | individual_plateaus | phase_delta | normalized_steepness_per_cm | 0.0054 | [-0.0197, 0.0275] |
+| Exclude P033 | individual_plateaus | phase_delta | midpoint_slope_ms_per_cm | -0.0046 | [-0.5979, 0.3056] |
+| Exclude P033 | individual_plateaus | condition_by_phase | midpoint_cm | -46.1341 | [-51.8579, 31.2558] |
+| Exclude P033 | individual_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0054 | [-0.0392, 0.0379] |
+| Exclude P033 | individual_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.1052 | [-0.8418, 0.7632] |
+| Exclude P033 | shared_plateaus | condition_delta | midpoint_cm | -17.5244 | [-27.7596, 16.9770] |
+| Exclude P033 | shared_plateaus | condition_delta | normalized_steepness_per_cm | 0.0067 | [-0.0152, 0.0298] |
+| Exclude P033 | shared_plateaus | condition_delta | midpoint_slope_ms_per_cm | 0.1763 | [-0.2411, 0.5037] |
+| Exclude P033 | shared_plateaus | phase_delta | midpoint_cm | -16.2073 | [-29.3131, 19.0166] |
+| Exclude P033 | shared_plateaus | phase_delta | normalized_steepness_per_cm | 0.0054 | [-0.0194, 0.0270] |
+| Exclude P033 | shared_plateaus | phase_delta | midpoint_slope_ms_per_cm | 0.1291 | [-0.2823, 0.4757] |
+| Exclude P033 | shared_plateaus | condition_by_phase | midpoint_cm | -41.3415 | [-46.8503, 30.3796] |
+| Exclude P033 | shared_plateaus | condition_by_phase | normalized_steepness_per_cm | 0.0065 | [-0.0382, 0.0374] |
+| Exclude P033 | shared_plateaus | condition_by_phase | midpoint_slope_ms_per_cm | 0.2202 | [-0.5193, 0.7130] |
+
+### Reliability of the changes used in correlations
+
+| Model | Parameter change | Median split-half rho | Recovery rho: cell-specific / shared baseline truth |
+| --- | --- | ---: | --- |
+| individual_plateaus | midpoint_cm | -0.074 | 0.102 / 0.120 |
+| individual_plateaus | normalized_steepness_per_cm | 0.052 | -0.032 / -0.043 |
+| individual_plateaus | midpoint_slope_ms_per_cm | 0.064 | 0.079 / 0.102 |
+| shared_plateaus | midpoint_cm | 0.066 | 0.173 / 0.396 |
+| shared_plateaus | normalized_steepness_per_cm | -0.009 | 0.087 / 0.051 |
+| shared_plateaus | midpoint_slope_ms_per_cm | 0.155 | 0.074 / 0.055 |
+
+### Group shape comparison without ambiguous recordings
+
+Post-results exclusion-cohort audit. Nested scores compare five response families on the same cleaned-profile target. Log distance is not an expectancy control. Nine geometry specifications are all reported with frozen preprocessing; their leave-position scores are descriptive and use all people. Thirty repeated-selection resamples diagnose instability, not tail confidence coverage. Original cleaning is fixed; no serial-dependence or physiological validation is claimed.
+
+| Family | Outer prediction RMSE (ms) |
+| --- | ---: |
+| logistic | 47.993 |
+| visible | 47.915 |
+| linear | 48.087 |
+| logarithmic | 48.121 |
+| constant | 48.020 |
+
+All nine geometry specifications and 30 repeated-selection draws are exported. The repeated selections chose 27 distinct methods. No preferred appearance was selected after inspection.
+
+Remaining evidence limits: recording-to-person mapping, waveforms and breathing traces, acquisition timing, independent dense-distance validation, serial-dependence calibration and method-selection-adjusted interval coverage remain unavailable or unestablished.

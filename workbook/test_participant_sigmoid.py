@@ -4,14 +4,33 @@ import unittest
 from unittest.mock import patch
 
 import numpy as np
-from scipy import optimize, special
+from scipy import optimize, special, stats
 
 from descriptive_sigmoid import predict
 from participant_sigmoid import (PenalizedGrid, X, catalogue, estimate, method_catalogue,
-    linkage_audit, metrics, resample_trials, shared_plateaus, summarize, trial_tensor)
+    linkage_audit, metrics, resample_trials, shared_plateaus, summarize, trial_tensor,
+    parameter_contrasts, contrast_correlation, person_records)
 
 
 class ParticipantSigmoidTests(unittest.TestCase):
+    def test_contrast_ranks_preserve_mathematical_ties_despite_machine_roundoff(self):
+        truth=np.array([0.,0.,0.,1.,2.]);noise=np.array([0.,2e-15,-2e-15,0.,0.])
+        y=np.arange(5.)
+        self.assertAlmostEqual(contrast_correlation(truth+noise,y),stats.spearmanr(truth,y).statistic)
+        self.assertIsNone(contrast_correlation(noise,np.arange(5.)))
+        pars=np.array([[[600.,80.,.5,.10],[600.,80.,.5,.12],[600.,80.,.5,.12],[600.,80.,.5,.10]],
+                       [[600.,90.,.5,.12],[600.,90.,.5,.10],[600.,90.,.5,.10],[600.,90.,.5,.12]]])
+        records=person_records(pars,['A','B'],{'scores':[{'participant_id':i} for i in ('A','B')]})
+        self.assertTrue(all(r['normalized_steepness_per_cm_condition_delta']==0. for r in records))
+
+    def test_within_person_changes_cancel_offsets_and_recover_factor_effects(self):
+        # A 2x2 experiment with a 6-unit Condition effect, 2-unit Phase effect and 4-unit interaction.
+        cells=np.array([0.,0.,4.,8.])[None,:,None]*np.array([1.,2.,3.])[None,None,:]
+        expected=np.array([[[6.,12.,18.],[2.,4.,6.],[4.,8.,12.]]])
+        np.testing.assert_allclose(parameter_contrasts(cells),expected)
+        offsets=np.arange(5.)[:,None,None,None]*100
+        np.testing.assert_allclose(parameter_contrasts(cells[None]+offsets),np.repeat(expected[None],5,axis=0))
+
     def test_known_shape_signed_direction_and_flat_profile(self):
         grid=PenalizedGrid(fine=True)
         truth=np.array([[600.,80.,.45,.10],[650.,-90.,.50,.12]])

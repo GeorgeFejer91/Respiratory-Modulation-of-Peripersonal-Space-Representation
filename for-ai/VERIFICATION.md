@@ -96,6 +96,15 @@ and visually inspect every page of the raw/normalized atlas. Compare every
 individual-result value across native/Pyodide. Keep the linkage issue visible and
 do not equate constrained S shapes with reliable individual PPS boundaries.
 
+For the remaining-analysis amendment, run `python workbook/validate_robustness.py`:
+independent statsmodels full/reduced ML checks cover all 12 exclusion comparisons;
+contrast identities, log-distance least-squares predictions and nine geometry
+specifications have separate references. Compare all new results across runtimes
+(ML uses the existing likelihood/coefficient tolerances). Verify 72 mean contrasts,
+500 refits for every exclusion, 180 change-reliability records, 160 log-distance
+candidates and 30 grouped-copy repeated selections. Inspect section 14 and the
+new robustness figure. Keep selection stability distinct from calibrated intervals.
+
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and
