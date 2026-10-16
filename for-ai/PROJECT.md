@@ -116,6 +116,9 @@ and weak-reliability finding prominently.
   `figures/`: browser-produced publication-draft artifacts and native validation.
 - `literature_review/`: focused scientific synthesis, evidence table, analysis
   rationale and reproducible search record; no participant data or copied papers.
+- `manuscript/typst/`: derived editable Typst 0.15.1 snapshot for UnderTree.
+  The active LaTeX manuscript remains canonical; scientific source updates require
+  refreshing the snapshot. Compiled PDFs and machine-specific QA stay local.
 - `for-ai/`: agent instructions, historical writing and source analyses.
   `.for-ai-local/`: ignored builds and local diagnostics.
 

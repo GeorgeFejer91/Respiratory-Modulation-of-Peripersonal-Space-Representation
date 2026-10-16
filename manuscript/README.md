@@ -16,3 +16,10 @@ Author review remains necessary before submission, including collection/stopping
 history, registration departures, ethics-statement details, and source-provenance
 limits. The older 40-person text and figures are preserved in
 `../for-ai/writing-archive/40-person-pre-browser/` and are outside the Overleaf build.
+
+## Typst snapshot
+
+`typst/main.typ` is an editable, dependency-free Typst 0.15.1 conversion for
+UnderTree. LaTeX remains the canonical draft updated by the publication pipeline;
+refresh the derived Typst snapshot after source changes. Its README records format
+limits, and locally compiled PDFs are ignored by Git.

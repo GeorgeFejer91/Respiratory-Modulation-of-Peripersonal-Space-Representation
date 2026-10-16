@@ -26,3 +26,6 @@ manuscript/*.fls
 manuscript/*.out
 manuscript/*.pdf
 manuscript/*.synctex.gz
+
+# Local Typst preview; source and assets remain versioned.
+/manuscript/typst/*.pdf

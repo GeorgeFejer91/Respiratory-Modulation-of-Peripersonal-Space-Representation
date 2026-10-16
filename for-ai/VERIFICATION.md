@@ -119,6 +119,14 @@ inspect the resulting PDF visually, especially tables, figures, captions and
 references. Archive the checked PDF with `--preprint-pdf` and rebuild the site.
 Only manuscript contents are required for Overleaf.
 
+For the derived Typst snapshot, compile `manuscript/typst/main.typ` with Typst
+0.15.1. Check current canonical-source hashes, prose/caption content, all tables,
+math punctuation and statistics, citation keys, labels and native references.
+Render and inspect the complete PDF, especially wide tables and large figures.
+Keep machine-specific conversion scripts, inventories and rendered QA in ignored
+`.for-ai-local/typst-conversion/`; keep preview PDFs ignored. A format-only refresh
+does not recompute or promote analysis results and does not replace the LaTeX gate.
+
 Author review before submission remains distinct from computation: document
 collection/stopping history, registration choices, ethics-statement details and
 source-provenance limits. Never invent missing source-dependent checks or promote
