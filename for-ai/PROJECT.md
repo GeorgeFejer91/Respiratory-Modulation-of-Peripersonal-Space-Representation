@@ -40,7 +40,10 @@ reference ratings. Audit scoring against the instrument, report missingness and
 uncertainty, and connect questionnaire measures to supported behavioural summaries.
 Maintain a domain coverage table and a questionnaire literature review. New
 questionnaire analyses are exploratory; they cannot revive failed participant
-boundary estimates or substitute for measures absent from the release.
+boundary estimates or substitute for measures absent from the release. At the
+owner's request after inspecting results, report the 33 questionnaire/spatial
+associations with unadjusted p values, pointwise intervals and the full comparison
+count. Record this reporting amendment in the analysis contract.
 
 ## Non-goals
 

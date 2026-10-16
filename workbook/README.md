@@ -144,7 +144,7 @@ publishing branch is not proof that the website is live.
 
 The [questionnaire review](../literature_review/QUESTIONNAIRES.md) covers all
 37 items/eight dimensions, paired spatial ratings, exact ordinal inference and
-33 fixed exploratory associations with Holm correction. The browser exports the
+33 fixed exploratory associations with unadjusted p values and pointwise intervals. The browser exports the
 complete scoring audit, reliability intervals, transition matrix, associations
 and a coverage table for every released domain. The original registration wording
 and pictogram anchor direction remain unverified; these are explicit limits.

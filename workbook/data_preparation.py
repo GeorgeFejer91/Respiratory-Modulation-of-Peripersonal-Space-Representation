@@ -327,10 +327,10 @@ def _(figure_svg, mo, paper_results):
         mo.Html(figure_svg(paper_results,"questionnaire_summary")),
         mo.md(f"**Paired spatial ratings:** Viscereality higher / equal / lower = {_s['higher']} / {_s['ties']} / {_s['lower']}. Exact two-sided sign-test p = {_s['p'] if _s['p'] is not None else 'not estimable'}. Higher means a higher recorded A–H code; the administered anchor key is unavailable."),
         mo.Html(figure_svg(paper_results,"questionnaire_associations")),
-        mo.callout("These correlations use a raw-RT SOA-slope contrast, not a PPS boundary. All 33 comparisons receive Holm correction. Questionnaire scores describe self-report; they do not measure objective interoceptive accuracy.",kind="info"),
+        mo.callout("All 33 exploratory comparisons use unadjusted p values and pointwise intervals, with no multiple-testing correction. The behavioural correlate is a raw-RT SOA-slope contrast, not a PPS boundary. Questionnaire scores describe self-report; they do not measure objective interoceptive accuracy.",kind="info"),
         mo.accordion({
             "Eight dimensions and reliability uncertainty":mo.ui.table(_q["scales"],selection=None),
-            "All 33 associations, intervals and adjusted p values":mo.ui.table(_q["associations"],selection=None,page_size=12),
+            "All 33 associations, intervals and unadjusted p values":mo.ui.table(_q["associations"],selection=None,page_size=12),
             "37 item distributions and item–rest diagnostics":mo.ui.table(_q["items"],selection=None,page_size=10),
             "Spatial comparison, order counts and transition table":mo.json(_s),
             "Scoring audit":mo.ui.table(_q["scoring_audit"],selection=None,page_size=10),

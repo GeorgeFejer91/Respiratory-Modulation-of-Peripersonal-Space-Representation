@@ -7,7 +7,6 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 from statsmodels.stats.descriptivestats import sign_test
-from statsmodels.stats.multitest import multipletests
 from statsmodels.stats.proportion import proportion_confint
 
 from preparation import load_pair, local_release_pair
@@ -43,16 +42,15 @@ def validate(report_path):
         if row["status"]=="computed":
             rho=stats.spearmanr(np.array(pairs)).statistic
             correlation_errors.append(abs(rho-row["rho"]))
-    pvalues=[r["p"] if r["p"] is not None else 1. for r in q["associations"]]
-    adjusted=multipletests(pvalues,method="holm")[1]
-    holm_error=max(abs(v-r["p_holm"]) for v,r in zip(adjusted,q["associations"]) if r["p_holm"] is not None)
-    assert max(errors+[sign_error,interval_error,holm_error]+correlation_errors)<1e-10
+    assert q["resampling"]["adjustment"]=="none" and len(q["associations"])==33
+    assert all("p_holm" not in r for r in q["associations"])
+    assert max(errors+[sign_error,interval_error]+correlation_errors)<1e-10
     assert q["scoring"]["mismatches"]==0 and q["scoring"]["matches"]==328
     return {"status":"passed","browser_execution":report["runtime"]["execution"],
             "max_alpha_covariance_identity_error":max(errors),"statsmodels_sign_test_error":sign_error,
             "statsmodels_exact_proportion_interval_error":interval_error,"max_scipy_spearman_error":max(correlation_errors),
-            "statsmodels_holm_error":holm_error,"associations_checked":len(correlation_errors),
-            "scope":"Covariance alpha identity; independent statsmodels sign test, beta interval and Holm; SciPy rank correlations. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. These checks do not validate the administered anchor key or preregistration wording."}
+            "association_adjustment":"none","associations_checked":len(correlation_errors),
+            "scope":"Covariance alpha identity; independent statsmodels sign test and beta interval; SciPy rank correlations. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. All 33 associations are retained with unadjusted p values. These checks do not validate the administered anchor key or preregistration wording."}
 
 
 if __name__=="__main__":

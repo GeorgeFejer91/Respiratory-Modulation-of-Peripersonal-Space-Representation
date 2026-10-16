@@ -69,7 +69,8 @@ class QuestionnaireTests(unittest.TestCase):
         r = run([person()], {}, bootstrap_draws=20, permutations=20)
         self.assertEqual(r["maia_complete"], 0)
         self.assertEqual(len(r["associations"]), 33)
-        self.assertTrue(all(x["p"] is None and x["p_holm"] is None for x in r["associations"]))
+        self.assertTrue(all(x["p"] is None and "p_holm" not in x for x in r["associations"]))
+        self.assertEqual(r["resampling"]["adjustment"], "none")
         self.assertEqual(r["spatial"]["n_pairs"], 0)
         json.dumps(r, allow_nan=False)
 

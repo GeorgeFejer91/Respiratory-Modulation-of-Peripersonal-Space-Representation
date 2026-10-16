@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "8f421af14b62f7b3110378d423be26b136aa915184593edd062ac91d67d25f61",
+  "browser_zip_sha256": "1f1dddc4b36d63884c9839cfb8ee68aa73cfdb153462e3335dfd4e7b51515675",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -147,7 +147,7 @@
     "scope": "Every descriptive and PPS-shape result value, including all 800 candidates, nested inner scores, intervals and bands. Candidate records matched by unique method; any ranking change must be a score tie within 1e-8. Selected method labels must match exactly."
   },
   "questionnaires": {
-    "numeric_values_compared": 2328,
+    "numeric_values_compared": 2295,
     "max_absolute_numeric_error": 2.220446049250313e-16,
     "scope": "All item/scoring/reliability, paired ordinal, 33 association and bootstrap values, labels and coverage statuses."
   },

@@ -1,6 +1,6 @@
 {
   "status": "Analysis draft for author review",
-  "pdf_sha256": "b990b08241a062e843b28d93ff72c1364f71268770d5d102d13b95e685d6060e",
+  "pdf_sha256": "25573d1f37e58599b477a52bdd319e83b96a79e6cd7de82dd2dd116bde941c50",
   "manuscript_sha256": {
     "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
     "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
@@ -13,12 +13,12 @@
     "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
     "manuscript/main.tex": "a7a065b2e2d63c4fed63f041cd1a386b6c1f28f87a02618b0b8c415ac373b1ed",
     "manuscript/references.bib": "a5303b9c79296afd7192ffecbac00bdff719d726159bfff9b659a193b75bd713",
-    "manuscript/sections/abstract.tex": "be88329c70f2a5649cd424ad7a720882862c202509d99ddd7df3207ded3002fd",
+    "manuscript/sections/abstract.tex": "238eaa405c3a71d658a62500c76fd101690a2516e6d60c35fb1f3ccfdc7f1779",
     "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
-    "manuscript/sections/discussion.tex": "763867d5c158367a05244dc0a398e681f85deddb4729e8cf470d10caa3bc23e9",
+    "manuscript/sections/discussion.tex": "612c0b349839d91f64e99cb55c60ecb3c6626f2a8870750771f95178fb4f4d0d",
     "manuscript/sections/introduction.tex": "c5921b22cc3a0a4fcd0958812d29b5a8c3b750d43a213f321872fac7909f48a4",
-    "manuscript/sections/methods.tex": "b58f93e62785f381ced80ba36fa4f08fc0b923684b23f4febc02b17a2aeb11a2",
-    "manuscript/sections/results.tex": "18a18c05885ec8eb63cf9d64e35d5122829485c0ef497f25b2740240893333f2"
+    "manuscript/sections/methods.tex": "715099535b584dde264002e81ee83edc876c4ffcab744d7ecb013d470c043d92",
+    "manuscript/sections/results.tex": "c4079597f625bfd7faf43f950e74775a49ea629ded725243dcdbe73b38175d04"
   },
-  "browser_zip_sha256": "8f421af14b62f7b3110378d423be26b136aa915184593edd062ac91d67d25f61"
+  "browser_zip_sha256": "1f1dddc4b36d63884c9839cfb8ee68aa73cfdb153462e3335dfd4e7b51515675"
 }

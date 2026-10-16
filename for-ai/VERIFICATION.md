@@ -69,8 +69,8 @@ different evidence levels; unavailable Consensus access must remain explicit.
 Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
 For questionnaires, also run `python workbook/validate_questionnaires.py` against
 that browser report: independently check alpha through the covariance identity,
-the ordinal sign test/exact interval, rank correlations and all 33 Holm-adjusted
-values. Unit-test reverse scoring, incomplete subscales, invalid item/category
+the ordinal sign test/exact interval and rank correlations; retain all 33
+associations with unadjusted p values. Unit-test reverse scoring, incomplete subscales, invalid item/category
 encodings, undefined statistics and a tied permutation against exhaustive
 enumeration. Compare every questionnaire result across native/Pyodide runtimes.
 Inspect both questionnaire figures and preserve the distinction between ordinal

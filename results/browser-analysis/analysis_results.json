@@ -1,5 +1,5 @@
 {
-  "analysis_version": "1.3",
+  "analysis_version": "1.4",
   "status": "reproducible analysis draft for author review",
   "runtime": {
     "python": "3.14.2",
@@ -108991,8 +108991,7 @@
         "ci_low": -0.34959863461231194,
         "ci_high": 0.21962965670229906,
         "p": 0.67045,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_noticing",
@@ -109003,8 +109002,7 @@
         "ci_low": -0.07714475667452268,
         "ci_high": 0.47849037233199876,
         "p": 0.19295,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_noticing",
@@ -109015,8 +109013,7 @@
         "ci_low": -0.020585583492987284,
         "ci_high": 0.5601859612293545,
         "p": 0.0697,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_noticing",
@@ -109027,8 +109024,7 @@
         "ci_low": -0.4503674622717013,
         "ci_high": 0.1857665319488856,
         "p": 0.34945,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_distracting",
@@ -109039,8 +109035,7 @@
         "ci_low": -0.301129486888933,
         "ci_high": 0.3601285343869149,
         "p": 0.8747,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_distracting",
@@ -109051,8 +109046,7 @@
         "ci_low": -0.1260739212249464,
         "ci_high": 0.5038231255630607,
         "p": 0.2085,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_distracting",
@@ -109063,8 +109057,7 @@
         "ci_low": -0.2588594381399719,
         "ci_high": 0.3223074817250345,
         "p": 0.8439,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_distracting",
@@ -109075,8 +109068,7 @@
         "ci_low": -0.3791081758922456,
         "ci_high": 0.29610175093604996,
         "p": 0.83585,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_worrying",
@@ -109087,8 +109079,7 @@
         "ci_low": -0.31652121872961964,
         "ci_high": 0.3780094726772311,
         "p": 0.8362,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_worrying",
@@ -109099,8 +109090,7 @@
         "ci_low": -0.22705937039221583,
         "ci_high": 0.43280330042017634,
         "p": 0.451,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_worrying",
@@ -109111,8 +109101,7 @@
         "ci_low": -0.2948600485887929,
         "ci_high": 0.3568805476609502,
         "p": 0.8781,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_not_worrying",
@@ -109123,8 +109112,7 @@
         "ci_low": -0.40509546843889954,
         "ci_high": 0.1969318131890823,
         "p": 0.51725,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_attention_regulation",
@@ -109135,8 +109123,7 @@
         "ci_low": -0.34827259992254267,
         "ci_high": 0.22868554795074508,
         "p": 0.70395,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_attention_regulation",
@@ -109147,8 +109134,7 @@
         "ci_low": -0.19383545368406824,
         "ci_high": 0.46253075125743703,
         "p": 0.37705,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_attention_regulation",
@@ -109159,8 +109145,7 @@
         "ci_low": -0.3205240040114928,
         "ci_high": 0.32889692585053537,
         "p": 0.9765,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_attention_regulation",
@@ -109171,8 +109156,7 @@
         "ci_low": -0.3936780017335175,
         "ci_high": 0.31709671851484966,
         "p": 0.8522,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_emotional_awareness",
@@ -109183,8 +109167,7 @@
         "ci_low": -0.2641115084567045,
         "ci_high": 0.3932511479264986,
         "p": 0.74185,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_emotional_awareness",
@@ -109195,8 +109178,7 @@
         "ci_low": -0.3226982429663347,
         "ci_high": 0.36448618270166555,
         "p": 0.88375,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_emotional_awareness",
@@ -109207,8 +109189,7 @@
         "ci_low": -0.34329013172277445,
         "ci_high": 0.27485304170353714,
         "p": 0.86155,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_emotional_awareness",
@@ -109219,8 +109200,7 @@
         "ci_low": -0.48783542791932233,
         "ci_high": 0.08056887334168292,
         "p": 0.17655,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_self_regulation",
@@ -109231,8 +109211,7 @@
         "ci_low": -0.4219260347812153,
         "ci_high": 0.2239898125988868,
         "p": 0.4788,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_self_regulation",
@@ -109243,8 +109222,7 @@
         "ci_low": -0.23233185450350083,
         "ci_high": 0.4461218014797234,
         "p": 0.51305,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_self_regulation",
@@ -109255,8 +109233,7 @@
         "ci_low": -0.250407872494115,
         "ci_high": 0.37787297539359865,
         "p": 0.65995,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_self_regulation",
@@ -109267,8 +109244,7 @@
         "ci_low": -0.6025330849521128,
         "ci_high": -0.04987427267481018,
         "p": 0.0231,
-        "bootstrap_valid": 2000,
-        "p_holm": 0.7623
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_body_listening",
@@ -109279,8 +109255,7 @@
         "ci_low": -0.2984888157665141,
         "ci_high": 0.29203563994153703,
         "p": 0.98885,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_body_listening",
@@ -109291,8 +109266,7 @@
         "ci_low": -0.14128156774986397,
         "ci_high": 0.4554143501422258,
         "p": 0.2832,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_body_listening",
@@ -109303,8 +109277,7 @@
         "ci_low": -0.21717741630866902,
         "ci_high": 0.43181002159909465,
         "p": 0.53125,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_body_listening",
@@ -109315,8 +109288,7 @@
         "ci_low": -0.5447961652121192,
         "ci_high": -0.017795865093055304,
         "p": 0.0474,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_trusting",
@@ -109327,8 +109299,7 @@
         "ci_low": -0.3828863675157394,
         "ci_high": 0.26196787493908574,
         "p": 0.6576,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_trusting",
@@ -109339,8 +109310,7 @@
         "ci_low": 0.004174031535948728,
         "ci_high": 0.6016999906542762,
         "p": 0.04255,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_trusting",
@@ -109351,8 +109321,7 @@
         "ci_low": 0.02453280901233913,
         "ci_high": 0.6056067990618956,
         "p": 0.03445,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "maia2_trusting",
@@ -109363,8 +109332,7 @@
         "ci_low": -0.34543775939912325,
         "ci_high": 0.3148589564322524,
         "p": 0.8718,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       },
       {
         "x": "spfrref_change_direction",
@@ -109375,8 +109343,7 @@
         "ci_low": -0.3458329556251455,
         "ci_high": 0.2786135224285957,
         "p": 0.8445,
-        "bootstrap_valid": 2000,
-        "p_holm": 1.0
+        "bootstrap_valid": 2000
       }
     ],
     "interscale_descriptive": [
@@ -109554,7 +109521,8 @@
       "bootstrap_draws": 2000,
       "permutations": 19999,
       "association_family_size": 33,
-      "adjustment": "Holm across all 33 planned slots; undefined tests retained as p=1 internally",
+      "adjustment": "none",
+      "reporting_change": "Unadjusted reporting requested after inspecting the association results; all 33 comparisons retained as exploratory.",
       "scope": "Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment."
     },
     "limitations": [

@@ -103,8 +103,9 @@ def markdown_report(report):
         f"Higher fraction among non-ties={value_or_missing(s['higher_fraction_non_ties'])}, exact 95% CI "
         f"[{value_or_missing(s['higher_fraction_ci_low'])}, {value_or_missing(s['higher_fraction_ci_high'])}]. "
         "This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.", "",
-        "All 33 fixed associations are exported with Spearman rho, paired-person bootstrap intervals, permutation p and Holm p. "
-        f"{sum(r['p_holm'] is not None and r['p_holm']<.05 for r in q['associations'])}/33 have Holm p<.05. "
+        "All 33 fixed associations are exported with Spearman rho, pointwise paired-person bootstrap intervals and unadjusted permutation p values. "
+        f"{sum(r['p'] is not None and r['p']<.05 for r in q['associations'])}/33 have unadjusted p<.05. "
+        "No multiple-testing correction is applied. " + q["resampling"]["reporting_change"] + " "
         "The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. " + q["resampling"]["scope"], "",
         *["- "+r for r in q["limitations"]], "", "## Coverage of released data", "",
         "| Domain | Status | Output |", "| --- | --- | --- |",
@@ -252,7 +253,7 @@ def questionnaire_figure_bytes(report,format="svg",associations=False):
             final=q["associations"][-1]
             rho="NA" if final["rho"] is None else f"{final['rho']:.3f}"
             fig.text(.5,.08,f"Additional comparison: rating-change direction vs RT slope interaction, rho = {rho}.",ha="center",fontsize=9)
-            fig.text(.5,.035,"All 33 comparisons receive Holm correction; intervals and raw/adjusted p values are in the download.",ha="center",fontsize=9)
+            fig.text(.5,.035,"All 33 exploratory comparisons are exported with pointwise intervals and unadjusted p values.",ha="center",fontsize=9)
             fig.subplots_adjust(left=.24,right=.93,top=.86,bottom=.21)
         else:
             fig,(ax,bx)=plt.subplots(1,2,figsize=(12,5.8),gridspec_kw={"width_ratios":[1.15,1.]})
