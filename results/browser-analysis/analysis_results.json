@@ -1,5 +1,5 @@
 {
-  "analysis_version": "1.2",
+  "analysis_version": "1.3",
   "status": "reproducible analysis draft for author review",
   "runtime": {
     "python": "3.14.2",
@@ -29,6 +29,10 @@
     "gender": {
       "male": 8,
       "female": 34
+    },
+    "handedness": {
+      "right": 38,
+      "left": 4
     },
     "order": {
       "Viscereality-Control": 21,
@@ -15632,7 +15636,7 @@
   "boundary_followups": {
     "status": "not_estimable",
     "n": 0,
-    "reason": "Fewer than three participants have all four interpretable trial-level curves; boundary and MAIA/SpFrRef inference is gated off."
+    "reason": "Fewer than three participants have all four interpretable trial-level curves; boundary inference and boundary-related MAIA/SpFrRef associations are gated off."
   },
   "missing_rt_stress": [
     {
@@ -104494,74 +104498,5119 @@
   },
   "questionnaire_descriptives": [
     {
-      "field": "maia2_noticing",
       "n": 41,
       "mean": 3.2378048780487805,
       "sd": 0.6589556593395414,
-      "median": 3.25
+      "median": 3.25,
+      "q1": 3.0,
+      "q3": 3.75,
+      "min": 1.5,
+      "max": 4.25,
+      "field": "maia2_noticing",
+      "label": "Noticing",
+      "items": 4,
+      "missing": 1,
+      "alpha": 0.5652097595225556,
+      "alpha_ci_low": 0.18827526216905904,
+      "alpha_ci_high": 0.740246771819004,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 3.0365853658536586,
+      "mean_ci_high": 3.432926829268293,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_not_distracting",
       "n": 41,
       "mean": 2.2439024390243905,
       "sd": 0.8531783395825232,
-      "median": 2.1666666666666665
+      "median": 2.1666666666666665,
+      "q1": 1.5,
+      "q3": 2.6666666666666665,
+      "min": 1.1666666666666667,
+      "max": 4.333333333333333,
+      "field": "maia2_not_distracting",
+      "label": "Not Distracting",
+      "items": 6,
+      "missing": 1,
+      "alpha": 0.8422002978406552,
+      "alpha_ci_low": 0.724724087731434,
+      "alpha_ci_high": 0.9061280415051305,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 1.9958333333333333,
+      "mean_ci_high": 2.5121951219512195,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_not_worrying",
       "n": 41,
       "mean": 2.2878048780487807,
       "sd": 0.8185948698688562,
-      "median": 2.0
+      "median": 2.0,
+      "q1": 1.8,
+      "q3": 2.8,
+      "min": 0.8,
+      "max": 3.8,
+      "field": "maia2_not_worrying",
+      "label": "Not Worrying",
+      "items": 5,
+      "missing": 1,
+      "alpha": 0.7043932445220937,
+      "alpha_ci_low": 0.5114607596265682,
+      "alpha_ci_high": 0.808452614934074,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 2.053658536585366,
+      "mean_ci_high": 2.5365853658536586,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_attention_regulation",
       "n": 41,
       "mean": 2.958188153310105,
       "sd": 0.6702450834407929,
-      "median": 3.0
+      "median": 3.0,
+      "q1": 2.5714285714285716,
+      "q3": 3.4285714285714284,
+      "min": 1.5714285714285714,
+      "max": 4.428571428571429,
+      "field": "maia2_attention_regulation",
+      "label": "Attention Regulation",
+      "items": 7,
+      "missing": 1,
+      "alpha": 0.7843490304709142,
+      "alpha_ci_low": 0.6475127534191562,
+      "alpha_ci_high": 0.8578724407595586,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 2.7560975609756095,
+      "mean_ci_high": 3.1602787456445993,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_emotional_awareness",
       "n": 41,
       "mean": 3.473170731707317,
       "sd": 0.6982207352420517,
-      "median": 3.4
+      "median": 3.4,
+      "q1": 3.0,
+      "q3": 4.0,
+      "min": 2.0,
+      "max": 5.0,
+      "field": "maia2_emotional_awareness",
+      "label": "Emotional Awareness",
+      "items": 5,
+      "missing": 1,
+      "alpha": 0.5893536121673004,
+      "alpha_ci_low": 0.313959945482195,
+      "alpha_ci_high": 0.7399325127299888,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 3.273170731707317,
+      "mean_ci_high": 3.678048780487805,
+      "floor_n": 0,
+      "ceiling_n": 1
     },
     {
-      "field": "maia2_self_regulation",
       "n": 41,
       "mean": 2.847560975609756,
       "sd": 0.863998786132842,
-      "median": 2.75
+      "median": 2.75,
+      "q1": 2.5,
+      "q3": 3.5,
+      "min": 0.75,
+      "max": 4.5,
+      "field": "maia2_self_regulation",
+      "label": "Self Regulation",
+      "items": 4,
+      "missing": 1,
+      "alpha": 0.8142400108910215,
+      "alpha_ci_low": 0.6900443118506954,
+      "alpha_ci_high": 0.8850597931070493,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 2.573018292682927,
+      "mean_ci_high": 3.1097560975609757,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_body_listening",
       "n": 41,
       "mean": 2.8048780487804876,
       "sd": 0.9218809568729502,
-      "median": 3.0
+      "median": 3.0,
+      "q1": 2.3333333333333335,
+      "q3": 3.3333333333333335,
+      "min": 0.3333333333333333,
+      "max": 4.666666666666667,
+      "field": "maia2_body_listening",
+      "label": "Body Listening",
+      "items": 3,
+      "missing": 1,
+      "alpha": 0.7765465561224493,
+      "alpha_ci_low": 0.6015939499466808,
+      "alpha_ci_high": 0.8671257819278237,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 2.5121951219512195,
+      "mean_ci_high": 3.065040650406504,
+      "floor_n": 0,
+      "ceiling_n": 0
     },
     {
-      "field": "maia2_trusting",
       "n": 41,
       "mean": 3.585365853658537,
       "sd": 0.979740577355041,
-      "median": 4.0
+      "median": 4.0,
+      "q1": 3.0,
+      "q3": 4.333333333333333,
+      "min": 1.3333333333333333,
+      "max": 5.0,
+      "field": "maia2_trusting",
+      "label": "Trusting",
+      "items": 3,
+      "missing": 1,
+      "alpha": 0.860742518351214,
+      "alpha_ci_low": 0.7766644097904201,
+      "alpha_ci_high": 0.9089009793340398,
+      "alpha_bootstrap_valid": 2000,
+      "mean_ci_low": 3.2843495934959352,
+      "mean_ci_high": 3.8780487804878048,
+      "floor_n": 0,
+      "ceiling_n": 2
+    }
+  ],
+  "questionnaires": {
+    "status": "exploratory; no questionnaire result is a validated PPS boundary",
+    "participants": 42,
+    "maia_complete": 41,
+    "scoring": {
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6279042/",
+      "rule": "Complete-subscale item means; reverse items 5\u201310, 11, 12, 15 as 5\u2212response; no imputation or total score.",
+      "matches": 328,
+      "mismatches": 0,
+      "unverifiable_stored": 0,
+      "tolerance": 1e-06
+    },
+    "scoring_audit": [
+      {
+        "participant_id": "P000",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_not_distracting",
+        "recomputed": 4.166666666666667,
+        "stored": 4.166666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_attention_regulation",
+        "recomputed": 4.285714285714286,
+        "stored": 4.285714285714286,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_self_regulation",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P000",
+        "field": "maia2_trusting",
+        "recomputed": 5.0,
+        "stored": 5.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_noticing",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.4,
+        "stored": 4.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.25,
+        "stored": 2.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P001",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_noticing",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.7142857142857144,
+        "stored": 3.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.8,
+        "stored": 4.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P002",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_noticing",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.7142857142857144,
+        "stored": 3.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P003",
+        "field": "maia2_trusting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.142857142857143,
+        "stored": 3.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.2,
+        "stored": 3.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P004",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.857142857142857,
+        "stored": 2.857142857142857,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P005",
+        "field": "maia2_trusting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_noticing",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_not_distracting",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_not_worrying",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_attention_regulation",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_emotional_awareness",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_self_regulation",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_body_listening",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P006",
+        "field": "maia2_trusting",
+        "recomputed": null,
+        "stored": null,
+        "status": "missing"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_noticing",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.8333333333333335,
+        "stored": 3.8333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.857142857142857,
+        "stored": 3.857142857142857,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_body_listening",
+        "recomputed": 0.3333333333333333,
+        "stored": 0.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P007",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.8333333333333333,
+        "stored": 1.8333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.25,
+        "stored": 2.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_body_listening",
+        "recomputed": 1.6666666666666667,
+        "stored": 1.6666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P008",
+        "field": "maia2_trusting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_noticing",
+        "recomputed": 2.25,
+        "stored": 2.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.1666666666666667,
+        "stored": 1.1666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_attention_regulation",
+        "recomputed": 1.5714285714285714,
+        "stored": 1.5714285714285714,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.4,
+        "stored": 2.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_self_regulation",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P009",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_noticing",
+        "recomputed": 1.75,
+        "stored": 1.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.4,
+        "stored": 2.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_self_regulation",
+        "recomputed": 1.75,
+        "stored": 1.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P010",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_noticing",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_not_distracting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.5714285714285716,
+        "stored": 3.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.4,
+        "stored": 4.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_self_regulation",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_body_listening",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P011",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_noticing",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.1666666666666665,
+        "stored": 3.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_not_worrying",
+        "recomputed": 0.8,
+        "stored": 0.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_self_regulation",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P012",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_noticing",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.6666666666666667,
+        "stored": 1.6666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.2,
+        "stored": 3.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.4285714285714284,
+        "stored": 2.4285714285714284,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.25,
+        "stored": 2.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P013",
+        "field": "maia2_trusting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.8333333333333333,
+        "stored": 1.8333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.5714285714285716,
+        "stored": 3.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_self_regulation",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P014",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.2,
+        "stored": 2.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.142857142857143,
+        "stored": 3.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.4,
+        "stored": 4.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P015",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_noticing",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_attention_regulation",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P016",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.1666666666666667,
+        "stored": 1.1666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_body_listening",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P017",
+        "field": "maia2_trusting",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.6,
+        "stored": 1.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.7142857142857144,
+        "stored": 3.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P018",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.4285714285714284,
+        "stored": 3.4285714285714284,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.2,
+        "stored": 4.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_body_listening",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P019",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.2,
+        "stored": 1.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.142857142857143,
+        "stored": 2.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_self_regulation",
+        "recomputed": 1.0,
+        "stored": 1.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P020",
+        "field": "maia2_trusting",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_noticing",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P021",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_noticing",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.6,
+        "stored": 1.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_attention_regulation",
+        "recomputed": 4.428571428571429,
+        "stored": 4.428571428571429,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P022",
+        "field": "maia2_trusting",
+        "recomputed": 5.0,
+        "stored": 5.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_noticing",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.4285714285714284,
+        "stored": 2.4285714285714284,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.4,
+        "stored": 4.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P023",
+        "field": "maia2_trusting",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_noticing",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.1666666666666667,
+        "stored": 1.1666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.6,
+        "stored": 2.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_body_listening",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P024",
+        "field": "maia2_trusting",
+        "recomputed": 1.6666666666666667,
+        "stored": 1.6666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.1666666666666667,
+        "stored": 1.1666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.142857142857143,
+        "stored": 3.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P025",
+        "field": "maia2_trusting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_noticing",
+        "recomputed": 4.25,
+        "stored": 4.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.1666666666666665,
+        "stored": 3.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.4,
+        "stored": 1.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.142857142857143,
+        "stored": 3.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.6,
+        "stored": 3.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_body_listening",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P026",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_noticing",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.6,
+        "stored": 2.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_self_regulation",
+        "recomputed": 1.75,
+        "stored": 1.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_body_listening",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P027",
+        "field": "maia2_trusting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.2,
+        "stored": 1.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.142857142857143,
+        "stored": 3.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 5.0,
+        "stored": 5.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_self_regulation",
+        "recomputed": 4.5,
+        "stored": 4.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P028",
+        "field": "maia2_trusting",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.1666666666666667,
+        "stored": 1.1666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.4285714285714284,
+        "stored": 3.4285714285714284,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.2,
+        "stored": 3.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P029",
+        "field": "maia2_trusting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_noticing",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.8,
+        "stored": 1.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.2,
+        "stored": 4.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_body_listening",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P030",
+        "field": "maia2_trusting",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_noticing",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.0,
+        "stored": 1.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.4285714285714284,
+        "stored": 3.4285714285714284,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_body_listening",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P031",
+        "field": "maia2_trusting",
+        "recomputed": 4.666666666666667,
+        "stored": 4.666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.8333333333333333,
+        "stored": 1.8333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.7142857142857144,
+        "stored": 2.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_body_listening",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P032",
+        "field": "maia2_trusting",
+        "recomputed": 3.6666666666666665,
+        "stored": 3.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_noticing",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_not_distracting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_self_regulation",
+        "recomputed": 0.75,
+        "stored": 0.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_body_listening",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P033",
+        "field": "maia2_trusting",
+        "recomputed": 1.6666666666666667,
+        "stored": 1.6666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.4,
+        "stored": 1.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 4.2,
+        "stored": 4.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.5,
+        "stored": 3.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_body_listening",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P034",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.6,
+        "stored": 2.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.142857142857143,
+        "stored": 2.142857142857143,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_self_regulation",
+        "recomputed": 1.75,
+        "stored": 1.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_body_listening",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P035",
+        "field": "maia2_trusting",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_noticing",
+        "recomputed": 3.75,
+        "stored": 3.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.8333333333333335,
+        "stored": 2.8333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.2857142857142856,
+        "stored": 3.2857142857142856,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.4,
+        "stored": 2.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_body_listening",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P036",
+        "field": "maia2_trusting",
+        "recomputed": 4.333333333333333,
+        "stored": 4.333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.2,
+        "stored": 2.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.7142857142857144,
+        "stored": 2.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_body_listening",
+        "recomputed": 1.3333333333333333,
+        "stored": 1.3333333333333333,
+        "status": "match"
+      },
+      {
+        "participant_id": "P037",
+        "field": "maia2_trusting",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_noticing",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.5,
+        "stored": 1.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.2,
+        "stored": 2.2,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.7142857142857144,
+        "stored": 2.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.75,
+        "stored": 2.75,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_body_listening",
+        "recomputed": 2.6666666666666665,
+        "stored": 2.6666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P038",
+        "field": "maia2_trusting",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.1666666666666665,
+        "stored": 2.1666666666666665,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_not_worrying",
+        "recomputed": 3.4,
+        "stored": 3.4,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.5714285714285716,
+        "stored": 2.5714285714285716,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_body_listening",
+        "recomputed": 4.0,
+        "stored": 4.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P039",
+        "field": "maia2_trusting",
+        "recomputed": 2.0,
+        "stored": 2.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_noticing",
+        "recomputed": 3.25,
+        "stored": 3.25,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_not_distracting",
+        "recomputed": 2.8333333333333335,
+        "stored": 2.8333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_not_worrying",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_attention_regulation",
+        "recomputed": 2.7142857142857144,
+        "stored": 2.7142857142857144,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 2.8,
+        "stored": 2.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_self_regulation",
+        "recomputed": 2.5,
+        "stored": 2.5,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P040",
+        "field": "maia2_trusting",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_noticing",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_not_distracting",
+        "recomputed": 1.6666666666666667,
+        "stored": 1.6666666666666667,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_not_worrying",
+        "recomputed": 1.6,
+        "stored": 1.6,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_attention_regulation",
+        "recomputed": 3.2857142857142856,
+        "stored": 3.2857142857142856,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_emotional_awareness",
+        "recomputed": 3.8,
+        "stored": 3.8,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_self_regulation",
+        "recomputed": 3.0,
+        "stored": 3.0,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_body_listening",
+        "recomputed": 2.3333333333333335,
+        "stored": 2.3333333333333335,
+        "status": "match"
+      },
+      {
+        "participant_id": "P041",
+        "field": "maia2_trusting",
+        "recomputed": 3.3333333333333335,
+        "stored": 3.3333333333333335,
+        "status": "match"
+      }
+    ],
+    "scores": [
+      {
+        "participant_id": "P000",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 4.166666666666667,
+        "maia2_not_worrying": 3.8,
+        "maia2_attention_regulation": 4.285714285714286,
+        "maia2_emotional_awareness": 3.4,
+        "maia2_self_regulation": 4.25,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 5.0,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -45.1974220906217
+      },
+      {
+        "participant_id": "P001",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.75,
+        "maia2_not_distracting": 1.3333333333333333,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 2.0,
+        "maia2_emotional_awareness": 4.4,
+        "maia2_self_regulation": 2.25,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 3.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 16.67359554762379
+      },
+      {
+        "participant_id": "P002",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 4.0,
+        "maia2_not_distracting": 3.6666666666666665,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 3.7142857142857144,
+        "maia2_emotional_awareness": 4.8,
+        "maia2_self_regulation": 3.25,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -31.113466205562244
+      },
+      {
+        "participant_id": "P003",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.75,
+        "maia2_not_distracting": 2.6666666666666665,
+        "maia2_not_worrying": 3.8,
+        "maia2_attention_regulation": 3.7142857142857144,
+        "maia2_emotional_awareness": 4.0,
+        "maia2_self_regulation": 3.5,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 3.0,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": -15.94530258454181
+      },
+      {
+        "participant_id": "P004",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 1.5,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 3.142857142857143,
+        "maia2_emotional_awareness": 3.2,
+        "maia2_self_regulation": 3.5,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 2.6774488289369636
+      },
+      {
+        "participant_id": "P005",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 1.5,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 2.857142857142857,
+        "maia2_emotional_awareness": 3.6,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 2.6666666666666665,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 2.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 24.11085836224315
+      },
+      {
+        "participant_id": "P006",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": null,
+        "maia2_not_distracting": null,
+        "maia2_not_worrying": null,
+        "maia2_attention_regulation": null,
+        "maia2_emotional_awareness": null,
+        "maia2_self_regulation": null,
+        "maia2_body_listening": null,
+        "maia2_trusting": null,
+        "spfrref_control_ordinal": null,
+        "spfrref_viscereality_ordinal": null,
+        "spfrref_change_direction": null,
+        "rt_slope_interaction": -4.145044702844199
+      },
+      {
+        "participant_id": "P007",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 2.0,
+        "maia2_not_distracting": 3.8333333333333335,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 3.857142857142857,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 2.75,
+        "maia2_body_listening": 0.3333333333333333,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 29.207962689503415
+      },
+      {
+        "participant_id": "P008",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 1.8333333333333333,
+        "maia2_not_worrying": 2.8,
+        "maia2_attention_regulation": 3.0,
+        "maia2_emotional_awareness": 2.8,
+        "maia2_self_regulation": 2.25,
+        "maia2_body_listening": 1.6666666666666667,
+        "maia2_trusting": 3.0,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 5.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -1.6992244857953143
+      },
+      {
+        "participant_id": "P009",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 2.25,
+        "maia2_not_distracting": 1.1666666666666667,
+        "maia2_not_worrying": 3.6,
+        "maia2_attention_regulation": 1.5714285714285714,
+        "maia2_emotional_awareness": 2.4,
+        "maia2_self_regulation": 1.5,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 6.0,
+        "spfrref_viscereality_ordinal": 7.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -8.335785669216488
+      },
+      {
+        "participant_id": "P010",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 1.75,
+        "maia2_not_distracting": 2.6666666666666665,
+        "maia2_not_worrying": 2.4,
+        "maia2_attention_regulation": 2.0,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 1.75,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 3.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 22.431947859622912
+      },
+      {
+        "participant_id": "P011",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 4.25,
+        "maia2_not_distracting": 4.333333333333333,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 3.5714285714285716,
+        "maia2_emotional_awareness": 4.4,
+        "maia2_self_regulation": 4.25,
+        "maia2_body_listening": 4.0,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -4.975580923796583
+      },
+      {
+        "participant_id": "P012",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 4.25,
+        "maia2_not_distracting": 3.1666666666666665,
+        "maia2_not_worrying": 0.8,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 3.8,
+        "maia2_self_regulation": 4.0,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 7.319784063010775
+      },
+      {
+        "participant_id": "P013",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 2.75,
+        "maia2_not_distracting": 1.6666666666666667,
+        "maia2_not_worrying": 3.2,
+        "maia2_attention_regulation": 2.4285714285714284,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 2.25,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 2.6666666666666665,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -20.178026512710627
+      },
+      {
+        "participant_id": "P014",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 1.8333333333333333,
+        "maia2_not_worrying": 3.0,
+        "maia2_attention_regulation": 3.5714285714285716,
+        "maia2_emotional_awareness": 3.8,
+        "maia2_self_regulation": 4.25,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -1.6698738257397796
+      },
+      {
+        "participant_id": "P015",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 2.2,
+        "maia2_attention_regulation": 3.142857142857143,
+        "maia2_emotional_awareness": 4.4,
+        "maia2_self_regulation": 3.0,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -15.671884014968917
+      },
+      {
+        "participant_id": "P016",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 4.0,
+        "maia2_not_distracting": 2.6666666666666665,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 4.0,
+        "maia2_emotional_awareness": 3.6,
+        "maia2_self_regulation": 3.75,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 94.87976176328685
+      },
+      {
+        "participant_id": "P017",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 1.1666666666666667,
+        "maia2_not_worrying": 3.6,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 4.0,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 1.3333333333333333,
+        "maia2_trusting": 1.3333333333333333,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 2.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -3.835914980512104
+      },
+      {
+        "participant_id": "P018",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 2.0,
+        "maia2_not_worrying": 1.6,
+        "maia2_attention_regulation": 3.7142857142857144,
+        "maia2_emotional_awareness": 3.8,
+        "maia2_self_regulation": 2.75,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 1.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": 16.02318321529073
+      },
+      {
+        "participant_id": "P019",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 2.5,
+        "maia2_not_worrying": 2.8,
+        "maia2_attention_regulation": 3.4285714285714284,
+        "maia2_emotional_awareness": 4.2,
+        "maia2_self_regulation": 3.25,
+        "maia2_body_listening": 4.0,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 12.80932155756599
+      },
+      {
+        "participant_id": "P020",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 2.6666666666666665,
+        "maia2_not_worrying": 1.2,
+        "maia2_attention_regulation": 2.142857142857143,
+        "maia2_emotional_awareness": 3.4,
+        "maia2_self_regulation": 1.0,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 3.3333333333333335,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 5.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 8.73831174835199
+      },
+      {
+        "participant_id": "P021",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.75,
+        "maia2_not_distracting": 1.5,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 3.6,
+        "maia2_self_regulation": 3.5,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -62.69253333277427
+      },
+      {
+        "participant_id": "P022",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 4.25,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 1.6,
+        "maia2_attention_regulation": 4.428571428571429,
+        "maia2_emotional_awareness": 3.6,
+        "maia2_self_regulation": 3.25,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 5.0,
+        "spfrref_control_ordinal": 3.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -22.653161343701143
+      },
+      {
+        "participant_id": "P023",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 2.5,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 2.4285714285714284,
+        "maia2_emotional_awareness": 4.4,
+        "maia2_self_regulation": 3.0,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 3.3333333333333335,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -13.623655858291515
+      },
+      {
+        "participant_id": "P024",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 2.5,
+        "maia2_not_distracting": 1.1666666666666667,
+        "maia2_not_worrying": 3.4,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 2.6,
+        "maia2_self_regulation": 2.0,
+        "maia2_body_listening": 2.0,
+        "maia2_trusting": 1.6666666666666667,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 2.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": 17.486060401428098
+      },
+      {
+        "participant_id": "P025",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 1.1666666666666667,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 3.142857142857143,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 2.6666666666666665,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 1.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 16.04913144653319
+      },
+      {
+        "participant_id": "P026",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 4.25,
+        "maia2_not_distracting": 3.1666666666666665,
+        "maia2_not_worrying": 1.4,
+        "maia2_attention_regulation": 3.142857142857143,
+        "maia2_emotional_awareness": 3.6,
+        "maia2_self_regulation": 3.0,
+        "maia2_body_listening": 4.666666666666667,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 6.579937291906205
+      },
+      {
+        "participant_id": "P027",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 2.75,
+        "maia2_not_distracting": 1.5,
+        "maia2_not_worrying": 3.8,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 2.6,
+        "maia2_self_regulation": 1.75,
+        "maia2_body_listening": 2.0,
+        "maia2_trusting": 3.0,
+        "spfrref_control_ordinal": 6.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -9.902909806659327
+      },
+      {
+        "participant_id": "P028",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 1.2,
+        "maia2_attention_regulation": 3.142857142857143,
+        "maia2_emotional_awareness": 5.0,
+        "maia2_self_regulation": 4.5,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 3.6666666666666665,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 5.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -5.6120664111935605
+      },
+      {
+        "participant_id": "P029",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 1.1666666666666667,
+        "maia2_not_worrying": 2.8,
+        "maia2_attention_regulation": 3.4285714285714284,
+        "maia2_emotional_awareness": 3.2,
+        "maia2_self_regulation": 3.75,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 3.0,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -30.89852427445481
+      },
+      {
+        "participant_id": "P030",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.5,
+        "maia2_not_distracting": 1.3333333333333333,
+        "maia2_not_worrying": 1.8,
+        "maia2_attention_regulation": 3.0,
+        "maia2_emotional_awareness": 4.2,
+        "maia2_self_regulation": 2.75,
+        "maia2_body_listening": 3.0,
+        "maia2_trusting": 4.0,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 5.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 21.727266432268618
+      },
+      {
+        "participant_id": "P031",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 4.0,
+        "maia2_not_distracting": 3.3333333333333335,
+        "maia2_not_worrying": 1.0,
+        "maia2_attention_regulation": 3.4285714285714284,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 3.6666666666666665,
+        "maia2_trusting": 4.666666666666667,
+        "spfrref_control_ordinal": 3.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -6.1403061455184185
+      },
+      {
+        "participant_id": "P032",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 1.8333333333333333,
+        "maia2_not_worrying": 2.8,
+        "maia2_attention_regulation": 2.7142857142857144,
+        "maia2_emotional_awareness": 2.8,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 3.3333333333333335,
+        "maia2_trusting": 3.6666666666666665,
+        "spfrref_control_ordinal": 1.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 13.613292183142313
+      },
+      {
+        "participant_id": "P033",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 1.5,
+        "maia2_not_distracting": 3.0,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 2.0,
+        "maia2_emotional_awareness": 3.4,
+        "maia2_self_regulation": 0.75,
+        "maia2_body_listening": 1.3333333333333333,
+        "maia2_trusting": 1.6666666666666667,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": 4.975580923796585
+      },
+      {
+        "participant_id": "P034",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 1.4,
+        "maia2_attention_regulation": 2.0,
+        "maia2_emotional_awareness": 4.2,
+        "maia2_self_regulation": 3.5,
+        "maia2_body_listening": 2.0,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 2.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": -43.793747763131655
+      },
+      {
+        "participant_id": "P035",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 2.5,
+        "maia2_not_worrying": 2.6,
+        "maia2_attention_regulation": 2.142857142857143,
+        "maia2_emotional_awareness": 3.0,
+        "maia2_self_regulation": 1.75,
+        "maia2_body_listening": 1.3333333333333333,
+        "maia2_trusting": 2.0,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -1.1867333405648646
+      },
+      {
+        "participant_id": "P036",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.75,
+        "maia2_not_distracting": 2.8333333333333335,
+        "maia2_not_worrying": 2.0,
+        "maia2_attention_regulation": 3.2857142857142856,
+        "maia2_emotional_awareness": 2.4,
+        "maia2_self_regulation": 2.75,
+        "maia2_body_listening": 2.6666666666666665,
+        "maia2_trusting": 4.333333333333333,
+        "spfrref_control_ordinal": 4.0,
+        "spfrref_viscereality_ordinal": 6.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 22.034148816624594
+      },
+      {
+        "participant_id": "P037",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 2.2,
+        "maia2_attention_regulation": 2.7142857142857144,
+        "maia2_emotional_awareness": 3.4,
+        "maia2_self_regulation": 3.0,
+        "maia2_body_listening": 1.3333333333333333,
+        "maia2_trusting": 2.6666666666666665,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 3.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": -3.1718645247023503
+      },
+      {
+        "participant_id": "P038",
+        "condition_order": "Control-Viscereality",
+        "maia2_noticing": 2.75,
+        "maia2_not_distracting": 1.5,
+        "maia2_not_worrying": 2.2,
+        "maia2_attention_regulation": 2.7142857142857144,
+        "maia2_emotional_awareness": 2.8,
+        "maia2_self_regulation": 2.75,
+        "maia2_body_listening": 2.6666666666666665,
+        "maia2_trusting": 3.0,
+        "spfrref_control_ordinal": 2.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": 1.0,
+        "rt_slope_interaction": 25.171765387821146
+      },
+      {
+        "participant_id": "P039",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 2.1666666666666665,
+        "maia2_not_worrying": 3.4,
+        "maia2_attention_regulation": 2.5714285714285716,
+        "maia2_emotional_awareness": 2.0,
+        "maia2_self_regulation": 3.25,
+        "maia2_body_listening": 4.0,
+        "maia2_trusting": 2.0,
+        "spfrref_control_ordinal": 3.0,
+        "spfrref_viscereality_ordinal": 2.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": -17.982865268979165
+      },
+      {
+        "participant_id": "P040",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.25,
+        "maia2_not_distracting": 2.8333333333333335,
+        "maia2_not_worrying": 2.8,
+        "maia2_attention_regulation": 2.7142857142857144,
+        "maia2_emotional_awareness": 2.8,
+        "maia2_self_regulation": 2.5,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 3.3333333333333335,
+        "spfrref_control_ordinal": 5.0,
+        "spfrref_viscereality_ordinal": 5.0,
+        "spfrref_change_direction": 0.0,
+        "rt_slope_interaction": 13.836144293890316
+      },
+      {
+        "participant_id": "P041",
+        "condition_order": "Viscereality-Control",
+        "maia2_noticing": 3.0,
+        "maia2_not_distracting": 1.6666666666666667,
+        "maia2_not_worrying": 1.6,
+        "maia2_attention_regulation": 3.2857142857142856,
+        "maia2_emotional_awareness": 3.8,
+        "maia2_self_regulation": 3.0,
+        "maia2_body_listening": 2.3333333333333335,
+        "maia2_trusting": 3.3333333333333335,
+        "spfrref_control_ordinal": 6.0,
+        "spfrref_viscereality_ordinal": 4.0,
+        "spfrref_change_direction": -1.0,
+        "rt_slope_interaction": -4.554327137380671
+      }
+    ],
+    "scales": [
+      {
+        "n": 41,
+        "mean": 3.2378048780487805,
+        "sd": 0.6589556593395414,
+        "median": 3.25,
+        "q1": 3.0,
+        "q3": 3.75,
+        "min": 1.5,
+        "max": 4.25,
+        "field": "maia2_noticing",
+        "label": "Noticing",
+        "items": 4,
+        "missing": 1,
+        "alpha": 0.5652097595225556,
+        "alpha_ci_low": 0.18827526216905904,
+        "alpha_ci_high": 0.740246771819004,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 3.0365853658536586,
+        "mean_ci_high": 3.432926829268293,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 2.2439024390243905,
+        "sd": 0.8531783395825232,
+        "median": 2.1666666666666665,
+        "q1": 1.5,
+        "q3": 2.6666666666666665,
+        "min": 1.1666666666666667,
+        "max": 4.333333333333333,
+        "field": "maia2_not_distracting",
+        "label": "Not Distracting",
+        "items": 6,
+        "missing": 1,
+        "alpha": 0.8422002978406552,
+        "alpha_ci_low": 0.724724087731434,
+        "alpha_ci_high": 0.9061280415051305,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 1.9958333333333333,
+        "mean_ci_high": 2.5121951219512195,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 2.2878048780487807,
+        "sd": 0.8185948698688562,
+        "median": 2.0,
+        "q1": 1.8,
+        "q3": 2.8,
+        "min": 0.8,
+        "max": 3.8,
+        "field": "maia2_not_worrying",
+        "label": "Not Worrying",
+        "items": 5,
+        "missing": 1,
+        "alpha": 0.7043932445220937,
+        "alpha_ci_low": 0.5114607596265682,
+        "alpha_ci_high": 0.808452614934074,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 2.053658536585366,
+        "mean_ci_high": 2.5365853658536586,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 2.958188153310105,
+        "sd": 0.6702450834407929,
+        "median": 3.0,
+        "q1": 2.5714285714285716,
+        "q3": 3.4285714285714284,
+        "min": 1.5714285714285714,
+        "max": 4.428571428571429,
+        "field": "maia2_attention_regulation",
+        "label": "Attention Regulation",
+        "items": 7,
+        "missing": 1,
+        "alpha": 0.7843490304709142,
+        "alpha_ci_low": 0.6475127534191562,
+        "alpha_ci_high": 0.8578724407595586,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 2.7560975609756095,
+        "mean_ci_high": 3.1602787456445993,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 3.473170731707317,
+        "sd": 0.6982207352420517,
+        "median": 3.4,
+        "q1": 3.0,
+        "q3": 4.0,
+        "min": 2.0,
+        "max": 5.0,
+        "field": "maia2_emotional_awareness",
+        "label": "Emotional Awareness",
+        "items": 5,
+        "missing": 1,
+        "alpha": 0.5893536121673004,
+        "alpha_ci_low": 0.313959945482195,
+        "alpha_ci_high": 0.7399325127299888,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 3.273170731707317,
+        "mean_ci_high": 3.678048780487805,
+        "floor_n": 0,
+        "ceiling_n": 1
+      },
+      {
+        "n": 41,
+        "mean": 2.847560975609756,
+        "sd": 0.863998786132842,
+        "median": 2.75,
+        "q1": 2.5,
+        "q3": 3.5,
+        "min": 0.75,
+        "max": 4.5,
+        "field": "maia2_self_regulation",
+        "label": "Self Regulation",
+        "items": 4,
+        "missing": 1,
+        "alpha": 0.8142400108910215,
+        "alpha_ci_low": 0.6900443118506954,
+        "alpha_ci_high": 0.8850597931070493,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 2.573018292682927,
+        "mean_ci_high": 3.1097560975609757,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 2.8048780487804876,
+        "sd": 0.9218809568729502,
+        "median": 3.0,
+        "q1": 2.3333333333333335,
+        "q3": 3.3333333333333335,
+        "min": 0.3333333333333333,
+        "max": 4.666666666666667,
+        "field": "maia2_body_listening",
+        "label": "Body Listening",
+        "items": 3,
+        "missing": 1,
+        "alpha": 0.7765465561224493,
+        "alpha_ci_low": 0.6015939499466808,
+        "alpha_ci_high": 0.8671257819278237,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 2.5121951219512195,
+        "mean_ci_high": 3.065040650406504,
+        "floor_n": 0,
+        "ceiling_n": 0
+      },
+      {
+        "n": 41,
+        "mean": 3.585365853658537,
+        "sd": 0.979740577355041,
+        "median": 4.0,
+        "q1": 3.0,
+        "q3": 4.333333333333333,
+        "min": 1.3333333333333333,
+        "max": 5.0,
+        "field": "maia2_trusting",
+        "label": "Trusting",
+        "items": 3,
+        "missing": 1,
+        "alpha": 0.860742518351214,
+        "alpha_ci_low": 0.7766644097904201,
+        "alpha_ci_high": 0.9089009793340398,
+        "alpha_bootstrap_valid": 2000,
+        "mean_ci_low": 3.2843495934959352,
+        "mean_ci_high": 3.8780487804878048,
+        "floor_n": 0,
+        "ceiling_n": 2
+      }
+    ],
+    "items": [
+      {
+        "item": 1,
+        "scale": "maia2_noticing",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 4,
+        "response_2_n": 6,
+        "response_3_n": 16,
+        "response_4_n": 15,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.20769803720787233,
+        "item_rest_n": 41
+      },
+      {
+        "item": 2,
+        "scale": "maia2_noticing",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 1,
+        "response_2_n": 3,
+        "response_3_n": 8,
+        "response_4_n": 19,
+        "response_5_n": 10,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.24390243902439024,
+        "corrected_item_rest_pearson_r": 0.37570519343186864,
+        "item_rest_n": 41
+      },
+      {
+        "item": 3,
+        "scale": "maia2_noticing",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 6,
+        "response_2_n": 6,
+        "response_3_n": 21,
+        "response_4_n": 7,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.5973253234556526,
+        "item_rest_n": 41
+      },
+      {
+        "item": 4,
+        "scale": "maia2_noticing",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 2,
+        "response_2_n": 7,
+        "response_3_n": 7,
+        "response_4_n": 21,
+        "response_5_n": 4,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.0975609756097561,
+        "corrected_item_rest_pearson_r": 0.2500318164803776,
+        "item_rest_n": 41
+      },
+      {
+        "item": 5,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 3,
+        "response_1_n": 5,
+        "response_2_n": 12,
+        "response_3_n": 12,
+        "response_4_n": 9,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.07317073170731707,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.6620421123671694,
+        "item_rest_n": 41
+      },
+      {
+        "item": 6,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 2,
+        "response_1_n": 4,
+        "response_2_n": 3,
+        "response_3_n": 17,
+        "response_4_n": 12,
+        "response_5_n": 3,
+        "raw_floor_fraction": 0.04878048780487805,
+        "raw_ceiling_fraction": 0.07317073170731707,
+        "corrected_item_rest_pearson_r": 0.6033407869986459,
+        "item_rest_n": 41
+      },
+      {
+        "item": 7,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 5,
+        "response_2_n": 10,
+        "response_3_n": 12,
+        "response_4_n": 13,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.5143832199283529,
+        "item_rest_n": 41
+      },
+      {
+        "item": 8,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 5,
+        "response_1_n": 7,
+        "response_2_n": 9,
+        "response_3_n": 13,
+        "response_4_n": 7,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.12195121951219512,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.6808608058608058,
+        "item_rest_n": 41
+      },
+      {
+        "item": 9,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 2,
+        "response_2_n": 10,
+        "response_3_n": 13,
+        "response_4_n": 14,
+        "response_5_n": 2,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.04878048780487805,
+        "corrected_item_rest_pearson_r": 0.547772742870005,
+        "item_rest_n": 41
+      },
+      {
+        "item": 10,
+        "scale": "maia2_not_distracting",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 3,
+        "response_2_n": 10,
+        "response_3_n": 16,
+        "response_4_n": 10,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.732644367813439,
+        "item_rest_n": 41
+      },
+      {
+        "item": 11,
+        "scale": "maia2_not_worrying",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 6,
+        "response_2_n": 9,
+        "response_3_n": 6,
+        "response_4_n": 14,
+        "response_5_n": 5,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.12195121951219512,
+        "corrected_item_rest_pearson_r": 0.35218455106389657,
+        "item_rest_n": 41
+      },
+      {
+        "item": 12,
+        "scale": "maia2_not_worrying",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 7,
+        "response_2_n": 8,
+        "response_3_n": 11,
+        "response_4_n": 11,
+        "response_5_n": 4,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.0975609756097561,
+        "corrected_item_rest_pearson_r": 0.5710967661618112,
+        "item_rest_n": 41
+      },
+      {
+        "item": 13,
+        "scale": "maia2_not_worrying",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 3,
+        "response_1_n": 5,
+        "response_2_n": 14,
+        "response_3_n": 12,
+        "response_4_n": 7,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.07317073170731707,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.6060227013661348,
+        "item_rest_n": 41
+      },
+      {
+        "item": 14,
+        "scale": "maia2_not_worrying",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 3,
+        "response_1_n": 4,
+        "response_2_n": 14,
+        "response_3_n": 13,
+        "response_4_n": 6,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.07317073170731707,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.4008726061064027,
+        "item_rest_n": 41
+      },
+      {
+        "item": 15,
+        "scale": "maia2_not_worrying",
+        "reverse_scored": true,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 9,
+        "response_2_n": 14,
+        "response_3_n": 10,
+        "response_4_n": 7,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.4064622632839427,
+        "item_rest_n": 41
+      },
+      {
+        "item": 16,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 3,
+        "response_2_n": 12,
+        "response_3_n": 10,
+        "response_4_n": 12,
+        "response_5_n": 3,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.07317073170731707,
+        "corrected_item_rest_pearson_r": 0.6814161962914712,
+        "item_rest_n": 41
+      },
+      {
+        "item": 17,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 3,
+        "response_2_n": 16,
+        "response_3_n": 13,
+        "response_4_n": 9,
+        "response_5_n": 0,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.0,
+        "corrected_item_rest_pearson_r": 0.5870113383105391,
+        "item_rest_n": 41
+      },
+      {
+        "item": 18,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 3,
+        "response_2_n": 5,
+        "response_3_n": 16,
+        "response_4_n": 14,
+        "response_5_n": 2,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.04878048780487805,
+        "corrected_item_rest_pearson_r": 0.469351215829742,
+        "item_rest_n": 41
+      },
+      {
+        "item": 19,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 3,
+        "response_2_n": 5,
+        "response_3_n": 22,
+        "response_4_n": 10,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.4523757460713252,
+        "item_rest_n": 41
+      },
+      {
+        "item": 20,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 1,
+        "response_2_n": 10,
+        "response_3_n": 16,
+        "response_4_n": 12,
+        "response_5_n": 2,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.04878048780487805,
+        "corrected_item_rest_pearson_r": 0.5752254703624348,
+        "item_rest_n": 41
+      },
+      {
+        "item": 21,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 3,
+        "response_2_n": 12,
+        "response_3_n": 13,
+        "response_4_n": 11,
+        "response_5_n": 2,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.04878048780487805,
+        "corrected_item_rest_pearson_r": 0.18933280753863424,
+        "item_rest_n": 41
+      },
+      {
+        "item": 22,
+        "scale": "maia2_attention_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 5,
+        "response_2_n": 7,
+        "response_3_n": 15,
+        "response_4_n": 13,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.6650866611255191,
+        "item_rest_n": 41
+      },
+      {
+        "item": 23,
+        "scale": "maia2_emotional_awareness",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 1,
+        "response_2_n": 12,
+        "response_3_n": 10,
+        "response_4_n": 12,
+        "response_5_n": 5,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.12195121951219512,
+        "corrected_item_rest_pearson_r": 0.16169685209143342,
+        "item_rest_n": 41
+      },
+      {
+        "item": 24,
+        "scale": "maia2_emotional_awareness",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 2,
+        "response_2_n": 4,
+        "response_3_n": 14,
+        "response_4_n": 13,
+        "response_5_n": 8,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.1951219512195122,
+        "corrected_item_rest_pearson_r": 0.14738406334434442,
+        "item_rest_n": 41
+      },
+      {
+        "item": 25,
+        "scale": "maia2_emotional_awareness",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 1,
+        "response_2_n": 6,
+        "response_3_n": 8,
+        "response_4_n": 14,
+        "response_5_n": 12,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.2926829268292683,
+        "corrected_item_rest_pearson_r": 0.5533551049530606,
+        "item_rest_n": 41
+      },
+      {
+        "item": 26,
+        "scale": "maia2_emotional_awareness",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 3,
+        "response_2_n": 1,
+        "response_3_n": 11,
+        "response_4_n": 16,
+        "response_5_n": 10,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.24390243902439024,
+        "corrected_item_rest_pearson_r": 0.4625213781140813,
+        "item_rest_n": 41
+      },
+      {
+        "item": 27,
+        "scale": "maia2_emotional_awareness",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 5,
+        "response_2_n": 3,
+        "response_3_n": 14,
+        "response_4_n": 13,
+        "response_5_n": 6,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.14634146341463414,
+        "corrected_item_rest_pearson_r": 0.4537627547265869,
+        "item_rest_n": 41
+      },
+      {
+        "item": 28,
+        "scale": "maia2_self_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 6,
+        "response_2_n": 19,
+        "response_3_n": 9,
+        "response_4_n": 5,
+        "response_5_n": 2,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.04878048780487805,
+        "corrected_item_rest_pearson_r": 0.6297512917759526,
+        "item_rest_n": 41
+      },
+      {
+        "item": 29,
+        "scale": "maia2_self_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 6,
+        "response_2_n": 12,
+        "response_3_n": 17,
+        "response_4_n": 5,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.5092585901750496,
+        "item_rest_n": 41
+      },
+      {
+        "item": 30,
+        "scale": "maia2_self_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 2,
+        "response_2_n": 5,
+        "response_3_n": 14,
+        "response_4_n": 13,
+        "response_5_n": 6,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.14634146341463414,
+        "corrected_item_rest_pearson_r": 0.6665900580944775,
+        "item_rest_n": 41
+      },
+      {
+        "item": 31,
+        "scale": "maia2_self_regulation",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 6,
+        "response_2_n": 3,
+        "response_3_n": 19,
+        "response_4_n": 10,
+        "response_5_n": 3,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.07317073170731707,
+        "corrected_item_rest_pearson_r": 0.7390056000873263,
+        "item_rest_n": 41
+      },
+      {
+        "item": 32,
+        "scale": "maia2_body_listening",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 2,
+        "response_2_n": 8,
+        "response_3_n": 15,
+        "response_4_n": 12,
+        "response_5_n": 4,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.0975609756097561,
+        "corrected_item_rest_pearson_r": 0.6040520681730425,
+        "item_rest_n": 41
+      },
+      {
+        "item": 33,
+        "scale": "maia2_body_listening",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 2,
+        "response_1_n": 7,
+        "response_2_n": 12,
+        "response_3_n": 12,
+        "response_4_n": 7,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.04878048780487805,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.660096478775829,
+        "item_rest_n": 41
+      },
+      {
+        "item": 34,
+        "scale": "maia2_body_listening",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 1,
+        "response_1_n": 5,
+        "response_2_n": 8,
+        "response_3_n": 16,
+        "response_4_n": 10,
+        "response_5_n": 1,
+        "raw_floor_fraction": 0.024390243902439025,
+        "raw_ceiling_fraction": 0.024390243902439025,
+        "corrected_item_rest_pearson_r": 0.5807407571051404,
+        "item_rest_n": 41
+      },
+      {
+        "item": 35,
+        "scale": "maia2_trusting",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 3,
+        "response_2_n": 4,
+        "response_3_n": 12,
+        "response_4_n": 12,
+        "response_5_n": 10,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.24390243902439024,
+        "corrected_item_rest_pearson_r": 0.7994499420111011,
+        "item_rest_n": 41
+      },
+      {
+        "item": 36,
+        "scale": "maia2_trusting",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 2,
+        "response_2_n": 5,
+        "response_3_n": 11,
+        "response_4_n": 15,
+        "response_5_n": 8,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.1951219512195122,
+        "corrected_item_rest_pearson_r": 0.7901125471177122,
+        "item_rest_n": 41
+      },
+      {
+        "item": 37,
+        "scale": "maia2_trusting",
+        "reverse_scored": false,
+        "n": 41,
+        "missing": 1,
+        "response_0_n": 0,
+        "response_1_n": 1,
+        "response_2_n": 6,
+        "response_3_n": 6,
+        "response_4_n": 20,
+        "response_5_n": 8,
+        "raw_floor_fraction": 0.0,
+        "raw_ceiling_fraction": 0.1951219512195122,
+        "corrected_item_rest_pearson_r": 0.6330047503831062,
+        "item_rest_n": 41
+      }
+    ],
+    "spatial": {
+      "status": "computed",
+      "n_pairs": 41,
+      "missing_pairs": 1,
+      "higher": 22,
+      "lower": 6,
+      "ties": 13,
+      "non_ties": 28,
+      "p": 0.0037191659212112427,
+      "higher_fraction_non_ties": 0.7857142857142857,
+      "higher_fraction_ci_low": 0.5904689734941716,
+      "higher_fraction_ci_high": 0.9170393876124199,
+      "paired_dominance": 0.3902439024390244,
+      "dominance_ci_low": 0.17073170731707318,
+      "dominance_ci_high": 0.6097560975609756,
+      "method": "two-sided exact sign test, ties excluded from binomial denominator",
+      "interpretation": "Higher means a higher A\u2013H code; administered pictogram anchors are unavailable.",
+      "order_counts": [
+        {
+          "condition_order": "Control-Viscereality",
+          "n": 21,
+          "higher": 13,
+          "ties": 6,
+          "lower": 2
+        },
+        {
+          "condition_order": "Viscereality-Control",
+          "n": 20,
+          "higher": 9,
+          "ties": 7,
+          "lower": 4
+        }
+      ],
+      "transitions": [
+        {
+          "control": 1,
+          "viscereality": 1,
+          "n": 1
+        },
+        {
+          "control": 1,
+          "viscereality": 2,
+          "n": 1
+        },
+        {
+          "control": 1,
+          "viscereality": 3,
+          "n": 4
+        },
+        {
+          "control": 1,
+          "viscereality": 4,
+          "n": 0
+        },
+        {
+          "control": 1,
+          "viscereality": 5,
+          "n": 1
+        },
+        {
+          "control": 1,
+          "viscereality": 6,
+          "n": 1
+        },
+        {
+          "control": 1,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 1,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 2,
+          "viscereality": 1,
+          "n": 1
+        },
+        {
+          "control": 2,
+          "viscereality": 2,
+          "n": 2
+        },
+        {
+          "control": 2,
+          "viscereality": 3,
+          "n": 1
+        },
+        {
+          "control": 2,
+          "viscereality": 4,
+          "n": 3
+        },
+        {
+          "control": 2,
+          "viscereality": 5,
+          "n": 0
+        },
+        {
+          "control": 2,
+          "viscereality": 6,
+          "n": 0
+        },
+        {
+          "control": 2,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 2,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 3,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 3,
+          "viscereality": 2,
+          "n": 1
+        },
+        {
+          "control": 3,
+          "viscereality": 3,
+          "n": 1
+        },
+        {
+          "control": 3,
+          "viscereality": 4,
+          "n": 3
+        },
+        {
+          "control": 3,
+          "viscereality": 5,
+          "n": 0
+        },
+        {
+          "control": 3,
+          "viscereality": 6,
+          "n": 0
+        },
+        {
+          "control": 3,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 3,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 4,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 4,
+          "viscereality": 2,
+          "n": 0
+        },
+        {
+          "control": 4,
+          "viscereality": 3,
+          "n": 1
+        },
+        {
+          "control": 4,
+          "viscereality": 4,
+          "n": 5
+        },
+        {
+          "control": 4,
+          "viscereality": 5,
+          "n": 1
+        },
+        {
+          "control": 4,
+          "viscereality": 6,
+          "n": 4
+        },
+        {
+          "control": 4,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 4,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 5,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 5,
+          "viscereality": 2,
+          "n": 1
+        },
+        {
+          "control": 5,
+          "viscereality": 3,
+          "n": 0
+        },
+        {
+          "control": 5,
+          "viscereality": 4,
+          "n": 1
+        },
+        {
+          "control": 5,
+          "viscereality": 5,
+          "n": 3
+        },
+        {
+          "control": 5,
+          "viscereality": 6,
+          "n": 2
+        },
+        {
+          "control": 5,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 5,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 6,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 6,
+          "viscereality": 2,
+          "n": 0
+        },
+        {
+          "control": 6,
+          "viscereality": 3,
+          "n": 0
+        },
+        {
+          "control": 6,
+          "viscereality": 4,
+          "n": 1
+        },
+        {
+          "control": 6,
+          "viscereality": 5,
+          "n": 0
+        },
+        {
+          "control": 6,
+          "viscereality": 6,
+          "n": 1
+        },
+        {
+          "control": 6,
+          "viscereality": 7,
+          "n": 1
+        },
+        {
+          "control": 6,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 2,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 3,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 4,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 5,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 6,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 7,
+          "viscereality": 8,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 1,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 2,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 3,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 4,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 5,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 6,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 7,
+          "n": 0
+        },
+        {
+          "control": 8,
+          "viscereality": 8,
+          "n": 0
+        }
+      ],
+      "distributions": [
+        {
+          "condition": "Control",
+          "category": 1,
+          "n": 8
+        },
+        {
+          "condition": "Control",
+          "category": 2,
+          "n": 7
+        },
+        {
+          "condition": "Control",
+          "category": 3,
+          "n": 5
+        },
+        {
+          "condition": "Control",
+          "category": 4,
+          "n": 11
+        },
+        {
+          "condition": "Control",
+          "category": 5,
+          "n": 7
+        },
+        {
+          "condition": "Control",
+          "category": 6,
+          "n": 3
+        },
+        {
+          "condition": "Control",
+          "category": 7,
+          "n": 0
+        },
+        {
+          "condition": "Control",
+          "category": 8,
+          "n": 0
+        },
+        {
+          "condition": "Viscereality",
+          "category": 1,
+          "n": 2
+        },
+        {
+          "condition": "Viscereality",
+          "category": 2,
+          "n": 5
+        },
+        {
+          "condition": "Viscereality",
+          "category": 3,
+          "n": 7
+        },
+        {
+          "condition": "Viscereality",
+          "category": 4,
+          "n": 13
+        },
+        {
+          "condition": "Viscereality",
+          "category": 5,
+          "n": 5
+        },
+        {
+          "condition": "Viscereality",
+          "category": 6,
+          "n": 8
+        },
+        {
+          "condition": "Viscereality",
+          "category": 7,
+          "n": 1
+        },
+        {
+          "condition": "Viscereality",
+          "category": 8,
+          "n": 0
+        }
+      ],
+      "descriptives": [
+        {
+          "condition": "Control",
+          "n": 41,
+          "median": 4.0,
+          "q1": 2.0,
+          "q3": 4.0,
+          "min": 1.0,
+          "max": 6.0
+        },
+        {
+          "condition": "Viscereality",
+          "n": 41,
+          "median": 4.0,
+          "q1": 3.0,
+          "q3": 5.0,
+          "min": 1.0,
+          "max": 7.0
+        }
+      ]
+    },
+    "associations": [
+      {
+        "x": "maia2_noticing",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.06843006792665395,
+        "ci_low": -0.34959863461231194,
+        "ci_high": 0.21962965670229906,
+        "p": 0.67045,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.20690385991855154,
+        "ci_low": -0.07714475667452268,
+        "ci_high": 0.47849037233199876,
+        "p": 0.19295,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.2856249585307907,
+        "ci_low": -0.020585583492987284,
+        "ci_high": 0.5601859612293545,
+        "p": 0.0697,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.1501202879319451,
+        "ci_low": -0.4503674622717013,
+        "ci_high": 0.1857665319488856,
+        "p": 0.34945,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.025086326086367003,
+        "ci_low": -0.301129486888933,
+        "ci_high": 0.3601285343869149,
+        "p": 0.8747,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.19967838078902675,
+        "ci_low": -0.1260739212249464,
+        "ci_high": 0.5038231255630607,
+        "p": 0.2085,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.03149817921604114,
+        "ci_low": -0.2588594381399719,
+        "ci_high": 0.3223074817250345,
+        "p": 0.8439,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.03353073782250812,
+        "ci_low": -0.3791081758922456,
+        "ci_high": 0.29610175093604996,
+        "p": 0.83585,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.032781302743183076,
+        "ci_low": -0.31652121872961964,
+        "ci_high": 0.3780094726772311,
+        "p": 0.8362,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.12039985513906862,
+        "ci_low": -0.22705937039221583,
+        "ci_high": 0.43280330042017634,
+        "p": 0.451,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.024316991851390184,
+        "ci_low": -0.2948600485887929,
+        "ci_high": 0.3568805476609502,
+        "p": 0.8781,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.1035359597363302,
+        "ci_low": -0.40509546843889954,
+        "ci_high": 0.1969318131890823,
+        "p": 0.51725,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.06059055578704631,
+        "ci_low": -0.34827259992254267,
+        "ci_high": 0.22868554795074508,
+        "p": 0.70395,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.13950161349052057,
+        "ci_low": -0.19383545368406824,
+        "ci_high": 0.46253075125743703,
+        "p": 0.37705,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.004660863763468638,
+        "ci_low": -0.3205240040114928,
+        "ci_high": 0.32889692585053537,
+        "p": 0.9765,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.029468563691433896,
+        "ci_low": -0.3936780017335175,
+        "ci_high": 0.31709671851484966,
+        "p": 0.8522,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.05237688733478929,
+        "ci_low": -0.2641115084567045,
+        "ci_high": 0.3932511479264986,
+        "p": 0.74185,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.023624212846032267,
+        "ci_low": -0.3226982429663347,
+        "ci_high": 0.36448618270166555,
+        "p": 0.88375,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.027935029189380983,
+        "ci_low": -0.34329013172277445,
+        "ci_high": 0.27485304170353714,
+        "p": 0.86155,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.21464102081237094,
+        "ci_low": -0.48783542791932233,
+        "ci_high": 0.08056887334168292,
+        "p": 0.17655,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.1148617912374186,
+        "ci_low": -0.4219260347812153,
+        "ci_high": 0.2239898125988868,
+        "p": 0.4788,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.10500961733596911,
+        "ci_low": -0.23233185450350083,
+        "ci_high": 0.4461218014797234,
+        "p": 0.51305,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.0700715942762571,
+        "ci_low": -0.250407872494115,
+        "ci_high": 0.37787297539359865,
+        "p": 0.65995,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.3568217689511704,
+        "ci_low": -0.6025330849521128,
+        "ci_high": -0.04987427267481018,
+        "p": 0.0231,
+        "bootstrap_valid": 2000,
+        "p_holm": 0.7623
+      },
+      {
+        "x": "maia2_body_listening",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.0023747945244879656,
+        "ci_low": -0.2984888157665141,
+        "ci_high": 0.29203563994153703,
+        "p": 0.98885,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_body_listening",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.1700032789511496,
+        "ci_low": -0.14128156774986397,
+        "ci_high": 0.4554143501422258,
+        "p": 0.2832,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_body_listening",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.10075808889085107,
+        "ci_low": -0.21717741630866902,
+        "ci_high": 0.43181002159909465,
+        "p": 0.53125,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_body_listening",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.3119766646409404,
+        "ci_low": -0.5447961652121192,
+        "ci_high": -0.017795865093055304,
+        "p": 0.0474,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_trusting",
+        "y": "spfrref_control_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.07132511527571236,
+        "ci_low": -0.3828863675157394,
+        "ci_high": 0.26196787493908574,
+        "p": 0.6576,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_trusting",
+        "y": "spfrref_viscereality_ordinal",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.32191582787785705,
+        "ci_low": 0.004174031535948728,
+        "ci_high": 0.6016999906542762,
+        "p": 0.04255,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_trusting",
+        "y": "spfrref_change_direction",
+        "n": 41,
+        "status": "computed",
+        "rho": 0.3350910942688952,
+        "ci_low": 0.02453280901233913,
+        "ci_high": 0.6056067990618956,
+        "p": 0.03445,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "maia2_trusting",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.025538226974051285,
+        "ci_low": -0.34543775939912325,
+        "ci_high": 0.3148589564322524,
+        "p": 0.8718,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      },
+      {
+        "x": "spfrref_change_direction",
+        "y": "rt_slope_interaction",
+        "n": 41,
+        "status": "computed",
+        "rho": -0.03172693064216887,
+        "ci_low": -0.3458329556251455,
+        "ci_high": 0.2786135224285957,
+        "p": 0.8445,
+        "bootstrap_valid": 2000,
+        "p_holm": 1.0
+      }
+    ],
+    "interscale_descriptive": [
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_not_distracting",
+        "n": 41,
+        "rho": 0.3350584607865885
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_not_worrying",
+        "n": 41,
+        "rho": -0.3595849179091227
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_attention_regulation",
+        "n": 41,
+        "rho": 0.5111236856187455
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_emotional_awareness",
+        "n": 41,
+        "rho": 0.4722158797344475
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_self_regulation",
+        "n": 41,
+        "rho": 0.5551091903899962
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": 0.6098869484229639
+      },
+      {
+        "x": "maia2_noticing",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.44917256241985515
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_not_worrying",
+        "n": 41,
+        "rho": -0.24922972048076775
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_attention_regulation",
+        "n": 41,
+        "rho": 0.3257022110467257
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_emotional_awareness",
+        "n": 41,
+        "rho": 0.14871165556298788
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_self_regulation",
+        "n": 41,
+        "rho": 0.24778995764627276
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": 0.2684174101529952
+      },
+      {
+        "x": "maia2_not_distracting",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.4771348104330517
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "maia2_attention_regulation",
+        "n": 41,
+        "rho": -0.07135644694966824
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "maia2_emotional_awareness",
+        "n": 41,
+        "rho": -0.4410473202060099
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "maia2_self_regulation",
+        "n": 41,
+        "rho": -0.19194726180848753
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": -0.18990910989320736
+      },
+      {
+        "x": "maia2_not_worrying",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": -0.3760762185689337
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "maia2_emotional_awareness",
+        "n": 41,
+        "rho": 0.2299618400555634
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "maia2_self_regulation",
+        "n": 41,
+        "rho": 0.5949747508052824
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": 0.4049717280638128
+      },
+      {
+        "x": "maia2_attention_regulation",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.4356913277643566
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "maia2_self_regulation",
+        "n": 41,
+        "rho": 0.5078025530363822
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": 0.3510802618622768
+      },
+      {
+        "x": "maia2_emotional_awareness",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.23639191550604355
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "maia2_body_listening",
+        "n": 41,
+        "rho": 0.5613044529593013
+      },
+      {
+        "x": "maia2_self_regulation",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.44162937229202875
+      },
+      {
+        "x": "maia2_body_listening",
+        "y": "maia2_trusting",
+        "n": 41,
+        "rho": 0.40125762695655587
+      }
+    ],
+    "resampling": {
+      "seed": 20261116,
+      "bootstrap_draws": 2000,
+      "permutations": 19999,
+      "association_family_size": 33,
+      "adjustment": "Holm across all 33 planned slots; undefined tests retained as p=1 internally",
+      "scope": "Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment."
+    },
+    "limitations": [
+      "Exploratory extension; exact questionnaire wording in the registration could not be retrieved (HTTP 403).",
+      "MAIA-2 measures self-reported interoceptive dimensions, not objective interoceptive accuracy.",
+      "Alpha describes internal consistency under restrictive assumptions; it does not establish unidimensionality or validity. No item deletion or factor-model claim.",
+      "A\u2013H ordering is preserved, but pictogram anchor direction and questionnaire administration timing are absent from the released data.",
+      "No repeated MAIA, perceived-body-boundary or small-self fields are released. Boundary-related correlations remain gated.",
+      "Small sample, multiplicity, ties, unadjusted confounding and uncertain behavioural contrast reliability limit association interpretation."
+    ]
+  },
+  "data_coverage": [
+    {
+      "domain": "Participant roster, demographics and order",
+      "status": "analysed",
+      "output": "Cohort age/gender/handedness/order, availability and participant QC"
     },
     {
-      "field": "spfrref_viscereality_ordinal",
-      "n": 41,
-      "mean": 4.024390243902439,
-      "sd": 1.5081081671758292,
-      "median": 4.0
+      "domain": "Observed/planned trials, responses, missing RT and Catch",
+      "status": "analysed",
+      "output": "Quality denominators, exclusions and missing-RT sensitivities"
     },
     {
-      "field": "spfrref_control_ordinal",
-      "n": 41,
-      "mean": 3.268292682926829,
-      "sd": 1.5972537407046892,
-      "median": 4.0
+      "domain": "Condition \u00d7 Phase \u00d7 SOA reaction times",
+      "status": "analysed",
+      "output": "Mixed/cluster models, participant slopes, repeated measures and time-on-task"
+    },
+    {
+      "domain": "Baseline, distance labels, noise type, order and RT flags",
+      "status": "analysed",
+      "output": "Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities"
+    },
+    {
+      "domain": "37 MAIA-2 items and eight dimensions",
+      "status": "analysed",
+      "output": "Scoring audit, distributions, alpha intervals and all fixed exploratory associations"
+    },
+    {
+      "domain": "Paired spatial-frame ratings",
+      "status": "analysed",
+      "output": "Category distributions/transitions, exact sign test, order counts and rank associations"
+    },
+    {
+      "domain": "Participant PPS boundary and related questionnaire inference",
+      "status": "not_estimable",
+      "output": "Fit gate retained; group approximations remain descriptive"
+    },
+    {
+      "domain": "Repeated MAIA, body-boundary and small-self measures",
+      "status": "unavailable",
+      "output": "No corresponding repeated/measure columns in released tables"
+    },
+    {
+      "domain": "Waveforms, measured breathing and acquisition provenance",
+      "status": "unavailable",
+      "output": "Source recordings and private metadata are outside the release"
     }
   ],
   "unavailable_checks": [

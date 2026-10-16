@@ -40,7 +40,9 @@ inputs. An unsuccessful fit or unavailable source check is never silently replac
 
 `paper_analysis.py` owns the pipeline; `inference.py` implements portable NumPy/SciPy
 statistics; `preparation.py` owns shared schemas, preparation and release checks;
-`publication_report.py` generates result bundles and Matplotlib figures. The
+`publication_report.py` generates result bundles and Matplotlib figures;
+`questionnaires.py` owns MAIA-2 scoring/reliability and ordinal spatial-frame
+analyses. The
 [contract](ANALYSIS_PLAN.md) distinguishes primary questions, sensitivities,
 supplementary analyses and registration ambiguities. It documents fixed nonlinear
 bounds and the unavailable private metadata.
@@ -79,6 +81,7 @@ For independent numerical checks:
 python -m pip install -r workbook/requirements-validation.txt
 python workbook/validate_statistics.py
 python workbook/validate_sigmoids.py
+python workbook/validate_questionnaires.py
 ```
 
 The build exports both application and editor with their local helper modules,
@@ -138,3 +141,10 @@ Do not merge generated site files into `main`.
 After successful deployment, verify both the application and editor at
 `https://georgefejer91.github.io/Study5_Publication/`. A pushed commit or a prepared
 publishing branch is not proof that the website is live.
+
+The [questionnaire review](../literature_review/QUESTIONNAIRES.md) covers all
+37 items/eight dimensions, paired spatial ratings, exact ordinal inference and
+33 fixed exploratory associations with Holm correction. The browser exports the
+complete scoring audit, reliability intervals, transition matrix, associations
+and a coverage table for every released domain. The original registration wording
+and pictogram anchor direction remain unverified; these are explicit limits.

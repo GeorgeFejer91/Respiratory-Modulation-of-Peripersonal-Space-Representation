@@ -12,6 +12,9 @@ merely by producing a smooth S.
 
 ## Read this folder
 
+- [Questionnaires and spatial frame of reference](QUESTIONNAIRES.md): MAIA-2
+  scoring, reliability, ordinal paired analysis, associations, registration
+  crosswalk and coverage of every released data domain.
 - [Evidence table](EVIDENCE_TABLE.md): 16 relevant works, what was actually read,
   the claim each supports, and the limits of transferring it to Study 5.
 - [Analysis rationale](ANALYSIS_RATIONALE.md): estimands, choice-by-choice

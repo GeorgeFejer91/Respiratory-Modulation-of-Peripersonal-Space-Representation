@@ -309,10 +309,34 @@ def _(mo, paper_results):
             "Order-stratified sensitivity":mo.ui.table(paper_results["order_sensitivities"],selection=None),
             "Sigmoid viability and coordinate sensitivity":mo.ui.table(paper_results["sigmoid_summary"],selection=None),
             "Descriptive group sigmoid fits":mo.ui.table(paper_results["group_sigmoid_descriptions"],selection=None),
-            "Boundary/MAIA/SpFrRef inference gate":mo.json(paper_results["boundary_followups"]),
-            "Questionnaire descriptives":mo.ui.table(paper_results["questionnaire_descriptives"],selection=None),
+            "Boundary and boundary-related questionnaire gate":mo.json(paper_results["boundary_followups"]),
             "Missing-hit-RT stress scenarios":mo.json(paper_results["missing_rt_stress"]),
             "Source-dependent checks unavailable from CSVs":mo.md("\n".join("- "+s for s in paper_results["unavailable_checks"])),
+        }),
+    ])
+    return
+
+
+@app.cell
+def _(figure_svg, mo, paper_results):
+    _q=paper_results["questionnaires"]
+    _s=_q["spatial"]
+    mo.vstack([
+        mo.md("## 12 · MAIA-2 and spatial frame of reference\nExploratory analyses of all eight interoceptive dimensions and paired spatial ratings. [Scientific rationale and data coverage](./literature_review/QUESTIONNAIRES.html)."),
+        mo.md(f"**Scoring audit:** {_q['scoring']['matches']} stored subscale scores match recomputation; {_q['scoring']['mismatches']} mismatches. {_q['maia_complete']}/{_q['participants']} participants have complete MAIA-2 data. Missing questionnaires do not change the primary behavioural cohort."),
+        mo.Html(figure_svg(paper_results,"questionnaire_summary")),
+        mo.md(f"**Paired spatial ratings:** Viscereality higher / equal / lower = {_s['higher']} / {_s['ties']} / {_s['lower']}. Exact two-sided sign-test p = {_s['p'] if _s['p'] is not None else 'not estimable'}. Higher means a higher recorded A–H code; the administered anchor key is unavailable."),
+        mo.Html(figure_svg(paper_results,"questionnaire_associations")),
+        mo.callout("These correlations use a raw-RT SOA-slope contrast, not a PPS boundary. All 33 comparisons receive Holm correction. Questionnaire scores describe self-report; they do not measure objective interoceptive accuracy.",kind="info"),
+        mo.accordion({
+            "Eight dimensions and reliability uncertainty":mo.ui.table(_q["scales"],selection=None),
+            "All 33 associations, intervals and adjusted p values":mo.ui.table(_q["associations"],selection=None,page_size=12),
+            "37 item distributions and item–rest diagnostics":mo.ui.table(_q["items"],selection=None,page_size=10),
+            "Spatial comparison, order counts and transition table":mo.json(_s),
+            "Scoring audit":mo.ui.table(_q["scoring_audit"],selection=None,page_size=10),
+            "Descriptive inter-subscale correlations":mo.ui.table(_q["interscale_descriptive"],selection=None),
+            "Resampling and interpretation limits":mo.json({"resampling":_q["resampling"],"limitations":_q["limitations"]}),
+            "Coverage of every released data domain":mo.ui.table(paper_results["data_coverage"],selection=None),
         }),
     ])
     return
@@ -322,7 +346,7 @@ def _(mo, paper_results):
 def _(markdown_report, mo, paper_results, paper_retained, result_bundle, source_bytes):
     analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
     mo.vstack([
-        mo.md("## 12 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, curve/sigmoid/ANOVA tables, all 800 candidate scores, nested prediction, measured-range shape checks, four-curve midpoint/steepness comparisons, publication SVGs, and source/output hashes. All files are generated from this run."),
+        mo.md("## 13 · Export the complete analysis\nSave the full JSON report, model/coefficient tables, participant QC, retained RTs, questionnaire scoring/reliability/associations, spatial transitions and paired comparison, data coverage, curve/sigmoid/ANOVA tables, all 800 candidate scores, nested prediction, publication SVGs, and source/output hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])

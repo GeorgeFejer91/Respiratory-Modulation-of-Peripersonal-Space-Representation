@@ -45,9 +45,11 @@ def promote(path):
             ("sigmoid_extrapolation.svg", "sigmoid_extrapolation", "study5_sigmoid_extrapolation.png"),
             ("pps_shape.svg", "pps_shape", "study5_pps_shape.png"),
             ("sigmoid_geometry.svg", "sigmoid_geometry", "study5_sigmoid_geometry.png"),
+            ("questionnaire_summary.svg", "questionnaire_summary", "study5_questionnaires.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
+        (ROOT / "figures/questionnaire_associations.svg").write_bytes(archive.read("questionnaire_associations.svg"))
     write_text(report)
     print("Promoted verified browser report, tables, figures and manuscript statistics.")
 
@@ -93,6 +95,43 @@ A separate unsmoothed participant-level test projected each five-position curve 
 \caption{{\textbf{{Fitted shape separated from empirical support.}} The vertical axis normalizes each fitted asymptotic RT change to 0--1. Colored lines show the imposed-shape family; dashed gray lines retain the original best-score family. This diagnostic displays model geometry only, without observations or empirical uncertainty on this scale. It shows why the original curves did not display both plateaus within the measured range, and how explicit constraints produce an S shape. It is not additional evidence for that shape in the measurements.}}
 \label{{study5:fig:sigmoid_geometry}}
 \end{{figure}}
+"""
+
+
+def questionnaire_results(q):
+    s=q["spatial"]
+    rows="\n".join(f"{r['label']} & {r['mean']:.2f} & {r['sd']:.2f} & {r['alpha']:.3f} & [{r['alpha_ci_low']:.3f}, {r['alpha_ci_high']:.3f}] \\\\" for r in q["scales"])
+    minimum=min(r["p_holm"] for r in q["associations"] if r["p_holm"] is not None)
+    rho=[r["rho"] for r in q["associations"] if r["rho"] is not None]
+    order="; ".join(f"{r['condition_order']}: {r['higher']}/{r['ties']}/{r['lower']}" for r in s["order_counts"])
+    return rf"""\subsection{{MAIA-2 and spatial frame of reference}}
+
+This post hoc extension analysed {q['maia_complete']} complete MAIA-2 records and {s['n_pairs']} complete spatial-frame pairs. All {q['scoring']['matches']} stored MAIA-2 subscale scores matched independent recomputation from the 37 items, including reverse scoring; there were {q['scoring']['mismatches']} mismatches. The participant with missing questionnaires remained in the behavioural cohort. Table~\ref{{study5:tab:maia}} reports all eight dimensions and internal-consistency uncertainty. These are self-reported interoceptive dimensions, not objective interoceptive accuracy. The lower alpha estimates for Noticing and Emotional Awareness warrant caution; no items were removed to improve reliability.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lrrrr}}
+\hline
+Dimension & Mean & SD & Alpha & 95\% alpha interval \\
+\hline
+{rows}
+\hline
+\end{{tabular}}
+\caption{{MAIA-2 subscale scores (0--5), each with $n={q['maia_complete']}$. Intervals are pointwise percentile intervals from 2,000 participant-bootstrap draws. Alpha is a sample internal-consistency diagnostic, not a test of dimensionality or validity.}}
+\label{{study5:tab:maia}}
+\end{{table}}
+
+Viscereality spatial-frame ratings were higher than Control for {s['higher']} participants, lower for {s['lower']}, and tied for {s['ties']} (Fig.~\ref{{study5:fig:questionnaires}}). The two-sided exact sign test gave $p={s['p']:.5f}$. Among the {s['non_ties']} non-ties, the higher-rating proportion was {s['higher_fraction_non_ties']:.3f}, exact 95\% CI $[{s['higher_fraction_ci_low']:.3f}, {s['higher_fraction_ci_high']:.3f}]$. Paired dominance across all {s['n_pairs']} pairs was {s['paired_dominance']:.3f}, percentile 95\% CI $[{s['dominance_ci_low']:.3f}, {s['dominance_ci_high']:.3f}]$. Both condition medians were category D. Higher/equal/lower counts by condition order were {order}. These descriptive order counts do not rule out period or carryover effects. The administered pictogram key is absent from the release, so a higher A--H code is not assigned an allocentric or egocentric interpretation. This exploratory ordinal difference does not establish a PPS-boundary change or its mechanism.
+
+All 33 fixed rank associations were estimated from 41 complete participant pairs each. Spearman coefficients ranged from {min(rho):.3f} to {max(rho):.3f}; none survived Holm correction (minimum adjusted $p={minimum:.3f}$). The companion exports every coefficient, paired-person bootstrap interval, permutation $p$ value and adjusted $p$ value. The behavioural correlate was the raw-RT Condition $\times$ Phase SOA-slope interaction; it was not an individual sigmoid midpoint or width. Small sample size, ties, uncertain measurement reliability and unadjusted confounding limit inference, and non-significance does not establish independence. Boundary-related questionnaire associations remained unestimated under the original fit gate.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_questionnaires.png}}
+\caption{{\textbf{{Questionnaire coverage and paired spatial ratings.}} Left: individual recomputed MAIA-2 subscale scores, means and pointwise 95\% participant-bootstrap intervals. Right: counts for all Control/Viscereality category pairs; vertical position above the matching-category diagonal indicates a higher Viscereality code. All 41 paired records are represented. A--H preserve the recorded ordering without assuming equal psychological distances or a verified anchor direction.}}
+\label{{study5:fig:questionnaires}}
+\end{{figure}}
+
 """
 
 
@@ -220,10 +259,13 @@ Pink-minus-white Audio--Tactile RT was {supp[9]['estimate']:.2f}~ms, 95\% CI ${i
 
 \subsection{{Reproducibility and evidence limits}}
 
-All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python {r['runtime']['python']}, NumPy {r['runtime']['numpy']}, SciPy {r['runtime']['scipy']}, and Matplotlib {r['runtime']['matplotlib']}. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. A failed or unavailable check is distinguished from a computed null result.
+All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python {r['runtime']['python']}, NumPy {r['runtime']['numpy']}, SciPy {r['runtime']['scipy']}, and Matplotlib {r['runtime']['matplotlib']}. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, rank correlations, and Holm adjustment. Every questionnaire result was also compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
 
 The released CSVs do not contain waveforms, belt recordings, acquisition-version labels, collection dates, or the private provenance needed to identify two historically documented RT-onset variants. The browser analysis therefore does not rerun waveform timing, measured respiratory compliance, pilot-date classification, version-specific contrasts, or that source-definition exclusion. Historical source audits remain historical evidence, rather than new 42-person verification.
 """
+    q=r["questionnaires"];s=q["spatial"]
+    abstract=abstract.replace("The full data-supported pipeline", f"An exploratory paired ordinal comparison in {s['n_pairs']} participants found higher spatial-frame codes under Viscereality (exact sign-test $p={s['p']:.4f}$); none of 33 questionnaire associations survived multiplicity correction. The full data-supported pipeline")
+    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+"\\subsection{Reproducibility and evidence limits}")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)
 

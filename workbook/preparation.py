@@ -86,10 +86,31 @@ def validate_public_rows(people, trials):
             raise ValueError("A source identifier or private acquisition path was found.")
 
 
+def validate_questionnaire_rows(people):
+    """Check numeric instrument ranges and agreement of the two ordinal encodings."""
+    for row in people:
+        for key, text in row.items():
+            if key.startswith("maia2_") and text != "":
+                try:
+                    value = float(text)
+                except (ValueError, TypeError) as error:
+                    raise ValueError("MAIA responses/scores must be numeric or blank.") from error
+                if not math.isfinite(value) or not 0 <= value <= 5 or ("item_" in key and not value.is_integer()):
+                    raise ValueError("MAIA items must be integers 0–5; subscale scores must be within 0–5.")
+        for condition in ("control", "viscereality"):
+            letter = row.get("spfrref_"+condition, "")
+            code = row.get("spfrref_"+condition+"_ordinal", "")
+            if letter == "" and code == "":
+                continue
+            if letter not in tuple("ABCDEFGH") or code not in tuple(str(i) for i in range(1, 9)) or ord(letter)-64 != int(code):
+                raise ValueError("Spatial-frame letters A–H must agree with ordinal codes 1–8; missing pairs must be blank.")
+
+
 def load_pair(participant_bytes, trial_bytes):
     people = decode_csv(participant_bytes, PARTICIPANT_COLUMNS)
     trials = decode_csv(trial_bytes, TRIAL_COLUMNS)
     validate_public_rows(people, trials)
+    validate_questionnaire_rows(people)
     for row in trials:
         for flag in ("response_given", "rt_valid_100_2000", "rt_valid_200_2000"):
             if row[flag] not in ("True", "False"):

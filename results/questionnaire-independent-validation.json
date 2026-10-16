@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "browser_execution": "browser Pyodide",
+  "max_alpha_covariance_identity_error": 2.220446049250313e-16,
+  "statsmodels_sign_test_error": 0.0,
+  "statsmodels_exact_proportion_interval_error": 5.839773109528323e-14,
+  "max_scipy_spearman_error": 5.551115123125783e-17,
+  "statsmodels_holm_error": 0.0,
+  "associations_checked": 33,
+  "scope": "Covariance alpha identity; independent statsmodels sign test, beta interval and Holm; SciPy rank correlations. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. These checks do not validate the administered anchor key or preregistration wording."
+}

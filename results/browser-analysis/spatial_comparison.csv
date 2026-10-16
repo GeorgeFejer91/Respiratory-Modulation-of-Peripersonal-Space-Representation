@@ -1,0 +1,2 @@
+status,n_pairs,missing_pairs,higher,lower,ties,non_ties,p,higher_fraction_non_ties,higher_fraction_ci_low,higher_fraction_ci_high,paired_dominance,dominance_ci_low,dominance_ci_high,method,interpretation
+computed,41,1,22,6,13,28,0.0037191659212112427,0.7857142857142857,0.5904689734941716,0.9170393876124199,0.3902439024390244,0.17073170731707318,0.6097560975609756,"two-sided exact sign test, ties excluded from binomial denominator",Higher means a higher A–H code; administered pictogram anchors are unavailable.

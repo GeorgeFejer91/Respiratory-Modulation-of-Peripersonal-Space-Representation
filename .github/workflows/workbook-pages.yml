@@ -10,6 +10,7 @@ on:
       - manuscript/**
       - literature_review/**
       - analysis/sigmoid_literature_sources.json
+      - analysis/questionnaire_literature_sources.json
       - .github/workflows/workbook-pages.yml
   workflow_dispatch:
 
@@ -56,6 +57,10 @@ jobs:
           assert all(m["status"] == "computed" for m in report["mixed_models"])
           assert report["sigmoid_summary"][0]["r2_pass_cells"] == 0
           assert report["boundary_followups"]["status"] == "not_estimable"
+          assert report["questionnaires"]["scoring"]["matches"] == 328
+          assert report["questionnaires"]["scoring"]["mismatches"] == 0
+          assert len(report["questionnaires"]["associations"]) == 33
+          assert report["questionnaires"]["spatial"]["n_pairs"] == 41
           assert report["descriptive_sigmoids"]["candidate_count"] == 320
           assert len(report["descriptive_sigmoids"]["parameters"]) == 4
           assert all(not r["flat_unidentified"] for r in report["descriptive_sigmoids"]["parameters"])
@@ -69,6 +74,7 @@ jobs:
         run: |
           python workbook/validate_statistics.py
           python workbook/validate_sigmoids.py
+          python workbook/validate_questionnaires.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload audited publication companion

@@ -34,6 +34,14 @@ means a traceable rationale and calibrated claims, not a guaranteed sigmoid or a
 retrospective claim of preregistration. Link the review from the browser companion
 and reconcile its conclusions with the manuscript.
 
+The current coverage goal is to analyse every released data domain, including
+all 37 MAIA-2 items, the eight scored dimensions, and paired spatial-frame-of-
+reference ratings. Audit scoring against the instrument, report missingness and
+uncertainty, and connect questionnaire measures to supported behavioural summaries.
+Maintain a domain coverage table and a questionnaire literature review. New
+questionnaire analyses are exploratory; they cannot revive failed participant
+boundary estimates or substitute for measures absent from the release.
+
 ## Non-goals
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings

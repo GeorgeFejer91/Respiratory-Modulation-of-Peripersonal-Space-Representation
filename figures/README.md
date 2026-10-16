@@ -1,6 +1,6 @@
 # Reproducible result figures
 
-The six SVGs come directly from the archived browser run in
+The eight SVGs come directly from the archived browser run in
 `../results/browser-analysis/browser-results.zip`. The two mean plots show
 equal-participant means with pointwise 95% t intervals. Same-label AT-minus-Baseline curves are
 descriptive and do not establish matched cue times. Lines connect means; no
@@ -23,3 +23,10 @@ figures and their manuscript placement were visually inspected.
 `../analysis/prepare_publication.py` promotes the SVGs and renders the same report
 values into the PNGs used by the Overleaf draft. Earlier 40-person figures are
 preserved with the historical writing archive.
+
+`questionnaire_summary.svg` shows individual/mean MAIA-2 scores with participant-
+bootstrap intervals and the complete paired spatial transition matrix.
+`questionnaire_associations.svg` shows all 32 MAIA-to-outcome rank coefficients;
+the 33rd spatial-change/behaviour coefficient is printed below. Corrected p values
+and pointwise intervals are in the download. Neither plot converts recorded
+spatial codes to an unverified psychological anchor direction.

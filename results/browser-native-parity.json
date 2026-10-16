@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "15d42f9696109557643d52355c0b703a3ac81da47d90c5bb8ba3ada34dc38a99",
+  "browser_zip_sha256": "8f421af14b62f7b3110378d423be26b136aa915184593edd062ac91d67d25f61",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -146,5 +146,10 @@
     "tied_candidate_lists_reordered": 7,
     "scope": "Every descriptive and PPS-shape result value, including all 800 candidates, nested inner scores, intervals and bands. Candidate records matched by unique method; any ranking change must be a score tie within 1e-8. Selected method labels must match exactly."
   },
-  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive value within 1e-8; legacy nonlinear-bound diagnostics may differ"
+  "questionnaires": {
+    "numeric_values_compared": 2328,
+    "max_absolute_numeric_error": 2.220446049250313e-16,
+    "scope": "All item/scoring/reliability, paired ordinal, 33 association and bootstrap values, labels and coverage statuses."
+  },
+  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire value within 1e-8; legacy nonlinear-bound diagnostics may differ"
 }

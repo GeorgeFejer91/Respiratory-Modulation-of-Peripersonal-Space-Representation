@@ -60,7 +60,12 @@ def compare(native_path, browser_directory):
         "numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors),
         "tied_candidate_lists_reordered":len(tied_order_lists),
         "scope":"Every descriptive and PPS-shape result value, including all 800 candidates, nested inner scores, intervals and bands. Candidate records matched by unique method; any ranking change must be a score tie within 1e-8. Selected method labels must match exactly."}
-    out["status"]="passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive value within 1e-8; legacy nonlinear-bound diagnostics may differ"
+    numeric_errors.clear()
+    walk(n["questionnaires"],b["questionnaires"])
+    walk(n["data_coverage"],b["data_coverage"])
+    out["questionnaires"]={"numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors,default=0.),
+        "scope":"All item/scoring/reliability, paired ordinal, 33 association and bootstrap values, labels and coverage statuses."}
+    out["status"]="passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire value within 1e-8; legacy nonlinear-bound diagnostics may differ"
     return out
 
 

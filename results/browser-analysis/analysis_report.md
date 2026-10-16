@@ -33,7 +33,7 @@ The Condition × Phase × numeric SOA random-intercept ML comparison gives χ²(
 
 ## Sigmoid viability
 
-0/168 registered-axis trial cells satisfy R²≥.70. The maximum saturated five-SOA trial-level R² ceiling is 0.430205. Any deterministic curve depending only on these SOAs is bounded by this ceiling, independently of sigmoid parameter bounds. Boundary/MAIA/SpFrRef inference remains gated when participant fits are not interpretable. Group and five-mean fits are descriptive.
+0/168 registered-axis trial cells satisfy R²≥.70. The maximum saturated five-SOA trial-level R² ceiling is 0.430205. Any deterministic curve depending only on these SOAs is bounded by this ceiling, independently of sigmoid parameter bounds. Boundary inference and its MAIA/SpFrRef associations remain gated when participant fits are not interpretable. Group and five-mean fits are descriptive.
 
 ## Supplementary participant contrasts
 
@@ -85,6 +85,48 @@ Six outer participant folds; five inner participant folds crossed with omitted p
 Shape-constrained curves satisfy the geometry by construction when nonflat. Their existence is not evidence that the measurements contain an S-shaped transition. Intervals condition on the selected pipeline and shape constraints. Neither smoothing nor display interpolation adds independent observed positions.
 
 The four imposed-shape midpoint/width estimates, constraint hits and conditional intervals are exported separately. Raw-mean curvature tests assess any nonlinearity, not sigmoid shape; see their exported statistics and assumptions. Evaluate empirical support separately from the imposed geometry.
+
+## MAIA-2 and spatial frame of reference: exploratory
+
+41/42 participants have all 37 MAIA-2 items. All eight dimensions were recomputed: 328 stored scores matched; 0 mismatched. Subscale means require all constituent items. Blank responses remain missing; no MAIA total was formed.
+
+| MAIA-2 dimension | n | Mean | SD | Alpha | Pointwise 95% alpha interval |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Noticing | 41 | 3.24 | 0.66 | 0.57 | [0.19, 0.74] |
+| Not Distracting | 41 | 2.24 | 0.85 | 0.84 | [0.72, 0.91] |
+| Not Worrying | 41 | 2.29 | 0.82 | 0.70 | [0.51, 0.81] |
+| Attention Regulation | 41 | 2.96 | 0.67 | 0.78 | [0.65, 0.86] |
+| Emotional Awareness | 41 | 3.47 | 0.70 | 0.59 | [0.31, 0.74] |
+| Self Regulation | 41 | 2.85 | 0.86 | 0.81 | [0.69, 0.89] |
+| Body Listening | 41 | 2.80 | 0.92 | 0.78 | [0.60, 0.87] |
+| Trusting | 41 | 3.59 | 0.98 | 0.86 | [0.78, 0.91] |
+
+Alpha is a sample internal-consistency diagnostic, not evidence of validity or a basis for deleting items.
+
+Spatial-frame paired ratings: n=41; Viscereality higher=22, lower=6, tied=13. Two-sided exact sign-test p=0.0037191659212112427; ties are excluded only from the binomial denominator. Higher fraction among non-ties=0.79, exact 95% CI [0.59, 0.92]. This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.
+
+All 33 fixed associations are exported with Spearman rho, paired-person bootstrap intervals, permutation p and Holm p. 0/33 have Holm p<.05. The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment.
+
+- Exploratory extension; exact questionnaire wording in the registration could not be retrieved (HTTP 403).
+- MAIA-2 measures self-reported interoceptive dimensions, not objective interoceptive accuracy.
+- Alpha describes internal consistency under restrictive assumptions; it does not establish unidimensionality or validity. No item deletion or factor-model claim.
+- A–H ordering is preserved, but pictogram anchor direction and questionnaire administration timing are absent from the released data.
+- No repeated MAIA, perceived-body-boundary or small-self fields are released. Boundary-related correlations remain gated.
+- Small sample, multiplicity, ties, unadjusted confounding and uncertain behavioural contrast reliability limit association interpretation.
+
+## Coverage of released data
+
+| Domain | Status | Output |
+| --- | --- | --- |
+| Participant roster, demographics and order | analysed | Cohort age/gender/handedness/order, availability and participant QC |
+| Observed/planned trials, responses, missing RT and Catch | analysed | Quality denominators, exclusions and missing-RT sensitivities |
+| Condition × Phase × SOA reaction times | analysed | Mixed/cluster models, participant slopes, repeated measures and time-on-task |
+| Baseline, distance labels, noise type, order and RT flags | analysed | Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities |
+| 37 MAIA-2 items and eight dimensions | analysed | Scoring audit, distributions, alpha intervals and all fixed exploratory associations |
+| Paired spatial-frame ratings | analysed | Category distributions/transitions, exact sign test, order counts and rank associations |
+| Participant PPS boundary and related questionnaire inference | not_estimable | Fit gate retained; group approximations remain descriptive |
+| Repeated MAIA, body-boundary and small-self measures | unavailable | No corresponding repeated/measure columns in released tables |
+| Waveforms, measured breathing and acquisition provenance | unavailable | Source recordings and private metadata are outside the release |
 
 ## Interpretation and unavailable provenance
 

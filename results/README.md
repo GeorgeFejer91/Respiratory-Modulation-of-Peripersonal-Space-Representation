@@ -29,3 +29,12 @@ selected methods must match exactly and any ranking changes must be score ties.
 Regenerate only from an actual browser download using
 `analysis/prepare_publication.py`; follow `workbook/README.md` for PDF preparation.
 Do not manufacture estimates for unavailable provenance or gated boundary outcomes.
+
+Questionnaire outputs include all 37 item distributions, eight independently
+recomputed MAIA-2 scores/reliability intervals, all 64 spatial transitions and the
+exact paired sign comparison, 33 rank associations with permutation/Holm inference,
+28 descriptive inter-scale correlations and a domain coverage table. The browser
+uses 2,000 bootstrap draws and 19,999 permutations per association.
+`questionnaire-independent-validation.json` records independent covariance-alpha,
+exact ordinal, rank-correlation and multiplicity references. Cross-runtime parity
+compares every questionnaire value and status at tolerance 1e-8.

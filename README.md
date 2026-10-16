@@ -7,7 +7,8 @@ The companion runs the full data-supported analysis in your browser: input check
 RT preparation, mixed models, sensitivity analyses, participant contrasts,
 repeated-measures ANOVA, an 800-pipeline sigmoid/linear shape comparison, nested
 participant prediction, 1,000 bootstrap resamples per selected sigmoid family,
-diagnostics, visually inspected figures, and downloadable results.
+MAIA-2 scoring/reliability, paired spatial-frame ratings, 33 corrected rank
+associations, diagnostics, visually inspected figures, and downloadable results.
 The Python editor also runs in the browser. No processing server or API key is needed.
 
 The data contain **42 independent participants and 17,114 observed trials**.
@@ -31,10 +32,14 @@ The refreshed paper is an **analysis draft for author review**, not a submitted
 publication. The active goal is a visible, data-supported PPS-like transition in
 all four conditions. Four explicitly constrained S-shaped approximations have
 midpoint and steepness estimates, but their active constraints and weak predictive
-support leave the scientific goal unresolved. Participant boundary/questionnaire follow-ups remain not estimable when
+support leave the scientific goal unresolved. Participant boundaries and their questionnaire associations remain not estimable when
 the sigmoid gate fails. Waveform timing, belt compliance and private provenance
 cannot be reconstructed from the public CSVs. Collection/stopping history,
 registration interpretations and ethics-statement details need author review.
+
+The coverage goal now includes every released data domain. See the
+[questionnaire and spatial-frame review](literature_review/QUESTIONNAIRES.md)
+for the scoring evidence, registration crosswalk, results and availability limits.
 
 For deployment instructions and how Codex connects to marimo, see
 [the workbook guide](workbook/README.md). The intended Pages address is

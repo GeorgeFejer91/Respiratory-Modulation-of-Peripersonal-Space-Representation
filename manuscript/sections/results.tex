@@ -130,8 +130,43 @@ Pink-minus-white Audio--Tactile RT was -2.86~ms, 95\% CI $[-9.30, 3.58]$. Among 
 \label{study5:fig:delay_matched_facilitation}
 \end{figure}
 
+\subsection{MAIA-2 and spatial frame of reference}
+
+This post hoc extension analysed 41 complete MAIA-2 records and 41 complete spatial-frame pairs. All 328 stored MAIA-2 subscale scores matched independent recomputation from the 37 items, including reverse scoring; there were 0 mismatches. The participant with missing questionnaires remained in the behavioural cohort. Table~\ref{study5:tab:maia} reports all eight dimensions and internal-consistency uncertainty. These are self-reported interoceptive dimensions, not objective interoceptive accuracy. The lower alpha estimates for Noticing and Emotional Awareness warrant caution; no items were removed to improve reliability.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\hline
+Dimension & Mean & SD & Alpha & 95\% alpha interval \\
+\hline
+Noticing & 3.24 & 0.66 & 0.565 & [0.188, 0.740] \\
+Not Distracting & 2.24 & 0.85 & 0.842 & [0.725, 0.906] \\
+Not Worrying & 2.29 & 0.82 & 0.704 & [0.511, 0.808] \\
+Attention Regulation & 2.96 & 0.67 & 0.784 & [0.648, 0.858] \\
+Emotional Awareness & 3.47 & 0.70 & 0.589 & [0.314, 0.740] \\
+Self Regulation & 2.85 & 0.86 & 0.814 & [0.690, 0.885] \\
+Body Listening & 2.80 & 0.92 & 0.777 & [0.602, 0.867] \\
+Trusting & 3.59 & 0.98 & 0.861 & [0.777, 0.909] \\
+\hline
+\end{tabular}
+\caption{MAIA-2 subscale scores (0--5), each with $n=41$. Intervals are pointwise percentile intervals from 2,000 participant-bootstrap draws. Alpha is a sample internal-consistency diagnostic, not a test of dimensionality or validity.}
+\label{study5:tab:maia}
+\end{table}
+
+Viscereality spatial-frame ratings were higher than Control for 22 participants, lower for 6, and tied for 13 (Fig.~\ref{study5:fig:questionnaires}). The two-sided exact sign test gave $p=0.00372$. Among the 28 non-ties, the higher-rating proportion was 0.786, exact 95\% CI $[0.590, 0.917]$. Paired dominance across all 41 pairs was 0.390, percentile 95\% CI $[0.171, 0.610]$. Both condition medians were category D. Higher/equal/lower counts by condition order were Control-Viscereality: 13/6/2; Viscereality-Control: 9/7/4. These descriptive order counts do not rule out period or carryover effects. The administered pictogram key is absent from the release, so a higher A--H code is not assigned an allocentric or egocentric interpretation. This exploratory ordinal difference does not establish a PPS-boundary change or its mechanism.
+
+All 33 fixed rank associations were estimated from 41 complete participant pairs each. Spearman coefficients ranged from -0.357 to 0.335; none survived Holm correction (minimum adjusted $p=0.762$). The companion exports every coefficient, paired-person bootstrap interval, permutation $p$ value and adjusted $p$ value. The behavioural correlate was the raw-RT Condition $\times$ Phase SOA-slope interaction; it was not an individual sigmoid midpoint or width. Small sample size, ties, uncertain measurement reliability and unadjusted confounding limit inference, and non-significance does not establish independence. Boundary-related questionnaire associations remained unestimated under the original fit gate.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{study5_questionnaires.png}
+\caption{\textbf{Questionnaire coverage and paired spatial ratings.} Left: individual recomputed MAIA-2 subscale scores, means and pointwise 95\% participant-bootstrap intervals. Right: counts for all Control/Viscereality category pairs; vertical position above the matching-category diagonal indicates a higher Viscereality code. All 41 paired records are represented. A--H preserve the recorded ordering without assuming equal psychological distances or a verified anchor direction.}
+\label{study5:fig:questionnaires}
+\end{figure}
+
 \subsection{Reproducibility and evidence limits}
 
-All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. A failed or unavailable check is distinguished from a computed null result.
+All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, rank correlations, and Holm adjustment. Every questionnaire result was also compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
 
 The released CSVs do not contain waveforms, belt recordings, acquisition-version labels, collection dates, or the private provenance needed to identify two historically documented RT-onset variants. The browser analysis therefore does not rerun waveform timing, measured respiratory compliance, pilot-date classification, version-specific contrasts, or that source-definition exclusion. Historical source audits remain historical evidence, rather than new 42-person verification.
