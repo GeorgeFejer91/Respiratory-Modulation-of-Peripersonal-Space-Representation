@@ -228,11 +228,14 @@ def _():
 
 
 @app.cell
-def _(analyze, mo, people, run_analysis, trials):
+def _(analyze, mo, people, result_bundle, run_analysis, source_bytes, trials):
     mo.stop(not run_analysis.value, mo.md("Choose **Run complete paper analysis** to calculate the publication results."))
     with mo.status.spinner(title="Computing the complete behavioral analysis in Python…") as _spinner:
         paper_results, paper_retained = analyze(people, trials, progress=lambda _text: _spinner.update(title=_text))
-    return paper_results, paper_retained
+        _spinner.update(title="Building figures and the complete curve atlas…")
+        # Finish the expensive PDF export before result tables issue browser RPCs.
+        analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
+    return analysis_manifest, analysis_zip, paper_results, paper_retained
 
 
 @app.cell
@@ -389,14 +392,13 @@ def _(curve_bytes, mo, paper_results, participant_view):
 
 
 @app.cell
-def _(markdown_report, mo, paper_results, paper_retained, result_bundle, source_bytes):
-    analysis_zip, analysis_manifest = result_bundle(paper_results,paper_retained,source_bytes)
+def _(analysis_manifest, analysis_zip, markdown_report, mo, paper_results):
     mo.vstack([
         mo.md("## 14 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
         mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])
-    return analysis_manifest, analysis_zip
+    return
 
 
 if __name__ == "__main__":

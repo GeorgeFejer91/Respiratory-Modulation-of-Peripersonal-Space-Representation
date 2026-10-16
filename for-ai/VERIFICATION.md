@@ -38,7 +38,9 @@ in it. A build checks allowlisted CSVs and preprint/reference provenance.
 Exercise the export over HTTP in a modern browser: published data load, full
 analysis, preview-filter independence, complete download, editable view, valid
 uploads, malformed input and partial-upload rejection. Inspect results, manifests
-and figures. A native run or export alone cannot establish browser execution.
+and figures. Check for browser RPC timeout notifications after a full run and
+result-table/participant-selector interactions; PDF atlas generation must finish
+before new result tables mount and request data. A native run or export alone cannot establish browser execution.
 
 ## Numerical and manuscript checks
 
