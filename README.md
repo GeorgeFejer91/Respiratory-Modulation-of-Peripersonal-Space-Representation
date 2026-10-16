@@ -48,10 +48,10 @@ The coverage goal now includes every released data domain. See the
 [questionnaire and spatial-frame review](literature_review/QUESTIONNAIRES.md)
 for the scoring evidence, registration crosswalk, results and availability limits.
 
+Open the [live publication companion](https://georgefejer91.github.io/Study5_Publication/)
+or the [editable browser workbook](https://georgefejer91.github.io/Study5_Publication/editor/).
 For deployment instructions and how Codex connects to marimo, see
-[the workbook guide](workbook/README.md). The intended Pages address is
-`https://georgefejer91.github.io/Study5_Publication/`; a successful deployment must
-be verified before describing it as live. The owner authorised public repository
+[the workbook guide](workbook/README.md). The owner authorised public repository
 visibility on 2026-10-16; private backups, identity records and raw recordings
 remain outside this repository.
 

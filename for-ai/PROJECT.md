@@ -9,6 +9,11 @@ Maintain a self-contained Overleaf draft reconciled to an actual 42-record brows
 run. The project owner authorised public release of the deidentified data and
 confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
 
+The published [application](https://georgefejer91.github.io/Study5_Publication/)
+and [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
+are deployed through the GitHub Actions Pages workflow. Verify deployment and
+browser execution after changes; a source push alone does not establish either.
+
 The active goal is to extend the analysis to four sigmoid transitions
 characteristic of peripersonal-space experiments (Control/Viscereality ×
 Exhale/Inhale): visible lower and upper bends within the sampled range, an
