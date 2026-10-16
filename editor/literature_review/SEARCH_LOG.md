@@ -85,3 +85,13 @@ methods from inaccessible papers are deliberately not inferred from abstracts.
 Any future results should be deduplicated by DOI/PMID and checked against the
 original paper before changing the review. Positive results alone should not
 define the inclusion criteria.
+
+## Questionnaire extension, 16 October 2026
+
+A second focused search covers MAIA-2 scoring, sample reliability, spatial frames
+and association methods. See [the questionnaire review](QUESTIONNAIRES.md) and
+[its complete retrieval ledger](../analysis/questionnaire_literature_sources.json):
+six peer-reviewed works (one full article, five indexed abstracts), with all
+22 retrieval/local-reference records, refinement queries and access failures.
+The registration endpoint returned HTTP 403; the repository account was not
+misrepresented as an inspected original registration.

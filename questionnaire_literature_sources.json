@@ -1,0 +1,259 @@
+{
+  "review_date": "2026-10-16",
+  "scope": "Post hoc questionnaire/spatial-frame rationale",
+  "providers": {
+    "Consensus": "unavailable; not used",
+    "general_web_search_connector": "unavailable; not used",
+    "retrieval": "public HTTPS through managed proxy; no challenge bypass"
+  },
+  "included_works": [
+    {
+      "id": "Q1",
+      "title": "The Multidimensional Assessment of Interoceptive Awareness, Version 2 (MAIA-2)",
+      "year": 2018,
+      "doi": "10.1371/journal.pone.0208034",
+      "pmid": "30513087",
+      "access": "full article",
+      "supports": "Eight final subscales and item map; reversal direction; sample reliability",
+      "limits": "No new pooled score or small-sample factor validation; supplement inaccessible"
+    },
+    {
+      "id": "Q2",
+      "title": "The Multidimensional Assessment of Interoceptive Awareness (MAIA)",
+      "year": 2012,
+      "doi": "10.1371/journal.pone.0048230",
+      "pmid": "23133619",
+      "access": "indexed abstract",
+      "supports": "Original instrument is multidimensional",
+      "limits": "32-item original; use 37-item MAIA-2 map here"
+    },
+    {
+      "id": "Q3",
+      "title": "Validation of the Multidimensional Assessment of Interoceptive Awareness (MAIA-2) questionnaire in hospitalized patients with major depressive disorder",
+      "year": 2021,
+      "doi": "10.1371/journal.pone.0253913",
+      "pmid": "34170963",
+      "access": "indexed abstract",
+      "supports": "Reliability differs across dimensions/occasions; alpha/omega and change are distinct",
+      "limits": "Clinical sample and pre/post design do not justify clinical thresholds here"
+    },
+    {
+      "id": "Q4",
+      "title": "Effects of Mindfulness Meditation on Self-Transcendent States: Perceived Body Boundaries and Spatial Frames of Reference",
+      "year": 2020,
+      "doi": "10.1007/s12671-020-01330-9",
+      "pmid": "33747250",
+      "access": "indexed abstract",
+      "supports": "Spatial frame is a relevant experiential outcome",
+      "limits": "Does not verify Study 5 anchors or justify copying repeated-session mediation"
+    },
+    {
+      "id": "Q5",
+      "title": "Knowing your own heart: distinguishing interoceptive accuracy from interoceptive awareness",
+      "year": 2015,
+      "doi": "10.1016/j.biopsycho.2014.11.004",
+      "pmid": "25451381",
+      "access": "indexed abstract",
+      "supports": "Sensibility, accuracy and metacognitive awareness are distinct",
+      "limits": "No objective interoception task in released tables"
+    },
+    {
+      "id": "Q6",
+      "title": "Thanks coefficient alpha, we'll take it from here",
+      "year": 2018,
+      "doi": "10.1037/met0000144",
+      "pmid": "28557467",
+      "access": "indexed abstract",
+      "supports": "Alpha assumptions and model-based alternatives",
+      "limits": "Do not equate alpha with validity; omega not estimated"
+    }
+  ],
+  "access_records": [
+    {
+      "id": "prereg",
+      "url": "https://aspredicted.org/az9f89.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "ucsf",
+      "url": "https://osher.ucsf.edu/research/maia",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "maia2",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Mehling%20MAIA-2%202018&format=pubmed",
+      "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=Mehling%20MAIA-2%202018&format=pubmed",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10956,
+      "sha256": "6ea6897fa3674b8dfa150962e052de19f6b65ca96601d56af9a7cc2ec57f8410",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "maia_validation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=MAIA-2%20validation%20psychometric%20subscales&format=pubmed",
+      "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=MAIA-2%20validation%20psychometric%20subscales&format=pubmed",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21663,
+      "sha256": "e9d7a4e05c8ea3b4538717db5aebe05c4634eeaddf6d23a5630b2786623f270b",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "spatial",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=spatial%20frame%20of%20reference%20bodily%20self%20consciousness%20questionnaire&format=pubmed",
+      "error": "HTTP Error 404: Not Found",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "maia2_full",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6279042/",
+      "status": 200,
+      "bytes": 218824,
+      "sha256": "762a81f6cdd1fc0ed9fb246a8f11c1af42fe78b36ed4ef9fca43a4cf267611df",
+      "access_date": "2026-10-16",
+      "access": "full article HTML; methods, final item map, results and limitations inspected"
+    },
+    {
+      "id": "maia_original",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=The%20Multidimensional%20Assessment%20of%20Interoceptive%20Awareness%20Mehling%202012&format=pubmed",
+      "status": 200,
+      "bytes": 24554,
+      "sha256": "d15c9c5784b84f87d7890f45902666520527b576a112f7aef1dbb55997c59008",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "garfinkel",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Knowing%20your%20own%20heart%20distinguishing%20interoceptive%20accuracy%20awareness&format=pubmed",
+      "status": 200,
+      "bytes": 11996,
+      "sha256": "ced930b9511ea328d3b8ccb6ad1534f17f8dfeabf1dd076ef5867529cb443d9b",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "hanley",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Hanley%20spatial%20frames%20reference%20body%20boundaries%202020&format=pubmed",
+      "status": 200,
+      "bytes": 11850,
+      "sha256": "34902026b8d9916b45f847ae19b653a7ca120422ee4e5d057cd29b4c4f15fbb4",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "maia_validation_refined",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22MAIA-2%22%20%22psychometric%22%20%22German%22&format=pubmed",
+      "status": 200,
+      "bytes": 12256,
+      "sha256": "ca09f407986473263a9b603516a25982e38b5c26338d459f96dc5cf729712771",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "hanley_full",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7968136/",
+      "bytes": 21310,
+      "sha256": "86d496ecfbb99435a034d370de9bb0cf85dddc2b25326ee753b46f546d2a6576",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "eggart_full",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8232409/",
+      "bytes": 21312,
+      "sha256": "ff125f31464bb3ff53a845dfd947fb5f4bf8b361f2860012005abc19356ef3e5",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "maia2_scoring",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/6279042/bin/pone.0208034.s001.docx",
+      "bytes": 21398,
+      "sha256": "fd0b04b6a4ca0afc69e6120d90b051c075de004c8b94063ac178394c1a9adce1",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "ordinal",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Liddell%20Kruschke%202018%20ordinal%20metric&format=pubmed",
+      "bytes": 21649,
+      "sha256": "73457f1a451a2bf87272e2bb5c76ed296a48ad71f2da26ebd73eeafe8ac66534",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "alpha",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=McNeish%202018%20Thanks%20coefficient%20alpha&format=pubmed",
+      "bytes": 10364,
+      "sha256": "6473edee01b1629a3f09681ff79765f2d441d9d9de87aa23fecf7e6d3d503705",
+      "access_date": "2026-10-16",
+      "access": "indexed MEDLINE abstract and metadata"
+    },
+    {
+      "id": "permutation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Phipson%20Smyth%20permutation%20p%20values%20should%20never%20be%20zero&format=pubmed",
+      "bytes": 21802,
+      "sha256": "b57a46ca6449fe3a0e0a4fc3c3e214384300995fe46f08fd41d032fbf52b6ffd",
+      "access_date": "2026-10-16",
+      "access": "HTTP 200 browser challenge; no source content"
+    },
+    {
+      "id": "scipy_spearman",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "scipy_binomtest",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "scipy_permutation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "access_date": "2026-10-16",
+      "access": "blocked or unavailable"
+    },
+    {
+      "id": "installed_scipy_spearmanr",
+      "access_date": "2026-10-16",
+      "access": "installed SciPy 1.17.1 docstring inspected locally; online docs blocked",
+      "reference": "https://github.com/scipy/scipy/tree/v1.17.1/scipy/stats",
+      "sha256": "117832b95f9a536d567d0f1bd00e1006829db350a67aca3bd6e38af0b386989c",
+      "bytes": 7350
+    },
+    {
+      "id": "installed_scipy_permutation_test",
+      "access_date": "2026-10-16",
+      "access": "installed SciPy 1.17.1 docstring inspected locally; online docs blocked",
+      "reference": "https://github.com/scipy/scipy/tree/v1.17.1/scipy/stats",
+      "sha256": "4f306c36e05a7bb9710d65ea067ae1f2a77bb10db4630908fca87576047dbbae",
+      "bytes": 21715
+    },
+    {
+      "id": "installed_scipy_binomtest",
+      "access_date": "2026-10-16",
+      "access": "installed SciPy 1.17.1 docstring inspected locally; online docs blocked",
+      "reference": "https://github.com/scipy/scipy/tree/v1.17.1/scipy/stats",
+      "sha256": "23fa2eaae91d5aed5caec169f260aa7c8f2d44e878f947630b7344631c4f97e6",
+      "bytes": 3569
+    }
+  ],
+  "registration": {
+    "url": "https://aspredicted.org/az9f89.pdf",
+    "status": "HTTP 403; exact wording unverified",
+    "fallback": "Current Methods/ANALYSIS_PLAN; not an original copy"
+  }
+}

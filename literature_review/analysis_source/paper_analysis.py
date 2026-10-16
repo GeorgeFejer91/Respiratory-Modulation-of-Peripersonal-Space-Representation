@@ -18,6 +18,7 @@ from scipy import optimize, special, stats
 from inference import (cluster_regression, holm, mixed_comparison, paired,
                        repeated_anova, sign_flip)
 from descriptive_sigmoid import run as descriptive_sigmoid_analysis
+from questionnaires import run as questionnaire_analysis
 
 
 SOAS = (300.,800.,1500.,2200.,2700.)
@@ -320,7 +321,7 @@ def boundary_followups(records,people):
     selected=[r for r in records if r["axis"]=="registered" and r["level"]=="trials" and r["status"]=="computed"]
     ids=[p["participant_id"] for p in people if len([r for r in selected if r["participant_id"]==p["participant_id"] and r["passes_r2"] and not r["bound_hit"]])==4]
     if len(ids)<3:
-        return {"status":"not_estimable","n":len(ids),"reason":"Fewer than three participants have all four interpretable trial-level curves; boundary and MAIA/SpFrRef inference is gated off."}
+        return {"status":"not_estimable","n":len(ids),"reason":"Fewer than three participants have all four interpretable trial-level curves; boundary inference and boundary-related MAIA/SpFrRef associations are gated off."}
     lookup={(r["participant_id"],r["condition"],r["phase"]):r for r in selected}
     effects={field:{pid:lookup[(pid,"Viscereality","Inhale")][field]-lookup[(pid,"Viscereality","Exhale")][field]-lookup[(pid,"Control","Inhale")][field]+lookup[(pid,"Control","Exhale")][field] for pid in ids} for field in ("midpoint_cm","width_cm")}
     contrasts=[paired(list(values.values()),field) for field,values in effects.items()]
@@ -389,9 +390,13 @@ def analyze(people,trials,progress=None):
         if len(ids)>=3:
             anovas.extend([dict(r,measure="same-label corrected" if corrected else "raw AT") for r in repeated_anova(cube)])
     contrasts,friedman=supplementary(retained,people)
+    notify("MAIA-2 scoring/reliability, paired spatial-frame ratings and 33 exploratory associations")
+    questionnaires=questionnaire_analysis(people,person_slopes)
+    scored_people=[dict(person,**{k: str(v) if v is not None else "" for k,v in score.items() if k.startswith("maia2_")})
+                   for person,score in zip(people,questionnaires["scores"])]
     notify("Sigmoid trial/mean fits, coordinate sensitivity and boundary gate")
     fits,sigmoid_summary=sigmoid_fits(retained)
-    boundary=boundary_followups(fits,people)
+    boundary=boundary_followups(fits,scored_people)
     notify("Missing-hit-RT stress scenarios with repeated trimming and ML")
     observed=defaultdict(list)
     for row in trials:
@@ -415,17 +420,12 @@ def analyze(people,trials,progress=None):
         fit.update(shift_ms=shift,imputed_hits=imputed,unresolved_hits=unresolved)
         stresses.append(fit)
     ages=np.array([numeric(p,"age_years") for p in people]);ages=ages[np.isfinite(ages)]
-    questionnaires=[]
-    for field in [k for k in people[0] if k.startswith("maia2_") and "item" not in k]+["spfrref_viscereality_ordinal","spfrref_control_ordinal"]:
-        values=np.array([numeric(p,field) for p in people]);values=values[np.isfinite(values)]
-        questionnaires.append({"field":field,"n":len(values),"mean":float(values.mean()) if len(values) else None,
-            "sd":float(values.std(ddof=1)) if len(values)>1 else None,"median":float(np.median(values)) if len(values) else None})
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
-    report={"analysis_version":"1.2","status":"reproducible analysis draft for author review",
+    report={"analysis_version":"1.3","status":"reproducible analysis draft for author review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
-            "gender":dict(Counter(p["gender"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
+            "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
             "availability":dict(Counter(p["data_availability"] for p in people)),"trial_types":dict(Counter(r["trial_type"] for r in trials)),
             "outcomes":dict(Counter(r["outcome"] for r in trials))},
         "participant_quality":quality,"mixed_models":models,"cluster_models":regressions,
@@ -435,7 +435,17 @@ def analyze(people,trials,progress=None):
         "sigmoid_fits":fits,"sigmoid_summary":sigmoid_summary,"boundary_followups":boundary,
         "missing_rt_stress":stresses,"group_curves":curves,"group_sigmoid_descriptions":descriptive_group_fits(curves),
         "descriptive_sigmoids":descriptions,
-        "questionnaire_descriptives":questionnaires,
+        "questionnaire_descriptives":questionnaires["scales"],"questionnaires":questionnaires,
+        "data_coverage":[
+            {"domain":"Participant roster, demographics and order","status":"analysed","output":"Cohort age/gender/handedness/order, availability and participant QC"},
+            {"domain":"Observed/planned trials, responses, missing RT and Catch","status":"analysed","output":"Quality denominators, exclusions and missing-RT sensitivities"},
+            {"domain":"Condition × Phase × SOA reaction times","status":"analysed","output":"Mixed/cluster models, participant slopes, repeated measures and time-on-task"},
+            {"domain":"Baseline, distance labels, noise type, order and RT flags","status":"analysed","output":"Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities"},
+            {"domain":"37 MAIA-2 items and eight dimensions","status":"analysed","output":"Scoring audit, distributions, alpha intervals and all fixed exploratory associations"},
+            {"domain":"Paired spatial-frame ratings","status":"analysed","output":"Category distributions/transitions, exact sign test, order counts and rank associations"},
+            {"domain":"Participant PPS boundary and related questionnaire inference","status":boundary["status"],"output":"Fit gate retained; group approximations remain descriptive"},
+            {"domain":"Repeated MAIA, body-boundary and small-self measures","status":"unavailable","output":"No corresponding repeated/measure columns in released tables"},
+            {"domain":"Waveforms, measured breathing and acquisition provenance","status":"unavailable","output":"Source recordings and private metadata are outside the release"}],
         "unavailable_checks":[
             "Waveform cue-time and RT-onset validation: original recordings are not in the released CSVs.",
             "Measured respiratory compliance: phase labels are scheduled/instructed, not belt-verified.",

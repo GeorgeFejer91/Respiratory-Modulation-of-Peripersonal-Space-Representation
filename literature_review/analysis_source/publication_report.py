@@ -58,7 +58,7 @@ def markdown_report(report):
         f"{s['sigmoid_pass']}/{s['sigmoid_cells']} registered-axis trial cells satisfy R²≥.70. "
         f"The maximum saturated five-SOA trial-level R² ceiling is {s['r2_ceiling']:.6f}. "
         "Any deterministic curve depending only on these SOAs is bounded by this ceiling, independently of sigmoid parameter bounds. "
-        "Boundary/MAIA/SpFrRef inference remains gated when participant fits are not interpretable. Group and five-mean fits are descriptive.","",
+        "Boundary inference and its MAIA/SpFrRef associations remain gated when participant fits are not interpretable. Group and five-mean fits are descriptive.","",
         "## Supplementary participant contrasts", "", "| Contrast | n | Estimate (ms) | 95% CI | p | Holm p |", "| --- | ---: | ---: | --- | ---: | ---: |"]
     for r in report["supplementary_contrasts"]:
         if r["status"]=="computed":lines.append(f"| {r['name']} | {r['n']} | {r['estimate']:.4f} | [{r['ci_low']:.4f}, {r['ci_high']:.4f}] | {r['p']:.6g} | {r.get('p_holm',float('nan')):.6g} |")
@@ -88,6 +88,27 @@ def markdown_report(report):
             "The four imposed-shape midpoint/width estimates, constraint hits and conditional intervals are exported separately. "
             "Raw-mean curvature tests assess any nonlinearity, not sigmoid shape; see their exported statistics and assumptions. "
             "Evaluate empirical support separately from the imposed geometry."]
+    q=report["questionnaires"];s=q["spatial"]
+    lines += ["", "## MAIA-2 and spatial frame of reference: exploratory", "",
+        f"{q['maia_complete']}/{q['participants']} participants have all 37 MAIA-2 items. "
+        f"All eight dimensions were recomputed: {q['scoring']['matches']} stored scores matched; {q['scoring']['mismatches']} mismatched. "
+        "Subscale means require all constituent items. Blank responses remain missing; no MAIA total was formed.", "",
+        "| MAIA-2 dimension | n | Mean | SD | Alpha | Pointwise 95% alpha interval |",
+        "| --- | ---: | ---: | ---: | ---: | --- |"]
+    for r in q["scales"]:
+        lines.append(f"| {r['label']} | {r['n']} | {value_or_missing(r['mean'])} | {value_or_missing(r['sd'])} | {value_or_missing(r['alpha'])} | [{value_or_missing(r['alpha_ci_low'])}, {value_or_missing(r['alpha_ci_high'])}] |")
+    lines += ["", "Alpha is a sample internal-consistency diagnostic, not evidence of validity or a basis for deleting items.", "",
+        f"Spatial-frame paired ratings: n={s['n_pairs']}; Viscereality higher={s['higher']}, lower={s['lower']}, tied={s['ties']}. "
+        f"Two-sided exact sign-test p={s['p'] if s['p'] is not None else 'not estimable'}; ties are excluded only from the binomial denominator. "
+        f"Higher fraction among non-ties={value_or_missing(s['higher_fraction_non_ties'])}, exact 95% CI "
+        f"[{value_or_missing(s['higher_fraction_ci_low'])}, {value_or_missing(s['higher_fraction_ci_high'])}]. "
+        "This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.", "",
+        "All 33 fixed associations are exported with Spearman rho, paired-person bootstrap intervals, permutation p and Holm p. "
+        f"{sum(r['p_holm'] is not None and r['p_holm']<.05 for r in q['associations'])}/33 have Holm p<.05. "
+        "The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. " + q["resampling"]["scope"], "",
+        *["- "+r for r in q["limitations"]], "", "## Coverage of released data", "",
+        "| Domain | Status | Output |", "| --- | --- | --- |",
+        *[f"| {r['domain']} | {r['status']} | {r['output']} |" for r in report["data_coverage"]]]
     lines += ["", "## Interpretation and unavailable provenance", "", *[f"- {r}" for r in report["interpretation"]+report["unavailable_checks"]],"",
         "## Reproducibility", "",f"Runtime: {json.dumps(report['runtime'],sort_keys=True)}", "",
         "The result ZIP contains model and diagnostic tables, participant QC, cell/curve summaries, sigmoid fits, the retained RT table, SVG figures, and the full JSON report. "
@@ -96,6 +117,8 @@ def markdown_report(report):
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure in ("questionnaire_summary", "questionnaire_associations"):
+        return questionnaire_figure_bytes(report,format,associations=measure=="questionnaire_associations")
     if measure in ("pps_shape","sigmoid_geometry"):
         return shape_figure_bytes(report,format,normalized=measure=="sigmoid_geometry")
     if measure in ("descriptive_sigmoids","sigmoid_extrapolation"):
@@ -211,12 +234,71 @@ def shape_figure_bytes(report,format="svg",normalized=False):
         return stream.getvalue()
 
 
+def questionnaire_figure_bytes(report,format="svg",associations=False):
+    q=report["questionnaires"]
+    with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-questionnaires-v1",
+                         "axes.spines.top":False,"axes.spines.right":False}):
+        if associations:
+            fig,ax=plt.subplots(figsize=(10.5,6.1))
+            matrix=np.array([r["rho"] if r["rho"] is not None else np.nan for r in q["associations"][:32]]).reshape(8,4)
+            im=ax.imshow(matrix,cmap="RdBu_r",vmin=-1,vmax=1,aspect="auto")
+            for i in range(8):
+                for j in range(4):
+                    ax.text(j,i,f"{matrix[i,j]:.2f}" if np.isfinite(matrix[i,j]) else "NA",ha="center",va="center",color="black" if abs(matrix[i,j])<.6 else "white")
+            ax.set_yticks(range(8),[r["label"] for r in q["scales"]])
+            ax.set_xticks(range(4),["Control\nrating", "Viscereality\nrating", "Rating change\ndirection", "RT slope\ninteraction"])
+            fig.colorbar(im,ax=ax,label="Spearman rho",fraction=.04,pad=.04)
+            fig.suptitle("MAIA-2 associations with spatial ratings and behaviour",y=.96,fontsize=14)
+            final=q["associations"][-1]
+            rho="NA" if final["rho"] is None else f"{final['rho']:.3f}"
+            fig.text(.5,.08,f"Additional comparison: rating-change direction vs RT slope interaction, rho = {rho}.",ha="center",fontsize=9)
+            fig.text(.5,.035,"All 33 comparisons receive Holm correction; intervals and raw/adjusted p values are in the download.",ha="center",fontsize=9)
+            fig.subplots_adjust(left=.24,right=.93,top=.86,bottom=.21)
+        else:
+            fig,(ax,bx)=plt.subplots(1,2,figsize=(12,5.8),gridspec_kw={"width_ratios":[1.15,1.]})
+            for i,r in enumerate(q["scales"]):
+                values=[p[r["field"]] for p in q["scores"] if p[r["field"]] is not None]
+                ax.scatter(values,i+np.linspace(-.13,.13,len(values)),color="#507494",alpha=.32,s=12)
+                if r["mean"] is not None and r["mean_ci_low"] is not None:
+                    ax.hlines(i,r["mean_ci_low"],r["mean_ci_high"],color="#173f62",linewidth=2)
+                    ax.scatter([r["mean"]],[i],color="#173f62",s=35,zorder=3)
+            ax.set_yticks(range(8),[r["label"] for r in q["scales"]]);ax.invert_yaxis()
+            ax.set_xlim(-.1,5.1);ax.set_xticks(range(6));ax.set_xlabel("Recomputed subscale score (0–5)")
+            ax.set_title("Eight MAIA-2 dimensions",pad=14)
+            matrix=np.array([r["n"] for r in q["spatial"]["transitions"]]).reshape(8,8).T
+            bx.imshow(matrix,origin="lower",cmap="Blues",vmin=0,vmax=max(1,matrix.max()))
+            for i in range(8):
+                for j in range(8):
+                    bx.text(j,i,str(matrix[i,j]) if matrix[i,j] else "·",ha="center",va="center",color="white" if matrix[i,j]>.55*max(1,matrix.max()) else "#425466")
+            bx.set_xticks(range(8),list("ABCDEFGH"));bx.set_yticks(range(8),list("ABCDEFGH"))
+            bx.set_xlabel("Control category");bx.set_ylabel("Viscereality category")
+            bx.set_title("Paired spatial-frame responses",pad=14)
+            s=q["spatial"]
+            fig.suptitle(f"Questionnaire coverage · {q['maia_complete']} complete MAIA-2 records · {s['n_pairs']} spatial pairs",y=.96,fontsize=14)
+            fig.text(.5,.085,"Left: individual scores, means and pointwise 95% participant-bootstrap intervals. Right: participant counts.",ha="center",fontsize=9)
+            fig.text(.5,.035,f"Viscereality higher / equal / lower: {s['higher']} / {s['ties']} / {s['lower']}. A–H retain recorded ordering; anchor direction is unverified.",ha="center",fontsize=9)
+            fig.subplots_adjust(left=.18,right=.97,top=.82,bottom=.22,wspace=.50)
+        stream=io.BytesIO()
+        fig.savefig(stream,format=format,dpi=300,metadata={"Date":None,"Creator":"Study 5 marimo publication companion"} if format=="svg" else None)
+        plt.close(fig)
+        return stream.getvalue()
+
+
 def result_bundle(report,retained,sources):
     files={"analysis_report.md":markdown_report(report).encode(),
         "analysis_results.json":json.dumps(report,indent=2,allow_nan=False).encode(),
         "retained_rt_trials.csv":encode_csv(TRIAL_COLUMNS,retained),
         "raw_at_curves.svg":figure_svg(report,"raw_at").encode(),
         "same_label_facilitation.svg":figure_svg(report,"same_label_at_minus_baseline").encode()}
+    q=report["questionnaires"]
+    for measure in ("questionnaire_summary","questionnaire_associations"):
+        files[measure+".svg"]=figure_svg(report,measure).encode()
+    for key in ("scoring_audit","scores","scales","items","associations","interscale_descriptive"):
+        files["questionnaire_"+key+".csv"]=as_table(q[key])
+    files["spatial_comparison.csv"]=as_table([q["spatial"]])
+    for key in ("order_counts","transitions","distributions","descriptives"):
+        files["spatial_"+key+".csv"]=as_table(q["spatial"][key])
+    files["data_coverage.csv"]=as_table(report["data_coverage"])
     d=report["descriptive_sigmoids"]
     if d["status"]=="computed":
         for measure in ("descriptive_sigmoids","sigmoid_extrapolation","pps_shape","sigmoid_geometry"):
@@ -238,7 +320,7 @@ def result_bundle(report,retained,sources):
             model_rows.append(dict(model,category=category))
             coefficient_rows.extend(dict(row,model=model["name"],category=category) for row in model.get("coefficients",[]))
     files["models.csv"]=as_table(model_rows);files["coefficients.csv"]=as_table(coefficient_rows)
-    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py","sigmoid_shape.py")}
+    source_code={name:(Path(__file__).resolve().parent/name).read_bytes() for name in ("inference.py","paper_analysis.py","preparation.py","publication_report.py","descriptive_sigmoid.py","sigmoid_shape.py","questionnaires.py")}
     files.update({"analysis_source/"+name:content for name,content in source_code.items()})
     manifest={"analysis_version":report["analysis_version"],"status":report["status"],
         "source_sha256":dict(zip(FILES,[sha256(b).hexdigest() for b in sources])),

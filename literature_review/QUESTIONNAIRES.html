@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAIA-2 and spatial frame of reference: review and analysis rationale · Study 5</title><style>
+body{font:17px/1.65 system-ui,sans-serif;color:#1f2937;margin:2rem auto;padding:0 1.2rem;max-width:1050px}
+a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}p,li{max-width:82ch}
+table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px;line-height:1.5}
+th,td{padding:.65rem;text-align:left;vertical-align:top;border:1px solid #ccd5df;min-width:170px}
+th{background:#edf3f8}code{background:#f0f3f6;overflow-wrap:anywhere}blockquote{border-left:3px solid #8aaac6;padding-left:1rem}
+nav{font-size:15px;margin-bottom:2rem}:focus-visible{outline:3px solid #c75c12}
+</style><nav><a href="../">Workbook</a> · <a href="index.html">Review</a> ·
+<a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
+<a href="QUESTIONNAIRES.html">Questionnaires</a> · <a href="SEARCH_LOG.html">Search record</a> · <a href="QUESTIONNAIRES.md">Markdown source</a></nav>
+<main><h1>MAIA-2 and spatial frame of reference: review and analysis rationale</h1>
+<p><strong>Reviewed 16 October 2026, UTC.</strong> The goal is to analyse every released data
+domain, including interoceptive self-report and spatial-frame ratings, with
+auditable scoring and uncertainty. This focused narrative review supports a
+post hoc extension; it is not a systematic review or a preregistration.</p>
+<h2>The three closest analysis precedents</h2>
+<ol>
+<li><strong>Mehling et al. (2018), MAIA-2 development.</strong> The
+   <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6279042/">full paper</a> describes eight
+   dimensions, the revised 37-item instrument, internal consistency, inter-scale
+   correlations and factor analyses in 1,090 museum visitors. Table 2 provides
+   the final item ordering. This supports retaining the eight dimensions; it
+   does not validate a new pooled score or factor structure in our 41 respondents.</li>
+<li><strong>Eggart, Todd and Valdés-Stauber (2021), applied MAIA-2 psychometrics.</strong> This
+   <a href="https://pubmed.ncbi.nlm.nih.gov/34170963/">study in major depression</a> reports
+   alpha/omega, change sensitivity and clinical change thresholds. Reliability
+   varied by subscale and occasion, including weaker Noticing and Not-Distracting
+   at baseline. This supports reporting sample-specific reliability. The sample
+   was hospitalized patients (110 enrolled; 87 pre/post); its clinical thresholds
+   and change analyses do not transfer to our single MAIA record per person.
+   <strong>Access: indexed abstract</strong>, not full methods.</li>
+<li><strong>Hanley, Dambrun and Garland (2020), spatial frames and body boundaries.</strong> A
+   <a href="https://pubmed.ncbi.nlm.nih.gov/33747250/">randomized mindfulness study</a> in 45
+   healthy young adults used five sessions and repeated self-report measures.
+   Its reported changes in spatial frames motivate examining this experiential
+   outcome here. It does not establish a breath-VR effect, a PPS boundary, or our
+   A–H anchor direction. Its repeated-session ANOVA and mediation cannot simply
+   be copied into this paired-condition dataset. <strong>Access: indexed abstract</strong>,
+   not its instrument or full analysis details.</li>
+</ol>
+<p>The <a href="https://pubmed.ncbi.nlm.nih.gov/23133619/">original MAIA study</a> (Mehling et
+al., 2012; indexed abstract) also describes eight constructs and a mixed-method
+development process. <a href="https://pubmed.ncbi.nlm.nih.gov/25451381/">Garfinkel et al. (2015)</a>
+distinguish self-reported interoceptive sensibility, objective task accuracy and
+metacognitive awareness in 80 people. Its indexed abstract supports keeping these
+constructs distinct: our MAIA scores are not heartbeat-detection accuracy,
+measured respiratory compliance or evidence of a physiological mechanism.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/28557467/">McNeish (2018)</a>, inspected at abstract
+level, cautions that alpha has restrictive assumptions and discusses alternatives
+including omega. We report raw alpha with uncertainty as an internal-consistency
+diagnostic, not a validity certificate or automatic cutoff. Factor-based omega
+also needs a defensible measurement model. We do not fit a new 37-item factor
+model or delete items to optimize reliability in 41 respondents. Strong latent-
+structure or cross-language invariance claims need separate validation. This is
+our modelling judgment, not a universal minimum-n rule attributed to a paper.</p>
+<h2>Scoring and parameters retained</h2>
+<p>MAIA-2 items use 0–5. Following the development paper's final map and reversal
+direction, compute means for Noticing (1–4), Not-Distracting (5–10), Not-Worrying
+(11–15), Attention Regulation (16–22), Emotional Awareness (23–27), Self-Regulation
+(28–31), Body Listening (32–34) and Trusting (35–37). Reverse 5–10, 11, 12 and 15
+as <code>5 − response</code>. The main paper was accessible; the supplementary questionnaire
+and official UCSF site were not. Independent recomputation matches all 328 stored
+subscale scores (41 × 8). This checks numerical agreement, not the language,
+wording or timing of the administered form.</p>
+<p>Retain each subscale's n, missingness, mean/SD, median/IQR, range, floor/ceiling
+counts, alpha with a participant-bootstrap interval, and corrected item–rest
+correlations. Export all 37 raw response frequency distributions. Require complete
+constituent items for each subscale, with no imputation or fallback to stored
+scores. The release has one fully missing questionnaire record and no partially
+completed MAIA forms. Missing questionnaires do not exclude behavioural data.</p>
+<p>For spatial frames, retain category frequencies, the 8 × 8 transition table and
+within-person higher/equal/lower counts. An exact sign test uses change direction
+without assuming equal distances between pictures. Report ties, the higher
+fraction among non-ties with an exact binomial interval, and paired dominance
+<code>(higher − lower) / all pairs</code> with a whole-person bootstrap interval. Show
+order-stratified counts; these are descriptions, not a powered test of period
+or carryover effects. Higher A–H codes are <strong>not labelled allocentric</strong> until the
+administered anchor key is verified.</p>
+<p>An ordinal regression could extend this analysis in a larger, well-documented
+design. Sparse categories, 41 pairs and unverified administration/anchor details
+make the exact directional comparison a useful minimal analysis here. No paired
+normal-mean test assumes that A–H steps are equal physical or psychological units.</p>
+<h2>Associations and multiplicity</h2>
+<p>Before calculating the new associations, the contract fixed 33 comparisons:
+eight dimensions × four outcomes (Control spatial rating, Viscereality rating,
+paired rating-change direction and raw-RT SOA-slope interaction), plus rating-change
+direction versus the behavioural interaction. The latter contrast is
+<code>(Viscereality Inhale − Exhale) − (Control Inhale − Exhale)</code> in slopes through five
+participant cell means, in ms per primary SOA SD. It does not estimate a PPS boundary.</p>
+<p>Spearman rho uses complete participant pairs and average ranks. Use 19,999
+permutations under the independence null, a two-sided absolute-statistic tail and
+the plus-one p-value correction. Holm adjustment covers all 33 slots; undefined
+tests remain unestimated, with p=1 used internally for adjustment. Pointwise 95%
+intervals use 2,000 paired-person bootstrap draws, re-ranking within each draw;
+degenerate draws are excluded and counted. Intervals are not simultaneous.
+Permutation inference assumes exchangeable people under independence and does
+not control demographic, order or other confounding. The behavioural contrast's
+measurement uncertainty is not corrected by ranking.</p>
+<p>The <a href="https://github.com/scipy/scipy/tree/v1.17.1/scipy/stats">installed SciPy 1.17.1 documentation</a>
+was inspected locally: Spearman guidance recommends permutation inference for
+smaller samples; permutation documentation explains the plus-one correction and
+alternative two-sided conventions. Online documentation hosts were blocked.
+This is a <strong>local software-reference inspection</strong>, not another paper retrieval.
+Our absolute-tail convention is explicit; it is not assumed identical to SciPy's
+default doubled-smaller-tail convention.</p>
+<p>The spatial condition comparison is a separate, single exploratory test family.
+The 28 inter-subscale correlations are descriptive, with no additional p-value
+screening. No median splits, significance-driven subscale/covariate selection,
+or attenuation correction using uncertain alpha estimates is performed.</p>
+<h2>Registration crosswalk</h2>
+<p>The <a href="https://aspredicted.org/az9f89.pdf">AsPredicted registration</a> returned HTTP 403
+on 16 October 2026. No accessible local copy was found. This does not establish
+that a questionnaire hypothesis was absent. Current Methods and the executable
+contract are the available account; older introductions describe trait moderation
+more strongly, reinforcing the need to verify the original before submission.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Available plan evidence</th>
+<th>Treatment here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Condition × Phase × SOA RT</td>
+<td>Current Methods describe a registered primary question</td>
+<td>Existing pipeline retained</td>
+</tr>
+<tr>
+<td>Individual midpoint/sharpness</td>
+<td>Current Methods describe conditional fit-based inference</td>
+<td>Trial-level gate retained</td>
+</tr>
+<tr>
+<td>MAIA/SpFrRef versus boundaries</td>
+<td>Current contract treats conditional associations as exploratory</td>
+<td>Unestimated when the boundary gate fails</td>
+</tr>
+<tr>
+<td>MAIA scoring/item/reliability audit</td>
+<td>No newly verified registered prescription</td>
+<td>Post hoc measurement audit</td>
+</tr>
+<tr>
+<td>Paired spatial condition comparison</td>
+<td>No newly verified registered directional test</td>
+<td>Two-sided exploratory sign test</td>
+</tr>
+<tr>
+<td>33 rank associations</td>
+<td>Newly fixed extension, not original registration</td>
+<td>Report all with Holm and uncertainty</td>
+</tr>
+<tr>
+<td>Repeated MAIA/body-boundary/small-self</td>
+<td>Mentioned constructs do not establish available measurements</td>
+<td>Unavailable without corresponding fields</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../ANALYSIS_PLAN.md">ANALYSIS_PLAN.md</a> and
+<a href="analysis_source/questionnaires.py">questionnaires.py</a>. Fixing this contract before
+calculation limits selective reporting; it does not make the work confirmatory.</p>
+<h2>Coverage of all released data domains</h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Available data</th>
+<th>Output / limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roster, demographics and condition order</td>
+<td>42 people</td>
+<td>Age/gender/handedness/order, completeness and QC</td>
+</tr>
+<tr>
+<td>Planned/observed trials, index/part/block, responses and Catch</td>
+<td>17,114 trials</td>
+<td>Quality denominators, missingness, cleaning and time-on-task</td>
+</tr>
+<tr>
+<td>Condition, instructed phase, SOAs/distance labels</td>
+<td>Trial design</td>
+<td>Primary/sensitivity models, curves and coordinate checks</td>
+</tr>
+<tr>
+<td>AT/Baseline, noise and recorded RT flags</td>
+<td>Trial-level fields</td>
+<td>Supplementary contrasts, noise Friedman and window sensitivities</td>
+</tr>
+<tr>
+<td>37 MAIA items/eight scores</td>
+<td>41 complete forms</td>
+<td>Scoring, item/scale distributions and reliability uncertainty</td>
+</tr>
+<tr>
+<td>Spatial-frame ratings</td>
+<td>41 pairs</td>
+<td>Distributions, transitions, exact comparison and associations</td>
+</tr>
+<tr>
+<td>Trait–behaviour links</td>
+<td>41 joint records</td>
+<td>All 33 associations; RT slope is not a boundary</td>
+</tr>
+<tr>
+<td>Participant boundary links</td>
+<td>No four qualifying curves per person</td>
+<td>Remain not estimable</td>
+</tr>
+<tr>
+<td>Repeated MAIA/body-boundary/small-self</td>
+<td>No corresponding columns</td>
+<td>Not reconstructed from another measure</td>
+</tr>
+<tr>
+<td>Measured respiration, waveforms, versions/dates</td>
+<td>Outside release</td>
+<td>Source-dependent checks unavailable</td>
+</tr>
+</tbody>
+</table>
+<p>“All data” means every released domain has an analysis or availability disposition.
+It does not mean testing every variable combination or treating identifiers and
+duplicated encodings as independent outcomes.</p>
+<h2>Findings and interpretation</h2>
+<p>There are 41 questionnaire records; all 42 people remain in the primary behavioural
+cohort. All 328 MAIA scores match. Raw alpha is 0.565 for Noticing and 0.589 for
+Emotional Awareness; the other six range from 0.704 to 0.861. Intervals are
+reported and no item is discarded because of these estimates.</p>
+<p>Spatial ratings are higher under Viscereality for 22 people, lower for 6 and tied
+for 13: exact two-sided p=0.00372. Among 28 non-ties, the higher fraction is 0.786
+(exact 95% CI 0.590–0.917); paired dominance is 0.390 (percentile CI 0.171–0.610).
+Both condition medians are D, illustrating why a median alone misses paired change.
+Higher/equal/lower counts are 13/6/2 for Control-first and 9/7/4 for Viscereality-first;
+these do not rule out period/carryover effects.</p>
+<p>None of the 33 associations has Holm p&lt;.05 (minimum 0.762). Every estimate,
+raw/adjusted p and interval is exported; uncorrected findings are not selected
+as confirmed hypotheses. Absence of adjusted evidence does not establish
+independence. The spatial result does not rescue missing participant PPS boundaries
+or establish an interoceptive mechanism.</p>
+<h2>Search and evidence limits</h2>
+<p>Six peer-reviewed works were retained: one full article and five indexed
+abstracts. Consensus MCP and a general web-search connector were unavailable.
+The multi-source skill guided public PubMed discovery, refinement to applied
+MAIA-2 validation and original-source retrieval. Broad questionnaire/spatial
+searches were refined to the named primary studies. Full-text attempts for Hanley
+and Eggart, the MAIA supplement, and searches on ordinal/metric pitfalls and
+permutation p values returned challenges; they supply no claimed full-paper
+evidence. The <a href="../questionnaire_literature_sources.json">evidence ledger</a>
+records every URL, actual access, hashes, included claims and limitations.</p>
+<p>This bounded search is not an exhaustive survey through 2026. The next documentary
+needs are the original registration, administered pictogram key and MAIA
+language/timing record. Computation can be reviewed independently of these
+unresolved construct and provenance questions.</p></main></html>

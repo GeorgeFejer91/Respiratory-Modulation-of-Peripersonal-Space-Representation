@@ -38,8 +38,8 @@ is allowed to change this contract.
 - Code Control/Viscereality as −.5/+.5 and Exhale/Inhale as −.5/+.5. Standardize
   SOA with its trial-level sample mean/SD. Report scaling with every model.
 - The sigmoid boundary gate is trial-level R²≥.70 in all four participant
-  Condition × Phase cells. Gate failure prevents boundary and questionnaire
-  inference; five-mean or group curves cannot rescue it.
+  Condition × Phase cells. Gate failure prevents boundary inference and its
+  questionnaire associations; five-mean or group curves cannot rescue it.
 
 The linked AsPredicted PDF is the registration source. This contract implements
 the distinctions documented in the active Methods; it does not claim that
@@ -73,6 +73,65 @@ group fits separately. Interpret boundary parameters only when all four trial
 curves pass the gate without parameter-bound hits. Any conditional MAIA/SpFrRef
 associations are explicitly exploratory, with their estimand and multiplicity
 reported; do not manufacture values when the gate fails.
+
+## Questionnaire and spatial-frame exploration
+
+This extension was specified on 2026-10-16 after inspecting the release schema,
+availability and the MAIA-2 development paper, before calculating the new
+questionnaire associations. It is post hoc, not a preregistration. Direct retrieval
+of the AsPredicted PDF returned HTTP 403; the existing manuscript describes trait
+and pictographic correlates as exploratory but is not an independent copy of the
+registration. Its exact questionnaire wording remains unverified.
+
+Recompute the eight MAIA-2 means from the 37 items using Mehling et al. (2018),
+Table 2: Noticing 1–4; Not-Distracting 5–10; Not-Worrying 11–15; Attention
+Regulation 16–22; Emotional Awareness 23–27; Self-Regulation 28–31; Body
+Listening 32–34; Trusting 35–37. Reverse items 5–10, 11, 12 and 15 as 5−response.
+Require all items of each subscale; do not impute or fall back to stored scores.
+Audit stored scores with tolerance 1e−6 and preserve the original CSVs. Report
+item response frequencies, missingness, observed floor/ceiling fractions,
+corrected item–rest Pearson correlations and raw Cronbach alpha per subscale.
+Use 2,000 participant bootstrap draws for pointwise percentile 95% intervals on
+means and alpha; keep negative estimates and report undefined draws. Alpha is a
+limited internal-consistency diagnostic, not evidence of unidimensionality or
+validity. Do not perform item deletion, a new 37-item factor model, median splits,
+a pooled MAIA total, or clinical classification with this 41-person sample.
+
+Treat A–H/1–8 spatial-frame ratings as ordered categories. Validate both encodings;
+display condition distributions and all 64 paired transitions. For complete
+pairs, report Viscereality higher/equal/lower than Control and an exact two-sided
+binomial sign test among non-ties, with a Clopper–Pearson interval on the higher
+fraction among non-ties. This one exploratory condition comparison is a separate
+test family. Also report paired dominance (higher minus lower divided by all
+pairs), its participant-bootstrap interval, and counts by condition order. Do not
+label higher codes allocentric without the administered pictogram anchor key;
+that key is absent from the release. No interval-scale difference test is used.
+
+The fixed exploratory association family has 33 comparisons: each of eight
+MAIA-2 dimensions versus Control rating, Viscereality rating, the direction of
+the paired rating change (−1/0/+1), and the existing equal-participant raw-RT
+Condition × Phase SOA-slope contrast; plus rating-change direction versus that
+behavioural contrast. Slopes use all five cell means, the primary cohort/trim and
+the primary SOA scaling. Positive contrast means (Viscereality Inhale−Exhale)
+minus (Control Inhale−Exhale); it is not a PPS boundary. Use pairwise-complete
+people, Spearman rho with average ranks, 19,999 random permutations and the
+(extreme+1)/(draws+1) two-sided absolute-statistic p value. Correct the entire
+33-test family with Holm; undefined tests occupy their planned slot with p=1 for
+adjustment but remain unestimated in output. Report 2,000 paired-participant
+bootstrap percentile intervals, re-ranking each resample. Intervals are
+pointwise, not simultaneous; permutation inference assumes exchangeable people
+under independence and is not covariate-adjusted. Seed all new resampling with
+20261116. Show all associations, never select a subscale by significance.
+
+Questionnaire descriptives use the questionnaire roster; behavioural links use
+the intersection with valid participant slopes. Missing questionnaires never
+remove a person from the primary RT analysis. Descriptive inter-subscale
+correlations (28) carry no separate hypothesis tests. No pre/post MAIA contrast,
+body-boundary or small-self result can be produced from absent columns. Retain
+the boundary gate for every boundary-related questionnaire hypothesis.
+
+See [the questionnaire review](./literature_review/QUESTIONNAIRES.html) for sources,
+access limitations, registration crosswalk and the domain coverage inventory.
 
 ## Post hoc four-curve descriptive extension
 
