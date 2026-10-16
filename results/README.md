@@ -32,9 +32,16 @@ Do not manufacture estimates for unavailable provenance or gated boundary outcom
 
 Questionnaire outputs include all 37 item distributions, eight independently
 recomputed MAIA-2 scores/reliability intervals, all 64 spatial transitions and the
-exact paired sign comparison, 33 rank associations with permutation/Holm inference,
-28 descriptive inter-scale correlations and a domain coverage table. The browser
-uses 2,000 bootstrap draws and 19,999 permutations per association.
+exact paired sign comparison, numerical spatial deltas, 42 rank associations
+with unadjusted permutation inference, 16 Condition × MAIA moderation fits,
+28 descriptive inter-scale correlations and a domain coverage table. Eight
+baseline-MAIA versus post-intervention-delta correlations are the main follow-up;
+direction-only and earlier absolute-rating associations remain supplementary.
+The moderation fits report ordinary and HC3 uncertainty with/without presentation
+order. The browser uses 2,000 bootstrap draws and 19,999 permutations per
+association. MAIA is measured once before the experiment, not as a mediator.
 `questionnaire-independent-validation.json` records independent covariance-alpha,
-exact ordinal, rank-correlation and multiplicity references. Cross-runtime parity
-compares every questionnaire value and status at tolerance 1e-8.
+exact ordinal and rank-correlation references, all 16 OLS/HC3 comparisons and
+long-format repeated-measures interaction equivalence. Cross-runtime parity
+compares every questionnaire value and status at tolerance 1e-8. All questionnaire
+p values are unadjusted and intervals are pointwise.

@@ -143,8 +143,13 @@ After successful deployment, verify both the application and editor at
 publishing branch is not proof that the website is live.
 
 The [questionnaire review](../literature_review/QUESTIONNAIRES.md) covers all
-37 items/eight dimensions, paired spatial ratings, exact ordinal inference and
-33 fixed exploratory associations with unadjusted p values and pointwise intervals. The browser exports the
-complete scoring audit, reliability intervals, transition matrix, associations
-and a coverage table for every released domain. The original registration wording
+37 items/eight dimensions, paired spatial ratings, exact ordinal inference,
+numerical change correlations and Condition × baseline-MAIA moderation. MAIA-2
+was completed once before the experiment; spatial ratings followed each
+intervention (owner-confirmed). The browser reports eight main trait–delta
+correlations, an ancillary delta–RT correlation, direction-only sensitivities,
+and 16 moderation fits with classical/HC3 uncertainty and presentation-order
+sensitivities. All p values are unadjusted and intervals pointwise. The download
+retains the 33 earlier associations, complete scoring audit, reliability
+intervals, transition matrix and coverage table. The original registration wording
 and pictogram anchor direction remain unverified; these are explicit limits.

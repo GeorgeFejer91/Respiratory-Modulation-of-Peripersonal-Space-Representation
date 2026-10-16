@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+import statsmodels.api as sm
 from scipy import stats
 from statsmodels.stats.descriptivestats import sign_test
 from statsmodels.stats.proportion import proportion_confint
@@ -37,20 +38,59 @@ def validate(report_path):
     lo,hi=proportion_confint(np.sum(differences>0),np.sum(differences!=0),method="beta")
     interval_error=max(abs(lo-q["spatial"]["higher_fraction_ci_low"]),abs(hi-q["spatial"]["higher_fraction_ci_high"]))
     correlation_errors=[]
-    for row in q["associations"]:
+    for row in q["associations"]+q["delta_associations"]:
         pairs=[(r[row["x"]],r[row["y"]]) for r in q["scores"] if r[row["x"]] is not None and r[row["y"]] is not None]
         if row["status"]=="computed":
             rho=stats.spearmanr(np.array(pairs)).statistic
             correlation_errors.append(abs(rho-row["rho"]))
     assert q["resampling"]["adjustment"]=="none" and len(q["associations"])==33
     assert all("p_holm" not in r for r in q["associations"])
-    assert max(errors+[sign_error,interval_error]+correlation_errors)<1e-10
+    assert len(q["delta_associations"])==9 and len(q["moderation"])==16
+    source={p["participant_id"]:p for p in people}
+    for row in q["scores"]:
+        p=source[row["participant_id"]]
+        expected=float(p["spfrref_viscereality_ordinal"])-float(p["spfrref_control_ordinal"]) if p["spfrref_viscereality_ordinal"] and p["spfrref_control_ordinal"] else None
+        assert row["spfrref_delta"]==expected
+    model_errors=[];long_errors=[]
+    order_codes={"Control-Viscereality":0.,"Viscereality-Control":1.}
+    for row in q["moderation"]:
+        adjusted=row["model"]=="order_adjusted"
+        records=[p for p in q["scores"] if p[row["field"]] is not None and p["spfrref_delta"] is not None
+                 and (not adjusted or p["condition_order"] in order_codes)]
+        x=np.array([p[row["field"]] for p in records]);x=x-x.mean()
+        y=np.array([p["spfrref_delta"] for p in records]);n=len(y)
+        design=np.column_stack([np.ones(n),x])
+        if adjusted:
+            order=np.array([order_codes[p["condition_order"]] for p in records]);order=order-order.mean()
+            design=np.column_stack([design,order])
+        fit=sm.OLS(y,design).fit();robust=fit.get_robustcov_results(cov_type="HC3",use_t=True)
+        assert row["status"]=="computed" and row["df"]==fit.df_resid
+        for key,value in {"beta":fit.params[1],"se":fit.bse[1],"p":fit.pvalues[1],"F":fit.tvalues[1]**2,
+                "ci_low":fit.conf_int()[1,0],"ci_high":fit.conf_int()[1,1],"r_squared":fit.rsquared,
+                "hc3_se":robust.bse[1],"hc3_p":robust.pvalues[1],
+                "hc3_ci_low":robust.conf_int()[1,0],"hc3_ci_high":robust.conf_int()[1,1],
+                "max_leverage":fit.get_influence().hat_matrix_diag.max(),
+                "max_cook_distance":fit.get_influence().cooks_distance[0].max()}.items():
+            model_errors.append(abs(value-row[key]))
+        if adjusted:model_errors.append(abs(fit.params[2]-row["order_beta"]))
+        condition=np.tile([-.5,.5],n)
+        long_x=np.column_stack([np.repeat(np.eye(n),2,axis=0),condition,condition*np.repeat(x,2)])
+        if adjusted:long_x=np.column_stack([long_x,condition*np.repeat(order,2)])
+        long_y=np.array([[p["spfrref_control_ordinal"],p["spfrref_viscereality_ordinal"]] for p in records]).ravel()
+        repeated=sm.OLS(long_y,long_x).fit()
+        assert repeated.df_resid==fit.df_resid
+        for observed,expected in ((repeated.params[n+1],row["beta"]),(repeated.bse[n+1],row["se"]),
+                                  (repeated.tvalues[n+1]**2,row["F"]),(repeated.pvalues[n+1],row["p"])):
+            long_errors.append(abs(observed-expected))
+    assert max(errors+[sign_error,interval_error]+correlation_errors+model_errors+long_errors)<1e-10
     assert q["scoring"]["mismatches"]==0 and q["scoring"]["matches"]==328
     return {"status":"passed","browser_execution":report["runtime"]["execution"],
             "max_alpha_covariance_identity_error":max(errors),"statsmodels_sign_test_error":sign_error,
             "statsmodels_exact_proportion_interval_error":interval_error,"max_scipy_spearman_error":max(correlation_errors),
             "association_adjustment":"none","associations_checked":len(correlation_errors),
-            "scope":"Covariance alpha identity; independent statsmodels sign test and beta interval; SciPy rank correlations. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. All 33 associations are retained with unadjusted p values. These checks do not validate the administered anchor key or preregistration wording."}
+            "moderation_models_checked":len(q["moderation"]),"max_statsmodels_ols_hc3_error":max(model_errors),
+            "max_long_format_interaction_error":max(long_errors),
+            "scope":"Covariance alpha identity; independent statsmodels sign test and beta interval; 42 SciPy rank correlations; 16 OLS/HC3 fits and long-format participant-intercept Condition × MAIA interaction equivalence. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. No multiple-testing correction. These checks do not validate the administered anchor key or preregistration wording."}
 
 
 if __name__=="__main__":

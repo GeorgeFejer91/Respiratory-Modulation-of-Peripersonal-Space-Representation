@@ -64,7 +64,7 @@ def compare(native_path, browser_directory):
     walk(n["questionnaires"],b["questionnaires"])
     walk(n["data_coverage"],b["data_coverage"])
     out["questionnaires"]={"numeric_values_compared":len(numeric_errors),"max_absolute_numeric_error":max(numeric_errors,default=0.),
-        "scope":"All item/scoring/reliability, paired ordinal, 33 association and bootstrap values, labels and coverage statuses."}
+        "scope":"All item/scoring/reliability, paired ordinal/delta, 42 rank associations, 16 OLS/HC3 moderation models and bootstrap values, labels and coverage statuses."}
     out["status"]="passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire value within 1e-8; legacy nonlinear-bound diagnostics may differ"
     return out
 

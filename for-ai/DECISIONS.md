@@ -110,12 +110,12 @@ decision and link both entries.
 ## D-0007 — Spatial change as the follow-up outcome
 
 - Date: 2026-10-16
-- Status: Accepted analysis direction; numerical-delta and moderation extensions
-  have not yet been executed or promoted to the browser/paper.
+- Status: Accepted analysis direction; timing and execution updated by D-0008.
 - Context: The owner prioritises the within-person spatial-frame contrast over
   absolute condition ratings and asks how MAIA-2 dimensions can explain that
   contrast. The release has paired Control/Viscereality ratings and one MAIA-2
-  record per person; questionnaire timing and pictogram anchors remain unverified.
+  record per person; questionnaire timing and pictogram anchors were unverified
+  when this direction was accepted.
 - Decision: Define `delta_spfrref = Viscereality code - Control code` for complete
   pairs, irrespective of presentation order. These are condition differences,
   not verified pre/post changes. Retain the existing two-sided exact sign test
@@ -151,10 +151,38 @@ decision and link both entries.
   A single MAIA record cannot identify a within-person Condition → MAIA change →
   spatial-change pathway. Verify administration timing before calling MAIA a
   precondition trait moderator; do not infer a causal mechanism from correlations.
-- Consequences: The current browser report still has 33 prior associations and
+- Consequences at acceptance: The browser report had 33 prior associations and
   uses three-level change direction. Neither its Trusting coefficient nor its
   p value may be relabelled as a numerical-delta result. New numerical results
   require the existing native/browser, manuscript and publication gates.
 - Supersedes: Equal emphasis on separate condition-level spatial correlations
   for future follow-ups; preserves prior results, the paired comparison, privacy
   rules, exploratory status and the participant PPS-boundary gate.
+
+## D-0008 — Baseline MAIA and post-intervention spatial contrasts
+
+- Date: 2026-10-16
+- Status: Implemented; actual browser download, independent numerical checks,
+  native/browser parity and manuscript PDF visually verified.
+- Context: The owner confirmed that MAIA-2 is administered once before the
+  experiment, spatial ratings after each intervention, and requested execution
+  of all proposed analyses. Timing is owner-confirmed; CSV timestamps do not
+  independently establish it. The pictogram key and MAIA language remain absent.
+- Decision: Implement all eight subscale correlations with signed numerical
+  delta, one ancillary delta–RT correlation, and eight separate continuous-trait
+  interaction models with/without centred presentation order. Fix 19,999
+  permutations, 2,000 paired bootstrap draws and seed 20261117 before calculating
+  the extension. Report ordinary interaction F/t inference and HC3 approximate
+  t uncertainty, diagnostics and all estimates without multiple-testing
+  correction. Preserve the 33 earlier associations and their random stream.
+- Interpretation: Delta compares post-Viscereality with post-Control, regardless
+  of sequence. MAIA is a baseline correlate/moderator, not a mediator. Numerical
+  delta assumes comparable category steps; direction-only correlations remain
+  sensitivities. Neither order adjustment nor HC3 resolves carryover, ordinal
+  measurement or causal identification. The amendment remains post hoc.
+- Verification: Independently compare all 16 fits with statsmodels and verify
+  their ordinary interaction inference using long-format participant-intercept
+  models. Require actual browser execution, complete native/browser parity,
+  manuscript reconciliation and visual PDF review before promotion/publication.
+- Supersedes: D-0007's unresolved timing, optional model and unexecuted-extension
+  state. Preserves its estimand, full reporting, measurement limits and PPS gate.

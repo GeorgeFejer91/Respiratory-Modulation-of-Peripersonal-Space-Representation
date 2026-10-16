@@ -4,7 +4,7 @@ domain,status,output
 Condition × Phase × SOA reaction times,analysed,"Mixed/cluster models, participant slopes, repeated measures and time-on-task"
 "Baseline, distance labels, noise type, order and RT flags",analysed,"Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities"
 37 MAIA-2 items and eight dimensions,analysed,"Scoring audit, distributions, alpha intervals and all fixed exploratory associations"
-Paired spatial-frame ratings,analysed,"Category distributions/transitions, exact sign test, order counts and rank associations"
+Paired spatial-frame ratings,analysed,"Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities"
 Participant PPS boundary and related questionnaire inference,not_estimable,Fit gate retained; group approximations remain descriptive
 "Repeated MAIA, body-boundary and small-self measures",unavailable,No corresponding repeated/measure columns in released tables
 "Waveforms, measured breathing and acquisition provenance",unavailable,Source recordings and private metadata are outside the release

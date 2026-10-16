@@ -46,6 +46,7 @@ def promote(path):
             ("pps_shape.svg", "pps_shape", "study5_pps_shape.png"),
             ("sigmoid_geometry.svg", "sigmoid_geometry", "study5_sigmoid_geometry.png"),
             ("questionnaire_summary.svg", "questionnaire_summary", "study5_questionnaires.png"),
+            ("spatial_change.svg", "spatial_change", "study5_spatial_change.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -101,12 +102,20 @@ A separate unsmoothed participant-level test projected each five-position curve 
 def questionnaire_results(q):
     s=q["spatial"]
     rows="\n".join(f"{r['label']} & {r['mean']:.2f} & {r['sd']:.2f} & {r['alpha']:.3f} & [{r['alpha_ci_low']:.3f}, {r['alpha_ci_high']:.3f}] \\\\" for r in q["scales"])
-    nominal=[r for r in q["associations"] if r["p"] is not None and r["p"]<.05]
     labels={r["field"]:r["label"] for r in q["scales"]}
-    labels.update(spfrref_control_ordinal="Control spatial rating", spfrref_viscereality_ordinal="Viscereality spatial rating",
-                  spfrref_change_direction="spatial rating-change direction", rt_slope_interaction="raw-RT slope interaction")
-    details="; ".join(rf"{labels[r['x']]} with {labels[r['y']]} ($\rho={r['rho']:.3f}$, pointwise 95\% CI $[{r['ci_low']:.3f}, {r['ci_high']:.3f}]$, unadjusted $p={r['p']:.4f}$)" for r in nominal)
-    rho=[r["rho"] for r in q["associations"] if r["rho"] is not None]
+    delta=q["delta_associations"][:8]
+    direction={r["x"]:r for r in q["associations"] if r["y"]=="spfrref_change_direction"}
+    models={(r["field"],r["model"]):r for r in q["moderation"]}
+    delta_rows="\n".join(rf"{labels[r['x']]} & {r['rho']:.3f} & [{r['ci_low']:.3f}, {r['ci_high']:.3f}] & {r['p']:.4f} & {direction[r['x']]['rho']:.3f} & {direction[r['x']]['p']:.4f} \\" for r in delta)
+    model_rows=[]
+    for r in delta:
+        a,b=(models[(r["x"],m)] for m in ("unadjusted","order_adjusted"))
+        model_rows.append(rf"{labels[r['x']]} & {a['beta']:.3f} & {a['p']:.4f} & {a['hc3_p']:.4f} & {b['beta']:.3f} & {b['p']:.4f} & {b['hc3_p']:.4f} \\")
+    model_rows="\n".join(model_rows)
+    trust=delta[-1];trust_direction=direction["maia2_trusting"]
+    a,b=(models[("maia2_trusting",m)] for m in ("unadjusted","order_adjusted"))
+    noticing,noticing_order=(models[("maia2_noticing",m)] for m in ("unadjusted","order_adjusted"))
+    ancillary=q["delta_associations"][-1];desc=s["delta_descriptives"]
     order="; ".join(f"{r['condition_order']}: {r['higher']}/{r['ties']}/{r['lower']}" for r in s["order_counts"])
     return rf"""\subsection{{MAIA-2 and spatial frame of reference}}
 
@@ -127,7 +136,47 @@ Dimension & Mean & SD & Alpha & 95\% alpha interval \\
 
 Viscereality spatial-frame ratings were higher than Control for {s['higher']} participants, lower for {s['lower']}, and tied for {s['ties']} (Fig.~\ref{{study5:fig:questionnaires}}). The two-sided exact sign test gave $p={s['p']:.5f}$. Among the {s['non_ties']} non-ties, the higher-rating proportion was {s['higher_fraction_non_ties']:.3f}, exact 95\% CI $[{s['higher_fraction_ci_low']:.3f}, {s['higher_fraction_ci_high']:.3f}]$. Paired dominance across all {s['n_pairs']} pairs was {s['paired_dominance']:.3f}, percentile 95\% CI $[{s['dominance_ci_low']:.3f}, {s['dominance_ci_high']:.3f}]$. Both condition medians were category D. Higher/equal/lower counts by condition order were {order}. These descriptive order counts do not rule out period or carryover effects. The administered pictogram key is absent from the release, so a higher A--H code is not assigned an allocentric or egocentric interpretation. This exploratory ordinal difference does not establish a PPS-boundary change or its mechanism.
 
-All 33 fixed rank associations were estimated from 41 complete participant pairs each, including 24 MAIA--spatial comparisons. Spearman coefficients ranged from {min(rho):.3f} to {max(rho):.3f}. No multiple-testing correction was applied; {len(nominal)} of 33 comparisons had unadjusted $p<.05$: {details}. Higher Trusting scores accompanied higher Viscereality codes and a more positive direction of Viscereality--Control change. Change direction records lower, unchanged or higher ratings, without measuring the magnitude of the shift. These related spatial outcomes do not provide independent replication. The companion exports all 33 coefficients, pointwise paired-person bootstrap intervals and unadjusted permutation $p$ values. The behavioural correlate was the raw-RT Condition $\times$ Phase SOA-slope interaction; it was not an individual sigmoid midpoint or width. The reporting choice was changed after inspecting these results. The findings remain exploratory: multiple comparisons, small sample size, ties, uncertain measurement reliability and unadjusted confounding limit inference. Boundary-related questionnaire associations remained unestimated under the original fit gate.
+MAIA-2 was administered once before the experiment and spatial-frame ratings after each intervention, as confirmed by the project owner. The main follow-up outcome was the signed numerical code difference $\Delta=\mathrm{{Viscereality}}-\mathrm{{Control}}$, irrespective of presentation order. Mean $\Delta$ was {desc['mean']:.3f} category steps (SD {desc['sd']:.3f}), median {desc['median']:.0f}, interquartile range {desc['q1']:.0f}--{desc['q3']:.0f}, and range {desc['min']:.0f} to {desc['max']:.0f}. These are post-intervention condition differences, not changes from a pre-intervention spatial baseline; their numerical magnitudes assume comparable category steps.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lrlrrr}}
+\hline
+Dimension & $\rho_\Delta$ & 95\% interval & $p_\Delta$ & $\rho_\mathrm{{dir}}$ & $p_\mathrm{{dir}}$ \\
+\hline
+{delta_rows}
+\hline
+\end{{tabular}}
+\caption{{Pre-experiment MAIA-2 and signed spatial change, $n=41$. Main analyses correlate numerical $\Delta$ with each dimension; direction-only ($-1,0,+1$) correlations are ordinal sensitivities. All $p$ values are unadjusted two-sided permutation values; intervals are pointwise paired-participant bootstrap intervals.}}
+\label{{study5:tab:spatial_delta}}
+\end{{table}}
+
+Trusting was positively associated with numerical $\Delta$: $\rho={trust['rho']:.3f}$, pointwise 95\% CI $[{trust['ci_low']:.3f},{trust['ci_high']:.3f}]$, unadjusted permutation $p={trust['p']:.4f}$ (Table~\ref{{study5:tab:spatial_delta}}; Fig.~\ref{{study5:fig:spatial_delta}}). The direction-only sensitivity was also positive ($\rho={trust_direction['rho']:.3f}$, $p={trust_direction['p']:.4f}$). The other seven numerical-delta correlations had $p>.05$; this does not establish absence of associations. The ancillary correlation between numerical $\Delta$ and the raw-RT Condition $\times$ Phase SOA-slope interaction was $\rho={ancillary['rho']:.3f}$, pointwise 95\% CI $[{ancillary['ci_low']:.3f},{ancillary['ci_high']:.3f}]$, $p={ancillary['p']:.4f}$. The RT contrast is not a PPS boundary.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lrrrrrr}}
+\hline
+& \multicolumn{{3}}{{c}}{{MAIA only}} & \multicolumn{{3}}{{c}}{{With presentation order}} \\
+Dimension & $b$ & $p$ & $p_\mathrm{{HC3}}$ & $b$ & $p$ & $p_\mathrm{{HC3}}$ \\
+\hline
+{model_rows}
+\hline
+\end{{tabular}}
+\caption{{Condition $\times$ MAIA moderation, fitted through participant-level numerical $\Delta$, $n=41$ per model. Slopes are code steps per one MAIA point. Ordinary two-sided $t$ inference is equivalent to the repeated-measures interaction $F=t^2$; HC3 provides approximate heteroskedasticity-sensitive inference. Residual degrees of freedom are 39 and 38. All $p$ values are unadjusted; the companion exports all intervals, $F$ statistics and model diagnostics.}}
+\label{{study5:tab:spatial_moderation}}
+\end{{table}}
+
+The Trusting interaction slope was {a['beta']:.3f} code steps per MAIA point, $F(1,{a['df']})={a['F']:.3f}$, $p={a['p']:.4f}$. Its HC3 interval was $[{a['hc3_ci_low']:.3f},{a['hc3_ci_high']:.3f}]$, $p={a['hc3_p']:.4f}$. Accounting for presentation order gave $b={b['beta']:.3f}$, $F(1,{b['df']})={b['F']:.3f}$, $p={b['p']:.4f}$; HC3 95\% CI $[{b['hc3_ci_low']:.3f},{b['hc3_ci_high']:.3f}]$, $p={b['hc3_p']:.4f}$. Noticing depended on the uncertainty estimator: ordinary $p={noticing['p']:.4f}$ and {noticing_order['p']:.4f}, versus HC3 $p={noticing['hc3_p']:.4f}$ and {noticing_order['hc3_p']:.4f}, without/with order respectively. This less consistent pattern is reported alongside its non-detection in the main rank analysis (Table~\ref{{study5:tab:spatial_moderation}}).
+
+These are exploratory associations and trait-moderation estimates, not mediation or independent replications. The analysis direction was chosen after inspecting earlier results, all intervals are pointwise, and no multiple-testing correction was applied. The 33 earlier absolute-rating, direction and behavioural associations remain available as supplementary audit outputs, alongside the nine new delta correlations and 16 moderation fits. Small sample size, uncertain reliability, category-spacing assumptions and possible confounding/carryover limit inference. Boundary-related questionnaire associations remain unestimated under the original fit gate.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_spatial_change.png}}
+\caption{{\textbf{{Pre-experiment traits and post-intervention spatial change.}} Left: all eight MAIA-2 correlations with numerical $\Delta$ and pointwise bootstrap 95\% intervals. Right: Condition $\times$ MAIA slopes with and without presentation order and HC3 95\% intervals. Higher $\Delta$ means higher recorded Viscereality codes relative to Control; the administered pictogram direction is unverified.}}
+\label{{study5:fig:spatial_delta}}
+\end{{figure}}
 
 \begin{{figure}}[htbp]
 \centering
@@ -263,13 +312,13 @@ Pink-minus-white Audio--Tactile RT was {supp[9]['estimate']:.2f}~ms, 95\% CI ${i
 
 \subsection{{Reproducibility and evidence limits}}
 
-All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python {r['runtime']['python']}, NumPy {r['runtime']['numpy']}, SciPy {r['runtime']['scipy']}, and Matplotlib {r['runtime']['matplotlib']}. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, and rank correlations. Every questionnaire result was also compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
+All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python {r['runtime']['python']}, NumPy {r['runtime']['numpy']}, SciPy {r['runtime']['scipy']}, and Matplotlib {r['runtime']['matplotlib']}. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, all 42 rank correlations, and all 16 moderation fits including ordinary and HC3 uncertainty. Independent long-format participant-intercept models verified the delta regression's Condition $\times$ MAIA slope, standard error, $F$ statistic and $p$ value. Every questionnaire result was also compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.
 
 The released CSVs do not contain waveforms, belt recordings, acquisition-version labels, collection dates, or the private provenance needed to identify two historically documented RT-onset variants. The browser analysis therefore does not rerun waveform timing, measured respiratory compliance, pilot-date classification, version-specific contrasts, or that source-definition exclusion. Historical source audits remain historical evidence, rather than new 42-person verification.
 """
     q=r["questionnaires"];s=q["spatial"]
-    nominal=sum(a["p"] is not None and a["p"]<.05 for a in q["associations"])
-    abstract=abstract.replace("The full data-supported pipeline", f"An exploratory paired ordinal comparison in {s['n_pairs']} participants found higher spatial-frame codes under Viscereality (exact sign-test $p={s['p']:.4f}$). Questionnaire associations were reported without multiple-testing correction; {nominal} of 33 comparisons had unadjusted $p<.05$, including two positive Trusting--spatial associations. The full data-supported pipeline")
+    trust=q["delta_associations"][7]
+    abstract=abstract.replace("The full data-supported pipeline", rf"An exploratory paired ordinal comparison in {s['n_pairs']} participants found higher post-intervention spatial-frame codes under Viscereality (exact sign-test $p={s['p']:.4f}$). Pre-experiment MAIA-2 Trusting correlated with the numerical Viscereality--Control difference ($\rho={trust['rho']:.3f}$, unadjusted $p={trust['p']:.4f}$); its moderation estimate remained positive with order and HC3 sensitivities. These post hoc associations are not evidence of mediation. The full data-supported pipeline")
     results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+"\\subsection{Reproducibility and evidence limits}")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)

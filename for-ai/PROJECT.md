@@ -49,13 +49,18 @@ For spatial-frame follow-ups, prioritise each participant's recorded-code change
 `delta_spfrref = Viscereality - Control`, over separate condition-level
 correlations. Retain one paired condition comparison and absolute ratings for
 descriptive context and the audit trail. The numerical delta is distinct from
-the lower/same/higher direction used in the current browser report; its category-
+the lower/same/higher direction retained as an ordinal sensitivity; its category-
 spacing assumption needs an ordinal sensitivity. MAIA-2 subscales remain
 continuous, separate dimensions. A Condition × MAIA interaction addresses
-moderation; the single MAIA measurement does not establish condition-mediated
-change in interoception. See [D-0007](DECISIONS.md#d-0007--spatial-change-as-the-follow-up-outcome)
-for the accepted analysis direction and the boundary between planned and executed
-work. These priorities do not retroactively change the existing browser results.
+moderation. The owner confirmed MAIA-2 was completed once before the experiment
+and spatial ratings after each intervention. The single baseline MAIA measurement
+cannot establish intervention-induced mediation. Retain eight main delta
+correlations, the ancillary delta–RT link, and all eight moderation models with
+and without presentation order, with classical and HC3 uncertainty. Preserve
+the 33 earlier associations as supplementary results. See
+[D-0007](DECISIONS.md#d-0007--spatial-change-as-the-follow-up-outcome) and
+[D-0008](DECISIONS.md#d-0008--baseline-maia-and-post-intervention-spatial-contrasts)
+for the accepted analysis direction and execution contract.
 
 ## Non-goals
 

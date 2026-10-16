@@ -1,6 +1,6 @@
 {
   "status": "Analysis draft for author review",
-  "pdf_sha256": "25573d1f37e58599b477a52bdd319e83b96a79e6cd7de82dd2dd116bde941c50",
+  "pdf_sha256": "8fae1c1942a150e49797a439d81aeae02df7bee57d60db69b449da0713ff1f1a",
   "manuscript_sha256": {
     "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
     "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
@@ -10,15 +10,16 @@
     "manuscript/figures/study5_questionnaires.png": "d64d91c88847973c54b7c7d2b31f0e53e5fc526b29284d7f012aa5fe807ad7cf",
     "manuscript/figures/study5_sigmoid_extrapolation.png": "4032ef786696a474381bdebb7a998228f1ba04725fd1497c2a02fecf993754de",
     "manuscript/figures/study5_sigmoid_geometry.png": "e5619a86c6db244e24be941d4b069b678c3851597e0b48f1cec9c80a7271fe54",
+    "manuscript/figures/study5_spatial_change.png": "d596ccda9bb750c4317a1f628defbed8ab064c4bb999a8e9bd03cfae8d5ebda4",
     "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
     "manuscript/main.tex": "a7a065b2e2d63c4fed63f041cd1a386b6c1f28f87a02618b0b8c415ac373b1ed",
     "manuscript/references.bib": "a5303b9c79296afd7192ffecbac00bdff719d726159bfff9b659a193b75bd713",
-    "manuscript/sections/abstract.tex": "238eaa405c3a71d658a62500c76fd101690a2516e6d60c35fb1f3ccfdc7f1779",
+    "manuscript/sections/abstract.tex": "5ae0f6af61c15066d630bd72bed9fcb3d36500ddf59506f1a6fc1f6c061f9fb3",
     "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
-    "manuscript/sections/discussion.tex": "612c0b349839d91f64e99cb55c60ecb3c6626f2a8870750771f95178fb4f4d0d",
+    "manuscript/sections/discussion.tex": "01015fc3a96bf48ff57f252b4588d8437c47017dbc00905a3d9db2eaaba77347",
     "manuscript/sections/introduction.tex": "c5921b22cc3a0a4fcd0958812d29b5a8c3b750d43a213f321872fac7909f48a4",
-    "manuscript/sections/methods.tex": "715099535b584dde264002e81ee83edc876c4ffcab744d7ecb013d470c043d92",
-    "manuscript/sections/results.tex": "c4079597f625bfd7faf43f950e74775a49ea629ded725243dcdbe73b38175d04"
+    "manuscript/sections/methods.tex": "fec80425ecca7e7c785f2def2a68306476e0f5b7c7292bd5f3d279e16dd6b80d",
+    "manuscript/sections/results.tex": "6f0e8fa6ab85ba0faeb436962b27ce238aeab8e2c762423558f216690a9e8a38"
   },
-  "browser_zip_sha256": "1f1dddc4b36d63884c9839cfb8ee68aa73cfdb153462e3335dfd4e7b51515675"
+  "browser_zip_sha256": "8cc6a3c720d6f49fccbc2d085a48286ddf13c89aa6a281f65ab8384b02b8fdcc"
 }

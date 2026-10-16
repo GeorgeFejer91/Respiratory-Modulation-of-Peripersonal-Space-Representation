@@ -70,11 +70,18 @@ Only `analysis/prepare_publication.py` promotes a hash-verified browser download
 For questionnaires, also run `python workbook/validate_questionnaires.py` against
 that browser report: independently check alpha through the covariance identity,
 the ordinal sign test/exact interval and rank correlations; retain all 33
-associations with unadjusted p values. Unit-test reverse scoring, incomplete subscales, invalid item/category
+earlier associations with unadjusted p values. Check all nine numerical-delta
+correlations and 16 moderation fits against SciPy/statsmodels; independently
+verify the delta slope/SE/F/p against long-format participant-intercept Condition
+× MAIA models. Verify HC3 covariance, order coding, centring and degenerate/missing
+cases. Unit-test reverse scoring, incomplete subscales, invalid item/category
 encodings, undefined statistics and a tied permutation against exhaustive
 enumeration. Compare every questionnaire result across native/Pyodide runtimes.
 Inspect both questionnaire figures and preserve the distinction between ordinal
-rating direction, unverified pictogram anchors and unavailable PPS boundaries.
+rating direction, numerical category steps, unverified pictogram anchors and
+unavailable PPS boundaries. Preserve owner-confirmed baseline-MAIA and
+post-intervention spatial timing. Inspect the spatial-change correlation and
+moderation figure, including all eight dimensions and both order specifications.
 
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

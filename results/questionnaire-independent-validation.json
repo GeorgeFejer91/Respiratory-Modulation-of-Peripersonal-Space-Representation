@@ -6,6 +6,9 @@
   "statsmodels_exact_proportion_interval_error": 5.839773109528323e-14,
   "max_scipy_spearman_error": 5.551115123125783e-17,
   "association_adjustment": "none",
-  "associations_checked": 33,
-  "scope": "Covariance alpha identity; independent statsmodels sign test and beta interval; SciPy rank correlations. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. All 33 associations are retained with unadjusted p values. These checks do not validate the administered anchor key or preregistration wording."
+  "associations_checked": 42,
+  "moderation_models_checked": 16,
+  "max_statsmodels_ols_hc3_error": 1.2878587085651816e-14,
+  "max_long_format_interaction_error": 3.232969447708456e-13,
+  "scope": "Covariance alpha identity; independent statsmodels sign test and beta interval; 42 SciPy rank correlations; 16 OLS/HC3 fits and long-format participant-intercept Condition \u00d7 MAIA interaction equivalence. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. No multiple-testing correction. These checks do not validate the administered anchor key or preregistration wording."
 }

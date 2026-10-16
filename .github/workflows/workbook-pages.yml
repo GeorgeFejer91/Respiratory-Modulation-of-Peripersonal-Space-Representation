@@ -60,6 +60,9 @@ jobs:
           assert report["questionnaires"]["scoring"]["matches"] == 328
           assert report["questionnaires"]["scoring"]["mismatches"] == 0
           assert len(report["questionnaires"]["associations"]) == 33
+          assert len(report["questionnaires"]["delta_associations"]) == 9
+          assert len(report["questionnaires"]["moderation"]) == 16
+          assert all(m["status"] == "computed" for m in report["questionnaires"]["moderation"])
           assert report["questionnaires"]["spatial"]["n_pairs"] == 41
           assert report["descriptive_sigmoids"]["candidate_count"] == 320
           assert len(report["descriptive_sigmoids"]["parameters"]) == 4
