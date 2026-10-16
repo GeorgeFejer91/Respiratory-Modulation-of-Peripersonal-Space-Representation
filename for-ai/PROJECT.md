@@ -41,9 +41,21 @@ uncertainty, and connect questionnaire measures to supported behavioural summari
 Maintain a domain coverage table and a questionnaire literature review. New
 questionnaire analyses are exploratory; they cannot revive failed participant
 boundary estimates or substitute for measures absent from the release. At the
-owner's request after inspecting results, report the 33 questionnaire/spatial
-associations with unadjusted p values, pointwise intervals and the full comparison
-count. Record this reporting amendment in the analysis contract.
+owner's request after inspecting results, report questionnaire/spatial associations
+with unadjusted p values, pointwise intervals and the full comparison count.
+Record post-results reporting or estimand changes explicitly.
+
+For spatial-frame follow-ups, prioritise each participant's recorded-code change,
+`delta_spfrref = Viscereality - Control`, over separate condition-level
+correlations. Retain one paired condition comparison and absolute ratings for
+descriptive context and the audit trail. The numerical delta is distinct from
+the lower/same/higher direction used in the current browser report; its category-
+spacing assumption needs an ordinal sensitivity. MAIA-2 subscales remain
+continuous, separate dimensions. A Condition × MAIA interaction addresses
+moderation; the single MAIA measurement does not establish condition-mediated
+change in interoception. See [D-0007](DECISIONS.md#d-0007--spatial-change-as-the-follow-up-outcome)
+for the accepted analysis direction and the boundary between planned and executed
+work. These priorities do not retroactively change the existing browser results.
 
 ## Non-goals
 

@@ -106,3 +106,55 @@ decision and link both entries.
 - Consequences: Four computational curves alone no longer complete the goal.
   Report an unresolved scientific goal when the observed data do not support it.
 - Supersedes: D-0005's claim that computable curves alone achieve completion.
+
+## D-0007 — Spatial change as the follow-up outcome
+
+- Date: 2026-10-16
+- Status: Accepted analysis direction; numerical-delta and moderation extensions
+  have not yet been executed or promoted to the browser/paper.
+- Context: The owner prioritises the within-person spatial-frame contrast over
+  absolute condition ratings and asks how MAIA-2 dimensions can explain that
+  contrast. The release has paired Control/Viscereality ratings and one MAIA-2
+  record per person; questionnaire timing and pictogram anchors remain unverified.
+- Decision: Define `delta_spfrref = Viscereality code - Control code` for complete
+  pairs, irrespective of presentation order. These are condition differences,
+  not verified pre/post changes. Retain the existing two-sided exact sign test
+  as the single overall paired condition comparison, with transitions, ties and
+  condition distributions for context. Make the numerical delta the main outcome
+  for subsequent MAIA–spatial associations; retain previous absolute-rating
+  associations as supplementary audit results rather than deleting their history.
+- Implementation specification: Examine each of the eight continuous MAIA-2
+  subscale means against delta using Spearman correlation, participant-pair
+  permutation inference and pointwise paired-person bootstrap intervals. Keep
+  unadjusted p values and report every comparison. Do not create a MAIA total,
+  dichotomise subscales, or select Trusting as a newly confirmatory predictor
+  because it showed the earlier exploratory association. Fix the new comparison
+  set and resampling details before computing it and record this post-results
+  change in the executable analysis contract before promotion.
+- Measurement interpretation: Numerical differences count steps on the recorded
+  A–H/1–8 coding. Their magnitudes assume comparable category steps; Spearman
+  ranking after subtraction does not remove that assumption. Retain
+  `sign(delta_spfrref)` as an ordinal sensitivity and distinguish it in labels
+  and exports. Do not call higher codes allocentric/egocentric without the
+  administered anchor key or describe code differences as physical distances.
+- Model option: A repeated-measures ANCOVA or mixed model with Condition,
+  centred continuous MAIA and Condition × MAIA asks whether the condition contrast
+  varies with MAIA. With two complete conditions, a linear delta-on-MAIA regression
+  expresses the same interaction question under the corresponding linear model
+  assumptions. Include presentation order in a prespecified sensitivity; this
+  does not establish the absence of carryover. Avoid fitting all eight correlated
+  subscales and their interactions together in the 41-person sample or treating
+  correlation and interaction results as independent replication. This model
+  remains an option, not a completed test or an automatic replacement for the
+  main delta correlations.
+- Causal boundary: This is association/moderation, not evidence of mediation.
+  A single MAIA record cannot identify a within-person Condition → MAIA change →
+  spatial-change pathway. Verify administration timing before calling MAIA a
+  precondition trait moderator; do not infer a causal mechanism from correlations.
+- Consequences: The current browser report still has 33 prior associations and
+  uses three-level change direction. Neither its Trusting coefficient nor its
+  p value may be relabelled as a numerical-delta result. New numerical results
+  require the existing native/browser, manuscript and publication gates.
+- Supersedes: Equal emphasis on separate condition-level spatial correlations
+  for future follow-ups; preserves prior results, the paired comparison, privacy
+  rules, exploratory status and the participant PPS-boundary gate.
