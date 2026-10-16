@@ -51,4 +51,16 @@ for the scoring evidence, registration crosswalk, results and availability limit
 For deployment instructions and how Codex connects to marimo, see
 [the workbook guide](workbook/README.md). The intended Pages address is
 `https://georgefejer91.github.io/Study5_Publication/`; a successful deployment must
-be verified before describing it as live. Keep the source repository private.
+be verified before describing it as live. The owner authorised public repository
+visibility on 2026-10-16; private backups, identity records and raw recordings
+remain outside this repository.
+
+## UnderTree
+
+Clone this repository and use **File → Open project folder** in UnderTree to add
+the clone. The publication manuscript remains in `manuscript/main.tex`, with its
+sections, bibliography and figures alongside it. UnderTree currently edits Typst
+and HTML; adding the project preserves the LaTeX sources and does not convert or
+automatically share them with ChatGPT. Its separate TeX import creates a new
+Typst copy and reports unsupported constructs; it does not establish formatting
+equivalence with the Overleaf manuscript.

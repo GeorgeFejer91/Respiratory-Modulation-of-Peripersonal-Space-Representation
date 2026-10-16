@@ -138,9 +138,10 @@ and validated physiological boundaries remain unresolved. Verify them with
 
 ## Publish on GitHub Pages
 
-The source repository stays private. Its GitHub plan must support Pages for private
-repositories; the Pages artifact is intended to be public. Dataset publication is
-explicitly authorised in [DATA_RELEASE.md](DATA_RELEASE.md).
+The owner authorised making the source repository public on 2026-10-16,
+superseding its earlier private visibility. Dataset publication is explicitly
+authorised in [DATA_RELEASE.md](DATA_RELEASE.md). Private backups, identity
+records and raw recordings remain outside the repository and deployment.
 
 For automatic builds, choose **Settings → Pages → Build and deployment → Source:
 GitHub Actions**. The **Publish browser workbook** workflow tests/builds/deploys on

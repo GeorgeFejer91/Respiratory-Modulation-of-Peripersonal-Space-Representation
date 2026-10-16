@@ -17,8 +17,10 @@ zero reidentification risk is made.
 Before creating the public artifact, byte-identical copies of both received CSVs
 were backed up outside the repository and published-site tree in a private
 directory. Each backup was verified against the source SHA-256 and a private
-checksum manifest. The original export files remain intact in this private
-repository. The backup and any identity records are excluded from deployment.
+checksum manifest. The audited export files remain intact in this repository.
+The owner separately authorised public repository visibility on 2026-10-16;
+see D-0011 in `../for-ai/DECISIONS.md`. The backup and any identity records remain
+outside the repository and deployment.
 
 Released source hashes:
 

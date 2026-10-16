@@ -50,9 +50,11 @@ task touches.
 
 ## Publication boundary
 
-The source repository stays private. The project owner authorised public release
-of the audited deidentified CSV pair and confirmed ethical approval; see
-`workbook/DATA_RELEASE.md`. The Pages artifact contains the browser companion,
+The project owner authorised public repository visibility on 2026-10-16,
+superseding the earlier source-private restriction; see D-0011 in `DECISIONS.md`.
+The owner previously authorised public release of the audited deidentified CSV
+pair and confirmed ethical approval; see `workbook/DATA_RELEASE.md`.
+The Pages artifact contains the browser companion,
 that dataset and reproducible publication-draft materials. Author review before
 paper submission and successful Pages deployment remain separate gates. Private
 backups, identity/provenance archives and raw recordings stay outside deployment.

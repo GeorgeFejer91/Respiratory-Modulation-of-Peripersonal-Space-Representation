@@ -127,7 +127,9 @@ an exploratory paired Bayes factor to the registered mixed-model comparison.
 ## Publication
 
 Review/stage intended paths, commit, push without force or bypassing protections,
-and verify exact remote SHA. Preserve private repository visibility. Check GitHub
+and verify exact remote SHA. Public repository visibility is owner-authorised
+under D-0011; inspect tracked files and Git history before the visibility change,
+then verify GitHub reports the repository as public. Check GitHub
 Pages configuration and the exact deployment outcome, then visit both live views
 and exercise browser analysis. Do not call the site live from a push alone.
 

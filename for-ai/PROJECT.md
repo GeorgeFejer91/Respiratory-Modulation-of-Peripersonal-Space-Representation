@@ -99,7 +99,8 @@ and weak-reliability finding prominently.
 
 - No names, source IDs/paths, private crosswalks, collection dates or recordings
   in the public artifact; keep verified backups outside it.
-- Do not change the source repository's private visibility.
+- Public repository visibility is owner-authorised under D-0011. Private backups,
+  identity/provenance records and raw recordings remain excluded.
 - No exploratory result presented as preregistered or author-approved final work.
 - Do not fabricate physiological compliance, provenance or gated boundary results.
 

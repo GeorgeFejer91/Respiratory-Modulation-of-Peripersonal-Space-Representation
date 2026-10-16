@@ -60,7 +60,7 @@ decision and link both entries.
 ## D-0004 — Browser analysis and authorised deidentified release
 
 - Date: 2026-10-15
-- Status: Accepted
+- Status: Accepted; source-private visibility superseded by D-0011
 - Context: The owner requested a complete browser-based marimo paper companion,
   authorised participant-data publication after name removal and backup, and
   confirmed existing ethical approval.
@@ -251,3 +251,20 @@ question; retain all four linkage specifications and both plateau models.
 Select curve fitting using RT prediction only. No significant-result or causal
 goal is implied; unreliable fitted differences remain unreliable after ANOVA.
 The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.
+
+## D-0011 — Public repository and UnderTree project
+
+- Date: 2026-10-16
+- Status: Accepted
+- Context: The owner explicitly identified `GeorgeFejer91/Study5_Publication`
+  and requested adding it to UnderTree and making that repository public.
+- Decision: Add a local clone through UnderTree's project-folder workflow and
+  make the existing GitHub repository public after reviewing tracked files and
+  history. Preserve the manuscript's LaTeX sources; project registration does
+  not imply conversion or ChatGPT manuscript-sharing permission.
+- Consequences: Public visibility covers source and reachable Git history as
+  well as the previously authorised CSV release. Private backups, identity
+  records and raw recordings remain excluded. Scientific interpretation,
+  submission readiness and live Pages deployment keep their separate gates.
+- Supersedes: The source-private visibility requirement in D-0002 and D-0004;
+  the deidentification, backup and scientific-evidence requirements remain.
