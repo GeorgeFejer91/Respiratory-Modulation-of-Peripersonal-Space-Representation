@@ -105,12 +105,57 @@ Alpha is a sample internal-consistency diagnostic, not evidence of validity or a
 
 Spatial-frame paired ratings: n=41; Viscereality higher=22, lower=6, tied=13. Two-sided exact sign-test p=0.0037191659212112427; ties are excluded only from the binomial denominator. Higher fraction among non-ties=0.79, exact 95% CI [0.59, 0.92]. This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.
 
-All 33 fixed associations are exported with Spearman rho, pointwise paired-person bootstrap intervals and unadjusted permutation p values. 4/33 have unadjusted p<.05. No multiple-testing correction is applied. Unadjusted reporting requested after inspecting the association results; all 33 comparisons retained as exploratory. The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment.
+Owner-confirmed: MAIA-2 once before the experiment; spatial-frame ratings after each intervention. Timing is not reconstructed from CSV timestamps.
+
+### Main follow-up: numerical spatial change
+
+Delta = post-Viscereality code minus post-Control code, independent of presentation order. Mean=0.76, SD=1.48, median=1.00. These differences assume comparable category steps.
+
+| Pre-experiment MAIA-2 dimension | n | Spearman rho with delta | Pointwise 95% interval | Unadjusted permutation p |
+| --- | ---: | ---: | --- | ---: |
+| Noticing | 41 | 0.27 | [-0.02, 0.53] | 0.08725 |
+| Not Distracting | 41 | 0.10 | [-0.24, 0.39] | 0.54660 |
+| Not Worrying | 41 | 0.09 | [-0.23, 0.42] | 0.56570 |
+| Attention Regulation | 41 | 0.11 | [-0.19, 0.41] | 0.48095 |
+| Emotional Awareness | 41 | -0.06 | [-0.38, 0.25] | 0.69920 |
+| Self Regulation | 41 | 0.21 | [-0.14, 0.50] | 0.19150 |
+| Body Listening | 41 | 0.17 | [-0.16, 0.46] | 0.29535 |
+| Trusting | 41 | 0.38 | [0.08, 0.63] | 0.01605 |
+
+### Condition × MAIA moderation
+
+Participant delta ~ intercept + centred MAIA, with/without centred Viscereality-first (0=Control-first, 1=Viscereality-first). Each subscale fitted separately. Beta estimates Condition × MAIA in code steps per MAIA point; F=t² with (1,n-k) df. HC3 uses t tails with n-k df as an approximate sensitivity. Order adjustment does not eliminate carryover.
+
+| MAIA-2 dimension | Model | n | Slope | F(1,df) | df | Classical p | HC3 95% interval | HC3 p |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: |
+| Noticing | unadjusted | 41 | 0.64 | 3.46 | 39 | 0.07054 | [0.11, 1.17] | 0.01846 |
+| Noticing | order_adjusted | 41 | 0.60 | 2.91 | 38 | 0.09616 | [0.06, 1.15] | 0.03124 |
+| Not Distracting | unadjusted | 41 | 0.39 | 2.05 | 39 | 0.16060 | [-0.34, 1.11] | 0.28498 |
+| Not Distracting | order_adjusted | 41 | 0.47 | 2.90 | 38 | 0.09678 | [-0.29, 1.23] | 0.21787 |
+| Not Worrying | unadjusted | 41 | 0.14 | 0.23 | 39 | 0.63708 | [-0.65, 0.92] | 0.72609 |
+| Not Worrying | order_adjusted | 41 | 0.10 | 0.12 | 38 | 0.73197 | [-0.80, 1.00] | 0.82128 |
+| Attention Regulation | unadjusted | 41 | 0.42 | 1.48 | 39 | 0.23125 | [-0.39, 1.23] | 0.29702 |
+| Attention Regulation | order_adjusted | 41 | 0.41 | 1.38 | 38 | 0.24769 | [-0.46, 1.28] | 0.34889 |
+| Emotional Awareness | unadjusted | 41 | -0.07 | 0.04 | 39 | 0.84892 | [-0.74, 0.61] | 0.84573 |
+| Emotional Awareness | order_adjusted | 41 | -0.08 | 0.05 | 38 | 0.81805 | [-0.72, 0.57] | 0.80593 |
+| Self Regulation | unadjusted | 41 | 0.47 | 3.15 | 39 | 0.08380 | [-0.12, 1.05] | 0.11437 |
+| Self Regulation | order_adjusted | 41 | 0.47 | 3.14 | 38 | 0.08434 | [-0.13, 1.07] | 0.12409 |
+| Body Listening | unadjusted | 41 | 0.24 | 0.87 | 39 | 0.35733 | [-0.25, 0.72] | 0.33171 |
+| Body Listening | order_adjusted | 41 | 0.24 | 0.91 | 38 | 0.34511 | [-0.22, 0.71] | 0.29634 |
+| Trusting | unadjusted | 41 | 0.61 | 7.68 | 39 | 0.00851 | [0.06, 1.16] | 0.02932 |
+| Trusting | order_adjusted | 41 | 0.62 | 7.99 | 38 | 0.00747 | [0.09, 1.16] | 0.02349 |
+
+Post hoc pre-experiment trait moderation, not mediation. Code differences assume comparable category steps. Direction-only correlations are ordinal sensitivities; earlier absolute-rating results are supplementary. Correlation and interaction models are not independent replications.
+
+42 rank correlations (9 numerical-delta and 33 retained earlier comparisons); 16 moderation fits, each with classical and HC3 inference; one overall paired sign test. No multiple-testing correction.
+
+The eight direction-only associations are ordinal sensitivities; all 33 earlier associations remain in the supplementary download. The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. Two-sided permutation test of independence; pointwise paired-person percentile 95% intervals with re-ranking; undefined bootstrap draws excluded and counted. No covariate adjustment.
 
 - Exploratory extension; exact questionnaire wording in the registration could not be retrieved (HTTP 403).
 - MAIA-2 measures self-reported interoceptive dimensions, not objective interoceptive accuracy.
 - Alpha describes internal consistency under restrictive assumptions; it does not establish unidimensionality or validity. No item deletion or factor-model claim.
-- A–H ordering is preserved, but pictogram anchor direction and questionnaire administration timing are absent from the released data.
+- A–H ordering is preserved, but pictogram anchor direction is unverified. Timing was confirmed by the owner; administered language remains undocumented.
+- Numerical spatial-code differences assume comparable category steps; Spearman ranking and HC3 uncertainty do not remove that measurement assumption.
 - No repeated MAIA, perceived-body-boundary or small-self fields are released. Boundary-related correlations remain gated.
 - Small sample, multiplicity, ties, unadjusted confounding and uncertain behavioural contrast reliability limit association interpretation.
 
@@ -123,7 +168,7 @@ All 33 fixed associations are exported with Spearman rho, pointwise paired-perso
 | Condition × Phase × SOA reaction times | analysed | Mixed/cluster models, participant slopes, repeated measures and time-on-task |
 | Baseline, distance labels, noise type, order and RT flags | analysed | Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities |
 | 37 MAIA-2 items and eight dimensions | analysed | Scoring audit, distributions, alpha intervals and all fixed exploratory associations |
-| Paired spatial-frame ratings | analysed | Category distributions/transitions, exact sign test, order counts and rank associations |
+| Paired spatial-frame ratings | analysed | Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities |
 | Participant PPS boundary and related questionnaire inference | not_estimable | Fit gate retained; group approximations remain descriptive |
 | Repeated MAIA, body-boundary and small-self measures | unavailable | No corresponding repeated/measure columns in released tables |
 | Waveforms, measured breathing and acquisition provenance | unavailable | Source recordings and private metadata are outside the release |

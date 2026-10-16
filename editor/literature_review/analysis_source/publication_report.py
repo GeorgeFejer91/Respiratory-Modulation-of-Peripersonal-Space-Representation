@@ -39,8 +39,8 @@ def primary_summary(report):
 
 def markdown_report(report):
     s=primary_summary(report);c=report["cohort"]
-    def value_or_missing(value):
-        return "unidentified" if value is None else f"{value:.2f}"
+    def value_or_missing(value, digits=2):
+        return "unidentified" if value is None else f"{value:.{digits}f}"
     lines=["# Study 5 · Reproducible publication companion analysis", "",
         report["status"],"",
         f"The released dataset contains {s['participants']} independent participants and {c['trial_rows_input']:,} observed trials "
@@ -103,9 +103,23 @@ def markdown_report(report):
         f"Higher fraction among non-ties={value_or_missing(s['higher_fraction_non_ties'])}, exact 95% CI "
         f"[{value_or_missing(s['higher_fraction_ci_low'])}, {value_or_missing(s['higher_fraction_ci_high'])}]. "
         "This is an exploratory ordinal condition comparison. The administered anchor key is unavailable; higher codes are not automatically labelled allocentric.", "",
-        "All 33 fixed associations are exported with Spearman rho, pointwise paired-person bootstrap intervals and unadjusted permutation p values. "
-        f"{sum(r['p'] is not None and r['p']<.05 for r in q['associations'])}/33 have unadjusted p<.05. "
-        "No multiple-testing correction is applied. " + q["resampling"]["reporting_change"] + " "
+        q["administration"], "",
+        "### Main follow-up: numerical spatial change", "",
+        "Delta = post-Viscereality code minus post-Control code, independent of presentation order. "
+        f"Mean={value_or_missing(s['delta_descriptives']['mean'])}, SD={value_or_missing(s['delta_descriptives']['sd'])}, "
+        f"median={value_or_missing(s['delta_descriptives']['median'])}. These differences assume comparable category steps.", "",
+        "| Pre-experiment MAIA-2 dimension | n | Spearman rho with delta | Pointwise 95% interval | Unadjusted permutation p |",
+        "| --- | ---: | ---: | --- | ---: |"]
+    labels={r["field"]:r["label"] for r in q["scales"]}
+    for r in q["delta_associations"][:8]:
+        lines.append(f"| {labels[r['x']]} | {r['n']} | {value_or_missing(r['rho'])} | [{value_or_missing(r['ci_low'])}, {value_or_missing(r['ci_high'])}] | {value_or_missing(r['p'],5)} |")
+    lines += ["", "### Condition × MAIA moderation", "", q["delta_analysis"]["model"], "",
+        "| MAIA-2 dimension | Model | n | Slope | F(1,df) | df | Classical p | HC3 95% interval | HC3 p |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: |"]
+    for r in q["moderation"]:
+        lines.append(f"| {labels[r['field']]} | {r['model']} | {r['n']} | {value_or_missing(r['beta'])} | {value_or_missing(r['F'])} | {r['df']} | {value_or_missing(r['p'],5)} | [{value_or_missing(r['hc3_ci_low'])}, {value_or_missing(r['hc3_ci_high'])}] | {value_or_missing(r['hc3_p'],5)} |")
+    lines += ["", q["delta_analysis"]["scope"], "", q["delta_analysis"]["comparison_count"], "",
+        "The eight direction-only associations are ordinal sensitivities; all 33 earlier associations remain in the supplementary download. "
         "The behavioural correlate is a raw-RT SOA-slope interaction, not a sigmoid boundary. " + q["resampling"]["scope"], "",
         *["- "+r for r in q["limitations"]], "", "## Coverage of released data", "",
         "| Domain | Status | Output |", "| --- | --- | --- |",
@@ -118,6 +132,8 @@ def markdown_report(report):
 
 
 def figure_bytes(report,measure,format="svg"):
+    if measure=="spatial_change":
+        return spatial_change_figure_bytes(report,format)
     if measure in ("questionnaire_summary", "questionnaire_associations"):
         return questionnaire_figure_bytes(report,format,associations=measure=="questionnaire_associations")
     if measure in ("pps_shape","sigmoid_geometry"):
@@ -235,6 +251,39 @@ def shape_figure_bytes(report,format="svg",normalized=False):
         return stream.getvalue()
 
 
+def spatial_change_figure_bytes(report,format="svg"):
+    q=report["questionnaires"]
+    with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-spatial-change-v1",
+                         "axes.spines.top":False,"axes.spines.right":False}):
+        fig,(ax,bx)=plt.subplots(1,2,figsize=(12,6.8),sharey=True)
+        for i,r in enumerate(q["delta_associations"][:8]):
+            if r["rho"] is not None:
+                if r["ci_low"] is not None:ax.hlines(i,r["ci_low"],r["ci_high"],color="#195b8d",linewidth=2)
+                ax.scatter(r["rho"],i,color="#195b8d",s=35,zorder=3)
+        for model,offset,color,label in (("unadjusted",-.12,"#195b8d","MAIA only"),
+                                         ("order_adjusted",.12,"#b65121","With presentation order")):
+            for i,r in enumerate([r for r in q["moderation"] if r["model"]==model]):
+                if r["beta"] is not None:
+                    if r["hc3_ci_low"] is not None:bx.hlines(i+offset,r["hc3_ci_low"],r["hc3_ci_high"],color=color,linewidth=2)
+                    bx.scatter(r["beta"],i+offset,color=color,s=28,zorder=3,label=label if i==0 else None)
+        ax.set_yticks(range(8),[r["label"] for r in q["scales"]]);ax.invert_yaxis()
+        ax.set_xlim(-1,1);ax.set_xlabel("Spearman rho with numerical delta")
+        ax.set_title("Main correlations · bootstrap 95% intervals",pad=14)
+        bx.set_xlabel("Condition × MAIA slope\nSpatial-code steps per MAIA point")
+        bx.set_title("Moderation · HC3 95% intervals",pad=14)
+        for panel in (ax,bx):panel.axvline(0,color="#808080",linestyle="--",linewidth=1);panel.grid(axis="x",alpha=.15)
+        handles,labels=bx.get_legend_handles_labels()
+        if handles:fig.legend(handles,labels,loc="center",bbox_to_anchor=(.70,.15),ncol=2,fontsize=9,frameon=False)
+        fig.suptitle("Pre-experiment interoception and post-intervention spatial change",y=.97,fontsize=14)
+        fig.text(.5,.085,"Delta = post-Viscereality code minus post-Control code. Positive values indicate higher Viscereality codes.",ha="center",fontsize=9)
+        fig.text(.5,.035,"Exploratory, unadjusted inference; intervals are pointwise. Numerical category steps assume comparable spacing.",ha="center",fontsize=9)
+        fig.subplots_adjust(left=.18,right=.98,top=.85,bottom=.28,wspace=.20)
+        stream=io.BytesIO()
+        fig.savefig(stream,format=format,dpi=300,metadata={"Date":None,"Creator":"Study 5 marimo publication companion"} if format=="svg" else None)
+        plt.close(fig)
+        return stream.getvalue()
+
+
 def questionnaire_figure_bytes(report,format="svg",associations=False):
     q=report["questionnaires"]
     with plt.rc_context({"font.size":10,"font.family":"DejaVu Sans","svg.hashsalt":"study5-questionnaires-v1",
@@ -249,7 +298,7 @@ def questionnaire_figure_bytes(report,format="svg",associations=False):
             ax.set_yticks(range(8),[r["label"] for r in q["scales"]])
             ax.set_xticks(range(4),["Control\nrating", "Viscereality\nrating", "Rating change\ndirection", "RT slope\ninteraction"])
             fig.colorbar(im,ax=ax,label="Spearman rho",fraction=.04,pad=.04)
-            fig.suptitle("MAIA-2 associations with spatial ratings and behaviour",y=.96,fontsize=14)
+            fig.suptitle("Supplementary: earlier MAIA-2 associations with ratings and behaviour",y=.96,fontsize=14)
             final=q["associations"][-1]
             rho="NA" if final["rho"] is None else f"{final['rho']:.3f}"
             fig.text(.5,.08,f"Additional comparison: rating-change direction vs RT slope interaction, rho = {rho}.",ha="center",fontsize=9)
@@ -292,12 +341,12 @@ def result_bundle(report,retained,sources):
         "raw_at_curves.svg":figure_svg(report,"raw_at").encode(),
         "same_label_facilitation.svg":figure_svg(report,"same_label_at_minus_baseline").encode()}
     q=report["questionnaires"]
-    for measure in ("questionnaire_summary","questionnaire_associations"):
+    for measure in ("questionnaire_summary","questionnaire_associations","spatial_change"):
         files[measure+".svg"]=figure_svg(report,measure).encode()
-    for key in ("scoring_audit","scores","scales","items","associations","interscale_descriptive"):
+    for key in ("scoring_audit","scores","scales","items","associations","delta_associations","moderation","interscale_descriptive"):
         files["questionnaire_"+key+".csv"]=as_table(q[key])
     files["spatial_comparison.csv"]=as_table([q["spatial"]])
-    for key in ("order_counts","transitions","distributions","descriptives"):
+    for key in ("order_counts","transitions","distributions","descriptives","delta_distribution"):
         files["spatial_"+key+".csv"]=as_table(q["spatial"][key])
     files["data_coverage.csv"]=as_table(report["data_coverage"])
     d=report["descriptive_sigmoids"]

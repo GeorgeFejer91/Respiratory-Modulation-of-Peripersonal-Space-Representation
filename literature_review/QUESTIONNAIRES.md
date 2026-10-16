@@ -56,7 +56,11 @@ direction, compute means for Noticing (1–4), Not-Distracting (5–10), Not-Wor
 as `5 − response`. The main paper was accessible; the supplementary questionnaire
 and official UCSF site were not. Independent recomputation matches all 328 stored
 subscale scores (41 × 8). This checks numerical agreement, not the language,
-wording or timing of the administered form.
+wording or timing of the administered form. The project owner has since confirmed
+that MAIA-2 was administered once before the experiment and spatial-frame ratings
+after each intervention. This timing is owner-confirmed, not reconstructed from
+CSV timestamps; the administered MAIA language and spatial pictogram key remain
+unverified.
 
 Retain each subscale's n, missingness, mean/SD, median/IQR, range, floor/ceiling
 counts, alpha with a participant-bootstrap interval, and corrected item–rest
@@ -75,13 +79,13 @@ or carryover effects. Higher A–H codes are **not labelled allocentric** until 
 administered anchor key is verified.
 
 An ordinal regression could extend this analysis in a larger, well-documented
-design. Sparse categories, 41 pairs and unverified administration/anchor details
-make the exact directional comparison a useful minimal analysis here. No paired
-normal-mean test assumes that A–H steps are equal physical or psychological units.
+design. Sparse categories, 41 pairs and the unverified anchor key make the exact
+directional comparison useful here. It remains the single overall paired condition
+test and does not assume equal physical or psychological steps between categories.
 
 ## Associations and multiplicity
 
-Before calculating the new associations, the contract fixed 33 comparisons:
+Before calculating the initial associations, the contract fixed 33 comparisons:
 eight dimensions × four outcomes (Control spatial rating, Viscereality rating,
 paired rating-change direction and raw-RT SOA-slope interaction), plus rating-change
 direction versus the behavioural interaction. The latter contrast is
@@ -115,6 +119,43 @@ The 28 inter-subscale correlations are descriptive, with no additional p-value
 screening. No median splits, significance-driven subscale/covariate selection,
 or attenuation correction using uncertain alpha estimates is performed.
 
+### Numerical change and baseline-trait moderation amendment
+
+After reviewing those results, the owner prioritised signed spatial change and
+confirmed the administration timing. The main follow-up outcome is now
+`delta = post-Viscereality code − post-Control code`, independent of presentation
+order. These are two post-intervention ratings, not a spatial pre/post baseline.
+Eight subscale–delta correlations are the main association analyses; delta versus
+the raw-RT slope interaction is ancillary. The same permutation and bootstrap
+procedures apply, with a separately fixed seed (20261117). The earlier 33 estimates
+remain exactly unchanged and supplementary, including the eight direction-only
+sensitivities. There are 42 rank correlations in the complete audit, not eight
+new confirmatory tests. Ranking numerical differences does not remove the
+assumption that category steps are comparable.
+
+For each continuous subscale separately, fit `delta ~ centred MAIA` and the
+presentation-order sensitivity `delta ~ centred MAIA + centred order` (0 =
+Control-first, 1 = Viscereality-first). With two complete conditions, the delta
+slope estimates the Condition × MAIA interaction in the corresponding linear
+repeated-measures model. The ordinary interaction test is `F = t²`, with 1 and
+39 residual degrees of freedom, or 1 and 38 when including order. Independent
+long-format participant-intercept fits verify this equivalence numerically.
+Report ordinary uncertainty alongside HC3 heteroskedasticity-sensitive standard
+errors and approximate t intervals/p values, plus leverage and Cook-distance
+diagnostics; retain every participant. This is a modelling choice with independent
+software validation, not a method attributed to the papers above.
+
+All 16 fits and both uncertainty estimates are retained. No multiple-testing
+correction is applied. Small-sample robust uncertainty is approximate; it does not
+solve ordinal spacing, measurement error, confounding or carryover. Adding order
+addresses a mean order difference in delta, not every possible period effect.
+The baseline trait is a correlate/moderator, not a within-person mediator:
+Condition cannot explain a change in a MAIA score measured only before exposure.
+Correlations and interaction models reuse the same participants and are not
+independent replications. The complete amendment was fixed in the executable
+contract before computing these new estimates, after the earlier results were
+known; it remains post hoc.
+
 ## Registration crosswalk
 
 The [AsPredicted registration](https://aspredicted.org/az9f89.pdf) returned HTTP 403
@@ -131,6 +172,7 @@ more strongly, reinforcing the need to verify the original before submission.
 | MAIA scoring/item/reliability audit | No newly verified registered prescription | Post hoc measurement audit |
 | Paired spatial condition comparison | No newly verified registered directional test | Two-sided exploratory sign test |
 | 33 rank associations | Post hoc extension; unadjusted reporting chosen after inspecting results | Report all with unadjusted p values and pointwise uncertainty |
+| Nine numerical-delta correlations and 16 moderation fits | Owner-authorised post-results amendment with confirmed measurement timing | All eight subscales, order/HC3 sensitivities; unadjusted and exploratory |
 | Repeated MAIA/body-boundary/small-self | Mentioned constructs do not establish available measurements | Unavailable without corresponding fields |
 
 See [ANALYSIS_PLAN.md](../workbook/ANALYSIS_PLAN.md) and
@@ -146,8 +188,8 @@ calculation limits selective reporting; it does not make the work confirmatory.
 | Condition, instructed phase, SOAs/distance labels | Trial design | Primary/sensitivity models, curves and coordinate checks |
 | AT/Baseline, noise and recorded RT flags | Trial-level fields | Supplementary contrasts, noise Friedman and window sensitivities |
 | 37 MAIA items/eight scores | 41 complete forms | Scoring, item/scale distributions and reliability uncertainty |
-| Spatial-frame ratings | 41 pairs | Distributions, transitions, exact comparison and associations |
-| Trait–behaviour links | 41 joint records | All 33 associations; RT slope is not a boundary |
+| Spatial-frame ratings | 41 post-intervention pairs | Distributions, transitions, exact comparison and signed numerical delta |
+| Baseline traits and spatial/behavioural contrasts | 41 joint records | All 42 rank correlations and 16 moderation fits; RT slope is not a boundary |
 | Participant boundary links | No four qualifying curves per person | Remain not estimable |
 | Repeated MAIA/body-boundary/small-self | No corresponding columns | Not reconstructed from another measure |
 | Measured respiration, waveforms, versions/dates | Outside release | Source-dependent checks unavailable |
@@ -170,8 +212,23 @@ Both condition medians are D, illustrating why a median alone misses paired chan
 Higher/equal/lower counts are 13/6/2 for Control-first and 9/7/4 for Viscereality-first;
 these do not rule out period/carryover effects.
 
-All 33 associations are reported without multiple-testing correction; four have
-unadjusted p<.05. Among the 24 MAIA–spatial comparisons, Trusting correlates with
+Numerical delta has mean 0.756 category steps (SD 1.480), median 1, IQR 0–2 and
+range −3 to 5. Of the eight main subscale correlations, Trusting shows the clearest
+association with delta (rho=0.376, pointwise 95% CI 0.081–0.627, unadjusted
+p=0.01605). Noticing has rho=0.273, p=0.08725; the other six main correlations also
+have p>.05. Numerical delta is not clearly associated with the raw-RT slope
+interaction (rho=−0.020, CI −0.328 to 0.294, p=0.90465).
+
+The Trusting interaction slope is 0.613 code steps per MAIA point,
+F(1,39)=7.681, ordinary p=0.00851; its HC3 95% CI is 0.065–1.160, p=0.02932.
+Accounting for presentation order gives b=0.624, F(1,38)=7.987, ordinary
+p=0.00747; HC3 CI 0.089–1.159, p=0.02349. Noticing is sensitive to the uncertainty
+estimator: ordinary p=0.07054/0.09616 without/with order, versus HC3
+p=0.01846/0.03124. This is less consistent across the planned analyses and does
+not justify selecting whichever estimator produces a small p value.
+
+The 33 earlier supplementary associations remain unadjusted; four have p<.05.
+Among the 24 earlier MAIA–spatial comparisons, Trusting correlates with
 Viscereality ratings (rho=0.322, pointwise 95% CI 0.004–0.602, p=0.04255) and with
 rating-change direction (rho=0.335, CI 0.025–0.606, p=0.03445). Direction means
 lower/same/higher, not the magnitude of change. These related outcomes are not
@@ -197,5 +254,6 @@ records every URL, actual access, hashes, included claims and limitations.
 
 This bounded search is not an exhaustive survey through 2026. The next documentary
 needs are the original registration, administered pictogram key and MAIA
-language/timing record. Computation can be reviewed independently of these
+language record. Administration timing is now owner-confirmed. Computation can
+be reviewed independently of the remaining
 unresolved construct and provenance questions.

@@ -85,6 +85,9 @@ registration. Its exact questionnaire wording remains unverified. After inspecti
 the association results, the project owner requested unadjusted reporting instead
 of the initially specified Holm adjustment. This reporting amendment retains all
 33 comparisons and their exploratory status; it is not a preregistered decision.
+The owner subsequently confirmed that MAIA-2 was completed once before the
+experiment and spatial-frame ratings after each intervention. This administration
+timing is owner-confirmed; it is not reconstructed from timestamps in the CSVs.
 
 Recompute the eight MAIA-2 means from the 37 items using Mehling et al. (2018),
 Table 2: Noticing 1–4; Not-Distracting 5–10; Not-Worrying 11–15; Attention
@@ -108,7 +111,8 @@ fraction among non-ties. This one exploratory condition comparison is a separate
 test family. Also report paired dominance (higher minus lower divided by all
 pairs), its participant-bootstrap interval, and counts by condition order. Do not
 label higher codes allocentric without the administered pictogram anchor key;
-that key is absent from the release. No interval-scale difference test is used.
+that key is absent from the release. The overall paired comparison uses direction;
+the numerical-change extension below states its additional spacing assumption.
 
 The fixed exploratory association family has 33 comparisons: each of eight
 MAIA-2 dimensions versus Control rating, Viscereality rating, the direction of
@@ -126,6 +130,52 @@ bootstrap percentile intervals, re-ranking each resample. Intervals are
 pointwise, not simultaneous; permutation inference assumes exchangeable people
 under independence and is not covariate-adjusted. Seed all new resampling with
 20261116. Show all associations, never select a subscale by significance.
+
+### Numerical change and pre-experiment trait moderation
+
+This amendment is fixed before calculating the new numerical-delta associations
+and models, after inspecting the earlier direction/absolute-rating associations.
+It is exploratory. Define `spfrref_delta = Viscereality code - Control code` for
+complete pairs, irrespective of presentation order. These are two post-intervention
+ratings, not a pre/post spatial baseline. Retain negative differences and zeros.
+Report the delta distribution, mean, SD, median, quartiles and range. The primary
+condition comparison remains the exact sign test above; no additional intercept
+or paired-mean hypothesis test replaces it.
+
+The main trait analyses are all eight continuous MAIA-2 subscale means against
+numerical delta, using the same 19,999-permutation absolute-tail Spearman test and
+2,000 paired-person bootstrap intervals. Add one ancillary delta-versus-raw-RT
+slope-interaction correlation. Use a separate generator seeded 20261117, after
+the legacy results; do not change the 33 earlier association estimates or draws.
+The eight existing MAIA-versus-change-direction correlations are ordinal
+sensitivities. Absolute-rating associations remain supplementary audit results.
+No total score, median split or significance-based subscale selection is used.
+
+For each of the eight subscales, fit two participant-level OLS models:
+`delta ~ 1 + centred_MAIA` and
+`delta ~ 1 + centred_MAIA + centred_Viscereality_first`.
+Centre predictors at their analysis-sample means; order is 0 for Control-first
+and 1 for Viscereality-first. Unknown order excludes a person only from the order
+sensitivity. These 16 fits estimate Condition × MAIA moderation in a two-level
+repeated-measures linear model. The order term corresponds to Condition × Order.
+Independently verify the equivalence against a long-format model with participant
+intercepts, Condition and these interactions. Report the slope in spatial-code
+steps per one MAIA point, ordinary SE, two-sided t p value, pointwise 95% t interval,
+and interaction F=t² with (1,n-k) degrees of freedom. Classical inference assumes
+independent participants, a linear conditional mean and homoskedastic Gaussian
+errors. Also report HC3 SE, two-sided t p value and interval with n-k degrees of
+freedom as an approximate heteroskedasticity sensitivity. Neither approach makes
+the categories interval-scaled. Export sample size, centring, order coefficient,
+R², maximum leverage and Cook distance; retain undefined fits explicitly.
+
+All p values are unadjusted; all eight subscales and both model specifications are
+reported. Correlation, direction sensitivity and interaction fits reuse the same
+people and are not independent replications. Numerical code differences assume
+comparable A–H steps; ranking differences does not remove this assumption. Keep
+direction-only sensitivity and unverified pictogram meaning explicit. A baseline
+MAIA trait can moderate the condition contrast but cannot mediate within-person
+intervention-induced MAIA change here. No mediation model is fitted. Adjustment
+for order does not establish absence of carryover or remove all confounding.
 
 Questionnaire descriptives use the questionnaire roster; behavioural links use
 the intersection with valid participant slopes. Missing questionnaires never

@@ -390,7 +390,7 @@ def analyze(people,trials,progress=None):
         if len(ids)>=3:
             anovas.extend([dict(r,measure="same-label corrected" if corrected else "raw AT") for r in repeated_anova(cube)])
     contrasts,friedman=supplementary(retained,people)
-    notify("MAIA-2 scoring/reliability, paired spatial-frame ratings and 33 exploratory associations")
+    notify("MAIA-2 scoring, spatial change, 42 rank associations and 16 moderation models")
     questionnaires=questionnaire_analysis(people,person_slopes)
     scored_people=[dict(person,**{k: str(v) if v is not None else "" for k,v in score.items() if k.startswith("maia2_")})
                    for person,score in zip(people,questionnaires["scores"])]
@@ -422,7 +422,7 @@ def analyze(people,trials,progress=None):
     ages=np.array([numeric(p,"age_years") for p in people]);ages=ages[np.isfinite(ages)]
     curves=curve_summaries(retained)
     descriptions=descriptive_sigmoid_analysis(retained,progress=notify)
-    report={"analysis_version":"1.4","status":"reproducible analysis draft for author review",
+    report={"analysis_version":"1.5","status":"reproducible analysis draft for author review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),
@@ -442,7 +442,7 @@ def analyze(people,trials,progress=None):
             {"domain":"Condition × Phase × SOA reaction times","status":"analysed","output":"Mixed/cluster models, participant slopes, repeated measures and time-on-task"},
             {"domain":"Baseline, distance labels, noise type, order and RT flags","status":"analysed","output":"Supplementary contrasts, noise Friedman, order subgroups, coordinate/window sensitivities"},
             {"domain":"37 MAIA-2 items and eight dimensions","status":"analysed","output":"Scoring audit, distributions, alpha intervals and all fixed exploratory associations"},
-            {"domain":"Paired spatial-frame ratings","status":"analysed","output":"Category distributions/transitions, exact sign test, order counts and rank associations"},
+            {"domain":"Paired spatial-frame ratings","status":"analysed","output":"Post-intervention code delta, exact sign test, main trait correlations, direction sensitivity and Condition × MAIA moderation with order/HC3 sensitivities"},
             {"domain":"Participant PPS boundary and related questionnaire inference","status":boundary["status"],"output":"Fit gate retained; group approximations remain descriptive"},
             {"domain":"Repeated MAIA, body-boundary and small-self measures","status":"unavailable","output":"No corresponding repeated/measure columns in released tables"},
             {"domain":"Waveforms, measured breathing and acquisition provenance","status":"unavailable","output":"Source recordings and private metadata are outside the release"}],
