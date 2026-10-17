@@ -1,0 +1,257 @@
+prior,excluded_ids,n,effect,parameter,scope,median,low,high,probability_positive,valid_draws
+primary,,42,Mean,midpoint_cm,finite cohort posterior,55.1875,46.53470982142857,63.518526785714286,1.0,2000
+primary,,42,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.1596023749924,43.252259473133485,66.39343558197662,1.0,2000
+primary,,42,Mean,normalized_steepness_per_cm,finite cohort posterior,0.022530897288007296,0.018622745492433136,0.026695012688373418,1.0,2000
+primary,,42,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022564595726352853,0.0170826189499812,0.02870722150562752,1.0,2000
+primary,,42,Condition,midpoint_cm,finite cohort posterior,-0.3616071428571417,-16.660714285714285,15.83102678571428,0.4835,2000
+primary,,42,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.4769642420515854,-22.601952130420734,21.434703618735767,0.482,2000
+primary,,42,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.00010609911189276072,-0.008481620893456642,0.007924115524828365,0.489,2000
+primary,,42,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.000198734026459826,-0.011806576628634177,0.010596725140580798,0.488,2000
+primary,,42,Phase,midpoint_cm,finite cohort posterior,0.8303571428571431,-16.47455357142857,17.25066964285714,0.54,2000
+primary,,42,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.5078844589562985,-23.12976793434699,24.2303309884201,0.5145,2000
+primary,,42,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00026039508455539596,-0.008756360719578915,0.008083967113145022,0.4725,2000
+primary,,42,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0002668354223280711,-0.012480902018597084,0.010866471544066487,0.4775,2000
+primary,,42,Condition × Phase,midpoint_cm,finite cohort posterior,-3.2678571428571446,-34.71696428571428,28.50669642857139,0.4185,2000
+primary,,42,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.896340955528026,-48.418693711089524,42.718354232590784,0.437,2000
+primary,,42,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0011747210004169077,-0.017949647850622835,0.01500550417937593,0.4515,2000
+primary,,42,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.001494179424972287,-0.023196673430143488,0.019762560532394897,0.4515,2000
+primary,"P011,P033",40,Mean,midpoint_cm,finite cohort posterior,55.232031250000006,46.5902734375,63.6484375,1.0,2000
+primary,"P011,P033",40,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.39125611301094,42.646668564210586,67.24466622171637,1.0,2000
+primary,"P011,P033",40,Mean,normalized_steepness_per_cm,finite cohort posterior,0.02247345172808083,0.01837380134961219,0.026784499205884355,1.0,2000
+primary,"P011,P033",40,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02231091758408632,0.016954569818319058,0.028821917182649485,1.0,2000
+primary,"P011,P033",40,Condition,midpoint_cm,finite cohort posterior,-0.37968749999999873,-17.49375,16.622578124999997,0.484,2000
+primary,"P011,P033",40,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.5316103202308832,-23.809265785037397,23.085015729950385,0.4805,2000
+primary,"P011,P033",40,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.00011140406748739876,-0.008905701938129472,0.008320321301069786,0.489,2000
+primary,"P011,P033",40,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.00010104787032369611,-0.012221686998604469,0.011500161201132654,0.5065,2000
+primary,"P011,P033",40,Phase,midpoint_cm,finite cohort posterior,0.7593749999999991,-15.89484375,17.551406249999992,0.537,2000
+primary,"P011,P033",40,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.5648383522311269,-23.207636994255576,25.318213676906563,0.522,2000
+primary,"P011,P033",40,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00040004960743459436,-0.008463045423892803,0.008063369566521036,0.453,2000
+primary,"P011,P033",40,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00021689479510236223,-0.012064159376647978,0.010835682471569305,0.4885,2000
+primary,"P011,P033",40,Condition × Phase,midpoint_cm,finite cohort posterior,-3.431250000000002,-36.4528125,29.932031249999962,0.4185,2000
+primary,"P011,P033",40,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-4.104371133984655,-50.534029795627255,43.51824684993539,0.439,2000
+primary,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0012334570504377532,-0.018847130243153973,0.01575577938834473,0.4515,2000
+primary,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0010050402388082319,-0.02568809599075018,0.021039227682530626,0.4645,2000
+primary,P011,41,Mean,midpoint_cm,finite cohort posterior,55.18521341463415,46.616349085365854,63.50644054878049,1.0,2000
+primary,P011,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.1930998994571,43.33210042349977,67.09524241350513,1.0,2000
+primary,P011,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.02249180173897398,0.018605466914885165,0.02671860678766675,1.0,2000
+primary,P011,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022439091520836247,0.01701605709266857,0.02850275014457449,1.0,2000
+primary,P011,41,Condition,midpoint_cm,finite cohort posterior,-0.2195121951219513,-17.204268292682926,16.54778963414633,0.4895,2000
+primary,P011,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.6895043579261135,-24.504505486263888,24.120809088059968,0.4785,2000
+primary,P011,41,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.0001939477573424467,-0.00867621035465458,0.008109478166935228,0.4825,2000
+primary,P011,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.0002489082251826977,-0.011951835999964702,0.011549855924863517,0.516,2000
+primary,P011,41,Phase,midpoint_cm,finite cohort posterior,0.6859756097560978,-16.110137195121954,17.671417682926826,0.5425,2000
+primary,P011,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.41159492325104313,-23.730966410541694,23.70711768010831,0.511,2000
+primary,P011,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0003679999389001203,-0.008472012689558283,0.007876448252522922,0.464,2000
+primary,P011,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0001395647617860892,-0.011958144477362412,0.011069058574537603,0.49,2000
+primary,P011,41,Condition × Phase,midpoint_cm,finite cohort posterior,-3.2652439024390234,-36.44451219512195,29.307621951219502,0.421,2000
+primary,P011,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.2219705007313313,-48.73890557908439,43.20438574785212,0.439,2000
+primary,P011,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0013435989660332786,-0.018828677742467943,0.015502460807191564,0.451,2000
+primary,P011,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.001188033997693671,-0.024698548846054144,0.022779384437738,0.463,2000
+primary,P033,41,Mean,midpoint_cm,finite cohort posterior,55.18521341463415,46.616349085365854,63.50644054878049,1.0,2000
+primary,P033,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.431322844787296,42.794082795004655,66.62761818989735,1.0,2000
+primary,P033,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.022491801738973985,0.018605466914885165,0.02671860678766675,1.0,2000
+primary,P033,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022419769090110606,0.017209945152270003,0.028564916419199407,1.0,2000
+primary,P033,41,Condition,midpoint_cm,finite cohort posterior,-0.45274390243902446,-17.209756097560973,15.66836890243902,0.4765,2000
+primary,P033,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.22508043895423913,-23.26636161876148,23.233369969891754,0.4925,2000
+primary,P033,41,Condition,normalized_steepness_per_cm,finite cohort posterior,-8.876303738353121e-05,-0.008782623288434536,0.008203158475854571,0.4935,2000
+primary,P033,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00018473757037297813,-0.011738117085758186,0.011879577078028414,0.4885,2000
+primary,P033,41,Phase,midpoint_cm,finite cohort posterior,0.6859756097560976,-16.110137195121958,17.671417682926826,0.5425,2000
+primary,P033,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.513236172162814,-22.53760311127631,24.113573079779197,0.519,2000
+primary,P033,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0003679999389001203,-0.008472012689558283,0.007876448252522924,0.464,2000
+primary,P033,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0002414671994328602,-0.011426747327330343,0.011686113225224065,0.4755,2000
+primary,P033,41,Condition × Phase,midpoint_cm,finite cohort posterior,-3.402439024390244,-36.21951219512195,30.567073170731707,0.4155,2000
+primary,P033,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-2.6681140757813857,-53.81701503004197,44.648619686299185,0.4525,2000
+primary,P033,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0011970316921019318,-0.01836868090705083,0.0156258629396938,0.447,2000
+primary,P033,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0012767207882360206,-0.02449351814047816,0.022024946370367046,0.456,2000
+expanded_support,,42,Mean,midpoint_cm,finite cohort posterior,55.67299107142857,42.66467633928571,67.07366071428571,1.0,2000
+expanded_support,,42,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.59456402663512,37.9624743986439,72.97685200165495,1.0,2000
+expanded_support,,42,Mean,normalized_steepness_per_cm,finite cohort posterior,0.03452648306180403,0.027134206294510792,0.04243629864039079,1.0,2000
+expanded_support,,42,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03428006442520588,0.024064477214177843,0.0462763235912066,1.0,2000
+expanded_support,,42,Condition,midpoint_cm,finite cohort posterior,-0.02008928571428474,-23.98861607142857,24.878571428571387,0.5,2000
+expanded_support,,42,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.6019268748375692,-33.2826940735587,34.82133142124493,0.49,2000
+expanded_support,,42,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.0001101473285847093,-0.01466909851737838,0.014966988315288353,0.4965,2000
+expanded_support,,42,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0002570016537936481,-0.021766408209812543,0.02101353731493224,0.493,2000
+expanded_support,,42,Phase,midpoint_cm,finite cohort posterior,0.622767857142858,-23.02332589285714,25.433035714285715,0.517,2000
+expanded_support,,42,Phase,midpoint_cm,posterior + Bayesian bootstrap,-0.17364022947419905,-34.855627266599434,34.426400948358044,0.496,2000
+expanded_support,,42,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0005811391513898651,-0.01642523070966682,0.015253786455613129,0.469,2000
+expanded_support,,42,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0003526253267668916,-0.022874950422500824,0.020731666260161936,0.4895,2000
+expanded_support,,42,Condition × Phase,midpoint_cm,finite cohort posterior,-2.8928571428571415,-49.584375,43.00111607142852,0.457,2000
+expanded_support,,42,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.110103715314885,-69.53180286944504,64.32639463651847,0.462,2000
+expanded_support,,42,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0019501225368304845,-0.031451414468435475,0.03014102933159622,0.4605,2000
+expanded_support,,42,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0024806038127090724,-0.04672136191844832,0.04081582493854425,0.4505,2000
+expanded_support,"P011,P033",40,Mean,midpoint_cm,finite cohort posterior,55.65390625,42.6380078125,67.21433593749998,1.0,2000
+expanded_support,"P011,P033",40,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.50512119310466,37.99691320676496,72.4043447330902,1.0,2000
+expanded_support,"P011,P033",40,Mean,normalized_steepness_per_cm,finite cohort posterior,0.03436079799864164,0.027139368498744185,0.042224178066427434,1.0,2000
+expanded_support,"P011,P033",40,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03419948253371304,0.0245072416634938,0.04635432321537162,1.0,2000
+expanded_support,"P011,P033",40,Condition,midpoint_cm,finite cohort posterior,-0.02109374999999898,-25.188046875,26.122499999999953,0.5,2000
+expanded_support,"P011,P033",40,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.35494984955767284,-34.52600429897325,36.261832984837454,0.4915,2000
+expanded_support,"P011,P033",40,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.00011565469501394581,-0.015402553443247298,0.015715337731052766,0.4965,2000
+expanded_support,"P011,P033",40,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00012522971980783956,-0.020752730376206275,0.021497180624101234,0.495,2000
+expanded_support,"P011,P033",40,Phase,midpoint_cm,finite cohort posterior,0.6328125000000002,-24.4698046875,25.568789062499985,0.525,2000
+expanded_support,"P011,P033",40,Phase,midpoint_cm,posterior + Bayesian bootstrap,1.7598143473069907,-35.47130814265119,34.79948881121682,0.545,2000
+expanded_support,"P011,P033",40,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0005293830345643931,-0.016405445604330313,0.015220730791781455,0.476,2000
+expanded_support,"P011,P033",40,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0005719724706493258,-0.02356239049990687,0.022399321869118444,0.4785,2000
+expanded_support,"P011,P033",40,Condition × Phase,midpoint_cm,finite cohort posterior,-3.0374999999999988,-52.06359375,45.151171874999946,0.4565,2000
+expanded_support,"P011,P033",40,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-4.030055639884141,-72.45180322350127,65.23851130655173,0.4565,2000
+expanded_support,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.002047628663672009,-0.03302398519185725,0.03164808079817603,0.4605,2000
+expanded_support,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.002695006371798629,-0.04834022208568317,0.0417570320033084,0.4585,2000
+expanded_support,P011,41,Mean,midpoint_cm,finite cohort posterior,55.7202743902439,42.712633384146336,66.75333460365852,1.0,2000
+expanded_support,P011,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.61593381136339,38.662201975909845,71.23307605190953,1.0,2000
+expanded_support,P011,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.03441510208719582,0.027217442423048615,0.042050299788263905,1.0,2000
+expanded_support,P011,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03417203141613265,0.024529100913298987,0.045995201288962936,1.0,2000
+expanded_support,P011,41,Condition,midpoint_cm,finite cohort posterior,-0.2881097560975594,-24.947217987804876,25.277515243902403,0.4905,2000
+expanded_support,P011,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.3061491456664826,-35.19080441076025,35.65382222939554,0.492,2000
+expanded_support,P011,41,Condition,normalized_steepness_per_cm,finite cohort posterior,1.9813014778918776e-05,-0.01554506462987377,0.015638804867526914,0.501,2000
+expanded_support,P011,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.0001575474384913622,-0.02222975259943812,0.02127894335976549,0.505,2000
+expanded_support,P011,41,Phase,midpoint_cm,finite cohort posterior,0.6996951219512189,-23.503582317073167,24.697179878048768,0.527,2000
+expanded_support,P011,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.6514122090178794,-33.99627325679227,36.18955594041667,0.518,2000
+expanded_support,P011,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0007456321504798673,-0.01635248195359137,0.015068068564984018,0.469,2000
+expanded_support,P011,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00021539510143686288,-0.022057737785036814,0.020799317760006892,0.493,2000
+expanded_support,P011,41,Condition × Phase,midpoint_cm,finite cohort posterior,-2.3871951219512217,-51.62309451219512,43.959374999999994,0.464,2000
+expanded_support,P011,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.8115323383926576,-71.18815306564065,64.03179806181517,0.45,2000
+expanded_support,P011,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.001629137327414556,-0.033186420821796146,0.031616686926112705,0.4585,2000
+expanded_support,P011,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0016548607773335731,-0.04760446153535046,0.04297459074950206,0.47,2000
+expanded_support,P033,41,Mean,midpoint_cm,finite cohort posterior,55.7202743902439,42.712633384146336,66.75333460365852,1.0,2000
+expanded_support,P033,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.67711923999494,38.83534632572362,72.42459825706189,1.0,2000
+expanded_support,P033,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.03441510208719583,0.027217442423048608,0.0420502997882639,1.0,2000
+expanded_support,P033,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03437566156178809,0.024808741758776495,0.04602334322042325,1.0,2000
+expanded_support,P033,41,Condition,midpoint_cm,finite cohort posterior,8.2318975484401845e-16,-25.06657774390244,26.053353658536587,0.5005,2000
+expanded_support,P033,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,0.11658766202439821,-34.122812415524095,34.34804005148039,0.502,2000
+expanded_support,P033,41,Condition,normalized_steepness_per_cm,finite cohort posterior,-5.999785724213985e-05,-0.015038287829011284,0.015483055544573077,0.4965,2000
+expanded_support,P033,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,6.608448444240569e-05,-0.02147175870825879,0.021824599500595055,0.5015,2000
+expanded_support,P033,41,Phase,midpoint_cm,finite cohort posterior,0.6996951219512189,-23.503582317073167,24.697179878048768,0.5265,2000
+expanded_support,P033,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.9500476740134447,-32.71613330138468,35.04643650267895,0.526,2000
+expanded_support,P033,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0007456321504798681,-0.01635248195359137,0.015068068564984018,0.469,2000
+expanded_support,P033,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0004728319798720208,-0.02221946652578409,0.020428833058974777,0.484,2000
+expanded_support,P033,41,Condition × Phase,midpoint_cm,finite cohort posterior,-3.16920731707317,-50.874009146341464,46.34862804878046,0.4465,2000
+expanded_support,P033,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.020707263480339,-67.87715909410018,66.55151184450888,0.473,2000
+expanded_support,P033,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0019483222417479675,-0.032862511365253165,0.03043341628764122,0.455,2000
+expanded_support,P033,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.002535493630731628,-0.046480890743160384,0.045231141229853326,0.4515,2000
+concentrated_width,,42,Mean,midpoint_cm,finite cohort posterior,54.94642857142857,46.17377232142857,63.53225446428571,1.0,2000
+concentrated_width,,42,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.742849578081376,42.29917118736213,66.65540715790739,1.0,2000
+concentrated_width,,42,Mean,normalized_steepness_per_cm,finite cohort posterior,0.022392849670712034,0.019306251901332932,0.02599732121020472,1.0,2000
+concentrated_width,,42,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02239823652510818,0.01801355465710627,0.027221827401306405,1.0,2000
+concentrated_width,,42,Condition,midpoint_cm,finite cohort posterior,-1.0446428571428568,-16.875,14.839955357142852,0.4555,2000
+concentrated_width,,42,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.43269466669723533,-23.184895148285324,22.37451584082396,0.4805,2000
+concentrated_width,,42,Condition,normalized_steepness_per_cm,finite cohort posterior,8.008923207863749e-05,-0.006720347063194441,0.006124000186276338,0.5075,2000
+concentrated_width,,42,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-2.1309090968092768e-05,-0.009279786283084568,0.00905968867727581,0.4965,2000
+concentrated_width,,42,Phase,midpoint_cm,finite cohort posterior,0.7633928571428578,-16.559598214285714,17.841294642857132,0.529,2000
+concentrated_width,,42,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.9389866545432287,-24.108217708849715,24.397915268282166,0.533,2000
+concentrated_width,,42,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00027985812145418874,-0.007280663303248512,0.006608331670347221,0.4605,2000
+concentrated_width,,42,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00012648334428180363,-0.009673112895154524,0.009721026589466384,0.4905,2000
+concentrated_width,,42,Condition × Phase,midpoint_cm,finite cohort posterior,-4.392857142857143,-36.590625,30.053571428571427,0.392,2000
+concentrated_width,,42,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-4.469962856991941,-51.17757610371577,42.962766141431594,0.423,2000
+concentrated_width,,42,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0008396779511921095,-0.013737151742929943,0.012395367586969935,0.4465,2000
+concentrated_width,,42,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0006959969627311129,-0.019385281069814915,0.017025968225953404,0.474,2000
+concentrated_width,"P011,P033",40,Mean,midpoint_cm,finite cohort posterior,54.93671875,46.2671875,63.71875,1.0,2000
+concentrated_width,"P011,P033",40,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.778855433732986,43.006970467385045,67.49964721183261,1.0,2000
+concentrated_width,"P011,P033",40,Mean,normalized_steepness_per_cm,finite cohort posterior,0.022286172564687123,0.019251735043435834,0.025740536706190965,1.0,2000
+concentrated_width,"P011,P033",40,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022214865367081046,0.017884616840874838,0.027510252840891907,1.0,2000
+concentrated_width,"P011,P033",40,Condition,midpoint_cm,finite cohort posterior,-1.0968750000000003,-17.71875,15.581953124999997,0.4555,2000
+concentrated_width,"P011,P033",40,Condition,midpoint_cm,posterior + Bayesian bootstrap,-1.327533402555086,-25.761347570871283,21.982374469302755,0.4595,2000
+concentrated_width,"P011,P033",40,Condition,normalized_steepness_per_cm,finite cohort posterior,8.40936936825695e-05,-0.007056364416354162,0.006430200195590156,0.5075,2000
+concentrated_width,"P011,P033",40,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-4.167598338418962e-05,-0.009502736248012969,0.00928152884168774,0.4965,2000
+concentrated_width,"P011,P033",40,Phase,midpoint_cm,finite cohort posterior,0.6609374999999997,-16.25625,17.18648437499999,0.53,2000
+concentrated_width,"P011,P033",40,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.9082723684078275,-23.339228656371063,25.568814073442255,0.5245,2000
+concentrated_width,"P011,P033",40,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0002560453642816305,-0.00717395376165611,0.006655423158989201,0.474,2000
+concentrated_width,"P011,P033",40,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0002932936894093981,-0.01035738743812602,0.009598410142115099,0.4775,2000
+concentrated_width,"P011,P033",40,Condition × Phase,midpoint_cm,finite cohort posterior,-4.6125,-38.420156250000005,31.55625,0.392,2000
+concentrated_width,"P011,P033",40,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-5.373327354050905,-52.15437226018341,42.80303299910393,0.4105,2000
+concentrated_width,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0008816618487517146,-0.01442400933007644,0.013015135966318436,0.4465,2000
+concentrated_width,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0007234054668123955,-0.01999968986302664,0.017431376416847538,0.474,2000
+concentrated_width,P011,41,Mean,midpoint_cm,finite cohort posterior,54.84908536585366,46.37042682926829,63.50987042682925,1.0,2000
+concentrated_width,P011,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.895001026278166,42.66849516999558,66.58759358089381,1.0,2000
+concentrated_width,P011,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.022338688110302173,0.01922265579994789,0.02582129985763593,1.0,2000
+concentrated_width,P011,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022270295004183337,0.018127895838413437,0.027094804670932063,1.0,2000
+concentrated_width,P011,41,Condition,midpoint_cm,finite cohort posterior,-0.9603658536585375,-17.617225609756098,15.835746951219493,0.46,2000
+concentrated_width,P011,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.9797623741004637,-24.32256949454838,23.024749074328195,0.465,2000
+concentrated_width,P011,41,Condition,normalized_steepness_per_cm,finite cohort posterior,1.9090489682587904e-05,-0.007138589406834274,0.006382079332126988,0.5015,2000
+concentrated_width,P011,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00013777277042862778,-0.009331034955815835,0.009221056951510528,0.491,2000
+concentrated_width,P011,41,Phase,midpoint_cm,finite cohort posterior,0.8643292682926835,-16.028506097560975,17.3716463414634,0.5295,2000
+concentrated_width,P011,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.907334549303633,-21.85560084730998,25.149547820712378,0.526,2000
+concentrated_width,P011,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00027455503351477375,-0.00712545168866516,0.006607284314776755,0.4695,2000
+concentrated_width,P011,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00017040402123019857,-0.009468705817396353,0.00938151114446204,0.484,2000
+concentrated_width,P011,41,Condition × Phase,midpoint_cm,finite cohort posterior,-4.4176829268292686,-37.540701219512194,30.405182926829255,0.3945,2000
+concentrated_width,P011,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-4.771693661210414,-52.884009754278736,46.89658256155933,0.4295,2000
+concentrated_width,P011,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0010081803597577123,-0.014002148856130305,0.012447818058937113,0.44,2000
+concentrated_width,P011,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0009679134148455465,-0.020190353037215267,0.01753877565438734,0.4555,2000
+concentrated_width,P033,41,Mean,midpoint_cm,finite cohort posterior,54.84908536585366,46.37042682926829,63.50987042682925,1.0,2000
+concentrated_width,P033,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.819983769891735,42.89725238031002,67.47214704340976,1.0,2000
+concentrated_width,P033,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.02233868811030217,0.01922265579994789,0.025821299857635923,1.0,2000
+concentrated_width,P033,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022328665674835844,0.018236825228489194,0.027299275834037837,1.0,2000
+concentrated_width,P033,41,Condition,midpoint_cm,finite cohort posterior,-1.1387195121951235,-18.46852134146341,15.31509146341461,0.4485,2000
+concentrated_width,P033,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.9252267848759155,-24.09264085972366,23.769580123345175,0.474,2000
+concentrated_width,P033,41,Condition,normalized_steepness_per_cm,finite cohort posterior,0.00011471282105184291,-0.006825008478113478,0.006460846488053289,0.5125,2000
+concentrated_width,P033,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,6.787980688935442e-05,-0.00928222277233577,0.009343985215639651,0.508,2000
+concentrated_width,P033,41,Phase,midpoint_cm,finite cohort posterior,0.8643292682926843,-16.028506097560975,17.3716463414634,0.5295,2000
+concentrated_width,P033,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.723140623811434,-24.70800912693691,24.947736000265458,0.523,2000
+concentrated_width,P033,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00027455503351477364,-0.007125451688665161,0.006607284314776755,0.4695,2000
+concentrated_width,P033,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-9.38324692963082e-05,-0.009017255643815274,0.009173994466192324,0.4905,2000
+concentrated_width,P033,41,Condition × Phase,midpoint_cm,finite cohort posterior,-4.554878048780491,-38.25,31.11722560975609,0.392,2000
+concentrated_width,P033,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-4.007599589111531,-54.62141288677032,45.13576953757479,0.4265,2000
+concentrated_width,P033,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0008577666044990522,-0.014140318581760998,0.012772773096601861,0.4475,2000
+concentrated_width,P033,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0008915365206669796,-0.018721562584252376,0.017921514923958805,0.4605,2000
+wide_nuisance,,42,Mean,midpoint_cm,finite cohort posterior,54.859375,45.638392857142854,63.986607142857146,1.0,2000
+wide_nuisance,,42,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.99880920153777,42.04335019480608,67.19863160136596,1.0,2000
+wide_nuisance,,42,Mean,normalized_steepness_per_cm,finite cohort posterior,0.023524898557843246,0.019591322448539932,0.02804669057872236,1.0,2000
+wide_nuisance,,42,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023526860716681176,0.0178686343789311,0.029776946285725917,1.0,2000
+wide_nuisance,,42,Condition,midpoint_cm,finite cohort posterior,-0.9642857142857153,-17.28214285714286,15.858482142857136,0.456,2000
+wide_nuisance,,42,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.8250211913479437,-23.719285604243815,23.437162648082843,0.4685,2000
+wide_nuisance,,42,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.000309983868647002,-0.008210947324775281,0.007618199527984011,0.4615,2000
+wide_nuisance,,42,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00020275657036891706,-0.011397025351595598,0.010889907135474306,0.4865,2000
+wide_nuisance,,42,Phase,midpoint_cm,finite cohort posterior,0.5089285714285708,-17.01227678571429,18.966294642857132,0.518,2000
+wide_nuisance,,42,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.677104285592848,-24.79522325131895,25.591832029710755,0.5195,2000
+wide_nuisance,,42,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00020401214857537498,-0.00825771872301599,0.007976931458999092,0.483,2000
+wide_nuisance,,42,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00023418098543277166,-0.012508414637866592,0.011586630190464107,0.4845,2000
+wide_nuisance,,42,Condition × Phase,midpoint_cm,finite cohort posterior,-3.0535714285714284,-38.464285714285715,30.858482142857135,0.4235,2000
+wide_nuisance,,42,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.627284990885985,-53.267888054259025,43.76849591368611,0.441,2000
+wide_nuisance,,42,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0018140258549150942,-0.01887198628615626,0.014450210329306662,0.406,2000
+wide_nuisance,,42,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0020323064708604724,-0.025594576716988816,0.021531338522620472,0.429,2000
+wide_nuisance,"P011,P033",40,Mean,midpoint_cm,finite cohort posterior,55.0421875,46.0812109375,63.8175390625,1.0,2000
+wide_nuisance,"P011,P033",40,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.10051623531892,42.50745021514715,67.02141922766405,1.0,2000
+wide_nuisance,"P011,P033",40,Mean,normalized_steepness_per_cm,finite cohort posterior,0.023379273793518868,0.019333101669750594,0.027725146974890837,1.0,2000
+wide_nuisance,"P011,P033",40,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023157151581766053,0.01791446816544562,0.029903097771890062,1.0,2000
+wide_nuisance,"P011,P033",40,Condition,midpoint_cm,finite cohort posterior,-1.012500000000001,-18.14625,16.65140624999999,0.456,2000
+wide_nuisance,"P011,P033",40,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.6218816326678449,-26.75792545725521,22.842789055652975,0.4795,2000
+wide_nuisance,"P011,P033",40,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.00032548306207935153,-0.008621494691014047,0.007999109504383217,0.4615,2000
+wide_nuisance,"P011,P033",40,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.000323960182108838,-0.012584213851632223,0.011642463592165284,0.475,2000
+wide_nuisance,"P011,P033",40,Phase,midpoint_cm,finite cohort posterior,0.5624999999999991,-16.680234375,19.12640624999999,0.5215,2000
+wide_nuisance,"P011,P033",40,Phase,midpoint_cm,posterior + Bayesian bootstrap,-0.16846031477280343,-24.54896034051464,26.33094408894275,0.496,2000
+wide_nuisance,"P011,P033",40,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00011369194418133925,-0.008295680062622147,0.007572295680529867,0.491,2000
+wide_nuisance,"P011,P033",40,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00017745352304623094,-0.012029971811404425,0.012157311439050578,0.49,2000
+wide_nuisance,"P011,P033",40,Condition × Phase,midpoint_cm,finite cohort posterior,-3.20625,-40.3875,32.401406249999994,0.4235,2000
+wide_nuisance,"P011,P033",40,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.0657989397009873,-53.13851497742954,44.16532039225188,0.447,2000
+wide_nuisance,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0019047271476608472,-0.019815585600464078,0.015172720845771995,0.406,2000
+wide_nuisance,"P011,P033",40,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0015855320827117174,-0.024287737614960395,0.021067731477879773,0.4495,2000
+wide_nuisance,P011,41,Mean,midpoint_cm,finite cohort posterior,55.0342987804878,45.93105945121951,63.849771341463416,1.0,2000
+wide_nuisance,P011,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,55.13125115408012,42.57613629432353,67.4652268230248,1.0,2000
+wide_nuisance,P011,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.023438940459650986,0.01953704517386371,0.02776439759579426,1.0,2000
+wide_nuisance,P011,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023379801188851468,0.018040243075290223,0.0298285790519598,1.0,2000
+wide_nuisance,P011,41,Condition,midpoint_cm,finite cohort posterior,-0.9192073170731697,-18.170807926829266,16.79336890243902,0.4645,2000
+wide_nuisance,P011,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-0.393205117001469,-25.354737284995803,23.645398704411928,0.4865,2000
+wide_nuisance,P011,41,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.0004595789048205686,-0.008556379712227924,0.008060382798593627,0.462,2000
+wide_nuisance,P011,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00025994425786497743,-0.01296454768033719,0.011556743459650248,0.4815,2000
+wide_nuisance,P011,41,Phase,midpoint_cm,finite cohort posterior,0.5213414634146349,-16.575914634146343,18.770350609756086,0.5265,2000
+wide_nuisance,P011,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,0.3165097171973825,-24.202185025950254,25.2872629841528,0.5085,2000
+wide_nuisance,P011,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0001478129109054512,-0.008135651682586441,0.007724775316619755,0.485,2000
+wide_nuisance,P011,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.00020561991932392345,-0.012206904728194625,0.01127104061049276,0.4805,2000
+wide_nuisance,P011,41,Condition × Phase,midpoint_cm,finite cohort posterior,-3.1554878048780513,-40.170731707317074,32.926829268292686,0.426,2000
+wide_nuisance,P011,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.0103069575365087,-53.11362590405822,44.34420779565402,0.448,2000
+wide_nuisance,P011,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.0019595057924120525,-0.019071051950755716,0.015553689874287274,0.4105,2000
+wide_nuisance,P011,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.002131611187063947,-0.025915369269812756,0.022385253431370197,0.429,2000
+wide_nuisance,P033,41,Mean,midpoint_cm,finite cohort posterior,55.0342987804878,45.93105945121951,63.849771341463416,1.0,2000
+wide_nuisance,P033,41,Mean,midpoint_cm,posterior + Bayesian bootstrap,54.835950339787544,42.457668094692174,67.38194455735281,1.0,2000
+wide_nuisance,P033,41,Mean,normalized_steepness_per_cm,finite cohort posterior,0.023438940459650986,0.01953704517386371,0.02776439759579426,1.0,2000
+wide_nuisance,P033,41,Mean,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023410800143081223,0.018035845188888178,0.029623682724733723,1.0,2000
+wide_nuisance,P033,41,Condition,midpoint_cm,finite cohort posterior,-1.0152439024390243,-18.166006097560974,16.60541158536583,0.4525,2000
+wide_nuisance,P033,41,Condition,midpoint_cm,posterior + Bayesian bootstrap,-1.3134020703891096,-25.881223389319796,23.00694509066942,0.459,2000
+wide_nuisance,P033,41,Condition,normalized_steepness_per_cm,finite cohort posterior,-0.00030837050863376095,-0.008583000785640093,0.00799526203355651,0.47,2000
+wide_nuisance,P033,41,Condition,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0003744851379639197,-0.012214040471005726,0.011363937742323395,0.4755,2000
+wide_nuisance,P033,41,Phase,midpoint_cm,finite cohort posterior,0.5213414634146349,-16.575914634146343,18.770350609756086,0.5265,2000
+wide_nuisance,P033,41,Phase,midpoint_cm,posterior + Bayesian bootstrap,1.1257210581872321,-24.349712212146564,26.031677177600773,0.53,2000
+wide_nuisance,P033,41,Phase,normalized_steepness_per_cm,finite cohort posterior,-0.00014781291090545113,-0.00813565168258644,0.007724775316619755,0.485,2000
+wide_nuisance,P033,41,Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0002521535993385967,-0.011415384184403073,0.011652593388693067,0.479,2000
+wide_nuisance,P033,41,Condition × Phase,midpoint_cm,finite cohort posterior,-3.347560975609756,-40.172103658536585,31.71951219512195,0.4235,2000
+wide_nuisance,P033,41,Condition × Phase,midpoint_cm,posterior + Bayesian bootstrap,-3.3416612356214044,-53.20473326367993,47.63955860143674,0.4445,2000
+wide_nuisance,P033,41,Condition × Phase,normalized_steepness_per_cm,finite cohort posterior,-0.001981309919509475,-0.019090025840796693,0.015156472975355396,0.4135,2000
+wide_nuisance,P033,41,Condition × Phase,normalized_steepness_per_cm,posterior + Bayesian bootstrap,-0.0017513581497047592,-0.026263416794376656,0.021827794064826756,0.4405,2000

@@ -49,10 +49,18 @@ jobs:
           python - <<'PY'
           from data_preparation import app
           from paper_analysis import analyze
+          from bayesian_sigmoid import run as analyze_bayesian
+          from validate_bayesian import compare as compare_bayesian
+          import json
+          from pathlib import Path
           outputs, values = app.run()
           assert len(values["people"]) == 42
           assert len(values["trials"]) == 17114
           assert values["manifest"]["synthetic_demo"] is False
+          bayesian = analyze_bayesian(values["people"], values["trials"])
+          assert len(bayesian["cells"]) == 672
+          assert len(bayesian["group_cell_summaries"]) == 256
+          compare_bayesian(bayesian, json.loads(Path("../results/bayesian/bayesian_results.json").read_text()))
           report, retained = analyze(values["people"], values["trials"])
           assert report["cohort"]["retained_at"] == 8916
           assert all(m["status"] == "computed" for m in report["mixed_models"])
@@ -101,6 +109,7 @@ jobs:
           python workbook/validate_questionnaires.py
           python workbook/validate_participant_sigmoids.py
           python workbook/validate_robustness.py
+          python workbook/validate_bayesian.py --output .for-ai-local/bayesian-ci-validation.json
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload audited publication companion

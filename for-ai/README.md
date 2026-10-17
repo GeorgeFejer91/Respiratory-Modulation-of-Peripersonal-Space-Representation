@@ -25,6 +25,7 @@ the easiest interpretation.
 | Need | Read |
 | --- | --- |
 | Scope, goals, boundaries, architecture, current state | [`PROJECT.md`](./PROJECT.md) |
+| Results-first questions, ordered checklist and progress | [`ANALYSIS_ROADMAP.md`](./ANALYSIS_ROADMAP.md) |
 | Which installed skills apply and in what order | [`SKILLS.md`](./SKILLS.md) |
 | Acceptance criteria, commands, gates, evidence limits | [`VERIFICATION.md`](./VERIFICATION.md) |
 | Session loop, updates, Git publication, handoff | [`WORKFLOW.md`](./WORKFLOW.md) |

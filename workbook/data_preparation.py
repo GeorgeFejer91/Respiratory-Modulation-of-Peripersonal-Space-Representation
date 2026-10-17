@@ -33,6 +33,11 @@ def _(mo):
 
     **Respiratory Modulation of Peripersonal Space Representation**
 
+    **Active focus: results before manuscript narrative.** The Bayesian results
+    branch below examines individual midpoint and sharpness, experimental
+    contrasts, reliability, and questionnaire links. The earlier complete
+    analysis and version-1.9 manuscript remain available as preserved snapshots.
+
     Reproduce the paper's behavioral analysis from the released deidentified
     data. Follow preparation, run every data-supported model and sensitivity,
     inspect fit diagnostics, and download the complete analysis record.
@@ -48,7 +53,9 @@ def _(mo):
     Changes in the browser can be downloaded; publishing a revised page requires
     committing the workbook source to GitHub.
 
-    [Working preprint · author-review draft](./paper.pdf) ·
+    [Results-only report and checklist](./results/index.html) ·
+    [Bayesian reference download](./results/bayesian-results.zip) ·
+    [Preserved working preprint · version 1.9](./paper.pdf) ·
     [Individual curve atlas · exploratory](./individual-curves.pdf) ·
     [Analysis contract](./ANALYSIS_PLAN.md) · [Data release record](./DATA_RELEASE.md) ·
     [Descriptive sigmoid methods and sources](./SIGMOID_EXPLORATION.md) ·
@@ -206,6 +213,78 @@ def _(columns, make_bundle, mo, prepared, settings, source_bytes, stages, synthe
         mo.md("The preview is exploratory. Continue below to execute the fixed paper-analysis pipeline on the full validated input."),
     ])
     return bundle, manifest
+
+
+@app.cell
+def _(mo):
+    run_bayesian = mo.ui.run_button(label="Run Bayesian parameter analysis")
+    mo.vstack([
+        mo.md("## Bayesian results · midpoint and sharpness\nFit all four individual curves from the observed RTs, compare simpler models, assess prior sensitivity and reliability, and carry parameter uncertainty into condition/phase and questionnaire analyses. This branch runs independently of the earlier complete analysis and leaves the manuscript snapshot unchanged."),
+        mo.callout("Bayesian estimation requires a likelihood and priors. A finite midpoint or a model-implied S does not establish an observed PPS boundary. Raw data, uncertainty, predictive checks and alternative priors remain part of the result.", kind="info"),
+        run_bayesian,
+    ])
+    return (run_bayesian,)
+
+
+@app.cell
+def _():
+    from bayesian_sigmoid import run as run_bayesian_parameters
+    from bayesian_report import (result_bundle as bayesian_bundle, markdown as bayesian_markdown,
+        figure_bytes as bayesian_figure, primary_rows as bayesian_primary,
+        participant_figure as bayesian_participant_figure)
+    return bayesian_bundle, bayesian_figure, bayesian_markdown, bayesian_participant_figure, bayesian_primary, run_bayesian_parameters
+
+
+@app.cell
+def _(bayesian_bundle, mo, people, run_bayesian, run_bayesian_parameters, source_bytes, trials):
+    mo.stop(not run_bayesian.value, mo.md("Choose **Run Bayesian parameter analysis** to calculate the results-only extension."))
+    with mo.status.spinner(title="Computing Bayesian individual parameter results…") as _spinner:
+        bayesian_results = run_bayesian_parameters(people, trials, progress=lambda _text: _spinner.update(title=_text))
+        mo.stop(bayesian_results["status"] != "computed", mo.md(bayesian_results.get("reason", "Bayesian fits unavailable.")))
+        _spinner.update(title="Building the Bayesian results and participant atlas…")
+        bayesian_zip, bayesian_manifest = bayesian_bundle(bayesian_results, source_bytes)
+    return bayesian_manifest, bayesian_results, bayesian_zip
+
+
+@app.cell
+def _(bayesian_figure, bayesian_manifest, bayesian_markdown, bayesian_primary, bayesian_results, bayesian_zip, mo, synthetic):
+    _contrasts = [r for r in bayesian_primary(bayesian_results, "group_contrasts")
+                  if r["scope"] == "posterior + Bayesian bootstrap" and r["effect"] != "Mean"]
+    mo.vstack([
+        mo.md("### Bayesian results computed\nMidpoints and sharpness are conditional on the sigmoid model. The plots show measured RTs and uncertainty rather than guaranteeing an observed transition."),
+        mo.callout("Synthetic demonstration results." if synthetic else "Computed from the selected validated dataset; the primary comparison excludes ambiguous recording links.", kind="warn" if synthetic else "success"),
+        mo.Html(bayesian_figure(bayesian_results).decode()),
+        mo.Html(bayesian_figure(bayesian_results, "cell_parameters").decode()),
+        mo.Html(bayesian_figure(bayesian_results, "parameters").decode()),
+        mo.ui.table(_contrasts, selection=None, label="Bayesian Condition × Phase parameter results"),
+        mo.accordion({
+            "Individual parameters · primary cohort/prior": mo.ui.table(bayesian_primary(bayesian_results, "cells"), selection=None, page_size=20),
+            "Spatial/MAIA associations · primary": mo.ui.table(bayesian_primary(bayesian_results, "associations"), selection=None),
+            "Joint spatial × MAIA models · primary": mo.ui.table(bayesian_primary(bayesian_results, "joint_moderation"), selection=None),
+            "Read the Bayesian results report": mo.md(bayesian_markdown(bayesian_results)),
+            "Results reproducibility record": mo.json(bayesian_manifest),
+        }),
+        mo.download(lambda: bayesian_zip, filename="study5_bayesian_results.zip", mimetype="application/zip", label="Download Bayesian results"),
+    ])
+    return
+
+
+@app.cell
+def _(bayesian_results, mo):
+    bayesian_participant = mo.ui.dropdown(bayesian_results["participant_ids"],
+        value=bayesian_results["participant_ids"][0], label="Bayesian participant", allow_select_none=False)
+    bayesian_participant
+    return (bayesian_participant,)
+
+
+@app.cell
+def _(bayesian_participant, bayesian_participant_figure, bayesian_results, mo):
+    from matplotlib import pyplot as _bayes_plt
+    _figure = bayesian_participant_figure(bayesian_results, bayesian_participant.value)
+    _plot = mo.as_html(_figure)
+    _bayes_plt.close(_figure)
+    mo.vstack([mo.md("### Bayesian participant "+bayesian_participant.value+" · raw response and assumed geometry"), _plot])
+    return
 
 
 @app.cell

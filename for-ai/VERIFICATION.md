@@ -124,7 +124,24 @@ coefficients and intervals remain identical to their earlier models. Check all
 parity, section 16, both exported CSVs and the spatial–PPS figure. Participant
 counts must not treat the two phases sharing one spatial rating as extra people.
 
-Reconcile all sample counts, models, captions and scientific interpretation with
+For the results-only Bayesian branch, run all 56 unit tests and both strict marimo
+checks. `validate_bayesian.py` independently checks 144 fixed-basis marginal
+likelihoods against full-covariance multivariate Student-t densities and 80 WLS
+coefficients against statsmodels. Verify 672 four-prior individual fits, 256 paired
+contrast records, 256 cell-average records, 1,472 rank associations, 3,072 joint
+coefficients, all distance-held-out predictions, ten split halves, 20 matched-noise
+simulation replicates per scenario and the fine-grid comparison. Verify the actual
+browser download and every numeric result against a separate native execution at
+1e-8; inspect all 42 atlas pages, raw average curves, cell parameters and contrasts.
+Exercise the independent button, participant selector, preview-filter independence,
+download, editor/uploads and RPC stability. Keep linked recordings' draws/weights
+paired. Check code/input/artifact hashes and published identity. The new results
+manifest must declare `manuscript_updated=false` and retain the earlier version-1.9
+reference. Preserve its nine engine files, manuscript sources and PDF byte-for-byte.
+This phase requires the results report and roadmap, not manuscript compilation;
+D-0012 supersedes the manuscript-refresh gate for these new results.
+
+For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and
 references. Archive the checked PDF with `--preprint-pdf` and rebuild the site.

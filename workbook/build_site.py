@@ -7,6 +7,7 @@ import shutil
 import json
 import zipfile
 import io
+import re
 from hashlib import sha256
 from pathlib import Path
 from html import escape
@@ -57,6 +58,68 @@ nav{{font-size:15px;margin-bottom:2rem}}:focus-visible{{outline:3px solid #c75c1
 <a href="EVIDENCE_TABLE.html">Evidence</a> · <a href="ANALYSIS_RATIONALE.html">Rationale</a> ·
 <a href="QUESTIONNAIRES.html">Questionnaires</a> · <a href="INDIVIDUAL_PARAMETERS.html">Individual curves</a> · <a href="SEARCH_LOG.html">Search record</a> · <a href="{name}">Markdown source</a></nav>
 <main>{body}</main></html>''')
+
+
+def build_results(root, target):
+    """Publish the independently verified results branch without refreshing the paper."""
+    from validate_bayesian import verified_bundle
+    source = root/"results"/"bayesian"
+    _, manifest, digest = verified_bundle(source/"bayesian-results.zip")
+    data = (source/"bayesian-results.zip").read_bytes()
+    destination = target/"results"
+    destination.mkdir(exist_ok=True)
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        if manifest["runtime"]["execution"] != "browser Pyodide" or manifest["manuscript_updated"]:
+            raise RuntimeError("An actual results-only browser download is required.")
+        for name in ("bayesian_results.json", "bayesian_results.md", "bayesian_average_curves.svg", "bayesian_cell_parameters.svg",
+                     "bayesian_parameter_contrasts.svg", "bayesian_participant_atlas.pdf"):
+            (destination/name).write_bytes(archive.read(name))
+    (destination/"bayesian-results.zip").write_bytes(data)
+    report = (root/"results"/"RESULTS_REPORT.md").read_text()
+    (destination/"RESULTS_REPORT.md").write_text(report)
+    evidence = (root/"results"/"bayesian-independent-validation.json").read_bytes()
+    (destination/"bayesian-independent-validation.json").write_bytes(evidence)
+    checked = json.loads(evidence)
+    if checked.get("browser_zip_sha256") != digest:
+        raise RuntimeError("Bayesian browser validation/reference mismatch.")
+    if checked.get("browser_ui", {}).get("source_sha256") != sha256((root/"workbook"/"data_preparation.py").read_bytes()).hexdigest():
+        raise RuntimeError("Workbook UI changed after its browser check.")
+    for filename, text in (("index.html", report), ("bayesian_results.html", (destination/"bayesian_results.md").read_text())):
+        body = markdown.markdown(text, extensions=["tables", "fenced_code", "sane_lists"])
+        # Repository-relative evidence links resolve to shipped assets or their exact public source.
+        def rewrite(match):
+            attribute, path = match.groups()
+            if path.startswith(("https://", "http://", "#")):
+                return match.group(0)
+            local = path.removeprefix("bayesian/")
+            if (destination/local).is_file():
+                path = local
+            elif path == "../for-ai/ANALYSIS_ROADMAP.md":
+                path = "https://github.com/GeorgeFejer91/Study5_Publication/blob/main/for-ai/ANALYSIS_ROADMAP.md"
+            elif path == "../workbook/ANALYSIS_PLAN.md":
+                path = "../ANALYSIS_PLAN.md"
+            elif path == "browser-analysis/analysis_report.md":
+                path = "../reference/analysis_report.md"
+            elif path == "browser-analysis/browser-results.zip":
+                path = "../reference/browser-results.zip"
+            else:
+                relative = (Path("results")/path).as_posix()
+                path = "https://github.com/GeorgeFejer91/Study5_Publication/blob/main/"+relative
+            return attribute+'="'+path+'"'
+        body = re.sub(r'(href|src)="([^"\s]+)"', rewrite, body)
+        (destination/filename).write_text('''<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Study 5 · Results</title>
+<style>body{font:17px/1.65 system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1.2rem;color:#1f2937}
+a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}img{max-width:100%;height:auto}
+table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}th,td{padding:.6rem;border:1px solid #ccd5df;text-align:left;vertical-align:top}
+th{background:#edf3f8}code{overflow-wrap:anywhere}nav{font-size:15px}:focus-visible{outline:3px solid #c75c12}</style>
+<nav><a href="../">Workbook</a> · <a href="index.html">Results report</a> ·
+<a href="bayesian_results.html">Bayesian detail</a> · <a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/for-ai/ANALYSIS_ROADMAP.md">Question checklist</a> ·
+<a href="bayesian-results.zip">Download results</a> · <a href="bayesian_participant_atlas.pdf">Individual curves</a></nav>
+<main>'''+body+"</main></html>")
+    (destination/"results_manifest.json").write_text(json.dumps(dict(
+        browser_zip_sha256=sha256(data).hexdigest(), results_report_sha256=sha256(report.encode()).hexdigest(),
+        manuscript_updated=False), indent=2)+"\n")
 
 
 def build(output, development=False):
@@ -128,6 +191,7 @@ def build(output, development=False):
             if sha256((notebook.parent/name).read_bytes()).hexdigest()!=expected_hash:
                 raise RuntimeError("Engine changed: rerun the browser analysis and refresh its reference record.")
         (target/"paper.pdf").write_bytes(pdf)
+        build_results(root, target)
     (output / ".nojekyll").touch()
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:

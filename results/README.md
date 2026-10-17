@@ -1,4 +1,19 @@
-# Browser analysis record
+# Results and reproducibility
+
+## Active results-only analysis
+
+Start with [RESULTS_REPORT.md](RESULTS_REPORT.md) for the level-by-level findings
+and [the question checklist](../for-ai/ANALYSIS_ROADMAP.md) for completion status.
+`bayesian/` contains the separate real-browser Bayesian approximation, four prior
+specifications, individual parameters, experimental contrasts, spatial/MAIA joint
+exploration, figures and atlas. `bayesian-independent-validation.json` records
+independent probability/regression checks and actual native/browser parity.
+The original `browser-analysis/` reference and manuscript PDF stay at version 1.9;
+manuscript drafting is paused. Bayesian fitting is not assumption-free, and its
+finite medians do not establish physiological boundary identification.
+
+
+## Earlier browser analysis record
 
 `browser-analysis/` contains the exact Pyodide download, full JSON report,
 Markdown report, model/coefficient tables and diagnostics from the released

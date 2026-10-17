@@ -1,0 +1,62 @@
+{
+  "analysis_version": "Bayesian results 1.0",
+  "runtime": {
+    "python": "3.14.2",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8",
+    "platform": "Emscripten",
+    "execution": "browser Pyodide"
+  },
+  "source_sha256": {
+    "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "code_sha256": {
+    "bayesian_sigmoid.py": "6511774da6d3bd01b94034cf0450fb00bc4744764c198a95fd16638d526db560",
+    "bayesian_report.py": "2da687517f6c288302d67868ad70844a117f007cdad903a0841fb665c95b458f",
+    "inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
+    "paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
+    "preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
+    "publication_report.py": "0de6a92f1859cac2356dc084e62666def77fb9760e1fdcd020d2d567a062dd79",
+    "descriptive_sigmoid.py": "69ad4d65171320f312c10e28010ed73ceb3b73c8de2565e47b60e5d8fbd980a2",
+    "sigmoid_shape.py": "3964b9877737bce90b04fcb7f74ebd9e0b5a67ac9d1d63c6941c802c1c1d2ea4",
+    "questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
+    "participant_sigmoid.py": "a980864c605943e549f528d37ad3ea0cce034fea247108e14bd4ded8bc2261e1",
+    "participant_report.py": "bfd371c134c1ed245d720c4388185ca53d5489a38971c26ff4add7bc2f01a8f6"
+  },
+  "artifact_sha256": {
+    "bayesian_results.json": "35e262797fe30338c4ff4ed30039cc99564224f5d77fb8493956eafb5142b019",
+    "bayesian_results.md": "be9327ab6e262f66df06ba70412aaa1e49b5cedc554a27005cf67022b10c3110",
+    "bayesian_prediction_summary.csv": "a102d0e907b092f74ace1be785affa47e27f494a1d4942286a5121d8117652a2",
+    "bayesian_average_curves.svg": "80c44c4ed73b01cd9b1fdc5c10a0dfb05628ca09e2fe09d7c372cce2c331fffa",
+    "bayesian_cell_parameters.svg": "7a29c126a057cce02f2860c1090fde9e69b7463dc5e0bc150d23362340f692ac",
+    "bayesian_parameter_contrasts.svg": "337919b8c82a80e53ec2bc8533063b25c256b92666d65a572627798283885014",
+    "bayesian_participant_atlas.pdf": "dbac077ce7c0815db9fc73e8700c35b649504e3458833957f82f08ce74d1027d",
+    "bayesian_cells.csv": "d6fbde30a4a8f02d6845f0146585e7a0c7163e2c608c12a3d07590e0205f2702",
+    "bayesian_model_evidence.csv": "aad0810133390e0532f5e45465ea93e78e93abd839e4597f89e47ec840b5339e",
+    "bayesian_prediction.csv": "715c1fbc1c774e3cc5fd3801b6f5838e665f6ed0e2af264f76732bb0d7175757",
+    "bayesian_group_contrasts.csv": "ad5d694c8b0c399a65b1658e089a8ec98b22b09d8ce445f76f290b1db286eb1d",
+    "bayesian_group_cell_summaries.csv": "c4c79779a8484e8ce7776ef98bb88236ffadf458b0f721561a1ce0b04298ccf5",
+    "bayesian_associations.csv": "2c2b76d22f980a93d3c77388b1efc3a99825e9d16f980f90ec4780618ea78d5b",
+    "bayesian_joint_moderation.csv": "f29af8018c5d423015f004b437b725b30c0ea15b7dcdafebeec4ba92ed367093",
+    "bayesian_quadrature_checks.csv": "0b7bb670cd6669535e81f2e7dc7213f940cc8b2cb1e9931d71502782f2ff83d0",
+    "bayesian_reliability.csv": "17fc22a88559c5f392c29a4f0f9871f61e74ea621a75145c08cc1c98e5044db3",
+    "bayesian_recovery.csv": "5cebe221268128b1aede3ba1fb23d728b50499d591874eaa353e62b5f0b0304c",
+    "bayesian_prior_predictive.csv": "76560e4d5ace29fb724084b368c1acc18b6b5e7d1d5b07e730b23250a4ad4855",
+    "analysis_source/bayesian_sigmoid.py": "6511774da6d3bd01b94034cf0450fb00bc4744764c198a95fd16638d526db560",
+    "analysis_source/bayesian_report.py": "2da687517f6c288302d67868ad70844a117f007cdad903a0841fb665c95b458f",
+    "analysis_source/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
+    "analysis_source/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
+    "analysis_source/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
+    "analysis_source/publication_report.py": "0de6a92f1859cac2356dc084e62666def77fb9760e1fdcd020d2d567a062dd79",
+    "analysis_source/descriptive_sigmoid.py": "69ad4d65171320f312c10e28010ed73ceb3b73c8de2565e47b60e5d8fbd980a2",
+    "analysis_source/sigmoid_shape.py": "3964b9877737bce90b04fcb7f74ebd9e0b5a67ac9d1d63c6941c802c1c1d2ea4",
+    "analysis_source/questionnaires.py": "20419d1ff5b64a3ec5681005b5775c321661edcd27919f7d6740300be7335ee2",
+    "analysis_source/participant_sigmoid.py": "a980864c605943e549f528d37ad3ea0cce034fea247108e14bd4ded8bc2261e1",
+    "analysis_source/participant_report.py": "bfd371c134c1ed245d720c4388185ca53d5489a38971c26ff4add7bc2f01a8f6"
+  },
+  "manuscript_updated": false,
+  "contract": "workbook/ANALYSIS_PLAN.md",
+  "legacy_analysis_version": "1.9"
+}

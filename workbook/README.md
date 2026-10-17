@@ -2,7 +2,15 @@
 
 The marimo application executes the released Study 5 analysis entirely in the
 reader's browser using Pyodide. The published default loads the deidentified
-42-record, 17,114-trial dataset. Select **Run complete paper analysis** to compute
+42-record, 17,114-trial dataset. The active **Run Bayesian parameter analysis**
+branch runs separately: individual posteriors, simpler-model prediction, prior
+sensitivity, reliability/recovery, paired Condition × Phase contrasts and spatial
+× MAIA exploration. Its download has its own manifest and 42-page raw/conditional
+geometry atlas. See the [results-only report](../results/RESULTS_REPORT.md) and
+[ordered checklist](../for-ai/ANALYSIS_ROADMAP.md). No manuscript refresh is required;
+the earlier version-1.9 paper/reference remain preserved.
+
+Select **Run complete paper analysis** to compute
 models, diagnostics, figures and the complete result download. The fixed
 [analysis contract](ANALYSIS_PLAN.md) governs this run; exploratory preparation
 filters above it do not change the paper's estimates.
@@ -42,12 +50,21 @@ inputs. An unsuccessful fit or unavailable source check is never silently replac
 statistics; `preparation.py` owns shared schemas, preparation and release checks;
 `publication_report.py` generates result bundles and Matplotlib figures;
 `questionnaires.py` owns MAIA-2 scoring/reliability and ordinal spatial-frame
-analyses. The
+analyses. `bayesian_sigmoid.py` owns the unpooled conjugate/grid Bayesian reference
+and modular uncertainty propagation; `bayesian_report.py` owns its separate
+tables/figures/download. This is not a full joint hierarchical nonlinear model. The
 [contract](ANALYSIS_PLAN.md) distinguishes primary questions, sensitivities,
 supplementary analyses and registration ambiguities. It documents fixed nonlinear
 bounds and the unavailable private metadata.
 
 Native reference validation uses statsmodels independently of the browser engine.
+`validate_bayesian.py` additionally checks the marginal likelihood with an
+independent multivariate Student-t reference and bootstrap regressions with WLS.
+Its `--report <native-json> --browser-zip <actual-download>` mode verifies every
+new result across the two executions. Promote results-only browser artifacts into
+`results/bayesian/`; the site build requires their exact code/input/artifact hashes
+and browser-validation identity. Do not use `prepare_publication.py` for this branch
+while manuscript drafting is paused.
 The archived report and [results](../results/README.md) record both execution surfaces.
 The original participant-boundary inference remains gated when trial-level fits fail.
 A separately labelled individual-proxy extension exports four exploratory curves

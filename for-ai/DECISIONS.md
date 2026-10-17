@@ -268,3 +268,23 @@ The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.
   submission readiness and live Pages deployment keep their separate gates.
 - Supersedes: The source-private visibility requirement in D-0002 and D-0004;
   the deidentification, backup and scientific-evidence requirements remain.
+
+
+## D-0012 — Results before manuscript narrative
+
+- Date: 2026-10-17
+- Status: Accepted
+- Context: The owner requests an explicit analysis roadmap and a level-by-level
+  results report before agreeing the paper narrative, including a Bayesian
+  approximation for four individual sigmoid cells and exploratory joint links.
+- Decision: Make `ANALYSIS_ROADMAP.md` the question/checklist owner; freeze manuscript
+  drafting and preserve version-1.9 paper/reference outputs. Add a separately run,
+  hashed results-only Bayesian extension, retaining all former estimates.
+- Consequences: Bayesian likelihood/priors/approximation, prediction, prior
+  sensitivity and propagated uncertainty are explicit. A finite posterior estimate
+  does not establish a physiological boundary. Joint spatial × MAIA exploration
+  is labelled exploratory/modular rather than mediation. The results report
+  states computational completion separately from scientific identification.
+- Supersedes: Requirements to refresh manuscript prose/PDFs for each new analysis
+  during this phase. Privacy, actual-browser, independent-check and Pages gates
+  remain; prior scientific claims and audit records stay available.

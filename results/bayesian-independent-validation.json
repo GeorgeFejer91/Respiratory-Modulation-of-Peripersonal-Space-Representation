@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "record_counts": {
+    "cells": 672,
+    "model_evidence": 2688,
+    "prediction": 13440,
+    "group_contrasts": 256,
+    "group_cell_summaries": 256,
+    "associations": 1472,
+    "joint_moderation": 3072,
+    "individual_curves": 168,
+    "average_curves": 4,
+    "quadrature_checks": 168,
+    "reliability": 80,
+    "recovery": 120
+  },
+  "student_t_reference_cases": 144,
+  "max_log_marginal_likelihood_error": 4.89350782117981e-11,
+  "independent_WLS_cases": 80,
+  "max_WLS_coefficient_error": 2.4424906541753444e-15,
+  "quadrature_median_max_difference": {
+    "midpoint_cm": 0.037400712003732295,
+    "normalized_steepness_per_cm": 8.650597125188508e-06
+  },
+  "source_linkage": "Both ambiguous records excluded for primary inference; linked copies share latent draws and resampling weights in the provisional full cohort.",
+  "limits": "Probability/numerical verification does not validate the Gaussian model, prior choices, physiological identifiability or causal inference.",
+  "browser_native_parity": {
+    "status": "passed",
+    "numeric_values_compared": 253839,
+    "absolute_tolerance": 1e-08,
+    "max_absolute_numeric_error": 2.1955202100798488e-09,
+    "scope": "Every Bayesian result value and label, including prediction, priors, linked-record cohorts, resampled associations/regressions, recovery and curve bands."
+  },
+  "browser_zip_sha256": "edfbcbf793161581ae47237f4503fdf1cbad857a8577fb2093a1f75aef51d927",
+  "browser_runtime": {
+    "python": "3.14.2",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8",
+    "platform": "Emscripten",
+    "execution": "browser Pyodide"
+  },
+  "legacy_snapshot_unchanged": {
+    "analysis_version": "1.9",
+    "engine_files": 9,
+    "manuscript_sources": 37,
+    "reference_zip_sha256": "36158045cf8d1e2080f08ef1e0db4f8b0006006536bcd1ff0a52f5763ae2a11a",
+    "pdf_sha256": "946d2f66d0a80ba8fe45228c1d878a1c5deae7f265cfae1aaa4872a794086abd"
+  },
+  "visual_review": {
+    "atlas_pages": 42,
+    "group_figures": 3,
+    "status": "all pages and figures visually inspected; raw response and model-imposed geometry remain separated"
+  },
+  "browser_ui": {
+    "source_sha256": "b3a252081316e46d0eed4b15ca3518dd01ea6d264a6ed24a46d9c858e2bc2396",
+    "status": "passed fresh full run, actual download, P033 participant selector, preview-filter independence, no processing-server POST/page error/RPC timeout through 35 seconds of subsequent interaction"
+  }
+}

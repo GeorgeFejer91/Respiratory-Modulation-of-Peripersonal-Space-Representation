@@ -1,0 +1,257 @@
+prior,excluded_ids,n,condition,phase,parameter,scope,median,low,high,probability_positive,valid_draws
+primary,,42,Control,Exhale,midpoint_cm,finite cohort posterior,54.357142857142854,38.229464285714286,69.63169642857139,1.0,2000
+primary,,42,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.322641982792916,31.5770467365962,77.24707984238444,1.0,2000
+primary,,42,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022119292982239414,0.01526247273712888,0.03148284495440898,1.0,2000
+primary,,42,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022109521820458052,0.012676886405000315,0.034569226886319686,1.0,2000
+primary,,42,Control,Inhale,midpoint_cm,finite cohort posterior,56.5,39.464285714285715,73.05491071428571,1.0,2000
+primary,,42,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.44566868242144,32.5017767520622,79.7870489819522,1.0,2000
+primary,,42,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022666218241094833,0.014850802900828993,0.031404320377229594,1.0,2000
+primary,,42,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02264416235694357,0.012281441881214454,0.03599455906160589,1.0,2000
+primary,,42,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.69642857142857,38.87232142857143,70.75,1.0,2000
+primary,,42,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.41532979094069,32.96610282166148,77.95568703385327,1.0,2000
+primary,,42,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02278967225546796,0.014865342400865624,0.03183603674157974,1.0,2000
+primary,,42,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022536838880852617,0.013054874245905505,0.03556295375108735,1.0,2000
+primary,,42,Viscereality,Inhale,midpoint_cm,finite cohort posterior,54.142857142857146,37.74866071428571,70.96562499999999,1.0,2000
+primary,,42,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.17899655800662,31.472288440979035,78.2042757445077,1.0,2000
+primary,,42,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021785501474745093,0.014133245987927581,0.030621320468461086,1.0,2000
+primary,,42,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021423284890869605,0.011857522245002805,0.03410267734892164,1.0,2000
+primary,"P011,P033",40,Control,Exhale,midpoint_cm,finite cohort posterior,54.325,37.45,70.18890624999999,1.0,2000
+primary,"P011,P033",40,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.401597710099594,30.596043706964235,76.49716312072916,1.0,2000
+primary,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02207607648513696,0.014954558245886214,0.03145336814840559,1.0,2000
+primary,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02158181426307708,0.012439161933258782,0.035666096798222274,1.0,2000
+primary,"P011,P033",40,Control,Inhale,midpoint_cm,finite cohort posterior,56.321875000000006,38.96875,73.39656249999999,1.0,2000
+primary,"P011,P033",40,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.34556049627772,32.62054212375863,79.63188039268539,1.0,2000
+primary,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022538877801378247,0.014637020633886638,0.03155776637907869,1.0,2000
+primary,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02219108790064087,0.012384875785045563,0.03669562705977642,1.0,2000
+primary,"P011,P033",40,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.590625,38.4625,71.31390624999999,1.0,2000
+primary,"P011,P033",40,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.28489294062048,32.54251536957369,78.40237519483644,1.0,2000
+primary,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022767495767373958,0.014679629672072593,0.03180028164268791,1.0,2000
+primary,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022577368162304084,0.012400335513973734,0.035882323620067665,1.0,2000
+primary,"P011,P033",40,Viscereality,Inhale,midpoint_cm,finite cohort posterior,54.240624999999994,37.16734375,70.97640624999998,1.0,2000
+primary,"P011,P033",40,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.18849126270485,30.43532033267251,77.94916407916156,1.0,2000
+primary,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021662580496072267,0.013900076494872354,0.03127440579750823,1.0,2000
+primary,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021426332970273528,0.011887609010218828,0.03458820353744796,1.0,2000
+primary,P011,41,Control,Exhale,midpoint_cm,finite cohort posterior,54.3140243902439,37.92469512195122,69.76219512195122,1.0,2000
+primary,P011,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.61995580895735,31.004754717246062,77.92069788893704,1.0,2000
+primary,P011,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022135388577304595,0.01519264202324368,0.03142307084678685,1.0,2000
+primary,P011,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021702610201068544,0.012452702959347303,0.035407159434509575,1.0,2000
+primary,P011,41,Control,Inhale,midpoint_cm,finite cohort posterior,56.31707317073171,39.24451219512195,73.00548780487802,1.0,2000
+primary,P011,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.401520418388216,32.62171711146786,79.56463141302052,1.0,2000
+primary,P011,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02261401519990118,0.01479976180039434,0.031347734924550785,1.0,2000
+primary,P011,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022122574782945464,0.01238117895161355,0.035353629433925324,1.0,2000
+primary,P011,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.548780487804876,38.920731707317074,71.35365853658537,1.0,2000
+primary,P011,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.37635475580592,31.790741716274045,78.47205059942188,1.0,2000
+primary,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022817227556663548,0.014808140625928666,0.03179498158586359,1.0,2000
+primary,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022545809044745423,0.012843583003815485,0.03575026707589631,1.0,2000
+primary,P011,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,54.3140243902439,37.43902439024391,70.69786585365851,1.0,2000
+primary,P011,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.410961770019156,31.46107611850867,77.49329217197905,1.0,2000
+primary,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02175610884182868,0.013946718337744272,0.030815584307027133,1.0,2000
+primary,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02169925470050014,0.011820126101294806,0.034744286883562264,1.0,2000
+primary,P033,41,Control,Exhale,midpoint_cm,finite cohort posterior,54.396341463414636,37.87530487804878,70.20396341463413,1.0,2000
+primary,P033,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.05769072889133,30.953077359673017,76.90834109646259,1.0,2000
+primary,P033,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022124020996018363,0.015156348632614763,0.03150637368655716,1.0,2000
+primary,P033,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021974661580934245,0.012462566023088394,0.035044462011629175,1.0,2000
+primary,P033,41,Control,Inhale,midpoint_cm,finite cohort posterior,56.50914634146342,39.40640243902439,73.22362804878047,1.0,2000
+primary,P033,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.70912490836197,31.874585997713442,80.10610252241139,1.0,2000
+primary,P033,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02255561079052492,0.014743908908980152,0.031221748391113392,1.0,2000
+primary,P033,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.0222792361470788,0.012622383670437307,0.035820497880693886,1.0,2000
+primary,P033,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.46646341463415,39.025,70.91600609756098,1.0,2000
+primary,P033,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.95092640200893,32.6283039589445,77.48596817841566,1.0,2000
+primary,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02278889952851107,0.014744359335852929,0.031769331922278134,1.0,2000
+primary,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02247692906745933,0.013015557253047249,0.03609260462543885,1.0,2000
+primary,P033,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,54.1219512195122,37.271646341463416,71.13551829268293,1.0,2000
+primary,P033,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.58221144583948,31.4113677954928,77.55584201114071,1.0,2000
+primary,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021718075095227753,0.013842526653762679,0.03089808628578212,1.0,2000
+primary,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02141908269721478,0.012233692755994157,0.03523610956642844,1.0,2000
+expanded_support,,42,Control,Exhale,midpoint_cm,finite cohort posterior,54.558035714285715,30.732142857142858,79.99508928571427,1.0,2000
+expanded_support,,42,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.905726055904786,21.269976914223918,88.85750517488928,0.9995,2000
+expanded_support,,42,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.034105093083973,0.02043416884776617,0.04975340714983413,1.0,2000
+expanded_support,,42,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.033236732694127955,0.01644633247202666,0.059195796654038464,1.0,2000
+expanded_support,,42,Control,Inhale,midpoint_cm,finite cohort posterior,57.00892857142857,31.453348214285715,81.51986607142855,1.0,2000
+expanded_support,,42,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.574192957427364,21.162041096754105,90.73280688478292,1.0,2000
+expanded_support,,42,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.03452942964014974,0.020865507348608325,0.05127724050486276,1.0,2000
+expanded_support,,42,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03360981929435575,0.017317603361104446,0.059427569363813784,1.0,2000
+expanded_support,,42,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.84375,32.65669642857143,80.15580357142855,1.0,2000
+expanded_support,,42,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,56.26279071550748,22.645225734324118,88.15787208747683,0.9995,2000
+expanded_support,,42,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.034945975968351264,0.020915260741390357,0.051705839719963224,1.0,2000
+expanded_support,,42,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03378350501927417,0.016757715538036084,0.06087539937389745,1.0,2000
+expanded_support,,42,Viscereality,Inhale,midpoint_cm,finite cohort posterior,55.24107142857143,30.732142857142858,79.26986607142855,1.0,2000
+expanded_support,,42,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.920999549122996,20.305615492830885,91.22842481796141,0.999,2000
+expanded_support,,42,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.033440730431603366,0.019814925921054483,0.050486804268643964,1.0,2000
+expanded_support,,42,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03251004573257112,0.015985913880793616,0.059059288807773246,1.0,2000
+expanded_support,"P011,P033",40,Control,Exhale,midpoint_cm,finite cohort posterior,54.6203125,30.276015625,80.82085937499998,1.0,2000
+expanded_support,"P011,P033",40,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,53.66090079306342,20.269721214389833,89.59071949622826,0.9995,2000
+expanded_support,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.0340518013152269,0.01960642749977566,0.049792105375268514,1.0,2000
+expanded_support,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03303700545385066,0.01563980653080047,0.058969176704792806,1.0,2000
+expanded_support,"P011,P033",40,Control,Inhale,midpoint_cm,finite cohort posterior,57.19375,30.3625,81.74898437499999,1.0,2000
+expanded_support,"P011,P033",40,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,57.177691780300734,22.272726214367687,91.55153018624941,0.998,2000
+expanded_support,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.03438801619893305,0.01999809916729472,0.051647721266742504,1.0,2000
+expanded_support,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.033536039918452984,0.01662630398378789,0.05890999162573391,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.84375,32.13015625,80.903125,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.05400851516039,22.939471071722714,91.22113763483449,0.999,2000
+expanded_support,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.034845058347199226,0.020642069241893185,0.05170152474637309,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03440126914330735,0.017167544006008183,0.06151800236466973,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Inhale,midpoint_cm,finite cohort posterior,55.084375,30.2696875,79.97710937499998,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,55.495243519906886,20.384492947386423,89.03499073802156,0.9995,2000
+expanded_support,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.03322402771710346,0.019265936215157785,0.05052505939332998,1.0,2000
+expanded_support,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03226097146790622,0.01640341760142113,0.0590387339107611,1.0,2000
+expanded_support,P011,41,Control,Exhale,midpoint_cm,finite cohort posterior,54.670731707317074,30.38719512195122,80.51829268292683,1.0,2000
+expanded_support,P011,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.023657455459514,18.55995482106772,88.02574765405919,0.9995,2000
+expanded_support,P011,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.03421313632679475,0.020344542236960847,0.04979862250451975,1.0,2000
+expanded_support,P011,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03295437646627947,0.01583215697033563,0.05882653516615755,1.0,2000
+expanded_support,P011,41,Control,Inhale,midpoint_cm,finite cohort posterior,57.099085365853654,31.537576219512196,81.4278963414634,1.0,2000
+expanded_support,P011,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.52509577248099,20.66408381382105,91.32168718749222,0.9995,2000
+expanded_support,P011,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.034544589900037934,0.02033790760780426,0.05124780131821034,1.0,2000
+expanded_support,P011,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03368173082778242,0.016451407277040746,0.059232536242656814,1.0,2000
+expanded_support,P011,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.78201219512195,32.11585365853659,80.44009146341462,1.0,2000
+expanded_support,P011,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.417329370896326,23.616339080318067,89.33950778963526,1.0,2000
+expanded_support,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.034803377824854,0.020822131274217344,0.051534353219992356,1.0,2000
+expanded_support,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.034162924929271074,0.0167381965422204,0.0608695502180645,1.0,2000
+expanded_support,P011,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,55.16463414634146,30.710289634146342,79.61486280487803,1.0,2000
+expanded_support,P011,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.96270125845389,20.32914986332646,89.1370183506855,1.0,2000
+expanded_support,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.03325501834863007,0.019669669331796626,0.050568479895029106,1.0,2000
+expanded_support,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.032592516349098224,0.015382010555522562,0.057316918115188756,1.0,2000
+expanded_support,P033,41,Control,Exhale,midpoint_cm,finite cohort posterior,54.34146341463415,30.38719512195122,80.35365853658537,1.0,2000
+expanded_support,P033,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.145458312441505,21.568651308032923,87.74870230048852,0.9995,2000
+expanded_support,P033,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.03408834459649493,0.020083258213785333,0.04970327191932689,1.0,2000
+expanded_support,P033,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.032963029755184,0.016053860980889453,0.05767846207486938,1.0,2000
+expanded_support,P033,41,Control,Inhale,midpoint_cm,finite cohort posterior,57.05792682926829,31.12393292682927,81.58841463414635,1.0,2000
+expanded_support,P033,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,57.29772886802817,20.663822795012347,89.56961447395564,0.9995,2000
+expanded_support,P033,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.034329584708210556,0.02037232255540157,0.05145106351341322,1.0,2000
+expanded_support,P033,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03391808417391043,0.016548287217578127,0.05948610675193186,1.0,2000
+expanded_support,P033,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,56.15243902439025,31.951219512195124,80.19314024390242,1.0,2000
+expanded_support,P033,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.55707312810061,21.869231357349083,88.69638108750341,0.999,2000
+expanded_support,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.034904076207567455,0.020779907621130682,0.05133002373682786,1.0,2000
+expanded_support,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.033736408004430854,0.016685072289014415,0.06149893395048074,1.0,2000
+expanded_support,P033,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,55.0,30.304878048780488,80.0264481707317,1.0,2000
+expanded_support,P033,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,55.339357249251414,20.697635854033404,90.2534984402866,1.0,2000
+expanded_support,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.033403349324569565,0.019699030977614346,0.05025541554581105,1.0,2000
+expanded_support,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.03243269038888545,0.015993726306824343,0.058963136953531836,1.0,2000
+concentrated_width,,42,Control,Exhale,midpoint_cm,finite cohort posterior,53.92857142857143,36.94508928571428,70.75401785714284,1.0,2000
+concentrated_width,,42,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,53.63230022776388,28.97805856024334,77.23388779703008,1.0,2000
+concentrated_width,,42,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022179630219245308,0.01618534329773811,0.029528240677963117,1.0,2000
+concentrated_width,,42,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021922682389253077,0.014438188417107567,0.03256766678673944,1.0,2000
+concentrated_width,,42,Control,Inhale,midpoint_cm,finite cohort posterior,57.035714285714285,38.82008928571428,73.53571428571429,1.0,2000
+concentrated_width,,42,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.79046362309391,31.23276168656574,80.10701889005334,1.0,2000
+concentrated_width,,42,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02238185892554454,0.016478494540803745,0.02942881316933924,1.0,2000
+concentrated_width,,42,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022314562279338056,0.014766747357304384,0.032800034114360554,1.0,2000
+concentrated_width,,42,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.107142857142854,38.44375,71.50133928571428,1.0,2000
+concentrated_width,,42,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.405442566843305,31.894025712188345,78.43545643822426,1.0,2000
+concentrated_width,,42,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022698932139150238,0.016446672462752453,0.02981685183839498,1.0,2000
+concentrated_width,,42,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02220464080231941,0.014834639971857659,0.032531539924076175,1.0,2000
+concentrated_width,,42,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.5,37.535714285714285,70.53571428571429,1.0,2000
+concentrated_width,,42,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.867279487997976,31.34373021156593,77.25385126832334,1.0,2000
+concentrated_width,,42,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021859062009157167,0.01620331319184561,0.028722226348461916,1.0,2000
+concentrated_width,,42,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021793675393861855,0.014144051461066462,0.03237655955061488,1.0,2000
+concentrated_width,"P011,P033",40,Control,Exhale,midpoint_cm,finite cohort posterior,53.9875,36.2125,70.8625,1.0,2000
+concentrated_width,"P011,P033",40,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,53.6268514317333,29.219206017088858,77.78559328240266,1.0,2000
+concentrated_width,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022137301347570727,0.016157528999394946,0.029684815823439206,1.0,2000
+concentrated_width,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021893740390894804,0.013849220047136837,0.03321330612727239,1.0,2000
+concentrated_width,"P011,P033",40,Control,Inhale,midpoint_cm,finite cohort posterior,57.025,38.6846875,73.90140625,1.0,2000
+concentrated_width,"P011,P033",40,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,57.19948318368366,31.0387677714238,81.49458567617147,1.0,2000
+concentrated_width,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022344225104484014,0.01609999105119504,0.02949559378165406,1.0,2000
+concentrated_width,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021924341580170714,0.014395064948021157,0.033314019706756716,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.3375,38.12359375,71.70625,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.20182018312529,31.2334375178316,78.90482194882799,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022629901625970818,0.016387186112445606,0.02986482828247802,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022236303778415567,0.014671081370605419,0.033324036143530335,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.3125,37.04359375,70.975,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.1843725498682,29.47790854895407,77.11453992508216,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021814599745668434,0.016184533741813015,0.02876444401374917,1.0,2000
+concentrated_width,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021443108848886214,0.01401837026529703,0.032323099756679644,1.0,2000
+concentrated_width,P011,41,Control,Exhale,midpoint_cm,finite cohort posterior,53.984756097560975,36.396341463414636,71.02576219512196,1.0,2000
+concentrated_width,P011,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,53.859105502506566,29.274843862944394,77.14717826117042,1.0,2000
+concentrated_width,P011,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02219380986054035,0.016163367019131555,0.02956643551228923,1.0,2000
+concentrated_width,P011,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022005621036238703,0.014157394368018938,0.0329903386441659,1.0,2000
+concentrated_width,P011,41,Control,Inhale,midpoint_cm,finite cohort posterior,56.97560975609756,38.86585365853659,73.32926829268293,1.0,2000
+concentrated_width,P011,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.89144074609126,32.491674461193796,80.41084380874517,1.0,2000
+concentrated_width,P011,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022339284419420603,0.0163909926344838,0.029571422863281325,1.0,2000
+concentrated_width,P011,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022101648811477692,0.014607841971589772,0.03338783784140259,1.0,2000
+concentrated_width,P011,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.46646341463415,38.425457317073175,71.62942073170731,1.0,2000
+concentrated_width,P011,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.17603393604555,30.604505068525572,79.03880649698117,1.0,2000
+concentrated_width,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022681564978392202,0.016388361162872143,0.0297851157806351,1.0,2000
+concentrated_width,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02237905708497813,0.014246154504608706,0.03330622263976157,1.0,2000
+concentrated_width,P011,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.51829268292683,36.99725609756098,70.59085365853655,1.0,2000
+concentrated_width,P011,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.71967605244082,30.860232845754364,76.87987361895183,1.0,2000
+concentrated_width,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021800331090666883,0.016137424396958908,0.028761765040825452,1.0,2000
+concentrated_width,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02141931327339872,0.01419130307118212,0.03190254235112799,1.0,2000
+concentrated_width,P033,41,Control,Exhale,midpoint_cm,finite cohort posterior,53.957317073170735,36.670731707317074,71.08064024390244,1.0,2000
+concentrated_width,P033,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,53.871436574734965,30.189445058419846,77.50931395016356,1.0,2000
+concentrated_width,P033,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02212558858603232,0.016195962992370406,0.029573650689390323,1.0,2000
+concentrated_width,P033,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02203016836472208,0.014065301730334831,0.03215088884960147,1.0,2000
+concentrated_width,P033,41,Control,Inhale,midpoint_cm,finite cohort posterior,57.140243902439025,38.58871951219513,73.4966463414634,1.0,2000
+concentrated_width,P033,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.957690305088065,32.18757325755161,81.79765895304894,1.0,2000
+concentrated_width,P033,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02231314948807185,0.01620466666691429,0.029391892658457656,1.0,2000
+concentrated_width,P033,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022124184072612314,0.01453279670218868,0.03302078244448006,1.0,2000
+concentrated_width,P033,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.21951219512195,38.3719512195122,71.84756097560975,1.0,2000
+concentrated_width,P033,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.97651167932865,31.56485531648317,80.03592771415656,1.0,2000
+concentrated_width,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.022651490453022206,0.016355208059963468,0.029763636477126033,1.0,2000
+concentrated_width,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022257775295431707,0.014807540191921499,0.03262852747897166,1.0,2000
+concentrated_width,P033,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.573170731707314,37.05487804878049,70.64435975609754,1.0,2000
+concentrated_width,P033,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.90928411289252,28.760791618391327,78.25495811916792,1.0,2000
+concentrated_width,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.021862291674866585,0.01614934192315138,0.028809654201200588,1.0,2000
+concentrated_width,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.021831014419269684,0.014414828067337154,0.03259070970634318,1.0,2000
+wide_nuisance,,42,Control,Exhale,midpoint_cm,finite cohort posterior,54.089285714285715,36.357142857142854,71.76919642857142,1.0,2000
+wide_nuisance,,42,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.03539572272349,29.2388179224926,77.49777730213476,1.0,2000
+wide_nuisance,,42,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.023201023292750624,0.016102094175556043,0.03213280339654424,1.0,2000
+wide_nuisance,,42,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02291314144752714,0.012962968213500225,0.036302855418061136,1.0,2000
+wide_nuisance,,42,Control,Inhale,midpoint_cm,finite cohort posterior,56.63392857142857,38.12366071428571,74.66071428571429,1.0,2000
+wide_nuisance,,42,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.68589523527774,30.843089645077193,82.21611871586232,1.0,2000
+wide_nuisance,,42,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.023880958329181533,0.016174345862634963,0.03291547125053213,1.0,2000
+wide_nuisance,,42,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02356909314312075,0.013609255595511212,0.03676618516385767,1.0,2000
+wide_nuisance,,42,Viscereality,Exhale,midpoint_cm,finite cohort posterior,54.892857142857146,38.07142857142857,73.21428571428571,1.0,2000
+wide_nuisance,,42,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.81103613762238,32.035537876789036,79.52742385075314,1.0,2000
+wide_nuisance,,42,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.023829731004002274,0.01612739777139592,0.03321396993767981,1.0,2000
+wide_nuisance,,42,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023784909179841544,0.013786062205634757,0.036624288241153366,1.0,2000
+wide_nuisance,,42,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.92857142857143,36.99866071428571,71.87633928571428,1.0,2000
+wide_nuisance,,42,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.83285866339704,29.485428102372104,78.9366276688011,1.0,2000
+wide_nuisance,,42,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022723036149323195,0.015237245110299655,0.03165714783116128,1.0,2000
+wide_nuisance,,42,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022386716811608302,0.01277701444433569,0.03576075312071129,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Exhale,midpoint_cm,finite cohort posterior,54.1,35.59375,72.38125,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.15936718759409,29.87686531811728,79.95643143653936,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02306763764839001,0.015944490959158005,0.032246760495166976,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022737857445400873,0.012818350448741979,0.03599771720692908,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Inhale,midpoint_cm,finite cohort posterior,57.025,38.179843749999996,74.9125,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.64772363814906,31.282555513239803,82.60295669608216,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02374731831229932,0.0159375133079364,0.032935599348719265,1.0,2000
+wide_nuisance,"P011,P033",40,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023371692191514287,0.013306985645519532,0.03725021953581888,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.140625,37.5625,73.22640624999998,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.209492487906374,29.75665247636865,80.07466765691163,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02369910947162711,0.015966855377033556,0.032947321067342175,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023159609441821168,0.013651084011709457,0.03626867091218257,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.7625,35.986093749999995,72.10140624999998,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.06339422450478,29.20348489108219,78.26116635572062,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02265229617465324,0.014775777694286327,0.031639963608625594,1.0,2000
+wide_nuisance,"P011,P033",40,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022195335668615583,0.012393039653249678,0.03576253355193176,1.0,2000
+wide_nuisance,P011,41,Control,Exhale,midpoint_cm,finite cohort posterior,54.03963414634147,36.613109756097565,71.95731707317073,1.0,2000
+wide_nuisance,P011,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.09171536362547,28.88933655182056,79.2104178654116,1.0,2000
+wide_nuisance,P011,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.023158417781456914,0.01593949334698917,0.0321567436331675,1.0,2000
+wide_nuisance,P011,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022992900602657153,0.012456217218053013,0.03704803470324231,1.0,2000
+wide_nuisance,P011,41,Control,Inhale,midpoint_cm,finite cohort posterior,56.920731707317074,38.042682926829265,74.3719512195122,1.0,2000
+wide_nuisance,P011,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.424494888593486,32.228986891718264,82.08134298951417,1.0,2000
+wide_nuisance,P011,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.023787384957217737,0.016354778519280713,0.03319579644370398,1.0,2000
+wide_nuisance,P011,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023539760835282576,0.013782184827917422,0.03749018022350358,1.0,2000
+wide_nuisance,P011,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,55.0,37.71204268292683,73.1138719512195,1.0,2000
+wide_nuisance,P011,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,55.23786624417349,29.669188518114673,79.21508484962105,1.0,2000
+wide_nuisance,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02374756134104148,0.01608312487880735,0.033094296296266236,1.0,2000
+wide_nuisance,P011,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02351755827475052,0.013213888310064658,0.03675056277477043,1.0,2000
+wide_nuisance,P011,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.73780487804878,36.66524390243902,71.90655487804877,1.0,2000
+wide_nuisance,P011,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,54.292922302285056,28.98398633303677,79.12187156736783,1.0,2000
+wide_nuisance,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.02259790824565915,0.014935876465783359,0.03164512756343387,1.0,2000
+wide_nuisance,P011,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022361542574538096,0.012472109515618226,0.03592783536053112,1.0,2000
+wide_nuisance,P033,41,Control,Exhale,midpoint_cm,finite cohort posterior,53.929878048780495,36.50472560975611,72.23170731707317,1.0,2000
+wide_nuisance,P033,41,Control,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.43639317263502,29.579830373002892,79.24283896991149,1.0,2000
+wide_nuisance,P033,41,Control,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.023132719482593645,0.01600624195932234,0.032004725394507196,1.0,2000
+wide_nuisance,P033,41,Control,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.022994254868217958,0.012993109965402837,0.03649724533737829,1.0,2000
+wide_nuisance,P033,41,Control,Inhale,midpoint_cm,finite cohort posterior,56.72865853658537,38.09618902439024,74.59557926829267,1.0,2000
+wide_nuisance,P033,41,Control,Inhale,midpoint_cm,posterior + Bayesian bootstrap,56.625744278304744,32.24235339560159,81.37239703180889,1.0,2000
+wide_nuisance,P033,41,Control,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.023774407836174176,0.016219551946291804,0.0327942953698198,1.0,2000
+wide_nuisance,P033,41,Control,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.023533643441239108,0.013901339166807983,0.03764812798045647,1.0,2000
+wide_nuisance,P033,41,Viscereality,Exhale,midpoint_cm,finite cohort posterior,54.83536585365854,37.3827743902439,73.0548780487805,1.0,2000
+wide_nuisance,P033,41,Viscereality,Exhale,midpoint_cm,posterior + Bayesian bootstrap,54.655651069334255,30.110447422771905,80.04746809097284,1.0,2000
+wide_nuisance,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,finite cohort posterior,0.02369181483636523,0.01616314214601589,0.033013876752345205,1.0,2000
+wide_nuisance,P033,41,Viscereality,Exhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02344040664648011,0.013536319653200981,0.0369206949636718,1.0,2000
+wide_nuisance,P033,41,Viscereality,Inhale,midpoint_cm,finite cohort posterior,53.73780487804878,36.613109756097565,71.6829268292683,1.0,2000
+wide_nuisance,P033,41,Viscereality,Inhale,midpoint_cm,posterior + Bayesian bootstrap,53.6455077077928,28.674094471219888,77.73546346122632,1.0,2000
+wide_nuisance,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,finite cohort posterior,0.022744885337422638,0.01503345516749617,0.031508931658510014,1.0,2000
+wide_nuisance,P033,41,Viscereality,Inhale,normalized_steepness_per_cm,posterior + Bayesian bootstrap,0.02222754508634668,0.012626184741380567,0.035554050425027676,1.0,2000

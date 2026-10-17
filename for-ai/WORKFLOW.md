@@ -29,6 +29,13 @@ facts already obvious from source and tests.
 
 ## Analysis promotion
 
+During the results-only phase (D-0012), preserve the version-1.9 manuscript/reference
+and promote the independently hashed Bayesian browser download to `results/bayesian/`
+after `validate_bayesian.py` checks. Update `results/RESULTS_REPORT.md` and the
+roadmap instead of invoking manuscript promotion. The site checks both reference
+identities separately. Manuscript/PDF reconciliation resumes only when the owner
+returns to drafting.
+
 The browser publication pipeline is explicitly authorised by the project owner.
 Its estimands, cohort, cleaning and registration interpretations are recorded in
 `workbook/ANALYSIS_PLAN.md`. Keep historical source analyses in orchestration;

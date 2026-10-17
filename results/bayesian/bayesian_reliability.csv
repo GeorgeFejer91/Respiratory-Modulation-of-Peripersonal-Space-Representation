@@ -1,0 +1,81 @@
+repeat,summary,parameter,rho
+0,Mean,midpoint_cm,0.1026266416510319
+0,Mean,normalized_steepness_per_cm,0.14878048780487804
+0,Condition,midpoint_cm,0.1403377110694184
+0,Condition,normalized_steepness_per_cm,-0.04127579737335835
+0,Phase,midpoint_cm,-0.001125703564727955
+0,Phase,normalized_steepness_per_cm,-0.16097560975609757
+0,Condition × Phase,midpoint_cm,0.14108818011257035
+0,Condition × Phase,normalized_steepness_per_cm,-0.04277673545966229
+1,Mean,midpoint_cm,-0.030581613508442778
+1,Mean,normalized_steepness_per_cm,0.3196998123827392
+1,Condition,midpoint_cm,0.0849906191369606
+1,Condition,normalized_steepness_per_cm,-0.12851782363977485
+1,Phase,midpoint_cm,0.2105065666041276
+1,Phase,normalized_steepness_per_cm,0.06191369606003752
+1,Condition × Phase,midpoint_cm,0.030393996247654785
+1,Condition × Phase,normalized_steepness_per_cm,0.07110694183864916
+2,Mean,midpoint_cm,0.3166979362101313
+2,Mean,normalized_steepness_per_cm,0.15103189493433397
+2,Condition,midpoint_cm,0.013883677298311446
+2,Condition,normalized_steepness_per_cm,-0.22439024390243903
+2,Phase,midpoint_cm,0.2225140712945591
+2,Phase,normalized_steepness_per_cm,0.2945590994371482
+2,Condition × Phase,midpoint_cm,-0.11688555347091932
+2,Condition × Phase,normalized_steepness_per_cm,-0.046153846153846156
+3,Mean,midpoint_cm,0.11726078799249531
+3,Mean,normalized_steepness_per_cm,0.12101313320825516
+3,Condition,midpoint_cm,-0.21801125703564728
+3,Condition,normalized_steepness_per_cm,-0.2864915572232645
+3,Phase,midpoint_cm,-0.042401500938086305
+3,Phase,normalized_steepness_per_cm,-0.16829268292682928
+3,Condition × Phase,midpoint_cm,-0.1981238273921201
+3,Condition × Phase,normalized_steepness_per_cm,0.21200750469043153
+4,Mean,midpoint_cm,0.052345215759849906
+4,Mean,normalized_steepness_per_cm,0.08424015009380863
+4,Condition,midpoint_cm,-0.12701688555347093
+4,Condition,normalized_steepness_per_cm,-0.14840525328330206
+4,Phase,midpoint_cm,-0.13902439024390245
+4,Phase,normalized_steepness_per_cm,0.007879924953095686
+4,Condition × Phase,midpoint_cm,0.15403377110694183
+4,Condition × Phase,normalized_steepness_per_cm,0.05666041275797373
+5,Mean,midpoint_cm,0.19061913696060037
+5,Mean,normalized_steepness_per_cm,0.2806754221388368
+5,Condition,midpoint_cm,0.050093808630394
+5,Condition,normalized_steepness_per_cm,-0.16866791744840526
+5,Phase,midpoint_cm,-0.08123827392120075
+5,Phase,normalized_steepness_per_cm,0.03302063789868668
+5,Condition × Phase,midpoint_cm,-0.09887429643527204
+5,Condition × Phase,normalized_steepness_per_cm,-0.022138836772983114
+6,Mean,midpoint_cm,0.39699812382739214
+6,Mean,normalized_steepness_per_cm,0.1294559099437148
+6,Condition,midpoint_cm,0.05872420262664165
+6,Condition,normalized_steepness_per_cm,0.019324577861163227
+6,Phase,midpoint_cm,0.18874296435272045
+6,Phase,normalized_steepness_per_cm,0.2816135084427767
+6,Condition × Phase,midpoint_cm,0.15159474671669793
+6,Condition × Phase,normalized_steepness_per_cm,0.07579737335834896
+7,Mean,midpoint_cm,0.5026266416510319
+7,Mean,normalized_steepness_per_cm,0.2649155722326454
+7,Condition,midpoint_cm,-0.13339587242026266
+7,Condition,normalized_steepness_per_cm,-0.1401500938086304
+7,Phase,midpoint_cm,-0.3825515947467167
+7,Phase,normalized_steepness_per_cm,0.0300187617260788
+7,Condition × Phase,midpoint_cm,0.18198874296435272
+7,Condition × Phase,normalized_steepness_per_cm,0.3195121951219512
+8,Mean,midpoint_cm,0.12420262664165103
+8,Mean,normalized_steepness_per_cm,0.2724202626641651
+8,Condition,midpoint_cm,-0.042589118198874294
+8,Condition,normalized_steepness_per_cm,0.11369606003752346
+8,Phase,midpoint_cm,-0.03564727954971857
+8,Phase,normalized_steepness_per_cm,0.010694183864915573
+8,Condition × Phase,midpoint_cm,0.20619136960600376
+8,Condition × Phase,normalized_steepness_per_cm,0.4921200750469043
+9,Mean,midpoint_cm,0.1872420262664165
+9,Mean,normalized_steepness_per_cm,0.0016885553470919325
+9,Condition,midpoint_cm,0.20919324577861162
+9,Condition,normalized_steepness_per_cm,-0.075234521575985
+9,Phase,midpoint_cm,-0.09868667917448405
+9,Phase,normalized_steepness_per_cm,0.04202626641651032
+9,Condition × Phase,midpoint_cm,0.124765478424015
+9,Condition × Phase,normalized_steepness_per_cm,0.25384615384615383

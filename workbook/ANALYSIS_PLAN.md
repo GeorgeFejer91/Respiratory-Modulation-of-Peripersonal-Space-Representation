@@ -491,3 +491,103 @@ subtraction by nominal SOA is not a verified cue-time-matched comparison.
 The old 40-person manuscript values must not be relabelled as 42-person results.
 New outputs are a reproducible analysis draft for author review, with reporting
 reconciled against their exact run.
+
+## Results-only Bayesian approximation (post-results, 17 October 2026)
+
+Manuscript drafting is paused at the owner's request. The ordered questions and
+completion criteria are in `for-ai/ANALYSIS_ROADMAP.md`; retain the existing
+version-1.9 full analysis/reference and add a separately executable browser branch.
+Fix the following before computing this branch. It is exploratory and unpooled,
+not the preregistered model or a fully hierarchical nonlinear analysis.
+
+1. Reuse validated inputs, `clean`, nominal distances and the four-cell trial
+   tensor. Fit raw retained Audio–Tactile RTs in seconds, without smoothing or
+   normalization in the likelihood. Keep both ambiguous recordings in the audit
+   table; primary inference excludes both, with full and each single exclusion
+   retained. With unpooled priors, excluding other people cannot change a person's
+   fit; subset the same draws for cohort comparisons rather than refit identical
+   individual models. Never borrow questionnaire information during fitting.
+2. Working likelihood: independent Gaussian trial RTs within each person/cell,
+   `RT(d) = b + a*(expit((u-m)/w)-.5) + error`, `u=(d-10)/90`. Amplitude is signed
+   and may be zero. A common residual variance within that cell is an explicit
+   assumption, not a claim of assumption-free Bayesian inference. Original
+   trimming and unmodelled trial dependence/heteroskedasticity remain limitations.
+3. Proper nuisance prior: `variance ~ InvGamma(shape=2, scale=.02 s²)` and
+   `(b,a)|variance ~ Normal((.6,0), variance*diag(4,4))`. Constant models keep only
+   the same intercept prior; line and log-distance models use centered bases
+   ranging from −.5 to +.5 and the same signed-amplitude prior. Integrate nuisance
+   coefficients and variance analytically using normal–inverse-gamma conjugacy.
+4. Four predeclared sigmoid priors, none selected by p or appearance: primary
+   uniform midpoint `m in [-.5,1.5]`, log-uniform width `w in [.025,2]`; a doubled
+   support prior `m in [-1,2], w in [.0125,4]`; a width-concentrated sensitivity
+   with the primary support and `log(w) ~ Normal(log(1/6), log(3))`; and a
+   wider-nuisance sensitivity with the primary shape support and `diag(16,16)`.
+   Primary grids have 81 midpoint × 61 log-width nodes with trapezoid weights;
+   repeat every primary individual posterior on 161 × 121 nodes. Report grid
+   support/boundary mass, marginal and joint prior-to-posterior KL information,
+   prior-predictive negative-RT probability and noise ranges. No visible-shape
+   truncation or positive amplitude floor is allowed.
+5. Compare constant, linear, log-distance and sigmoid responses using equal prior
+   model probabilities (explicitly model/prior-dependent). Refit each held-out
+   distance and compare exact block log-predictive density and raw cell-mean RMSE.
+   Use equal participant/cell/distance weights for RMSE; retain all model scores.
+   Predictive comparison is exploratory and conditional on fixed earlier cleaning.
+6. Draw 2,000 joint parameter samples per person/cell/prior, seed 20261021.
+   Report midpoint, width, normalized sharpness `1/(4*width_cm)`, signed amplitude,
+   interval, posterior positive-amplitude probability, posterior measured-range
+   10–90% coverage and predictive discrepancy. A posterior median is a declared
+   absolute-loss point summary, not an assertion of a unique best-fitting curve.
+   Do not replace a mixture/posterior mean curve by a sigmoid fit to plotted points.
+7. For the primary prior, add ten stratified random split halves and 20 simulation
+   replicates each under flat, linear and known 80-ms sigmoid signals, using the
+   observed counts/noise scales and the declared Gaussian likelihood. These are
+   within-session/matched-likelihood diagnostics, not test–retest reliability or
+   calibration under every data-generating process. Keep unsuccessful recovery.
+8. For all four priors/cohorts, carry draws into paired Condition, Phase and
+   Condition × Phase contrasts. Report both the finite-cohort posterior contrast
+   and posterior plus paired Bayesian-bootstrap (Dirichlet) participant-weight
+   intervals/probabilities. The latter is a modular descriptive population
+   sensitivity, not a jointly estimated hierarchical treatment-effect posterior.
+9. Preserve the old tests. New exploratory rank associations cover both parameters
+   against all eight baseline MAIA scales in the four cells and Condition contrast,
+   parameter Condition changes against spatial delta and its direction, and
+   same-condition spatial ratings in four cells: 92 per prior/cohort. Report
+   posterior-plus-paired-participant-bootstrap rank intervals (resampled copies
+   retain the same sampled latent parameter), not p values on exact medians.
+10. For each MAIA scale separately, regress each of the four orthogonal PPS
+    summaries (mean, Condition, Phase, Condition × Phase) on centered MAIA,
+    centered spatial delta, their product, and centered presentation order. Keep
+    missing pairs excluded. Report all three scientific coefficients for each
+    outcome: 192 coefficient records per prior/cohort. Propagate the same latent
+    draws and paired Bayesian-bootstrap weights through weighted least squares;
+    label intervals/probabilities modular, not a full latent-covariate posterior.
+    The product on the Condition summary addresses Condition × MAIA × spatial
+    change; on the interaction summary it additionally depends on Phase. No
+    causal mediation or questionnaire-driven cleaning is inferred.
+11. Plot equal-person posterior average RT functions with observed means and
+    uncertainty, midpoint/sharpness summaries, and every raw/normalized individual
+    curve. Display normalized sigmoid geometry as conditional model geometry;
+    finite midpoint and sharpness estimates remain interpretable only under the
+    imposed sigmoid model. Inspect every page and propagate uncertainty in the
+    average curves. Publish a results-only report with checklist status, precise
+    comparisons and explicit unresolved scientific goals, without editing paper
+    prose or promoting a new manuscript PDF.
+12. Independently check conjugate marginal likelihood and prediction with a
+    multivariate Student-t reference, coefficient identities, missingness and
+    synthetic effects. Verify native/browser numerical parity and an actual
+    browser download; hash all new inputs/code/artifacts. Keep version-1.9 code,
+    reference ZIP, paper sources and PDF byte-identical.
+
+All older frequentist p values remain unadjusted. New posterior probabilities and
+modular intervals are not p values, familywise guarantees or proof of equivalence.
+A full joint hierarchical nonlinear/covariate model has not been run unless it is
+separately specified, executed and diagnosed; this extension does not imply one.
+
+Bayesian resampling clarification, fixed before the first run: repeated copies
+of an audited identical recording share the same posterior cell draws (with the
+observed label permutation) and share resampling weights. Group/regression weights
+are exponential draws per recording group; rank associations use multinomial
+recording-group counts and weighted midranks, exactly equivalent to expanding the
+paired bootstrap records. This retains ties and does not count duplicate trials
+as independent evidence. Source mapping remains unresolved; primary inference
+still excludes both records.
