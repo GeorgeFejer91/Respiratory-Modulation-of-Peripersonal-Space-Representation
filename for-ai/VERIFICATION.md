@@ -73,7 +73,8 @@ analyses from recommendations. Check rendered review links in both application
 and editor views. A source's abstract, software implementation and full paper are
 different evidence levels; unavailable Consensus access must remain explicit.
 
-Only `analysis/prepare_publication.py` promotes a hash-verified browser download.
+Only `analysis/prepare_publication.py` promotes a verified legacy browser download
+into the manuscript. The results-only branch follows the separate gate below.
 For questionnaires, also run `python workbook/validate_questionnaires.py` against
 that browser report: independently check alpha through the covariance identity,
 the ordinal sign test/exact interval and rank correlations; retain all 33

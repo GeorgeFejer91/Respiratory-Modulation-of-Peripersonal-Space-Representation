@@ -39,8 +39,9 @@ returns to drafting.
 The browser publication pipeline is explicitly authorised by the project owner.
 Its estimands, cohort, cleaning and registration interpretations are recorded in
 `workbook/ANALYSIS_PLAN.md`. Keep historical source analyses in orchestration;
-maintain the executable browser engine in `workbook/`. Promote only verified actual
-browser downloads with `analysis/prepare_publication.py`, then reconcile manuscript
+maintain the executable browser engine in `workbook/`. For legacy manuscript
+promotion, use verified actual browser downloads with
+`analysis/prepare_publication.py`, then reconcile manuscript
 claims and preserve older prose in `writing-archive/`.
 
 The export must remain free of private crosswalks and source paths. Owner data-release

@@ -97,7 +97,7 @@ its report/export and proportional checks. Preserve the legacy reference.
 - [x] Q6.3 Archive data/code/artifact hashes and readable numerical tables/figures.
 - [x] Q6.4 Complete `results/RESULTS_REPORT.md` with each level's findings, status,
   remaining limitations and links, without drafting manuscript prose.
-- [ ] Q6.5 Push the validated changes and verify the live results companion.
+- [x] Q6.5 Push the validated changes and verify the live results companion.
 
 ## Interpretation contract
 
@@ -121,5 +121,8 @@ results. The individual and average figures have been visually inspected.
 Computational completion does not close Q1.7: the individual parameters remain
 poorly identified and unreliable, and experimental/questionnaire associations
 are inconclusive after propagating uncertainty. Q0.5 still requires source mapping.
-A full joint hierarchical nonlinear model remains NOT RUN. The final report and browser controls are verified. Publication completion is
-recorded by Q6.5 after the remote deployment is observed.
+A full joint hierarchical nonlinear model remains NOT RUN. The final report, browser controls and public Pages deployment are verified.
+The published result archive/report/evidence and preserved legacy ZIP/PDF match
+the checked local bytes. Public application input checks and editor execution
+passed. The only unchecked scientific goals are source mapping (Q0.5) and
+reliable physiological identification (Q1.7).
