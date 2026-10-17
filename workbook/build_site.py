@@ -65,6 +65,9 @@ def build_results(root, target):
     from validate_bayesian import verified_bundle
     source = root/"results"/"bayesian"
     _, manifest, digest = verified_bundle(source/"bayesian-results.zip")
+    for name, expected in manifest["artifact_sha256"].items():
+        if "/" not in name and sha256((source/name).read_bytes()).hexdigest() != expected:
+            raise RuntimeError("Promoted Bayesian artifact differs from the browser download: "+name)
     data = (source/"bayesian-results.zip").read_bytes()
     destination = target/"results"
     destination.mkdir(exist_ok=True)

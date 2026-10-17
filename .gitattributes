@@ -2,6 +2,8 @@
 
 # Preserve the browser download's exact CSV bytes for its SHA-256 manifest.
 results/browser-analysis/*.csv -text whitespace=cr-at-eol
+results/bayesian/*.csv -text whitespace=cr-at-eol
 
 # Matplotlib emits spaces inside multiline SVG path attributes.
 figures/*.svg -whitespace
+results/bayesian/*.svg -whitespace
