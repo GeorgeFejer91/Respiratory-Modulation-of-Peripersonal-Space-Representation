@@ -50,6 +50,21 @@ Condition = Viscereality−Control; Phase = Inhale−Exhale; interaction = the d
 
 Midpoints use cm; normalized sharpness uses cm⁻¹. These intervals quantify model-conditional and modular participant uncertainty; they do not establish equivalence when zero is included.
 
+### Conventional ANOVA of the Bayesian point estimates
+
+At the owner's request, take the marginal posterior median of each parameter in each person's four cells and treat those estimates as fixed observations in a conventional 2 × 2 repeated-measures ANOVA. No fit-quality exclusion, posterior weighting, parameter transformation or multiplicity correction is applied. Each one-df F test equals the squared paired-contrast t test; sphericity correction is unnecessary for these two-level effects. Confidence intervals below include between-participant variation only and omit uncertainty within each fitted curve. These are new tests on Bayesian medians, distinct from the older regularized-fit ANOVAs.
+
+| Parameter | Effect | n | Difference [95% CI] | F (1, n−1) | Unadjusted p | Partial η² |
+| --- | --- | ---: | --- | ---: | ---: | ---: |
+| midpoint_cm | Condition | 40 | -2.2 [-6.88, 2.49] | 0.899 | 0.349 | 0.0225 |
+| normalized_steepness_per_cm | Condition | 40 | -9.19e-06 [-0.00094, 0.000921] | 0.000399 | 0.984 | 1.02e-05 |
+| midpoint_cm | Phase | 40 | 1.25 [-3.33, 5.83] | 0.304 | 0.584 | 0.00774 |
+| normalized_steepness_per_cm | Phase | 40 | -0.000713 [-0.0017, 0.000279] | 2.11 | 0.154 | 0.0514 |
+| midpoint_cm | Condition × Phase | 40 | -5.76 [-16.2, 4.72] | 1.24 | 0.273 | 0.0307 |
+| normalized_steepness_per_cm | Condition × Phase | 40 | -0.000758 [-0.00314, 0.00162] | 0.416 | 0.523 | 0.0106 |
+
+All four prior specifications and all recording cohorts are retained in `bayesian_point_estimate_anova.csv`. The cohort retaining both ambiguous recording copies is provisional and cannot establish independent-participant inference. These tests assess differences between model-derived point estimates; nonsignificance does not establish equivalence.
+
 ### Descriptive cell-average parameters
 
 These are means of conditional individual parameters, not fitted boundaries of the average response function. Their proximity to the prior centre and their sensitivity to width support prevent a physiological interpretation.
@@ -111,6 +126,6 @@ The computational Bayesian reference, individual tables, prediction, prior sensi
 
 Raw RT panels and conditional unit-amplitude geometry are separate. Normalized S geometry is implied by choosing a sigmoid family. Its appearance does not establish observed curvature. Average functions integrate over people and posterior draws and need not themselves be sigmoids.
 
-The download records sources and artifact hashes. The broader level-by-level synthesis is `results/RESULTS_REPORT.md`; `for-ai/ANALYSIS_ROADMAP.md` owns the active checklist. Manuscript drafting remains paused. Earlier frequentist p values are unadjusted; the new probabilities are not p values or multiplicity-adjusted guarantees.
+The download records sources and artifact hashes. The broader level-by-level synthesis is `results/RESULTS_REPORT.md`; `for-ai/ANALYSIS_ROADMAP.md` owns the active checklist. Manuscript drafting remains paused. All frequentist p values, including the Bayesian-median ANOVAs, are unadjusted; posterior probabilities are not p values or multiplicity-adjusted guarantees.
 
 Methodological context: [Hedge et al., reliability and individual differences](https://doi.org/10.3758/s13428-017-0935-1); [Stan guide to posterior predictive checks](https://mc-stan.org/docs/stan-users-guide/posterior-predictive-checks.html). The conjugate likelihood, quadrature and modular summaries are explicitly specified and independently verified in this repository, not attributed to either source.

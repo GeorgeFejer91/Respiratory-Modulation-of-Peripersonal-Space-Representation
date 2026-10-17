@@ -591,3 +591,31 @@ recording-group counts and weighted midranks, exactly equivalent to expanding th
 paired bootstrap records. This retains ties and does not count duplicate trials
 as independent evidence. Source mapping remains unresolved; primary inference
 still excludes both records.
+
+### Requested conventional tests of Bayesian point estimates
+
+After reviewing the uncertainty-propagating results, the owner requested ordinary
+statistical tests treating each Bayesian approximation as one fixed observation.
+Use the existing marginal posterior medians of midpoint and normalized sharpness
+from `shape_summary`, separately for every participant × condition × phase. This
+is a post-results exploratory addition, with no new fit, smoothing, transformation,
+fit-quality exclusion, posterior weighting or choice of prior by significance.
+The existing primary prior and 40-record cohort remain primary.
+
+Run a balanced 2 × 2 repeated-measures ANOVA for each parameter. Calculate each
+one-df effect through its participant contrast: Condition = Viscereality−Control
+averaged across phases; Phase = Inhale−Exhale averaged across conditions; interaction
+= (Viscereality Inhale−Exhale)−(Control Inhale−Exhale). For each effect, F=t² with
+df=(1,n−1); retain mean contrast, conventional 95% t interval, SE, F, unadjusted p
+and partial η². Sphericity corrections are unnecessary for these two-level terms.
+Normality diagnostics do not select a different test or cohort. These intervals
+omit within-cell posterior uncertainty, by design, and are distinct from the
+earlier posterior/bootstrap intervals and the regularized-fit ANOVAs.
+
+Retain all four prior and four cohort specifications (96 effect records). The
+full cohort still contains the two linked recording copies and is provisional;
+its ordinary independent-participant standard errors do not resolve that issue.
+Verify every F/p/df against statsmodels AnovaRM and verify actual browser/native
+parity. Export `bayesian_point_estimate_anova.csv` in the Bayesian results download
+and display the six primary terms in the workbook/report. Do not select a point
+summary or fitting method to obtain significance.

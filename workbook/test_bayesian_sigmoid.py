@@ -6,12 +6,38 @@ import numpy as np
 from scipy import special, stats
 
 from bayesian_sigmoid import (PARAMETERS, ShapeGrid, WEIGHTS, cohort_results,
-                             conjugate, draw_parameters, recording_weights,
+                             conjugate, draw_parameters, point_estimate_anova, recording_weights,
                              weighted_rank_correlation, weighted_regression)
+from descriptive_sigmoid import LABELS
 from questionnaires import SCALES
 
 
 class BayesianSigmoidTests(unittest.TestCase):
+    def test_point_anova_pairs_labels_excludes_recordings_and_rejects_bad_cells(self):
+        cells = []
+        for i in range(6):
+            for condition, phase in LABELS:
+                c = .5 if condition == "Viscereality" else -.5
+                p = .5 if phase == "Inhale" else -.5
+                y = 52.+i+c*(2.+.3*i)+p*(-1.+.2*i)+c*p*(.5+.1*i)
+                cells.append(dict(prior="primary", participant_id=f"T{i}", condition=condition,
+                    phase=phase, midpoint_cm=y, normalized_steepness_per_cm=y*.001))
+        rows = point_estimate_anova(cells[::-1], ["T1", "T0"])
+        main = [r for r in rows if r["excluded_ids"] == "T0,T1" and r["parameter"] == "midpoint_cm"]
+        self.assertEqual(len(rows), 24)
+        expected = {"Condition": 2.+.3*np.arange(2, 6), "Phase": -1.+.2*np.arange(2, 6),
+                    "Condition × Phase": .5+.1*np.arange(2, 6)}
+        for r in main:
+            contrast = expected[r["effect"]]
+            reference = stats.ttest_1samp(contrast, 0.)
+            self.assertEqual(r["n"], 4)
+            self.assertAlmostEqual(r["estimate"], contrast.mean(), places=12)
+            self.assertAlmostEqual(r["F"], reference.statistic**2, places=9)
+            self.assertAlmostEqual(r["p"], reference.pvalue, places=12)
+        for bad in (cells[:-1], cells+[cells[0]], [cells[0] | {"midpoint_cm": np.nan}]+cells[1:]):
+            with self.assertRaises(ValueError):
+                point_estimate_anova(bad)
+
     def test_conjugate_evidence_matches_multivariate_student_t(self):
         rng = np.random.default_rng(12)
         q = np.repeat(np.linspace(-.4, .4, 5), 3)

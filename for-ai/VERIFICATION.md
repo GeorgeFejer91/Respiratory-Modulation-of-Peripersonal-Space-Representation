@@ -125,7 +125,7 @@ coefficients and intervals remain identical to their earlier models. Check all
 parity, section 16, both exported CSVs and the spatial–PPS figure. Participant
 counts must not treat the two phases sharing one spatial rating as extra people.
 
-For the results-only Bayesian branch, run all 56 unit tests and both strict marimo
+For the results-only Bayesian branch, run all 57 unit tests and both strict marimo
 checks. `validate_bayesian.py` independently checks 144 fixed-basis marginal
 likelihoods against full-covariance multivariate Student-t densities and 80 WLS
 coefficients against statsmodels. Verify 672 four-prior individual fits, 256 paired
@@ -141,6 +141,10 @@ manifest must declare `manuscript_updated=false` and retain the earlier version-
 reference. Preserve its nine engine files, manuscript sources and PDF byte-for-byte.
 This phase requires the results report and roadmap, not manuscript compilation;
 D-0012 supersedes the manuscript-refresh gate for these new results.
+The requested fixed-posterior-median extension adds 96 conventional RM ANOVA terms;
+check all F/p/df against statsmodels AnovaRM, verify pairing/missing/duplicate-cell
+handling, and include the primary table and actual CSV download in browser parity.
+Keep the omitted within-fit uncertainty explicit and all p values unadjusted.
 
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

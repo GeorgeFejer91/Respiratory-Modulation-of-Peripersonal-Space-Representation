@@ -8,6 +8,7 @@ import numpy as np
 from scipy import special, stats
 
 from descriptive_sigmoid import DISTANCES, LABELS
+from inference import paired
 from paper_analysis import clean
 from participant_sigmoid import CONTRAST_WEIGHTS, linkage_audit, trial_tensor
 from questionnaires import SCALES, rank_correlation, score_people
@@ -126,6 +127,35 @@ def shape_summary(fit):
     result["prior_probability_10_90_inside_measured_range"] = float(np.exp(grid.logprior) @ covered)
     result["probability_midpoint_in_measured_range"] = float(weights @ ((grid.m >= 0) & (grid.m <= 1)))
     return result
+
+
+def point_estimate_anova(cells, ambiguous=()):
+    """Conventional paired 2×2 tests, treating posterior medians as fixed data."""
+    rows = []
+    specifications = list(dict.fromkeys([(), tuple(sorted(ambiguous)), *[(pid,) for pid in sorted(ambiguous)]]))
+    for prior in PRIORS:
+        selected = [r for r in cells if r["prior"] == prior]
+        if not selected:
+            continue
+        index = {(r["participant_id"], r["condition"], r["phase"]): r for r in selected}
+        ids = sorted({r["participant_id"] for r in selected})
+        if len(index) != len(selected) or set(index) != {(pid, *label) for pid in ids for label in LABELS}:
+            raise ValueError("Point-estimate ANOVA requires exactly four unique cells per participant.")
+        values = np.array([[[index[(pid, *label)][p] for p in PARAMETERS] for label in LABELS] for pid in ids])
+        if not np.all(np.isfinite(values)):
+            raise ValueError("Point-estimate ANOVA requires finite posterior medians.")
+        for excluded in specifications:
+            keep = [i for i, pid in enumerate(ids) if pid not in excluded]
+            contrasts = np.einsum("nck,ec->nek", values[keep], CONTRAST_WEIGHTS)
+            for e, effect in enumerate(EFFECTS[1:]):
+                for k, parameter in enumerate(PARAMETERS):
+                    test = paired(contrasts[:, e, k], effect, bayes=False)
+                    f = float(test["t"]**2) if test["status"] == "computed" else None
+                    rows.append(dict(prior=prior, excluded_ids=",".join(excluded),
+                        parameter=parameter, effect=effect, point_summary="marginal posterior median",
+                        F=f, df_num=1, df_den=test["n"]-1,
+                        partial_eta_squared=f/(f+test["df"]) if f is not None else None) | test)
+    return rows
 
 
 def models_and_prediction(counts, sums, squares, grid, sigmoid):
@@ -450,10 +480,11 @@ def run(people, trials, progress=None, draws=DRAWS, simulation_repeats=20, split
         prior_predictive.append(dict(prior=prior, negative_rt_fraction=float(np.mean(predictive < 0)),
             prior_sigma_ms=np.quantile(1000.*np.sqrt(variance), [.025, .5, .975]).tolist(),
             prior_response_ms=np.quantile(1000.*predictive, [.025, .5, .975]).tolist()))
-    return dict(status="computed", analysis_version="Bayesian results 1.0", seed=SEED, posterior_draws=draws,
+    return dict(status="computed", analysis_version="Bayesian results 1.1", seed=SEED, posterior_draws=draws,
         cohort=counts, participant_ids=ids, incomplete_profile_ids=incomplete,
         linkage_audit=audit, primary_excluded_ids=ambiguous,
         cells=cells, model_evidence=evidence, prediction=predictions, group_contrasts=groups,
+        point_estimate_anova=point_estimate_anova(cells, ambiguous),
         group_cell_summaries=cell_summaries,
         associations=associations, joint_moderation=regressions, individual_curves=individual_curves,
         average_curves=averages, quadrature_checks=grid_checks, reliability=reliability,

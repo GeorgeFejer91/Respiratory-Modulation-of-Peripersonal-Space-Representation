@@ -26,7 +26,7 @@ SOURCE_FILES = ("bayesian_sigmoid.py", "bayesian_report.py", "inference.py",
     "paper_analysis.py", "preparation.py", "publication_report.py", "descriptive_sigmoid.py",
     "sigmoid_shape.py", "questionnaires.py", "participant_sigmoid.py", "participant_report.py")
 TABLES = ("cells", "model_evidence", "prediction", "group_contrasts", "group_cell_summaries", "associations",
-          "joint_moderation", "quadrature_checks", "reliability", "recovery", "prior_predictive")
+          "joint_moderation", "quadrature_checks", "reliability", "recovery", "prior_predictive", "point_estimate_anova")
 
 
 def primary_rows(report, key, prior="primary"):
@@ -110,6 +110,24 @@ def markdown(report):
         lines.append(f"| {r['parameter']} | {r['effect']} | {fmt(r['median'])} | [{fmt(r['low'])}, {fmt(r['high'])}] | {r['probability_positive']:.2f} |")
     lines += ["", "Midpoints use cm; normalized sharpness uses cm⁻¹. These intervals quantify model-conditional "
               "and modular participant uncertainty; they do not establish equivalence when zero is included.", "",
+        "### Conventional ANOVA of the Bayesian point estimates", "",
+        "At the owner's request, take the marginal posterior median of each parameter in each person's "
+        "four cells and treat those estimates as fixed observations in a conventional 2 × 2 repeated-measures "
+        "ANOVA. No fit-quality exclusion, posterior weighting, parameter transformation or multiplicity "
+        "correction is applied. Each one-df F test equals the squared paired-contrast t test; sphericity "
+        "correction is unnecessary for these two-level effects. Confidence intervals below include "
+        "between-participant variation only and omit uncertainty within each fitted curve. These are new "
+        "tests on Bayesian medians, distinct from the older regularized-fit ANOVAs.", "",
+        "| Parameter | Effect | n | Difference [95% CI] | F (1, n−1) | Unadjusted p | Partial η² |",
+        "| --- | --- | ---: | --- | ---: | ---: | ---: |"]
+    for r in primary_rows(report, "point_estimate_anova"):
+        lines.append(f"| {r['parameter']} | {r['effect']} | {r['n']} | "
+            f"{fmt(r.get('estimate'))} [{fmt(r.get('ci_low'))}, {fmt(r.get('ci_high'))}] | "
+            f"{fmt(r['F'])} | {fmt(r.get('p'))} | {fmt(r['partial_eta_squared'])} |")
+    lines += ["", "All four prior specifications and all recording cohorts are retained in "
+        "`bayesian_point_estimate_anova.csv`. The cohort retaining both ambiguous recording copies is "
+        "provisional and cannot establish independent-participant inference. These tests assess differences "
+        "between model-derived point estimates; nonsignificance does not establish equivalence.", "",
         "### Descriptive cell-average parameters", "",
         "These are means of conditional individual parameters, not fitted boundaries of the average response "
         "function. Their proximity to the prior centre and their sensitivity to width support prevent a "
@@ -181,7 +199,7 @@ def markdown(report):
         "Average functions integrate over people and posterior draws and need not themselves be sigmoids.", "",
         "The download records sources and artifact hashes. The broader level-by-level synthesis is "
         "`results/RESULTS_REPORT.md`; `for-ai/ANALYSIS_ROADMAP.md` owns the active checklist. Manuscript "
-        "drafting remains paused. Earlier frequentist p values are unadjusted; the new probabilities are "
+        "drafting remains paused. All frequentist p values, including the Bayesian-median ANOVAs, are unadjusted; posterior probabilities are "
         "not p values or multiplicity-adjusted guarantees.", "",
         "Methodological context: [Hedge et al., reliability and individual differences]"
         "(https://doi.org/10.3758/s13428-017-0935-1); "

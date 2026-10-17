@@ -134,6 +134,54 @@ parameter difference established**, with broad uncertainty. Every primary contra
 interval also includes zero under the three alternative priors. This does not
 establish that the conditions are equivalent.
 
+### Conventional tests on one Bayesian estimate per participant and cell
+
+The owner additionally requested ordinary statistical tests on the Bayesian
+approximations, treating each extracted value as fixed. This analysis takes the
+**marginal posterior median** of boundary and normalized sharpness from every
+participant × condition × phase cell and runs two conventional **2 × 2
+repeated-measures ANOVAs**. It uses the primary prior and the same 40-record cohort,
+with no fit-quality exclusions, transformation, posterior weighting or multiple
+testing correction. Every one-df effect is equivalent to the squared t test of
+its paired participant contrast. All tests below have **F(1,39)**.
+
+| Parameter | Effect | Mean difference [conventional 95% CI] | F | Unadjusted p | Partial η² |
+| --- | --- | --- | ---: | ---: | ---: |
+| Boundary (cm) | Viscereality−Control | −2.196 [−6.879, 2.488] | 0.899 | .349 | .0225 |
+| Boundary (cm) | Inhale−Exhale | +1.250 [−3.333, 5.833] | 0.304 | .584 | .0077 |
+| Boundary (cm) | Condition × Phase | −5.763 [−16.246, 4.721] | 1.236 | .273 | .0307 |
+| Sharpness (cm⁻¹) | Viscereality−Control | −0.00000919 [−0.000940, 0.000921] | 0.000399 | .984 | .0000102 |
+| Sharpness (cm⁻¹) | Inhale−Exhale | −0.000713 [−0.001705, 0.000279] | 2.111 | .154 | .0514 |
+| Sharpness (cm⁻¹) | Condition × Phase | −0.000758 [−0.003135, 0.001619] | 0.416 | .523 | .0106 |
+
+**None of the six primary tests is significant at unadjusted .05.** This remains
+true across all 96 terms from the four existing prior and four cohort
+specifications (minimum p=.0884). The full 42-record specification is provisional
+because it retains both linked recordings; its standard errors do not establish
+independent-participant inference.
+
+For descriptive context, averages of the individual posterior medians are:
+
+| Cell | Boundary (cm) | Sharpness (cm⁻¹) |
+| --- | ---: | ---: |
+| Control · Exhale | 54.20 | 0.01036 |
+| Control · Inhale | 58.33 | 0.01003 |
+| Viscereality · Exhale | 54.88 | 0.01073 |
+| Viscereality · Inhale | 53.25 | 0.00964 |
+
+These are means of marginal posterior medians, whereas the previous table uses
+contrasts of posterior draws. Nonlinear/skewed posteriors mean those summaries
+need not coincide. The conventional intervals include only the variation between
+participants' point estimates and omit uncertainty within their individual fits.
+They cannot establish that the physiological parameters have been reliably
+measured. Sharpness contrast distributions also depart from normality (Shapiro–Wilk
+p=.000593, .00000179, and .0262 for Condition, Phase, and interaction); the requested
+ANOVAs are retained without selecting another test. These results are distinct
+from the old regularized-fit ANOVAs below. No equivalence conclusion follows.
+
+The [full conventional ANOVA table](bayesian/bayesian_point_estimate_anova.csv)
+retains every effect, prior, cohort, confidence interval and normality diagnostic.
+
 ### Why the earlier small ANOVA p values are not sufficient
 
 The earlier repeated-measures ANOVAs condition on shrunken/shape-constrained point
@@ -270,16 +318,19 @@ new posterior probabilities are not p values. All comparisons remain available.
 
 ## 6. Verification, deliverables and remaining open questions
 
-The 56 unit tests and strict marimo checks passed. Independent checks compare
+The 57 unit tests and strict marimo checks passed. Independent checks compare
 144 fixed-basis marginal likelihoods with full-covariance multivariate Student-t
 reference densities (maximum discrepancy **4.90×10⁻¹¹**) and 80 weighted-regression
 coefficients with statsmodels (maximum discrepancy **2.45×10⁻¹⁵**). Numerical checks
 do not establish model adequacy or physiological validity.
+All **96 conventional Bayesian-median ANOVA terms** independently match statsmodels
+AnovaRM: maximum F discrepancy **4.53×10⁻¹⁴**, maximum p discrepancy **8.47×10⁻¹³**.
 
 An actual browser run computed the full extension and its downloaded archive was
-verified against an independent native run: **253,839 numerical values**, maximum
+verified against an independent native run: **255,279 numerical values**, maximum
 absolute discrepancy **2.20×10⁻⁹** (tolerance 10⁻⁸). All 42 atlas pages and the
-three group figures were visually inspected. Input/code/artifact hashes passed. The independent run button, participant selector,
+three group figures were visually inspected; they remain byte-identical after
+the conventional-ANOVA addition. Input/code/artifact hashes passed. The independent run button, participant selector,
 preview-filter independence and actual download passed browser checks, with no
 processing-server POST, page error or RPC timeout during subsequent interaction.
 The nine legacy engine files, all 37 manuscript source records, the earlier
@@ -294,7 +345,8 @@ Deliverables:
   download](bayesian/bayesian-results.zip), [machine-readable results](bayesian/bayesian_results.json).
 - [Individual parameter table](bayesian/bayesian_cells.csv),
   [experimental contrasts](bayesian/bayesian_group_contrasts.csv),
-  [cell-average parameters](bayesian/bayesian_group_cell_summaries.csv).
+  [cell-average parameters](bayesian/bayesian_group_cell_summaries.csv),
+  [conventional ANOVAs of Bayesian medians](bayesian/bayesian_point_estimate_anova.csv).
 - [All rank associations](bayesian/bayesian_associations.csv) and
   [all joint spatial × MAIA coefficients](bayesian/bayesian_joint_moderation.csv).
 - [Earlier complete analysis](browser-analysis/analysis_report.md) and its

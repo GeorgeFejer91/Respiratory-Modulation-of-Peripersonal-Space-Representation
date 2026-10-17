@@ -1,5 +1,5 @@
 {
-  "analysis_version": "Bayesian results 1.0",
+  "analysis_version": "Bayesian results 1.1",
   "runtime": {
     "python": "3.14.2",
     "numpy": "2.4.3",
@@ -13,8 +13,8 @@
     "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
   },
   "code_sha256": {
-    "bayesian_sigmoid.py": "6511774da6d3bd01b94034cf0450fb00bc4744764c198a95fd16638d526db560",
-    "bayesian_report.py": "2da687517f6c288302d67868ad70844a117f007cdad903a0841fb665c95b458f",
+    "bayesian_sigmoid.py": "74918a2fa5eb1820213f00929c13aa555cab862630b774520af2eb2e7a80a4aa",
+    "bayesian_report.py": "109a8d41ab80ab117116e93061d7b728950a19e1406de53aeea8ee5522884006",
     "inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
     "paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
     "preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
@@ -26,8 +26,8 @@
     "participant_report.py": "bfd371c134c1ed245d720c4388185ca53d5489a38971c26ff4add7bc2f01a8f6"
   },
   "artifact_sha256": {
-    "bayesian_results.json": "35e262797fe30338c4ff4ed30039cc99564224f5d77fb8493956eafb5142b019",
-    "bayesian_results.md": "be9327ab6e262f66df06ba70412aaa1e49b5cedc554a27005cf67022b10c3110",
+    "bayesian_results.json": "b5e1363894b6075ee7139600b240e71a958984285c45265d515d57c83026e1a8",
+    "bayesian_results.md": "91a4af578f8e913e92ff16b9f31408f35daf377504eacc1ff1e490bd452ce844",
     "bayesian_prediction_summary.csv": "a102d0e907b092f74ace1be785affa47e27f494a1d4942286a5121d8117652a2",
     "bayesian_average_curves.svg": "80c44c4ed73b01cd9b1fdc5c10a0dfb05628ca09e2fe09d7c372cce2c331fffa",
     "bayesian_cell_parameters.svg": "7a29c126a057cce02f2860c1090fde9e69b7463dc5e0bc150d23362340f692ac",
@@ -44,8 +44,9 @@
     "bayesian_reliability.csv": "17fc22a88559c5f392c29a4f0f9871f61e74ea621a75145c08cc1c98e5044db3",
     "bayesian_recovery.csv": "5cebe221268128b1aede3ba1fb23d728b50499d591874eaa353e62b5f0b0304c",
     "bayesian_prior_predictive.csv": "76560e4d5ace29fb724084b368c1acc18b6b5e7d1d5b07e730b23250a4ad4855",
-    "analysis_source/bayesian_sigmoid.py": "6511774da6d3bd01b94034cf0450fb00bc4744764c198a95fd16638d526db560",
-    "analysis_source/bayesian_report.py": "2da687517f6c288302d67868ad70844a117f007cdad903a0841fb665c95b458f",
+    "bayesian_point_estimate_anova.csv": "4dfbeb1f1b852b0257dadaf32d42ce2ce196ac9139f76bc2f141b9f3689446b8",
+    "analysis_source/bayesian_sigmoid.py": "74918a2fa5eb1820213f00929c13aa555cab862630b774520af2eb2e7a80a4aa",
+    "analysis_source/bayesian_report.py": "109a8d41ab80ab117116e93061d7b728950a19e1406de53aeea8ee5522884006",
     "analysis_source/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
     "analysis_source/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
     "analysis_source/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",

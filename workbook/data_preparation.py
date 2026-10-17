@@ -219,7 +219,7 @@ def _(columns, make_bundle, mo, prepared, settings, source_bytes, stages, synthe
 def _(mo):
     run_bayesian = mo.ui.run_button(label="Run Bayesian parameter analysis")
     mo.vstack([
-        mo.md("## Bayesian results · midpoint and sharpness\nFit all four individual curves from the observed RTs, compare simpler models, assess prior sensitivity and reliability, and carry parameter uncertainty into condition/phase and questionnaire analyses. This branch runs independently of the earlier complete analysis and leaves the manuscript snapshot unchanged."),
+        mo.md("## Bayesian results · midpoint and sharpness\nFit all four individual curves from the observed RTs, compare simpler models, assess prior sensitivity and reliability, and carry parameter uncertainty into condition/phase and questionnaire analyses. Also run conventional repeated-measures ANOVAs on the individual posterior medians. This branch runs independently of the earlier complete analysis and leaves the manuscript snapshot unchanged."),
         mo.callout("Bayesian estimation requires a likelihood and priors. A finite midpoint or a model-implied S does not establish an observed PPS boundary. Raw data, uncertainty, predictive checks and alternative priors remain part of the result.", kind="info"),
         run_bayesian,
     ])
@@ -250,6 +250,8 @@ def _(bayesian_bundle, mo, people, run_bayesian, run_bayesian_parameters, source
 def _(bayesian_figure, bayesian_manifest, bayesian_markdown, bayesian_primary, bayesian_results, bayesian_zip, mo, synthetic):
     _contrasts = [r for r in bayesian_primary(bayesian_results, "group_contrasts")
                   if r["scope"] == "posterior + Bayesian bootstrap" and r["effect"] != "Mean"]
+    _point_anova = [{_key: _row.get(_key) for _key in ("parameter", "effect", "n", "F", "p", "estimate", "ci_low", "ci_high")}
+                    for _row in bayesian_primary(bayesian_results, "point_estimate_anova")]
     mo.vstack([
         mo.md("### Bayesian results computed\nMidpoints and sharpness are conditional on the sigmoid model. The plots show measured RTs and uncertainty rather than guaranteeing an observed transition."),
         mo.callout("Synthetic demonstration results." if synthetic else "Computed from the selected validated dataset; the primary comparison excludes ambiguous recording links.", kind="warn" if synthetic else "success"),
@@ -257,6 +259,11 @@ def _(bayesian_figure, bayesian_manifest, bayesian_markdown, bayesian_primary, b
         mo.Html(bayesian_figure(bayesian_results, "cell_parameters").decode()),
         mo.Html(bayesian_figure(bayesian_results, "parameters").decode()),
         mo.ui.table(_contrasts, selection=None, label="Bayesian Condition × Phase parameter results"),
+        mo.md("### Conventional ANOVA of Bayesian point estimates\nOne posterior median per participant × condition × phase. These tests treat the extracted estimates as fixed measurements; all p values are unadjusted."),
+        mo.ui.table(_point_anova, selection=None,
+                    format_mapping={_key: lambda _value: "undefined" if _value is None else f"{_value:.3g}"
+                                    for _key in ("F", "p", "estimate", "ci_low", "ci_high")},
+                    label="Bayesian posterior medians · 2 × 2 repeated-measures ANOVA"),
         mo.accordion({
             "Individual parameters · primary cohort/prior": mo.ui.table(bayesian_primary(bayesian_results, "cells"), selection=None, page_size=20),
             "Spatial/MAIA associations · primary": mo.ui.table(bayesian_primary(bayesian_results, "associations"), selection=None),

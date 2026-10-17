@@ -12,7 +12,8 @@
     "average_curves": 4,
     "quadrature_checks": 168,
     "reliability": 80,
-    "recovery": 120
+    "recovery": 120,
+    "point_estimate_anova": 96
   },
   "student_t_reference_cases": 144,
   "max_log_marginal_likelihood_error": 4.89350782117981e-11,
@@ -22,16 +23,19 @@
     "midpoint_cm": 0.037400712003732295,
     "normalized_steepness_per_cm": 8.650597125188508e-06
   },
+  "independent_AnovaRM_terms": 96,
+  "max_AnovaRM_F_error": 4.524158825347513e-14,
+  "max_AnovaRM_p_error": 8.467671008816069e-13,
   "source_linkage": "Both ambiguous records excluded for primary inference; linked copies share latent draws and resampling weights in the provisional full cohort.",
   "limits": "Probability/numerical verification does not validate the Gaussian model, prior choices, physiological identifiability or causal inference.",
   "browser_native_parity": {
     "status": "passed",
-    "numeric_values_compared": 253839,
+    "numeric_values_compared": 255279,
     "absolute_tolerance": 1e-08,
     "max_absolute_numeric_error": 2.1955202100798488e-09,
     "scope": "Every Bayesian result value and label, including prediction, priors, linked-record cohorts, resampled associations/regressions, recovery and curve bands."
   },
-  "browser_zip_sha256": "edfbcbf793161581ae47237f4503fdf1cbad857a8577fb2093a1f75aef51d927",
+  "browser_zip_sha256": "c82a2d2f64b3e16878e4125dc9647f9596196b16da988a69967e8167f65a7548",
   "browser_runtime": {
     "python": "3.14.2",
     "numpy": "2.4.3",
@@ -50,10 +54,12 @@
   "visual_review": {
     "atlas_pages": 42,
     "group_figures": 3,
-    "status": "all pages and figures visually inspected; raw response and model-imposed geometry remain separated"
+    "status": "all pages and figures visually inspected; raw response and model-imposed geometry remain separated",
+    "point_anova_table": "visually inspected in final browser UI; F, p and intervals visible together",
+    "preserved_figures": "all three group SVGs and complete 42-page atlas are byte-identical to the previously inspected versions"
   },
   "browser_ui": {
-    "source_sha256": "b3a252081316e46d0eed4b15ca3518dd01ea6d264a6ed24a46d9c858e2bc2396",
-    "status": "passed fresh full run, actual download, P033 participant selector, preview-filter independence, no processing-server POST/page error/RPC timeout through 35 seconds of subsequent interaction"
+    "source_sha256": "a33a2c60f891262e7f346d3db00b330ca68a0e0d752fe125c12697f33c5ef36d",
+    "status": "passed final full browser run, displayed conventional ANOVA table, actual download, P033 selector, preview-filter independence and no processing-server POST/page error/RPC timeout through 35 seconds of subsequent interaction"
   }
 }

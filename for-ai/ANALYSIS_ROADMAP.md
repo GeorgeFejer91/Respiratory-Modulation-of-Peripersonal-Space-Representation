@@ -49,7 +49,8 @@ its report/export and proportional checks. Preserve the legacy reference.
   grid/boundary diagnostics. Do not smooth the likelihood or force nonzero amplitude.
 - [x] Q2.4 Verify numerical integration against an independent calculation and a
   finer grid; check posterior predictive fit and prior-predictive plausibility.
-- [x] Q2.5 Propagate draws rather than analyze posterior medians as exact values.
+- [x] Q2.5 Propagate draws for the uncertainty-aware analysis; retain the separately
+  requested fixed-median conventional ANOVA as Q3.6.
 - [x] Q2.6 State which estimates are data-informed and which remain prior-dependent;
   no claim that an assumption-free or universally best fit exists.
 
@@ -63,6 +64,9 @@ its report/export and proportional checks. Preserve the legacy reference.
 - [x] Q3.4 Repeat across priors and the four linkage cohorts; no preferred result by p.
 - [x] Q3.5 Decide whether observed effects are robust, inconclusive or model-dependent;
   computational estimates alone do not establish physiological changes.
+- [x] Q3.6 Run the owner-requested conventional 2 × 2 RM ANOVAs on Bayesian
+  posterior medians, with unadjusted p values and explicit omission of within-fit
+  uncertainty; verify independently and retain all prior/cohort sensitivities.
 
 ## Level 4 — Descriptive average curves and figures
 
@@ -121,6 +125,9 @@ results. The individual and average figures have been visually inspected.
 Computational completion does not close Q1.7: the individual parameters remain
 poorly identified and unreliable, and experimental/questionnaire associations
 are inconclusive after propagating uncertainty. Q0.5 still requires source mapping.
+The requested conventional tests on fixed Bayesian posterior medians are also
+computed and independently checked; none of their primary or sensitivity tests
+establishes a condition, phase or interaction difference at unadjusted .05.
 A full joint hierarchical nonlinear model remains NOT RUN. The final report, browser controls and public Pages deployment are verified.
 The published result archive/report/evidence and preserved legacy ZIP/PDF match
 the checked local bytes. Public application input checks and editor execution

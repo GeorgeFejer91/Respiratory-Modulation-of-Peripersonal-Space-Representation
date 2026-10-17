@@ -23,7 +23,8 @@ def validate(report):
     assert len(ids) == 42 and tensor.shape[:3] == (42, 4, 5)
     expected = dict(cells=672, model_evidence=2688, prediction=13440, group_contrasts=256, group_cell_summaries=256,
                     associations=1472, joint_moderation=3072, individual_curves=168,
-                    average_curves=4, quadrature_checks=168, reliability=80, recovery=120)
+                    average_curves=4, quadrature_checks=168, reliability=80, recovery=120,
+                    point_estimate_anova=96)
     assert report["posterior_draws"] == 2000
     assert report["primary_excluded_ids"] == ["P011", "P033"]
     for key, count in expected.items():
@@ -61,6 +62,24 @@ def validate(report):
             error = float(np.max(np.abs(reference-actual[draw, :, outcome])))
             assert error < 1e-10
             regression_errors.append(error)
+    import pandas as pd
+    from statsmodels.stats.anova import AnovaRM
+    anova_errors, anova_p_errors = [], []
+    cells = pd.DataFrame(report["cells"])
+    for prior in PRIORS:
+        for excluded in ("", "P011,P033", "P011", "P033"):
+            data = cells[(cells.prior == prior) & ~cells.participant_id.isin(excluded.split(","))]
+            for parameter in ("midpoint_cm", "normalized_steepness_per_cm"):
+                reference = AnovaRM(data, parameter, "participant_id", within=["condition", "phase"]).fit().anova_table
+                for effect, term in (("Condition", "condition"), ("Phase", "phase"), ("Condition × Phase", "condition:phase")):
+                    r, = [r for r in report["point_estimate_anova"] if r["prior"] == prior
+                          and r["excluded_ids"] == excluded and r["parameter"] == parameter and r["effect"] == effect]
+                    f_error = abs(r["F"]-reference.loc[term, "F Value"])
+                    p_error = abs(r["p"]-reference.loc[term, "Pr > F"])
+                    assert f_error < 1e-9 and p_error < 1e-9, (prior, excluded, parameter, effect)
+                    assert r["df_num"] == reference.loc[term, "Num DF"] == 1
+                    assert r["df_den"] == reference.loc[term, "Den DF"] == r["n"]-1
+                    anova_errors.append(float(f_error)); anova_p_errors.append(float(p_error))
     grid_errors = {p: max(abs(r[p+"_difference"]) for r in report["quadrature_checks"])
                    for p in ("midpoint_cm", "normalized_steepness_per_cm")}
     assert grid_errors["midpoint_cm"] < .25
@@ -75,6 +94,8 @@ def validate(report):
     return dict(status="passed", record_counts=expected, student_t_reference_cases=len(errors),
         max_log_marginal_likelihood_error=max(errors), independent_WLS_cases=len(regression_errors),
         max_WLS_coefficient_error=max(regression_errors), quadrature_median_max_difference=grid_errors,
+        independent_AnovaRM_terms=len(anova_errors), max_AnovaRM_F_error=max(anova_errors),
+        max_AnovaRM_p_error=max(anova_p_errors),
         source_linkage="Both ambiguous records excluded for primary inference; linked copies share latent draws and resampling weights in the provisional full cohort.",
         limits="Probability/numerical verification does not validate the Gaussian model, prior choices, physiological identifiability or causal inference.")
 

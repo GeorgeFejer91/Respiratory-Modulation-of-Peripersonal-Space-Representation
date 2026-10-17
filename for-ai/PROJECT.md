@@ -22,6 +22,9 @@ assumption-free and a finite posterior median is not an identified physiological
 boundary. No fitting, cleaning, priors or cohort may be chosen by questionnaire
 significance. All frequentist p values remain unadjusted at the owner's request;
 report the full comparison family and pointwise uncertainty.
+The owner also requested conventional 2 × 2 RM ANOVAs treating individual Bayesian
+posterior medians as fixed measurements. Retain this separately labelled analysis,
+all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
