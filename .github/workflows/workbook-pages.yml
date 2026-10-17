@@ -83,6 +83,10 @@ jobs:
           assert len(individual["contrast_reliability"]) == 180
           assert len(individual["repeated_measures"]) == 332
           assert sum(len(s["repeated_measures"]) for s in individual["linkage_sensitivities"]) == 996
+          assert len(individual["spatial_cell_associations"]) == 16
+          assert len(individual["spatial_parameter_models"]) == 32
+          assert sum(len(s["spatial_cell_associations"]) for s in individual["linkage_sensitivities"]) == 48
+          assert sum(len(s["spatial_parameter_models"]) for s in individual["linkage_sensitivities"]) == 96
           assert len(report["robustness"]["recording_linkage"]) == 3
           remaining = report["robustness"]["group_shape"]
           assert len(remaining["log_distance_candidates"]) == 160

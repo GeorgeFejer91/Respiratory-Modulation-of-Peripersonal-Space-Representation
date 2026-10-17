@@ -417,6 +417,57 @@ Partial pooling can produce small conventional ANOVA standard errors despite
 uncertain cohort-level curve shifts; refit intervals must accompany those tests.
 No result can repair the missing source mapping or prove a physiological boundary.
 
+## Condition-matched spatial ratings and PPS parameters (post-results)
+
+The owner requested a direct association analysis matching the spatial rating
+from each intervention to that condition's Exhale/Inhale PPS estimates. Fix this
+amendment before computing its results. It follows inspection of earlier delta
+analyses and remains exploratory. PPS outcomes are fitted midpoint (cm) and
+normalized sharpness, not an additional subjective PPS questionnaire.
+
+- Retain the four fitted cells per person, existing RT-selected methods, both
+  plateau models and all four recording-linkage cohorts. The main presentation
+  excludes both ambiguous recordings. Do not use questionnaire outcomes to
+  select a curve, cleaning rule, cohort or smoothing method.
+- For each of the four cells and each outcome, correlate the parameter with
+  the spatial rating from that same condition using Spearman ranks and 19,999
+  two-sided pairing permutations. Each test contains one observation per person;
+  the two phase estimates sharing a spatial rating are not independent people.
+- Separate between-person spatial level, the mean of the two condition ratings,
+  from within-person spatial change, Viscereality minus Control. In the balanced
+  repeated-measures decomposition, regress the four-cell PPS mean and Phase
+  contrast on mean spatial rating; regress the Condition and Condition × Phase
+  contrasts on spatial change. This estimates the between-person association,
+  its phase dependence, the within-person association after allowing an average
+  condition effect, and its phase dependence. The latter two reuse the already
+  specified spatial-delta models rather than supplying independent replication.
+  Report each with and without centred presentation order, classical and HC3
+  uncertainty. Numerical means/differences assume comparable category steps;
+  the cell-specific rank analyses and existing direction-only models provide
+  complementary ordinal sensitivities.
+- Attach 95% percentile intervals using the same 500 person/linked-record-group
+  plus within-cell trial resamples and refitted curves in each cohort. Count
+  undefined draws. Keep all prior random streams unchanged; use a separate
+  permutation stream seeded 20261020 for the added correlations. Method selection,
+  original cleaning, serial dependence and uncertainty in the rating instrument
+  are not calibrated by these conditional intervals.
+- Export 64 cell correlations and 128 regression coefficient records across
+  cohorts/models: 192 estimates, including 64 reused within-change coefficients.
+  Thus 128 tests are added, not 192 independent new hypotheses. All p values are
+  unadjusted. Missing rating pairs remain missing; use complete pairs for the
+  within/between decomposition and available condition ratings for cell ranks.
+- Independently check ranks with SciPy, regression/HC3 with statsmodels, and
+  coefficient identities against a long-format within/between design. Test
+  opposite known within/between effects, phase interactions, participant-offset
+  cancellation, missingness, constant ratings and all refit counts. Compare all
+  new fields across native/Pyodide. Display the main cell associations and model
+  slopes with refit intervals and update the publication draft from the browser
+  download.
+
+These are associations of post-intervention experience and uncertain fitted PPS
+proxies. They do not establish mediation, causal direction or a physiological
+boundary. Neither spatial ratings nor MAIA scores are data-quality exclusions.
+
 ## Numerical and browser verification
 
 Profile ML uses Woodbury sufficient statistics, preserving the exact Gaussian

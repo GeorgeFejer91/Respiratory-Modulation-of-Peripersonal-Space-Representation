@@ -454,7 +454,7 @@ def analyze(people,trials,progress=None):
     linkage=linkage_model_sensitivities(people,trials,individual.get("linkage_audit",{"groups":[]}),notify)
     flagged=sorted({pid for g in individual.get("linkage_audit",{"groups":[]})["groups"] for pid in g["participant_ids"]})
     robustness={"recording_linkage":linkage,"group_shape":followup_audit(retained,flagged,notify)}
-    report={"analysis_version":"1.8","status":"reproducible analysis draft; recording linkage requires review",
+    report={"analysis_version":"1.9","status":"reproducible analysis draft; recording linkage requires review",
         "runtime":{"python":platform.python_version(),"numpy":np.__version__,"scipy":scipy.__version__,"matplotlib":matplotlib.__version__,"platform":platform.system(),"execution":"browser Pyodide" if sys.platform=="emscripten" else "native validation"},
         "cohort":counts|{"age_mean":float(ages.mean()),"age_sd":float(ages.std(ddof=1)),"age_min":float(ages.min()),"age_max":float(ages.max()),
             "gender":dict(Counter(p["gender"] for p in people)),"handedness":dict(Counter(p["handedness"] for p in people)),"order":dict(Counter(p["condition_order"] for p in people)),

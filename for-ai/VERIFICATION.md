@@ -41,6 +41,9 @@ uploads, malformed input and partial-upload rejection. Inspect results, manifest
 and figures. Check for browser RPC timeout notifications after a full run and
 result-table/participant-selector interactions; PDF atlas generation must finish
 before new result tables mount and request data. A native run or export alone cannot establish browser execution.
+The complete ZIP uses a lazy download callback: verify the actual click and
+downloaded hashes, including the 96-artifact release. Embedding that payload in
+cell HTML can exceed marimo's output-size limit even after computation succeeds.
 
 ## Numerical and manuscript checks
 
@@ -112,6 +115,14 @@ interval counts, all four within-person cells, eight separate baseline MAIA
 dimensions, spatial delta/direction and both order specifications. Compare every
 model field across native/Pyodide, inspect section 15 and the new parameter
 figure, and retain conventional-versus-refit uncertainty distinctions.
+
+For condition-matched spatial–PPS associations, the robustness validator also
+checks 64 cell correlations with SciPy and 128 within/between model coefficients
+with statsmodels OLS/HC3 and a long-format design. Verify the 64 reused delta
+coefficients and intervals remain identical to their earlier models. Check all
+500 refits/undefined counts, correct condition/phase matching, native/Pyodide
+parity, section 16, both exported CSVs and the spatial–PPS figure. Participant
+counts must not treat the two phases sharing one spatial rating as extra people.
 
 Reconcile all sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

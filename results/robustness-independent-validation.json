@@ -6,7 +6,7 @@
         "P033"
       ],
       "name": "Primary numeric linkage sensitivity",
-      "max_log_likelihood_error": 1.873631845228374e-07
+      "max_log_likelihood_error": 1.8873834051191807e-07
     },
     {
       "excluded_ids": [
@@ -14,7 +14,7 @@
         "P033"
       ],
       "name": "Primary categorical linkage sensitivity",
-      "max_log_likelihood_error": 3.2971729524433613e-07
+      "max_log_likelihood_error": 3.3103424357250333e-07
     },
     {
       "excluded_ids": [
@@ -22,7 +22,7 @@
         "P033"
       ],
       "name": "Control-only numeric linkage sensitivity",
-      "max_log_likelihood_error": 1.926066033774987e-06
+      "max_log_likelihood_error": 1.926186087075621e-06
     },
     {
       "excluded_ids": [
@@ -30,63 +30,63 @@
         "P033"
       ],
       "name": "Control-only categorical linkage sensitivity",
-      "max_log_likelihood_error": 1.968626747839153e-06
+      "max_log_likelihood_error": 1.9687286112457514e-06
     },
     {
       "excluded_ids": [
         "P011"
       ],
       "name": "Primary numeric linkage sensitivity",
-      "max_log_likelihood_error": 2.0330480765551329e-07
+      "max_log_likelihood_error": 2.0451989257708192e-07
     },
     {
       "excluded_ids": [
         "P011"
       ],
       "name": "Primary categorical linkage sensitivity",
-      "max_log_likelihood_error": 1.2451346265152097e-07
+      "max_log_likelihood_error": 1.2575765140354633e-07
     },
     {
       "excluded_ids": [
         "P011"
       ],
       "name": "Control-only numeric linkage sensitivity",
-      "max_log_likelihood_error": 6.595008017029613e-06
+      "max_log_likelihood_error": 6.595251761609688e-06
     },
     {
       "excluded_ids": [
         "P011"
       ],
       "name": "Control-only categorical linkage sensitivity",
-      "max_log_likelihood_error": 6.808350008213893e-06
+      "max_log_likelihood_error": 6.808575562899932e-06
     },
     {
       "excluded_ids": [
         "P033"
       ],
       "name": "Primary numeric linkage sensitivity",
-      "max_log_likelihood_error": 1.9367871573194861e-07
+      "max_log_likelihood_error": 1.9492290448397398e-07
     },
     {
       "excluded_ids": [
         "P033"
       ],
       "name": "Primary categorical linkage sensitivity",
-      "max_log_likelihood_error": 1.1837255442515016e-07
+      "max_log_likelihood_error": 1.195439836010337e-07
     },
     {
       "excluded_ids": [
         "P033"
       ],
       "name": "Control-only numeric linkage sensitivity",
-      "max_log_likelihood_error": 5.780522769782692e-06
+      "max_log_likelihood_error": 5.780617357231677e-06
     },
     {
       "excluded_ids": [
         "P033"
       ],
       "name": "Control-only categorical linkage sensitivity",
-      "max_log_likelihood_error": 5.9922385844402015e-06
+      "max_log_likelihood_error": 5.992369551677257e-06
     }
   ],
   "contrasts_checked": 72,
@@ -97,6 +97,13 @@
     "ancova_terms": 1280,
     "max_F_absolute_error": 1.1546319456101628e-08
   },
-  "status": "passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms and 1,280 ANCOVA terms including HC3",
+  "spatial_parameters": {
+    "cell_correlations": 64,
+    "regression_terms": 128,
+    "reused_terms": 64,
+    "max_long_format_beta_error": 1.1340581251850779e-13,
+    "undefined_refit_draws": 19
+  },
+  "status": "passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms, 1,280 ANCOVA terms and condition-matched spatial ranks/within-between models",
   "limits": "Numerical checks do not validate physiology, source identity, interval coverage or method-selection assumptions. Log prediction reuses the already-tested smoother."
 }

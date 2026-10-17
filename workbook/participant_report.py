@@ -10,15 +10,81 @@ from descriptive_sigmoid import DISTANCES, LABELS, predict
 from participant_sigmoid import METRICS, CONTRASTS, X
 
 
-def repeated_rows(r):
+def repeated_rows(r,key="repeated_measures"):
     return [row|{"excluded_ids":','.join(cohort.get("excluded_ids",[])),
                  "cohort":"Exclude "+','.join(cohort["excluded_ids"]) if cohort.get("excluded_ids") else "Full release (provisional)"}
-            for cohort in [r]+r["linkage_sensitivities"] for row in cohort["repeated_measures"]]
+            for cohort in [r]+r["linkage_sensitivities"] for row in cohort[key]]
 
 
-def repeated_primary(r):
+def repeated_primary(r,key="repeated_measures"):
     cohort=max(r["linkage_sensitivities"],key=lambda s:len(s["excluded_ids"])) if r["linkage_sensitivities"] else r
-    return cohort["repeated_measures"],"Exclude "+'/'.join(cohort["excluded_ids"]) if cohort.get("excluded_ids") else "Full release"
+    return cohort[key],"Exclude "+'/'.join(cohort["excluded_ids"]) if cohort.get("excluded_ids") else "Full release"
+
+
+def spatial_markdown(r):
+    if r["status"]!="computed":return ""
+    cells,label=repeated_primary(r,"spatial_cell_associations")
+    models,_=repeated_primary(r,"spatial_parameter_models")
+    all_cells=repeated_rows(r,"spatial_cell_associations");all_models=repeated_rows(r,"spatial_parameter_models")
+    reused=sum(a["predictor"]=="spfrref_delta" for a in all_models)
+    def f(value):return "NA" if value is None else f"{value:.5g}"
+    lines=["\n## Condition-matched spatial ratings and PPS parameters","",r["spatial_parameter_scope"],"",
+        f"Main presentation: {label}. {len(all_cells)} cell correlations and {len(all_models)} model slopes are exported. "
+        f"The {reused} within-change slopes reuse earlier models; these are not independent replications. "
+        f"There are {len(all_cells)+len(all_models)-reused} added nominal tests. All p values are unadjusted.","",
+        "### Same-condition ratings, separate respiratory phases","",
+        "| Plateaus | Parameter | Condition / phase | n | Spearman rho | Unadjusted p | 95% curve-refit interval |",
+        "| --- | --- | --- | ---: | ---: | ---: | --- |"]
+    for a in cells:
+        lines.append(f"| {a['model']} | {a['metric']} | {a['condition']} / {a['phase']} | {a['n']} | {f(a['rho'])} | {f(a['p'])} | [{f(a['ci_low'])}, {f(a['ci_high'])}] |")
+    lines += ["","### Between-person level and within-person change","",
+        "Mean spatial level predicts the PPS four-cell mean and phase contrast. Spatial change predicts the PPS condition contrast and Condition × Phase contrast. "
+        "Each regression uses one summary per person; this is a balanced repeated-measures decomposition with separate error variance per contrast. "
+        "The table includes presentation order; the download also retains unadjusted-for-order models.","",
+        "| Plateaus | Parameter | Spatial component / PPS summary | n | Slope | Classical p | HC3 p | 95% curve-refit interval |",
+        "| --- | --- | --- | ---: | ---: | ---: | ---: | --- |"]
+    for a in models:
+        if not a["order_adjusted"]:continue
+        lines.append(f"| {a['model']} | {a['parameter']} | {a['spatial_component']} / {a['effect']} | {a['n']} | {f(a['estimate'])} | {f(a['p'])} | {f(a['hc3_p'])} | [{f(a['refit_ci_low'])}, {f(a['refit_ci_high'])}] |")
+    lines += ["","Numerical means and changes assume comparable A–H category spacing. Cell ranks and the earlier direction-only models provide ordinal sensitivities. "
+        "One spatial rating is shared by both phases of each condition. A coefficient relating condition changes is not evidence of causal mediation; "
+        "curve-fitting uncertainty, poor reliability and recording linkage remain part of every interpretation."]
+    return "\n".join(lines)+"\n"
+
+
+def spatial_figure_bytes(r,format="svg"):
+    cells,label=repeated_primary(r,"spatial_cell_associations")
+    models,_=repeated_primary(r,"spatial_parameter_models")
+    terms=(("spfrref_mean","Mean across cells","Mean spatial level"),("spfrref_mean","Phase","Level × phase"),
+           ("spfrref_delta","Condition","Spatial change"),("spfrref_delta","Condition × Phase","Change × phase"))
+    with plt.rc_context({"font.family":"DejaVu Sans","font.size":9,"svg.hashsalt":"study5-spatial-pps-v1"}):
+        fig,axes=plt.subplots(2,2,figsize=(12.5,9))
+        for column,metric in enumerate(METRICS[:2]):
+            for model,offset,color,name in (("individual_plateaus",-.13,"#175b8d","Separate plateaus"),("shared_plateaus",.13,"#b65121","Shared plateaus")):
+                for i,(condition,phase) in enumerate(LABELS):
+                    a=next(a for a in cells if a["model"]==model and a["metric"]==metric and a["condition"]==condition and a["phase"]==phase)
+                    y=i+offset
+                    if a["ci_low"] is not None:axes[0,column].plot([a["ci_low"],a["ci_high"]],[y,y],color=color,lw=1.7)
+                    if a["rho"] is not None:axes[0,column].plot(a["rho"],y,"o",color=color,ms=4,label=name if i==0 else None)
+                for i,(predictor,effect,_) in enumerate(terms):
+                    a=next(a for a in models if a["model"]==model and a["parameter"]==metric and a["predictor"]==predictor and a["effect"]==effect and a["order_adjusted"])
+                    y=i+offset
+                    if a["refit_ci_low"] is not None:axes[1,column].plot([a["refit_ci_low"],a["refit_ci_high"]],[y,y],color=color,lw=1.7)
+                    if a["estimate"] is not None:axes[1,column].plot(a["estimate"],y,"o",color=color,ms=4)
+            for panel in (0,1):
+                ax=axes[panel,column];ax.axvline(0,color="#888888",lw=.8,ls=":");ax.spines[["top","right"]].set_visible(False)
+                labels=[c+" / "+p for c,p in LABELS] if panel==0 else [t[2] for t in terms]
+                ax.set_yticks(range(4),labels);ax.invert_yaxis()
+                ax.set_title(("Midpoint" if column==0 else "Normalized sharpness")+"\n"+("Condition-matched ranks" if panel==0 else "Order-adjusted spatial associations"))
+                ax.set_xlabel("Spearman rho" if panel==0 else ("cm" if column==0 else "1/cm")+" per spatial-code step")
+                if panel==0:ax.set_xlim(-1.02,1.02)
+        axes[0,0].legend(frameon=False,fontsize=8,loc="best")
+        fig.suptitle("Spatial experience and PPS proxies · "+label,fontsize=14,y=.98)
+        fig.text(.5,.045,"Points: fitted associations. Lines: 95% person/group-plus-trial curve-refit intervals; method and cleaning fixed.",ha="center",fontsize=9)
+        fig.text(.5,.022,"Spatial ratings follow each intervention; numerical code spacing, parameter reliability and recording linkage limit interpretation.",ha="center",fontsize=9)
+        fig.subplots_adjust(left=.18,right=.97,top=.90,bottom=.12,wspace=.70,hspace=.43)
+        stream=io.BytesIO();fig.savefig(stream,format=format,dpi=250,metadata={"Date":None} if format=="svg" else None);plt.close(fig)
+        return stream.getvalue()
 
 
 def repeated_markdown(r):

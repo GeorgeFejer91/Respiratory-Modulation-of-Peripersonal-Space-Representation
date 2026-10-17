@@ -59,6 +59,71 @@ def validate_repeated_parameters(report):
     return evidence
 
 
+def validate_spatial_parameters(report):
+    """Independent ranks, contrast regressions and the equivalent long-format design."""
+    p=report["participant_sigmoids"]
+    evidence={"cell_correlations":0,"regression_terms":0,"reused_terms":0,"max_long_format_beta_error":0.,"undefined_refit_draws":0}
+    cells=("control_exhale","control_inhale","viscereality_exhale","viscereality_inhale")
+    for cohort in [p]+p["linkage_sensitivities"]:
+        for model,key in (("individual_plateaus","participant_scores"),("shared_plateaus","shared_participant_scores")):
+            records=cohort[key]
+            for row in [a for a in cohort["spatial_cell_associations"] if a["model"]==model]:
+                assert row["x"]=="spfrref_"+row["condition"].lower()+"_ordinal"
+                assert row["summary"]==row["condition"].lower()+"_"+row["phase"].lower()
+                pairs=np.array([(r[row["x"]],r[row["y"]]) for r in records],dtype=float)
+                pairs=pairs[np.isfinite(pairs).all(1)]
+                assert len(pairs)==row["n"]
+                if row["rho"] is not None:
+                    np.testing.assert_allclose(stats.spearmanr(*pairs.T).statistic,row["rho"],atol=1e-12)
+                    assert 0<row["p"]<=1
+                assert 0<=row["hierarchical_bootstrap_valid"]<=500
+                evidence["undefined_refit_draws"]+=500-row["hierarchical_bootstrap_valid"]
+                evidence["cell_correlations"]+=1
+            ratings=np.array([[r.get("spfrref_control_ordinal"),r.get("spfrref_viscereality_ordinal")] for r in records],dtype=float)
+            level=ratings.mean(1);delta=ratings[:,1]-ratings[:,0]
+            order=np.array([{"Control-Viscereality":0.,"Viscereality-Control":1.}.get(r["condition_order"],np.nan) for r in records])
+            for row in [a for a in cohort["spatial_parameter_models"] if a["model"]==model]:
+                values=np.array([[r[row["parameter"]+"_"+cell] for cell in cells] for r in records])
+                keep=np.isfinite(ratings).all(1)&np.isfinite(values).all(1)
+                if row["order_adjusted"]:keep&=np.isfinite(order)
+                v=values[keep];b=level[keep]-level[keep].mean();d=delta[keep]-delta[keep].mean()
+                y={"Mean across cells":v.mean(1),"Phase":(v[:,1]+v[:,3]-v[:,0]-v[:,2])/2,
+                   "Condition":(v[:,2]+v[:,3]-v[:,0]-v[:,1])/2,"Condition × Phase":v[:,3]-v[:,2]-v[:,1]+v[:,0]}[row["effect"]]
+                between=row["predictor"]=="spfrref_mean"
+                assert (row["effect"] in ("Mean across cells","Phase"))==between
+                columns=[np.ones(len(y)),b if between else d]
+                o=order[keep]-order[keep].mean()
+                if row["order_adjusted"]:columns.append(o)
+                design=np.column_stack(columns)
+                assert row["n"]==len(y) and row["df2"]==len(y)-design.shape[1]
+                assert 0<=row["refit_bootstrap_valid"]<=500
+                if row["status"]=="computed":
+                    reference=sm.OLS(y,design).fit();robust=reference.get_robustcov_results(cov_type="HC3",use_t=True)
+                    np.testing.assert_allclose([row["estimate"],row["se"],row["F"],row["p"],row["ci_low"],row["ci_high"]],
+                        [reference.params[1],reference.bse[1],reference.tvalues[1]**2,reference.pvalues[1],*reference.conf_int()[1]],rtol=1e-8,atol=1e-7)
+                    np.testing.assert_allclose([row["hc3_se"],row["hc3_F"],row["hc3_p"],row["hc3_ci_low"],row["hc3_ci_high"]],
+                        [robust.bse[1],robust.tvalues[1]**2,robust.pvalues[1],*robust.conf_int()[1]],rtol=1e-8,atol=1e-7)
+                    # A balanced long-format within/between model has the same four spatial slopes.
+                    c=np.tile([-.5,-.5,.5,.5],len(y));phase=np.tile([-.5,.5,-.5,.5],len(y))
+                    bl=np.repeat(b,4);wl=c*np.repeat(d,4)
+                    long_columns=[np.ones(len(c)),c,phase,c*phase,bl,bl*phase,wl,wl*phase]
+                    if row["order_adjusted"]:
+                        ol=np.repeat(o,4);long_columns.extend([ol,ol*c,ol*phase,ol*c*phase])
+                    long=sm.OLS(v.ravel(),np.column_stack(long_columns)).fit()
+                    target={"Mean across cells":4,"Phase":5,"Condition":6,"Condition × Phase":7}[row["effect"]]
+                    error=abs(float(long.params[target])-row["estimate"])
+                    np.testing.assert_allclose(long.params[target],row["estimate"],atol=1e-9,rtol=1e-8)
+                    evidence["max_long_format_beta_error"]=max(error,evidence["max_long_format_beta_error"])
+                if not between:
+                    previous=next(a for a in cohort["repeated_measures"] if all(a[k]==row[k] for k in ("model","effect","parameter","predictor","order_adjusted")))
+                    assert {k:v for k,v in row.items() if k!="spatial_component"}==previous
+                    evidence["reused_terms"]+=1
+                evidence["undefined_refit_draws"]+=500-row["refit_bootstrap_valid"]
+                evidence["regression_terms"]+=1
+    assert (evidence["cell_correlations"],evidence["regression_terms"],evidence["reused_terms"])==(64,128,64)
+    return evidence
+
+
 def validate(root,report):
     people,trials=load_pair(*[(root/"data/raw"/name).read_bytes() for name in FILES])
     evidence={"mixed_models":[],"contrasts_checked":0,"geometry_checks":0}
@@ -142,7 +207,8 @@ def validate(root,report):
             assert width>=spec["width_floor_cm"]-1e-10
             evidence["geometry_checks"]+=1
     evidence["parameter_repeated_measures"]=validate_repeated_parameters(report)
-    evidence["status"]="passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms and 1,280 ANCOVA terms including HC3"
+    evidence["spatial_parameters"]=validate_spatial_parameters(report)
+    evidence["status"]="passed; independent linkage ML, contrast identities, log-distance prediction, geometry, 48 parameter ANOVA terms, 1,280 ANCOVA terms and condition-matched spatial ranks/within-between models"
     evidence["limits"]="Numerical checks do not validate physiology, source identity, interval coverage or method-selection assumptions. Log prediction reuses the already-tested smoother."
     return evidence
 

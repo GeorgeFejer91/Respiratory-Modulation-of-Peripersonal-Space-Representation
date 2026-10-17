@@ -9,10 +9,62 @@ from scipy import optimize, special, stats
 from descriptive_sigmoid import predict
 from participant_sigmoid import (PenalizedGrid, X, catalogue, estimate, method_catalogue,
     linkage_audit, metrics, resample_trials, shared_plateaus, summarize, trial_tensor,
-    parameter_contrasts, contrast_correlation, person_records, repeated_parameter_models, attach_refit_intervals)
+    parameter_contrasts, contrast_correlation, person_records, repeated_parameter_models, attach_refit_intervals,
+    spatial_parameter_models, spatial_catalogue, correlations)
 
 
 class ParticipantSigmoidTests(unittest.TestCase):
+    def test_spatial_models_separate_opposite_within_and_between_effects(self):
+        rng=np.random.default_rng(95);n=60;level=rng.normal(4,.4,n);delta=rng.normal(.6,.4,n)
+        order=np.arange(n)%2;c=np.array([-.5,-.5,.5,.5]);p=np.array([-.5,.5,-.5,.5])
+        midpoint=45+2*(level-level.mean())[:,None]+(3-4*(delta-delta.mean())+.7*order)[:,None]*c
+        midpoint=midpoint+(1+1.5*(level-level.mean()))[:,None]*p+(2+.8*(delta-delta.mean()))[:,None]*c*p
+        midpoint=midpoint+rng.normal(0,.005,(n,4));sharpness=np.full((n,4),.025)
+        pars=np.stack([np.full((n,4),600.),np.full((n,4),80.),(midpoint-10)/90,1/(360*sharpness)],axis=-1)
+        ids=[str(i) for i in range(n)]
+        q={"scores":[dict(participant_id=pid,spfrref_control_ordinal=level[i]-delta[i]/2,
+            spfrref_viscereality_ordinal=level[i]+delta[i]/2,spfrref_delta=delta[i],
+            condition_order=("Control-Viscereality","Viscereality-Control")[order[i]]) for i,pid in enumerate(ids)]}
+        rows=spatial_parameter_models(pars,ids,q,"individual_plateaus")
+        self.assertEqual(len(rows),16)
+        for effect,predictor,truth in (("Mean across cells","spfrref_mean",2.),("Phase","spfrref_mean",1.5),
+                ("Condition","spfrref_delta",-4.),("Condition × Phase","spfrref_delta",.8)):
+            row=next(r for r in rows if r['effect']==effect and r['predictor']==predictor and r['parameter']=='midpoint_cm' and r['order_adjusted'])
+            self.assertAlmostEqual(row['estimate'],truth,delta=.015)
+        self.assertNotIn('spfrref_mean',q['scores'][0])
+        coefficients=spatial_parameter_models(pars,ids,q,"individual_plateaus",True)
+        for row,value in zip(rows,coefficients):self.assertEqual(row['estimate'],value)
+        previous=repeated_parameter_models(pars,ids,q,'individual_plateaus')
+        for row in rows:
+            if row['predictor']!='spfrref_delta':continue
+            before=next(r for r in previous if all(r[k]==row[k] for k in ('effect','predictor','parameter','order_adjusted')))
+            self.assertEqual({k:v for k,v in row.items() if k!='spatial_component'},before)
+        shifted=pars.copy();shifted[:,:,2]+=rng.normal(0,2,(n,1))
+        after=spatial_parameter_models(shifted,ids,q,'individual_plateaus')
+        for before,new in zip(rows,after):
+            if before['predictor']=='spfrref_delta' and before['parameter']=='midpoint_cm':
+                for key in ('estimate','se','hc3_se'):self.assertAlmostEqual(before[key],new[key],places=9)
+        q['scores'][0]['spfrref_control_ordinal']=None;q['scores'][0]['spfrref_delta']=None
+        self.assertTrue(all(r['n']==n-1 for r in spatial_parameter_models(pars,ids,q,'individual_plateaus')))
+        q['scores'][1]['condition_order']='unknown'
+        incomplete=spatial_parameter_models(pars,ids,q,'individual_plateaus')
+        self.assertTrue(all(r['n']==n-2 for r in incomplete if r['order_adjusted']))
+        for record in q['scores']:
+            record.update(spfrref_control_ordinal=4,spfrref_viscereality_ordinal=4,spfrref_delta=0)
+        self.assertTrue(all(r['status']=='not_estimable' for r in spatial_parameter_models(pars,ids,q,'individual_plateaus')))
+
+    def test_spatial_cell_correlations_match_the_correct_condition_and_phase(self):
+        records=[]
+        for i in range(9):
+            record={'spfrref_control_ordinal':i,'spfrref_viscereality_ordinal':8-i}
+            for cell in ('control_exhale','control_inhale','viscereality_exhale','viscereality_inhale'):
+                value=(i if cell.startswith('control') else 8-i)*(1 if cell.endswith('exhale') else -1)
+                for metric in ('midpoint_cm','normalized_steepness_per_cm'):record[metric+'_'+cell]=value
+            records.append(record)
+        values=correlations(records,spatial_catalogue())
+        self.assertEqual(len(values),8)
+        np.testing.assert_allclose(values,[1,1,-1,-1,1,1,-1,-1])
+
     def test_repeated_parameter_models_recover_interactions_and_respect_missingness(self):
         rng=np.random.default_rng(72);n=48;x=rng.normal(size=n);order=np.arange(n)%2
         c=np.array([-.5,-.5,.5,.5]);p=np.array([-.5,.5,-.5,.5])

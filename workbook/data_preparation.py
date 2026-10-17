@@ -430,10 +430,30 @@ def _(figure_svg, mo, paper_results):
 
 
 @app.cell
-def _(analysis_manifest, analysis_zip, markdown_report, mo, paper_results):
+def _(figure_svg, mo, paper_results):
+    from participant_report import repeated_rows as _all_rows, repeated_primary as _primary, spatial_markdown as _spatial_notes
+    _p=paper_results["participant_sigmoids"]
+    mo.stop(_p["status"]!="computed",mo.md("Spatial–PPS parameter associations unavailable."))
+    _cells,_label=_primary(_p,"spatial_cell_associations")
+    _models,_=_primary(_p,"spatial_parameter_models")
     mo.vstack([
-        mo.md("## 16 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities with refit intervals, parameter ANOVA/ANCOVA models, log-distance and shape robustness checks, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
-        mo.download(analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
+        mo.md("## 16 · Spatial experience and PPS parameters\nEach condition's spatial rating is matched to its own Exhale/Inhale parameter estimates. The repeated-measures decomposition separates spatial level between participants from condition change within participants. One spatial rating is shared by both phases; participants remain the units of inference. All p values are unadjusted and curve-refit intervals retain fitting uncertainty."),
+        mo.Html(figure_svg(paper_results,"spatial_pps")),
+        mo.ui.table(_cells,selection=None,label="Same-condition spatial ratings × four PPS cells · "+_label),
+        mo.ui.table([a for a in _models if a["order_adjusted"]],selection=None,label="Within-person / between-person spatial associations · order adjusted"),
+        mo.accordion({"All cohorts and cell correlations":mo.ui.table(_all_rows(_p,"spatial_cell_associations"),selection=None),
+                      "All cohorts and spatial models":mo.ui.table(_all_rows(_p,"spatial_parameter_models"),selection=None),
+                      "Definitions and interpretation":mo.md(_spatial_notes(_p))}),
+    ])
+    return
+
+
+@app.cell
+def _(analysis_manifest, analysis_zip, markdown_report, mo, paper_results):
+    # Load the cached ZIP on click to keep its base64 payload out of the cell HTML.
+    mo.vstack([
+        mo.md("## 17 · Export the complete analysis\nIncludes the 42-page individual curve atlas, normalized trial RTs, both individual parameter specifications, all questionnaire links and recording-exclusion sensitivities with refit intervals, parameter ANOVA/ANCOVA models, condition-matched spatial associations and within/between models, log-distance and shape robustness checks, plus the full earlier analysis, figures, source code and hashes. All files are generated from this run."),
+        mo.download(lambda: analysis_zip,filename="study5_publication_analysis.zip",mimetype="application/zip",label="Download complete analysis"),
         mo.accordion({"Read the analysis report":mo.md(markdown_report(paper_results)),"Inspect the reproducibility manifest":mo.json(analysis_manifest)}),
     ])
     return

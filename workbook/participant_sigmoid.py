@@ -270,7 +270,7 @@ def attach_intervals(tests,draws):
                  bootstrap_valid=len(valid),hierarchical_bootstrap_valid=len(valid))
 
 
-def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_only=False):
+def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_only=False,specifications=None):
     """Balanced 2×2 RM ANOVA/ANCOVA through one-df participant contrasts."""
     values=metrics(parameters)[...,:2]
     outcomes=np.concatenate([values.mean(1)[:,None,:],parameter_contrasts(values)],axis=1).reshape(len(ids),8)
@@ -280,7 +280,9 @@ def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_o
     effects=("Mean across cells","Condition","Phase","Condition × Phase")
     order=np.array([{"Control-Viscereality":0.,"Viscereality-Control":1.}.get(r["condition_order"],np.nan) for r in records])
     rows=[]
-    for field,adjust in [(None,False)]+[(f,a) for f in fields for a in (False,True)]:
+    if specifications is None:
+        specifications=[(None,False,range(2,8))]+[(f,a,range(8)) for f in fields for a in (False,True)]
+    for field,adjust,indices in specifications:
         x=np.array([r.get(field,np.nan) for r in records],dtype=float) if field else np.zeros(len(ids))
         keep=np.isfinite(outcomes).all(1)&np.isfinite(x)&(np.isfinite(order) if adjust else True)
         y=outcomes[keep];n=len(y);columns=[np.ones(n)]
@@ -291,7 +293,6 @@ def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_o
         beta=np.full(8,np.nan)
         if computed:
             coefficients=np.linalg.lstsq(design,y,rcond=None)[0];beta=coefficients[target]
-        indices=range(8) if field else range(2,8)
         if coefficients_only:
             rows.extend(finite(beta[j]) for j in indices)
             continue
@@ -327,6 +328,31 @@ def repeated_parameter_models(parameters,ids,questionnaires,model,coefficients_o
     return rows
 
 
+def spatial_parameter_models(parameters,ids,questionnaires,model,coefficients_only=False):
+    """Disaggregate condition-matched spatial levels and changes in a balanced design."""
+    records=[]
+    for record in questionnaires["scores"]:
+        ratings=np.array([record.get("spfrref_control_ordinal"),record.get("spfrref_viscereality_ordinal")],dtype=float)
+        records.append(record|{"spfrref_mean":float(ratings.mean())})
+    # Orthogonality of the balanced cells separates between-person level from within-person change.
+    specifications=[(field,adjust,indices) for field,indices in
+        (("spfrref_mean",(0,1,4,5)),("spfrref_delta",(2,3,6,7))) for adjust in (False,True)]
+    rows=repeated_parameter_models(parameters,ids,{"scores":records},model,coefficients_only,specifications)
+    if not coefficients_only:
+        for row in rows:row["spatial_component"]="between participants" if row["predictor"]=="spfrref_mean" else "within participant change"
+    return rows
+
+
+def spatial_catalogue():
+    return [dict(x="spfrref_"+condition.lower()+"_ordinal",y=metric+"_"+cell,
+                 metric=metric,summary=cell,condition=condition,phase=phase,scope="condition-matched spatial rating")
+            for cell,(condition,phase) in zip(CELL_NAMES,LABELS) for metric in METRICS[:2]]
+
+
+def spatial_cell_associations(records,model,rng):
+    return [association(records,c["x"],c["y"],rng,19999,0)|c|{"model":model} for c in spatial_catalogue()]
+
+
 def attach_refit_intervals(rows,draws):
     for row,values in zip(rows,np.asarray(draws,dtype=float).T):
         valid=values[np.isfinite(values)]
@@ -360,9 +386,9 @@ def person_records(parameters,ids,questionnaires):
     return records
 
 
-def correlations(records):
+def correlations(records,comparisons=None):
     out=[]
-    for comparison in catalogue():
+    for comparison in catalogue() if comparisons is None else comparisons:
         pairs=np.array([(r[comparison["x"]],r[comparison["y"]]) for r in records],dtype=float)
         pairs=pairs[np.isfinite(pairs).all(1)]
         out.append(finite(rank_correlation(*pairs.T)) if len(pairs)>2 else None)
@@ -391,6 +417,7 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
     shared,shared_converged=shared_plateaus(smoothed,variances,chosen,grid,centers,pars)
     rng=np.random.default_rng(SEED+1);draws=[];association_draws=[];shared_draws=[];shared_association_draws=[]
     contrast_draws=[];shared_contrast_draws=[];rm_draws=[];shared_rm_draws=[]
+    spatial_draws=[];shared_spatial_draws=[];spatial_rm_draws=[];shared_spatial_rm_draws=[]
     for b in range(bootstrap_draws):
         if progress and b%100==0:progress(f"Individual parameters and hierarchical associations: bootstrap {b}/{bootstrap_draws}")
         sample=resample_trials(tensor,rng);sy,sv=summarize(sample,chosen["aggregation"])
@@ -403,10 +430,14 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         association_draws.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires)))
         contrast_draws.append(parameter_contrasts(metrics(bp)).mean(0))
         rm_draws.append(repeated_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
+        spatial_draws.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires),spatial_catalogue()))
+        spatial_rm_draws.append(spatial_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
         joint,_=shared_plateaus(by,sv,chosen,grid,bc,bp)
         shared_association_draws.append(correlations(person_records(joint,[ids[i] for i in indices],questionnaires)))
         shared_contrast_draws.append(parameter_contrasts(metrics(joint)).mean(0))
         shared_rm_draws.append(repeated_parameter_models(joint,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
+        shared_spatial_draws.append(correlations(person_records(joint,[ids[i] for i in indices],questionnaires),spatial_catalogue()))
+        shared_spatial_rm_draws.append(spatial_parameter_models(joint,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
     draws=np.array(draws);association_draws=np.array(association_draws,dtype=float)
     values=metrics(pars);boot_values=metrics(draws);parameters=[]
     for i,pid in enumerate(ids):
@@ -506,6 +537,13 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
                             row[m+"_"+c+"_recovery_rho"]=contrast_correlation(fitted_delta[:,j],known_delta[:,j])
                             row[m+"_"+c+"_rmse"]=float(np.sqrt(np.mean((fitted_delta[:,j]-known_delta[:,j])**2)))
                 simulation.append(row)
+    spatial_rng=np.random.default_rng(20261020)
+    spatial_tests=spatial_cell_associations(scored,"individual_plateaus",spatial_rng)
+    joint_spatial_tests=spatial_cell_associations(shared_scored,"shared_plateaus",spatial_rng)
+    attach_intervals(spatial_tests,spatial_draws);attach_intervals(joint_spatial_tests,shared_spatial_draws)
+    spatial_rm=spatial_parameter_models(pars,ids,questionnaires,"individual_plateaus")
+    joint_spatial_rm=spatial_parameter_models(shared,ids,questionnaires,"shared_plateaus")
+    attach_refit_intervals(spatial_rm,spatial_rm_draws);attach_refit_intervals(joint_spatial_rm,shared_spatial_rm_draws)
     linkage_sensitivities=[]
     flagged=sorted({pid for g in audit["groups"] for pid in g["participant_ids"] if pid in ids})
     exclusion_sets=([flagged]+[[pid] for pid in flagged]) if flagged else []
@@ -520,7 +558,10 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         for c in catalogue():tests.append(association(records,c["x"],c["y"],perm_rng,19999,0)|c)
         joint_records=person_records(joint,[ids[i] for i in keep],questionnaires)
         joint_tests=[association(joint_records,c["x"],c["y"],shared_rng,19999,0)|c for c in catalogue()]
+        s_tests=spatial_cell_associations(records,"individual_plateaus",spatial_rng)
+        j_tests=spatial_cell_associations(joint_records,"shared_plateaus",spatial_rng)
         boot_associations=[];boot_joint_associations=[];boot_contrasts=[];boot_joint_contrasts=[];boot_rm=[];boot_joint_rm=[]
+        boot_spatial=[];boot_joint_spatial=[];boot_spatial_rm=[];boot_joint_spatial_rm=[]
         for b in range(bootstrap_draws):
             if progress and b%100==0:progress(f"Linkage exclusion {','.join(drop)}: refit bootstrap {b}/{bootstrap_draws}")
             groups=np.unique(identities[keep]);sampled=sensitivity_rng.choice(groups,len(groups),replace=True)
@@ -534,13 +575,22 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
             boot_joint_contrasts.append(parameter_contrasts(metrics(bj)).mean(0))
             boot_rm.append(repeated_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
             boot_joint_rm.append(repeated_parameter_models(bj,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
+            boot_spatial.append(correlations(person_records(bp,[ids[i] for i in indices],questionnaires),spatial_catalogue()))
+            boot_joint_spatial.append(correlations(person_records(bj,[ids[i] for i in indices],questionnaires),spatial_catalogue()))
+            boot_spatial_rm.append(spatial_parameter_models(bp,[ids[i] for i in indices],questionnaires,"individual_plateaus",True))
+            boot_joint_spatial_rm.append(spatial_parameter_models(bj,[ids[i] for i in indices],questionnaires,"shared_plateaus",True))
         attach_intervals(tests,boot_associations);attach_intervals(joint_tests,boot_joint_associations)
+        attach_intervals(s_tests,boot_spatial);attach_intervals(j_tests,boot_joint_spatial)
         rm=repeated_parameter_models(sp,[ids[i] for i in keep],questionnaires,"individual_plateaus")
         joint_rm=repeated_parameter_models(joint,[ids[i] for i in keep],questionnaires,"shared_plateaus")
         attach_refit_intervals(rm,boot_rm);attach_refit_intervals(joint_rm,boot_joint_rm)
+        s_rm=spatial_parameter_models(sp,[ids[i] for i in keep],questionnaires,"individual_plateaus")
+        j_rm=spatial_parameter_models(joint,[ids[i] for i in keep],questionnaires,"shared_plateaus")
+        attach_refit_intervals(s_rm,boot_spatial_rm);attach_refit_intervals(j_rm,boot_joint_spatial_rm)
         linkage_sensitivities.append({"excluded_ids":drop,"participants":len(keep),"selected_method":method["method"],"associations":tests,"shared_associations":joint_tests,
             "participant_scores":records,"shared_participant_scores":joint_records,
             "repeated_measures":rm+joint_rm,
+            "spatial_cell_associations":s_tests+j_tests,"spatial_parameter_models":s_rm+j_rm,
             "contrasts":contrast_rows(sp,boot_contrasts,"individual_plateaus")+contrast_rows(joint,boot_joint_contrasts,"shared_plateaus")})
     rm=repeated_parameter_models(pars,ids,questionnaires,"individual_plateaus")
     joint_rm=repeated_parameter_models(shared,ids,questionnaires,"shared_plateaus")
@@ -553,6 +603,8 @@ def run(rows,questionnaires,progress=None,bootstrap_draws=BOOTSTRAPS,simulation_
         "contrasts":contrast_rows(pars,contrast_draws,"individual_plateaus")+contrast_rows(shared,shared_contrast_draws,"shared_plateaus"),
         "contrast_reliability":contrast_reliability,
         "repeated_measures":rm+joint_rm,
+        "spatial_cell_associations":spatial_tests+joint_spatial_tests,"spatial_parameter_models":spatial_rm+joint_spatial_rm,
+        "spatial_parameter_scope":"Exploratory condition-matched spatial ratings and PPS proxies. Each cell rank correlation uses one condition rating and one fitted parameter per person. The balanced within/between decomposition relates mean spatial rating to PPS mean/Phase effects, and spatial change to PPS Condition/Condition × Phase effects, with and without order adjustment. The within-change coefficients reuse earlier spatial-delta models. All tests are unadjusted; 500 linked-person/group-plus-trial refits propagate curve uncertainty conditional on method and cleaning. Numerical rating means/differences assume comparable category steps. Post-intervention ratings do not establish mediation or causal moderation; unreliable PPS proxies and recording linkage remain limitations.",
         "repeated_measures_scope":"Exploratory 2×2 ANOVA and continuous-covariate ANCOVA of fitted midpoint and normalized sharpness; 1,328 unadjusted tests over both plateau models and four linkage cohorts. One-df contrast regressions give balanced RM effects; four-cell means give between-person covariate effects. Main presentation excludes both ambiguous records and adjusts moderation for order. Classical/HC3 tests condition on estimated parameters and ignore pooled-fit dependence; 500 hierarchical curve-refit intervals expose additional uncertainty. Spatial delta is a post-intervention correlate, not a causal mediator. Method selection and cleaning are fixed; poor reliability remains a limit.",
         "plot_data":{"participant_ids":ids,"raw_means":cubes["mean"].tolist(),"raw_se":np.sqrt(variances).tolist(),
                      "extracted":cube.tolist(),"parameters":pars.tolist(),"shared_parameters":shared.tolist()},

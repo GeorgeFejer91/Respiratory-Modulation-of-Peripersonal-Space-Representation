@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "browser_execution": "browser Pyodide",
+  "browser_execution": "native validation",
   "max_alpha_covariance_identity_error": 2.220446049250313e-16,
   "statsmodels_sign_test_error": 0.0,
   "statsmodels_exact_proportion_interval_error": 5.839773109528323e-14,
@@ -8,7 +8,7 @@
   "association_adjustment": "none",
   "associations_checked": 42,
   "moderation_models_checked": 16,
-  "max_statsmodels_ols_hc3_error": 1.2878587085651816e-14,
-  "max_long_format_interaction_error": 3.232969447708456e-13,
+  "max_statsmodels_ols_hc3_error": 3.552713678800501e-15,
+  "max_long_format_interaction_error": 3.1796787425264483e-13,
   "scope": "Covariance alpha identity; independent statsmodels sign test and beta interval; 42 SciPy rank correlations; 16 OLS/HC3 fits and long-format participant-intercept Condition \u00d7 MAIA interaction equivalence. Exhaustive tied-permutation reference and missing/range edge cases are unit-tested. No multiple-testing correction. These checks do not validate the administered anchor key or preregistration wording."
 }

@@ -470,3 +470,55 @@ Main presentation: Exclude P011/P033. Sharpness = 1/(4 × width in cm); larger v
 | shared_plateaus | normalized_steepness_per_cm | Condition × spfrref_delta | 39 | 9.266e-05 | 0.19483 (1, 36) | 0.66157 | 0.75766 | [-0.001929, 0.0026058] |
 
 Conventional F/p and HC3 treat fitted parameters as outcomes. They do not propagate curve fitting or shared-pool uncertainty. Interpret them beside the refit intervals and the previously weak parameter-change reliability. All 1,328 terms, both order specifications, phase/three-way moderators, between-person effects and spatial-direction sensitivities are exported. No multiplicity correction was applied.
+
+## Condition-matched spatial ratings and PPS parameters
+
+Exploratory condition-matched spatial ratings and PPS proxies. Each cell rank correlation uses one condition rating and one fitted parameter per person. The balanced within/between decomposition relates mean spatial rating to PPS mean/Phase effects, and spatial change to PPS Condition/Condition × Phase effects, with and without order adjustment. The within-change coefficients reuse earlier spatial-delta models. All tests are unadjusted; 500 linked-person/group-plus-trial refits propagate curve uncertainty conditional on method and cleaning. Numerical rating means/differences assume comparable category steps. Post-intervention ratings do not establish mediation or causal moderation; unreliable PPS proxies and recording linkage remain limitations.
+
+Main presentation: Exclude P011/P033. 64 cell correlations and 128 model slopes are exported. The 64 within-change slopes reuse earlier models; these are not independent replications. There are 128 added nominal tests. All p values are unadjusted.
+
+### Same-condition ratings, separate respiratory phases
+
+| Plateaus | Parameter | Condition / phase | n | Spearman rho | Unadjusted p | 95% curve-refit interval |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| individual_plateaus | midpoint_cm | Control / Exhale | 39 | -0.24304 | 0.1371 | [-0.47906, 0.36717] |
+| individual_plateaus | normalized_steepness_per_cm | Control / Exhale | 39 | -0.18338 | 0.2602 | [-0.473, 0.38768] |
+| individual_plateaus | midpoint_cm | Control / Inhale | 39 | 0.16286 | 0.32315 | [-0.39213, 0.42917] |
+| individual_plateaus | normalized_steepness_per_cm | Control / Inhale | 39 | 0.011182 | 0.94565 | [-0.41058, 0.4279] |
+| individual_plateaus | midpoint_cm | Viscereality / Exhale | 39 | 0.22002 | 0.178 | [-0.32629, 0.39948] |
+| individual_plateaus | normalized_steepness_per_cm | Viscereality / Exhale | 39 | -0.14837 | 0.36635 | [-0.49994, 0.40351] |
+| individual_plateaus | midpoint_cm | Viscereality / Inhale | 39 | -0.0067198 | 0.9695 | [-0.37991, 0.48525] |
+| individual_plateaus | normalized_steepness_per_cm | Viscereality / Inhale | 39 | 0.11172 | 0.5002 | [-0.43074, 0.49028] |
+| shared_plateaus | midpoint_cm | Control / Exhale | 39 | 0.10696 | 0.52425 | [-0.38267, 0.42389] |
+| shared_plateaus | normalized_steepness_per_cm | Control / Exhale | 39 | 0.006025 | 0.9713 | [-0.45037, 0.35417] |
+| shared_plateaus | midpoint_cm | Control / Inhale | 39 | -0.025447 | 0.8738 | [-0.35881, 0.36625] |
+| shared_plateaus | normalized_steepness_per_cm | Control / Inhale | 39 | -0.014942 | 0.92905 | [-0.41067, 0.41198] |
+| shared_plateaus | midpoint_cm | Viscereality / Exhale | 39 | 0.2197 | 0.1789 | [-0.24507, 0.42475] |
+| shared_plateaus | normalized_steepness_per_cm | Viscereality / Exhale | 39 | 0.0091081 | 0.9563 | [-0.47262, 0.31078] |
+| shared_plateaus | midpoint_cm | Viscereality / Inhale | 39 | 0.017267 | 0.91775 | [-0.36888, 0.41501] |
+| shared_plateaus | normalized_steepness_per_cm | Viscereality / Inhale | 39 | 0.0047335 | 0.97695 | [-0.44336, 0.44565] |
+
+### Between-person level and within-person change
+
+Mean spatial level predicts the PPS four-cell mean and phase contrast. Spatial change predicts the PPS condition contrast and Condition × Phase contrast. Each regression uses one summary per person; this is a balanced repeated-measures decomposition with separate error variance per contrast. The table includes presentation order; the download also retains unadjusted-for-order models.
+
+| Plateaus | Parameter | Spatial component / PPS summary | n | Slope | Classical p | HC3 p | 95% curve-refit interval |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- |
+| individual_plateaus | midpoint_cm | between participants / Mean across cells | 39 | 0.0044685 | 0.96107 | 0.9532 | [-1.2472, 1.3441] |
+| individual_plateaus | normalized_steepness_per_cm | between participants / Mean across cells | 39 | -0.00011373 | 0.21473 | 0.26984 | [-0.001294, 0.00080419] |
+| individual_plateaus | midpoint_cm | between participants / Phase | 39 | 0.27639 | 0.1507 | 0.074502 | [-2.7171, 2.6482] |
+| individual_plateaus | normalized_steepness_per_cm | between participants / Phase | 39 | -2.6707e-05 | 0.87861 | 0.88512 | [-0.0020138, 0.0026056] |
+| individual_plateaus | midpoint_cm | within participant change / Condition | 39 | -0.040856 | 0.79875 | 0.72795 | [-2.2474, 2.528] |
+| individual_plateaus | normalized_steepness_per_cm | within participant change / Condition | 39 | 0.00026442 | 0.13439 | 0.26417 | [-0.0018964, 0.0027085] |
+| individual_plateaus | midpoint_cm | within participant change / Condition × Phase | 39 | -0.25877 | 0.58878 | 0.48931 | [-4.4313, 5.5238] |
+| individual_plateaus | normalized_steepness_per_cm | within participant change / Condition × Phase | 39 | 0.00051244 | 0.071363 | 0.12812 | [-0.0038201, 0.0046068] |
+| shared_plateaus | midpoint_cm | between participants / Mean across cells | 39 | 0.20743 | 0.26211 | 0.25976 | [-1.1119, 1.2909] |
+| shared_plateaus | normalized_steepness_per_cm | between participants / Mean across cells | 39 | -9.8042e-05 | 0.40553 | 0.41247 | [-0.0012926, 0.00082164] |
+| shared_plateaus | midpoint_cm | between participants / Phase | 39 | -0.24473 | 0.62401 | 0.62244 | [-3.0108, 2.6902] |
+| shared_plateaus | normalized_steepness_per_cm | between participants / Phase | 39 | -0.00010191 | 0.59121 | 0.60437 | [-0.0019154, 0.0025493] |
+| shared_plateaus | midpoint_cm | within participant change / Condition | 39 | 0.65965 | 0.20946 | 0.20183 | [-2.2636, 3.2557] |
+| shared_plateaus | normalized_steepness_per_cm | within participant change / Condition | 39 | 9.266e-05 | 0.66157 | 0.75766 | [-0.001929, 0.0026058] |
+| shared_plateaus | midpoint_cm | within participant change / Condition × Phase | 39 | -0.72974 | 0.4762 | 0.44694 | [-4.3042, 5.4232] |
+| shared_plateaus | normalized_steepness_per_cm | within participant change / Condition × Phase | 39 | -5.1471e-05 | 0.91111 | 0.92857 | [-0.0036729, 0.0045415] |
+
+Numerical means and changes assume comparable A–H category spacing. Cell ranks and the earlier direction-only models provide ordinal sensitivities. One spatial rating is shared by both phases of each condition. A coefficient relating condition changes is not evidence of causal mediation; curve-fitting uncertainty, poor reliability and recording linkage remain part of every interpretation.

@@ -1,5 +1,5 @@
 {
-  "browser_zip_sha256": "c270faefc4c426b323504da50b5c39ac9b395283e3f0ad0b2a8448b1b95d2506",
+  "browser_zip_sha256": "36158045cf8d1e2080f08ef1e0db4f8b0006006536bcd1ff0a52f5763ae2a11a",
   "native_runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -221,5 +221,25 @@
     "max_absolute_numeric_error": 6.048139766789973e-11,
     "scope": "Every linkage cluster/participant result, five-family group prediction result/inner score, log-distance candidate, nine geometry specifications and 30 repeated selections. Linkage ML likelihoods/coefficients use the existing 1e-5/1e-4 tolerances above."
   },
-  "status": "passed; identical cohort and gate pass counts; model tolerances 1e-5/1e-4; every descriptive/questionnaire/individual-proxy value within 1e-8; legacy nonlinear-bound diagnostics may differ"
+  "status": "passed; prior results unchanged within each runtime and all condition-matched spatial/within-between values agree within 1e-8; original nonlinear-bound diagnostic limits retained",
+  "spatial_parameters": {
+    "numeric_values_compared": 3072,
+    "max_absolute_numeric_error": 7.616129948928574e-14,
+    "cell_correlations": 64,
+    "model_coefficients": 128,
+    "reused_model_coefficients": 64,
+    "absolute_tolerance": 1e-08
+  },
+  "legacy_extension_check": {
+    "native": {
+      "numeric_values_compared": 128619,
+      "max_absolute_numeric_error": 0.0
+    },
+    "browser": {
+      "numeric_values_compared": 128619,
+      "max_absolute_numeric_error": 0.0
+    },
+    "scope": "All prior version-1.8 fields compare exactly to version 1.9 within each runtime, excluding only analysis_version; the earlier cross-runtime evidence therefore remains applicable."
+  },
+  "individual_atlas_unchanged": true
 }

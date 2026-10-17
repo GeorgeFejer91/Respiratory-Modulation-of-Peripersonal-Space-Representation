@@ -1,6 +1,6 @@
 {
   "status": "Analysis draft for author review",
-  "pdf_sha256": "73a6503cb320cf3ff1a7a1d5ba2d4be8e168f93e46543378c55a57a5922cecd0",
+  "pdf_sha256": "946d2f66d0a80ba8fe45228c1d878a1c5deae7f265cfae1aaa4872a794086abd",
   "manuscript_sha256": {
     "manuscript/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
     "manuscript/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
@@ -15,15 +15,30 @@
     "manuscript/figures/study5_sigmoid_extrapolation.png": "4032ef786696a474381bdebb7a998228f1ba04725fd1497c2a02fecf993754de",
     "manuscript/figures/study5_sigmoid_geometry.png": "e5619a86c6db244e24be941d4b069b678c3851597e0b48f1cec9c80a7271fe54",
     "manuscript/figures/study5_spatial_change.png": "d596ccda9bb750c4317a1f628defbed8ab064c4bb999a8e9bd03cfae8d5ebda4",
+    "manuscript/figures/study5_spatial_pps.png": "c1d21fdfa8ef519f5e3b16fd57ea930b30c896ccbc0cd9cffb86a2b2a611f283",
     "manuscript/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
     "manuscript/main.tex": "3382b061ab9b341320fe50eb50c4c34fb8d3c132ce508b1153f017167beb34c0",
     "manuscript/references.bib": "40fa5243a428df7c8fe19e85065518c38855d9cbc96c15bb192163106fb79ce6",
-    "manuscript/sections/abstract.tex": "a60b33855ade85689d1a3e07d4639a4da7fce825f9da78f6cbba84ddf4d39da9",
+    "manuscript/sections/abstract.tex": "a3b480dad8bc843027b868bccf7c3a6dedec3f1c0a10b56d8e7e45e89bf3d81b",
     "manuscript/sections/acknowledgements.tex": "f28c5f648e96f0ec1527a5a1c00dcf8cf2a000c988c24a110ca04404c03c570b",
-    "manuscript/sections/discussion.tex": "3bfdcda4d070e71767c5206d2fbb849c710e8f10562bc97aaf5598b7075aa669",
+    "manuscript/sections/discussion.tex": "091b5dad2af66125a6b9d352d82fd834953a0eb2c28ced88c10ebb436a20ce30",
     "manuscript/sections/introduction.tex": "c5921b22cc3a0a4fcd0958812d29b5a8c3b750d43a213f321872fac7909f48a4",
-    "manuscript/sections/methods.tex": "9a81d6d8cd5bbffd7742baeb69b764efe3935e41266b362467ab1df091996b34",
-    "manuscript/sections/results.tex": "2067fdb8d1979a984d075589fb0b1ff6d835b5fa9ddeb736800bed2ebe6c541a"
+    "manuscript/sections/methods.tex": "33b3e72dcce4eaf7cc202e91167b342055200c1ea26f79a605890798a8d679bd",
+    "manuscript/sections/results.tex": "c1f3ac7256f4b604b6f1a2f40ed74ab6716c72fc16789765cc814a2ca6b3e4f4",
+    "manuscript/typst/figures/Fig1.png": "b510ecd71eb8f50be81446b500fbcf5e04be67b6c147281a97cd4515bb533a6f",
+    "manuscript/typst/figures/study5_current_rt_soa_curves.png": "8001a6e2b695e4825de0161a5fab07c49544e2f4c4ae9c4ac691b6a79b84ae5f",
+    "manuscript/typst/figures/study5_delay_matched_facilitation.png": "0ddbf58649883a90654372c5ce962070021fe47f8befe2a37061009cdf1a2e2d",
+    "manuscript/typst/figures/study5_descriptive_sigmoids.png": "caf6a6209ffbca04991dbd2006a3fe887cfd1e25869f083df84f1b82b824e131",
+    "manuscript/typst/figures/study5_parameter_repeated_measures.png": "6c967dfb8cda3b8a2c2871be296eeefe7bc4c4a5fcad2896626634e8cdf67c45",
+    "manuscript/typst/figures/study5_participant_diagnostics.png": "278c4e68e0303f8f1a9d0a79c01c6d60ffb5f1891df0d3e17e1fd7bfc80b7ddb",
+    "manuscript/typst/figures/study5_pps_shape.png": "647488726e422869ae1189896e05fffd35577dfc8af5f08a9c69d6332750a0f2",
+    "manuscript/typst/figures/study5_questionnaires.png": "d64d91c88847973c54b7c7d2b31f0e53e5fc526b29284d7f012aa5fe807ad7cf",
+    "manuscript/typst/figures/study5_remaining_robustness.png": "f750709eea3996060638a9e83e024add9178e8ec6a6457397000f809248a76c1",
+    "manuscript/typst/figures/study5_sigmoid_geometry.png": "e5619a86c6db244e24be941d4b069b678c3851597e0b48f1cec9c80a7271fe54",
+    "manuscript/typst/figures/study5_spatial_change.png": "d596ccda9bb750c4317a1f628defbed8ab064c4bb999a8e9bd03cfae8d5ebda4",
+    "manuscript/typst/figures/study5_spatial_pps.png": "c1d21fdfa8ef519f5e3b16fd57ea930b30c896ccbc0cd9cffb86a2b2a611f283",
+    "manuscript/typst/figures/trial_design.png": "283937e6ac478112a9099997038d49b86f0e91ea7fa8e96776614bb0b85113a6",
+    "manuscript/typst/references.bib": "e85b6523aa197e8cb48e39cb9c9e8569a238847325e93c90999ee1e118956d44"
   },
-  "browser_zip_sha256": "c270faefc4c426b323504da50b5c39ac9b395283e3f0ad0b2a8448b1b95d2506"
+  "browser_zip_sha256": "36158045cf8d1e2080f08ef1e0db4f8b0006006536bcd1ff0a52f5763ae2a11a"
 }

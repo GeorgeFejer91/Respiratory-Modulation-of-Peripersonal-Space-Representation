@@ -150,6 +150,40 @@ claim here. Consensus and a general web-search connector were unavailable; this
 was a focused PubMed search, not a multi-provider or systematic review. No tool
 or access capability is implied by the review's existence.
 
+## Condition-matched spatial experience
+
+The next post-results amendment uses the spatial rating from the same condition
+as each PPS estimate, separately for Exhale and Inhale. There are two spatial
+ratings per participant, not four independent ratings. Cell-specific Spearman
+associations therefore use one paired observation per person and retain both
+plateau assumptions and recording sensitivities.
+
+A balanced repeated-measures decomposition separates mean spatial level between
+people from spatial change within people. Mean spatial rating predicts the PPS
+four-cell mean and phase contrast; spatial difference predicts the PPS condition
+and condition-by-phase contrasts. These coefficients equal the spatial terms in
+the corresponding long-format within/between design, while fitting each contrast
+separately allows its own residual variance and HC3 sensitivity. Presentation
+order is retained as a sensitivity. The within-change coefficients reuse the
+earlier spatial-delta models rather than providing independent confirmation.
+
+This is a transparent algebraic specification, not a new claim attributed to the
+papers above. Numerical spatial means/differences require comparable category
+steps; cell ranks and existing change-direction sensitivities provide ordinal
+checks. Five hundred hierarchical curve refits accompany the 64 cell correlations
+and 128 coefficient records across cohorts/models. Sixty-four coefficients are
+reused, so 128 nominal tests are added. All p values remain unadjusted. Curve
+selection, temporal dependence, rating measurement error and causal ordering
+remain uncalibrated; neither questionnaire becomes a cleaning criterion or
+evidence of mediation.
+
+The checked native and actual-browser extension found no primary cell correlation or order-adjusted
+within/between coefficient with unadjusted p < .05. All 64 cell-association and
+128 coefficient refit intervals included zero across specifications. These
+results remain uncertain associations of poorly reliable proxies, not evidence
+that experiential spatial frame and physiological PPS are independent. All 3,072 new numerical fields agreed across native/Pyodide within 1e-8;
+the actual browser download supplied the promoted paper tables and figures.
+
 Implementations: [fitting and resampling](../workbook/participant_sigmoid.py),
 [normalization and atlas](../workbook/participant_report.py), and the full
 [browser results](../results/browser-analysis/analysis_report.md).

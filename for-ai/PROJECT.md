@@ -14,6 +14,18 @@ and [editable workbook](https://georgefejer91.github.io/Study5_Publication/edito
 are deployed through the GitHub Actions Pages workflow. Verify deployment and
 browser execution after changes; a source push alone does not establish either.
 
+The current spatial–PPS amendment matches each post-condition spatial rating to
+both condition-specific PPS phase estimates, and separates mean spatial level
+between people from within-person condition change. Retain both sigmoid outcomes,
+both plateau models, all recording sensitivities and refit uncertainty. Its fixed
+post-results specification is in `workbook/ANALYSIS_PLAN.md`; adding associations
+does not authorize questionnaire-driven cleaning or causal mediation claims. In the 39-record main
+questionnaire cohort, none of the 16 cell correlations or 16 order-adjusted
+spatial coefficients had unadjusted p < .05. All 192 refit intervals across
+cohorts/models included zero; 64 coefficients reuse earlier delta models.
+The actual browser run reproduced the native extension without changing any
+previous result. This remains limited by poor PPS reliability and source linkage.
+
 The active goal is to extend the analysis to four sigmoid transitions
 characteristic of peripersonal-space experiments (Control/Viscereality ×
 Exhale/Inhale): visible lower and upper bends within the sampled range, an

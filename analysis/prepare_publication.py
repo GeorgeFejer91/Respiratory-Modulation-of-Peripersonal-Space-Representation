@@ -52,6 +52,7 @@ def promote(path):
             ("participant_example.svg", "participant_example", "study5_participant_example.png"),
             ("remaining_robustness.svg", "remaining_robustness", "study5_remaining_robustness.png"),
             ("parameter_repeated_measures.svg", "parameter_repeated_measures", "study5_parameter_repeated_measures.png"),
+            ("spatial_pps.svg", "spatial_pps", "study5_spatial_pps.png"),
         ):
             (ROOT / "figures" / name).write_bytes(archive.read(name))
             (ROOT / "manuscript/figures" / paper_name).write_bytes(figure_bytes(report, measure, "png"))
@@ -317,6 +318,73 @@ All 1,328 nominal ANOVA/ANCOVA terms across four linkage specifications and both
 """
 
 
+def spatial_results(r):
+    p=r['participant_sigmoids'];cells,label=repeated_primary(p,'spatial_cell_associations')
+    models,_=repeated_primary(p,'spatial_parameter_models');adjusted=[a for a in models if a['order_adjusted']]
+    all_cells=repeated_rows(p,'spatial_cell_associations');all_models=repeated_rows(p,'spatial_parameter_models')
+    def f(value):return 'NA' if value is None else f'{value:.4g}'
+    def nonzero(a,lo,hi):return a[lo] is not None and (a[lo]>0 or a[hi]<0)
+    table=[]
+    for model,name in (('individual_plateaus','Separate'),('shared_plateaus','Shared')):
+        for condition,phase in (('Control','Exhale'),('Control','Inhale'),('Viscereality','Exhale'),('Viscereality','Inhale')):
+            selected=[next(a for a in cells if a['model']==model and a['condition']==condition and a['phase']==phase and a['metric']==metric)
+                for metric in ('midpoint_cm','normalized_steepness_per_cm')]
+            table.append(f"{name} & {condition}/{phase} & {selected[0]['rho']:.3f} & {selected[0]['p']:.3f} & {selected[1]['rho']:.3f} & {selected[1]['p']:.3f}"+r' \\')
+    cell_table='\n'.join(table);table=[]
+    for a in adjusted:
+        if a['effect'] not in ('Mean across cells','Condition'):continue
+        name='Separate' if a['model']=='individual_plateaus' else 'Shared'
+        outcome='Midpoint' if a['parameter']=='midpoint_cm' else 'Sharpness'
+        component='Between' if a['predictor']=='spfrref_mean' else 'Within'
+        table.append(f"{name} & {outcome} & {component} & {f(a['estimate'])} & {f(a['p'])} & [{f(a['refit_ci_low'])}, {f(a['refit_ci_high'])}]"+r' \\')
+    model_table='\n'.join(table)
+    nominal_cells=sum(a['p'] is not None and a['p']<.05 for a in cells)
+    nominal_models=sum(a['p'] is not None and a['p']<.05 for a in adjusted)
+    nonzero_cells=sum(nonzero(a,'ci_low','ci_high') for a in all_cells)
+    nonzero_models=sum(nonzero(a,'refit_ci_low','refit_ci_high') for a in all_models)
+    reused=sum(a['predictor']=='spfrref_delta' for a in all_models)
+    return rf"""\subsection{{Condition-matched spatial ratings and PPS parameters}}
+
+This further post-results analysis matched each condition's spatial rating to that condition's Exhale and Inhale PPS proxies. The main presentation excluded both ambiguous recordings and used {cells[0]['n']} complete questionnaire records. Each cell association contained one observation per participant; the two phases sharing a spatial rating were not counted as independent people. Both plateau specifications and every recording sensitivity were retained without questionnaire-based retuning.
+
+Across the {len(cells)} main condition-specific rank associations, {nominal_cells} had unadjusted $p<.05$ (Table~\ref{{study5:tab:spatial_pps_cells}}). All corresponding curve-refit intervals included zero (Fig.~\ref{{study5:fig:spatial_pps}}). These estimates do not establish a consistent association in any of the four condition/phase cells.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{llrrrr}}
+Plateaus & Condition/phase & Midpoint $\rho$ & $p$ & Sharpness $\rho$ & $p$ \\
+\hline
+{cell_table}
+\end{{tabular}}
+\caption{{Spatial ratings and PPS proxies from the same condition, $n={cells[0]['n']}$. All $p$ values are unadjusted two-sided pairing-permutation values. Hierarchical intervals refit the curves and retain uncertain pooling; the complete CSVs also include all recording sensitivities and valid-draw counts.}}
+\label{{study5:tab:spatial_pps_cells}}
+\end{{table}}
+
+The within/between decomposition asked whether mean spatial ratings predicted overall PPS parameters or their phase contrast, and whether spatial-rating changes predicted the PPS condition or condition-by-phase contrasts. With presentation order included, {nominal_models}/{len(adjusted)} conventional coefficient tests had $p<.05$; every curve-refit interval included zero. Table~\ref{{study5:tab:spatial_pps_models}} presents mean-level and condition-change coefficients; phase-dependent associations are retained in the figure and complete tables. Within-change coefficients reproduce the earlier spatial-delta models and are not independent evidence.
+
+\begin{{table}}[htbp]
+\centering\small
+\begin{{tabular}}{{lllrrl}}
+Plateaus & Outcome & Spatial component & Slope & $p$ & 95\% refit interval \\
+\hline
+{model_table}
+\end{{tabular}}
+\caption{{Order-adjusted between-person level and within-person change associations. Slopes are cm or cm$^{{-1}}$ per spatial-code step. Each contrast regression uses one summary per person; ordinary tests condition on estimated PPS parameters. Both plateau models remain reported.}}
+\label{{study5:tab:spatial_pps_models}}
+\end{{table}}
+
+The complete extension contains {len(all_cells)} cell correlations and {len(all_models)} coefficient records, including {reused} reused within-change coefficients, so {len(all_cells)+len(all_models)-reused} nominal tests were added. Across all cohorts and plateau models, {nonzero_cells}/{len(all_cells)} cell-association and {nonzero_models}/{len(all_models)} coefficient refit intervals excluded zero. Cell intervals used {min(a['bootstrap_valid'] for a in all_cells)}--{max(a['bootstrap_valid'] for a in all_cells)} valid resamples; undefined draws were counted. Numerical spatial means/differences assume comparable category steps, while cell-specific ranks and the earlier direction-only models provide ordinal sensitivities. The post-intervention timing, unresolved source mapping and poor PPS-parameter reliability preclude causal mediation or physiological-boundary claims. These uncertain associations do not establish absence of a relationship, and questionnaire scores were not used as cleaning criteria.
+
+\begin{{figure}}[htbp]
+\centering
+\includegraphics[width=\textwidth]{{study5_spatial_pps.png}}
+\caption{{\textbf{{Spatial experience and fitted PPS parameters.}} Upper panels show same-condition rank associations separately for all four Condition $\times$ Phase cells. Lower panels separate mean spatial level between people from spatial change within people, including their phase dependence and presentation-order adjustment. Points and 95\% hierarchical curve-refit intervals retain both plateau specifications. All observations are exploratory fitted proxies; numerical category spacing and low parameter reliability limit interpretation.}}
+\label{{study5:fig:spatial_pps}}
+\end{{figure}}
+
+"""
+
+
 def robustness_results(r):
     extension=r['robustness'];p=r['participant_sigmoids'];g=extension['group_shape']
     models=extension['recording_linkage'];scores={a['family']:a['outer_rmse_ms'] for a in g['prediction']['scores']}
@@ -500,11 +568,11 @@ The released CSVs do not contain waveforms, belt recordings, acquisition-version
     trust=q["delta_associations"][7]
     abstract=abstract.replace("The full data-supported pipeline", rf"An exploratory paired ordinal comparison in {s['n_pairs']} participants found higher post-intervention spatial-frame codes under Viscereality (exact sign-test $p={s['p']:.4f}$). Pre-experiment MAIA-2 Trusting correlated with the numerical Viscereality--Control difference ($\rho={trust['rho']:.3f}$, unadjusted $p={trust['p']:.4f}$); its moderation estimate remained positive with order and HC3 sensitivities. These post hoc associations are not evidence of mediation. The full data-supported pipeline")
     abstract=abstract.replace(f"{c['participants_input']} participants and",f"{c['participants_input']} participant records and")
-    abstract=abstract.replace("The full data-supported pipeline", "A further exploratory extension produced 168 individual sigmoid proxies and common-plateau displays, but midpoint reliability was low and all main refit-bootstrap association intervals included zero. An audit found two identical behavioural recordings with reversed intervention labels and different questionnaire responses; full-release behavioural inference is provisional pending source mapping. The full data-supported pipeline")
+    abstract=abstract.replace("The full data-supported pipeline", "A further exploratory extension produced 168 individual sigmoid proxies and common-plateau displays, but midpoint reliability was low and all main refit-bootstrap association intervals included zero. Condition-matched spatial associations also remained uncertain. An audit found two identical behavioural recordings with reversed intervention labels and different questionnaire responses; full-release behavioural inference is provisional pending source mapping. The full data-supported pipeline")
     results=results.replace(f"all {c['participants_input']} participants in",f"all {c['participants_input']} participant records in")
     results=results.replace("\\subsection{Primary interaction and sensitivity analyses}",
         "A recording-integrity audit found that P011 and P033 share all 408 behavioural trial records, with Control/Viscereality labels swapped, despite different questionnaire responses. The CSVs were preserved; the correct recording-to-person mapping is unresolved. Full-release behavioural inference below is provisional and cannot assume 42 independent recordings. The new individual-parameter extension reports explicit exclusions of both records and of each separately. Questionnaire-only spatial/MAIA results do not depend on the RT mapping.\n\n\\subsection{Primary interaction and sensitivity analyses}")
-    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+robustness_results(r)+repeated_results(r)+"\\subsection{Reproducibility and evidence limits}")
+    results=results.replace("\\subsection{Reproducibility and evidence limits}",questionnaire_results(q)+individual_results(r['participant_sigmoids'])+robustness_results(r)+repeated_results(r)+spatial_results(r)+"\\subsection{Reproducibility and evidence limits}")
     results=results.replace("A failed or unavailable check is distinguished", "For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished")
     for name, content in (("abstract", abstract), ("results", results)):
         (ROOT / "manuscript/sections" / f"{name}.tex").write_text(content)

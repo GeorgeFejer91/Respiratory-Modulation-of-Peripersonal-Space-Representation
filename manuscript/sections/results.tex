@@ -372,6 +372,59 @@ All 1,328 nominal ANOVA/ANCOVA terms across four linkage specifications and both
 \label{study5:fig:parameter_repeated_measures}
 \end{figure}
 
+\subsection{Condition-matched spatial ratings and PPS parameters}
+
+This further post-results analysis matched each condition's spatial rating to that condition's Exhale and Inhale PPS proxies. The main presentation excluded both ambiguous recordings and used 39 complete questionnaire records. Each cell association contained one observation per participant; the two phases sharing a spatial rating were not counted as independent people. Both plateau specifications and every recording sensitivity were retained without questionnaire-based retuning.
+
+Across the 16 main condition-specific rank associations, 0 had unadjusted $p<.05$ (Table~\ref{study5:tab:spatial_pps_cells}). All corresponding curve-refit intervals included zero (Fig.~\ref{study5:fig:spatial_pps}). These estimates do not establish a consistent association in any of the four condition/phase cells.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{llrrrr}
+Plateaus & Condition/phase & Midpoint $\rho$ & $p$ & Sharpness $\rho$ & $p$ \\
+\hline
+Separate & Control/Exhale & -0.243 & 0.137 & -0.183 & 0.260 \\
+Separate & Control/Inhale & 0.163 & 0.323 & 0.011 & 0.946 \\
+Separate & Viscereality/Exhale & 0.220 & 0.178 & -0.148 & 0.366 \\
+Separate & Viscereality/Inhale & -0.007 & 0.970 & 0.112 & 0.500 \\
+Shared & Control/Exhale & 0.107 & 0.524 & 0.006 & 0.971 \\
+Shared & Control/Inhale & -0.025 & 0.874 & -0.015 & 0.929 \\
+Shared & Viscereality/Exhale & 0.220 & 0.179 & 0.009 & 0.956 \\
+Shared & Viscereality/Inhale & 0.017 & 0.918 & 0.005 & 0.977 \\
+\end{tabular}
+\caption{Spatial ratings and PPS proxies from the same condition, $n=39$. All $p$ values are unadjusted two-sided pairing-permutation values. Hierarchical intervals refit the curves and retain uncertain pooling; the complete CSVs also include all recording sensitivities and valid-draw counts.}
+\label{study5:tab:spatial_pps_cells}
+\end{table}
+
+The within/between decomposition asked whether mean spatial ratings predicted overall PPS parameters or their phase contrast, and whether spatial-rating changes predicted the PPS condition or condition-by-phase contrasts. With presentation order included, 0/16 conventional coefficient tests had $p<.05$; every curve-refit interval included zero. Table~\ref{study5:tab:spatial_pps_models} presents mean-level and condition-change coefficients; phase-dependent associations are retained in the figure and complete tables. Within-change coefficients reproduce the earlier spatial-delta models and are not independent evidence.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lllrrl}
+Plateaus & Outcome & Spatial component & Slope & $p$ & 95\% refit interval \\
+\hline
+Separate & Midpoint & Between & 0.004469 & 0.9611 & [-1.247, 1.344] \\
+Separate & Sharpness & Between & -0.0001137 & 0.2147 & [-0.001294, 0.0008042] \\
+Separate & Midpoint & Within & -0.04086 & 0.7987 & [-2.247, 2.528] \\
+Separate & Sharpness & Within & 0.0002644 & 0.1344 & [-0.001896, 0.002709] \\
+Shared & Midpoint & Between & 0.2074 & 0.2621 & [-1.112, 1.291] \\
+Shared & Sharpness & Between & -9.804e-05 & 0.4055 & [-0.001293, 0.0008216] \\
+Shared & Midpoint & Within & 0.6596 & 0.2095 & [-2.264, 3.256] \\
+Shared & Sharpness & Within & 9.266e-05 & 0.6616 & [-0.001929, 0.002606] \\
+\end{tabular}
+\caption{Order-adjusted between-person level and within-person change associations. Slopes are cm or cm$^{-1}$ per spatial-code step. Each contrast regression uses one summary per person; ordinary tests condition on estimated PPS parameters. Both plateau models remain reported.}
+\label{study5:tab:spatial_pps_models}
+\end{table}
+
+The complete extension contains 64 cell correlations and 128 coefficient records, including 64 reused within-change coefficients, so 128 nominal tests were added. Across all cohorts and plateau models, 0/64 cell-association and 0/128 coefficient refit intervals excluded zero. Cell intervals used 496--500 valid resamples; undefined draws were counted. Numerical spatial means/differences assume comparable category steps, while cell-specific ranks and the earlier direction-only models provide ordinal sensitivities. The post-intervention timing, unresolved source mapping and poor PPS-parameter reliability preclude causal mediation or physiological-boundary claims. These uncertain associations do not establish absence of a relationship, and questionnaire scores were not used as cleaning criteria.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{study5_spatial_pps.png}
+\caption{\textbf{Spatial experience and fitted PPS parameters.} Upper panels show same-condition rank associations separately for all four Condition $\times$ Phase cells. Lower panels separate mean spatial level between people from spatial change within people, including their phase dependence and presentation-order adjustment. Points and 95\% hierarchical curve-refit intervals retain both plateau specifications. All observations are exploratory fitted proxies; numerical category spacing and low parameter reliability limit interpretation.}
+\label{study5:fig:spatial_pps}
+\end{figure}
+
 \subsection{Reproducibility and evidence limits}
 
 All reported behavioral computations were executed in the marimo browser companion with Pyodide, Python 3.14.2, NumPy 2.4.3, SciPy 1.17.1, and Matplotlib 3.10.8. The archived browser download records input, code, and output SHA-256 hashes. Native reference checks independently verified random-intercept ML fits, cluster-robust linear and binomial coefficients/uncertainty, repeated-measures $F$ statistics, and JZS quadrature. Additional native references checked questionnaire alpha through its covariance identity, the exact ordinal sign test and interval, all 42 rank correlations, and all 16 moderation fits including ordinary and HC3 uncertainty. Independent long-format participant-intercept models verified the delta regression's Condition $\times$ MAIA slope, standard error, $F$ statistic and $p$ value. Every questionnaire result was also compared across native and browser runtimes. For individual proxies, independent KernelReg smoothing and scalar least-squares grid objectives checked all 168 primary fits; weighted least squares checked shared plateaus conditionally, and SciPy independently checked correlations across both models and recording exclusions. Every individual result was compared across native and browser runtimes. A failed or unavailable check is distinguished from a computed null result.

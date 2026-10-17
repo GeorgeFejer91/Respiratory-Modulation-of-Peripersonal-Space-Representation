@@ -136,6 +136,18 @@ are complete and remain exploratory; waveform provenance, recording identity
 and validated physiological boundaries remain unresolved. Verify them with
 `python workbook/validate_robustness.py`.
 
+## Condition-matched spatial ratings and PPS
+
+Section 16 matches each condition's spatial rating to its Exhale/Inhale PPS
+midpoint and normalized sharpness. It reports cell-specific rank correlations
+and separates mean spatial level between people from condition change within
+people, including phase dependence and presentation-order sensitivities. The
+two phases share one rating per condition and do not count as extra participants.
+Both plateau assumptions, all recording exclusions and 500 curve-refit intervals
+remain available. The export adds `spatial_cell_associations.csv` and
+`spatial_parameter_models.csv`: 192 estimates, including 64 reused delta-model
+coefficients, so 128 nominal tests are added. All p values are unadjusted.
+
 ## Publish on GitHub Pages
 
 The owner authorised making the source repository public on 2026-10-16,
