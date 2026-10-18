@@ -95,3 +95,41 @@ six peer-reviewed works (one full article, five indexed abstracts), with all
 22 retrieval/local-reference records, refinement queries and access failures.
 The registration endpoint returned HTTP 403; the repository account was not
 misrepresented as an inspected original registration.
+
+## Baseline/model goal amendment, 18 October 2026 (UTC)
+
+Question: Which literature-supported response models and inference methods can
+test Condition, Phase and their interaction after subtracting Baseline RT from
+AT RT, without confusing general facilitation with sigmoid boundary/sharpness?
+
+The installed multi-source search workflow guided broad PubMed discovery, Crossref
+discovery/identity checking, then focused original-source retrieval. Consensus MCP
+and a general web-search connector were unavailable; neither ran. Only research
+queries and public bibliographic identifiers were sent externally, not study data.
+
+| Round | Query or source | Screening/access outcome |
+| --- | --- | --- |
+| Broad, baseline | `"peripersonal space" AND (baseline OR expectancy) AND (sigmoid OR logistic OR logarithmic)` | Three indexed records returned; retained Hobeika (PMID 31805302); body-ownership papers were less direct for the model comparison |
+| Broad, inference | `"peripersonal space" AND (Bayesian OR "mixed effects" OR "mixed-effects")` | Ten returned records; retained Beccherle (35178603), reused Straka (36103520); other returned titles concern different constructs, neural models or paradigms rather than this parameter-inference question |
+| Recent check | `"peripersonal space" AND (sigmoid OR logarithmic OR "curve fitting") AND 2021:2026[dp]` | One returned record (40684675), interpersonal-discomfort ratings; abstract read, excluded as direct evidence for audiotactile RT parameters |
+| Independent discovery | Crossref `peripersonal space sigmoid baseline logarithmic`, five returned items | Broad book/chapter/thesis metadata, no sufficiently direct new fitting protocol; not used as substantive evidence |
+| Narrowing, original method | Canzoneri DOI 10.1371/journal.pone.0044306, publisher full text | Methods, fitting results and discussion inspected; confirms individual five-point sigmoid/linear comparison and observed-extrema plateaus |
+| Narrowing, critical evidence | Holmes PMC7181441, full text | Experimental Bayesian/conventional results and review/meta-analysis methodological sections inspected; baseline/control and fit-selection concerns retained |
+| Narrowing, log-distance method | Hobeika DOI and exact Crossref DOI record | DOI full-text route returned CONNECT 403; Crossref confirmed identity. Claims remain based on the inspected indexed abstract |
+| Narrowing, tactile baseline | Beccherle PMC9015983 | HTTP 200 browser challenge; no full text read. Indexed abstract is the substantive access level |
+
+The three priorities emerging from the inspected evidence are logistic, logarithmic
+distance and ordinary linear/constant comparison; they are not ranked by anticipated
+significance. Probit/asymmetric/segmented candidates require additional applicable
+method evidence and a fixed estimand before implementation. The full-text successes
+supersede earlier access failures only for those exact retrieved sources; older
+failure records remain valid historical observations.
+
+This bounded update stopped after the direct sigmoid precedent, logarithmic
+alternative and critical review established the comparison's scope; additional
+returned records did not establish a competing directly applicable protocol.
+The PubMed result pages are not an exhaustive database export, absence from these
+queries is not absence from the literature, and inaccessible full text remains a
+coverage limit. The new goal and source inspection are completed; expanded model
+fits/effect tests are NOT RUN. Exact URLs, hashes, dispositions and claim limits
+are stored under `baseline_model_amendment` in [searches.json](searches.json).

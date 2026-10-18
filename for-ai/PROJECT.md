@@ -15,14 +15,24 @@ Condition, Phase and Condition × Phase. Describe the four average response curv
 and their uncertainty. Explore links with eight baseline MAIA-2 subscales and
 post-condition spatial ratings only after documenting the measurement limits.
 
-The next active goal is a **joint Bayesian hierarchical sigmoid analysis** of
-whether the Inhale−Exhale difference changes between Viscereality and Control,
-for both boundary and normalized sharpness. Fit trial responses, individual
-parameters and experimental effects together, with participant partial pooling.
-The interaction is the priority; retain the overall Phase effect and the phase
-difference within each condition. The model is currently **NOT RUN**; the new
-checklist in `ANALYSIS_ROADMAP.md` defines completion. Evaluate evidence for an
-interaction without selecting methods, exclusions or priors to reach significance.
+The active goal is a **literature-supported Bayesian and frequentist comparison
+of baseline-corrected PPS models**, testing Phase, Condition and Condition × Phase.
+The owner explicitly specifies `corrected RT = Audio–Tactile RT − Baseline RT`.
+Use the existing within-participant × Condition × Phase baseline mean as the
+primary correction for both interventions and phases; retain same-nominal-SOA
+subtraction as a timing-unverified sensitivity and raw RT as a reference. Propagate
+baseline-estimation uncertainty. Plateau normalization is not baseline subtraction.
+
+Retain the joint hierarchical sigmoid as the first nonlinear approach, alongside
+frequentist nonlinear estimation and linear/log-distance models. Report midpoint
+and normalized sharpness for identifiable sigmoids; lines/log curves instead
+provide distance slopes and response contrasts, not intrinsic PPS boundaries.
+Screen additional literature methods in an explicit finite registry, recording
+implemented, redundant, unsuitable and inaccessible approaches. Prioritize relevant
+experimental results while reporting the full family, uncertainty and failures.
+The expanded fits/tests are **NOT RUN**; `ANALYSIS_ROADMAP.md` defines completion.
+Neither a significant result nor exhausting an unlimited set of methods is a
+scientific stopping criterion.
 
 A Bayesian extension is authorized. It must disclose likelihood, priors and
 approximation, compare simpler response models, check prior sensitivity and

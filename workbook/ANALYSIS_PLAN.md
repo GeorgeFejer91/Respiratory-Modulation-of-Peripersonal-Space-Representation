@@ -619,3 +619,127 @@ Verify every F/p/df against statsmodels AnovaRM and verify actual browser/native
 parity. Export `bayesian_point_estimate_anova.csv` in the Bayesian results download
 and display the six primary terms in the workbook/report. Do not select a point
 summary or fitting method to obtain significance.
+
+## Baseline-corrected model comparison goal (18 October 2026)
+
+The owner now prioritizes baseline-corrected responses and all three experimental
+effects: Inhale−Exhale, Viscereality−Control and their interaction. This is a
+post-results goal/specification amendment, not a preregistration or a completed
+analysis. It extends the pending joint hierarchy; it does not change the previously
+published raw-RT Bayesian branch or the preserved manuscript. Numerical fitting
+settings, a finite specification registry and executable/browser checks remain to
+be completed before these new effect tests. The source rationale and access record
+are in [the literature review](../literature_review/README.md).
+
+### Correction and measurement target
+
+1. Primary corrected trial response is `Y_i,c,p,j = AT_RT_i,c,p,j − B_i,c,p`, in ms,
+   where `B_i,c,p` is the arithmetic mean of all retained Baseline hit RTs from the
+   same participant, intervention and breathing phase, pooling nominal SOAs.
+   Apply this to all four cells. Negative values mean faster responses than that
+   baseline; preserve negative values and zero. Control is an experimental
+   condition, not a substitute for the Baseline trial type. Keep source RTs intact.
+2. Reuse the fixed participant-wide cleaning rule on raw RTs before subtraction,
+   including both trial types in its thresholds. Do not retrim, log-transform,
+   floor, take absolute values or min–max scale corrected values to obtain a result.
+   The primary cohort excludes both P011/P033; retain the three linkage sensitivities.
+3. Same-nominal-SOA subtraction `AT_RT_i,c,p,j − B_i,c,p,SOA(j)` is a separate
+   sensitivity. It is not a verified cue-time-matched expectancy correction.
+   The retained primary cohort has 8,478 AT and 4,192 Baseline trials, all 800
+   person/condition/phase/SOA cells present per trial type; each Baseline cell
+   has only 1–6 trials, versus 10–30 per person/condition/phase baseline pool.
+   Do not estimate a variance from a singleton or silently impute a missing cell.
+4. Baseline means are estimated measurements. Reusing one mean across many AT
+   trials induces shared subtraction error. Carry both data sources through a
+   joint likelihood or resample Baseline and AT observations with participant
+   pairing intact, recomputing the correction in every refit. Sparse-cell and
+   serial-dependence assumptions require explicit handling; a singleton bootstrap
+   alone cannot quantify that baseline mean's sampling uncertainty.
+5. A joint raw-trial likelihood is permitted as an implementation of the corrected
+   estimand: for the primary correction, model `E(Baseline)=B_i,c,p` and
+   `E(AT|d)=B_i,c,p + g_i,c,p(d)`, and report `g(d)` in corrected ms. Give `g` a free
+   intercept and signed amplitude; do not force its far plateau to zero. A
+   same-label sensitivity permits baseline variation over nominal SOAs and derives
+   the corresponding AT−Baseline response. Merely fitting AT with an intercept,
+   without incorporating measured Baseline trials, is not this joint correction.
+6. With a free intercept and translated bounds/priors where applicable, subtracting
+   a scalar baseline shifts the curve vertically without changing its midpoint,
+   width or distance slope. Verify this invariant. Common-plateau normalization
+   is a different assumption. Any shape change after a scalar subtraction must
+   be traced to constraints, pooling or priors rather than called new data evidence.
+
+### Model and estimand registry to implement
+
+| Family | Quantities and experimental tests | Role and limitation |
+| --- | --- | --- |
+| Constant corrected response | Overall facilitation and Condition/Phase/interaction effects on its level | Null distance comparator; an RT level effect is not a boundary change |
+| Linear distance, `g(d)=a+b*d` | Signed slope in ms/cm and its Condition/Phase/interaction contrasts | Required alternative; no intrinsic PPS midpoint or plateau sharpness |
+| Log distance, `g(d)=a+b*log(d/d_ref)` | Signed log-distance slope, derivative `b/d` at fixed design distances, and the three contrasts | Required alternative motivated by Hobeika et al.; `d_ref=50 cm` fixes units, not a fitted boundary; not log RT |
+| Ordinary logistic, `g(d)=a+A*(expit((d-m)/w)−.5)` | Midpoint `m`, width `w>0`, normalized sharpness `1/(4*w)` and all three experimental effects | Main nonlinear family; signed amplitude may be zero; report identification and prior/bound sensitivity |
+| Literature fixed-extrema logistic | Same targets, fixing asymptotes to the minimum/maximum of the five unsmoothed distance means as in Canzoneri et al. | Required labelled sensitivity; permit either orientation, recompute extrema in refits and do not count them as known constants |
+| Other screened sigmoid families | Probit, log-logistic and asymmetric Gompertz candidates; compare 50%-of-amplitude location and normalized derivative there | Generic response-function sensitivities until direct PPS use is verified; native parameters/inflections are not interchangeable with logistic midpoint/width |
+| Flexible distance response | Categorical distance and a bounded low-complexity smooth/segmented candidate, subject to identifiability with five distances | Shape check; no automatic sigmoid boundary; register smoothing/segment constraints and any threshold before fitting |
+
+Retain the registered-distance axis and existing trajectory-coordinate sensitivity;
+do not choose coordinates by p. Register the exact usable combinations and reasons
+for excluded/redundant combinations rather than blindly crossing every setting.
+Smooth and unsmoothed variants must predict the same unsmoothed target, using
+validation confined to training observations. The prior local smoothing audit
+is existing evidence, not a new baseline-corrected result.
+
+Across families also report the same five-distance average corrected RT and
+far-minus-near contrast `g(100 cm)−g(10 cm)` on the primary registered axis, with all
+three experimental contrasts. Use the corresponding sampled 20–100 cm endpoints
+for the trajectory-axis sensitivity, not an extrapolated 10-cm response.
+These are observed-range response estimands, not substitutes for a physiological
+boundary. For sigmoid alternatives, derive a common 50%-amplitude location and
+normalized derivative analytically/numerically; do not compare unlike scale
+parameters or manufacture a midpoint for a line/logarithm. Do not divide observations
+by an uncertain fitted amplitude. Flag weakly identified shape parameters in flat
+profiles and report any undefined amplitude-normalized ratios explicitly.
+
+### Inference, prioritization and completion
+
+- Bayesian: jointly fit baseline, four individual curves and population Condition,
+  Phase and interaction effects with participant partial pooling. Include the
+  corresponding constant/linear/log-distance hierarchies. Fix numerical proper
+  priors, random effects, likelihoods and finite sensitivities before fitting;
+  include a robust real-valued likelihood for corrected RT as a sensitivity.
+  A positive-support model can instead describe original RTs and derive mean
+  differences; it cannot be applied directly to signed corrected values.
+- Frequentist: nonlinear likelihood/mixed estimation for sigmoid parameters;
+  linear mixed/repeated-measures estimation for distance/log-distance slopes and
+  response levels, keeping all required lower-order terms. Respect participant
+  dependence. Pair parameter contrasts for RM ANOVA/t tests, with separate
+  baseline-and-curve-refit uncertainty; these algebraically equivalent tests are
+  one result, not independent confirmations. Assess weak identification with
+  profiles and null-based parametric bootstrap instead of assuming regular
+  chi-square asymptotics at flat/boundary fits. Whole-person/within-person
+  resampling, robust covariance and valid sign-flip tests are declared sensitivities,
+  with their exchangeability/symmetry assumptions and limitations recorded.
+- For both approaches, check observed-range prediction against a constant,
+  linear and logarithmic curve, known-effect and null recovery, baseline uncertainty,
+  split-half reliability, prior/constraint influence, convergence and failed fits.
+  Preserve the earlier fixed cleaning and its held-out-validation limitation.
+  Distinguish finite-cohort contrasts, population coefficients and nonlinear
+  back-transformations; report original-unit contrasts as well as log-sharpness
+  ratio summaries. Smoothing or partial pooling is not additional observed signal.
+- For each target, report the average Condition and Phase effects, their direct
+  difference-of-differences interaction, and simple effects in both directions.
+  Significance in one cell and its absence in another is not an interaction test.
+  Keep all frequentist p values unadjusted as requested and report the total family.
+  Report pointwise 95% confidence/credible intervals, effect sizes, posterior
+  directional probabilities and explicit Bayes-factor hypotheses/priors where
+  computed. Neither an unadjusted p nor a posterior sign probability accounts
+  automatically for searching across specifications.
+- Deliver a complete model/effect inventory and results-first summary, highlighting
+  relevant nominal findings with their actual uncertainty, baseline scheme, cohort
+  and diagnostics. Separate stability across reasonable specifications from
+  selection-dependent findings; correlated specifications are not replications.
+  Preserve null, opposite, nonidentified and failed results. Finish the declared
+  finite worklist and document literature/access/feasibility gaps regardless of
+  significance. Additional methods need a scientific reason and dated amendment.
+- Completion requires independent numerical checks, actual browser execution and
+  download, all corrected/raw/normalized figures inspected, full results publication
+  and updated checklist/report. The current amendment records a goal; it claims
+  no new model fit, significant effect, browser computation or physiological boundary.

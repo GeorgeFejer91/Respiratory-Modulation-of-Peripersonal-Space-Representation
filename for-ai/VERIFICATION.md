@@ -146,6 +146,16 @@ check all F/p/df against statsmodels AnovaRM, verify pairing/missing/duplicate-c
 handling, and include the primary table and actual CSV download in browser parity.
 Keep the omitted within-fit uncertainty explicit and all p values unadjusted.
 
+For the pending baseline-corrected model comparison (D-0014), first fix the finite
+numerical registry in `workbook/ANALYSIS_PLAN.md`. Verify the correction's sign and
+participant/Condition/Phase matching, sparse/missing baseline handling, covariance
+from reused baseline means, and free-intercept translation invariance. Check all
+three experimental contrasts for every included sigmoid/linear/log-distance family;
+linear/log-distance slopes must not be labelled sigmoid boundaries/sharpness.
+Independent checks, null/known-effect recovery, model diagnostics, real browser
+execution/download and complete results reporting are required before promotion.
+The recorded goal and literature update do not satisfy these unrun numerical gates.
+
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

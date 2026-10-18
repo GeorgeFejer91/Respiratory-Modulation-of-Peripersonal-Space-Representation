@@ -106,11 +106,82 @@ prospective forecasting would need preprocessing learned without the omitted
 position and a deployable target. The present report makes the narrower
 cleaned-profile claim.
 
-Source recording identity, timing/breathing traces, stronger full-text coverage,
-a functioning Consensus connector and independent dense-distance/expectancy
-controls remain unavailable. Further smoothing cannot resolve those limits.
+Source recording identity, timing/breathing traces, a functioning Consensus
+connector and independent dense-distance/expectancy controls remain unavailable.
+Full-text coverage remains partial; the amendment below adds two direct article
+inspections. Further smoothing cannot resolve the source/design limits.
 
-## Wording suitable for the paper
+## Baseline-corrected model comparison: 18 October 2026 amendment
+
+The owner requests baseline subtraction and an expanded search for experimental
+effects using Bayesian and frequentist sigmoid, linear and logarithmic models.
+The analysis goal is recorded in the workbook contract; the expanded fits/tests
+have **not** been run. This is a post-results extension of the literature review.
+
+### What the literature specifically adds
+
+| Source and access checked now | Relevant method or finding | Transfer to the new goal |
+| --- | --- | --- |
+| [Canzoneri et al. (2012), P1](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0044306), full-text Methods, Results and Discussion | Compared individual five-point sigmoid and linear fits; fixed sigmoid asymptotes to each cell's observed minimum/maximum, then estimated midpoint and slope; fitted tactile timing relative to sound onset | Direct audiotactile precedent for both families and a fixed-extrema sensitivity. These extrema contain sampling error; their treatment as fixed does not remove that uncertainty. Do not transfer its timing axis or sample-extrema assumptions silently to Study 5 |
+| [Hobeika et al. (2020), P3](https://pubmed.ncbi.nlm.nih.gov/31805302/), indexed abstract and Crossref identity | Added a fixed-sound-distance expectancy baseline and logarithmically spaced distances; reports a linear response on log distance after expectancy subtraction | Direct rationale for the log-distance comparator. Study 5's Baseline trial labels do not establish an equivalent fixed-distance, cue-time-matched control; the full article was inaccessible |
+| [Holmes et al. (2020), P4](https://pmc.ncbi.nlm.nih.gov/articles/PMC7181441/), full-text experiments, review/meta-analysis and methodological discussion | Uses conventional and Bayesian tests; questions unmatched baseline comparisons and excluding poor sigmoid fits; documents heterogeneous and sometimes insensitive/null effects | Supports joint/paired treatment of baseline measurements, explicit uncertainty and preserving unsuccessful curves. Its evidence for a near–far RT difference is a different estimand from a respiratory effect on sigmoid midpoint |
+| [Beccherle et al. (2022), P6](https://pubmed.ncbi.nlm.nih.gov/35178603/), indexed abstract | In a 40-person visuotactile study, tactile-only RT depended non-monotonically on delivery delay; authors recommend removing tactile-only RT from multisensory RT | Supports examining the Baseline response rather than treating it as noise-free. Modality/body-site differences and unverified Study 5 timing limit transfer; the full-text attempt returned a challenge |
+
+The direct PPS comparison priorities are therefore (1) a logistic with transparent
+plateau assumptions and individual uncertainty, (2) a log-distance alternative
+with explicit baseline/control limitations, and (3) an ordinary line/constant
+benchmark. This ranking concerns relevance, not expected significance. Probit,
+Gompertz, log-logistic, smooth or segmented curves remain generic methodological
+candidates until an applicable source and estimand justify inclusion. A new 2025
+paper on sigmoid interpersonal-discomfort ratings was screened but supplies no
+direct validation for audiotactile RT boundaries.
+
+### Correction changes the estimand, not automatically the shape
+
+The owner specifies `corrected RT = AT RT − Baseline RT`. Following the existing
+`paper_analysis.sigmoid_fits` correction, the primary Baseline mean is specific to
+participant, Condition and Phase, pooled across nominal SOAs. For
+`f(d)=a+A*expit((d-m)/w)`, subtracting a scalar B gives
+`f(d)−B=(a−B)+A*expit((d-m)/w)`. With a free intercept and consistently transformed
+constraints/priors, m and w are unchanged. This is an algebraic property, not an
+empirical result attributed to the papers. Likewise, subtracting a constant
+preserves a linear or log-distance slope. Shared-plateau constraints, pooling or
+priors can change this invariance and must be disclosed.
+
+The primary 40-record cohort has 4,192 retained Baseline RTs and complete nominal
+cells, but just 1–6 Baseline observations per person/condition/phase/SOA. Same-label
+subtraction can alter the distance profile and add considerable estimation error.
+It is a useful sensitivity with unverified time matching, not an automatic
+expectancy correction. A shared baseline mean introduces covariance among the
+corrected trials; the planned joint likelihood/refits must retain this covariance.
+No log transform or arbitrary positive offset is appropriate for signed corrected
+RTs. `log(distance)` and `log(RT)` answer different questions.
+
+### Results and stopping criteria
+
+For every included family, test Condition, Phase and their interaction. Sigmoids
+provide model-conditional 50%-amplitude locations and normalized derivatives;
+ordinary linear/logarithmic functions have no intrinsic plateau midpoint. Compare
+all families using observed-range predictions, mean corrected RT and far−near
+response differences, without renaming these quantities PPS boundaries.
+
+The source-linked registry will distinguish joint Bayesian estimation, frequentist
+nonlinear/mixed estimation, paired tests and resampling/robustness checks. Retain
+null, reversed, weakly identified and failed fits; evaluate known/null recovery,
+predictive performance and baseline uncertainty. Report all unadjusted p values
+as requested, with the full family and pointwise intervals. Nominal discoveries
+after a method search remain exploratory; agreement among dependent model
+specifications does not supply independent replication. Completion means the
+feasible declared worklist is answered, including inconclusive outcomes, rather
+than continuing until a significant p value appears.
+
+This focused update used PubMed discovery, Crossref and original PLOS/PMC pages.
+Consensus and a general web-search connector were unavailable. Exact searches,
+retrieval hashes, screening reasons and inaccessible text are in
+[the amendment ledger](searches.json). It is not an exhaustive review of every PPS
+method or an assertion that every literature procedure is suitable for Study 5.
+
+## Wording suitable for the paper (earlier analysis)
 
 > We treated the sigmoid as a theory-motivated descriptive candidate and assessed
 > sensitivity to robust extraction, smoothing and shape restrictions using one

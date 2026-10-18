@@ -308,3 +308,27 @@ The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.
 - Supersedes: The earlier completion summary's scope; it now excludes the newly
   opened joint-model tasks Q3.7–Q3.11. Existing results remain valid records of
   their stated analyses and do not become results of a joint hierarchy.
+
+## D-0014 — Baseline-corrected effects across a literature-supported model family
+
+- Date: 2026-10-18
+- Status: Goal and correction accepted; expanded fits/tests not run.
+- Context: The owner broadens the question to any Phase, Condition or interaction
+  effect on PPS boundary/sharpness, requests Bayesian and frequentist approaches
+  including linear/logarithmic curves, and explicitly confirms subtracting Baseline
+  RTs from the other trial type. Results remain the priority, with no manuscript work.
+- Decision: Use AT minus the participant/condition/phase Baseline mean as the
+  primary outcome, following the existing correction owner. Include same-nominal-SOA
+  subtraction as a timing-unverified sensitivity and raw RT as a reference. Carry
+  baseline uncertainty through joint models or paired resampling. Expand the
+  roadmap to a finite source-linked model registry with all three effects and all
+  results retained; preserve the joint Bayesian sigmoid within that comparison.
+- Consequences: A scalar subtraction cannot itself identify new curvature when
+  intercepts are free. Linear/logarithmic models estimate distance effects, not
+  intrinsic sigmoid boundaries. Preserve cohorts, cleaning, signed profiles,
+  all unadjusted p values, uncertainty and failed fits. Nominal significance is
+  reported, but does not select a method, prior, exclusion or stopping point.
+  The first new effect fits require a fixed numerical protocol and later independent
+  and browser verification; this goal update is not a new statistical result.
+- Supersedes: D-0013's interaction-first priority and AT-only response target for the
+  next extension. Its joint-estimation and diagnostic requirements remain active.

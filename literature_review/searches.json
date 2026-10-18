@@ -298,5 +298,251 @@
       "disposition": "Author code inspected; not the article full text."
     }
   ],
-  "prior_search": "Earlier PPS broad search and exact-title retrievals are preserved in analysis/sigmoid_literature_sources.json; accessible records reused, not claimed as new searches."
+  "prior_search": "Earlier PPS broad search and exact-title retrievals are preserved in analysis/sigmoid_literature_sources.json; accessible records reused, not claimed as new searches.",
+  "baseline_model_amendment": {
+    "checked_date": "2026-10-18",
+    "timezone": "UTC",
+    "scope": "Focused baseline/model goal expansion; not an exhaustive PPS methods review. Top-level fields preserve the original 16 October review snapshot.",
+    "providers_used": [
+      "PubMed public MEDLINE-formatted search pages",
+      "Crossref public API",
+      "PLOS publisher full text",
+      "PMC full text"
+    ],
+    "providers_unavailable": [
+      "Consensus MCP",
+      "general web-search connector"
+    ],
+    "full_text_sources_with_methodological_sections_inspected": 2,
+    "retrievals": [
+      {
+        "id": "pps-baseline",
+        "query": "\"peripersonal space\" AND (baseline OR expectancy) AND (sigmoid OR logistic OR logarithmic)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28baseline%20OR%20expectancy%29%20AND%20%28sigmoid%20OR%20logistic%20OR%20logarithmic%29&format=pubmed",
+        "checked_date": "2026-10-18",
+        "status": 200,
+        "bytes": 22394,
+        "sha256": "7b2f7d2d371b9773fb8d44e54045e9a9ebd2b3d934660be4b1f8532383d1d890",
+        "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28baseline%20OR%20expectancy%29%20AND%20%28sigmoid%20OR%20logistic%20OR%20logarithmic%29&format=pubmed",
+        "challenge": false,
+        "indexed_records": 3,
+        "pmids": [
+          "33865046",
+          "31805302",
+          "30220004"
+        ],
+        "titles": [
+          "Integration of predictions and afferent signals in body ownership.",
+          "Capturing the dynamics of peripersonal space by integrating expectancy effects and sound propagation properties.",
+          "Body ownership and the absence of touch: approaching the rubber hand inside and outside peri-hand space."
+        ],
+        "disposition": "Inspected Hobeika abstract (31805302); other two records concern body ownership and were not used for the PPS RT fitting protocol."
+      },
+      {
+        "id": "pps-bayesian",
+        "query": "\"peripersonal space\" AND (Bayesian OR \"mixed effects\" OR \"mixed-effects\")",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28Bayesian%20OR%20%22mixed%20effects%22%20OR%20%22mixed-effects%22%29&format=pubmed",
+        "checked_date": "2026-10-18",
+        "status": 200,
+        "bytes": 53050,
+        "sha256": "5308e66aaee2a99b532306ff0cc6a2bde6d21366474f75923fbd860800130fc1",
+        "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28Bayesian%20OR%20%22mixed%20effects%22%20OR%20%22mixed-effects%22%29&format=pubmed",
+        "challenge": false,
+        "indexed_records": 10,
+        "pmids": [
+          "34546803",
+          "31648196",
+          "35178603",
+          "37900289",
+          "39301000",
+          "28993482",
+          "36103520",
+          "35452895",
+          "32593721",
+          "35002827"
+        ],
+        "titles": [
+          "Cognitive, Systems, and Computational Neurosciences of the Self in Motion.",
+          "Extending Bayesian Models of the Rubber Hand Illusion.",
+          "Peripersonal Space from a multisensory perspective: the distinct effect of the visual and tactile components of Visuo-Tactile stimuli.",
+          "\"Surrounded, detached\": the relationship between defensive peripersonal space and personality.",
+          "Reduction of peripersonal comfort space correlate with eating disorder symptoms in young adolescents: a network analysis approach.",
+          "The Prediction of Impact of a Looming Stimulus onto the Body Is Subserved by Multisensory Integration Mechanisms.",
+          "A normative model of peripersonal space encoding as performing impact prediction.",
+          "Decoding sensorimotor information from superior parietal lobule of macaque via Convolutional Neural Networks.",
+          "Immersive virtual reality reveals that visuo-proprioceptive discrepancy enlarges the hand-centred peripersonal space.",
+          "Cognitive Models of Limb Embodiment in Structurally Varying Bodies: A Theoretical Perspective."
+        ],
+        "disposition": "Inspected Beccherle (35178603), Clery (28993482) and Straka (36103520) abstracts. Retained Beccherle for baseline rationale, reused Straka as computational context; Clery nonhuman neural impact prediction is not a Study 5 sigmoid estimator. Remaining returned titles were less directly relevant."
+      },
+      {
+        "id": "pps-current",
+        "query": "\"peripersonal space\" AND (sigmoid OR logarithmic OR \"curve fitting\") AND 2021:2026[dp]",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28sigmoid%20OR%20logarithmic%20OR%20%22curve%20fitting%22%29%20AND%202021%3A2026%5Bdp%5D&format=pubmed",
+        "checked_date": "2026-10-18",
+        "status": 200,
+        "bytes": 13536,
+        "sha256": "bb8ffe6d5596edf74f09412f49d9fc2603cc7c238384d8d98546818269d8c3e1",
+        "final_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%22peripersonal%20space%22%20AND%20%28sigmoid%20OR%20logarithmic%20OR%20%22curve%20fitting%22%29%20AND%202021%3A2026%5Bdp%5D&format=pubmed",
+        "challenge": false,
+        "indexed_records": 1,
+        "pmids": [
+          "40684675"
+        ],
+        "titles": [
+          "Modelling interpersonal discomfort ratings in third-person settings: An exploratory study."
+        ],
+        "disposition": "Inspected 40684675 abstract; interpersonal discomfort ratings are not audiotactile RT data; excluded as direct method justification."
+      },
+      {
+        "id": "crossref-pps",
+        "query": "peripersonal space sigmoid baseline logarithmic",
+        "url": "https://api.crossref.org/works?query=peripersonal%20space%20sigmoid%20baseline%20logarithmic&rows=5",
+        "checked_date": "2026-10-18",
+        "status": 200,
+        "bytes": 233464,
+        "sha256": "899185d7b0cd8fa9abf3f7cbad541fcab84df3137210c5d61222292c18de328c",
+        "final_url": "https://api.crossref.org/works?query=peripersonal%20space%20sigmoid%20baseline%20logarithmic&rows=5",
+        "challenge": false,
+        "indexed_records": 0,
+        "pmids": [],
+        "titles": [],
+        "disposition": "Read five returned title/DOI records; broad chapters/thesis were not used as substantive model evidence.",
+        "returned_metadata": [
+          {
+            "title": [
+              "The peripersonal space : a space to inter-act"
+            ],
+            "doi": "10.70675/65489b37z5297z4a85z96cczc535ef9ca767"
+          },
+          {
+            "title": [
+              "Do we represent peripersonal space?"
+            ],
+            "doi": "10.1093/oso/9780198851738.003.0008"
+          },
+          {
+            "title": [
+              "Visuo-tactile predictive mechanisms of peripersonal space"
+            ],
+            "doi": "10.1093/oso/9780198851738.003.0005"
+          },
+          {
+            "title": [
+              "Peripersonal space, bodily self-awareness, and the integrated self"
+            ],
+            "doi": "10.1093/oso/9780198851738.003.0014"
+          },
+          {
+            "title": [
+              "Dissecting the experience of space as peripersonal"
+            ],
+            "doi": "10.1093/oso/9780198851738.003.0007"
+          }
+        ]
+      },
+      {
+        "id": "baseline-2022-full",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9015983/",
+        "checked_date": "2026-10-18",
+        "round": "focused-original-sources",
+        "status": 200,
+        "bytes": 21311,
+        "sha256": "c7ffe532ca932b8c631ef0064e967094cb6981dd7b09ec7a7434b9486b0631ae",
+        "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9015983/",
+        "challenge": true,
+        "title": [
+          "Checking your browser - reCAPTCHA"
+        ],
+        "disposition": "Challenge page, not full-text evidence; retained indexed abstract only."
+      },
+      {
+        "id": "holmes-full",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7181441/",
+        "checked_date": "2026-10-18",
+        "round": "focused-original-sources",
+        "status": 200,
+        "bytes": 236009,
+        "sha256": "beb1dfab149fbf7567b996140eb06283a7348449db61025c7c6ac5146e868443",
+        "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7181441/",
+        "challenge": false,
+        "title": [
+          "\n            Do sounds near the hand facilitate tactile reaction times? Four experiments and a meta-analysis provide mixed support and suggest a small effect size - PMC\n        "
+        ],
+        "disposition": "Full-text experimental inference, review/meta-analysis methodology and discussion inspected; supports baseline/control and fit-selection concerns. Meta-analysis not independently reproduced."
+      },
+      {
+        "id": "canzoneri-full",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0044306",
+        "checked_date": "2026-10-18",
+        "round": "focused-original-sources",
+        "status": 200,
+        "bytes": 231178,
+        "sha256": "a9f440fe8ba5cd7c498e25613add263dfbf8a318258a6da7f50ee1320c068249",
+        "final_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0044306",
+        "challenge": false,
+        "title": [
+          "Dynamic Sounds Capture the Boundaries of Peripersonal Space Representation in Humans | PLOS One"
+        ],
+        "disposition": "Full-text Methods, fitting Results and Discussion inspected; five means, observed-extrema asymptotes, individual sigmoid/linear comparison."
+      },
+      {
+        "id": "hobeika-doi",
+        "url": "https://doi.org/10.1016/j.jneumeth.2019.108534",
+        "checked_date": "2026-10-18",
+        "round": "focused-original-sources",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+        "disposition": "Network CONNECT 403; full text unavailable, not negative scientific evidence."
+      },
+      {
+        "id": "hobeika-crossref",
+        "url": "https://api.crossref.org/works/10.1016/j.jneumeth.2019.108534",
+        "checked_date": "2026-10-18",
+        "round": "focused-original-sources",
+        "status": 200,
+        "bytes": 19870,
+        "sha256": "29f94ee97025e8b7b866b9a6cf8786b288a20a9ef69c2c0b007eec01706fa21b",
+        "final_url": "https://api.crossref.org/works/10.1016/j.jneumeth.2019.108534",
+        "challenge": false,
+        "title": [],
+        "disposition": "Exact DOI/title/authors confirmed; metadata, not a full-text method inspection."
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Individual sigmoid versus linear comparison and fixed observed extrema have direct audiotactile precedent.",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0044306",
+        "source_type": "peer-reviewed primary experiment, full-text methodological sections",
+        "direction": "supports model-family comparison; qualifies fixed-plateau interpretation",
+        "confidence": "high for the reported procedure; transfer to Study 5 requires validation",
+        "limit": "Extrema are estimated; source used timing, not measured centimetre coordinates."
+      },
+      {
+        "claim": "A log-distance alternative after an expectancy correction is directly motivated in audiotactile PPS work.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31805302/",
+        "source_type": "peer-reviewed primary experiment, indexed abstract; identity checked through Crossref",
+        "direction": "supports logarithmic comparator; challenges obligatory sigmoid",
+        "confidence": "moderate, abstract-level method access",
+        "limit": "Fixed-sound-distance control is not established for Study 5; full text inaccessible."
+      },
+      {
+        "claim": "Baseline/control mismatch and excluding poor sigmoid fits can compromise PPS inferences.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7181441/",
+        "source_type": "peer-reviewed experiments and systematic review/meta-analysis, full-text methodological sections",
+        "direction": "qualifies positive-effect interpretation",
+        "confidence": "high for documented methodological criticism; indirect for this respiratory manipulation",
+        "limit": "Not a new analysis of Study 5; meta-analysis not independently reproduced."
+      },
+      {
+        "claim": "Tactile-only RT can vary with delivery delay and merits explicit subtraction/measurement.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35178603/",
+        "source_type": "peer-reviewed visuotactile experiment, indexed abstract",
+        "direction": "supports baseline examination and subtraction",
+        "confidence": "moderate, related-modality abstract evidence",
+        "limit": "Does not verify cue-time matching or establish sigmoid shape in Study 5."
+      }
+    ],
+    "stopping_rule": "Direct sigmoid precedent, log-distance alternative and critical review established the scope; other screened hits were less directly applicable. Remaining inaccessible or unassessed methods are documented, not claimed exhausted.",
+    "new_model_fits_or_effect_tests": "NOT RUN"
+  }
 }

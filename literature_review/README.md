@@ -1,6 +1,6 @@
 # Why examine sigmoid PPS curves? A miniature literature review
 
-**Evidence review: 16 October 2026 (Europe/Berlin).** This focused narrative review
+**Evidence review: 16 October 2026; baseline/model amendment: 18 October 2026 (UTC).** This focused narrative review
 explains the rationale and limits of the Study 5 exploratory analysis. It is not a
 systematic review, a preregistration, or evidence that the desired curve must exist.
 
@@ -17,10 +17,11 @@ merely by producing a smooth S.
 - [Questionnaires and spatial frame of reference](QUESTIONNAIRES.md): MAIA-2
   scoring, reliability, ordinal paired analysis, associations, registration
   crosswalk and coverage of every released data domain.
-- [Evidence table](EVIDENCE_TABLE.md): 16 relevant works, what was actually read,
+- [Evidence table](EVIDENCE_TABLE.md): 17 relevant works, what was actually read,
   the claim each supports, and the limits of transferring it to Study 5.
 - [Analysis rationale](ANALYSIS_RATIONALE.md): estimands, choice-by-choice
-  justification, implementation links, and outstanding checks.
+  justification, implementation links, and outstanding checks, including the new
+  baseline-corrected Bayesian/frequentist sigmoid, linear and log-distance goal.
 - [Search record](SEARCH_LOG.md) and [machine-readable retrieval record](searches.json):
   queries, screening, unavailable providers, and failed access attempts.
 - [Bibliography](references.bib): reusable citations; inclusion does not imply
@@ -35,8 +36,9 @@ In the looming-sound paradigm, sound distance is related to tactile reaction tim
 provide direct audiotactile precedent for investigating a distance-dependent
 transition. [Noel et al. (2020)](https://doi.org/10.1093/cercor/bhaa103) report sigmoid
 visuotactile facilitation and rapid recalibration with stimulus history. These
-studies motivate asking about transition location and sharpness. Their accessible
-abstracts do not validate Study 5's particular bandwidths, trimming percentages,
+studies motivate asking about transition location and sharpness. Canzoneri's
+full-text fitting procedure was inspected in the 18 October amendment; Noel's
+indexed abstract remains the access level here. Neither validates Study 5's particular bandwidths, trimming percentages,
 parameter bounds, or respiratory manipulation.
 
 A logistic curve provides interpretable descriptive quantities:
@@ -171,10 +173,11 @@ conclusion.
 
 Consensus MCP was unavailable; it was not used. The installed multi-source search
 skill guided PubMed discovery, exact-title refinement, and official/author-source
-inspection. The nine empirical or methodological papers used here were inspected
-at indexed-abstract level; six method references were checked through official
-software sources, and the PPS impact model through author code. Full-paper
-retrieval attempts were blocked or returned browser challenges. Current-literature
-queries also encountered challenges. This review consequently supports bounded
-claims from the inspected material, not detailed replications of inaccessible
-papers or an exhaustive account of the literature through 2026.
+inspection. The initial review used indexed abstracts, software sources and author
+code, with failed full-text/currentness attempts preserved. On 18 October, focused
+PubMed and Crossref searches and direct PLOS/PMC retrieval added full-text
+methodological inspection of Canzoneri and Holmes, plus Beccherle's abstract.
+Hobeika's full text remained inaccessible and Beccherle's returned a challenge.
+The [search record](SEARCH_LOG.md) distinguishes these access levels. Coverage
+remains focused, not an exhaustive account of the literature through 2026; the
+new baseline-corrected model comparison is a goal, not a completed result.

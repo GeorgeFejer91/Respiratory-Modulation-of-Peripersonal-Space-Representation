@@ -1,6 +1,8 @@
 # Evidence table
 
-Checked 16 October 2026 (Europe/Berlin). **Abstract** means the complete indexed
+Initial review 16 October 2026; baseline/model amendment checked 18 October 2026
+(UTC). P1/P4 now include inspected full-text methodological sections, and P6 is
+new; earlier source-access records remain in the ledger. **Abstract** means the complete indexed
 abstract and bibliographic record were inspected, not the full article. **Source**
 means official software documentation/code was read; the referenced book/paper was
 not read in full. Confidence below concerns transfer to this analysis, not an
@@ -10,11 +12,12 @@ invented study-quality score. No formal risk-of-bias assessment was possible.
 
 | ID and reference | Evidence inspected | Contribution and direction | Study 5 applicability and limit |
 | --- | --- | --- | --- |
-| **P1** [Canzoneri, Magosso & Serino (2012), Dynamic sounds capture the boundaries of peripersonal space representation in humans](https://doi.org/10.1371/journal.pone.0044306). PLOS ONE 7, e44306. PMID 23028516. | Abstract; human audiotactile experiment | Supports investigating distance-dependent tactile facilitation and transitions | Direct paradigm relevance; abstract does not validate this study's preprocessing or prove its curve shape |
+| **P1** [Canzoneri, Magosso & Serino (2012), Dynamic sounds capture the boundaries of peripersonal space representation in humans](https://doi.org/10.1371/journal.pone.0044306). PLOS ONE 7, e44306. PMID 23028516. | Abstract plus full-text Methods/Results/Discussion, checked 18 October | Individual sigmoid versus linear fits to five timing means; sigmoid asymptotes fixed to observed extrema | Direct paradigm relevance; extrema carry sampling uncertainty; its timing axis and fit comparison do not validate Study 5's boundaries |
 | **P2** [Noel et al. (2020), Rapid Recalibration of Peri-Personal Space](https://doi.org/10.1093/cercor/bhaa103). Cerebral Cortex 30, 5088–5106. PMID 32377673. | Abstract; psychophysical, electrophysiological and neural-model study | Supports sigmoid facilitation and trial-history dependence in the reported paradigm | Related visuotactile evidence; transfer across modalities and respiratory conditions is limited |
 | **P3** [Hobeika et al. (2020), Capturing the dynamics of peripersonal space by integrating expectancy effects and sound propagation properties](https://doi.org/10.1016/j.jneumeth.2019.108534). J Neurosci Methods 332, 108534. PMID 31805302. | Abstract; methodological audiotactile experiment | Challenges obligatory sigmoid/binary-boundary interpretation; supports expectancy controls and a logarithmic alternative | Strong conceptual relevance; Study 5 lacks an established equivalent fixed-distance expectancy control |
-| **P4** [Holmes et al. (2020), Do sounds near the hand facilitate tactile reaction times?](https://doi.org/10.1007/s00221-020-05771-5). Exp Brain Res 238, 995–1009. PMID 32193585. | Abstract; four experiments and meta-analysis | Qualifies the evidence: mixed support, small effects, flexible-analysis/control concerns | Critical counterevidence; full meta-analytic methods and individual-study bias could not be assessed |
+| **P4** [Holmes et al. (2020), Do sounds near the hand facilitate tactile reaction times?](https://doi.org/10.1007/s00221-020-05771-5). Exp Brain Res 238, 995–1009. PMID 32193585. | Abstract plus full-text experimental and review/meta-analysis methods/results/discussion, checked 18 October | Mixed conventional/Bayesian evidence; warns about unmatched baseline contrasts, fit-based exclusions and expectancy | Critical counterevidence; transfer to Study 5's respiratory manipulation is indirect; the meta-analysis was inspected, not independently reproduced |
 | **P5** [Straka, Noel & Hoffmann (2022), A normative model of peripersonal space encoding as performing impact prediction](https://doi.org/10.1371/journal.pcbi.1010464). PLOS Comput Biol 18, e1010464. | [Author README](https://github.com/ctu-vras/pps-normative-model) and [full analysis function](https://github.com/ctu-vras/pps-normative-model/blob/main/FN_std_PPS_properties.m) | Qualifies the interpretation: model profiles summarized by transition and slope | Computational evidence only; does not validate observed RT sigmoids or provide a fitting protocol for Study 5 |
+| **P6** [Beccherle et al. (2022), Peripersonal Space from a multisensory perspective: the distinct effect of the visual and tactile components of Visuo-Tactile stimuli](https://doi.org/10.1007/s00221-022-06324-8). Exp Brain Res. PMID 35178603. | Indexed abstract, checked 18 October; full-text challenge | Tactile-only RT changes with delivery delay; motivates subtracting it from multisensory responses | Visuotactile/body-location study, not this audiotactile respiratory experiment; supports baseline examination, not verified cue-time matching |
 
 ## Methodological evidence
 
