@@ -170,6 +170,15 @@ validation. Native-only execution must be explicit; the earlier browser gates
 continue to apply to any future browser integration. Do not rebuild the site or
 refresh manuscripts merely to deliver these native numerical results.
 
+For the publication-method choice, run `analysis/publication_sigmoid_choice.py`.
+It checks original input hashes, the complete convergence gate, full-draw response
+reconstruction and midpoint/derivative geometry before packaging. Verify all 160
+parameter records against the original posterior summaries, all 28 joint shape
+contrasts against the original table, all 40 atlas pages and the ZIP/manifest bytes.
+The standardized full-S panels must retain their model-illustration label and
+shaded measured segment; these panels do not establish observed curvature or
+justify independent-observation tests on shared pooled point estimates.
+
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

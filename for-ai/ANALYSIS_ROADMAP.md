@@ -11,13 +11,42 @@ that. A completed analysis with an inconclusive result is not a failed task.
 
 The initial roadmap and unpooled Bayesian specification were fixed after seeing
 version-1.9 results, before calculating that extension. The later joint-model and
-baseline-comparison goals follow inspection of its results and have not been run.
+baseline-comparison goals followed inspection of its results and are now computed
+with the limits recorded below.
 These amendments are exploratory, not a new preregistration. Manuscript drafting
 is paused. Use the installed Ponytail skill:
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 
-## Active goal — baseline-corrected experimental effects across model families
+## Active goal — publication-defensible individual sigmoid approximation
+
+The owner authorizes pooling across participants and smoothing across SOA to
+estimate four sigmoid curves per retained person, and requests a recommended
+analysis and lead result. Use the converged native `joint_logistic_marginal` as an
+explicitly exploratory approximation, with cell-noise sensitivity and the earlier
+complete battery retained. This is a practical numerical choice, not demonstrated
+best prediction or permission to select an effect-producing analysis.
+
+- [x] Q7.1 Choose one common, converged estimator with baseline uncertainty and
+  partial pooling across people; retain signed amplitudes and all four cells.
+- [x] Q7.2 Package every retained person's parameters/intervals and measured-range
+  responses alongside a clearly labelled full-sigmoid model illustration. Quantify
+  how much of the transition is observed; do not equate a guaranteed S on a
+  standardized axis with measured curvature.
+- [x] Q7.3 Retain joint posterior Condition, Phase and interaction contrasts, plus
+  simple contrasts and the noise sensitivity. Do not treat pooled medians as
+  independent measurements for a new effect claim.
+- [x] Q7.4 Recommend the most defensible lead finding with its model sensitivity,
+  rather than the smallest nominal p value. State physiological identification
+  and publication limits, verify the package and visually inspect every atlas page.
+
+Output: `results/publication_sigmoid_choice/RECOMMENDATION.md`. No manuscript or
+Pages integration is required. Q1.7 remains open even if every person has a finite
+model curve. All 160 parameter records match the original full-draw summaries;
+all 28 retained parameter contrasts include zero. All 40 atlas pages were visually
+inspected, and the full-S row is a labelled standardized model illustration.
+
+## Completed batch — baseline-corrected experimental effects across model families
 
 Determine whether Inhale versus Exhale, Viscereality versus Control, or their
 interaction changes the baseline-corrected PPS response. Test all three effects

@@ -1,0 +1,29 @@
+model,quantity,effect,estimand_scope,posterior_median,ci_low,ci_high,probability_positive,target_diagnostic_gate
+joint_logistic_marginal,midpoint_cm,Condition,finite primary cohort,-3.325399473603966,-83.35429258802603,76.11110056768891,0.4659166666666666,True
+joint_logistic_marginal,midpoint_cm,Phase,finite primary cohort,-5.552197835503308,-87.09026229489635,71.73381560472154,0.4465,True
+joint_logistic_marginal,midpoint_cm,Condition × Phase,finite primary cohort,-7.334071583907827,-90.5937990284516,79.68831308252042,0.43575,True
+joint_logistic_marginal,midpoint_cm,Phase within Control,finite primary cohort,-2.114079265689078,-97.91243445345084,87.24304171036177,0.482,True
+joint_logistic_marginal,midpoint_cm,Phase within Viscereality,finite primary cohort,-8.776268334711716,-98.86413106181664,79.2482030259988,0.4200833333333333,True
+joint_logistic_marginal,midpoint_cm,Condition within Exhale,finite primary cohort,-0.3774240158536024,-87.69867647478787,87.02883940871652,0.49575,True
+joint_logistic_marginal,midpoint_cm,Condition within Inhale,finite primary cohort,-6.6582348471589725,-99.69551402998395,85.8712221778712,0.4446666666666666,True
+joint_logistic_marginal,sharpness_per_cm,Condition,finite primary cohort,0.0003947362406547,-0.0029109458313725,0.004220195241314,0.6284166666666666,True
+joint_logistic_marginal,sharpness_per_cm,Phase,finite primary cohort,-0.0005171882676158,-0.0045173817841927,0.0027218307797476,0.3338333333333333,True
+joint_logistic_marginal,sharpness_per_cm,Condition × Phase,finite primary cohort,0.000438054320798,-0.0054734004118229,0.0047091074472484,0.5971666666666666,True
+joint_logistic_marginal,sharpness_per_cm,Phase within Control,finite primary cohort,-0.0007459827211265,-0.0044152820882592,0.0033081367142165,0.2775833333333333,True
+joint_logistic_marginal,sharpness_per_cm,Phase within Viscereality,finite primary cohort,-0.0002490873956514,-0.0061918934230861,0.0035394936941385,0.43375,True
+joint_logistic_marginal,sharpness_per_cm,Condition within Exhale,finite primary cohort,9.176780322128112e-05,-0.0036462156406722,0.0059076523694552,0.5269166666666667,True
+joint_logistic_marginal,sharpness_per_cm,Condition within Inhale,finite primary cohort,0.0006174373494028,-0.0036161034382188,0.0043048220847814,0.6815,True
+joint_logistic_heterogeneous,midpoint_cm,Condition,finite primary cohort,0.0261831091951403,-81.09532517534181,81.36830361396446,0.5005,True
+joint_logistic_heterogeneous,midpoint_cm,Phase,finite primary cohort,-4.527174938098195,-88.1526496964842,74.64808115995145,0.4558333333333333,True
+joint_logistic_heterogeneous,midpoint_cm,Condition × Phase,finite primary cohort,-5.274558138551438,-90.62214112853572,81.15257963994648,0.4558333333333333,True
+joint_logistic_heterogeneous,midpoint_cm,Phase within Control,finite primary cohort,-2.149413610911088,-98.14754317789765,89.01635454939344,0.4831666666666667,True
+joint_logistic_heterogeneous,midpoint_cm,Phase within Viscereality,finite primary cohort,-6.685401251383986,-99.92266053044,82.68533650712743,0.4416666666666666,True
+joint_logistic_heterogeneous,midpoint_cm,Condition within Exhale,finite primary cohort,2.9420260526134783,-85.83475677896244,90.20498973358616,0.5263333333333333,True
+joint_logistic_heterogeneous,midpoint_cm,Condition within Inhale,finite primary cohort,-2.556887064836424,-97.37202144784476,91.41910742666305,0.478,True
+joint_logistic_heterogeneous,sharpness_per_cm,Condition,finite primary cohort,0.0002329504922445,-0.0030812396129402,0.0041698722727533,0.576,True
+joint_logistic_heterogeneous,sharpness_per_cm,Phase,finite primary cohort,-0.0009051102920327,-0.0047414426944926,0.0025716606125183,0.2275833333333333,True
+joint_logistic_heterogeneous,sharpness_per_cm,Condition × Phase,finite primary cohort,0.000464183388518,-0.0055294871513956,0.0047169083316744,0.6058333333333333,True
+joint_logistic_heterogeneous,sharpness_per_cm,Phase within Control,finite primary cohort,-0.0011485249761445,-0.0049208460501178,0.0029984832447855,0.1919166666666666,True
+joint_logistic_heterogeneous,sharpness_per_cm,Phase within Viscereality,finite primary cohort,-0.0006221357445798,-0.0062826145576099,0.0032218172274816,0.33375,True
+joint_logistic_heterogeneous,sharpness_per_cm,Condition within Exhale,finite primary cohort,-4.562556504294265e-05,-0.0037438365827288,0.0056620706058057,0.4869166666666666,True
+joint_logistic_heterogeneous,sharpness_per_cm,Condition within Inhale,finite primary cohort,0.0004569002172838,-0.0034475316792376,0.0041382061397389,0.64725,True

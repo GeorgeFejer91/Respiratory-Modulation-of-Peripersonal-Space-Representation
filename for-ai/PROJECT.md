@@ -1,11 +1,12 @@
 # Project contract
 
-## Active scope: results before narrative
+## Active scope: results and a defensible analysis recommendation
 
 The owner has paused manuscript drafting. Pin down the Study 5 results in the
 ordered, itemized [analysis roadmap](ANALYSIS_ROADMAP.md), then deliver a
-results-only report stating how far each level is satisfied. Do not select a
-paper narrative or refresh LaTeX/Typst prose/PDFs during this phase. The existing
+results-only report stating how far each level is satisfied. The owner now requests
+a recommended analysis and lead result for publication. Provide that methodological
+choice without rewriting LaTeX/Typst prose/PDFs. The existing
 manuscript is a preserved version-1.9 snapshot, not the destination for new results.
 
 The main estimands are participant-specific PPS midpoint (cm) and normalized
@@ -46,6 +47,16 @@ assumption-free and a finite posterior median is not an identified physiological
 boundary. No fitting, cleaning, priors or cohort may be chosen by questionnaire
 significance. All frequentist p values remain unadjusted at the owner's request;
 report the full comparison family and pointwise uncertainty.
+
+The owner authorizes pooling across participants and smoothing across SOA. Use
+one common estimator for all four participant cells; retain raw observations,
+parameter uncertainty and labels for imposed/extrapolated sigmoid geometry.
+The recommended exploratory curve estimator is the converged native
+`joint_logistic_marginal`, with cell-noise sensitivity retained. Its publication
+recommendation and all-person display are in `results/publication_sigmoid_choice/`.
+This practical choice is based on convergence and transparent uncertainty, not
+demonstrated predictive superiority or a selected significant parameter test.
+
 The owner also requested conventional 2 × 2 RM ANOVAs treating individual Bayesian
 posterior medians as fixed measurements. Retain this separately labelled analysis,
 all prior/cohort sensitivities and its omission of within-fit uncertainty.
@@ -111,7 +122,7 @@ ethical approval are owner-authorized; see D-0004/D-0011 and
 source paths and private provenance outside public artifacts. No repeated release
 permission is needed for these unchanged audited inputs.
 
-No manuscript narrative, submission-ready claim, invented physiological boundary,
-questionnaire-driven cleaning, guaranteed sigmoid, significance target or causal
+No manuscript rewrite, guaranteed acceptance, invented physiological boundary,
+questionnaire-driven cleaning, guaranteed observed sigmoid, significance target or causal
 mediation claim belongs in the active task. Author review, collection/stopping
 history and source mapping remain separate from computational completion.

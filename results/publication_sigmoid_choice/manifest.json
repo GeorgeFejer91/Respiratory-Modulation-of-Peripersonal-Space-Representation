@@ -1,0 +1,25 @@
+{
+  "model": "joint_logistic_marginal",
+  "purpose": "exploratory publication-method choice; no new fits/tests",
+  "input_sha256": {
+    "analysis/publication_sigmoid_choice.py": "4d19d9f2a3ef8a525957a4fdc3c4009f520243f82958a90952ec1528004f1648",
+    ".for-ai-local/baseline_effects/joint_logistic_marginal_draws.npz": "9d76d731efe1fd497d947e141b4471504d2fba80cf962a02f2df232e050d4c3f",
+    "results/baseline_effects/joint_logistic_marginal_run.json": "64b9fb5a799dd3892e9c25e1bc808063a193cea77a65f0a3de7fe3749676ccd4",
+    "results/baseline_effects/joint_simple_effects.csv": "b58532a98fd938c8ba26dbc5713148880f24abfbbf11788c450a420b91088af8",
+    "data/raw/study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "data/raw/study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "output_sha256": {
+    "RECOMMENDATION.md": "ac03bd4eb858e8e13b430d32044b5c2b910498770d256532bed922c17d223450",
+    "individual_example.png": "7c177efbec67d5c3411d26fcaa4f59d5eb36cd795e8707ce76f45766363cb4f7",
+    "individual_sigmoids.pdf": "5ab7de8f9bdd68f57dd2077aa75a20c711319fd54d038846ab6af3e11ecdda2d",
+    "joint_parameter_contrasts.csv": "7075e2e9797e0307861c3054cbafd5a05b97ea3df555e76a25800760f1004e72",
+    "measured_range_curves.csv": "f2319958c1325659012269d50ab2007507f9cef1ed833efd57c23220cafe2502",
+    "participant_parameters.csv": "f835384d0973c8a1fdc094ff0427fdd9440b00e9515bb433d72c7dc60d426258",
+    "unsmoothed_observations.csv": "205ab72dba31fa263f57bab820e840bcb7459c17ef98a99c261c85295d5de37a"
+  },
+  "validation": "draw-to-response identity, sigmoid geometry and signed derivative, counts, full convergence gate",
+  "native_only": true,
+  "pages_updated": false,
+  "manuscript_updated": false
+}
