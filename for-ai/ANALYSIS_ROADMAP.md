@@ -15,6 +15,32 @@ preregistration. Manuscript drafting is paused. Use the installed Ponytail skill
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 
+## Active next goal — joint Bayesian interaction test
+
+Determine whether respiratory phase changes PPS boundary or normalized sharpness
+differently under Viscereality and Control, using one joint model of the retained
+trial responses. The target for either parameter θ is:
+
+`Iθ = (θ_Viscereality,Inhale − θ_Viscereality,Exhale)
+    − (θ_Control,Inhale − θ_Control,Exhale)`.
+
+The overall Inhale−Exhale difference is a Phase main effect. Report it and the two
+within-condition phase differences alongside the interaction; neither a significant
+phase effect nor significance in only one condition establishes an interaction.
+
+Use a hierarchical nonlinear sigmoid model with participant-specific midpoint,
+positive sharpness, baseline RT and signed response amplitude. Include Condition,
+Phase and Condition × Phase in the shape parameters, with participant variation
+in the repeated contrasts and explicit partial-pooling assumptions. Retain all four
+cells and the fixed preparation/cohort rules. Fit individual parameters and group
+effects jointly so their uncertainty remains connected.
+
+This is a new post-results exploratory analysis. **Goal/specification direction:
+RECORDED. Numerical protocol, implementation, fitting and new results: NOT RUN.**
+The next executable action is Q3.7 below. The aim is a defensible test capable of
+detecting an interaction when supported; completion does not require a positive
+finding. Existing results and diagnostic failures remain part of the evidence.
+
 ## Level 0 — Data and preprocessing
 
 - [x] Q0.1 Audit released rows, missingness, source hashes and questionnaire scoring.
@@ -67,6 +93,33 @@ its report/export and proportional checks. Preserve the legacy reference.
 - [x] Q3.6 Run the owner-requested conventional 2 × 2 RM ANOVAs on Bayesian
   posterior medians, with unadjusted p values and explicit omission of within-fit
   uncertainty; verify independently and retain all prior/cohort sensitivities.
+- [ ] Q3.7 Fix the joint model's likelihood, numerical proper priors, random-effects
+  structure, sampler, diagnostics, cohort sensitivities and finite set of model
+  checks in `workbook/ANALYSIS_PLAN.md` before its first fit. Keep treatment priors
+  centred on zero and justify scales from the design/measurement units; do not
+  choose them from the desired interaction result. Verify browser feasibility.
+- [ ] Q3.8 Fit trial responses, all four participant curves and population effects
+  in one hierarchical Bayesian analysis. Model positive sharpness on a log scale,
+  retaining baseline/amplitude variation and flat/reversed responses. Export
+  posterior draws; distinguish a log-sharpness coefficient (ratio of ratios)
+  from the interaction in normalized sharpness on its original scale.
+- [ ] Q3.9 Check multiple-chain convergence, effective sample sizes, Monte Carlo
+  error, prior/posterior prediction and known-signal/null recovery. Compare simpler
+  response models and the fixed prior/likelihood sensitivities. Record computational
+  or identification failures; numerical improvements must not be selected by
+  whether they produce a positive interaction.
+- [ ] Q3.10 Report both parameters' paired interaction contrasts, overall Phase and
+  Condition effects, and the phase difference within each condition. Give estimates,
+  95% credible intervals and directional posterior probabilities; distinguish
+  finite-cohort contrasts from population effects. Assess meaningful-size effects
+  only after recording justified thresholds. Posterior probabilities are not p
+  values. If Bayes factors are added, fix the null, alternative and proper priors
+  explicitly and check the calculation's stability.
+- [ ] Q3.11 Independently verify the joint implementation and actual browser
+  execution/download, inspect raw-data/curve/contrast plots, and publish its full
+  results and sensitivities. Classify the interaction as supported under the stated
+  model, model-dependent, inconclusive, or not estimable. Preserve all outcomes;
+  no search-until-significant stopping rule or manuscript narrative is required.
 
 ## Level 4 — Descriptive average curves and figures
 
@@ -119,17 +172,19 @@ or treating every participant as having an empirically identified sigmoid.
 
 ## Current evidence checkpoint
 
-All planned model/contrast/association computations have run in native Python and
-Pyodide with independent probability/regression checks and matching numerical
-results. The individual and average figures have been visually inspected.
+The completed unpooled model/contrast/association computations and fixed-median
+ANOVAs have run in native Python and Pyodide with independent checks and matching
+numerical results. The individual and average figures have been visually inspected.
 Computational completion does not close Q1.7: the individual parameters remain
 poorly identified and unreliable, and experimental/questionnaire associations
 are inconclusive after propagating uncertainty. Q0.5 still requires source mapping.
 The requested conventional tests on fixed Bayesian posterior medians are also
 computed and independently checked; none of their primary or sensitivity tests
 establishes a condition, phase or interaction difference at unadjusted .05.
-A full joint hierarchical nonlinear model remains NOT RUN. The final report, browser controls and public Pages deployment are verified.
+A full joint hierarchical nonlinear model remains NOT RUN and is now the active
+next analysis (Q3.7–Q3.11). The existing results report, browser controls and public
+Pages deployment are verified.
 The published result archive/report/evidence and preserved legacy ZIP/PDF match
 the checked local bytes. Public application input checks and editor execution
-passed. The only unchecked scientific goals are source mapping (Q0.5) and
-reliable physiological identification (Q1.7).
+passed. Source mapping (Q0.5), reliable physiological identification (Q1.7), and
+the newly requested joint interaction analysis (Q3.7–Q3.11) remain open.

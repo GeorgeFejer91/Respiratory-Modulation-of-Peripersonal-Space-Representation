@@ -15,6 +15,15 @@ Condition, Phase and Condition × Phase. Describe the four average response curv
 and their uncertainty. Explore links with eight baseline MAIA-2 subscales and
 post-condition spatial ratings only after documenting the measurement limits.
 
+The next active goal is a **joint Bayesian hierarchical sigmoid analysis** of
+whether the Inhale−Exhale difference changes between Viscereality and Control,
+for both boundary and normalized sharpness. Fit trial responses, individual
+parameters and experimental effects together, with participant partial pooling.
+The interaction is the priority; retain the overall Phase effect and the phase
+difference within each condition. The model is currently **NOT RUN**; the new
+checklist in `ANALYSIS_ROADMAP.md` defines completion. Evaluate evidence for an
+interaction without selecting methods, exclusions or priors to reach significance.
+
 A Bayesian extension is authorized. It must disclose likelihood, priors and
 approximation, compare simpler response models, check prior sensitivity and
 prediction, and propagate individual uncertainty. Bayesian inference is not

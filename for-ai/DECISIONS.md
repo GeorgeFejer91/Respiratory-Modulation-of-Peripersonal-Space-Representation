@@ -288,3 +288,23 @@ The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.
 - Supersedes: Requirements to refresh manuscript prose/PDFs for each new analysis
   during this phase. Privacy, actual-browser, independent-check and Pages gates
   remain; prior scientific claims and audit records stay available.
+
+## D-0013 — Joint Bayesian respiratory interaction goal
+
+- Date: 2026-10-18
+- Status: Goal accepted; joint model not yet specified numerically or run.
+- Context: Following the unpooled Bayesian and conventional posterior-median
+  analyses, the owner prioritises testing a PPS interaction involving Inhale
+  versus Exhale in one Bayesian parameter-fitting analysis.
+- Decision: Make the Condition × Phase difference of differences in boundary and
+  normalized sharpness the next joint-model target. Retain the Phase main effect
+  and both within-condition phase contrasts. Estimate curves and repeated-measures
+  effects jointly with partial pooling; the roadmap owns the ordered work.
+- Consequences: Fix likelihood/priors/diagnostics and sensitivities before fitting;
+  label the extension post-results exploratory. Preserve the current cohort,
+  preparation, published findings and manuscript pause. Completion requires a
+  checked, reproducible answer including any inconclusive result. A desired
+  significant interaction is not a method-selection or stopping criterion.
+- Supersedes: The earlier completion summary's scope; it now excludes the newly
+  opened joint-model tasks Q3.7–Q3.11. Existing results remain valid records of
+  their stated analyses and do not become results of a joint hierarchy.
