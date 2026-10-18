@@ -1,0 +1,25 @@
+model,discrepancy,observed_median,replicated_median,posterior_predictive_p
+joint_logistic,AT mean-profile residual,792.1454623528418,799.8429170334698,0.559
+joint_logistic,Baseline mean-profile residual,899.7989007666793,799.9883731330478,0.017
+joint_logistic_wide,AT mean-profile residual,797.9862906744534,800.8408471989361,0.537
+joint_logistic_wide,Baseline mean-profile residual,897.9267359978236,798.1848990874944,0.022
+joint_logistic_student,AT mean-profile residual,886.8823607939642,803.1938458494685,0.057
+joint_logistic_student,Baseline mean-profile residual,873.1502284355048,799.2948641389178,0.086
+joint_logistic_same_label,AT mean-profile residual,796.1989042034625,798.6198640919497,0.508
+joint_logistic_same_label,Baseline mean-profile residual,795.9551285979549,800.3184146406329,0.54
+joint_constant,AT mean-profile residual,903.9019258622661,798.9065241754777,0.011
+joint_constant,Baseline mean-profile residual,904.2102717172369,796.5895314300722,0.014
+joint_linear,AT mean-profile residual,784.1582265787875,799.1357649785743,0.625
+joint_linear,Baseline mean-profile residual,903.1372883643096,800.7755297525273,0.017
+joint_log_distance,AT mean-profile residual,794.7036502129963,800.385770014009,0.533
+joint_log_distance,Baseline mean-profile residual,902.7251913508093,801.1745556820654,0.022
+joint_logistic_marginal,AT mean-profile residual,791.2549407910742,799.8534703110987,0.574
+joint_logistic_marginal,Baseline mean-profile residual,910.0660226859744,797.1502622602129,0.013
+joint_logistic_heterogeneous,AT mean-profile residual,791.5573034754111,800.8178709304177,0.569
+joint_logistic_heterogeneous,Baseline mean-profile residual,901.9372775249406,797.9293907281219,0.027
+joint_constant_student,AT mean-profile residual,994.4590907213673,799.9613308557884,0.001
+joint_constant_student,Baseline mean-profile residual,878.4322029633515,799.2396769313643,0.094
+joint_linear_student,AT mean-profile residual,880.2872314095936,800.820439947765,0.098
+joint_linear_student,Baseline mean-profile residual,877.2865083172713,800.5495968223913,0.098
+joint_log_distance_student,AT mean-profile residual,889.8180597910919,799.380318692558,0.052
+joint_log_distance_student,Baseline mean-profile residual,877.1438519510649,799.3955370135582,0.089

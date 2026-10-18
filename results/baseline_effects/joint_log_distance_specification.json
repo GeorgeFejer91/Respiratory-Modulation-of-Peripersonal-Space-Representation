@@ -1,0 +1,21 @@
+{
+  "correction": "pooled_cp",
+  "likelihood": "gaussian",
+  "prior_scale": 1.0,
+  "family": "log_distance",
+  "priors": {
+    "baseline_mean_seconds": "Normal(.6,.4), independently for each matched baseline pool",
+    "corrected_intercept_seconds": "four fixed coefficients Normal(0,.2), independent participant coefficient SDs HalfNormal(.12)",
+    "signed_amplitude_seconds": "four fixed coefficients Normal(0,.15), independent participant coefficient SDs HalfNormal(.15)",
+    "midpoint_normalized": "fixed intercept Normal(.5,.5*s), other fixed coefficients Normal(0,.5*s); random coefficient SDs HalfNormal(.35*s)",
+    "log_width_normalized": "fixed intercept Normal(log(1/6),.7*s), other fixed coefficients Normal(0,.7*s); random coefficient SDs HalfNormal(.5*s)",
+    "sigma_seconds": "independent by participant and trial type, LogNormal(log(.12),.5)",
+    "student_df": "2+Exponential(rate=1/15); common AT/Baseline",
+    "coding": "Condition and Phase ±.5; interaction product; all random coefficients independent conditional on SDs"
+  },
+  "chains": 4,
+  "draws": 12000,
+  "tune": 6000,
+  "target_accept": 0.99,
+  "adaptation": "diag"
+}

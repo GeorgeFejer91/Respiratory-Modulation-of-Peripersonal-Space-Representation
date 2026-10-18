@@ -1,0 +1,19 @@
+{
+  "model": "recovery_known200",
+  "seconds": 91.29583984599958,
+  "divergences": 0,
+  "max_rhat": 1.004872916294996,
+  "min_bulk_ess": 1054.3414849331448,
+  "min_tail_ess": 1208.1742892002428,
+  "target_max_rhat": 1.000913437163429,
+  "target_min_bulk_ess": 2842.548065767721,
+  "target_min_tail_ess": 4430.330918673232,
+  "configuration": {
+    "scenario": "known200",
+    "synthetic": true
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 3000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}

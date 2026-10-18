@@ -1,0 +1,105 @@
+{
+  "status": "finite batches specified before their execution; later diagnostic and nominal-hit amendments labelled; exploratory, not preregistered",
+  "seed": 20261018,
+  "primary": "primary40 / pooled_cp / mean / registered / unsmoothed",
+  "correction": "Audio-Tactile minus participant × Condition × Phase Baseline mean",
+  "correction_sensitivities": [
+    "same_label (timing equivalence unverified)",
+    "raw reference"
+  ],
+  "cohorts": {
+    "primary40": [
+      "P011",
+      "P033"
+    ],
+    "exclude_P011": [
+      "P011"
+    ],
+    "exclude_P033": [
+      "P033"
+    ],
+    "provisional42": []
+  },
+  "families": [
+    "logistic",
+    "probit",
+    "gompertz",
+    "loglogistic",
+    "fixed_extrema_logistic"
+  ],
+  "extractors": [
+    "mean",
+    "median"
+  ],
+  "smoothers": [
+    "none",
+    "gaussian_constant bandwidth .15 of distance range"
+  ],
+  "axes": [
+    "registered",
+    "trajectory"
+  ],
+  "curve_weights": "equal distance means; trial-count-weighted logistic sensitivity",
+  "grid": {
+    "midpoint_normalized": [
+      -0.5,
+      1.5,
+      61
+    ],
+    "width_normalized": [
+      0.025,
+      2.0,
+      41
+    ],
+    "signed_amplitude_bound_ms": 1000,
+    "loglogistic_min_midpoint_cm": 1
+  },
+  "tests": [
+    "paired t / equivalent one-df RM ANOVA",
+    "sign-flip 19999",
+    "Wilcoxon",
+    "sign test",
+    "paired JZS BF10",
+    "participant bootstrap 4999",
+    "leave-one-person-out"
+  ],
+  "categorical_distance": "univariate RM ANOVA with GG sphericity adjustment and multivariate Hotelling test",
+  "p_values": "unadjusted; GG is a sphericity adjustment, not a multiple-testing correction",
+  "shape_refits": "500 two-level participant/trial bootstraps, primary40, mean, registered, unsmoothed, all five families, both baseline corrections; stability intervals, not validated coverage",
+  "prediction": "leave-one-distance-out, every primary40 cell, raw/pooled/same-label; constant/linear/log-distance/five sigmoid families",
+  "bayesian": {
+    "joint_likelihood": "original Baseline and Audio-Tactile; corrected curve = AT expectation minus Baseline expectation",
+    "primary": "hierarchical Gaussian logistic, random participant coefficients for all four factorial contrasts",
+    "sensitivity": [
+      "twice-wide shape priors",
+      "Student-t trial likelihood",
+      "same-label Baseline Gaussian",
+      "post-hoc independent-nuisance marginal Gaussian model",
+      "post-hoc participant × cell residual scales"
+    ],
+    "comparators": [
+      "constant",
+      "linear",
+      "log-distance"
+    ],
+    "chains": 4,
+    "draws": 1500,
+    "tune": 1500,
+    "target_accept": 0.95,
+    "diagnostic_extension": "up to 6000 tuning / 12000 retained draws per chain, target accept .99; numerical extensions only for failed diagnostics; retain failures",
+    "gate": "rank Rhat <= 1.01, bulk/tail ESS >= 400 for target contrasts, no divergences"
+  },
+  "stopping": "complete this finite battery and diagnostic-driven extensions, regardless of effect direction/p value",
+  "limits": "No causal mediation, positive-amplitude requirement, forced plateau, negative-RT log transform, or significance-selected cleaning. Native execution only.",
+  "numerical_checks": {
+    "continuous_refinement": "all five families × both baseline corrections × four cohorts; unsmoothed means on registered axis; finer 121×81 grid and bounded continuous multistart least squares",
+    "matched_noise_recovery": "20 replicates each: flat, null80, known80, known200 ms amplitudes; retained counts/noise; known midpoint effects +10,-10,+15cm; log-width effects +.15,-.15,+.2",
+    "joint_recovery": "one null80 and one known200 dataset; diagnostic rather than repeated coverage validation",
+    "bayesian_cv": "20 held-distance refits: constant, linear, log-distance and hierarchical logistic; independent baseline calibration retained; four chains 1500/1500, diagnostic extension 3000 tune/6000 draws",
+    "tie_rule": "neutral-shape order within max(1e-8,1e-10 × centered weighted sum of squares) objective tolerance",
+    "nominal_hit_audit": "post hoc: all three nominal-hit specifications, continuous refinement plus 500 refits; all six contrasts retained; no new confirmatory claim",
+    "marginal_model": "post hoc nuisance-pooling sensitivity after primary sampling difficulties; independent N(0,.2) corrected intercept and N(0,.15) amplitude (seconds), integrated analytically; original shape hierarchy",
+    "heterogeneous_model": "post hoc cell-specific LogNormal(log(.12),.5) residual scales after visual inspection of unequal cell noise; independent nuisance model and same shape priors; all experimental contrasts retained",
+    "robust_RT_followup": "post hoc Student-t constant, linear and log-distance counterparts to check the RT-level interaction suggested by the Student-t sigmoid; all level/distance effects, including population fixed coefficients, retained; 1500 tune/draw initially, 3000 tune/6000 draws only if diagnostics require"
+  }
+}

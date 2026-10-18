@@ -1,0 +1,21 @@
+{
+  "model": "joint_log_distance_student",
+  "seconds": 150.90145401599875,
+  "divergences": 0,
+  "max_rhat": 1.0026428229315805,
+  "min_bulk_ess": 1572.5729078599834,
+  "min_tail_ess": 2051.592136804613,
+  "target_max_rhat": 1.0006336748829687,
+  "target_min_bulk_ess": 7138.714682740312,
+  "target_min_tail_ess": 9785.39898385591,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "student",
+    "prior_scale": 1.0,
+    "family": "log_distance"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 6000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}

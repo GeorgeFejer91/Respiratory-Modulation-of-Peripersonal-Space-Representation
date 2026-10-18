@@ -1,0 +1,23 @@
+{
+  "correction": "pooled_cp",
+  "likelihood": "gaussian",
+  "prior_scale": 1.0,
+  "family": "logistic",
+  "nuisance_model": "marginal_independent",
+  "priors": {
+    "baseline_mean_seconds": "Normal(.6,.4), independently for each matched baseline pool",
+    "corrected_intercept_seconds": "independent Normal(0,.2) by participant × cell; integrated analytically",
+    "signed_amplitude_seconds": "independent Normal(0,.15) by participant × cell; integrated analytically",
+    "midpoint_normalized": "fixed intercept Normal(.5,.5*s), other fixed coefficients Normal(0,.5*s); random coefficient SDs HalfNormal(.35*s)",
+    "log_width_normalized": "fixed intercept Normal(log(1/6),.7*s), other fixed coefficients Normal(0,.7*s); random coefficient SDs HalfNormal(.5*s)",
+    "sigma_seconds": "independent by participant and trial type, LogNormal(log(.12),.5)",
+    "student_df": "2+Exponential(rate=1/15); common AT/Baseline",
+    "coding": "Condition and Phase ±.5; interaction product; all random coefficients independent conditional on SDs"
+  },
+  "chains": 4,
+  "draws": 3000,
+  "tune": 3000,
+  "target_accept": 0.99,
+  "adaptation": "diag",
+  "amendment": "Nuisance-pooling sensitivity added after primary sampling difficulties; same shape priors; all effects retained regardless of direction"
+}

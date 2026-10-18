@@ -1,0 +1,21 @@
+{
+  "model": "joint_log_distance",
+  "seconds": 23.568546383001376,
+  "divergences": 0,
+  "max_rhat": 1.0010295684392339,
+  "min_bulk_ess": 3726.4984951727106,
+  "min_tail_ess": 5170.270606861526,
+  "target_max_rhat": 1.000327561915117,
+  "target_min_bulk_ess": 17681.11062122339,
+  "target_min_tail_ess": 25530.811150306385,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "gaussian",
+    "prior_scale": 1.0,
+    "family": "log_distance"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 12000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}

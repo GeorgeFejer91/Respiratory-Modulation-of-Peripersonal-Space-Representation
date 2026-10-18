@@ -146,7 +146,7 @@ check all F/p/df against statsmodels AnovaRM, verify pairing/missing/duplicate-c
 handling, and include the primary table and actual CSV download in browser parity.
 Keep the omitted within-fit uncertainty explicit and all p values unadjusted.
 
-For the pending baseline-corrected model comparison (D-0014), first fix the finite
+For the baseline-corrected model comparison (D-0014), first fix the finite
 numerical registry in `workbook/ANALYSIS_PLAN.md`. Verify the correction's sign and
 participant/Condition/Phase matching, sparse/missing baseline handling, covariance
 from reused baseline means, and free-intercept translation invariance. Check all
@@ -155,6 +155,20 @@ linear/log-distance slopes must not be labelled sigmoid boundaries/sharpness.
 Independent checks, null/known-effect recovery, model diagnostics, real browser
 execution/download and complete results reporting are required before promotion.
 The recorded goal and literature update do not satisfy these unrun numerical gates.
+
+The owner's subsequent results-only request defers Pages documentation and
+browser integration for the native batch in `analysis/baseline_effects/`. Its
+executable registry is `results/baseline_effects/analysis_registry.json`, including
+labelled numerical/post hoc amendments. Run its own unit/numerical checks, preserve
+the unchanged public-data hashes, inspect every output figure, verify all result
+counts and diagnostic flags, and hash the native results bundle. Shared baseline
+covariance, full-trial versus sufficient-statistic likelihoods, analytically
+marginalized likelihoods versus full multivariate normals, continuous refinement,
+paired ANOVA and translation invariance have independent checks. Failed sampler
+diagnostics and weak recovery remain findings rather than completed measurement
+validation. Native-only execution must be explicit; the earlier browser gates
+continue to apply to any future browser integration. Do not rebuild the site or
+refresh manuscripts merely to deliver these native numerical results.
 
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;

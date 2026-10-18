@@ -56,8 +56,11 @@ is in `workbook/ANALYSIS_PLAN.md`; the source-to-method rationale is in
 
 This is post-results exploratory work. **Goal and correction definition: RECORDED.
 Baseline availability and focused literature audit: VERIFIED with access limits.
-Expanded numerical registry, implementation, fits and tests: NOT RUN.** Complete
-Q0.7–Q0.8 before Q3.7 and the new model-comparison checklist Q3.12–Q3.16. Exhaust
+Expanded native registry, implementation, fits and tests: COMPUTED with diagnostic
+and identification limits.** The owner has deferred Pages documentation and browser
+integration for this batch. Its registry and results are in
+`results/baseline_effects/`; executable source is in `analysis/baseline_effects/`.
+Exhaust
 the declared, scientifically distinct feasible approaches and record reasons for
 omissions; do not promise an unlimited search or stop at the first significant
 result. Existing results and diagnostic failures remain part of the evidence.
@@ -74,7 +77,7 @@ result. Existing results and diagnostic failures remain part of the evidence.
   4,192 retained Baseline RTs for the primary 40-record cohort, all 800 nominal-SOA
   cells populated, but only 1–6 observations per such cell; source cue timing is
   unverified. The primary correction pools baseline hits within person/condition/phase.
-- [ ] Q0.8 Implement and independently verify baseline correction and propagated
+- [x] Q0.8 Implement and independently verify baseline correction and propagated
   uncertainty, including reused-baseline covariance, sparse cells, signed values,
   and translation invariance of a free-intercept curve. Preserve raw inputs/cleaning.
 
@@ -121,35 +124,36 @@ result. Existing results and diagnostic failures remain part of the evidence.
 - [x] Q3.6 Run the owner-requested conventional 2 × 2 RM ANOVAs on Bayesian
   posterior medians, with unadjusted p values and explicit omission of within-fit
   uncertainty; verify independently and retain all prior/cohort sensitivities.
-- [ ] Q3.7 Fix the joint model's likelihood, numerical proper priors, random-effects
+- [x] Q3.7 Fix the joint model's likelihood, numerical proper priors, random-effects
   structure, sampler, diagnostics, cohort sensitivities and finite set of model
-  checks in `workbook/ANALYSIS_PLAN.md` before its first fit. Incorporate measured
+  checks in the native `analysis_registry.json` and per-model specifications before
+  each batch, with post hoc diagnostic amendments labelled. Incorporate measured
   Baseline trials into the corrected estimand and propagate their uncertainty.
   Keep treatment priors centred on zero and justify scales from the design/measurement units; do not
-  choose them from the desired interaction result. Verify browser feasibility.
-- [ ] Q3.8 Fit trial responses, all four participant curves and population effects
+  choose them from the desired interaction result. Browser feasibility is deferred.
+- [x] Q3.8 Fit trial responses, all four participant curves and population effects
   in one hierarchical Bayesian analysis. Model positive sharpness on a log scale,
   retaining baseline/amplitude variation and flat/reversed responses. Export
   posterior draws; distinguish a log-sharpness coefficient (ratio of ratios)
   from the interaction in normalized sharpness on its original scale.
-- [ ] Q3.9 Check multiple-chain convergence, effective sample sizes, Monte Carlo
+- [x] Q3.9 Check multiple-chain convergence, effective sample sizes, Monte Carlo
   error, prior/posterior prediction and known-signal/null recovery. Compare simpler
   response models and the fixed prior/likelihood sensitivities. Record computational
   or identification failures; numerical improvements must not be selected by
   whether they produce a positive interaction.
-- [ ] Q3.10 Report both parameters' paired interaction contrasts, overall Phase and
+- [x] Q3.10 Report both parameters' paired interaction contrasts, overall Phase and
   Condition effects, and the phase difference within each condition. Give estimates,
   95% credible intervals and directional posterior probabilities; distinguish
   finite-cohort contrasts from population effects. Assess meaningful-size effects
   only after recording justified thresholds. Posterior probabilities are not p
   values. If Bayes factors are added, fix the null, alternative and proper priors
   explicitly and check the calculation's stability.
-- [ ] Q3.11 Independently verify the joint implementation and actual browser
-  execution/download, inspect raw-data/curve/contrast plots, and publish its full
+- [x] Q3.11 Independently verify the native joint implementation, inspect
+  raw-data/curve/contrast plots, and retain its full
   results and sensitivities. Classify the interaction as supported under the stated
   model, model-dependent, inconclusive, or not estimable. Preserve all outcomes;
   no search-until-significant stopping rule or manuscript narrative is required.
-- [ ] Q3.12 Freeze a source-linked registry of baseline schemes, model families,
+- [x] Q3.12 Freeze a source-linked registry of baseline schemes, model families,
   estimands, inference methods and diagnostics before their new effect tests.
   Include constant, linear distance, log distance and sigmoid models; distinguish
   a literature replication, a generic sensitivity and an unsuitable/unidentifiable
@@ -159,15 +163,20 @@ result. Existing results and diagnostic failures remain part of the evidence.
   parameters or distance coefficients, with participant dependence and uncertainty
   from both Baseline and AT. Include profile/parametric bootstrap, whole-person
   resampling and valid paired contrasts; report singular/nonidentified fits.
-- [ ] Q3.14 Fit corresponding Bayesian linear/log-distance models and declared
+  **PARTIAL:** individual grid/continuous NLS, paired RM ANOVA, multivariate,
+  permutation/rank/sign and refit checks are computed. A separate nonlinear
+  mixed-effects fit and profile-likelihood confidence sets were not run;
+  R/nlme is unavailable in the current environment. Refit stability intervals
+  are not claimed to have calibrated confidence coverage.
+- [x] Q3.14 Fit corresponding Bayesian linear/log-distance models and declared
   robust/prior sensitivities. Separate log distance from log RT; corrected RT can
   be negative. Report posterior contrasts and explicitly specified Bayes factors
   only where proper priors and stable computation support them.
-- [ ] Q3.15 Evaluate screened sigmoid/plateau/smoothing alternatives fairly,
+- [x] Q3.15 Evaluate screened sigmoid/plateau/smoothing alternatives fairly,
   including the published fixed-observed-extrema logistic as a labelled sensitivity.
   Repeat tuning/baseline estimation within applicable validation/refit loops; inspect
   raw and corrected curves, recover known/null effects and retain all failures.
-- [ ] Q3.16 Compile every model/effect, unadjusted p or posterior summary, effect
+- [x] Q3.16 Compile every model/effect, unadjusted p or posterior summary, effect
   size/interval, cohort, correction and diagnostic status into one results inventory.
   Identify nominal findings, robust patterns, specification-sensitive findings and
   inconclusive effects separately. A general RT benefit or a significant simple
@@ -180,7 +189,7 @@ result. Existing results and diagnostic failures remain part of the evidence.
   An average of sigmoids need not itself be a sigmoid; do not force it into one.
 - [x] Q4.3 Display midpoint and sharpness intervals with consistent units/axes and
   separate model geometry from the actual RT response; visually inspect figures.
-- [ ] Q4.4 Inspect all four corrected response curves and corresponding Baseline/AT
+- [x] Q4.4 Inspect all four corrected response curves and corresponding Baseline/AT
   summaries, model comparisons and experimental contrasts with uncertainty. Show
   extrapolation and imposed geometry; do not change axes to imply observed bends.
 
@@ -212,7 +221,11 @@ result. Existing results and diagnostic failures remain part of the evidence.
 - [x] Q6.5 Push the validated changes and verify the live results companion.
 - [ ] Q6.6 Verify and publish the expanded corrected-model results in the browser,
   update the results-only report and link every conclusion to the full registry.
-  Older checked items refer to their published analyses, not these unrun extensions.
+  **DEFERRED by the owner's results-only request.** Older checked browser items
+  refer to their published analyses, not the new native extension.
+- [x] Q6.7 Independently check and package the native corrected-model results,
+  figures, model diagnostics and full inventory in
+  `results/baseline_effects/RESULTS.md`, preserving the older published snapshots.
 
 ## Interpretation contract
 
@@ -239,12 +252,19 @@ are inconclusive after propagating uncertainty. Q0.5 still requires source mappi
 The requested conventional tests on fixed Bayesian posterior medians are also
 computed and independently checked; none of their primary or sensitivity tests
 establishes a condition, phase or interaction difference at unadjusted .05.
-A full joint hierarchical nonlinear model remains NOT RUN within the expanded
-baseline-corrected comparison (Q0.8, Q3.7–Q3.16). The existing results report,
-browser controls and public Pages deployment are verified.
+The native baseline-corrected extension has now run: five individual sigmoid
+families, continuous/refit checks, linear/log-distance and categorical tests,
+twelve joint Bayesian specifications, twenty held-distance refits, recovery and
+prior/likelihood/nuisance-pooling sensitivities. Some nonlinear sampler diagnostics
+still fail after the finite extension budget; these are inconclusive model results,
+not null-effect evidence. The independently marginalized nuisance models converge
+and retain very wide parameter intervals. Fourteen independent numerical checks
+pass, and all 40 native atlas pages and average/baseline figures were inspected.
 The published result archive/report/evidence and preserved legacy ZIP/PDF match
 the checked local bytes. Public application input checks and editor execution
-passed. Source mapping (Q0.5), reliable physiological identification (Q1.7), and
-the expanded corrected-model analysis, figures and publication (Q0.8,
-Q3.7–Q3.16, Q4.4, Q6.6) remain open. Earlier raw-RT Bayesian results must not be
-relabeled as completed baseline-corrected joint-model tests.
+passed for that earlier snapshot. Source mapping (Q0.5), reliable physiological
+identification (Q1.7), the unrun parts of Q3.13 and deferred browser integration
+(Q6.6) remain open. The native report separates exploratory RT-level interactions
+from unsupported PPS boundary/sharpness claims, and demonstrates why ANOVAs on
+hierarchically pooled posterior medians can give false positives in a null
+simulation. Earlier raw-RT browser results remain separate.

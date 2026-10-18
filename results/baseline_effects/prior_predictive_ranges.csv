@@ -1,0 +1,25 @@
+model,distribution,quantity,median,low,high
+joint_logistic,prior,corrected expected RT over people/cells/distances,-15.771984759006315,-624.8645823004088,607.6153992408341
+joint_logistic,posterior,corrected expected RT over people/cells/distances,-18.475031246618798,-69.21193800366508,35.40346006652094
+joint_logistic_wide,prior,corrected expected RT over people/cells/distances,-16.106695461827996,-629.2889749619288,610.4167952367361
+joint_logistic_wide,posterior,corrected expected RT over people/cells/distances,-18.359828241443086,-68.7927071192566,36.39175780109502
+joint_logistic_student,prior,corrected expected RT over people/cells/distances,-15.771984759006315,-624.8645823004088,607.6153992408341
+joint_logistic_student,posterior,corrected expected RT over people/cells/distances,-20.10370309399781,-72.05146399466665,38.761164414951395
+joint_logistic_same_label,prior,corrected expected RT over people/cells/distances,-15.771984759006315,-624.8645823004088,607.6153992408341
+joint_logistic_same_label,posterior,corrected expected RT over people/cells/distances,-15.603819279502309,-66.78815384531562,32.27983511868948
+joint_constant,prior,corrected expected RT over people/cells/distances,-4.452627354426141,-556.0020649069318,554.4529104432153
+joint_constant,posterior,corrected expected RT over people/cells/distances,-18.214887424217494,-59.923945508618125,25.217316353281493
+joint_linear,prior,corrected expected RT over people/cells/distances,-5.367623624589268,-622.5599312739881,591.89047332995
+joint_linear,posterior,corrected expected RT over people/cells/distances,-18.359902499124722,-67.5567865484063,32.58490957163992
+joint_log_distance,prior,corrected expected RT over people/cells/distances,-5.383969572479071,-621.5955161151566,592.697236817315
+joint_log_distance,posterior,corrected expected RT over people/cells/distances,-17.930557256405862,-67.71879535575144,31.01961558801847
+joint_logistic_marginal,prior,corrected expected RT over people/cells/distances,-1.4126663660778354,-408.42451260834844,409.12079294458994
+joint_logistic_marginal,posterior,corrected expected RT over people/cells/distances,-17.853556290670163,-114.95776245893299,80.88890986732137
+joint_logistic_heterogeneous,prior,corrected expected RT over people/cells/distances,-1.4126663660778354,-408.42451260834844,409.12079294458994
+joint_logistic_heterogeneous,posterior,corrected expected RT over people/cells/distances,-17.821570966977564,-115.70295161715764,80.15809510848021
+joint_constant_student,prior,corrected expected RT over people/cells/distances,-4.452627354426141,-556.0020649069318,554.4529104432153
+joint_constant_student,posterior,corrected expected RT over people/cells/distances,-19.782013676793994,-65.76951485781521,27.028464072216952
+joint_linear_student,prior,corrected expected RT over people/cells/distances,-5.367623624589268,-622.5599312739881,591.89047332995
+joint_linear_student,posterior,corrected expected RT over people/cells/distances,-19.962449134912244,-71.24676941652625,34.20965783827747
+joint_log_distance_student,prior,corrected expected RT over people/cells/distances,-5.383969572479071,-621.5955161151566,592.697236817315
+joint_log_distance_student,posterior,corrected expected RT over people/cells/distances,-19.446927268552678,-71.43847060160547,32.81146646328147

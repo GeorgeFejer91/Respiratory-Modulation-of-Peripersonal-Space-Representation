@@ -30,9 +30,14 @@ provide distance slopes and response contrasts, not intrinsic PPS boundaries.
 Screen additional literature methods in an explicit finite registry, recording
 implemented, redundant, unsuitable and inaccessible approaches. Prioritize relevant
 experimental results while reporting the full family, uncertainty and failures.
-The expanded fits/tests are **NOT RUN**; `ANALYSIS_ROADMAP.md` defines completion.
-Neither a significant result nor exhausting an unlimited set of methods is a
-scientific stopping criterion.
+The owner has set aside GitHub Pages documentation for the current task and
+prioritized obtaining results. The expanded native batch lives in
+`analysis/baseline_effects/`, with its finite registry, complete numerical outputs
+and results-only report in `results/baseline_effects/`. It preserves failed
+diagnostics and labels post hoc checks. These results are separate from the
+existing browser and manuscript snapshots; native execution does not establish
+browser execution. Neither significance nor an unlimited search is a scientific
+stopping criterion. `ANALYSIS_ROADMAP.md` records the remaining evidence limits.
 
 A Bayesian extension is authorized. It must disclose likelihood, priors and
 approximation, compare simpler response models, check prior sensitivity and

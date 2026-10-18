@@ -1,0 +1,21 @@
+{
+  "model": "joint_linear_student",
+  "seconds": 150.0574879980013,
+  "divergences": 0,
+  "max_rhat": 1.0025205482881436,
+  "min_bulk_ess": 1650.820619703132,
+  "min_tail_ess": 2353.230947381641,
+  "target_max_rhat": 1.0003865573672026,
+  "target_min_bulk_ess": 8101.1970971110495,
+  "target_min_tail_ess": 10858.365469797085,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "student",
+    "prior_scale": 1.0,
+    "family": "linear"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 6000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}

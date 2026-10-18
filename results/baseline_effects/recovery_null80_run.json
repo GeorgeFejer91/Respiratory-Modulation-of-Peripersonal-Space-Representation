@@ -1,0 +1,19 @@
+{
+  "model": "recovery_null80",
+  "seconds": 111.02421485000013,
+  "divergences": 0,
+  "max_rhat": 1.0087308234420609,
+  "min_bulk_ess": 426.52888910278557,
+  "min_tail_ess": 626.6415593889894,
+  "target_max_rhat": 1.005224804664949,
+  "target_min_bulk_ess": 838.4148241238124,
+  "target_min_tail_ess": 1012.3091786778515,
+  "configuration": {
+    "scenario": "null80",
+    "synthetic": true
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 3000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}

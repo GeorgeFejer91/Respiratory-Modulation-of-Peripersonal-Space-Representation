@@ -1,0 +1,21 @@
+{
+  "model": "joint_logistic_wide",
+  "seconds": 268.9533824399987,
+  "divergences": 4,
+  "max_rhat": 1.0054454115316795,
+  "min_bulk_ess": 516.6657064729173,
+  "min_tail_ess": 304.6534659339424,
+  "target_max_rhat": 1.002256821624707,
+  "target_min_bulk_ess": 2979.8386269327625,
+  "target_min_tail_ess": 758.1166146817878,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "gaussian",
+    "prior_scale": 2.0,
+    "family": "logistic"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 12000,
+  "chains": 4,
+  "target_diagnostic_gate": false
+}

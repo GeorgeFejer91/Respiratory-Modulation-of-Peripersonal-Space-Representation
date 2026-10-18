@@ -1,0 +1,7 @@
+model,quantity,term,posterior_mean,posterior_median,ci_low,ci_high,probability_positive
+joint_constant,mean_RT_effect_ms,Condition,-3.797549538079505,-3.7843264806538652,-11.275126103606514,3.611597406801326,0.15879166666666666
+joint_constant,mean_RT_effect_ms,Phase,-1.5722641198166587,-1.5762342610947302,-9.126012642494716,6.0494396120264025,0.34210416666666665
+joint_constant,mean_RT_effect_ms,Condition × Phase,-14.615129593292673,-14.596789961985426,-29.509796642414347,0.20499293082033268,0.026479166666666668
+joint_constant,far_minus_near_effect_ms,Condition,0.0,0.0,0.0,0.0,0.0
+joint_constant,far_minus_near_effect_ms,Phase,0.0,0.0,0.0,0.0,0.0
+joint_constant,far_minus_near_effect_ms,Condition × Phase,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,21 @@
+{
+  "model": "joint_logistic_student",
+  "seconds": 688.1177109570017,
+  "divergences": 0,
+  "max_rhat": 1.0816881951593618,
+  "min_bulk_ess": 34.299947708681806,
+  "min_tail_ess": 60.502332157630285,
+  "target_max_rhat": 1.0358526817386022,
+  "target_min_bulk_ess": 178.0323051863988,
+  "target_min_tail_ess": 154.6185236672315,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "student",
+    "prior_scale": 1.0,
+    "family": "logistic"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 12000,
+  "chains": 4,
+  "target_diagnostic_gate": false
+}

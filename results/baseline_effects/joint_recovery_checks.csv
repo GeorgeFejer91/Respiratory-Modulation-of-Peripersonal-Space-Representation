@@ -1,0 +1,9 @@
+scenario,metric,rmse,fraction_95ci_covering_truth,correlation
+null80,midpoint_cm,12.128306757550261,0.9875,0.5079016758467128
+null80,sharpness_per_cm,0.010157823935278726,0.9625,0.23051681706316654
+null80,population_midpoint_effect_cm,2.9121680146149096,1.0,not_applicable
+null80,population_log_sharpness_effect,0.0708244856712571,1.0,not_applicable
+known200,midpoint_cm,6.206298983052768,0.95,0.8927399507793272
+known200,sharpness_per_cm,0.003314423123098829,0.9875,0.5489394116957693
+known200,population_midpoint_effect_cm,0.621651212050111,1.0,not_applicable
+known200,population_log_sharpness_effect,0.05800076082689325,1.0,not_applicable

@@ -1,0 +1,10 @@
+model,quantity,term,posterior_mean,posterior_median,ci_low,ci_high,probability_positive
+joint_constant_student,mean_RT_effect_ms,Condition,-2.981880537191002,-3.0346042425015787,-10.082483416302964,4.358033310152982,0.19883333333333333
+joint_constant_student,mean_RT_effect_ms,Phase,-1.7320409560387298,-1.7140182985729662,-8.936740337742325,5.5146461460649165,0.3165
+joint_constant_student,mean_RT_effect_ms,Condition × Phase,-17.573768799830464,-17.480593488777416,-31.97078696837338,-3.476799177593832,0.006666666666666667
+joint_constant_student,far_minus_near_effect_ms,Condition,0.0,0.0,0.0,0.0,0.0
+joint_constant_student,far_minus_near_effect_ms,Phase,0.0,0.0,0.0,0.0,0.0
+joint_constant_student,far_minus_near_effect_ms,Condition × Phase,0.0,0.0,0.0,0.0,0.0
+joint_constant_student,population_mean_RT_effect_ms,Condition,-2.963103898267003,-3.054884223620304,-10.687731125161953,5.045052639985099,0.21766666666666667
+joint_constant_student,population_mean_RT_effect_ms,Phase,-1.7603588328731046,-1.8317878208066423,-9.694166148918114,6.384710405443597,0.3293333333333333
+joint_constant_student,population_mean_RT_effect_ms,Condition × Phase,-17.546083909649372,-17.473731671735415,-32.425304611402545,-2.827542867441246,0.009833333333333333

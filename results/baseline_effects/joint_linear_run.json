@@ -1,0 +1,21 @@
+{
+  "model": "joint_linear",
+  "seconds": 23.051194160001614,
+  "divergences": 0,
+  "max_rhat": 1.001062535521857,
+  "min_bulk_ess": 3646.509850203888,
+  "min_tail_ess": 5237.313201021755,
+  "target_max_rhat": 1.000287795046826,
+  "target_min_bulk_ess": 17291.952295240328,
+  "target_min_tail_ess": 24556.30373303342,
+  "configuration": {
+    "correction": "pooled_cp",
+    "likelihood": "gaussian",
+    "prior_scale": 1.0,
+    "family": "linear"
+  },
+  "n_participants": 40,
+  "posterior_draws_per_chain": 12000,
+  "chains": 4,
+  "target_diagnostic_gate": true
+}
