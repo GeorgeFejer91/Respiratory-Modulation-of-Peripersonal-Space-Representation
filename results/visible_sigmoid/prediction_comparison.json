@@ -1,0 +1,13 @@
+{
+  "visible95_RMSE_ms": 76.47265397474028,
+  "broad_RMSE_ms": 46.90183415866582,
+  "MSE_difference": 3648.2847584933697,
+  "MSE_low": 2932.355183812062,
+  "MSE_high": 4364.214333174677,
+  "log_score_difference": -294.6015201497088,
+  "log_score_cluster_SE": 25.836396309314583,
+  "all_predictive_gates": false,
+  "converged_folds": 4,
+  "converged_fold_visible_RMSE_ms": 66.91730760608333,
+  "converged_fold_broad_RMSE_ms": 45.856612420567444
+}

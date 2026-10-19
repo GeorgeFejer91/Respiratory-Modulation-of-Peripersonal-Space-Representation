@@ -189,6 +189,16 @@ interval follows from its prior support; never count it as evidence for the sign
 Preserve reversed raw observations and earlier signed results. Shared orientation
 must not be described as shared numerical asymptote heights or observed plateaus.
 
+For the explicit visible-S amendment, run the five checks in
+`analysis/visible_sigmoid/test_visible.py`, both declared fits, five primary held-
+distance refits and `make_report.py`. Verify endpoint bounds on every draw and
+all 160 median-parameter curves; verify exact matching to the broad reference's
+held-out trials. Inspect the normalized/actual-RT/boundary figures and all 40
+atlas pages. Retain the prior-versus-posterior and width-cap diagnostics. The
+shape, in-range midpoints and sharpness floor are prior guarantees, not evidence
+of observed curvature or measurement precision. Label mean-parameter curves
+separately from mean RT functions and preserve all existing input/output hashes.
+
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

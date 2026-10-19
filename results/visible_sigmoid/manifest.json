@@ -1,0 +1,68 @@
+{
+  "input_sha256": {
+    "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "source_sha256": {
+    "analysis/visible_sigmoid/make_report.py": "3b26a7a348c427592abe178e91c8606a450add95958e14acebf63eea62cea27a",
+    "analysis/visible_sigmoid/test_visible.py": "cd642dcf2de8835c5984190dfa8c78e26a884db0cc18fafc2366985cfd0fa161",
+    "analysis/visible_sigmoid/fit.py": "c14c9d29423b9d4d9aaea0b9fef92eb634fa550d673d16158f19789122aaa30d",
+    "analysis/directional_sigmoid/model.py": "8bd3120caf75f7f643473bf5d7403d2569ff39125c55e5512debd688a805e95f",
+    "analysis/directional_sigmoid/report.py": "b7f7272e2032d0d16c667e9028e56d8363c19f6ce5118f81e86cc5995aeadf19",
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "analysis/baseline_effects/joint_pps.py": "6ce6deb1234d59cb732c49b1e78a81c6e0fd733dfbf9298b0734dc81004bd768",
+    "analysis/baseline_effects/requirements.txt": "71edef027bb74eacb363b76cfc97334d297136effdabd72198f266e4adceedf0"
+  },
+  "trace_sha256": {
+    "visible90_draws.npz": "c035e8263cb3085bc0803a4eb640e470e2d0d36ca44faf3c8a38f366134475e5",
+    "visible90_prior.npz": "1a50fffc4146a483bbf26491cf858da0f5035c13f4dfe4a564085a86dcfdb041",
+    "visible95_draws.npz": "e7d5b09522bb349d5d2c72fd375ac2074cf6fb4df1afa6b3d437fccfe0c790f9",
+    "visible95_prior.npz": "acb820b8a2c87f3cfd11aba02774a29a07da6c6d4bede7b012f5e0710c81eaf6"
+  },
+  "native_only": true,
+  "reference_sha256": {
+    "results/directional_sigmoid/held_distance_predictions.csv": "9d73676289975df21f1dd4ba737bf9a35a8b6aa088678a8534ef632b73167475",
+    "results/directional_sigmoid/measured_range_curves.csv": "d708a39d78b29b0d39994940db785355fff195b292745d2a5269c2c3b7737b5c"
+  },
+  "output_sha256": {
+    "RESULTS.md": "8a4279d4d448f564bb0f2080fb2865983c5a1427e67cb28bc0031e1a7ca90924",
+    "all_effects.csv": "89ba59beba989066b167975f575f4b13dc8f7cc7285aa086c74777392ab2bc00",
+    "all_simple_contrasts.csv": "219a769aebb1666b454a3907abf1fb4d534f09019854affd39d445d59e02de29",
+    "boundary_estimates.pdf": "a2fea1ebd1fabea47f5ccb3827c32140b3bf85711aee179c96263bd8d53374cf",
+    "boundary_estimates.png": "57677dd06ae2796cae58d6da22d7985cf98a0af8af0bbb3e32f952cb8c581bdc",
+    "cohort_parameters.csv": "89686e77e4f93e90a2a1d895d4c7afe7f14987655588c751c141175ed66edd2d",
+    "cv_0_diagnostics.json": "bc040468e6731b9a25731234488f5de7db669ac520db0d4b21eed6f19617c184",
+    "cv_1_diagnostics.json": "623dbcd7cf0d5f2f6ffd5276af3ddd8f72643fa8d13768c3aa5be67b93f5f7ee",
+    "cv_2_diagnostics.json": "9c8d3d8fd695261c3a11a4f131b51f3ebb96dafa5a69c45986200568f5fb5546",
+    "cv_3_diagnostics.json": "73908c1b993b624be28067c24445416eccde64e6d2b73549b4bf0fc4aa4787ba",
+    "cv_4_diagnostics.json": "d2bad0f8ff3eba5e76400fb43f5c47f9175697e14a6450633f45cf2da8a48244",
+    "geometry_diagnostics.csv": "b447e1f7aef30c07fb424bd05d35fa16515a8560b2349349728df8023f82a9b2",
+    "held_distance_predictions.csv": "5b789048fcd94b88359afc525187e54a923315149aa7b7b004442c80f3e777ec",
+    "individual_curves.csv": "893f32710a608ef127419fcf96b53cc2c48afe909ca6d3ac58a37af7a4dd364a",
+    "individual_example.png": "0cae73e70a9f2f8618873433e96f444e0f0c73991f86aa730d0f9265db40edc8",
+    "individual_sigmoids.pdf": "aa3b249977ec3ca5de8b5fa04bfbd0bef7c4decb4f504bd46b7cd8e3ccd2e509",
+    "normalized_mean_parameter_curves.csv": "49310abba55572352c28658506c89d8529af742e9843c926500b1267146d3677",
+    "observed_RT.pdf": "5b137fd002229aad43f8d7bb79f311d17b59718262bf0f0130a8a30e49bc9087",
+    "observed_RT.png": "1ab611b84380fa521c1c10483b34cec4ed7690ba9603c838c761bc1a4316519b",
+    "posterior_predictive_checks.json": "6265e74668cb0f903d1c86f871a645c9a4d3a7aeec5b601665b2a9c44b93a174",
+    "prediction_by_distance.csv": "a569ee55eadeed8ae1dac7afa4a3cf7a66b48be0f14a24fda4ac3ae94f328bdc",
+    "prediction_by_participant.csv": "a26fea075837ab09d1c3988b9648209489867c390f14d281c16e29a9b36b8293",
+    "prediction_comparison.json": "352e4b0128bcb2a508bccd061ef67043213bde2c098908e71cf049947e7d4f1d",
+    "prior_posterior_information.csv": "bfed64d3d2e02c9e09cd3cbe217be83dcdee744772d79c99c76b7b69b300e0d4",
+    "sigmoid_curves.pdf": "15c8ceaa90409957b33aa7934b008e6d29ddbdc4d560ca7605942baf3ce8b3b8",
+    "sigmoid_curves.png": "227504c9ceb721f9d11d4a18c159e1479c3a06553be88ba63c262e5138ab881f",
+    "specification.json": "19dd7eabd9795f9de0363edbe715c6667e7da81ad95190dc0de4f9ce1eb43663",
+    "visible90_attempts.json": "1c4e0e7aebba1c569d6e49b9962b6fedd0dd4da41c307d3e61cd0ff6de96f15c",
+    "visible90_diagnostics.csv": "71535ed75062d0adc4df0b539c8e3a0eade8e5bbe2ad1761f5641ae00c8c1cf8",
+    "visible90_effects.csv": "417adcf4af2553fedf0b2375a00473d3c0248a0aefecac658603d2201edbd1a4",
+    "visible90_participant_parameters.csv": "61eb75c9ae50b36278cdd55198ef83e5f6364cc8c908e7ec181b6d74a4fc5c9c",
+    "visible90_run.json": "6de2ad5469971ffbe5bdcf2708002e02a45b8e2fe77e8d7676571f38d7a2b448",
+    "visible90_simple_contrasts.csv": "24cee1997923403128a2da27a6dcec52894e6c6e06eaeb205c0f1875fa5684e9",
+    "visible95_attempts.json": "47b47737b2ef523f37360723ee1e47a4399cf57ddb2b6b10bbad6f3e2fe5a70b",
+    "visible95_diagnostics.csv": "a404c0eec257f2950bd47b5b3f1491b429cd341057ee4959048b691aad4f46ad",
+    "visible95_effects.csv": "30db4d21005885e8979e1a7f9394137eb761b6a81f846bbecf42811995134ff5",
+    "visible95_participant_parameters.csv": "d99a9b86bbf5165fccd6d79dcee50e103db375cf4dc43b7483179e022355c319",
+    "visible95_run.json": "775d6f9567175890db6016c2f814a99c59236776c49f06d103bc816d4937d923",
+    "visible95_simple_contrasts.csv": "e227c8bbc7a4ee3f42429bed4547d9dbe70f12a0ab565ea3cd5c844869de927b"
+  }
+}

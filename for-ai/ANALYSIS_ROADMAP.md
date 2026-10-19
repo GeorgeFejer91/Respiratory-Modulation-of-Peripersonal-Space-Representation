@@ -18,7 +18,39 @@ is paused. Use the installed Ponytail skill:
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 
-## Active goal — consistent asymptote direction across conditions
+## Active goal — explicitly visible, shape-constrained Bayesian sigmoid
+
+The owner explicitly authorizes an in-range midpoint/width restriction after
+inspection of nearly linear broad fits. Fit the declared `visible95` prior (5/95%
+component levels inside 10–100 cm) and `visible90` sensitivity, preserving positive
+amplitude, raw observations, fixed cleaning and joint Baseline uncertainty.
+The specified geometry is in `results/visible_sigmoid/specification.json`; this
+is a post-results theory constraint, not evidence of observed S curvature.
+
+- [x] Q9.1 Verify endpoint geometry, midpoint/derivative, exact marginalized
+  likelihood, prior simulation and conditional export independently.
+- [x] Q9.2 Run both full fits and retain every paired boundary/sharpness contrast,
+  diagnostic status and prior-versus-posterior information check.
+- [x] Q9.3 Run five primary held-distance refits and compare with the preserved
+  broad-directional predictions on identical targets; no selection by significance.
+- [x] Q9.4 Export a visibly sigmoid mean-parameter model figure, actual RT figures,
+  all 40 participants' curves and boundary intervals. Inspect every page and verify
+  hashes, labels, exact shape guarantees and original-data preservation.
+
+Deliver `results/visible_sigmoid/RESULTS.md`; preserve earlier snapshots. Q1.7 is
+not closed by prior-constrained intervals or visually guaranteed model curvature.
+Both full fits converge with zero divergences; all 12 main boundary/sharpness
+contrast intervals include zero. All 160 normalized curves satisfy the in-range
+shape restriction, and every atlas page was visually inspected. Five independent
+numerical checks and the full export/hash audit pass. Predictive validation is
+**PARTIAL**: the 10 cm fold still fails convergence after its fixed extension;
+the four converged folds have diagnostic RMSE 66.92 ms versus 45.86 ms for the
+broad reference. The failed fold remains exported and whole-five-fold summaries
+are provisional. The visible S is a computed model-imposed approximation, not
+stronger evidence for physiological PPS boundaries. Width-cap/midpoint coupling
+also limits interpretation of apparent individual precision.
+
+## Completed reference — consistent asymptote direction across conditions
 
 The owner rejects condition-specific reversals of the near/far RT asymptotes.
 Refit with one theory-motivated orientation for all four curves: nonnegative

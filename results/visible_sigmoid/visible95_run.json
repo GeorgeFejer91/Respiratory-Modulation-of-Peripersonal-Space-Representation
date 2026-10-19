@@ -1,0 +1,15 @@
+{
+  "max_rhat": 1.003979169429881,
+  "min_bulk_ess": 1436.9018930528134,
+  "min_tail_ess": 1754.5312474101754,
+  "target_max_rhat": 1.0021287842080675,
+  "target_min_bulk_ess": 4325.852539427248,
+  "target_min_tail_ess": 3847.052541335506,
+  "divergences": 0,
+  "gate": true,
+  "epsilon": 0.05,
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "tune": 3000,
+  "seconds": 73.00433158999658
+}

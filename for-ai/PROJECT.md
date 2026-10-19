@@ -67,6 +67,15 @@ owner-requested exploratory directional approximation, retaining its weak bounda
 identification and the signed-model sensitivity; it is not a validated individual
 physiological measurement or evidence that the sign was discovered.
 
+The owner additionally authorizes a visible in-range S through explicit midpoint/
+width constraints. The active model is `visible95` with 5/95% endpoint levels in
+the measured 10–100 cm, plus a 10/90% sensitivity, in `analysis/visible_sigmoid/`
+and `results/visible_sigmoid/`. Fit and evaluate it as an exploratory, strongly
+theory-constrained approximation. Its in-range transition, sharpness floor and
+normalized S are assumptions; retain actual RT observations, prior-information
+checks and held-distance comparison. Never treat these guarantees as validation
+of a physiological PPS boundary or select the bounds by experimental significance.
+
 The owner also requested conventional 2 × 2 RM ANOVAs treating individual Bayesian
 posterior medians as fixed measurements. Retain this separately labelled analysis,
 all prior/cohort sensitivities and its omission of within-fit uncertainty.

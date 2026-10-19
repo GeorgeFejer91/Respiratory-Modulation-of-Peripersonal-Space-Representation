@@ -1,0 +1,20 @@
+{
+  "status": "exploratory owner-authorized shape constraint; specified before fitting this amendment after previous broad curves looked nearly linear",
+  "primary": "visible95: every normalized component <=.05 at 10cm and >=.95 at 100cm; positive amplitude in every cell",
+  "sensitivity": "visible90: .10/.90 endpoint constraints; identical priors otherwise; retain all parameter contrasts",
+  "geometry": "k=log((1-epsilon)/epsilon); width_cm=2+(90/(2*k)-2)*logistic(eta_width); midpoint_cm=10+k*width_cm+(90-2*k*width_cm)*logistic(eta_position)",
+  "prior_support": "width >2cm; width <15.283cm for primary95 or20.480cm for sensitivity90. Midpoint is restricted jointly with width so both transition levels lie inside10–100cm. No clipping or fictitious observations.",
+  "latent_hierarchy": "position and width-fraction logits each have four independent fixed factorial coefficients Normal(0,1.5) and four participant-coefficient SDs HalfNormal(1); noncentered independent Normal participant scores; Condition/Phase +/- .5, interaction product",
+  "curve": "corrected_RT_seconds = delta + A*(expit((distance_cm-midpoint_cm)/width_cm)-.5)",
+  "nuisance": "same Gaussian AT/Baseline likelihood, exact sufficient statistics and positive amplitude HalfNormal(.15s) as directional_sigmoid. Independent delta Normal(0,.2s), Baseline Normal(.6,.4s), participant/type sigma LogNormal(log(.12),.5); exact integrated nuisance likelihood and conditional reconstruction.",
+  "cohort": "unchanged fixed cleaning; primary40 excluding P011/P033 together; participant × condition × phase pooled Baseline calibration",
+  "full_sampling": "both variants: four chains 3000tune/3000draws, target .99; one 6000/6000 extension for failed diagnostics only",
+  "gate": "zero divergences; all-parameter rank Rhat<=1.01; bulk and tail ESS>=400",
+  "prediction": "primary visible95: five held-distance folds with all AT trials at the held distance omitted across people/cells; independent Baseline retained. Compare the preserved broad positive-amplitude reference predictions on the exact same trials/targets. No CV rerun for visible90.",
+  "prediction_sampling": "four chains1500tune/1500draws; one 3000tune/6000draw extension only for predictive Rhat>1.01, bulk/tail ESS<400 or divergences",
+  "prior_information_check": "5000 simulated prior draws per model, compared with full posterior midpoint/width/sharpness intervals; in-range intervals and minimum sharpness are guaranteed by the prior, not evidence of data identification",
+  "estimands": "finite-cohort Condition, Phase, interaction and simple contrasts for midpoint cm and normalized sharpness1/(4*width_cm). Logit coefficients are not physical-unit population effects.",
+  "figure": "explicitly labelled shape-constrained normalized sigmoid at marginal posterior median midpoint/width; display actual unsmoothed RT observations and posterior response uncertainty separately. The normalized model curve is not a transformed observed dataset or a posterior predictive median.",
+  "stopping": "complete both full fits and all five primary prediction folds regardless of effects; no new p-value-driven tuning",
+  "limitations": "the visible S, its in-range transition and sharpness floor are imposed, exploratory assumptions; no claim of an observed or validated physiological PPS boundary. Positive amplitude intervals do not establish a response. Preserve all earlier results and measurement/provenance limits. No Pages/manuscript work."
+}
