@@ -1,0 +1,10 @@
+{
+  "positive_RMSE_ms": 46.90183415866582,
+  "unrestricted_RMSE_ms": 47.272565660043675,
+  "positive_minus_unrestricted_MSE": -34.913416636148455,
+  "mse_ci_low": -132.35608326736832,
+  "mse_ci_high": 62.529249995071424,
+  "positive_minus_unrestricted_log_score": 8.60134520002276,
+  "participant_cluster_log_score_SE": 8.197426921216067,
+  "all_prediction_gates": true
+}

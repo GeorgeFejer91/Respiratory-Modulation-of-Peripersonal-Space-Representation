@@ -51,11 +51,21 @@ report the full comparison family and pointwise uncertainty.
 The owner authorizes pooling across participants and smoothing across SOA. Use
 one common estimator for all four participant cells; retain raw observations,
 parameter uncertainty and labels for imposed/extrapolated sigmoid geometry.
-The recommended exploratory curve estimator is the converged native
-`joint_logistic_marginal`, with cell-noise sensitivity retained. Its publication
-recommendation and all-person display are in `results/publication_sigmoid_choice/`.
-This practical choice is based on convergence and transparent uncertainty, not
-demonstrated predictive superiority or a selected significant parameter test.
+The earlier signed-amplitude reference is the converged native
+`joint_logistic_marginal`, with its publication recommendation and all-person
+display preserved in `results/publication_sigmoid_choice/`. The owner now requires
+the near/far asymptote orientation to be the same across conditions. The active
+extension is a positive-amplitude hierarchical sigmoid on increasing physical
+distance: near RT lower, far RT higher in every cell. Direction is a model
+assumption, not evidence obtained from a positive-only posterior. Preserve near-zero
+responses and compare held-distance predictions with the otherwise matched signed
+model. Equal direction does not require identical numerical plateau heights.
+Source/specification/results belong in `analysis/directional_sigmoid/` and
+`results/directional_sigmoid/`; do not flip old estimates or hide reversed data.
+The refit and matched held-distance comparison are now verified. Use this as the
+owner-requested exploratory directional approximation, retaining its weak boundary
+identification and the signed-model sensitivity; it is not a validated individual
+physiological measurement or evidence that the sign was discovered.
 
 The owner also requested conventional 2 × 2 RM ANOVAs treating individual Bayesian
 posterior medians as fixed measurements. Retain this separately labelled analysis,
@@ -104,7 +114,8 @@ do not establish causal mediation.
 
 The original trial-level sigmoid gate failed (0/168 cells at R²≥.70). Existing
 regularized fits, smoothing, common-plateau normalization and Bayesian priors cannot
-reverse that empirical result. Retain flat/reversed profiles, signed amplitudes,
+reverse that empirical result. Retain flat/reversed observations, unrestricted
+signed-amplitude reference fits,
 raw observations, simpler-model prediction, recovery, reliability and uncertainty.
 An imposed normalized S or extrapolated plateau is not evidence of observed
 curvature. Parameter differences and correlations require their own uncertainty.

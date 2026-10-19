@@ -18,7 +18,36 @@ is paused. Use the installed Ponytail skill:
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 
-## Active goal — publication-defensible individual sigmoid approximation
+## Active goal — consistent asymptote direction across conditions
+
+The owner rejects condition-specific reversals of the near/far RT asymptotes.
+Refit with one theory-motivated orientation for all four curves: nonnegative
+amplitude on increasing distance (lower RT near, higher RT far). This does not
+fix the numerical heights of the plateaus or justify narrow widths. Keep the
+earlier signed results as a reference; preserve raw reversed/flat observations.
+The pre-fit extension is `results/directional_sigmoid/specification.json`.
+
+- [x] Q8.1 Verify the marginalized positive-amplitude likelihood against an
+  independent full-trial multivariate-normal calculation and conditional draws.
+- [x] Q8.2 Fit all four cells jointly, check convergence and retain all midpoint,
+  sharpness and response contrasts without selecting by significance.
+- [x] Q8.3 Run all ten matched positive/unrestricted held-distance refits; report
+  predictive tradeoffs, including uncertainty and failed diagnostic gates.
+- [x] Q8.4 Export all 40 participants' consistently oriented curves and uncertainty,
+  inspect every atlas page, and update the method recommendation with limitations.
+
+Results: `results/directional_sigmoid/RESULTS.md`. Five numerical checks passed;
+the full fit has no divergences and passes the stated convergence gate. All ten
+predictive gates passed; held-distance RMSE is 46.90 ms with positive amplitudes
+and 47.27 ms unrestricted, with an uncertain paired MSE difference. All six main
+shape contrasts include zero. All 160 curves have the requested direction, but
+156 midpoint medians are beyond the sampled range and no midpoint interval is
+wholly inside it. The direction-constrained model is the requested exploratory
+approximation, with the signed reference retained; Q1.7 remains open. Every atlas
+page was visually inspected and full-draw summaries, contrasts and artifact hashes
+were independently checked.
+
+## Completed reference — publication-defensible individual sigmoid approximation
 
 The owner authorizes pooling across participants and smoothing across SOA to
 estimate four sigmoid curves per retained person, and requests a recommended

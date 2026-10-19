@@ -179,6 +179,16 @@ The standardized full-S panels must retain their model-illustration label and
 shaded measured segment; these panels do not establish observed curvature or
 justify independent-observation tests on shared pooled point estimates.
 
+For the consistent-direction amendment, run the five tests in
+`analysis/directional_sigmoid/test_model.py`, the specified full fit, all ten
+positive/unrestricted held-distance refits and `report.py`. Verify the full-trial
+marginal likelihood and truncated/Gaussian conditional reconstruction, convergence,
+all 160 curves' monotonicity, paired parameter contrasts and matched prediction
+targets. Inspect all 40 atlas pages and check the manifest/ZIP. A positive amplitude
+interval follows from its prior support; never count it as evidence for the sign.
+Preserve reversed raw observations and earlier signed results. Shared orientation
+must not be described as shared numerical asymptote heights or observed plateaus.
+
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

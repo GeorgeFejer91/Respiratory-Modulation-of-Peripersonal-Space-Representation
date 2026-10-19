@@ -1,0 +1,22 @@
+{
+  "status": "exploratory direction amendment specified before these fits; follows the owner's theoretical objection to condition-specific reversals",
+  "primary": "common positive RT amplitude in all four cells of all retained participants; near RT lower, far RT higher on the increasing physical-distance axis",
+  "cohort": "primary40; unchanged cleaning and pooled participant × condition × phase Baseline calibration; P011/P033 excluded together",
+  "curve_seconds": "delta + A*(expit((distance_cm-midpoint_cm)/width_cm)-0.5)",
+  "amplitude_prior": "HalfNormal(0.15 seconds) independently by participant × cell; permits arbitrarily small response amplitude",
+  "comparator": "same model with independent Normal(0,0.15 seconds) signed amplitudes; other priors unchanged from joint_logistic_marginal",
+  "midpoint_prior": "normalized fixed intercept Normal(.5,.5); fixed effects Normal(0,.5); independent participant coefficient SDs HalfNormal(.35), all four factorial coefficients",
+  "log_width_prior": "normalized fixed intercept Normal(log(1/6),.7); fixed effects Normal(0,.7); independent participant coefficient SDs HalfNormal(.5), all four factorial coefficients",
+  "corrected_intercept_prior": "independent Normal(0,.2 seconds) by participant × cell",
+  "baseline_prior": "independent Normal(.6,.4 seconds) by participant × cell; observations from all nominal SOA labels pooled",
+  "residual_scales": "independent participant × trial-type LogNormal(log(.12),.5) seconds",
+  "likelihood": "exact Gaussian sufficient statistics including within-cell SSE; analytically integrate baseline, offset and amplitude; positive model adds log(2)+log Phi(unrestricted conditional amplitude mean/SD)",
+  "conditional_draws": "exact positive truncated-normal amplitude; conditional Gaussian offset and baseline; independent random seed after NUTS",
+  "full_fit": "4 chains; 3000 tune/3000 retained draws, target .99; extend once to 6000 tune/6000 draws only for failed diagnostics",
+  "gate": "no divergences, all parameter rank Rhat <=1.01, bulk and tail ESS >=400",
+  "held_distance_comparison": "positive versus matched unrestricted model; five held-distance folds; all AT trials at each held distance omitted across people/cells; all independent Baseline calibration retained",
+  "CV_sampling": "4 chains, 1500 tune/1500 retained draws; once-only 3000 tune/6000 retained extension for predictive Rhat >1.01, bulk/tail ESS <400 or any divergence",
+  "inference": "all Condition, Phase and interaction contrasts for midpoint and normalized sharpness, plus simple contrasts; preserve response-level contrasts; no model selection by significance",
+  "limits": "direction is a hypothesis imposed before fitting this extension; a positive amplitude credible interval cannot validate the sign; equal direction does not imply equal numerical plateau heights; no forced width, plateau observations, midpoint bounds, or post hoc curve flipping",
+  "stopping": "complete primary fit and all ten prediction folds regardless of p values or posterior direction; retain failed diagnostics"
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "max_rhat": 1.0044908233852987,
+    "min_bulk_ess": 1720.137381738529,
+    "min_tail_ess": 1705.281226397041,
+    "target_max_rhat": 1.0012645424585003,
+    "target_min_bulk_ess": 4243.036134842608,
+    "target_min_tail_ess": 3819.5473467492475,
+    "divergences": 0,
+    "gate": true,
+    "seconds": 36.6311680170038,
+    "draws_per_chain": 1500,
+    "tune": 1500,
+    "chains": 4,
+    "positive_amplitude": false,
+    "prediction_rhat": 1.0012777745387527,
+    "prediction_bulk_ess": 4942.9773584376835,
+    "prediction_tail_ess": 5008.395818753203,
+    "prediction_gate": true
+  }
+]
