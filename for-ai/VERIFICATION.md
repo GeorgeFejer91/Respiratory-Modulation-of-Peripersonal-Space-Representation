@@ -199,6 +199,21 @@ shape, in-range midpoints and sharpness floor are prior guarantees, not evidence
 of observed curvature or measurement precision. Label mean-parameter curves
 separately from mean RT functions and preserve all existing input/output hashes.
 
+For the trial-cleaning/rolling amendment, run all twelve checks in
+`analysis/trial_cleaning/test_*.py`, `diagnostics.py`, the eight unadjusted and five
+session-time full fits, and all twenty matched held-distance refits. Run both
+report scripts, then `report.py package` and `validate_outputs.py`. Confirm the
+original global filter is reproduced, early blocks retain both interventions,
+no held AT outcome affects either training cutoff, and the rolling likelihood
+matches an independently calculated joint normal with overlap covariance and
+positive-amplitude restriction. Verify global time does not restart by condition
+and the joint trend likelihood matches direct trial residualization. Inspect all
+42 trial pages, 80 unadjusted and 40 session-time curve pages;
+check every exported parameter/contrast, target identity, input/source/reference
+hash and ZIP byte. Keep undefined small-sample SDs and incomplete fatigue-test
+counts explicit. R² on five means/four rolling means is not trial-level R² or
+physiological validation; all failed gates and the full effect family remain.
+
 For legacy manuscript promotion, reconcile sample counts, models, captions and scientific interpretation with
 that exact report. Compile from `manuscript/` using pdfLaTeX/BibTeX via `latexmk`;
 inspect the resulting PDF visually, especially tables, figures, captions and

@@ -1,0 +1,3 @@
+model,RMSE_ms,log_score,all_predictive_gates
+local_raw,60.074539318673054,3897.852308210344,True
+session_linear_raw_broad,60.10354682991778,3906.439851710195,True

@@ -46,10 +46,17 @@ inconclusive or unidentifiable parameter comparison.
   time/block trends; fatigue or additional exclusions are not established by
   visual fit quality. Rolling averages are diagnostic unless the full inferential
   pipeline accounts for induced covariance, shape distortion and held-out testing.
+  Owner correction: interventions occurred consecutively in one sitting. Early
+  blocks within each intervention do not control accumulated time. Prioritise
+  the shared session-wide RT trend, jointly estimated with AT/Baseline and PPS
+  uncertainty, using original global trial order across both interventions.
+  `results/trial_cleaning/session_specification.json` fixes five adjusted fits and
+  five additional matched predictive folds; early fits remain sensitivity only.
 - [ ] Q10.4 Fit the frozen joint hierarchical candidates with baseline and
   individual-fit uncertainty. Keep Gaussian/robust references and every failed
   fit. Do not use ANOVAs on pooled posterior medians as independent evidence.
-- [ ] Q10.5 Export all six primary contrasts and simple contrasts: posterior
+- [x] Q10.5 Export all six primary contrasts and simple contrasts for the declared
+  trial-cleaning/session-time batch: posterior
   estimate, 95% credible interval and directional probability, with physical units
   and population/cohort target. Assess practically meaningful effects only with
   justified thresholds; add Bayes factors only with explicit proper hypothesis
@@ -63,11 +70,28 @@ inconclusive or unidentifiable parameter comparison.
   not identifiable. Distinguish RT-location/curve effects from boundary/sharpness
   effects. Stop after the declared scope and report all outcomes.
 
-Status: **GOAL RECORDED; NEW FITS NOT RUN.** Current parameter results remain
-inconclusive. Next action: freeze the finite nuisance/reduced-model and simulation
-specification in the existing analysis-plan/registry owners. This amendment changes
-the goal/checklist only; native results, browser publication and manuscript
-snapshots are unchanged. The shared RTK/GSD/Superpowers skill baseline is unavailable
+Status: **DECLARED CLEANING/TIME BATCH VERIFIED; BROADER GOAL OPEN.**
+`results/trial_cleaning/RESULTS.md` records the eight unadjusted fits/fifteen
+matched predictive refits; `SESSION_RESULTS.md` in that directory records five
+continuous-session-time fits/five further refits. Twelve independent numerical
+checks and the complete export/hash audit pass; all 162 atlas pages were visually
+inspected. Eight of thirteen full fits pass their fixed convergence gate, all
+twenty predictive gates pass, and no primary (0/78) or simple (0/182) parameter
+interval excludes zero. Failed models remain inconclusive. Local filtering removes
+71 additional AT hits; matched RMSE is 59.62 ms with the original filter, 60.07 ms
+with local filtering, 61.58 ms with rolling means and 60.10 ms with joint linear
+time control. A positive quadratic RT component is supported in that sensitivity,
+but it is not a PPS effect or a causal fatigue diagnosis. Both visible95 models
+have 0/600 AT mean-profile discrepancy tails: imposed S geometry has poor average-
+profile adequacy despite converged sampling. Early blocks do not rule out fatigue.
+Q10.2–.4 and .6–.7 remain PARTIAL: this bounded batch is complete, while reduced
+boundary-only/sharpness-only models, repeated Bayesian recovery/coverage and the
+broader scientific evidence classification remain open. Next action: specify
+those reduced models and recovery budgets before fitting; do not select another
+cleaning/shape variant by significance. Source timing/linkage remains unresolved.
+Questionnaire follow-ups, browser integration and manuscript updates were not run
+for this native amendment; earlier inputs and numerical results are unchanged.
+The shared RTK/GSD/Superpowers skill baseline is unavailable
 in this environment; use the existing roadmap and context checks as the bounded
 fallback rather than installing dependencies or creating a second progress ledger.
 

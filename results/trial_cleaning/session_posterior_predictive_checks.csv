@@ -1,0 +1,11 @@
+model,trial_type,draws,mean_profile_tail_probability,gate
+session_linear_raw_broad,AT,600,0.4666666666666667,False
+session_linear_raw_broad,Baseline,600,0.09333333333333334,False
+session_linear_roll_broad,AT,600,0.455,True
+session_linear_roll_broad,Baseline,600,0.07333333333333333,True
+session_linear_raw_visible95,AT,600,0.0,True
+session_linear_raw_visible95,Baseline,600,0.085,True
+session_linear_roll_visible95,AT,600,0.0,True
+session_linear_roll_visible95,Baseline,600,0.085,True
+session_quadratic_raw_broad,AT,600,0.43833333333333335,True
+session_quadratic_raw_broad,Baseline,600,0.08333333333333333,True

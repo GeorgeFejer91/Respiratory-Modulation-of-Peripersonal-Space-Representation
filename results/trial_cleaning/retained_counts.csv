@@ -1,0 +1,9 @@
+period,filter,cohort,AT,Baseline,missing_AT_distance_cells,missing_Baseline_distance_cells
+full,global,full42,8916,4396,0,0
+full,global,primary40,8478,4192,0,0
+full,local,full42,8845,4396,0,0
+full,local,primary40,8407,4192,0,0
+early,global,full42,4523,2243,0,1
+early,global,primary40,4299,2133,0,1
+early,local,full42,4523,2243,0,1
+early,local,primary40,4299,2133,0,1

@@ -1,0 +1,278 @@
+[
+  {
+    "dataset": "full_local",
+    "name": "full_factorial",
+    "status": "computed",
+    "n": 8407,
+    "participants": 40,
+    "lr": 0.0033070443605538458,
+    "df": 1,
+    "p": 0.9541414041711334,
+    "ll_full": -52424.99230403747,
+    "ll_reduced": -52424.99395755965,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "estimate": 668.2396312754327,
+        "se": 16.342325005597264,
+        "ci_low": 636.2092628408145,
+        "ci_high": 700.2699997100508
+      },
+      {
+        "term": "Condition",
+        "estimate": 0.641063913054525,
+        "se": 2.6667018293985647,
+        "ci_low": -4.585575630073593,
+        "ci_high": 5.867703456182643
+      },
+      {
+        "term": "Phase",
+        "estimate": 17.890301136342888,
+        "se": 2.6660458943958134,
+        "ci_low": 12.664947202196362,
+        "ci_high": 23.115655070489414
+      },
+      {
+        "term": "SOA",
+        "estimate": -5.592719002483597,
+        "se": 1.3327689012170338,
+        "ci_low": -8.204898048583932,
+        "ci_high": -2.9805399563832617
+      },
+      {
+        "term": "Condition × Phase",
+        "estimate": 4.774833264437874,
+        "se": 5.329301344742842,
+        "ci_low": -5.670405434018687,
+        "ci_high": 15.220071962894437
+      },
+      {
+        "term": "Condition × SOA",
+        "estimate": 1.9419949418509201,
+        "se": 2.664835884329225,
+        "ci_low": -3.2809874161441623,
+        "ci_high": 7.164977299846003
+      },
+      {
+        "term": "Phase × SOA",
+        "estimate": 4.099488184218297,
+        "se": 2.6648722566675787,
+        "ci_low": -1.1235654622499922,
+        "ci_high": 9.322541830686585
+      },
+      {
+        "term": "Condition × Phase × SOA",
+        "estimate": 0.3064697860859173,
+        "se": 5.329268076592717,
+        "ci_low": -10.138703707994566,
+        "ci_high": 10.751643280166402
+      }
+    ],
+    "converged": true,
+    "optimizer_full": "profile ML scalar",
+    "optimizer_reduced": "profile ML scalar",
+    "variance_boundary": false,
+    "relative_covariance": [
+      [
+        0.7114817084379964
+      ]
+    ],
+    "ci_method": "normal Wald, model-based GLS conditional on estimated variance",
+    "soa_mean_ms": 1502.7596050909956,
+    "soa_sd_ms": 877.5680155047858,
+    "classification": "sensitivity"
+  },
+  {
+    "dataset": "full_local",
+    "name": "full_control",
+    "status": "computed",
+    "n": 4220,
+    "participants": 40,
+    "lr": 1.1241831003935658,
+    "df": 1,
+    "p": 0.2890195039520461,
+    "ll_full": -26185.310320506836,
+    "ll_reduced": -26185.872412057033,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "estimate": 668.2283767509199,
+        "se": 17.833252516128766,
+        "ci_low": 633.2758440921002,
+        "ci_high": 703.1809094097396
+      },
+      {
+        "term": "Phase",
+        "estimate": 15.55987036518335,
+        "se": 3.6156804368136672,
+        "ci_low": 8.473266929422707,
+        "ci_high": 22.646473800943994
+      },
+      {
+        "term": "SOA",
+        "estimate": -6.34647353997661,
+        "se": 1.8068030259976704,
+        "ci_low": -9.887742398089934,
+        "ci_high": -2.805204681863286
+      },
+      {
+        "term": "Phase × SOA",
+        "estimate": 3.830250883863462,
+        "se": 3.6122635825614635,
+        "ci_low": -3.2496556406224393,
+        "ci_high": 10.910157408349363
+      }
+    ],
+    "converged": true,
+    "optimizer_full": "profile ML scalar",
+    "optimizer_reduced": "profile ML scalar",
+    "variance_boundary": false,
+    "relative_covariance": [
+      [
+        0.9154423731833207
+      ]
+    ],
+    "ci_method": "normal Wald, model-based GLS conditional on estimated variance",
+    "soa_mean_ms": 1503.483412322275,
+    "soa_sd_ms": 876.7220610731376,
+    "classification": "sensitivity"
+  },
+  {
+    "dataset": "early_local",
+    "name": "early_factorial",
+    "status": "computed",
+    "n": 4299,
+    "participants": 40,
+    "lr": 1.2024190952433855,
+    "df": 1,
+    "p": 0.27283871465664633,
+    "ll_full": -27032.59413102339,
+    "ll_reduced": -27033.195340571012,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "estimate": 670.49780527813,
+        "se": 16.44468400921447,
+        "ci_low": 638.2668168829289,
+        "ci_high": 702.7287936733312
+      },
+      {
+        "term": "Condition",
+        "estimate": -2.139152042334425,
+        "se": 3.9042093200971704,
+        "ci_low": -9.79126169783028,
+        "ci_high": 5.512957613161429
+      },
+      {
+        "term": "Phase",
+        "estimate": 19.320430165772017,
+        "se": 3.896842511923943,
+        "ci_low": 11.682759188976702,
+        "ci_high": 26.95810114256733
+      },
+      {
+        "term": "SOA",
+        "estimate": -1.7091408661377947,
+        "se": 1.9488427957433871,
+        "ci_low": -5.528802557325077,
+        "ci_high": 2.1105208250494876
+      },
+      {
+        "term": "Condition × Phase",
+        "estimate": 16.758965804418207,
+        "se": 7.791789810276781,
+        "ci_low": 1.4873384011699553,
+        "ci_high": 32.030593207666456
+      },
+      {
+        "term": "Condition × SOA",
+        "estimate": 2.0225021074208427,
+        "se": 3.8967119185792756,
+        "ci_low": -5.614912911122303,
+        "ci_high": 9.659917125963988
+      },
+      {
+        "term": "Phase × SOA",
+        "estimate": 1.9104722693424867,
+        "se": 3.895802236488612,
+        "ci_low": -5.725159805065577,
+        "ci_high": 9.546104343750551
+      },
+      {
+        "term": "Condition × Phase × SOA",
+        "estimate": -8.54424991944009,
+        "se": 7.791399862014234,
+        "ci_low": -23.815113038137916,
+        "ci_high": 6.726613199257736
+      }
+    ],
+    "converged": true,
+    "optimizer_full": "profile ML scalar",
+    "optimizer_reduced": "profile ML scalar",
+    "variance_boundary": false,
+    "relative_covariance": [
+      [
+        0.6543908678523747
+      ]
+    ],
+    "ci_method": "normal Wald, model-based GLS conditional on estimated variance",
+    "soa_mean_ms": 1502.070248895092,
+    "soa_sd_ms": 876.2296518010568,
+    "classification": "sensitivity"
+  },
+  {
+    "dataset": "early_local",
+    "name": "early_control",
+    "status": "computed",
+    "n": 2152,
+    "participants": 40,
+    "lr": 1.1332934361053049,
+    "df": 1,
+    "p": 0.2870739317785911,
+    "ll_full": -13503.973800792764,
+    "ll_reduced": -13504.540447510817,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "estimate": 671.4995328388806,
+        "se": 17.974495550656027,
+        "ci_low": 636.2701689193202,
+        "ci_high": 706.7288967584409
+      },
+      {
+        "term": "Phase",
+        "estimate": 10.63053446131028,
+        "se": 5.3546461508829575,
+        "ci_low": 0.13562085562394444,
+        "ci_high": 21.125448066996615
+      },
+      {
+        "term": "SOA",
+        "estimate": -2.3071444901628446,
+        "se": 2.6788532388686304,
+        "ci_low": -7.55760035821369,
+        "ci_high": 2.9433113778880005
+      },
+      {
+        "term": "Phase × SOA",
+        "estimate": 5.700303892235589,
+        "se": 5.353881264182532,
+        "ci_low": -4.793110563065659,
+        "ci_high": 16.193718347536837
+      }
+    ],
+    "converged": true,
+    "optimizer_full": "profile ML scalar",
+    "optimizer_reduced": "profile ML scalar",
+    "variance_boundary": false,
+    "relative_covariance": [
+      [
+        0.8206973821268942
+      ]
+    ],
+    "ci_method": "normal Wald, model-based GLS conditional on estimated variance",
+    "soa_mean_ms": 1502.1375464684015,
+    "soa_sd_ms": 873.9821515087453,
+    "classification": "sensitivity"
+  }
+]

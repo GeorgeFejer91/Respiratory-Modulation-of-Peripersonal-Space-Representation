@@ -22,6 +22,18 @@ primary parameter contrasts and validity requirements in `ANALYSIS_ROADMAP.md`
 (Q10). The completed Bayesian/frequentist battery remains the reference. Freeze
 the next finite nuisance/reduced-model extension before fitting; report an
 inconclusive result if evidence or identification remains insufficient.
+The completed native sensitivity batch implements every-trial distribution plots, one
+additional distance-specific SD filter, blocks 1–3 of each intervention as a
+fewer-trial sensitivity, and adjacent rolling means with their full covariance.
+Source is `analysis/trial_cleaning/`; its pre-fit specification and complete
+results are in `results/trial_cleaning/`. Preserve original cleaning/results,
+matched unsmoothed held-out targets and all eight unadjusted Bayesian variants.
+The owner clarified that both interventions share one sitting. The main current
+control is a jointly estimated RT trend over continuous global trial order, with
+five adjusted fits/five additional predictive folds in `session_specification.json`
+and `SESSION_RESULTS.md` under that results directory. Early blocks of each
+intervention are not a fatigue exclusion. Neither time adjustment nor smoothing
+guarantees a supported PPS parameter effect.
 The owner explicitly specifies `corrected RT = Audio–Tactile RT − Baseline RT`.
 Use the existing within-participant × Condition × Phase baseline mean as the
 primary correction for both interventions and phases; retain same-nominal-SOA

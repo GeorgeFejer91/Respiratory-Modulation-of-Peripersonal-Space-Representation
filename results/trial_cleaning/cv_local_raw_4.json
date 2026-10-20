@@ -1,0 +1,24 @@
+[
+  {
+    "max_rhat": 1.0134231545358228,
+    "min_bulk_ess": 389.1625252406173,
+    "min_tail_ess": 547.5228019269643,
+    "target_max_rhat": 1.0043710342572216,
+    "target_min_bulk_ess": 1454.3051571874325,
+    "target_min_tail_ess": 1347.5524808820903,
+    "divergences": 0,
+    "gate": false,
+    "seconds": 92.40209421199688,
+    "shape": "broad",
+    "rolling": false,
+    "chains": 4,
+    "draws_per_chain": 1000,
+    "tune": 1000,
+    "definition_sha256": "4a626a7cc9b3b938cefe8bca86cbb2a8e51af2937a881cc0b6ca333ec84c5d76",
+    "model_source_sha256": "38b6808683dc4446fa76dd4809e645d57d8e61381e9939bb4774f7477c700301",
+    "prediction_rhat": 1.0018745633324395,
+    "prediction_bulk_ess": 1853.1120364446247,
+    "prediction_tail_ess": 2628.8574068363796,
+    "prediction_gate": true
+  }
+]

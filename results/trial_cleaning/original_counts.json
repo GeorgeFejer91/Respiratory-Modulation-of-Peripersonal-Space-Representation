@@ -1,0 +1,14 @@
+{
+  "participants_input": 42,
+  "trial_rows_input": 17114,
+  "planned_trials": 17136,
+  "participants_excluded_catch": 0,
+  "partial_sessions": 1,
+  "recorded_hits_before_trim": 13694,
+  "removed_2_5_sd": 382,
+  "removed_cutoff": 0,
+  "retained_at": 8916,
+  "retained_baseline": 4396,
+  "missing_hit_rt": 105,
+  "missing_at_hit_rt": 80
+}

@@ -1,0 +1,9 @@
+model,cells,trial_R2_ge_05,five_mean_R2_ge_05,rolling_R2_ge_05,median_midpoint_interval_cm
+early_raw_broad,160,0,3,6,270.45114251896547
+early_raw_visible95,160,0,25,35,44.18275558038423
+early_roll_broad,160,0,2,7,289.9799575043001
+early_roll_visible95,160,0,24,39,64.4662641662587
+full_raw_broad,160,0,17,25,259.0602232425636
+full_raw_visible95,160,0,36,47,39.292284710952295
+full_roll_broad,160,0,18,27,251.26489758340603
+full_roll_visible95,160,0,44,52,59.03993367240547

@@ -1,0 +1,20 @@
+{
+  "model_definition_sha256": "4a626a7cc9b3b938cefe8bca86cbb2a8e51af2937a881cc0b6ca333ec84c5d76",
+  "original_driver_sha256": "91f169dd67548c039b5684b6cf102f89f36c627392ea11357ca371dc83f502d5",
+  "functions": [
+    "make_model",
+    "mean_precision",
+    "prepare",
+    "source",
+    "tensors",
+    "trim"
+  ],
+  "verified_current_definition_sha256": "4a626a7cc9b3b938cefe8bca86cbb2a8e51af2937a881cc0b6ca333ec84c5d76",
+  "change": "ArviZ tail ESS requires prob=.05; added definition-based resume stamps. No eligibility, cutoffs, model likelihood, priors or sampling budgets changed.",
+  "unreported_initial_CV_execution": "global_raw held 10 cm stopped before diagnostic/prediction export with TypeError: tail ESS missing prob; restarted with fixed diagnostic.",
+  "all_unadjusted_definitions_verified": true,
+  "retained_driver_stamps": [
+    "38b6808683dc4446fa76dd4809e645d57d8e61381e9939bb4774f7477c700301",
+    "91f169dd67548c039b5684b6cf102f89f36c627392ea11357ca371dc83f502d5"
+  ]
+}

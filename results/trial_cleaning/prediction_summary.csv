@@ -1,0 +1,4 @@
+model,RMSE_ms,log_predictive_score,all_predictive_gates
+global_raw,59.61883707033732,4101.850439853331,True
+local_raw,60.074539318673054,3897.852308210344,True
+local_roll,61.577529075034846,3846.6742601285614,True

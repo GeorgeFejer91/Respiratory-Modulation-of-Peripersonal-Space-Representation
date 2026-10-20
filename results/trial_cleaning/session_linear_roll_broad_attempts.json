@@ -1,0 +1,42 @@
+[
+  {
+    "max_rhat": 1.0130134005318918,
+    "min_bulk_ess": 234.22655007935336,
+    "min_tail_ess": 309.006786106307,
+    "target_max_rhat": 1.006717267663279,
+    "target_min_bulk_ess": 790.5440825313048,
+    "target_min_tail_ess": 617.0046772096274,
+    "divergences": 0,
+    "gate": false,
+    "seconds": 91.28580933400372,
+    "shape": "broad",
+    "rolling": true,
+    "time_order": 1,
+    "chains": 4,
+    "draws_per_chain": 2000,
+    "tune": 2000,
+    "definition_sha256": "9d310443676f7256ce9f6f6e1419fb2da3f2517fb84c034e7a724157016fb6b5",
+    "source_sha256": "77a081e2cd3ac3da0862bce05849ef8c09a97efbf8b617c669e1c75b100b477e",
+    "seed": 20261421
+  },
+  {
+    "max_rhat": 1.0061202965064173,
+    "min_bulk_ess": 502.69996546240145,
+    "min_tail_ess": 815.5304054803016,
+    "target_max_rhat": 1.0025375035292092,
+    "target_min_bulk_ess": 2178.678316019006,
+    "target_min_tail_ess": 1728.8098881395174,
+    "divergences": 0,
+    "gate": true,
+    "seconds": 138.13440414200159,
+    "shape": "broad",
+    "rolling": true,
+    "time_order": 1,
+    "chains": 4,
+    "draws_per_chain": 4000,
+    "tune": 4000,
+    "definition_sha256": "9d310443676f7256ce9f6f6e1419fb2da3f2517fb84c034e7a724157016fb6b5",
+    "source_sha256": "77a081e2cd3ac3da0862bce05849ef8c09a97efbf8b617c669e1c75b100b477e",
+    "seed": 20261421
+  }
+]

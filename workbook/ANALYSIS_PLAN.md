@@ -1,5 +1,25 @@
 # Publication companion: analysis contract
 
+## Native trial-cleaning amendment (2026-10-20)
+
+The owner authorizes implementing the trial-distribution, SD-filtering,
+trial-count/fatigue and adjacent-distance rolling-average suggestions. The finite
+pre-fit specification is `results/trial_cleaning/specification.json`. It adds a
+distance-specific one-pass ±2.5 sample-SD filter after the original global filter,
+contrasts full sessions with blocks 1–3 of each intervention, and fits both raw
+and rolling profiles using broad-directional and visible95 Bayesian models.
+Transform the expected response and its covariance with the same averaging
+operator; overlapping averages are not independent trials. Learn every cutoff
+inside matched validation folds and score the same unsmoothed eligible targets.
+Preserve the existing primary cleaning and all historical outputs. These new
+native results are exploratory; the browser and manuscript snapshots remain
+separate. The specification owns numerical priors, budgets, targets and limits.
+The owner's session-order correction adds
+`results/trial_cleaning/session_specification.json`: a participant-specific global
+RT trend across both consecutive interventions, estimated jointly with AT,
+Baseline and PPS shape. Five adjusted fits and five matched predictive folds
+are specified before fitting. Early-block restriction does not exclude fatigue.
+
 ## Goal
 
 Make the paper's 42-person behavioral analysis reproducible entirely in a web

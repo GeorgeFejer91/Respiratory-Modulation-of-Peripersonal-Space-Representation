@@ -1,0 +1,13 @@
+model,target,basis,median_ms,ci_low_ms,ci_high_ms,probability_negative,gate
+session_linear_raw_broad,population,linear,7.239901640960065,-21.682134461377263,35.95386677410745,0.308375,False
+session_linear_raw_broad,finite_cohort,linear,6.778989498009317,-7.5630059625694095,21.196311017504044,0.179,False
+session_linear_roll_broad,population,linear,6.924213730732637,-20.981425479401732,35.7847366731433,0.311,True
+session_linear_roll_broad,finite_cohort,linear,6.672905660768048,-7.466678082211349,20.618609225243752,0.17575,True
+session_linear_raw_visible95,population,linear,6.460582473896214,-23.30512800440272,35.581375805854485,0.32925,True
+session_linear_raw_visible95,finite_cohort,linear,6.713672985139636,-7.360471127873463,20.939005807755382,0.176625,True
+session_linear_roll_visible95,population,linear,6.2845828215503445,-22.69875803756092,34.923482844725115,0.3340625,True
+session_linear_roll_visible95,finite_cohort,linear,6.522567960679522,-7.434562400231008,20.54483704344564,0.1860625,True
+session_quadratic_raw_broad,population,linear,6.800273401164758,-22.161216886650816,36.382408407104975,0.3190625,True
+session_quadratic_raw_broad,finite_cohort,linear,6.867117551712829,-7.336464877907428,20.93534211923454,0.171,True
+session_quadratic_raw_broad,population,quadratic,47.01636290122739,3.2385663249127274,87.95047574863406,0.017875,True
+session_quadratic_raw_broad,finite_cohort,quadratic,47.32543596635348,20.292519347177493,73.73838801216478,0.0003125,True

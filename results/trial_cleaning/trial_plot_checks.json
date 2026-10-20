@@ -1,0 +1,7 @@
+{
+  "pages": 42,
+  "eligible_hits": 13694,
+  "plotted_hits": 13694,
+  "every_eligible_hit_plotted_exactly_once": true,
+  "horizontal_jitter": "fixed-seed layout independent of RT value"
+}
