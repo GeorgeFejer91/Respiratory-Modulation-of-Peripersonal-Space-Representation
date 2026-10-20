@@ -358,6 +358,9 @@ global+local/rolling across five held distances. ALL held-distance AT outcomes
 are excluded BEFORE calculating either cutoff or smoothing. Baseline remains
 independent calibration. Each method predicts the SAME initially eligible raw
 held-out hits; no test-RT outlier exclusion is learned from the targets.
+RMSE compares the 800 held participant × cell × distance mean RTs per method,
+with equal weight per cell. It is not individual-trial RMSE. The log score
+integrates the raw held hits jointly within each cell and then sums over cells.
 
 {table(by_fold)}
 

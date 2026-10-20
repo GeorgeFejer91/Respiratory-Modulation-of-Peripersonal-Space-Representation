@@ -368,6 +368,9 @@ unadjusted local/raw model. Both filters learn from training RTs only, and the
 original global time coordinate stays fixed. Target RTs do not set cutoffs;
 their recorded time metadata is used to predict their raw response. Predictive
 scores integrate trend, baseline, shape and nuisance uncertainty jointly.
+RMSE uses the 800 held participant × cell × distance mean RTs, equally weighted;
+the log score integrates all raw held hits jointly within each cell. This is
+mean-response prediction error, not individual-trial RMSE.
 
 {table(by_distance)}
 
@@ -387,6 +390,8 @@ normalized observations. Its band uses every retained posterior draw.
 `session_observed_RT.png` retains raw observations beside time-standardized
 summaries and expected corrected functions. Adjusted-marker bars show trend
 uncertainty only; raw-marker intervals describe between-person variability.
+Blue adjusted markers are displaced +1 cm horizontally for visibility; fitting
+and exported distances retain their original values.
 `session_individual_curves.pdf` contains all 40 participants and four cells.
 Plot curves use 1,200 balanced draws; every exported numerical interval uses all
 draws. Nonconverged functions are explicitly marked provisional.

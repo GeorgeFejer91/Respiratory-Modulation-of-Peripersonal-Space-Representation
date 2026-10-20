@@ -78,7 +78,7 @@ checks and the complete export/hash audit pass; all 162 atlas pages were visuall
 inspected. Eight of thirteen full fits pass their fixed convergence gate, all
 twenty predictive gates pass, and no primary (0/78) or simple (0/182) parameter
 interval excludes zero. Failed models remain inconclusive. Local filtering removes
-71 additional AT hits; matched RMSE is 59.62 ms with the original filter, 60.07 ms
+71 additional AT hits; RMSE for held-out mean RTs is 59.62 ms with the original filter, 60.07 ms
 with local filtering, 61.58 ms with rolling means and 60.10 ms with joint linear
 time control. A positive quadratic RT component is supported in that sensitivity,
 but it is not a PPS effect or a causal fatigue diagnosis. Both visible95 models
@@ -91,6 +91,10 @@ those reduced models and recovery budgets before fitting; do not select another
 cleaning/shape variant by significance. Source timing/linkage remains unresolved.
 Questionnaire follow-ups, browser integration and manuscript updates were not run
 for this native amendment; earlier inputs and numerical results are unchanged.
+Publication: the audited native source/results have been pushed normally to
+`main`, with the remote SHA verified. Automatic workbook checks are separate
+from native-model verification and do not establish browser execution of these
+new models.
 The shared RTK/GSD/Superpowers skill baseline is unavailable
 in this environment; use the existing roadmap and context checks as the bounded
 fallback rather than installing dependencies or creating a second progress ledger.
