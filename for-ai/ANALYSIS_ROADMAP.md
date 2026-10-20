@@ -18,7 +18,53 @@ is paused. Use the installed Ponytail skill:
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 
-## Active goal — explicitly visible, shape-constrained Bayesian sigmoid
+## Active goal — usable Bayesian evidence for experimental PPS parameter effects
+
+Recorded 2026-10-20 after the previous results: identify a scientifically usable
+Bayesian statistic supporting an Inhale − Exhale effect, a Viscereality − Control
+effect, or their interaction on PPS midpoint (cm) or normalized sharpness (/cm),
+if supported by the observations. Retain all four participant cells and propagated
+AT − Baseline uncertainty. This is an exploratory extension, not a preregistration
+or a promise of a nonzero effect. Computational completion can yield an
+inconclusive or unidentifiable parameter comparison.
+
+- [x] Q10.1 Record the target: six primary contrasts (three effects × two
+  parameters), plus the established simple contrasts. Preserve the primary40
+  cohort, fixed cleaning, all earlier results and unadjusted frequentist outputs.
+- [ ] Q10.2 Freeze a finite extension specification before new effect estimates:
+  nuisance adjustments, reduced boundary-only/shared-sharpness and
+  sharpness-only/shared-boundary models, proper priors, diagnostic gates,
+  simulation counts and numerical extension/stopping budgets. Select restrictions
+  by scientific rationale and predictive adequacy, never by favorable contrasts.
+- [ ] Q10.3 Audit trial index, block, intervention order and baseline calibration
+  for identifiable nuisance effects. Verify source-dependent timing before
+  changing baseline matching; retain unresolved timing/linkage as explicit limits.
+- [ ] Q10.4 Fit the frozen joint hierarchical candidates with baseline and
+  individual-fit uncertainty. Keep Gaussian/robust references and every failed
+  fit. Do not use ANOVAs on pooled posterior medians as independent evidence.
+- [ ] Q10.5 Export all six primary contrasts and simple contrasts: posterior
+  estimate, 95% credible interval and directional probability, with physical units
+  and population/cohort target. Assess practically meaningful effects only with
+  justified thresholds; add Bayes factors only with explicit proper hypothesis
+  priors and stable calculations. Posterior probabilities are not p values.
+- [ ] Q10.6 Check null/known-effect recovery across repeated simulations, prior
+  sensitivity, posterior prediction and matched held-out targets. A narrow
+  interval or imposed visible S does not establish parameter identification;
+  retain failed diagnostic gates and their consequences for interpretation.
+- [ ] Q10.7 Compile the complete evidence table and classify each parameter
+  effect as supported under the stated model, model-dependent, inconclusive or
+  not identifiable. Distinguish RT-location/curve effects from boundary/sharpness
+  effects. Stop after the declared scope and report all outcomes.
+
+Status: **GOAL RECORDED; NEW FITS NOT RUN.** Current parameter results remain
+inconclusive. Next action: freeze the finite nuisance/reduced-model and simulation
+specification in the existing analysis-plan/registry owners. This amendment changes
+the goal/checklist only; native results, browser publication and manuscript
+snapshots are unchanged. The shared RTK/GSD/Superpowers skill baseline is unavailable
+in this environment; use the existing roadmap and context checks as the bounded
+fallback rather than installing dependencies or creating a second progress ledger.
+
+## Completed computation — explicitly visible, shape-constrained Bayesian sigmoid
 
 The owner explicitly authorizes an in-range midpoint/width restriction after
 inspection of nearly linear broad fits. Fit the declared `visible95` prior (5/95%

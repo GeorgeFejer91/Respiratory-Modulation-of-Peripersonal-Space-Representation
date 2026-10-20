@@ -16,8 +16,12 @@ Condition, Phase and Condition × Phase. Describe the four average response curv
 and their uncertainty. Explore links with eight baseline MAIA-2 subscales and
 post-condition spatial ratings only after documenting the measurement limits.
 
-The active goal is a **literature-supported Bayesian and frequentist comparison
-of baseline-corrected PPS models**, testing Phase, Condition and Condition × Phase.
+The active goal is to **identify usable Bayesian evidence for Phase, Condition or
+Condition × Phase effects on PPS boundary or normalized sharpness**, with the six
+primary parameter contrasts and validity requirements in `ANALYSIS_ROADMAP.md`
+(Q10). The completed Bayesian/frequentist battery remains the reference. Freeze
+the next finite nuisance/reduced-model extension before fitting; report an
+inconclusive result if evidence or identification remains insufficient.
 The owner explicitly specifies `corrected RT = Audio–Tactile RT − Baseline RT`.
 Use the existing within-participant × Condition × Phase baseline mean as the
 primary correction for both interventions and phases; retain same-nominal-SOA
@@ -54,8 +58,8 @@ parameter uncertainty and labels for imposed/extrapolated sigmoid geometry.
 The earlier signed-amplitude reference is the converged native
 `joint_logistic_marginal`, with its publication recommendation and all-person
 display preserved in `results/publication_sigmoid_choice/`. The owner now requires
-the near/far asymptote orientation to be the same across conditions. The active
-extension is a positive-amplitude hierarchical sigmoid on increasing physical
+the near/far asymptote orientation to be the same across conditions. The completed
+directional extension is a positive-amplitude hierarchical sigmoid on increasing physical
 distance: near RT lower, far RT higher in every cell. Direction is a model
 assumption, not evidence obtained from a positive-only posterior. Preserve near-zero
 responses and compare held-distance predictions with the otherwise matched signed
@@ -68,7 +72,7 @@ identification and the signed-model sensitivity; it is not a validated individua
 physiological measurement or evidence that the sign was discovered.
 
 The owner additionally authorizes a visible in-range S through explicit midpoint/
-width constraints. The active model is `visible95` with 5/95% endpoint levels in
+width constraints. The completed approximation is `visible95` with 5/95% endpoint levels in
 the measured 10–100 cm, plus a 10/90% sensitivity, in `analysis/visible_sigmoid/`
 and `results/visible_sigmoid/`. Fit and evaluate it as an exploratory, strongly
 theory-constrained approximation. Its in-range transition, sharpness floor and
