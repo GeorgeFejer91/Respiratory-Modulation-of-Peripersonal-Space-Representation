@@ -39,6 +39,13 @@ inconclusive or unidentifiable parameter comparison.
 - [ ] Q10.3 Audit trial index, block, intervention order and baseline calibration
   for identifiable nuisance effects. Verify source-dependent timing before
   changing baseline matching; retain unresolved timing/linkage as explicit limits.
+  Review checkpoint: `paper_analysis.clean` already applies participant-wide
+  mean ±2.5 sample-SD trimming across distances, conditions, phases and AT/Baseline.
+  Per-distance trimming would be a new exploratory sensitivity. Prioritise plots
+  of every trial with existing exclusions marked, cell counts/distributions and
+  time/block trends; fatigue or additional exclusions are not established by
+  visual fit quality. Rolling averages are diagnostic unless the full inferential
+  pipeline accounts for induced covariance, shape distortion and held-out testing.
 - [ ] Q10.4 Fit the frozen joint hierarchical candidates with baseline and
   individual-fit uncertainty. Keep Gaussian/robust references and every failed
   fit. Do not use ANOVAs on pooled posterior medians as independent evidence.
