@@ -17,12 +17,18 @@ marimo. Preserve the scientific checklist below and all earlier results.
   isolated production build; browser pivot CSV matches native at 1e-10.
   Aggregation/filter changes, saved results and heatmap were exercised. File-save
   capture is unavailable in the in-app browser, including eager download links.
-- [ ] Verify filter activation/deactivation, both subpages' Pages deployment
+- [x] Verify filter activation/deactivation, both subpages' Pages deployment
   and live execution.
 
-State: minimal view verified locally (including native/browser 800→400→800
-filter activation/deactivation); both native notebooks and strict/WASM checks pass.
-Publication verification is in progress.
+State: **VISUALIZATION STEP VERIFIED.** Pages deployed source `231cb0f` from
+`main`; the 59-test suite, notebook/WASM checks, production build, existing full
+analysis and independent numerical checks pass. Both live subpages execute;
+the published pivot's filters change 800→400→800 source records, and the live
+exploratory page loads saved tables from the shared catalogue. Local native
+checks match this behavior. The minimal page's settings/filters are hidden by
+default; the expanded figures remain separate. File-save capture remains the
+browser-tool limitation recorded above. The scientific inference goal below is
+still open. Next action: use the pivot to select the next visual comparison.
 The native inference goal below remains open. No new models were fitted.
 
 ## Goal and status rules

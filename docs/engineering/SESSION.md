@@ -34,3 +34,9 @@ deactivation restores 800 while preserving the chosen filter values. The same
 on/off sequence was observed in the real browser. The default view shows only
 the table, its filter switch, collapsed settings and source count. The expanded
 notebook is preserved separately and both native notebook executions pass.
+
+Publication: source `231cb0f` on `main` passed GitHub's complete build, reference
+analysis, independent validation and Pages deployment. Both live subpages were
+opened and executed. The published pivot was checked through 800→400→800 filter
+toggling, and Exploratory figures loaded its saved source through the shared
+catalogue. Unrelated instruction/review changes remain untouched.
