@@ -116,7 +116,7 @@ def build_results(root, target):
 a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}img{max-width:100%;height:auto}
 table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}th,td{padding:.6rem;border:1px solid #ccd5df;text-align:left;vertical-align:top}
 th{background:#edf3f8}code{overflow-wrap:anywhere}nav{font-size:15px}:focus-visible{outline:3px solid #c75c12}</style>
-<nav><a href="../">Workbook</a> · <a href="../pivot/">Pivot explorer</a> · <a href="index.html">Results report</a> ·
+<nav><a href="../">Workbook</a> · <a href="../pivot/">Pivot table</a> · <a href="../exploratory/">Exploratory figures</a> · <a href="index.html">Results report</a> ·
 <a href="bayesian_results.html">Bayesian detail</a> · <a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/for-ai/ANALYSIS_ROADMAP.md">Question checklist</a> ·
 <a href="bayesian-results.zip">Download results</a> · <a href="bayesian_participant_atlas.pdf">Individual curves</a></nav>
 <main>'''+body+"</main></html>")
@@ -198,18 +198,25 @@ def build(output, development=False):
     from pivot_data import build_snapshots
     pivot = output / "pivot"
     shutil.copytree(notebook.parent / "pivot_assets", pivot, dirs_exist_ok=True)
-    subprocess.run([
-        sys.executable, "-m", "marimo", "export", "html-wasm", str(notebook.with_name("pivot_explorer.py")),
-        "--output", str(pivot / "app"), "--mode", "run", "--no-sandbox", "--no-execute", "--force",
-    ], check=True)
+    for page_name, source_name in (("pivot", "pivot_explorer.py"), ("exploratory", "exploratory_figures.py")):
+        subprocess.run([
+            sys.executable, "-m", "marimo", "export", "html-wasm", str(notebook.with_name(source_name)),
+            "--output", str(output / page_name / "app"), "--mode", "run", "--no-sandbox", "--no-execute", "--force",
+        ], check=True)
     catalog = build_snapshots(root, pivot / "app" / "public" / "snapshots")
     if not catalog:
         raise RuntimeError("Missing saved-result pivot catalogue.")
+    exploratory_html = (pivot / "index.html").read_text(encoding="utf-8").replace(
+        "Study 5 · Pivot table", "Study 5 · Exploratory figures").replace(
+        'src="text-fit.js"', 'src="../pivot/text-fit.js"').replace(
+        'href="../exploratory/">Exploratory figures', 'href="../pivot/">Pivot table').replace(
+        "Interactive Study 5 pivot notebook", "Study 5 exploratory figures")
+    (output / "exploratory" / "index.html").write_text(exploratory_html, encoding="utf-8")
     for target, href, script in ((output, "pivot/", "pivot/text-fit.js"),
                                  (output / "editor", "../pivot/", "../pivot/text-fit.js")):
         page = target / "index.html"
         navigation = f'''<header style="font:16px/24px Arial,sans-serif;padding:8px 16px;border-bottom:1px solid #ccd5df;box-sizing:border-box">
-<nav aria-label="Study 5 exploration"><a data-measure style="display:block;max-width:100%;color:#175b9e;overflow-wrap:break-word" href="{href}">Open the interactive pivot explorer</a></nav></header>
+<nav aria-label="Study 5 exploration" style="display:flex;flex-wrap:wrap;gap:20px"><a data-measure style="display:block;max-width:100%;color:#175b9e;overflow-wrap:break-word" href="{href}">Pivot table</a><a data-measure style="display:block;max-width:100%;color:#175b9e;overflow-wrap:break-word" href="{href.replace('pivot/', 'exploratory/')}">Exploratory figures</a></nav></header>
 <script type="module" src="{script}"></script>'''
         page.write_text(re.sub(r"(<body[^>]*>)", lambda match: match.group(0) + navigation,
                                page.read_text(encoding="utf-8"), count=1), encoding="utf-8")

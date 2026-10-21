@@ -99,10 +99,14 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 ## Browser companion and ownership
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
-The separate `/pivot/` marimo page owns descriptive pivots over the audited
-release, participant-distance means, questionnaires and a lazy catalogue of
-tracked public result CSVs. This does not authorize new model fitting or
+The separate `/pivot/` marimo page displays only the pivot table with optional
+filters. Its collapsed Pivot settings select the audited release,
+participant-distance means, questionnaires or a lazy catalogue of tracked public
+result CSVs. It contains no heatmap or explanatory report. This does not authorize new model fitting or
 manuscript promotion; the scientific inference roadmap stays open.
+The sibling `/exploratory/` subpage preserves the expanded exploration controls,
+heatmap, source inspection and downloads, sharing the pivot preparation and
+saved-result catalogue rather than fitting new models.
 
 Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
 [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)

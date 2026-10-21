@@ -4,6 +4,9 @@ Add a separate marimo pivot explorer under `/pivot/`, its portable preparation
 and aggregation module, an explicit catalogue of tracked public result CSVs,
 focused checks, and Pages build/CI integration. Preserve the existing workbook,
 all statistical engines, raw CSV bytes, saved results and manuscripts.
+The requested final UI has a minimal table and Activate filters switch at
+`/pivot/`, with configuration collapsed under Pivot settings. Expanded controls,
+heatmap and downloads remain on the separate `/exploratory/` subpage.
 
 Initial state: `main` at `b96a2e3`; local instruction changes in `AGENTS.md`,
 `for-ai/README.md`, `for-ai/SKILLS.md`, untracked `for-ai/skills/`, and an
@@ -25,3 +28,9 @@ Browser download clicks could not be captured by the in-app browser (including
 ordinary eager links); file-save capture remains unverified. The working
 checkout's pre-existing CRLF bibliography mismatch was avoided by building the
 committed LF sources in an ignored isolated checkout, without changing the file.
+
+Final minimal-view checks: native filter activation changes 800 to 400 records;
+deactivation restores 800 while preserving the chosen filter values. The same
+on/off sequence was observed in the real browser. The default view shows only
+the table, its filter switch, collapsed settings and source count. The expanded
+notebook is preserved separately and both native notebook executions pass.

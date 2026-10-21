@@ -5,17 +5,24 @@
 Owner request: revisit the data visually on a new GitHub Pages subpage using
 marimo. Preserve the scientific checklist below and all earlier results.
 
-- [x] Implement Rows/Columns/Values, filters, summary functions, totals,
-  source inspection, linked heatmap and CSV/settings downloads at `/pivot/`.
+- [x] Implement a minimal `/pivot/` table with an Activate filters switch,
+  collapsed Pivot settings (Rows/Columns/Values, source, cohort, summaries,
+  totals), and the table's native Export menu. Filters are off initially;
+  disabling them ignores retained selections. No heatmap or report is displayed.
+- [x] Preserve the expanded explorer, heatmap, source inspection and downloads
+  separately under `/exploratory/`, as requested by the owner.
 - [x] Include audited trials, participant-distance means, participant questionnaires
   and all 264 tracked saved-result CSV tables as separate source-identified views.
 - [x] Current-source checks: 59 tests, strict/WASM checks, native notebook and
   isolated production build; browser pivot CSV matches native at 1e-10.
   Aggregation/filter changes, saved results and heatmap were exercised. File-save
   capture is unavailable in the in-app browser, including eager download links.
-- [ ] Verify the scoped commit's Pages deployment and exercise the live page.
+- [ ] Verify filter activation/deactivation, both subpages' Pages deployment
+  and live execution.
 
-State: local implementation verified; publication verification in progress.
+State: minimal view verified locally (including native/browser 800→400→800
+filter activation/deactivation); both native notebooks and strict/WASM checks pass.
+Publication verification is in progress.
 The native inference goal below remains open. No new models were fitted.
 
 ## Goal and status rules

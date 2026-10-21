@@ -1,10 +1,12 @@
 # Browser publication companion
 
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
-is a separate marimo page for visual exploration. Choose participant-distance
-means, every trial, participant/questionnaire records or one of the saved analysis
-tables; assign Rows, Columns and Values, filter fields, choose a summary and inspect
-the table/heatmap. Download the pivot, filtered source and settings before leaving.
+is a separate, minimal marimo subpage displaying the pivot table. Switch on
+**Activate filters** to choose fields and values to keep. Switching it off ignores
+those selections and restores every record in the chosen cohort. Open
+**Pivot settings** to choose participant-distance means, every trial,
+participant/questionnaire records or a saved analysis table, then assign Rows,
+Columns, Values and a summary function. The table's Export menu downloads results.
 CSV downloads retain full precision; displayed summaries use six significant digits.
 The default is the 40-person behavioural cohort; select Full release for all 42
 records. The page performs descriptive aggregation and never refits saved models.
@@ -12,6 +14,18 @@ Saved-table snapshots are built from tracked result CSVs, record their source
 hashes, and load only the selected table. `pivot_explorer.py` owns the notebook;
 `pivot_data.py` owns its preparation/aggregation, sharing the existing cleaner and
 questionnaire scorer. Run locally with `marimo run workbook/pivot_explorer.py`.
+
+The [Exploratory figures](https://georgefejer91.github.io/Study5_Publication/exploratory/)
+subpage keeps the expanded explorer, heatmap, source inspection and separate
+CSV/settings downloads. Its source is `exploratory_figures.py`; both pages share
+the same preparation/aggregation module and saved-result snapshot catalogue.
+
+Corrected RT is AT minus the retained participant × condition × phase Baseline
+mean, in ms. Default means weight participant-distance cells equally; trial
+summaries weight trials equally. MAIA is baseline-only and spatial ratings are
+per condition, with unverified pictogram anchors. Questionnaire values repeated
+over distance cells are not additional participants. Saved model summaries retain
+their original uncertainty/diagnostic limits; their aggregation is descriptive.
 
 The marimo application executes the released Study 5 analysis entirely in the
 reader's browser using Pyodide. The published default loads the deidentified
