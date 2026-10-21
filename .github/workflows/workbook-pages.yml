@@ -33,12 +33,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install workbook tools
         run: python -m pip install -r workbook/requirements-validation.txt uv
       - name: Check data preparation
         run: |
           python -m unittest discover -s workbook -p 'test_*.py' -v
           python for-ai/orchestration/public_data.py check data/raw
+          python workbook/check_pivot_javascript.py
           marimo check workbook/data_preparation.py --strict
           marimo check workbook/data_preparation.py --select MW --strict
           marimo check workbook/pivot_explorer.py --strict

@@ -2,27 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f7">
   <title>Study 5 · Pivot table</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; height: 100dvh; display: grid; grid-template-rows: auto minmax(0,1fr); font: 16px/24px Arial, sans-serif; color: #243240; background: white; }
-    header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; padding: 8px 16px; border-bottom: 1px solid #ccd5df; min-width: 0; }
-    nav { display: flex; flex-wrap: wrap; gap: 8px 20px; min-width: 0; }
-    a { color: #175b9e; display: block; max-width: 100%; min-width: 0; overflow-wrap: break-word; }
-    a:focus-visible { outline: 3px solid #c75c12; outline-offset: 2px; }
-    iframe { width: 100%; height: 100%; min-width: 0; min-height: 0; border: 0; }
-    [data-fit="unavailable"] { white-space: normal; }
-  </style>
+  <link rel="stylesheet" href="pivot.css">
 </head>
 <body>
-  <header>
-    <nav aria-label="Study 5 pages">
-      <a data-measure href="../">Back to workbook</a>
-      <a data-measure href="../exploratory/">Exploratory figures</a>
-    </nav>
+  <header class="page-header"><button id="pages-open" data-fit-label>Pages</button>
+    <nav aria-label="Study 5 pages"><a href="../" data-fit-label>Workbook</a><a href="../exploratory/" data-fit-label>Exploratory figures</a></nav>
+    <div class="toolbar"><h1 data-fit-label>Pivot table</h1><label class="switch"><input id="filters-enabled" type="checkbox"><span data-fit-label>Activate filters</span></label><button id="settings-open" aria-expanded="false" aria-controls="settings" data-fit-label>Pivot settings</button></div>
   </header>
-  <iframe src="app/" title="Interactive Study 5 pivot notebook"></iframe>
-  <script type="module" src="text-fit.js"></script>
+  <main id="worksheet" aria-label="Pivot worksheet">
+    <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><button id="filters-open" hidden data-fit-label>Choose filters</button></div>
+    <div id="table-region" aria-busy="true"><table id="pivot-table"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="error" role="alert" hidden></p></div>
+  </main>
+  <footer class="page-footer">
+    <div class="pager" aria-label="Table pages"><button id="row-prev" aria-label="Previous rows" ><span class="long-label" data-fit-label>↑ Rows</span><span class="compact-label" data-fit-label>↑</span></button><span id="row-page" data-fit-label></span><button id="row-next" aria-label="Next rows" ><span class="long-label" data-fit-label>Rows ↓</span><span class="compact-label" data-fit-label>↓</span></button><button id="col-prev" aria-label="Previous columns" data-fit-label>←</button><span id="col-page" data-fit-label></span><button id="col-next" aria-label="Next columns" data-fit-label>→</button><button id="export" aria-label="Export CSV"><span class="long-label" data-fit-label>Export CSV</span><span class="compact-label" data-fit-label>CSV</span></button></div>
+    <p id="status" role="status" data-fit-label>Preparing table</p>
+  </footer>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form id="settings-form" class="stretch-panel">
+      <header><h2 id="settings-title" data-fit-label>Pivot settings</h2><button type="button" data-close="settings" aria-label="Close settings"><span class="long-label" data-fit-label>Close</span><span class="compact-label" data-fit-label>×</span></button></header>
+      <div class="stretch-groups" id="settings-groups">
+        <section class="control-group"><h3 data-fit-label>1. Data</h3><label><span data-fit-label>Source</span><select id="source"><option value="means">Means</option><option value="trials">All trials</option><option value="participants">Participants</option><option value="saved">Saved tables</option></select></label><button type="button" id="saved-table" hidden data-fit-label>Choose saved table</button><label><span data-fit-label>Cohort</span><select id="cohort"><option value="Primary behavioural cohort">Primary 40</option><option>Full release</option><option value="Exclude P011">− P011</option><option value="Exclude P033">− P033</option></select></label></section>
+        <section class="control-group"><h3 data-fit-label>2. Fields</h3><button type="button" id="choose-rows" data-fit-label>Rows: distance_cm</button><button type="button" id="choose-columns" data-fit-label>Columns: condition, phase</button><button type="button" id="choose-values" data-fit-label>Values: corrected_rt_ms</button></section>
+        <section class="control-group"><h3 data-fit-label>3. Summary</h3><label><span data-fit-label>Calculation</span><select id="aggregation"></select></label><label class="switch"><input id="totals" type="checkbox" checked><span data-fit-label>Grand totals</span></label><button type="button" id="about-data" data-fit-label>About the data</button><a href="app/" data-fit-label>Open marimo notebook</a></section>
+      </div>
+      <footer><button type="button" id="group-prev" data-fit-label hidden>Back</button><span id="group-page" data-fit-label></span><button type="button" id="group-next" data-fit-label hidden>Next</button><button type="submit" data-fit-label>Apply</button></footer>
+    </form>
+  </dialog>
+  <dialog id="chooser" aria-labelledby="chooser-title"><div class="stretch-panel"><header><h2 id="chooser-title" data-fit-label>Choose fields</h2><button type="button" data-close="chooser" data-fit-label>Done</button></header><label class="search-label"><span data-fit-label>Search</span><input id="search" type="search" autocomplete="off"></label><div id="choices"></div><footer><button id="choice-prev" data-fit-label>Previous</button><span id="choice-page" data-fit-label></span><button id="choice-next" data-fit-label>Next</button></footer></div></dialog>
+  <dialog id="filters" aria-labelledby="filters-title"><div class="stretch-panel"><header><h2 id="filters-title" data-fit-label>Filters</h2><button data-close="filters" data-fit-label>Done</button></header><div class="control-group"><button id="add-filter" data-fit-label>Add filter</button><div id="active-filters"></div></div><footer><button id="clear-filters" data-fit-label>Clear filters</button><button id="filter-help" data-fit-label>Help</button></footer></div></dialog>
+  <dialog id="page-links" aria-label="Study pages"><div class="stretch-panel"><header><h2 data-fit-label>Study pages</h2><button data-close="page-links" data-fit-label>Close</button></header><nav><a href="../" data-fit-label>Workbook</a><a href="../exploratory/" data-fit-label>Exploratory figures</a><a href="app/" data-fit-label>Marimo notebook</a></nav><p data-fit-label>Pivot sources and cohort are in Pivot settings.</p></div></dialog>
+  <dialog id="detail" aria-labelledby="detail-title"><h2 id="detail-title" data-fit-label>Full value</h2><p id="detail-value"></p><button data-close="detail" data-fit-label>Close</button></dialog>
+  <noscript>This pivot needs JavaScript. <a href="../results/">Read the saved results</a>.</noscript>
+  <script type="module" src="pivot-app.js"></script>
 </body>
 </html>

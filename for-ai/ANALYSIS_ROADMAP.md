@@ -2,6 +2,17 @@
 
 ## Active visualization step — Excel-style pivot explorer
 
+Current owner-approved extension: prioritize fast loading and smartphone
+compatibility. Replace the `/pivot/` frontend with lightweight JavaScript and
+lazy, build-prepared JSON from the existing Python preparation; preserve the
+marimo fallback and exploratory figures. Use locked Pretext and outside-in
+stretch geometry for settings. This task changes no inference or manuscripts.
+
+- [x] Verify JavaScript aggregation against Python, including totals/missing data.
+- [x] Verify phone portrait/landscape, touch targets, keyboard and enlarged text; measure
+  first usable table and load only the selected source.
+- [ ] Publish and verify the exact deployment, then record observed evidence.
+
 Owner request: revisit the data visually on a new GitHub Pages subpage using
 marimo. Preserve the scientific checklist below and all earlier results.
 
@@ -20,7 +31,7 @@ marimo. Preserve the scientific checklist below and all earlier results.
 - [x] Verify filter activation/deactivation, both subpages' Pages deployment
   and live execution.
 
-State: **VISUALIZATION STEP VERIFIED.** Pages deployed source `231cb0f` from
+Original marimo state: **VERIFIED.** Pages deployed source `231cb0f` from
 `main`; the 59-test suite, notebook/WASM checks, production build, existing full
 analysis and independent numerical checks pass. Both live subpages execute;
 the published pivot's filters change 800→400→800 source records, and the live

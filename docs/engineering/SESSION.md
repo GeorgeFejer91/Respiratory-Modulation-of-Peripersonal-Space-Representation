@@ -1,42 +1,42 @@
-# Pivot explorer scope
+# Fast pivot frontend scope
 
-Add a separate marimo pivot explorer under `/pivot/`, its portable preparation
-and aggregation module, an explicit catalogue of tracked public result CSVs,
-focused checks, and Pages build/CI integration. Preserve the existing workbook,
-all statistical engines, raw CSV bytes, saved results and manuscripts.
-The requested final UI has a minimal table and Activate filters switch at
-`/pivot/`, with configuration collapsed under Pivot settings. Expanded controls,
-heatmap and downloads remain on the separate `/exploratory/` subpage.
+Replace only `/pivot/` with lightweight JavaScript and a worker, using build-time
+JSON from the established Python preparation. Keep `/pivot/app/` as the marimo
+fallback and preserve `/exploratory/`, the workbook/editor, scientific engines,
+raw CSV bytes, saved results and manuscripts. Allowed changes: pivot assets,
+static export, focused parity checks, build/CI integration and routed guidance.
+The roadmap owns the active checklist; no new inference is part of this task.
 
-Initial state: `main` at `b96a2e3`; local instruction changes in `AGENTS.md`,
-`for-ai/README.md`, `for-ai/SKILLS.md`, untracked `for-ai/skills/`, and an
-untracked Typst review JSON predate this task and stay outside its commit.
+Initial unrelated local changes in AGENTS.md, for-ai/README.md, for-ai/SKILLS.md,
+untracked for-ai/skills/ and the Typst review JSON remain excluded. The existing
+committed visualization-skill routing is preserved. Do not reset or absorb this
+work. The local bibliography's existing CRLF hash mismatch is avoided by building
+committed LF sources in an ignored isolated checkout; the user's file is unchanged.
 
-Verify aggregation against hand-calculated unequal-size groups, missing values,
-counts, totals and no-axis cases; verify baseline sign/matching and cohort
-selection; run workbook tests, strict/WASM notebook checks, audited production
-build and actual browser interactions/downloads. Exercise responsive layout.
-Publication is complete only after the exact commit deploys and the live page
-loads and reacts. Existing inference and its open roadmap remain unchanged.
+Observed checks: 59 workbook tests; 60 JavaScript/Python parity cases, including
+boolean/numeric column axes, weighted totals, missing data, counts, errors and
+cohort/filter semantics. An intentionally wrong JavaScript mean fails the
+hand-calculated regression. Strict/WASM checks and native pivot execution pass.
+The audited production export passes, preserving both notebook pages and all
+264 saved-table snapshots. Its assets match the current frontend source.
 
-Local evidence: 59 workbook tests, strict and WASM notebook checks, native
-notebook execution and isolated production export pass. A deliberately wrong
-mean fails the totals regression. Browser CSV payload matches native values at
-1e-10; median aggregation, phase filtering, saved session-table selection and
-heatmap rendering were observed. The page and notebook reflow at 320 CSS px.
-Browser download clicks could not be captured by the in-app browser (including
-ordinary eager links); file-save capture remains unverified. The working
-checkout's pre-existing CRLF bibliography mismatch was avoided by building the
-committed LF sources in an ignored isolated checkout, without changing the file.
+The production preview's first table rendered in 209 ms in one local Chromium
+run, versus 38.4 seconds in one local marimo comparison; this is not a controlled
+mobile/network benchmark. Default data is 46,023 bytes, below the 64 KiB build
+budget. Full means, trials and saved tables load on selection. Actual browser
+CSV download succeeded; all six rows/six columns match Python at 1e-10.
 
-Final minimal-view checks: native filter activation changes 800 to 400 records;
-deactivation restores 800 while preserving the chosen filter values. The same
-on/off sequence was observed in the real browser. The default view shows only
-the table, its filter switch, collapsed settings and source count. The expanded
-notebook is preserved separately and both native notebook executions pass.
+Browser checks cover 320×568, 375×667, 390×844, 640×360, 768×1024, 1280×800
+and 1920×1080; default page/table regions have no overflow. At 200% text,
+settings page through nine ordered controls without internal overflow even at
+320×568. Short enlarged worksheets use deliberate outer document scrolling.
+Text-spacing overrides are browser-verified; Pretext does not model word spacing.
+Filters change 800→400→800, median and trial loading work, and saved-table search,
+selection and aggregation were exercised. Physical iPhone/Safari remains untested.
+Escape dismisses settings and returns focus to its trigger. A missing-Pretext
+fixture retains readable text and settings pagination, with measurement explicitly
+marked unavailable. Invalid axis assignments clear stale output and disable export.
 
-Publication: source `231cb0f` on `main` passed GitHub's complete build, reference
-analysis, independent validation and Pages deployment. Both live subpages were
-opened and executed. The published pivot was checked through 800→400→800 filter
-toggling, and Exploratory figures loaded its saved source through the shared
-catalogue. Unrelated instruction/review changes remain untouched.
+Publication: implementation validation is complete; commit, full CI and exact
+Pages deployment/live execution are the remaining gate. Keep the overall
+scientific inference goal open.

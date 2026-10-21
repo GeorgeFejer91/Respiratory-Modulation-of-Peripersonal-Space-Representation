@@ -99,14 +99,24 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 ## Browser companion and ownership
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
-The separate `/pivot/` marimo page displays only the pivot table with optional
-filters. Its collapsed Pivot settings select the audited release,
+The separate `/pivot/` page prioritizes fast loading and smartphone compatibility
+using lightweight JavaScript, a worker and lazy JSON prepared by the existing
+Python owner. The first table uses only a compact default-view payload; larger
+field sets, trials and saved tables load on demand. Keep Python/Pyodide off this
+page's startup path. Its Pivot settings select the audited release,
 participant-distance means, questionnaires or a lazy catalogue of tracked public
 result CSVs. It contains no heatmap or explanatory report. This does not authorize new model fitting or
 manuscript promotion; the scientific inference roadmap stays open.
 The sibling `/exploratory/` subpage preserves the expanded exploration controls,
 heatmap, source inspection and downloads, sharing the pivot preparation and
 saved-result catalogue rather than fitting new models.
+The original marimo pivot remains available under `/pivot/app/`. Settings use
+outside-in stretch geometry and ordered group/control pagination on no-fit;
+field/value lists and the table page through their unbounded contents. Locked
+Pretext 1.0.0 measures bounded labels after the first table. Preserve user text
+enlargement; very short enlarged layouts may use deliberate outer document flow,
+while the settings panel has no internal scrollbar. Browser-size emulation does
+not establish actual iPhone/Safari verification.
 
 Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
 [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)

@@ -1,0 +1,129 @@
+export const aggregations = ['Mean', 'Median', 'Sum', 'Count nonmissing', 'Standard deviation', 'Minimum', 'Maximum', 'Unique values', 'Row count'];
+
+export function snapshotFrame(snapshot) {
+  const columns = snapshot.columns;
+  const rows = snapshot.rows.map(row => columns.map(field => row[field] === '' ? null : row[field]));
+  const numeric = [];
+  const types = Object.fromEntries(columns.map(field => [field, 'text']));
+  columns.forEach((field, index) => {
+    const present = rows.map(row => row[index]).filter(value => value !== null);
+    if (present.length && present.every(value => value === 'True' || value === 'False')) {
+      rows.forEach(row => { if (row[index] !== null) row[index] = row[index] === 'True'; });
+      if (present.length === rows.length) { numeric.push(field); types[field] = 'boolean'; }
+    } else if (present.length && present.every(value => String(value).trim() !== '' && !Number.isNaN(Number(value)))) {
+      rows.forEach(row => { if (row[index] !== null) row[index] = Number(row[index]); });
+      numeric.push(field);
+      types[field] = present.length === rows.length && present.every(value => /^[+-]?\d+$/.test(value)) ? 'integer' : 'number';
+    }
+  });
+  return { columns, rows, numeric, types };
+}
+
+export function selectRecords(frame, settings) {
+  const participant = frame.columns.indexOf('participant_id');
+  const excluded = { 'Primary behavioural cohort': ['P011', 'P033'], 'Exclude P011': ['P011'], 'Exclude P033': ['P033'] }[settings.cohort] || [];
+  const filters = settings.filtersEnabled ? Object.entries(settings.filters || {}).filter(([, values]) => values.length) : [];
+  const selections = filters.map(([field, values]) => [frame.columns.indexOf(field), new Set(values.map(value => JSON.stringify(value)))]);
+  return frame.rows.filter(row => (participant < 0 || !excluded.includes(row[participant])) &&
+    selections.every(([index, values]) => index >= 0 && values.has(JSON.stringify(row[index]))));
+}
+
+function compareValue(left, right) {
+  if (typeof left === 'string' && typeof right !== 'string') return 1;
+  if (typeof right === 'string' && typeof left !== 'string') return -1;
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+
+export function compareTuple(left, right) {
+  for (let index = 0; index < left.length; index++) {
+    const order = compareValue(left[index], right[index]);
+    if (order) return order;
+  }
+  return 0;
+}
+
+function summarize(values, aggregation) {
+  const present = values.filter(value => value !== null && !Number.isNaN(value));
+  if (aggregation === 'Row count') return values.length;
+  if (aggregation === 'Count nonmissing') return present.length;
+  if (aggregation === 'Unique values') return new Set(present).size;
+  if (!present.length) return null;
+  if (aggregation === 'Minimum') return present.reduce((a, b) => Math.min(a, Number(b)), Infinity);
+  if (aggregation === 'Maximum') return present.reduce((a, b) => Math.max(a, Number(b)), -Infinity);
+  if (aggregation === 'Median') {
+    present.sort((a, b) => Number(a) - Number(b));
+    const middle = Math.floor(present.length / 2);
+    return present.length % 2 ? Number(present[middle]) : (Number(present[middle - 1]) + Number(present[middle])) / 2;
+  }
+  let sum = 0, correction = 0;
+  for (const value of present) {
+    const next = Number(value) - correction;
+    const total = sum + next;
+    correction = (total - sum) - next;
+    sum = total;
+  }
+  if (aggregation === 'Sum') return sum;
+  const mean = sum / present.length;
+  if (aggregation === 'Mean') return mean;
+  if (aggregation === 'Standard deviation') {
+    if (present.length < 2) return null;
+    return Math.sqrt(present.reduce((total, value) => total + (Number(value) - mean) ** 2, 0) / (present.length - 1));
+  }
+  throw new Error('Unknown summary.');
+}
+
+export function pivot(frame, settings) {
+  const { rows, columns, values, aggregation, totals } = settings;
+  if (!aggregations.includes(aggregation)) throw new Error('Choose a summary.');
+  if (rows.some(field => columns.includes(field))) throw new Error('A field can be in Rows or Columns, not both.');
+  if (values.some(field => rows.includes(field) || columns.includes(field))) throw new Error('Values must differ from Rows and Columns.');
+  if (!values.length && aggregation !== 'Row count') throw new Error('Choose a Values field, or use Row count.');
+  if ([...rows, ...columns, ...values].some(field => !frame.columns.includes(field))) throw new Error('Unknown field.');
+  if (!['Count nonmissing', 'Unique values', 'Row count'].includes(aggregation) && values.some(field => !frame.numeric.includes(field))) {
+    throw new Error('Choose numeric Values fields, or use Count nonmissing / Unique values for text.');
+  }
+  const source = selectRecords(frame, settings);
+  const rowNames = rows.length ? rows : ['All records'];
+  if (!source.length) return { columns: rowNames, rows: [], axisCount: rowNames.length, count: 0 };
+  const rowFields = rows.map(field => frame.columns.indexOf(field));
+  const colFields = columns.map(field => frame.columns.indexOf(field));
+  const measures = aggregation === 'Row count' ? ['Record count'] : values;
+  const measureFields = measures.map(field => frame.columns.indexOf(field));
+  const rowGroups = new Map(), columnGroups = new Map(), cells = new Map();
+  const keys = (record, indices) => indices.map(index => record[index] ?? '(missing)');
+  for (const record of source) {
+    const row = rows.length ? keys(record, rowFields) : ['All records'];
+    const column = keys(record, colFields);
+    const rowKey = JSON.stringify(row), columnKey = JSON.stringify(column);
+    if (!rowGroups.has(rowKey)) rowGroups.set(rowKey, { label: row, records: [] });
+    if (!columnGroups.has(columnKey)) columnGroups.set(columnKey, { label: column, records: [] });
+    rowGroups.get(rowKey).records.push(record);
+    columnGroups.get(columnKey).records.push(record);
+    const key = JSON.stringify([rowKey, columnKey]);
+    if (!cells.has(key)) cells.set(key, []);
+    cells.get(key).push(record);
+  }
+  if ((rowGroups.size + 1) * (columnGroups.size + 1) * measures.length > 100000) {
+    throw new Error('This pivot exceeds 100,000 cells. Filter records or remove a high-cardinality axis.');
+  }
+  const orderedRows = [...rowGroups.entries()].sort((a, b) => compareTuple(a[1].label, b[1].label));
+  const orderedColumns = [...columnGroups.entries()].sort((a, b) => compareTuple(a[1].label, b[1].label));
+  const descriptors = measures.flatMap((measure, index) => orderedColumns.map(([key, group]) => ({ measure, index, key, label: group.label })));
+  if (totals && columns.length) measures.forEach((measure, index) => descriptors.push({ measure, index, total: true, label: ['Grand total'] }));
+  const axisLabel = (value, field) => typeof value === 'boolean' ? (value ? 'True' : 'False') :
+    typeof value === 'number' && frame.types?.[field] === 'number' && Number.isInteger(value) ? value.toFixed(1) : String(value);
+  const resultColumns = rowNames.concat(descriptors.map(part => [part.measure, ...part.label.map((value, index) => axisLabel(value, columns[index]))].join(' · ')));
+  const aggregate = (records, index) => summarize(records.map(record => aggregation === 'Row count' ? 1 : record[measureFields[index]]), aggregation);
+  const resultRows = orderedRows.map(([rowKey, group]) => group.label.concat(descriptors.map(part => {
+    const records = part.total ? group.records : cells.get(JSON.stringify([rowKey, part.key]));
+    return records ? aggregate(records, part.index) : null;
+  })));
+  if (totals) resultRows.push(['Grand total', ...Array(rowNames.length - 1).fill(''), ...descriptors.map(part =>
+    aggregate(part.total || !columns.length ? source : columnGroups.get(part.key).records, part.index))]);
+  return { columns: resultColumns, rows: resultRows, axisCount: rowNames.length, count: source.length };
+}
+
+export function csvText(result) {
+  const escape = value => '"' + String(typeof value === 'boolean' ? (value ? 'True' : 'False') : value ?? '').replaceAll('"', '""') + '"';
+  return '\uFEFF' + [result.columns, ...result.rows].map(row => row.map(escape).join(',')).join('\r\n') + '\r\n';
+}

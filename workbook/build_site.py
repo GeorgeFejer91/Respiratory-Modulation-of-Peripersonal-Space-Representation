@@ -196,8 +196,10 @@ def build(output, development=False):
         (target/"paper.pdf").write_bytes(pdf)
         build_results(root, target)
     from pivot_data import build_snapshots
+    from pivot_static import build_views
     pivot = output / "pivot"
     shutil.copytree(notebook.parent / "pivot_assets", pivot, dirs_exist_ok=True)
+    build_views(people, trials, pivot / "data")
     for page_name, source_name in (("pivot", "pivot_explorer.py"), ("exploratory", "exploratory_figures.py")):
         subprocess.run([
             sys.executable, "-m", "marimo", "export", "html-wasm", str(notebook.with_name(source_name)),
@@ -206,7 +208,7 @@ def build(output, development=False):
     catalog = build_snapshots(root, pivot / "app" / "public" / "snapshots")
     if not catalog:
         raise RuntimeError("Missing saved-result pivot catalogue.")
-    exploratory_html = (pivot / "index.html").read_text(encoding="utf-8").replace(
+    exploratory_html = (pivot / "notebook-shell.html").read_text(encoding="utf-8").replace(
         "Study 5 · Pivot table", "Study 5 · Exploratory figures").replace(
         'src="text-fit.js"', 'src="../pivot/text-fit.js"').replace(
         'href="../exploratory/">Exploratory figures', 'href="../pivot/">Pivot table').replace(

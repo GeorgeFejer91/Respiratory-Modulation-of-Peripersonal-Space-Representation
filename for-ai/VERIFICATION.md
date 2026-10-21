@@ -53,15 +53,29 @@ workbook suite, and a native `app.run()` (800 default source records, six pivot
 rows). Check unequal-size grand totals, missing values, text counts, baseline
 sign/matching and cohort exclusions. Build only tracked public-result snapshots;
 verify their CSV hashes/catalogue identity, private-pattern scan, lazy selection,
-actual browser aggregation/filter changes and CSV export. Verify the default
+actual browser aggregation/filter changes and CSV export.
+
+Run `python workbook/check_pivot_javascript.py` with Node 22 available to compare
+the shipped JavaScript summaries with Python, including missing values, totals,
+cohort/filter semantics and validation errors. The default page must start without
+Pyodide and without preloading trials, questionnaires, the full means payload or
+saved catalogues. Check the first-table DOM timing and actual lazy source changes.
+Check 320×568 portrait, 640×360 landscape, intermediate and desktop sizes, 200%
+text and text-spacing overrides. Verify settings' header/footer anchors, ordered
+group/control pages and no internal overflow; outer document flow is the explicit
+fallback for short enlarged pages. Check row and column paging, full-value detail,
+touch targets, focus, Escape and CSV export. Pretext predictions require actual
+bounded-label measurements and rendered checks; unsupported word spacing remains
+browser-verified. Record physical-browser/device coverage limits. Verify the default
 minimal view hides filters/settings, activating filters reveals controls, and
 deactivating them restores the chosen cohort regardless of retained selections.
 Run the same strict/WASM checks on `workbook/exploratory_figures.py` and verify
 its heatmap/expanded controls remain available at `/exploratory/`; its saved
 tables must load from the shared `/pivot/app/public/snapshots/` catalogue.
 Check the page and wrapper navigation at narrow/normal/wide viewports, text
-enlargement and keyboard operation. Marimo owns its controls; Pretext 1.0.0
-measures the new wrapper/navigation, with natural wrapping as its fallback.
+enlargement and keyboard operation. Marimo owns notebook controls; Pretext 1.0.0
+measures the JavaScript pivot and wrapper/navigation, with readable wrapping as
+its fallback. Keep `/pivot/app/` working as the marimo fallback.
 Keep the existing workbook source and saved reference identities unchanged.
 
 With `workbook/requirements-validation.txt` installed, run
