@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-21",
+  "installer": "Codex skill-installer; pinned downloads reviewed in ignored staging, then validated/copied with its helper functions",
+  "installation_scope": "$CODEX_HOME/skills (user-level)",
+  "review": "Instruction, dependency, permission, script/import and file-operation review; Python syntax parsed. No plotting helpers, examples, upstream hooks, package installers or dependency upgrades executed.",
+  "openai_license": "No LICENSE/NOTICE artifact found in the pinned repository root or selected plugin; preserve upstream provenance and review terms before redistribution.",
+  "runtime_dependencies": "Not installed by this task. Check actual project versions before executing upstream examples.",
+  "skills": [
+    {
+      "name": "scientific-visualization",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "subdirectory": "skills/scientific-visualization",
+      "upstream_files": 18,
+      "upstream_tree_sha256": "76b4f04e4487050c846684bb94d16c59f87263cb03adb9e476cf537fa2ff4178",
+      "installed_files": 19,
+      "installed_tree_sha256": "d574423348e3da9eb8aa7efcf9f6f07c713c9995fe6c7abf6372abf95273e7e7",
+      "adaptations": [
+        "Included repository LICENSE.md as UPSTREAM-LICENSE.md.",
+        "Moved compatibility from the unsupported top-level frontmatter key into metadata for the installed Codex validator; instructions and dependency requirements preserved."
+      ]
+    },
+    {
+      "name": "seaborn",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "subdirectory": "skills/seaborn",
+      "upstream_files": 8,
+      "upstream_tree_sha256": "809ad8b7e059b2a142143dc7004b4729094bc532f20f35b4bcb543ba6c7a1793",
+      "installed_files": 9,
+      "installed_tree_sha256": "d81f5936dacf53ba6b336924e18e536ac6b31a1af601c5503b761ea7f054e98c",
+      "adaptations": [
+        "Included repository LICENSE.md as UPSTREAM-LICENSE.md.",
+        "Moved compatibility from the unsupported top-level frontmatter key into metadata for the installed Codex validator; instructions and dependency requirements preserved."
+      ]
+    },
+    {
+      "name": "grammar-of-graphics-and-declarative-visualization",
+      "repository": "openai/plugins",
+      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "subdirectory": "plugins/build-web-data-visualization/skills/grammar-of-graphics-and-declarative-visualization",
+      "upstream_files": 5,
+      "upstream_tree_sha256": "a8572977b7ce204465477297eaa87f7cf27ba71bfe9831fa7f1d0f21490aea45",
+      "installed_files": 9,
+      "installed_tree_sha256": "be46780652e83e989a337cf0b1349057fd06a018a4b694d71f6b6d7385f034cc",
+      "adaptations": [
+        "Bundled required shared foundation references in references/shared; rebased local paths and changed optional uninstalled sibling/template references to pinned upstream URLs. No extra skills installed."
+      ]
+    },
+    {
+      "name": "statistical-and-uncertainty-visualization",
+      "repository": "openai/plugins",
+      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "subdirectory": "plugins/build-web-data-visualization/skills/statistical-and-uncertainty-visualization",
+      "upstream_files": 6,
+      "upstream_tree_sha256": "4565de3121b630fc1edb2eda5d3aea5d1f7b4e7e4659570b110e72ceda7d5739",
+      "installed_files": 8,
+      "installed_tree_sha256": "054a8d3a5510ac3bf92e28f90f3452d2d725a6263c088097cd81026cb9b74aaa",
+      "adaptations": [
+        "Bundled required shared foundation references in references/shared; rebased local paths and changed optional uninstalled sibling/template references to pinned upstream URLs. No extra skills installed."
+      ]
+    },
+    {
+      "name": "ssci-plots",
+      "repository": "O0000-code/SSCI-Plots",
+      "commit": "f697b922e8fc11ca13a61f29d58c1f83963c5b1b",
+      "subdirectory": ".",
+      "upstream_files": 44,
+      "upstream_tree_sha256": "d50588bcca98ce9784d840e067752c1e6399ace19644578a65e278e21527ea8a",
+      "installed_files": 44,
+      "installed_tree_sha256": "d50588bcca98ce9784d840e067752c1e6399ace19644578a65e278e21527ea8a",
+      "adaptations": []
+    }
+  ]
+}

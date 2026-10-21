@@ -28,6 +28,11 @@ Higher-priority instructions and the current user request always win.
 | Implement a confirmed R/Python analysis | `psy-ana-coder` | Conditional; keep new exploratory code in `orchestration/` until promoted. |
 | Audit an analysis plan or script | `psy-ana-reviewer` | Conditional; record readiness findings before promotion. |
 | Verify a final PDF's visual layout | `pdf:pdf` | Conditional for PDF deliverables, after the LaTeX build. |
+| Design or audit scientific figures and exports | `scientific-visualization` | Default figure-quality route; retain raw observations, transformations, exclusions, units, interval definitions and output provenance. |
+| Explore RT distributions, participant trajectories and questionnaire relationships | `seaborn` | Conditional Python plotting route; preserve participant IDs and paired structure; supply uncertainty from the approved analysis rather than a trial-row bootstrap. |
+| Add ordinary tabular charts to the Pages explorer | `grammar-of-graphics-and-declarative-visualization` | Conditional browser-chart route for Observable Plot/Vega-Lite/Vega; reuse existing preparation and saved results, and preserve the current UI/Pretext and mobile contracts. |
+| Choose displays for uncertainty, missingness, aggregation or smoothing | `statistical-and-uncertainty-visualization` | Combine with the selected plotting route when interpretation depends on variability; distinguish observations, fitted curves, priors and extrapolation. |
+| Apply psychology/APA figure styling or raincloud/coefficient layouts | `ssci-plots` | Optional styling/reference route; project statistical methods and verified journal requirements override presets and example calculations. |
 
 ## Supply-chain rule
 
@@ -45,6 +50,42 @@ copies skill files, runs no upstream hooks/installers, and preserves existing
 copies. The search skill is guidance, not a search-provider credential or MCP
 server. Use available sources and record access limits; do not claim Consensus
 or a general web-search provider ran when it was unavailable.
+
+### Visualization skills
+
+The owner-requested five visualization skills above are installed at user scope
+under `$CODEX_HOME/skills` (default `~/.codex/skills`). Their exact upstream
+commits, review scope, adaptations and content digests are recorded in
+[`orchestration/visualization_skills.json`](orchestration/visualization_skills.json).
+Each installed directory includes `INSTALLATION.json` with individual file hashes.
+Codex can discover these skills on the next turn; installation is not evidence
+that a plotting workflow or browser verification ran.
+
+Load only the matching route: uncertainty/encoding guidance, one implementation
+skill, then publication styling if needed. `ssci-plots` is an alternative styling
+reference, not a second mandatory style system. Use the existing runtime and
+figure owners; check upstream example pins against actual installed versions
+before execution. No runtime packages, browser libraries or upstream hooks were
+installed or executed during skill setup.
+
+For Study 5, preserve the four Condition × Phase cells, AT minus Baseline sign,
+participant pairing, primary40/linkage sensitivities and existing exclusions.
+Do not treat trials or pooled posterior medians as independent participants.
+Use approved participant-level resampling or posterior draws for inferential
+intervals; separate observed RTs from imposed sigmoid geometry and smoothing.
+Retain inconclusive results and all declared contrasts. These skills do not
+authorize new fitting, cleaning, manuscript promotion or changes to inference.
+Preserve raw, excluded and missing-value distinctions, physical units, accessible
+encodings, keyboard/touch access and static/export alternatives. Run the matching
+gates in `VERIFICATION.md` when figures or browser charts actually change.
+
+The K-Dense compatibility fields are preserved inside frontmatter metadata to
+pass the installed Codex validator. The OpenAI copies include their required
+shared foundation references locally; optional links to uninstalled sibling
+skills/templates point to pinned upstream files. K-Dense license text and
+SSCI-Plots' license/credits are retained. No
+LICENSE/NOTICE artifact was found for the pinned OpenAI repository/plugin;
+retain provenance and review terms before redistributing those instructions.
 
 <!-- for-ai:shared-skills:start -->
 ## Shared project skill baseline

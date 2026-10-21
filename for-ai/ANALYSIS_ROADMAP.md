@@ -31,6 +31,15 @@ browser-tool limitation recorded above. The scientific inference goal below is
 still open. Next action: use the pivot to select the next visual comparison.
 The native inference goal below remains open. No new models were fitted.
 
+Visualization skill setup (2026-10-21): the five owner-requested figure,
+exploration and uncertainty skills are installed and routed in `SKILLS.md`;
+`orchestration/visualization_skills.json` records pinned sources and content
+verification. All five Codex skill validations and hash receipts, ten Python
+syntax checks, sixteen OpenAI local-reference checks and the project context
+gate passed. Setup did not run plotting helpers, fit models or deploy the site.
+The next visualization action remains the unchecked JavaScript/phone/deployment
+verification above; the scientific inference goal remains open.
+
 ## Goal and status rules
 
 Answer each level separately before selecting the paper narrative. Deliver
