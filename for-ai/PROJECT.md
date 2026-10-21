@@ -98,6 +98,12 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
+The owner has resumed GitHub Pages work for sequential visual exploration.
+The separate `/pivot/` marimo page owns descriptive pivots over the audited
+release, participant-distance means, questionnaires and a lazy catalogue of
+tracked public result CSVs. This does not authorize new model fitting or
+manuscript promotion; the scientific inference roadmap stays open.
+
 Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
 [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
 runnable in the browser. Preserve the established full analysis and its exact

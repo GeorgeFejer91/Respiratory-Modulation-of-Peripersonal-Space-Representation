@@ -1,5 +1,18 @@
 # Browser publication companion
 
+The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
+is a separate marimo page for visual exploration. Choose participant-distance
+means, every trial, participant/questionnaire records or one of the saved analysis
+tables; assign Rows, Columns and Values, filter fields, choose a summary and inspect
+the table/heatmap. Download the pivot, filtered source and settings before leaving.
+CSV downloads retain full precision; displayed summaries use six significant digits.
+The default is the 40-person behavioural cohort; select Full release for all 42
+records. The page performs descriptive aggregation and never refits saved models.
+Saved-table snapshots are built from tracked result CSVs, record their source
+hashes, and load only the selected table. `pivot_explorer.py` owns the notebook;
+`pivot_data.py` owns its preparation/aggregation, sharing the existing cleaner and
+questionnaire scorer. Run locally with `marimo run workbook/pivot_explorer.py`.
+
 The marimo application executes the released Study 5 analysis entirely in the
 reader's browser using Pyodide. The published default loads the deidentified
 42-record, 17,114-trial dataset. The active **Run Bayesian parameter analysis**

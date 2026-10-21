@@ -1,5 +1,23 @@
 # Results-first analysis roadmap
 
+## Active visualization step — Excel-style pivot explorer
+
+Owner request: revisit the data visually on a new GitHub Pages subpage using
+marimo. Preserve the scientific checklist below and all earlier results.
+
+- [x] Implement Rows/Columns/Values, filters, summary functions, totals,
+  source inspection, linked heatmap and CSV/settings downloads at `/pivot/`.
+- [x] Include audited trials, participant-distance means, participant questionnaires
+  and all 264 tracked saved-result CSV tables as separate source-identified views.
+- [x] Current-source checks: 59 tests, strict/WASM checks, native notebook and
+  isolated production build; browser pivot CSV matches native at 1e-10.
+  Aggregation/filter changes, saved results and heatmap were exercised. File-save
+  capture is unavailable in the in-app browser, including eager download links.
+- [ ] Verify the scoped commit's Pages deployment and exercise the live page.
+
+State: local implementation verified; publication verification in progress.
+The native inference goal below remains open. No new models were fitted.
+
 ## Goal and status rules
 
 Answer each level separately before selecting the paper narrative. Deliver

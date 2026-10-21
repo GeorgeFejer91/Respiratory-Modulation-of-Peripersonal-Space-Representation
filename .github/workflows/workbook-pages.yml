@@ -41,6 +41,9 @@ jobs:
           python for-ai/orchestration/public_data.py check data/raw
           marimo check workbook/data_preparation.py --strict
           marimo check workbook/data_preparation.py --select MW --strict
+          marimo check workbook/pivot_explorer.py --strict
+          marimo check workbook/pivot_explorer.py --select MW --strict
+          python -c "import sys; sys.path.insert(0, 'workbook'); from pivot_explorer import app; outputs, values = app.run(); assert len(values['filtered']) == 800; assert len(values['pivot']) == 6"
       - name: Build browser workbook
         run: python workbook/build_site.py --output .for-ai-local/site
       - name: Execute published workbook and fixed analysis

@@ -47,6 +47,18 @@ cell HTML can exceed marimo's output-size limit even after computation succeeds.
 
 ## Numerical and manuscript checks
 
+For `/pivot/`, also run strict and WASM marimo checks on
+`workbook/pivot_explorer.py`, the `test_pivot_data.py` checks included in the
+workbook suite, and a native `app.run()` (800 default source records, six pivot
+rows). Check unequal-size grand totals, missing values, text counts, baseline
+sign/matching and cohort exclusions. Build only tracked public-result snapshots;
+verify their CSV hashes/catalogue identity, private-pattern scan, lazy selection,
+actual browser aggregation/filter changes, CSV downloads and the heatmap.
+Check the page and wrapper navigation at narrow/normal/wide viewports, text
+enlargement and keyboard operation. Marimo owns its controls; Pretext 1.0.0
+measures the new wrapper/navigation, with natural wrapping as its fallback.
+Keep the existing workbook source and saved reference identities unchanged.
+
 With `workbook/requirements-validation.txt` installed, run
 `python workbook/validate_statistics.py`. Its independent statsmodels ML,
 linear/binomial sandwich, ANOVA and quadrature comparisons must pass. Compare an
