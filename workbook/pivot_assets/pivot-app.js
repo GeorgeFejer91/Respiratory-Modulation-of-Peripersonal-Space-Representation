@@ -4,7 +4,7 @@ import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 const byId = id => document.getElementById(id);
 const worker = new Worker(new URL('./pivot-worker.js', import.meta.url), { type: 'module' });
 const pending = new Map();
-let requestId = 0, generation = 0, result, resultSettings, fields = [], numeric = [], catalog;
+let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings, fields = [], numeric = [], catalog;
 let rowPage = 0, columnPage = 0, rowCapacity = 8, columnCapacity = 4;
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
@@ -220,13 +220,17 @@ byId('add-filter').onclick = () => openChoices('Choose filter field', fields.map
 }, true);
 byId('clear-filters').onclick = () => { settings.filters = {}; renderFilters(); update(); };
 async function changeSource(key, entry = null) {
+  const sourceRevision = ++sourceGeneration;
   generation++;
   source = key; saved = entry; settings.filters = {}; renderFilters();
   byId('source').value = key;
+  byId('status').textContent = `Loading ${names[key]}…`;
+  for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).disabled = true;
   const prior = { ...settings, rows: [...settings.rows], columns: [...settings.columns], values: [...settings.values] };
   settings.rows = []; settings.columns = []; settings.values = []; settings.aggregation = 'Row count';
   try {
     const reply = await request('pivot');
+    if (sourceRevision !== sourceGeneration) return;
     fields = reply.columns; numeric = reply.numeric;
     const savedKeys = ['model', 'cohort', 'prior', 'quantity', 'parameter', 'term', 'contrast', 'participant_id', 'cell', 'basis', 'distance_cm', 'soa_ms', 'effect', 'measure', 'units', 'metric'].filter(field => fields.includes(field));
     settings.rows = key === 'saved' ? (savedKeys.length ? savedKeys : [fields[0]]) : [key === 'participants' ? 'participant_id' : 'distance_cm'];
@@ -240,7 +244,10 @@ async function changeSource(key, entry = null) {
     for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).textContent = `${axis[0].toUpperCase() + axis.slice(1)}: ${settings[axis].length} fields`;
     byId('saved-table').hidden = key !== 'saved';
     update();
-  } catch (error) { Object.assign(settings, prior); reportError(error); }
+  } catch (error) { if (sourceRevision === sourceGeneration) { Object.assign(settings, prior); reportError(error); } }
+  finally {
+    if (sourceRevision === sourceGeneration) for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).disabled = false;
+  }
 }
 async function chooseSaved() {
   try {

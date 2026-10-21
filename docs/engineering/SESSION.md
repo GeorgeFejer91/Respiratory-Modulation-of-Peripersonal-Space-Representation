@@ -36,6 +36,8 @@ selection and aggregation were exercised. Physical iPhone/Safari remains unteste
 Escape dismisses settings and returns focus to its trigger. A missing-Pretext
 fixture retains readable text and settings pagination, with measurement explicitly
 marked unavailable. Invalid axis assignments clear stale output and disable export.
+A deliberately delayed trial-load fixture verifies that rapid source changes keep
+the latest participant selection when the older trial response arrives.
 
 Publication: implementation validation is complete; commit, full CI and exact
 Pages deployment/live execution are the remaining gate. Keep the overall
