@@ -1,13 +1,22 @@
 # Project contract
 
-## Active scope: results and a defensible analysis recommendation
+## Active scope: browser analysis and a living publication on GitHub Pages
 
-The owner has paused manuscript drafting. Pin down the Study 5 results in the
-ordered, itemized [analysis roadmap](ANALYSIS_ROADMAP.md), then deliver a
-results-only report stating how far each level is satisfied. The owner now requests
-a recommended analysis and lead result for publication. Provide that methodological
-choice without rewriting LaTeX/Typst prose/PDFs. The existing
-manuscript is a preserved version-1.9 snapshot, not the destination for new results.
+The owner now makes GitHub Pages the primary analysis workspace and the primary
+reader-facing publication/preprint, with source and reproducible releases in this
+repository (D-0015, 2026-10-21). Develop the HTML paper and its analyses together:
+questions, methods, results, figures, interpretation, references and downloadable
+evidence must trace to the same declared data/code/result version. The ordered
+[analysis roadmap](ANALYSIS_ROADMAP.md) remains the single active checklist.
+Publication-ready is an acceptance goal, not a status conferred by hosting.
+
+This supersedes the results-only pause for authoring the current HTML publication.
+Keep the version-1.9 LaTeX/Typst/PDF and reference artifacts as historical
+snapshots; do not automatically overwrite or promote them. Preserve the
+results-only report as evidence for the living paper. Native-only analyses must
+be labelled until actual browser execution and numerical parity are verified;
+port the existing methods in finite stages rather than replacing them with a
+spreadsheet engine. Skill installation alone does not migrate any analysis.
 
 The main estimands are participant-specific PPS midpoint (cm) and normalized
 midpoint sharpness `1/(4*width_cm)` in all four Control/Viscereality ×
@@ -16,7 +25,8 @@ Condition, Phase and Condition × Phase. Describe the four average response curv
 and their uncertainty. Explore links with eight baseline MAIA-2 subscales and
 post-condition spatial ratings only after documenting the measurement limits.
 
-The active goal is to **identify usable Bayesian evidence for Phase, Condition or
+The scientific inference goal remains to **identify usable Bayesian evidence for
+Phase, Condition or
 Condition × Phase effects on PPS boundary or normalized sharpness**, with the six
 primary parameter contrasts and validity requirements in `ANALYSIS_ROADMAP.md`
 (Q10). The completed Bayesian/frequentist battery remains the reference. Freeze
@@ -47,8 +57,7 @@ provide distance slopes and response contrasts, not intrinsic PPS boundaries.
 Screen additional literature methods in an explicit finite registry, recording
 implemented, redundant, unsuitable and inaccessible approaches. Prioritize relevant
 experimental results while reporting the full family, uncertainty and failures.
-The owner has set aside GitHub Pages documentation for the current task and
-prioritized obtaining results. The expanded native batch lives in
+The earlier results-first phase produced the expanded native batch in
 `analysis/baseline_effects/`, with its finite registry, complete numerical outputs
 and results-only report in `results/baseline_effects/`. It preserves failed
 diagnostics and labels post hoc checks. These results are separate from the
@@ -105,8 +114,9 @@ Python owner. The first table uses only a compact default-view payload; larger
 field sets, trials and saved tables load on demand. Keep Python/Pyodide off this
 page's startup path. Its Pivot settings select the audited release,
 participant-distance means, questionnaires or a lazy catalogue of tracked public
-result CSVs. It contains no heatmap or explanatory report. This does not authorize new model fitting or
-manuscript promotion; the scientific inference roadmap stays open.
+result CSVs. It contains no heatmap or explanatory report. Pivot interaction
+remains descriptive; it does not refit models or silently change the paper's
+analysis. The scientific inference roadmap stays open.
 The sibling `/exploratory/` subpage preserves the expanded exploration controls,
 heatmap, source inspection and downloads, sharing the pivot preparation and
 saved-result catalogue rather than fitting new models.
@@ -121,8 +131,8 @@ not establish actual iPhone/Safari verification.
 Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
 [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
 runnable in the browser. Preserve the established full analysis and its exact
-version-1.9 reference. New results-only analyses may have a separate run button
-and independently hashed download, allowing manuscript work to stay frozen.
+version-1.9 reference. New analyses need an explicit specification, separate run
+state and independently hashed download before they can support the living paper.
 Source push, numerical verification, browser execution and Pages deployment are
 separate observed gates. Do not describe source push alone as deployment.
 
@@ -132,9 +142,10 @@ separate observed gates. Do not describe source push alone as deployment.
 - `results/`: verified statistical outputs, reference records and final results
   report. `figures/`: publication-draft assets. Keep new results distinct from the
   preserved manuscript snapshot.
-- `analysis/prepare_publication.py`: promotes verified legacy browser results into
-  the manuscript; do not invoke while manuscript drafting is paused.
-- `manuscript/`: preserved canonical LaTeX and derived Typst snapshot.
+- `analysis/prepare_publication.py`: legacy promotion into the historical
+  manuscript; do not invoke as part of the HTML publication transition.
+- `manuscript/`: preserved version-1.9 LaTeX and derived Typst snapshot, not the
+  current publication's editing destination.
 - `literature_review/`: traceable evidence, supporting and contrary sources,
   method-to-claim links and actual access records.
 - `for-ai/`: scope, roadmap, decisions and verification instructions, not final
@@ -178,7 +189,8 @@ ethical approval are owner-authorized; see D-0004/D-0011 and
 source paths and private provenance outside public artifacts. No repeated release
 permission is needed for these unchanged audited inputs.
 
-No manuscript rewrite, guaranteed acceptance, invented physiological boundary,
-questionnaire-driven cleaning, guaranteed observed sigmoid, significance target or causal
-mediation claim belongs in the active task. Author review, collection/stopping
+No automatic historical-manuscript rewrite, guaranteed acceptance, invented
+physiological boundary, questionnaire-driven cleaning, guaranteed observed
+sigmoid, significance target or causal mediation claim belongs in the active task.
+Author review, collection/stopping
 history and source mapping remain separate from computational completion.

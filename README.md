@@ -1,18 +1,25 @@
 # Respiratory Modulation of Peripersonal Space Representation
 
-Study 5 paper, released deidentified behavioral data, and an executable marimo
-publication companion. [Preregistration](https://aspredicted.org/az9f89.pdf).
+Study 5 living publication and browser analysis project, with released
+deidentified behavioral data. [Preregistration](https://aspredicted.org/az9f89.pdf).
 
-**Current focus: results before manuscript narrative.** Follow the
+**Current direction: GitHub Pages as the primary analysis workspace and living
+preprint.** The current [live site](https://georgefejer91.github.io/Study5_Publication/)
+contains executable analyses, exploration and saved results; the complete HTML
+paper and browser coverage of newer native methods are still being developed.
+Follow the
 [question-by-question roadmap](for-ai/ANALYSIS_ROADMAP.md) and
+[browser-coverage inventory](results/BROWSER_COVERAGE.md), alongside the
 [results-only report](results/RESULTS_REPORT.md). The new **Run Bayesian parameter
 analysis** browser branch estimates four individual midpoint/sharpness posteriors,
 checks prediction and prior sensitivity, and propagates uncertainty into experimental
 contrasts and spatial/MAIA interactions. Bayesian estimates remain model-dependent;
-finite posteriors do not establish reliable physiological boundaries. Manuscript
-drafting is paused and the version-1.9 paper remains a preserved snapshot.
+finite posteriors do not establish reliable physiological boundaries. Develop
+the current paper in HTML from verified outputs; the version-1.9 LaTeX/Typst/PDF
+paper remains a preserved historical snapshot. Hosting and skill installation
+alone do not establish publication readiness.
 
-The companion runs the full data-supported analysis in your browser: input checks,
+The established browser pipeline includes input checks,
 RT preparation, mixed models, sensitivity analyses, participant contrasts,
 repeated-measures ANOVA, an 800-pipeline sigmoid/linear shape comparison, nested
 participant prediction, 1,000 bootstrap resamples per selected sigmoid family,
@@ -35,7 +42,7 @@ sensitivities are reported.
 | Folder | Contents |
 | --- | --- |
 | [workbook](workbook/README.md) | Browser application/editor, fixed analysis contract, engine, checks and Pages build |
-| [manuscript](manuscript/README.md) | Self-contained Overleaf draft refreshed from the browser run |
+| [manuscript](manuscript/README.md) | Preserved version-1.9 Overleaf/Typst paper snapshot |
 | [data/raw](data/raw/README.md) | Participant and trial CSVs and schemas |
 | [analysis](analysis/README.md) | Promotes verified browser downloads into manuscript/results; does not rerun models |
 | [literature_review](literature_review/README.md) | Miniature review, supporting/contrary evidence, analysis rationale, bibliography and search record |
@@ -57,7 +64,7 @@ The coverage goal now includes every released data domain. See the
 [questionnaire and spatial-frame review](literature_review/QUESTIONNAIRES.md)
 for the scoring evidence, registration crosswalk, results and availability limits.
 
-Open the [live publication companion](https://georgefejer91.github.io/Study5_Publication/)
+Open the [live publication and analysis workspace](https://georgefejer91.github.io/Study5_Publication/)
 or the [editable browser workbook](https://georgefejer91.github.io/Study5_Publication/editor/).
 For deployment instructions and how Codex connects to marimo, see
 [the workbook guide](workbook/README.md). The owner authorised public repository
@@ -67,7 +74,7 @@ remain outside this repository.
 ## UnderTree
 
 Clone this repository and use **File → Open project folder** in UnderTree to add
-the clone. The publication manuscript remains in `manuscript/main.tex`, with its
+the clone. The historical manuscript remains in `manuscript/main.tex`, with its
 sections, bibliography and figures alongside it. UnderTree currently edits Typst
 and HTML; adding the project preserves the LaTeX sources and does not convert or
 automatically share them with ChatGPT. Its separate TeX import creates a new

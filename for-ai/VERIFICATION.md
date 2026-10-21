@@ -12,6 +12,36 @@ must be reconciled by a normal validated push, never by resetting user work.
 
 ## Workbook and data
 
+### Living publication acceptance (D-0015)
+
+GitHub Pages is the primary publication/analysis target. Before marking a version
+publication-ready, verify all of the following, in addition to the applicable
+method-specific checks below:
+
+- A method-by-method coverage inventory distinguishes actual browser execution,
+  native computation, saved-output inspection and unrun work. Opening a CSV in a
+  pivot table does not establish that its producing model ran in the browser.
+- The HTML paper's questions, methods, results, figures, references and limitations
+  trace to one declared publication version and its approved result manifests.
+  Preserve exploratory/preregistered labels, failed diagnostics and unavailable
+  provenance. Keep the earlier paper/reference labelled as a historical version.
+- Actual browser runs/downloads preserve inputs, code revision, runtime versions,
+  settings/formulas, cohort/exclusions, seeds, uncertainty and result hashes.
+  Compare migrated outputs independently against native/reference results.
+- Any selected spreadsheet runtime is pinned and its supported formula set is
+  tested for missing values, errors, coercion, references and recalculation.
+  Edited/exploratory cells cannot silently replace released inputs or fixed paper
+  results. Upstream templates and skill validation are not numerical evidence.
+- Paper reading, analysis controls, tables/figures and export work on narrow and
+  wide layouts, enlarged text, keyboard/touch and accessible non-colour cues.
+  Show run progress, failed/unsupported calculations and native-only status.
+- Record source/version identity and preserve a stable Git tag/release or archived
+  snapshot with paper, data, code, settings and figure/result downloads. Verify
+  source push, CI, exact deployment and live execution separately. Author and
+  scientific review remain necessary; hosting does not imply peer review or DOI.
+
+### Existing executable workbook checks
+
 From the repository root in the pinned workbook environment:
 
 ```bash

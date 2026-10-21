@@ -29,12 +29,27 @@ facts already obvious from source and tests.
 
 ## Analysis promotion
 
-During the results-only phase (D-0012), preserve the version-1.9 manuscript/reference
-and promote the independently hashed Bayesian browser download to `results/bayesian/`
-after `validate_bayesian.py` checks. Update `results/RESULTS_REPORT.md` and the
-roadmap instead of invoking manuscript promotion. The site checks both reference
-identities separately. Manuscript/PDF reconciliation resumes only when the owner
-returns to drafting.
+GitHub Pages is the primary current publication and analysis workspace (D-0015).
+Author its HTML narrative from verified outputs while retaining the version-1.9
+manuscript/reference as a historical snapshot. The earlier results-only phase
+(D-0012) remains the provenance of its outputs, not a continuing ban on HTML paper
+authoring. Promote independently hashed Bayesian browser downloads to
+`results/bayesian/` only after `validate_bayesian.py` checks. Update the results
+report and roadmap; do not invoke the legacy manuscript-promotion script merely
+to update the living paper. Keep both reference identities distinct.
+
+An exploratory browser session is not automatically the published analysis.
+Capture its input hashes, code revision, settings/formulas, cohort, exclusions,
+seed, versions, result hashes and uncertainty/diagnostics in a downloadable run
+record. Paper figures and claims must identify the approved record they use.
+Native-only work stays explicitly labelled until browser execution, download and
+independent numerical comparison pass. The roadmap owns this migration by method.
+
+Keep the current living page and immutable publication versions distinct. Before
+declaring a publication-ready release, record the source commit/version, analysis
+manifest, data and figure downloads, references, author/scientific review and the
+observed deployment. Preserve a citable Git tag/release or archived snapshot for
+each released version; do not invent a DOI, peer-review status or archival deposit.
 
 The browser publication pipeline is explicitly authorised by the project owner.
 Its estimands, cohort, cleaning and registration interpretations are recorded in

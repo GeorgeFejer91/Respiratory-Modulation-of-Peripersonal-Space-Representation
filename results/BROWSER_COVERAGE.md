@@ -1,0 +1,38 @@
+# Browser analysis coverage for the living publication
+
+Inventory recorded 2026-10-21 from the current source entry points and archived
+verification records. This is a migration inventory, not a fresh execution or a
+claim of publication readiness. The active checklist is
+[for-ai/ANALYSIS_ROADMAP.md](../for-ai/ANALYSIS_ROADMAP.md).
+
+The shared inputs are the unchanged audited participant/trial CSV pair in
+`data/raw/`. Preserve each analysis's own cohort, exclusions and baseline rule;
+the full release has 42 participant records, while primary new behavioural
+inference excludes both ambiguous recordings and uses 40 people. A preview or
+spreadsheet edit must not silently change a fixed publication run.
+
+| Analysis or surface | Execution owner / entry point | Current coverage and evidence | Remaining work for the living paper |
+| --- | --- | --- | --- |
+| Data audit, preparation and selected-input export | [data_preparation.py](../workbook/data_preparation.py), [preparation.py](../workbook/preparation.py); site root and `/editor/` | Browser/Pyodide entry exists. Published-data and upload behavior are covered by the established workbook gates. | Expose the selected input identity and retained/excluded records alongside paper methods. |
+| Fixed frequentist models, descriptive/shape comparisons, individual proxies, questionnaires and robustness | [paper_analysis.py](../workbook/paper_analysis.py), [inference.py](../workbook/inference.py), [publication_report.py](../workbook/publication_report.py); **Run complete paper analysis** | Browser/Pyodide implementation with archived [report](browser-analysis/analysis_report.md), [manifest](browser-analysis/manifest.json) and [reference download](browser-analysis/browser-results.zip). Independent checks are recorded in the `*-independent-validation.json` files in this directory. | Link current-paper figures and statements to the approved run; retain all uncertainty and failed identification gates. Recheck browser execution after any engine changes. |
+| Unpooled Bayesian/grid parameters, uncertainty propagation and conventional posterior-median ANOVAs | [bayesian_sigmoid.py](../workbook/bayesian_sigmoid.py), [bayesian_report.py](../workbook/bayesian_report.py); **Run Bayesian parameter analysis** | Browser/Pyodide implementation. Archived [validation](bayesian-independent-validation.json) records actual browser/native comparison of 255,279 values at tolerance 1e-8; [run manifest](bayesian/manifest.json) identifies the separate download. This is not the later joint hierarchical model. | Present the estimand, priors, model limits and omitted uncertainty in fixed-median ANOVAs; keep this branch separate from joint-model results. |
+| Fast pivot summaries | [pivot_data.py](../workbook/pivot_data.py), [pivot_static.py](../workbook/pivot_static.py), [pivot-engine.mjs](../workbook/pivot_assets/pivot-engine.mjs); `/pivot/` | Browser JavaScript worker over build-prepared JSON; [parity checker](../workbook/check_pivot_javascript.py) compares with Python. This is descriptive aggregation, not a model fitter. | Retain lazy loading, weighted totals, missing-value semantics and mobile behavior; identify the source of every saved table. |
+| Exploratory heatmaps and source inspection | [exploratory_figures.py](../workbook/exploratory_figures.py); `/exploratory/` and marimo pivot fallback `/pivot/app/` | Browser/Pyodide entry points. The shared catalogue exposes tracked saved-result CSVs, including native outputs. | Clearly distinguish a displayed saved estimate from a newly computed model. |
+| Baseline-corrected nonlinear/frequentist and joint Bayesian model family | [analysis/baseline_effects/](../analysis/baseline_effects/), [finite registry](baseline_effects/analysis_registry.json), [native report](baseline_effects/RESULTS.md) and [manifest](baseline_effects/manifest.json) | Native-only model batch. No corresponding model-execution entry was found in the browser workbook; catalogue access is saved-output inspection. | Audit runtime/dependency feasibility and port finite registry batches with matched inputs, uncertainty, diagnostics, held-out targets and independent parity. Do not substitute spreadsheet formulas for the joint likelihood. |
+| Signed joint-sigmoid publication-method packaging | [publication_sigmoid_choice.py](../analysis/publication_sigmoid_choice.py), [manifest](publication_sigmoid_choice/manifest.json) | Native packaging of existing joint-model draws; no new fit. Its manifest identifies an ignored local posterior-draw artifact, which is not bundled into the browser. | Supply reproducible browser-accessible reconstruction or rerun/export before promising that a reader can regenerate every figure. |
+| Positive-amplitude consistent-direction joint sigmoid | [analysis/directional_sigmoid/](../analysis/directional_sigmoid/), [specification](directional_sigmoid/specification.json), [report](directional_sigmoid/RESULTS.md) | Native-only fits and matched predictive comparison. A shared direction is a model assumption. | Port the existing fit/prediction/reconstruction or explicitly retain native-only status. Preserve reversed observations and signed-model sensitivity. |
+| Explicit visible-S approximation | [analysis/visible_sigmoid/](../analysis/visible_sigmoid/), [specification](visible_sigmoid/specification.json), [report](visible_sigmoid/RESULTS.md) | Native-only constrained fits. Guaranteed in-range geometry is not observed curvature. | Port both declared bounds and matched predictions, including prior-information and recovery limits. |
+| Trial filtering, early-block and covariance-aware rolling sensitivities | [analysis/trial_cleaning/](../analysis/trial_cleaning/), [specification](trial_cleaning/specification.json), [report](trial_cleaning/RESULTS.md) | Native-only diagnostic/fitting batch. Saved CSVs do not expose execution of its rolling likelihood. | Preserve original trials, exclusions and overlap covariance; migrate training/held-out behavior and every declared sensitivity together. |
+| Continuous session-wide RT trend adjustment | [analysis/trial_cleaning/](../analysis/trial_cleaning/), [session specification](trial_cleaning/session_specification.json), [session report](trial_cleaning/SESSION_RESULTS.md) | Native-only jointly estimated trend and PPS fits. Trial order spans both interventions. | Port shared global time and baseline uncertainty; do not restart time by intervention or call early-block selection a fatigue control. |
+| Further nuisance/reduced-model extension and last-30 sensitivity | Q10 in [the roadmap](../for-ai/ANALYSIS_ROADMAP.md) | Further finite specification/validation remains open; last-30 selection needs unavailable verified collection order. | Keep unrun/source-blocked status explicit. IDs are not collection dates; do not invent a cohort or fit merely to fill browser coverage. |
+
+The current publication sources are the verified result reports and their
+manifests; the version-1.9 paper remains a historical snapshot. A complete current
+HTML paper, per-method execution controls, publication run records and stable
+released versions remain to be implemented and reviewed. The first bounded step
+is to connect a current-paper result and figure to an already browser-executable
+branch, then migrate native-only methods one declared batch at a time.
+
+Installing HyperFormula, Handsontable or Univer instructions does not add a
+calculation engine to this site. Formula support is a separate product capability
+and needs compatibility fixtures before its output can support a paper claim.

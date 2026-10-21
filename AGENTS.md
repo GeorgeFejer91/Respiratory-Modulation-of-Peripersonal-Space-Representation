@@ -25,3 +25,8 @@ start. Before ending, update that same state with evidence, blockers, the
 next action, and observed Git/publication state. Keep the overall goal open
 until its own acceptance criteria pass.
 <!-- for-ai:shared-skills:end -->
+
+<!-- rtk-workflow -->
+## Shell output
+
+For shell work, prefer supported RTK filters; see [for-ai/README.md](for-ai/README.md) and its RTK skill. Keep exact reads and parser input raw.

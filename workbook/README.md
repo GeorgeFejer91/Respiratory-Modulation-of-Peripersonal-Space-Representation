@@ -1,4 +1,18 @@
-# Browser publication companion
+# Browser analysis and living publication
+
+GitHub Pages is the primary target for the current paper and its analysis.
+The existing workbook/editor and explorers remain executable; the complete
+HTML-paper integration and browser migration of newer native-only models are
+tracked in the [publication roadmap](../for-ai/ANALYSIS_ROADMAP.md). Saved result
+tables do not mean their producing models run here. Current-paper HTML authoring
+uses verified outputs, while the version-1.9 manuscript/reference stays historical.
+
+The development environment includes the HyperFormula, Handsontable and Univer
+integration skills, routed in [for-ai/SKILLS.md](../for-ai/SKILLS.md). Those
+instructions guide future formula/grid work; their runtime libraries have not
+been added to this site. Keep the current preparation, statistical engines and
+fast pivot as the authoritative implementations until a scoped replacement
+passes numerical and real-browser checks.
 
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
 is a lightweight JavaScript subpage displaying the pivot table. Switch on
@@ -44,7 +58,7 @@ branch runs separately: individual posteriors, simpler-model prediction, prior
 sensitivity, reliability/recovery, paired Condition × Phase contrasts and spatial
 × MAIA exploration. Its download has its own manifest and 42-page raw/conditional
 geometry atlas. See the [results-only report](../results/RESULTS_REPORT.md) and
-[ordered checklist](../for-ai/ANALYSIS_ROADMAP.md). No manuscript refresh is required;
+[ordered checklist](../for-ai/ANALYSIS_ROADMAP.md). No historical-manuscript refresh is required;
 the earlier version-1.9 paper/reference remain preserved.
 
 Select **Run complete paper analysis** to compute
@@ -101,7 +115,7 @@ Its `--report <native-json> --browser-zip <actual-download>` mode verifies every
 new result across the two executions. Promote results-only browser artifacts into
 `results/bayesian/`; the site build requires their exact code/input/artifact hashes
 and browser-validation identity. Do not use `prepare_publication.py` for this branch
-while manuscript drafting is paused.
+as part of the living HTML publication workflow.
 The archived report and [results](../results/README.md) record both execution surfaces.
 The original participant-boundary inference remains gated when trial-level fits fail.
 A separately labelled individual-proxy extension exports four exploratory curves

@@ -9,6 +9,10 @@ context, skill routing, decisions, verification rules, and agent workflows
 here. Keep product source, shipped assets, end-user documentation, and final
 deliverables outside this directory.
 
+GitHub Pages is now the intended primary analysis workspace and living preprint.
+Use `PROJECT.md` for that contract and `ANALYSIS_ROADMAP.md` for the migration and
+publication-readiness checklist; hosting and skill setup do not establish readiness.
+
 ## Authority order
 
 1. System, developer, and current user instructions.
@@ -59,3 +63,13 @@ The Pages artifact contains the browser companion,
 that dataset and reproducible publication-draft materials. Author review before
 paper submission and successful Pages deployment remain separate gates. Private
 backups, identity/provenance archives and raw recordings stay outside deployment.
+
+<!-- rtk-workflow -->
+## Shell output
+
+Prefer supported RTK filters for human-read shell output; see the [RTK skill](skills/rtk/SKILL.md). Keep exact reads and parser input raw. Use bounded native commands when RTK is unavailable.
+<!-- for-ai-coding-workflows-route:start -->
+## Skill routing
+
+Use [`SKILLS.md`](./SKILLS.md) for task-specific skill selection. Coding work can load one matching nested workflow guide: [focused changes](./skills/superpowers-workflow/SKILL.md) or [multi-phase work](./skills/gsd-core-workflow/SKILL.md).
+<!-- for-ai-coding-workflows-route:end -->

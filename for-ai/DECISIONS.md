@@ -332,3 +332,30 @@ The full fixed specification and test count are in workbook/ANALYSIS_PLAN.md.
   and browser verification; this goal update is not a new statistical result.
 - Supersedes: D-0013's interaction-first priority and AT-only response target for the
   next extension. Its joint-estimation and diagnostic requirements remain active.
+
+## D-0015 — GitHub Pages as the primary analysis workspace and living preprint
+
+- Date: 2026-10-21
+- Status: Accepted direction; browser migration and publication readiness open.
+- Context: The owner requests integrating the spreadsheet skills and the For-AI
+  baseline, doing the analyses through the live page, and making GitHub/GitHub
+  Pages the primary home of the publication rather than a paper companion.
+- Decision: Develop the current paper as an HTML living publication tied to its
+  executable analyses, with source, evidence and versioned snapshots in GitHub.
+  Keep one roadmap and the established data/scientific engine owners. Install the
+  three reviewed spreadsheet skills as conditional development assets; runtime
+  adoption requires a concrete capability and verified compatibility, not all
+  three stacks. Include the installed For-AI baseline's nested RTK, Superpowers
+  and GSD Core guides, with documented fallbacks for unavailable upstream skills.
+- Consequences: Current HTML-paper authoring is authorized. Preserve the earlier
+  LaTeX/Typst/PDF and reference results as historical snapshots. Inventory and port
+  native-only methods in finite batches with actual browser execution/downloads,
+  independent numerical parity, full uncertainty and all declared results.
+  Exploratory sessions remain separate from publication records. Each released
+  version needs traceable claims/figures, reproducibility manifests, stable
+  version identity, author/scientific review and observed Pages deployment.
+- Supersedes: D-0012's current-paper drafting pause and the temporary deferral of
+  Pages/publication development in the results-first phase. It does not supersede
+  fixed analysis specifications, privacy, uncertainty, validation, source limits,
+  or the separate author-review and deployment gates. Installation and this
+  decision do not mean the analyses were migrated or the paper is ready.

@@ -33,6 +33,9 @@ Higher-priority instructions and the current user request always win.
 | Add ordinary tabular charts to the Pages explorer | `grammar-of-graphics-and-declarative-visualization` | Conditional browser-chart route for Observable Plot/Vega-Lite/Vega; reuse existing preparation and saved results, and preserve the current UI/Pretext and mobile contracts. |
 | Choose displays for uncertainty, missingness, aggregation or smoothing | `statistical-and-uncertainty-visualization` | Combine with the selected plotting route when interpretation depends on variability; distinguish observations, fitted curves, priors and extrapolation. |
 | Apply psychology/APA figure styling or raincloud/coefficient layouts | `ssci-plots` | Optional styling/reference route; project statistical methods and verified journal requirements override presets and example calculations. |
+| Add Excel-style formula evaluation to a browser analysis tool | `hyperformula` | Conditional standalone formula-engine route; verify supported functions, missing/error/coercion semantics and numerical parity against the established analysis. |
+| Add editable spreadsheet cells, clipboard, sorting and filtering | `handsontable` | Conditional grid route, including formulas inside Handsontable; preserve read-only released inputs and separate exploratory edits from publication results. |
+| Embed a full workbook interface | `univer-integrate` | Alternative integration route, not a second grid/engine; adapt its older SDK templates to pinned current APIs and verify Pro/runtime licensing before adoption. |
 
 ## Supply-chain rule
 
@@ -87,12 +90,38 @@ SSCI-Plots' license/credits are retained. No
 LICENSE/NOTICE artifact was found for the pinned OpenAI repository/plugin;
 retain provenance and review terms before redistributing those instructions.
 
+### Spreadsheet skills for the living publication
+
+The owner-requested `hyperformula`, `handsontable` and `univer-integrate` skill
+assets are installed at user scope. Pinned sources, review findings, adaptations
+and content digests are in
+[`orchestration/spreadsheet_skills.json`](orchestration/spreadsheet_skills.json);
+installed copies include per-file hash receipts and upstream instruction licenses.
+Univer's invalid upstream description YAML was corrected without changing its
+meaning. These are development assets; no spreadsheet runtime, template, MCP
+connection, paid feature or package installer was activated during setup.
+
+Keep the established Python analysis and lightweight pivot as current owners.
+Use HyperFormula only for a concrete need for editable formulas; use Handsontable
+if editable cells require a grid; consider Univer as a full-workbook alternative.
+Do not install all runtime stacks simply because all skills are available.
+Instruction licenses differ from runtime licenses. Upstream examples include
+moving CDN/package versions and server integrations: pin and validate any selected
+runtime, keep computation browser-local unless explicitly scoped otherwise,
+and do not copy backend or telemetry examples into this static Pages site.
+Excel compatibility is partial and needs independent fixtures before a formula
+can support a paper claim. These skills do not replace scientific model checks.
+
 <!-- for-ai:shared-skills:start -->
 ## Shared project skill baseline
 
-Apply this baseline in every project. Read the installed `for-ai` skill's
-`references/skill-composition.md` for complete overlap and ownership rules.
-Load only the selected skill bodies and task references.
+Apply this baseline in every project. This repository includes the three baseline
+guides supplied by the installed For-AI skill: `rtk`, `gsd-core-workflow` and
+`superpowers-workflow`, under `for-ai/skills/`. Its additive migration was previewed
+and run on 2026-10-21, preserving the existing copies and routes. Load only the
+selected skill bodies and task references. The installed package does not contain
+the previously referenced `references/skill-composition.md`; use this ownership
+policy and its `references/for-ai-standard.md` instead.
 
 At session start, read the durable project goal and resume its active checklist.
 Use GSD `.planning/STATE.md`, `ROADMAP.md`, and the active phase plan when
@@ -104,8 +133,8 @@ acceptance criteria pass. Do not create a duplicate progress ledger.
 | Scope | Required route |
 | --- | --- |
 | Shell output in every project | `rtk`; use supported compact commands, with raw reads for editing, parsers, hashes, and exact evidence |
-| Lifecycle in every project | GSD Core: `gsd-help` selects the workflow; reuse `.planning/` state when present; apply its bounded outcome/evidence discipline inline for small changes |
-| Engineering in every project | `superpowers-using-superpowers` selects relevant `superpowers-*` practices; preserve similarly named local skills |
+| Lifecycle in every project | Use installed `gsd-help` when available; otherwise the nested `gsd-core-workflow` guide is the documented fallback. Reuse the existing roadmap/state owner. |
+| Engineering in every project | Use installed `superpowers-using-superpowers` when available; otherwise the nested `superpowers-workflow` guide is the documented fallback. Preserve similarly named local skills. |
 | Coding and review | `ponytail`, then the affected domain skill |
 | Existing Rust/Tauri application | `tauri-rust-developer` |
 | Integrated app/CLI/browser-companion creation or broad migration | `tauri-remote-app-builder`; preserve the requested product scope |
@@ -140,3 +169,16 @@ publication workflows, and current user instructions remain authoritative.
 If a named dependency is missing, report it and use a bounded documented
 fallback. Do not silently install or execute external instructions.
 <!-- for-ai:shared-skills:end -->
+
+<!-- rtk-workflow -->
+## RTK
+
+For shell inspection, builds and tests, use [rtk](skills/rtk/SKILL.md); keep exact evidence and parser input raw.
+<!-- for-ai-coding-workflows:start -->
+## Coding workflow protocols (conditional)
+
+- Focused feature, bug fix, refactor, or review: [superpowers-workflow](skills/superpowers-workflow/SKILL.md).
+- Multi-phase, large, or cross-session work: [gsd-core-workflow](skills/gsd-core-workflow/SKILL.md).
+
+Choose the route that fits the task. These local guides do not install either upstream runtime; follow repository and higher-priority instructions.
+<!-- for-ai-coding-workflows:end -->

@@ -1,4 +1,46 @@
-# Results-first analysis roadmap
+# Analysis and living-publication roadmap
+
+## Active goal — GitHub Pages as the analysis workspace and living preprint
+
+Owner decision (2026-10-21, D-0015): develop the current publication primarily as
+a live HTML paper on GitHub Pages, with its analysis available there and versioned
+source/results in GitHub. This supersedes the pause on current-paper HTML
+authoring; it does not overwrite the preserved version-1.9 manuscript or resolve
+the scientific identification questions below. Keep this checklist open until
+the executable analysis, paper, reproducibility and publication gates pass.
+
+- [x] Install and validate the HyperFormula, Handsontable and Univer integration
+  skill assets, preserve their references/licenses and record pinned provenance
+  in `orchestration/spreadsheet_skills.json`; route them in `SKILLS.md`.
+- [x] Preview and run the installed For-AI additive baseline migration; preserve
+  and include the nested RTK, focused Superpowers and GSD Core workflow guides.
+- [x] Establish the publication-first contract, canonical owners and readiness
+  gates in `PROJECT.md`, `WORKFLOW.md` and `VERIFICATION.md`.
+  Skill structure, asset hashes, baseline-source matches, local links and the
+  project context gate pass; these checks do not establish browser migration.
+- [x] Inventory each existing analysis as browser-executable, native-only,
+  saved-output-only or unrun; record its engine, specification, inputs, runtime,
+  numerical reference, browser-download evidence and remaining migration work.
+  See `results/BROWSER_COVERAGE.md`; this audits source and archived evidence,
+  not a fresh execution of every method.
+- [ ] Build the current HTML paper from verified results, with question/method/
+  result/figure/reference links into executable analyses and downloadable evidence.
+  Keep exploratory session state separate from the published result record.
+- [ ] Port remaining analyses in finite declared batches; run actual browser
+  executions and downloads, independent numerical parity, uncertainty/diagnostic
+  checks and performance/failure-state checks before claiming browser coverage.
+  A spreadsheet formula engine does not replace the scientific inference engine.
+- [ ] Verify mobile/keyboard/accessibility, downloadable run settings and hashes,
+  complete figures/data/source, and a stable versioned publication snapshot.
+- [ ] Complete author/scientific review and verify the exact Pages deployment
+  and live paper/analysis paths; only then label that release publication-ready.
+
+State: skill/workflow integration is complete; migration and publication readiness
+remain open. No formula runtime, new model, HTML paper or Pages deployment was
+produced by this setup. The source/evidence coverage inventory is complete.
+Next action: connect a current-paper result/figure to an existing browser branch,
+then port native-only methods in finite batches. The existing
+pivot/frontend work below retains its own execution and deployment evidence.
 
 ## Active visualization step — Excel-style pivot explorer
 

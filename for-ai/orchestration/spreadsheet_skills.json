@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-21",
+  "installation_scope": "$CODEX_HOME/skills (user-level)",
+  "installer": "Codex skill-installer; pinned Git downloads reviewed in ignored staging then validated/copied with its helper functions",
+  "review": "Instructions, references, template imports/network endpoints, package manifests and licenses reviewed. No upstream hooks, templates, MCP configuration, package installations or runtime code executed.",
+  "runtime_status": "Skill assets only. Existing Python/JavaScript analysis and pivot remain authoritative; no spreadsheet runtime selected or deployed.",
+  "review_findings": [
+    "Formula compatibility is partial; require fixtures for the supported functions and Excel coercion/missing/error semantics.",
+    "Univer skill targets v0.21.x and templates use latest/CDN dependencies; pin and adapt against actual current official APIs before any product integration.",
+    "Skill instruction licenses do not replace the separate runtime licenses or authorize Pro purchases, telemetry, external uploads or server components."
+  ],
+  "skills": [
+    {
+      "name": "hyperformula",
+      "repository": "handsontable/handsontable-skills",
+      "commit": "3be958a30c41b904c9a3a66557123108c44c38c3",
+      "subdirectory": "skills/hyperformula",
+      "upstream_files": 10,
+      "upstream_tree_sha256": "03ba96d5ae7f60238c92ba55c93bb7bdc7aeeece57acf6f2a37a5dc68a4038ed",
+      "installed_files": 11,
+      "installed_tree_sha256": "79cab436c0f6495a2a67d95d4a01c4918acb2694b6228bc943f00ad3e37e4198",
+      "adaptations": [
+        "Included upstream repository license as UPSTREAM-LICENSE.txt."
+      ]
+    },
+    {
+      "name": "handsontable",
+      "repository": "handsontable/handsontable-skills",
+      "commit": "3be958a30c41b904c9a3a66557123108c44c38c3",
+      "subdirectory": "skills/handsontable",
+      "upstream_files": 6,
+      "upstream_tree_sha256": "a49a5824ef6c0266f968c131edd091d655713aa4a546a31e66c48cb6e4cee5c8",
+      "installed_files": 7,
+      "installed_tree_sha256": "4ef4106fa1cac188a34da1f8c9eb13b6b792436dc1810db8b36ddce864ed1e61",
+      "adaptations": [
+        "Included upstream repository license as UPSTREAM-LICENSE.txt."
+      ]
+    },
+    {
+      "name": "univer-integrate",
+      "repository": "dream-num/univer-sdk-skills",
+      "commit": "60e9cbbdbbde9594ad61bad58ad9fbb4d5e17112",
+      "subdirectory": "skills/univer-integrate",
+      "upstream_files": 18,
+      "upstream_tree_sha256": "5fdd0e1613d8a61ecab601b74a9b900357769cc55d7ec016c0d14144dd1c14b4",
+      "installed_files": 19,
+      "installed_tree_sha256": "ea2865e18ce00c9bb130a013f140713ea7f5a68126df84cbbd883b0eefe9274f",
+      "adaptations": [
+        "Included upstream repository license as UPSTREAM-LICENSE.txt.",
+        "Quoted the upstream colon-containing description using a YAML block scalar; description and body preserved."
+      ]
+    }
+  ],
+  "for_ai_baseline": {
+    "migration": "Installed For-AI scripts/migrate_coding_protocols.ps1; previewed with -WhatIf then applied, preserving existing files/routes",
+    "scope": "Nested local workflow summaries; not installation of upstream GSD Core or Superpowers runtimes",
+    "skills": [
+      {
+        "name": "rtk",
+        "path": "for-ai/skills/rtk/SKILL.md",
+        "sha256": "d23d3fbd87bf90332f9a3bbfda089a12e1d3b028c5e3a48a814e963eee45c978",
+        "matches_installed_for_ai_asset": true
+      },
+      {
+        "name": "superpowers-workflow",
+        "path": "for-ai/skills/superpowers-workflow/SKILL.md",
+        "sha256": "d097ada265908bc2ba02b8a534c3f2ed5b74841d0cdaf7ee9e83c926c8d96355",
+        "matches_installed_for_ai_asset": true
+      },
+      {
+        "name": "gsd-core-workflow",
+        "path": "for-ai/skills/gsd-core-workflow/SKILL.md",
+        "sha256": "5509ab41a3bc1712aa042569f2c6816b073c96fcf966c30a9590e0fdf3decae4",
+        "matches_installed_for_ai_asset": true
+      }
+    ]
+  }
+}
