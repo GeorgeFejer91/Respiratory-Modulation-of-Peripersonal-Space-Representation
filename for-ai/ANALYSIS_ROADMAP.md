@@ -42,47 +42,48 @@ Next action: connect a current-paper result/figure to an existing browser branch
 then port native-only methods in finite batches. The existing
 pivot/frontend work below retains its own execution and deployment evidence.
 
-## Active visualization step — Excel-style pivot explorer
+## Active visualization step — fast pivot table
 
-Current owner-approved extension: prioritize fast loading and smartphone
-compatibility. Replace the `/pivot/` frontend with lightweight JavaScript and
-lazy, build-prepared JSON from the existing Python preparation; preserve the
-marimo fallback and exploratory figures. Use locked Pretext and outside-in
-stretch geometry for settings. This task changes no inference or manuscripts.
+Owner-approved priority: fast loading and smartphone compatibility. `/pivot/`
+uses lightweight JavaScript and lazy JSON prepared by the established Python
+owner. This step changes no statistical models or historical manuscripts.
 
-- [x] Verify JavaScript aggregation against Python, including totals/missing data.
-- [x] Verify phone portrait/landscape, touch targets, keyboard and enlarged text; measure
-  first usable table and load only the selected source.
-- [ ] Publish and verify the exact deployment, then record observed evidence.
+- [x] Keep the default page limited to the table, Activate filters and Pivot
+  settings. Disabling filters ignores retained selections. Export CSV includes
+  every pivot row/column with full numeric precision, including off-page cells.
+- [x] Load only the default 46,023-byte data payload initially, enforced below a
+  64 KiB build budget. Full means, 17,114 trials, participant questionnaires and
+  the catalogue of 264 tracked saved tables load on demand. Preserve source
+  identity and the original cleaning/scoring/baseline correction.
+- [x] Implement touch targets, row/column and field/value pagination, keyboard
+  focus/Escape, and ordered stretch settings without internal scrolling. Locked
+  Pretext 1.0.0 measures bounded labels after the first table and on dialog open.
+  Its unavailable state retains browser wrapping and geometry pagination.
+- [x] Preserve the marimo fallback at `/pivot/app/` and expanded controls,
+  heatmap, source inspection and downloads at `/exploratory/`.
+- [x] Pass 59 workbook tests, 60 JavaScript/Python parity cases, strict/WASM
+  notebook checks, native fallback and audited production build. Check totals,
+  missingness, boolean/numeric axes, validation errors and cohort/filter semantics.
+  Actual browser CSV matches Python at 1e-10; the live paginated export is
+  byte-identical to that full six-row/six-column reference.
+- [x] Verify phone portrait/landscape, desktop, enlarged text, spacing overrides,
+  full-value access, delayed overlapping source loads and anchored stretch groups.
+- [x] Verify the complete CI, exact Pages deployment and live execution.
 
-Owner request: revisit the data visually on a new GitHub Pages subpage using
-marimo. Preserve the scientific checklist below and all earlier results.
+State: **PIVOT STEP VERIFIED.** Deployed source `b84da44` on `main` passed the
+full reference analysis and independent numerical validation. Live filters change
+800→400→800 records; row/column paging and CSV export work. The exploratory
+notebook still executes separately. One local first-table observation was 209 ms,
+versus 38.4 seconds for marimo; the live first table was 973 ms here. These are
+single Chromium observations, not controlled physical-phone/network benchmarks.
 
-- [x] Implement a minimal `/pivot/` table with an Activate filters switch,
-  collapsed Pivot settings (Rows/Columns/Values, source, cohort, summaries,
-  totals), and the table's native Export menu. Filters are off initially;
-  disabling them ignores retained selections. No heatmap or report is displayed.
-- [x] Preserve the expanded explorer, heatmap, source inspection and downloads
-  separately under `/exploratory/`, as requested by the owner.
-- [x] Include audited trials, participant-distance means, participant questionnaires
-  and all 264 tracked saved-result CSV tables as separate source-identified views.
-- [x] Current-source checks: 59 tests, strict/WASM checks, native notebook and
-  isolated production build; browser pivot CSV matches native at 1e-10.
-  Aggregation/filter changes, saved results and heatmap were exercised. File-save
-  capture is unavailable in the in-app browser, including eager download links.
-- [x] Verify filter activation/deactivation, both subpages' Pages deployment
-  and live execution.
-
-Original marimo state: **VERIFIED.** Pages deployed source `231cb0f` from
-`main`; the 59-test suite, notebook/WASM checks, production build, existing full
-analysis and independent numerical checks pass. Both live subpages execute;
-the published pivot's filters change 800→400→800 source records, and the live
-exploratory page loads saved tables from the shared catalogue. Local native
-checks match this behavior. The minimal page's settings/filters are hidden by
-default; the expanded figures remain separate. File-save capture remains the
-browser-tool limitation recorded above. The scientific inference goal below is
-still open. Next action: use the pivot to select the next visual comparison.
-The native inference goal below remains open. No new models were fitted.
+Tested viewports span 320×568 portrait, 640×360 landscape and 1920×1080 desktop.
+At 200% text, small settings use nine ordered control pages; very short enlarged
+worksheets deliberately scroll the outer document. Text-spacing overrides are
+browser-verified because Pretext does not model word spacing. Physical iPhone/
+Safari remains untested. Details are in `docs/engineering/SESSION.md`.
+Next action: use the pivot to choose the next visual comparison. The broader
+living-publication and scientific inference goals remain open.
 
 Visualization skill setup (2026-10-21): the five owner-requested figure,
 exploration and uncertainty skills are installed and routed in `SKILLS.md`;
@@ -90,8 +91,8 @@ exploration and uncertainty skills are installed and routed in `SKILLS.md`;
 verification. All five Codex skill validations and hash receipts, ten Python
 syntax checks, sixteen OpenAI local-reference checks and the project context
 gate passed. Setup did not run plotting helpers, fit models or deploy the site.
-The next visualization action remains the unchecked JavaScript/phone/deployment
-verification above; the scientific inference goal remains open.
+The pivot frontend verification above is complete; the broader living-publication
+and scientific inference goals remain open.
 
 ## Goal and status rules
 
@@ -106,8 +107,9 @@ The initial roadmap and unpooled Bayesian specification were fixed after seeing
 version-1.9 results, before calculating that extension. The later joint-model and
 baseline-comparison goals followed inspection of its results and are now computed
 with the limits recorded below.
-These amendments are exploratory, not a new preregistration. Manuscript drafting
-is paused. Use the installed Ponytail skill:
+These amendments are exploratory, not a new preregistration. The historical
+LaTeX/Typst snapshot stays frozen; current HTML authoring follows D-0015. Use the
+installed Ponytail skill:
 reuse preparation, scoring and contrast definitions; add only the portable model,
 its report/export and proportional checks. Preserve the legacy reference.
 

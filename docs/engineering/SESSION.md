@@ -7,10 +7,9 @@ raw CSV bytes, saved results and manuscripts. Allowed changes: pivot assets,
 static export, focused parity checks, build/CI integration and routed guidance.
 The roadmap owns the active checklist; no new inference is part of this task.
 
-Initial unrelated local changes in AGENTS.md, for-ai/README.md, for-ai/SKILLS.md,
-untracked for-ai/skills/ and the Typst review JSON remain excluded. The existing
-committed visualization-skill routing is preserved. Do not reset or absorb this
-work. The local bibliography's existing CRLF hash mismatch is avoided by building
+Initial instruction/skill changes were excluded from the pivot implementation
+commit and subsequently integrated by a separate repository update. Preserve
+that work and the remaining untracked Typst review JSON. The local bibliography's existing CRLF hash mismatch is avoided by building
 committed LF sources in an ignored isolated checkout; the user's file is unchanged.
 
 Observed checks: 59 workbook tests; 60 JavaScript/Python parity cases, including
@@ -42,6 +41,10 @@ integer-rounded widths. Measured filter actions each fit on one line.
 A deliberately delayed trial-load fixture verifies that rapid source changes keep
 the latest participant selection when the older trial response arrives.
 
-Publication: implementation validation is complete; commit, full CI and exact
-Pages deployment/live execution are the remaining gate. Keep the overall
-scientific inference goal open.
+Publication: source `b84da44` on `main` passed the full CI, reference analysis,
+independent numerical checks and exact Pages deployment. The live 375-pixel phone
+view loads, filters 800→400→800, pages across both axes and exports the complete
+native-verified CSV. Final deployed modal labels are measured and fit; the
+exploratory notebook still runs. Group/control gaps grow with the window while
+header/footer anchors remain inset without panel overflow. Local HTTP servers
+were stopped. The broader living-publication and scientific goals remain open.
