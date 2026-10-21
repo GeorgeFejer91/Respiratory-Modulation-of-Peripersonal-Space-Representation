@@ -633,7 +633,7 @@ function getBreakStates(line, text, is8bit, afterLeadingWhitespace, keepAll) {
     }
     return state;
 }
-export function getGeckoLineBreaks(source, preserveWhiteSpace, keepAll, graphemeTable, 
+export function getGeckoLineBreaks(source, preserveWhiteSpace, keepAll, graphemeTable,
 // Where each item of a rich-inline paragraph starts in the source, or null for one text (transformText).
 frameStarts = null) {
     const len = source.length;

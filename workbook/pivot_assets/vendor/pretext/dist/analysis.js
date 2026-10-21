@@ -386,11 +386,11 @@ function segmentAtLineBreaks(normalized, spaceSources, breaks, whiteSpace, scan,
         texts.push(normalized.slice(starts[j], j + 1 < count ? starts[j + 1] : normalized.length));
     return { normalized, spaceSources, texts, starts, flags, hasUnbroken };
 }
-export function analyzeText(text, profile, whiteSpace = 'normal', wordBreak = 'normal', 
+export function analyzeText(text, profile, whiteSpace = 'normal', wordBreak = 'normal',
 // Preparation's language (getPreparationLanguage), which picks Chrome's and WebKit's
 // line tables, WebKit's quotation remap and Gecko's rule for newlines next to East
 // Asian punctuation.
-language = null, 
+language = null,
 // The items of the rich-inline paragraph whose text this is, else null.
 paragraph = null) {
     const preserve = whiteSpace === 'pre-wrap';

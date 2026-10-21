@@ -747,7 +747,7 @@ export function getCorrectedSegmentWidth(seg, metrics, measurement, emojiCorrect
         metrics.emojiCount = countEmojiGlyphs(seg, measurement);
     return metrics.width - metrics.emojiCount * emojiCorrection;
 }
-export function getSegmentFit(seg, metrics, measurement, emojiCorrection, mode, 
+export function getSegmentFit(seg, metrics, measurement, emojiCorrection, mode,
 // When metrics measured seg together with one following U+0020, the width of
 // that space alone. The last grapheme then keeps its kerning with the space.
 followingSpaceWidth = null) {

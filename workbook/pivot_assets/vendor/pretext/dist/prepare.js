@@ -293,10 +293,10 @@ function getTextSegmentWidth(text, textMetrics, measurement, emojiCorrection, fo
 // copy of its part of the analysis and no lists of its own to copy from. The handle returned
 // holds those lists; what else it holds is the measured segments' alone, each list from the
 // first of them.
-export function measureAnalysis(analysis, from, to, font, includeSegments, letterSpacing, engineProfile, language, 
+export function measureAnalysis(analysis, from, to, font, includeSegments, letterSpacing, engineProfile, language,
 // Whether text segments take emergency breaks between graphemes: an atomic rich item,
 // which is only laid out whole, takes none.
-overflowBreaks, 
+overflowBreaks,
 // The paragraph's lists for a rich-inline item, null for a text.
 paragraph) {
     const { normalized, texts, starts, flags } = analysis;
