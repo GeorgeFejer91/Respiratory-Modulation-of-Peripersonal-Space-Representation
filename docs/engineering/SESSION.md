@@ -36,6 +36,9 @@ selection and aggregation were exercised. Physical iPhone/Safari remains unteste
 Escape dismisses settings and returns focus to its trigger. A missing-Pretext
 fixture retains readable text and settings pagination, with measurement explicitly
 marked unavailable. Invalid axis assignments clear stale output and disable export.
+Dialog resize observation measures newly opened filters/details; measurements use
+fractional content bounds and block labels, avoiding false wraps from inline or
+integer-rounded widths. Measured filter actions each fit on one line.
 A deliberately delayed trial-load fixture verifies that rapid source changes keep
 the latest participant selection when the older trial response arrives.
 

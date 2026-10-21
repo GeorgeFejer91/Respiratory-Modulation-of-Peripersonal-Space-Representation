@@ -13,9 +13,10 @@ function measureLabels() {
     const key = JSON.stringify([text, font, spacing, document.documentElement.lang]);
     if (!cache.has(key)) cache.set(key, prepareWithSegments(text, font, { letterSpacing: spacing, whiteSpace: 'normal' }));
     const prepared = cache.get(key);
-    const width = Math.max(1, label.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - (label.tagName === 'SELECT' ? 24 : 0));
-    const height = label.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
-    const stats = measureLineStats(prepared, Math.max(1, width - 2));
+    const bounds = label.getBoundingClientRect();
+    const width = Math.max(1, bounds.width - parseFloat(style.borderLeftWidth) - parseFloat(style.borderRightWidth) - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - (label.tagName === 'SELECT' ? 24 : 0));
+    const height = bounds.height - parseFloat(style.borderTopWidth) - parseFloat(style.borderBottomWidth) - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+    const stats = measureLineStats(prepared, width);
     const lineHeight = parseFloat(style.lineHeight);
     const supported = !parseFloat(style.wordSpacing);
     const fit = stats.maxLineWidth <= width && stats.lineCount * lineHeight <= height + 1;
@@ -76,7 +77,9 @@ export function scheduleLayout() {
 byId('group-prev').onclick = () => { groupPage = Math.max(0, groupPage - 1); scheduleLayout(); };
 byId('group-next').onclick = () => { groupPage = Math.min(pageCount - 1, groupPage + 1); scheduleLayout(); };
 document.addEventListener('pivot-layout', scheduleLayout);
-new ResizeObserver(scheduleLayout).observe(document.body);
+const observer = new ResizeObserver(scheduleLayout);
+observer.observe(document.body);
+for (const dialog of document.querySelectorAll('dialog')) observer.observe(dialog);
 scheduleLayout();
 Promise.all([import('./vendor/pretext/dist/layout.js'), document.fonts.ready]).then(([module]) => {
   module.setLocale(document.documentElement.lang);

@@ -440,3 +440,4 @@ h2 {
   padding-inline:.4rem
 }
 .control-group a { display:flex; align-items:center; min-height:44px; }
+.long-label { display:block; }
