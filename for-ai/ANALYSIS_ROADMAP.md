@@ -69,6 +69,14 @@ inconclusive or unidentifiable parameter comparison.
   effect as supported under the stated model, model-dependent, inconclusive or
   not identifiable. Distinguish RT-location/curve effects from boundary/sharpness
   effects. Stop after the declared scope and report all outcomes.
+- [ ] Q10.8 Define the owner's requested last-30-participant sensitivity using
+  verified collection order, then refit the same session-time models and retain
+  the full-cohort reference. **BLOCKED:** the released participant IDs are arbitrary
+  and the CSVs omit collection dates (`workbook/DATA_RELEASE.md`); higher public
+  IDs do not establish later recruitment. Obtain public IDs for the intended
+  cohort before fitting. Keep the existing quality/linkage exclusions and report
+  the actual retained count. Existing pooled posterior draws cannot substitute
+  for a subgroup refit. This post-results sensitivity is exploratory.
 
 Status: **DECLARED CLEANING/TIME BATCH VERIFIED; BROADER GOAL OPEN.**
 `results/trial_cleaning/RESULTS.md` records the eight unadjusted fits/fifteen
@@ -86,9 +94,10 @@ have 0/600 AT mean-profile discrepancy tails: imposed S geometry has poor averag
 profile adequacy despite converged sampling. Early blocks do not rule out fatigue.
 Q10.2–.4 and .6–.7 remain PARTIAL: this bounded batch is complete, while reduced
 boundary-only/sharpness-only models, repeated Bayesian recovery/coverage and the
-broader scientific evidence classification remain open. Next action: specify
-those reduced models and recovery budgets before fitting; do not select another
-cleaning/shape variant by significance. Source timing/linkage remains unresolved.
+broader scientific evidence classification remain open. Next action: establish
+the requested last-30 cohort's public IDs and freeze its membership before any
+refit. Reduced models and recovery budgets remain later open items; do not select
+another cleaning/shape variant by significance. Source timing/linkage remains unresolved.
 Questionnaire follow-ups, browser integration and manuscript updates were not run
 for this native amendment; earlier inputs and numerical results are unchanged.
 Publication: the audited native source/results have been pushed normally to
