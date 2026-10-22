@@ -61,11 +61,17 @@ four/six viewports, 200% text and spacing. Native-only branches stay native-only
 
 Publication: the preceding segment-0 source `a206328` passed Actions run
 39792749159 and actual live interaction checks. The compact-page/SD extension is
-verified locally; its source push and exact live deployment remain pending.
+included in deployed source `c4a4564`. Actions run 39808535590 passed the
+production build, full analysis, independent numerical validation and Pages
+deployment. Live Chromium confirms fixed desktop navigation, the collapsible
+phone menu, smooth anchor scrolling, active-section tracking and Pretext fit;
+the phone bar is 57px with no horizontal overflow at 320×568. Local rendered
+checks additionally cover 640×360, 900×900 and 1920×1080. The standard Node
+Playwright check could not start because its module is unavailable; physical
+iPhone/Safari remains untested.
 Scientific review, remaining browser migration and publication readiness stay open.
-Next action: publish and verify this extension, then develop the table/analysis
-behind each remaining single question without restoring a text-heavy landing page.
-Physical iPhone/Safari remains untested. The pivot/frontend milestones below retain
+Next action: develop the table/analysis behind each remaining single question
+without restoring a text-heavy landing page. The pivot/frontend milestones below retain
 their own execution/deployment evidence.
 
 ## Visualization — fast pivot table and linked chart
