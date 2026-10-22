@@ -138,7 +138,7 @@ with their existing anchors preserved.
 - [x] Run the production build, 60 workbook tests, data audit and overview
   browser gate: section order/numbering, phase navigation, real Pretext, four
   viewports, 200% text, spacing, keyboard/touch and existing Segment 0 controls.
-- [ ] Commit/push and verify exact CI, Pages deployment and changed live behavior.
+- [x] Commit/push and verify exact CI, Pages deployment and changed live behavior.
 
 Result: raw Inhale−Exhale = +18.47 ms (95% CI 6.96 to 29.98; p=.0024),
 so raw AT responses were slower during inhale. Matched AT−Baseline phase contrast
@@ -152,8 +152,15 @@ test and complete overview browser script pass; desktop screenshot visually
 reviewed. Windows build uses Python UTF-8 mode. RTK is unavailable here; bounded
 native commands and the reviewed local GSD/Superpowers fallback guides were used.
 Physical iPhone/Safari and scientific publication acceptance remain open.
-Branch: main; source/publication pending. Next action: commit, push and verify the
-exact deployment, then resume the remaining living-publication checklist.
+Publication: source `8268f9e` on main passed Actions run `39873722384`, including
+the full workbook/fixed analysis, independent numerical validation and Pages
+deployment. The complete overview browser gate also passes on the live site,
+including Segment 2, its navigation/Pretext and preserved Segment 0 interactions.
+The later independently developed Segment 1 integration `da66210` was fast-forwarded
+locally and preserves Segment 2; its separate run `39874757294` is still in progress
+and is not covered by this deployment claim. Branch: main, synchronized before
+this evidence update. Segment 2 is complete. Next action: resume the remaining
+living-publication checklist; keep the overall scientific/publication goal open.
 
 ## Visualization — fast pivot table and linked chart
 
@@ -169,7 +176,7 @@ owner permits multiple methods. Supersedes the earlier drop-driven layout.
   every person's retained AT trial distribution pooled across all factors.
   Correction on normalizes baseline benefit; off normalizes raw RT. Visibility
   does not change references; constant/undefined scales remain missing.
-- [ ] Complete rendered checks, commit/push, and exact live deployment.
+- [x] Complete rendered checks, commit/push, and exact live deployment.
 
 State: production build, 59 workbook tests, 270 independent JavaScript/pandas
 cases and both rendered browser scripts pass, including all 16 series
@@ -178,8 +185,16 @@ undefined scales. Research/access limits and formulas are in
 workbook/RT_NORMALIZATION.md. The normalized payload loads on demand.
 Keyboard/touch, Pretext, four/six viewports, 200% text and spacing pass; the phone
 controls were visually inspected. Physical iPhone/Safari remains untested.
-Source is ready for commit/push on main; exact CI/live deployment is pending.
-Broader scientific acceptance stays open. Next action: publish and verify live.
+Source commits ebe6e3e/955fccb were pushed on main and included in deployment
+8268f9e. Actions run 39873722384 passed the full reference analyses, numerical
+checks and Pages deployment. Both standard browser scripts then passed against
+the live overview and pivot; deployed app/engine/chart/HTML bytes match that Git
+revision (compare Git blobs, since Windows working copies use CRLF).
+The later combined main build da66210 failed a separate Segment 1 floating-point
+equality test and did not replace this deployment. Its owner retains that work;
+this task did not modify those changes. Broader scientific acceptance stays open.
+Next action: continue the remaining question-led analyses; retain this Segment 0
+normalization contract and verify newer deployments through their own gates.
 
 ### Active amendment — drop-driven field placement
 
