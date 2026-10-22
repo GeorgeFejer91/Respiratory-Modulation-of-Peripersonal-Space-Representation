@@ -58,7 +58,7 @@ Baseline − RT, with its own named CSV measure; fixed analyses retain their sig
 Unselected factors are averaged within person before across-person mean/SD/n.
 The table/CSV preserve those statistics; n<2 has undefined SD. The raw/corrected
 compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
-133 independent JavaScript/pandas cases and rendered overview/standalone checks
+170 independent JavaScript/pandas cases and rendered overview/standalone checks
 pass, including grouping, correction, whiskers, source changes, export, keyboard,
 four/six viewports, 200% text and spacing. Native-only branches stay native-only.
 
@@ -100,13 +100,23 @@ participant grouping, sample SD/n and the existing zero-reference rule.
 
 - [x] Add the default-on accessible switch and shared derived table/chart measure.
 - [x] Independently verify sign, missingness, grouping, SD/n and original records.
-- [ ] Verify rendered local behavior, publish and exercise the exact live deployment.
+- [x] Verify rendered local behavior, publish and exercise the exact live deployment.
 
 State: 170 independent JavaScript/pandas cases, 59 workbook tests, production
 build and the overview/standalone rendered browser checks pass. Keyboard Space/
 Enter and pointer switching restore identical corrected means/SDs; chart/table/
 CSV identify Baseline − RT. The compact payload remains unchanged at 63,941 bytes.
-Next action: complete the authorized Git/Pages flow and verify actual live behavior.
+Both toggle states fit at 320/640/1280 CSS px with normal/200% text and a minimum
+44px target in Chromium; the phone control was visually inspected.
+Source `2d1a349` is published on `main`;
+[Actions run 39832911744](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39832911744)
+passed the reference analysis, independent numerical validation and Pages deployment.
+Both browser scripts pass against the live site: default-on correction, pointer/
+Space/Enter switching, Baseline − RT labels and derived CSV, linked means/SD/n,
+zero reference, raw records, field layouts, filters and responsive/enlarged-text
+checks. The standalone pivot preserves its original correction. Physical iPhone/
+Safari remains untested. This display amendment is complete. Next action: develop
+the table and analysis behind the remaining single questions from the active roadmap.
 The overall scientific/publication goal remains open.
 
 ### Active amendment — field-based Segment 0
