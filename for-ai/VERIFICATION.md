@@ -19,29 +19,20 @@ For changes to the question-led landing page, serve a production build and run
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
-For Segment 0, verify field addition/removal, actual native dragging, Row/Column
-moves and reordering through touch/keyboard dragging. Verify clicks/taps do not
-assign fields or open a move menu; pending drags leave table/chart unchanged until
-a valid drop. Check highlighted destinations, insertion before fields, removal to
-Available fields, invalid/cancelled drops, touch/pen pointer handling, edge scrolling
-in the embedded reader, and keyboard pick-up/arrows/Enter/Escape with focus and
-announcements. Use trusted touch events for the real pointer path. SOA must be
-removable. With
-no grouping fields, every selected trial record/column appears in one internally
-scrollable table and in CSV; exclusion flags remain and no summary chart is shown.
-Adding factors returns to the labelled retained-AT means source. Check condition-
-only and phase/condition summaries without SOA, all four cells with SOA, raw/corrected
-RT, Mean/Mean ± SD presentation in both views, button filters, no visible checkboxes,
-table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Check that
-the baseline toggle starts on, then switch off/on with mouse, Space and Enter. Verify
-its accessible switch name/state, visible formula, Baseline − RT direction against
-the original baseline/RT values, and `baseline_benefit_ms` CSV identity. Do not
-negate SDs, clamp negatives, fill missing corrections or mutate original records.
-The ungrouped record view disables the toggle and preserves source columns. Run
-`check_pivot_javascript.py` for independent pandas means, sample SDs and n across
-all grouping/correction/cohort/filter combinations. Retain unequal within-person
-counts, n=1/undefined SD, missing values and zero-valued means. Repeated condition/
-phase cells must be pooled within person before calculating across-person SD.
+For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
+drag/drop controls, all 16 combinations of the four native Condition/Phase
+checkboxes, and empty results when either group is unchecked. Check mouse,
+keyboard and touch selection, raw/baseline-benefit RT with normalization off, min–max and z-scores,
+Mean/Mean ± SD in both views, table/CSV mean-SD-n identity, and SD-aware chart
+extents/tooltips. Normalization references use each participant's complete retained AT trials
+across conditions/phases/SOAs before cell averaging/filtering; hiding series must
+not renormalize scores. Independently compare trial-based mean/sample SD and
+minimum/maximum. Verify normalization data loads on demand.
+Verify dimensionless labels/CSV names and zero/undefined range as missing scores.
+Run check_pivot_javascript.py for independent pandas means, sample SDs and n
+across grouping/correction/cohort/filter combinations, including normalization.
+Retain unequal within-person counts, n=1/undefined SD, missing values and
+zero-valued means. The standalone pivot keeps broader field/source controls.
 Apply the project-wide figure-scale rule to every changed quantitative plot: if
 all values and uncertainty are nonnegative, the y-axis lower bound is exactly zero
 with no padding below. If values or intervals extend below zero, retain their full

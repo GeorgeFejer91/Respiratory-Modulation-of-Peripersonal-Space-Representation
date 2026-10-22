@@ -12,16 +12,27 @@
     <nav aria-label="Study 5 pages"><a href="../" data-fit-label>Workbook</a><a href="../exploratory/" data-fit-label>Exploratory figures</a></nav>
     <div class="toolbar"><h1 data-fit-label>Pivot table</h1><label class="switch"><input id="filters-enabled" type="checkbox"><span data-fit-label>Activate filters</span></label><button id="settings-open" aria-expanded="false" aria-controls="settings" data-fit-label>Pivot settings</button></div>
   </header>
-  <section id="core-controls" aria-label="Pivot field list" hidden>
-    <header><h2 data-fit-label>Pivot fields</h2><button id="pivot-clear" data-fit-label>Clear layout · show trial records</button></header>
-    <div class="field-bank"><h3 data-fit-label>Available fields</h3><div id="field-available" class="field-area" role="group" aria-label="Available fields"></div></div>
-    <p class="field-hint" id="field-instructions" data-fit-label>Drag fields between boxes; drop to update. Keyboard: Space to pick up, arrows to position, Enter to drop, Escape to cancel.</p><p id="field-announcement" class="field-announcement" role="status"></p>
-    <div class="field-layout">
-      <section><h3 data-fit-label>Rows</h3><div id="field-rows" class="field-area" role="group" aria-label="Row fields"></div></section>
-      <section><h3 data-fit-label>Columns</h3><div id="field-columns" class="field-area" role="group" aria-label="Column fields"></div></section>
-      <section id="core-values"><h3 data-fit-label>Values</h3><button id="core-correction" type="button" role="switch" aria-checked="true" aria-label="Baseline correction" aria-describedby="core-correction-formula"><span class="correction-track" aria-hidden="true"></span><span data-fit-label>Baseline correction</span><strong id="core-correction-state" aria-hidden="true" data-fit-label>On</strong></button><span id="core-correction-formula" data-fit-label>Baseline − RT (ms)</span><label><span data-fit-label>Display</span><select id="core-spread"><option value="sd">Mean ± SD</option><option value="mean">Mean only</option></select></label></section>
+  <section id="core-controls" aria-label="Data selection" hidden>
+    <div class="core-layout">
+      <fieldset><legend data-fit-label>Condition</legend>
+        <label><input type="checkbox" data-series-field="condition" value="Control" checked><span data-fit-label>Control</span></label>
+        <label><input type="checkbox" data-series-field="condition" value="Viscereality" checked><span data-fit-label>Viscereality</span></label>
+      </fieldset>
+      <fieldset><legend data-fit-label>Breathing phase</legend>
+        <label><input type="checkbox" data-series-field="phase" value="Exhale" checked><span data-fit-label>Exhale</span></label>
+        <label><input type="checkbox" data-series-field="phase" value="Inhale" checked><span data-fit-label>Inhale</span></label>
+      </fieldset>
+      <section id="core-values"><h3 data-fit-label>Values</h3>
+        <div class="core-toggles">
+          <button id="core-correction" type="button" role="switch" aria-checked="true" aria-label="Baseline correction" aria-describedby="core-correction-formula"><span class="correction-track" aria-hidden="true"></span><span data-fit-label>Baseline correction</span><strong id="core-correction-state" aria-hidden="true" data-fit-label>On</strong></button>
+          <button id="core-normalize" type="button" role="switch" aria-checked="false" aria-label="Normalize RT" aria-describedby="core-normalize-formula"><span class="correction-track" aria-hidden="true"></span><span data-fit-label>Normalize RT</span><strong id="core-normalize-state" aria-hidden="true" data-fit-label>Off</strong></button>
+        </div>
+        <span id="core-correction-formula" data-fit-label>Baseline − RT (ms)</span>
+        <label><span data-fit-label>Normalization method</span><select id="core-normalization-method"><option value="norm">0–1 range (min–max)</option><option value="z">Z-score (mean 0, SD 1)</option></select></label>
+        <span id="core-normalize-formula" data-fit-label>One scale per participant, using all retained AT trials across conditions, phases and SOAs.</span>
+        <label><span data-fit-label>Display</span><select id="core-spread"><option value="sd">Mean ± SD</option><option value="mean">Mean only</option></select></label>
+      </section>
     </div>
-    <button id="core-filter" aria-pressed="false" data-fit-label>Activate filters</button>
   </section>
   <main id="worksheet" aria-label="Pivot worksheet">
     <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><div class="table-controls"><label><span data-fit-label>Table height</span><input id="table-height" type="range" min="280" max="800" step="20" value="440" aria-label="Table height"><output id="table-height-value" data-fit-label for="table-height">440 px</output></label><label><span data-fit-label>Table width</span><input id="table-width" type="range" min="100" max="300" step="25" value="100" aria-label="Table width"><output id="table-width-value" data-fit-label for="table-width">100%</output></label><button id="filters-open" hidden data-fit-label>Choose filters</button></div></div>

@@ -23,7 +23,8 @@ export function selectRecords(frame, settings) {
   const participant = frame.columns.indexOf('participant_id');
   const excluded = { 'Primary behavioural cohort': ['P011', 'P033'], 'Exclude P011': ['P011'], 'Exclude P033': ['P033'] }[settings.cohort] || [];
   const filters = settings.filtersEnabled ? Object.entries(settings.filters || {}).filter(([, values]) => values.length) : [];
-  const selections = filters.map(([field, values]) => [frame.columns.indexOf(field), new Set(values.map(value => JSON.stringify(value)))]);
+  const selections = [...filters, ...Object.entries(settings.seriesFilters || {})]
+    .map(([field, values]) => [frame.columns.indexOf(field), new Set(values.map(value => JSON.stringify(value)))]);
   return frame.rows.filter(row => (participant < 0 || !excluded.includes(row[participant])) &&
     selections.every(([index, values]) => index >= 0 && values.has(JSON.stringify(row[index]))));
 }
@@ -79,12 +80,26 @@ export function pivot(frame, settings) {
       count: rows.length, dataRowCount: rows.length, series: [], contexts: {} };
   }
   // Display benefit reverses the established correction without changing source records.
-  if (settings.values.includes('baseline_benefit_ms') && !frame.columns.includes('baseline_benefit_ms')) {
+  if (settings.values.some(field => ['baseline_benefit_ms', 'baseline_benefit_norm', 'baseline_benefit_z'].includes(field)) && !frame.columns.includes('baseline_benefit_ms')) {
     const corrected = frame.columns.indexOf('corrected_rt_ms');
     if (corrected < 0) throw new Error('Baseline correction is unavailable for this source.');
     frame = { ...frame, columns: [...frame.columns, 'baseline_benefit_ms'],
       numeric: [...frame.numeric, 'baseline_benefit_ms'], types: { ...frame.types, baseline_benefit_ms: 'number' },
       rows: frame.rows.map(row => [...row, row[corrected] === null ? null : -row[corrected]]) };
+  }
+  // A linear trial transform commutes with cell averaging. References use all retained AT trials.
+  for (const field of settings.values.filter(field => /^(reaction_time|baseline_benefit)_(norm|z)$/.test(field))) {
+    if (frame.columns.includes(field)) continue;
+    const sourceField = field.replace(/_(norm|z)$/, '_ms');
+    const participant = frame.columns.indexOf('participant_id'), value = frame.columns.indexOf(sourceField);
+    if (participant < 0 || value < 0 || !frame.normalizers) throw new Error('Participant RT normalization is unavailable for this source.');
+    frame = { ...frame, columns: [...frame.columns, field], numeric: [...frame.numeric, field],
+      types: { ...frame.types, [field]: 'number' }, rows: frame.rows.map(row => {
+        const stats = frame.normalizers[row[participant]]?.[sourceField];
+        const offset = field.endsWith('_z') ? stats?.mean : stats?.low;
+        const scale = field.endsWith('_z') ? stats?.sd : stats?.high - stats?.low;
+        return [...row, row[value] !== null && Number.isFinite(offset) && scale > 0 ? (row[value] - offset) / scale : null];
+      }) };
   }
   if (settings.participantSummary) {
     if (settings.aggregation !== 'Mean' || !frame.columns.includes('participant_id')) {

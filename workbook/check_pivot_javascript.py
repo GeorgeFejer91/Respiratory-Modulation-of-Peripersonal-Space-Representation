@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 from pivot_data import AGGREGATIONS, cohort_frame, exploration_views, pivot_frame, typed_frame
-from pivot_static import browser_frame
+from pivot_static import browser_frame, normalization_parameters
 from preparation import load_pair, local_release_pair
 
 
@@ -33,7 +33,7 @@ def validate(node):
     cases = []
     def add(name, rows, columns, values, aggregation, **extra):
         cases.append(dict(frame=name, settings=dict(rows=rows, columns=columns, values=values,
-                         aggregation=aggregation, totals=True, cohort="Full release", filtersEnabled=False,
+                         aggregation=aggregation, totals=extra.pop("totals", True), cohort="Full release", filtersEnabled=False,
                          filters={}, **extra)))
     for aggregation in [*AGGREGATIONS, "Row count"]:
         for axes in [(["group"], ["phase"]), ([], []), (["group", "phase"], [])]:
@@ -77,8 +77,18 @@ def validate(node):
             participantSummary=True, filtersEnabled=False)))
     for aggregation in ["Mean", "Minimum", "Maximum", "Standard deviation"]:
         add("benefit-edge", ["soa_ms"], [], ["baseline_benefit_ms"], aggregation)
+    for value in ["reaction_time_ms", "baseline_benefit_ms", "reaction_time_norm", "baseline_benefit_norm", "reaction_time_z", "baseline_benefit_z"]:
+        for conditions in [[], ["Control"], ["Viscereality"], ["Control", "Viscereality"]]:
+            for phases in [[], ["Exhale"], ["Inhale"], ["Exhale", "Inhale"]]:
+                add("Participant-distance means", ["soa_ms"], ["condition", "phase"], [value], "Mean",
+                    participantSummary=True, totals=False, seriesFilters={"condition": conditions, "phase": phases})
+    for value in ["reaction_time_norm", "baseline_benefit_norm", "reaction_time_z", "baseline_benefit_z"]:
+        add("benefit-edge", ["soa_ms"], [], [value], "Mean", participantSummary=True, totals=False)
     add("benefit-edge", [], [], ["baseline_benefit_ms"], "Mean", rawRecords=True)
     payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots)
+    payload["frames"]["Participant-distance means"]["normalizers"] = normalization_parameters(frames["All trial records"])
+    edge_trials = frames["benefit-edge"].assign(retained_global=True, trial_type="Audio-Tactile")
+    payload["frames"]["benefit-edge"]["normalizers"] = normalization_parameters(edge_trials)
     runner = Path(__file__).with_name("check_pivot_javascript.mjs")
     process = subprocess.run([node, str(runner)], input=json.dumps(payload, allow_nan=False), text=True,
                              encoding="utf-8", capture_output=True)
@@ -88,6 +98,20 @@ def validate(node):
     for index, (case, observed) in enumerate(zip(cases, actual["results"], strict=True)):
         settings = case["settings"]
         frame = cohort_frame(frames[case["frame"]], settings["cohort"])
+        if not settings.get("rawRecords") and any(value.startswith("baseline_benefit") for value in settings["values"]):
+            frame["baseline_benefit_ms"] = (frame.baseline_mean_ms - frame.reaction_time_ms).where(
+                frame.corrected_rt_ms.notna())
+        for value in [value for value in settings["values"] if value.endswith(("_norm", "_z"))]:
+            field = value.rsplit("_", 1)[0] + "_ms"
+            trials = frames["All trial records"]
+            reference = trials[trials.retained_global & (trials.trial_type == "Audio-Tactile")].copy() if case["frame"] == "Participant-distance means" else frames[case["frame"]].copy()
+            reference["baseline_benefit_ms"] = -reference.corrected_rt_ms
+            grouped = reference.groupby("participant_id")[field]
+            offset = grouped.mean() if value.endswith("_z") else grouped.min()
+            scale = grouped.std(ddof=1) if value.endswith("_z") else grouped.max() - grouped.min()
+            frame[value] = (frame[field] - frame.participant_id.map(offset)) / frame.participant_id.map(scale).replace(0, float("nan"))
+        for field, values in settings.get("seriesFilters", {}).items():
+            frame = frame[frame[field].isin(values)]
         if settings["filtersEnabled"]:
             for field, values in settings["filters"].items():
                 if values:

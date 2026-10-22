@@ -7,6 +7,22 @@ import pandas as pd
 from pivot_data import exploration_views
 
 
+def normalization_parameters(trials):
+    """One trial-level reference distribution per person, before display filters."""
+    source = trials[trials.retained_global & (trials.trial_type == "Audio-Tactile")].copy()
+    source["baseline_benefit_ms"] = -source.corrected_rt_ms
+    parameters = {}
+    for participant, rows in source.groupby("participant_id"):
+        parameters[participant] = {}
+        for field in ["reaction_time_ms", "baseline_benefit_ms"]:
+            values = rows[field].dropna()
+            parameters[participant][field] = {
+                key: None if pd.isna(value) else float(value)
+                for key, value in dict(mean=values.mean(), sd=values.std(ddof=1),
+                                      low=values.min(), high=values.max(), n=len(values)).items()}
+    return parameters
+
+
 def browser_frame(frame):
     columns = list(frame.columns)
     numeric = [field for field in columns if pd.api.types.is_numeric_dtype(frame[field])]
@@ -20,7 +36,8 @@ def browser_frame(frame):
 def build_views(people, trials, destination):
     destination.mkdir(parents=True, exist_ok=True)
     catalog = []
-    for name, frame in exploration_views(people, trials).items():
+    views = exploration_views(people, trials)
+    for name, frame in views.items():
         filename = {"Participant-distance means": "means.json", "All trial records": "trials.json",
                     "Participants and questionnaires": "participants.json"}[name]
         payload = browser_frame(frame)
@@ -36,5 +53,8 @@ def build_views(people, trials, destination):
             if len(core_text.encode("utf-8")) > 65536:
                 raise ValueError("The core-data preview exceeds its 64 KiB startup budget.")
             (destination / "means-core-preview.json").write_text(core_text, encoding="utf-8")
+            core["normalizers"] = normalization_parameters(views["All trial records"])
+            (destination / "means-normalized.json").write_text(
+                json.dumps(core, allow_nan=False, separators=(",", ":")), encoding="utf-8")
         catalog.append(dict(name=name, file=filename, records=len(frame)))
     return catalog

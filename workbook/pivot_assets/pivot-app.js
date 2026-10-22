@@ -1,7 +1,6 @@
 import { aggregations, csvText } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
-import { pivotFields } from './pivot-fields.js';
 
 const byId = id => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: 6 });
@@ -18,11 +17,14 @@ let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings,
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
 let chartGeometry = '';
+let coreCorrected = true, coreNormalized = false;
+let normalizationMethod = 'norm';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
 if (coreView) {
   settings.values = ['baseline_benefit_ms'];
   settings.totals = false;
   settings.sdWhiskers = true;
+  settings.seriesFilters = { condition: ['Control', 'Viscereality'], phase: ['Exhale', 'Inhale'] };
   byId('totals').checked = false;
   byId('core-controls').hidden = false;
   byId('choose-values').textContent = 'Values: baseline_benefit_ms';
@@ -31,45 +33,40 @@ if (coreView) {
   byId('choose-rows').closest('section').hidden = true;
   byId('totals').closest('label').hidden = true;
 }
-const refreshCoreFields = coreView ? pivotFields(settings, () => {
-  for (const axis of ['rows', 'columns']) byId(`choose-${axis}`).textContent = `${axis}: ${settings[axis].join(', ') || 'None'}`;
-  update();
-}) : () => {};
 function coreControls() {
   if (!coreView) return;
-  const raw = !settings.rows.length && !settings.columns.length;
-  byId('core-correction').disabled = raw;
-  byId('core-spread').disabled = raw || settings.aggregation !== 'Mean';
+  byId('core-spread').disabled = settings.aggregation !== 'Mean';
   byId('core-spread').closest('label').hidden = settings.aggregation !== 'Mean';
   byId('totals').disabled = true;
   byId('totals').checked = false;
-  const corrected = settings.values[0] === 'baseline_benefit_ms';
+  const corrected = coreCorrected;
   byId('core-correction').setAttribute('aria-checked', String(corrected));
   byId('core-correction-state').textContent = corrected ? 'On' : 'Off';
   byId('core-correction-formula').textContent = corrected ? 'Baseline − RT (ms)' : 'Uncorrected RT (ms)';
-  byId('core-filter').setAttribute('aria-pressed', String(settings.filtersEnabled));
-  byId('core-filter').textContent = settings.filtersEnabled ? 'Deactivate filters' : 'Activate filters';
-  refreshCoreFields();
+  byId('core-normalize').setAttribute('aria-checked', String(coreNormalized));
+  byId('core-normalize-state').textContent = coreNormalized ? 'On' : 'Off';
 }
 if (coreView) {
-  byId('core-correction').onclick = () => {
-    settings.values = [settings.values[0] === 'baseline_benefit_ms' ? 'reaction_time_ms' : 'baseline_benefit_ms'];
+  const setCoreMeasure = () => {
+    settings.values = [(coreCorrected ? 'baseline_benefit' : 'reaction_time') + (coreNormalized ? `_${normalizationMethod}` : '_ms')];
     byId('choose-values').textContent = `Values: ${settings.values[0]}`;
     update();
   };
+  byId('core-correction').onclick = () => { coreCorrected = !coreCorrected; setCoreMeasure(); };
+  byId('core-normalize').onclick = () => { coreNormalized = !coreNormalized; setCoreMeasure(); };
+  byId('core-normalization-method').onchange = event => { normalizationMethod = event.target.value; setCoreMeasure(); };
   byId('core-spread').onchange = () => {
     settings.sdWhiskers = byId('core-spread').value === 'sd'; labelTable(); renderTable(); drawChart();
   };
-  byId('core-filter').onclick = () => {
-    settings.filtersEnabled = !settings.filtersEnabled;
-    byId('filters-enabled').checked = settings.filtersEnabled;
-    byId('filters-open').hidden = !settings.filtersEnabled;
+  for (const checkbox of document.querySelectorAll('[data-series-field]')) checkbox.onchange = () => {
+    const field = checkbox.dataset.seriesField;
+    settings.seriesFilters[field] = [...document.querySelectorAll(`[data-series-field="${field}"]:checked`)].map(input => input.value);
     update();
   };
 }
 const names = { means: 'Participant-distance means', trials: 'All trial records', participants: 'Participants and questionnaires', saved: 'Saved analysis table' };
 const sourceURL = () => coreView && !settings.rows.length && !settings.columns.length ? 'data/trials.json' :
-  source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? 'means-core-preview' : 'means-preview') : source}.json`;
+  source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? (coreNormalized ? 'means-normalized' : 'means-core-preview') : 'means-preview') : source}.json`;
 
 worker.onmessage = ({ data: reply }) => {
   const handlers = pending.get(reply.id);

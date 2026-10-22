@@ -50,17 +50,13 @@ reports. The executable workbook remains at `workbook.html`; models/data are unc
 The desktop menu remains fixed; phones use the collapsible bottom menu, with
 embedded dialogs reserving its visible height.
 
-Current extension: an Excel-style field list assigns factors to Rows/Columns,
-including removable SOA, with baseline-corrected/uncorrected RT and optional ±1
-sample-SD presentation in both views. Removing all factors shows trial records.
-The latest display amendment makes correction a default-on toggle showing
-Baseline − RT, with its own named CSV measure; fixed analyses retain their sign.
-Unselected factors are averaged within person before across-person mean/SD/n.
-The table/CSV preserve those statistics; n<2 has undefined SD. The raw/corrected
-compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
-170 independent JavaScript/pandas cases and rendered overview/standalone checks
-pass, including grouping, correction, whiskers, source changes, export, keyboard,
-four/six viewports, 200% text and spacing. Native-only branches stay native-only.
+Current extension (2026-10-23): Segment 0 fixes SOA on X and replaces field
+drag/drop with Control/Viscereality and Exhale/Inhale checkboxes. Default-off
+Normalize RT offers min–max 0–1 and z-scores. Each participant's reference uses
+all retained AT trials across both conditions/phases and all SOAs before cell
+and group averaging or visibility selection. Baseline correction stays default-on.
+See the active amendment below; earlier field-placement evidence is historical.
+The standalone pivot retains its broader controls.
 
 Publication: source `c4a4564` pushed to `main` passed Actions run 39808535590,
 including the full reference analyses, independent numerical validation and Pages
@@ -89,6 +85,30 @@ the zero tick, and the field-list browser checks verify the rendered label on
 corrected plots. Continue the active field-list amendment below.
 
 ## Visualization — fast pivot table and linked chart
+
+### Active amendment — fixed SOA, series selection and participant normalization
+
+Owner request (2026-10-23): fix SOA, replace field dragging with individual
+Condition/Phase checkboxes, and offer participant-specific normalization across
+all conditions. Research distinguishes z-scores from 0–1 min–max scaling; the
+owner permits multiple methods. Supersedes the earlier drop-driven layout.
+
+- [x] Fix SOA from released data and add four native series checkboxes.
+- [x] Add default-off normalization with min–max and z-score choices, based on
+  every person's retained AT trial distribution pooled across all factors.
+  Correction on normalizes baseline benefit; off normalizes raw RT. Visibility
+  does not change references; constant/undefined scales remain missing.
+- [ ] Complete rendered checks, commit/push, and exact live deployment.
+
+State: production build, 59 workbook tests, 270 independent JavaScript/pandas
+cases and both rendered browser scripts pass, including all 16 series
+selections with both corrections and normalization methods, missingness and
+undefined scales. Research/access limits and formulas are in
+workbook/RT_NORMALIZATION.md. The normalized payload loads on demand.
+Keyboard/touch, Pretext, four/six viewports, 200% text and spacing pass; the phone
+controls were visually inspected. Physical iPhone/Safari remains untested.
+Source is ready for commit/push on main; exact CI/live deployment is pending.
+Broader scientific acceptance stays open. Next action: publish and verify live.
 
 ### Active amendment — drop-driven field placement
 

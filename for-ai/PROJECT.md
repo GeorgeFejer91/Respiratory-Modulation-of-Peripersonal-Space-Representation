@@ -130,21 +130,25 @@ executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
 frame. Its core-data starting view uses a compact Audio–Tactile RT
-means payload, primary 40 cohort and equal-person summaries. A visible pivot field
-list assigns SOA, distance, condition, breathing phase and participant to Rows or
-Columns. Field placement is drop-driven: native mouse dragging, touch/pen dragging
-with visible targets/edge scrolling, and keyboard pick-up/position/drop. Clicks
-and taps never assign fields or open a move menu. Valid drops update both views;
-cancelled/outside drops leave the layout unchanged. Dropping before another field
-reorders; dropping in Available fields removes. Removing every grouping field
-shows individual trial records
-with all fields and retained/excluded flags, filtered only by the chosen cohort
-and active field filters; it hides the summary chart. Raw records load on demand.
-Adding a field returns to the retained AT participant-distance source, labelled in
-the source status. The full pivot subpage retains its broader source catalogue.
+means payload, primary 40 cohort and equal-person summaries. The X-axis is fixed to the released SOA values (300, 800, 1500, 2200, 2700 ms).
+Condition (Control/Viscereality) and phase (Exhale/Inhale) use four native
+checkboxes, all initially checked, to select series in both the table and chart.
+Clearing either group gives an empty result. Segment 0 has no field dragging,
+axis reassignment or ungrouped trial-record mode.
+The full pivot subpage retains its broader source catalogue.
 Baseline correction uses the default-on Baseline − RT toggle described above;
-Mean/Mean ± SD presentation uses a select updating both views. Segment 0's field/
-filter interactions use buttons, not checkboxes.
+Mean/Mean ± SD presentation uses a select updating both views. The adjacent
+default-off Normalize RT toggle offers 0–1 min–max and z-score methods.
+For each participant, estimate minimum/maximum and mean/sample SD using all
+retained AT trials across both conditions, both phases and all SOAs, before
+display selection. Apply the same linear transform to cell means, then aggregate
+across people. With correction on, references use Baseline − AT RT; off uses
+raw RT. One shared scale preserves within-person comparisons; zero/undefined
+scales yield missing values. Dimensionless CSV fields end in _norm or _z.
+This is descriptive normalization, not a physiological or new inferential method;
+methods and researched sources are in workbook/RT_NORMALIZATION.md. Normalization
+metadata loads lazily in means-normalized.json; the compact startup payload is
+unchanged. Source data and fixed analyses stay unchanged.
 Readers can change cohort, aggregation, chart style and filters and export every
 row/column. For Mean over
 the participant-distance source, pool unselected factors within each participant

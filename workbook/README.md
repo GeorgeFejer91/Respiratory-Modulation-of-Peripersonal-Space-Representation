@@ -14,27 +14,37 @@ been added to this site. Keep the current preparation, statistical engines and
 fast pivot as the authoritative implementations until a scoped replacement
 passes numerical and real-browser checks.
 
-Segment 0 on the overview has an Excel-style **Pivot fields** list. Drag fields
-into **Rows** or **Columns**. Drop onto another field to place it before that field;
-drag back to **Available fields** to remove it. Clicking or tapping does not assign
-fields: both views change only on a valid drop. Touch dragging supports edge scrolling.
-Keyboard: Space picks up, Left/Right chooses a box, Up/Down or Home/End chooses
-position, Enter drops, Escape cancels. SOA is optional.
-Removing all fields (or **Clear layout**) displays the selected cohort's individual
-trial records, including retained/excluded flags, without aggregation or a summary
-chart. Adding a field returns to summaries of retained Audio–Tactile participant
-means, and the table and chart update together. The **Baseline correction** toggle
-starts on: **Baseline − RT (ms)**, using the existing retained participant × condition
-× phase baseline mean. Positive values indicate faster-than-baseline responses;
-negative values remain visible. Switch it off for uncorrected RT. The corrected
-CSV measure is `baseline_benefit_ms`; this reverses the existing `corrected_rt_ms`
-without changing source records or historical analyses. The toggle is disabled
-in the ungrouped original-record view. **Display** selects means with or without
-sample SD in both views.
-Full-value details and CSV always retain SD/n. Trial records load only when needed.
-**Pivot settings** keeps cohort and calculation controls; the standalone pivot below
-also provides the broader data-source catalogue. Nonnegative plots start at zero;
-negative values remain visible with a labeled zero reference.
+Segment 0 fixes the X-axis to the released SOA values: **300, 800, 1500, 2200,
+2700 ms**. Check **Control**, **Viscereality**, **Exhale** and **Inhale** to show
+either or both levels of each factor. All four start selected; clearing either
+group shows an empty chart/table. Checkboxes filter the same cells in the chart,
+table and CSV. There is no drag-and-drop or editable axis layout in this segment.
+
+The **Baseline correction** toggle starts on: **Baseline − RT (ms)**, using the
+existing retained participant × condition × phase baseline mean. Positive values
+indicate faster-than-baseline responses; negative values remain visible. Switch
+it off for uncorrected RT. The adjacent **Normalize RT** toggle starts off.
+Choose **0–1 range (min–max)** or **Z-score (mean 0, SD 1)** in **Normalization
+method**. Each participant's reference distribution uses all their retained AT
+trials pooled across both conditions, both phases and all SOAs, before any
+display selections. The same normalization then applies to cell means and the
+across-participant summary. Baseline correction works with either method:
+normalize raw RT with correction off, or Baseline − AT RT benefit with it on.
+
+Z-scores use each participant's mean and sample SD (n−1); min–max uses their
+minimum/maximum. Missing values remain missing and zero/undefined scale gives
+missing scores. Hiding a series does not recalculate the scale. CSV names end
+in _z or _norm respectively; millisecond measures keep _ms. Raw scores increase
+with slower RT; corrected scores increase with greater baseline benefit.
+These are descriptive display transformations, preserving data and fixed
+analyses. See [normalization methods and researched sources](RT_NORMALIZATION.md).
+Mean ± SD whiskers are not confidence intervals and may extend beyond 0–1.
+
+**Display** selects means with or without sample SD in both views. Full-value
+details and CSV retain SD/n. **Pivot settings** keeps cohort and calculation
+controls; the standalone pivot below provides the broader field/filter/source
+catalogue. Nonnegative plots start at zero; negative values remain visible with
+a labeled zero reference.
 
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
 is a lightweight JavaScript subpage with a pivot table and linked chart. The

@@ -1,5 +1,7 @@
 const labels = { soa_ms: 'SOA (ms)', distance_cm: 'Distance (cm)', corrected_rt_ms: 'Corrected RT (ms)',
   baseline_benefit_ms: 'Baseline − RT (ms)',
+  reaction_time_norm: 'Reaction time (0–1)', baseline_benefit_norm: 'Baseline − RT (0–1)',
+  reaction_time_z: 'Reaction time (z-score)', baseline_benefit_z: 'Baseline − RT (z-score)',
   reaction_time_ms: 'Reaction time (ms)', baseline_mean_ms: 'Baseline RT (ms)', n_trials: 'Trials per cell',
   participant_id: 'Participant', condition: 'Condition', phase: 'Breathing phase', age_years: 'Age (years)',
   midpoint_cm: 'Midpoint (cm)', width_cm: 'Width (cm)', normalized_steepness_per_cm: 'Normalized sharpness (cm⁻¹)' };
@@ -83,6 +85,9 @@ export function renderChart(result, settings, measure, mode, source) {
   byId('chart-note').textContent = result.participantSummary ?
     `Participant means${showSD ? ' ±1 sample SD' : ''}; pooled factors averaged within each person. Descriptive, not a confidence interval.` :
     `${weights} Table scrolling and size do not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
+  if (/_norm$|_z$/.test(measure)) byId('chart-note').textContent += measure.endsWith('_z') ?
+    ' Within-person z-scores use the mean and sample SD of all retained AT trials before cell averaging and series selection. Zero/undefined SD gives missing scores.' :
+    ' Within-person 0–1 scores use the minimum/maximum of all retained AT trials before cell averaging and series selection. Constant ranges give missing scores; SD whiskers may extend beyond 0–1.';
   if (!result.count) { byId('chart-hover').textContent = 'No records match these filters. Clear filters or choose other values.'; return; }
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
