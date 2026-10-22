@@ -107,6 +107,12 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
+The landing page is a nine-question scientific overview, built from
+`workbook/overview_assets/`. Its contents menu links to distinct question-led
+sections with methods, assumptions, evidence and remaining limits. The original
+executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
+The overview displays archived evidence and does not execute or refit models.
+
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility
 using lightweight JavaScript, a worker and lazy JSON prepared by the existing

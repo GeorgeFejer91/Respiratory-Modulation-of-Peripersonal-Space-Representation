@@ -14,6 +14,12 @@ must be reconciled by a normal validated push, never by resetting user work.
 
 ### Living publication acceptance (D-0015)
 
+For changes to the question-led landing page, serve a production build and run
+`node workbook/check_overview_browser.cjs URL` with Playwright available. Check
+section anchors, scroll tracking, evidence/tool links, keyboard skip access,
+actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
+Verify `/workbook.html` remains available with its existing relative assets.
+
 GitHub Pages is the primary publication/analysis target. Before marking a version
 publication-ready, verify all of the following, in addition to the applicable
 method-specific checks below:
