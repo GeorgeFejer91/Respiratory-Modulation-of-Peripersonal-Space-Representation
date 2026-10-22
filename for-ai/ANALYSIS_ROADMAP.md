@@ -73,6 +73,19 @@ without restoring a text-heavy landing page. Physical iPhone/Safari is untested.
 The pivot/frontend milestones below retain
 their own execution/deployment evidence.
 
+Plot scale rule (owner clarification, 2026-10-22): every quantitative plot uses
+zero as its actual reference. Nonnegative values and uncertainty start at exactly
+zero. When negative values occur, retain the full range and mark zero explicitly.
+The shared pivot chart now uses that scale and labels the zero line when its range
+extends below zero. Local production build and JavaScript syntax check pass. Commit
+`d5bcf76` passed full Actions run 39811976223 and its live chart was checked: raw
+means start at zero; corrected means below zero remain visible with a zero reference.
+The explicit zero tick refinement is commit `ae6d7ba`; full analysis, numerical
+validation and Pages artifact upload passed in run 39813873259. At this checkpoint,
+that run's deployment job is still queued and the live asset does not yet include
+the tick label. Next action: verify run 39813873259's Pages deployment and confirm
+the live corrected chart displays the labeled zero reference.
+
 ## Visualization — fast pivot table and linked chart
 
 Owner-approved priority: fast loading and smartphone compatibility. `/pivot/`
