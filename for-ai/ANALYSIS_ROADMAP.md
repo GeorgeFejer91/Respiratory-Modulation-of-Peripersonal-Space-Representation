@@ -59,19 +59,18 @@ compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
 pass, including grouping, correction, whiskers, source changes, export, keyboard,
 four/six viewports, 200% text and spacing. Native-only branches stay native-only.
 
-Publication: the preceding segment-0 source `a206328` passed Actions run
-39792749159 and actual live interaction checks. The compact-page/SD extension is
-included in deployed source `c4a4564`. Actions run 39808535590 passed the
-production build, full analysis, independent numerical validation and Pages
-deployment. Live Chromium confirms fixed desktop navigation, the collapsible
-phone menu, smooth anchor scrolling, active-section tracking and Pretext fit;
-the phone bar is 57px with no horizontal overflow at 320×568. Local rendered
-checks additionally cover 640×360, 900×900 and 1920×1080. The standard Node
-Playwright check could not start because its module is unavailable; physical
-iPhone/Safari remains untested.
+Publication: source `c4a4564` pushed to `main` passed Actions run 39808535590,
+including the full reference analyses, independent numerical validation and Pages
+deployment. Actual live Chromium checks pass all grouping/correction/SD controls,
+mean-SD-n exports and table/plot identity, fixed desktop navigation, the collapsible
+phone menu, active-section tracking, embedded settings, keyboard, Pretext, four/six
+viewports, 200% text and spacing, plus standalone pivot checks. The separate
+navigation check also records a 57px phone bar and smooth anchor scrolling.
+The bundled Node/Playwright runtime now completes both standard browser scripts.
 Scientific review, remaining browser migration and publication readiness stay open.
 Next action: develop the table/analysis behind each remaining single question
-without restoring a text-heavy landing page. The pivot/frontend milestones below retain
+without restoring a text-heavy landing page. Physical iPhone/Safari is untested.
+The pivot/frontend milestones below retain
 their own execution/deployment evidence.
 
 ## Visualization — fast pivot table and linked chart
