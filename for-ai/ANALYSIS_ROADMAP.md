@@ -100,7 +100,7 @@ the shared table/chart state and all baseline/SD/zero/data contracts.
 
 - [x] Replace click placement/menu with pending drag/drop and destination feedback.
 - [x] Verify actual mouse/touch/keyboard drops, cancellation and responsive rendering.
-- [ ] Commit, publish and verify exact deployment and live interaction.
+- [x] Commit, publish and verify exact deployment and live interaction.
 
 State: production build, 59 workbook tests, 170 independent numerical cases and both
 rendered browser scripts pass. Native dragging/reordering, outside drops, keyboard
@@ -108,7 +108,15 @@ pending/drop/Escape, trusted touch drop/cancel, inert clicks/taps and embedded e
 scrolling pass. No table/chart update occurs during a pending move. The phone UI
 was visually inspected; four/six viewports, 200% text and spacing pass. These are
 Chromium/emulated touch checks, not physical iPhone/Safari/pen qualification.
-Next action: complete the authorized Git/Pages publication flow and live checks.
+Source `0d4f059` is published on `main`;
+[Actions run 39866203075](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39866203075)
+passed the reference analysis, independent numerical validation and Pages deployment.
+Both browser scripts pass against the live overview/standalone pages, including
+inert field clicks/taps, native mouse drops/reordering, keyboard drop/cancel,
+trusted touch drop/cancel and embedded edge scrolling. Existing raw records/CSV,
+baseline toggle, SD/n, zero reference, navigation, Pretext and responsive checks pass.
+This interaction amendment is complete. Next action: develop the table and analysis
+behind the remaining single questions from the active roadmap.
 The overall scientific goal remains open.
 
 ### Active amendment — baseline benefit toggle
