@@ -66,6 +66,15 @@ method-specific checks below:
 
 ### Existing executable workbook checks
 
+For Segment 1, run `python workbook/pps_soa.py` and the `test_pps_soa.py` tests.
+Independently check statsmodels one-factor RM ANOVA, projected-covariance GG
+epsilon/p, equal-cell pandas means, t intervals, matched-baseline invariance,
+complete-case exclusions and primary40. Inspect the graph/contrast Q–Q plots;
+verify native saved-result labels, exact APA text, static graph and downloaded
+ZIP/CSV on the production page. `build_site.py` checks input/source/result hashes
+and every ZIP member. Run the landing-page browser gate and preserve the broader
+publication/migration limitations.
+
 From the repository root in the pinned workbook environment:
 
 ```bash

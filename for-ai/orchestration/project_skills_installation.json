@@ -1,0 +1,1041 @@
+{
+  "date": "2026-10-23",
+  "scope": "Missing Study5_Publication routed user-level skills",
+  "assets_only": true,
+  "hooks_or_config_changed": false,
+  "installed": [
+    {
+      "name": "scientific-visualization",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "subdirectory": "skills/scientific-visualization",
+      "adaptations": [],
+      "files_sha256": {
+        "SKILL.md": "4c901d40db70c495becdf16a8878f035c871a0c04382be3d186592b6c1b21b73",
+        "UPSTREAM-LICENSE.md": "5c793d8fe1c553d49c305f3c178ac360b6d32607bdf1bca06b10d3ba9881d78f",
+        "assets/color_palettes.py": "95fef3e5f7c7d3a447d97c4800238847b8b48e3f1e8bafa0072d7aa311191ca3",
+        "assets/nature.mplstyle": "04a81e892c6031e2b4dea509067ec7c016e93763a1e3720e400b491b34fb0bcc",
+        "assets/presentation.mplstyle": "5ffa6f457a0a50ff6520f41fbbf4036c7a519abf9ffb756f219c26231979b5fa",
+        "assets/publication.mplstyle": "59e33dffa8761d3f6a222b902894d8ee0141c2d29ae76be22e81cdb6812f5f7c",
+        "assets/publisher_profiles.json": "a0fb54a88476e6e07a95d3d5c51cc8940e1c121bd3f99bdd968df1f094490f70",
+        "references/color_palettes.md": "9b6ffa44e997f590832797baf3ffc00ae3aee644bbe7309c5dd20d6a465f77d7",
+        "references/journal_requirements.md": "5684aba0e259cf7ec4e7173b929e5ac04cbce69e91777ff492d629032f4720b5",
+        "references/matplotlib_examples.md": "f829a71ff15ad6fffc5c245fb0edc73e310a8fc47ad3f48d387c01b724dc42d6",
+        "references/publication_guidelines.md": "3747feb114ded22091051ad91148cfcd8289ec32997d0c3be36a3de23017b6c6",
+        "references/sources.md": "f686c43941ff68f9ba0ead1d338002cfaeaacc3b50cae0c5b96685c17d7c04bf",
+        "scripts/export_plan.py": "06dfd7c4d5d7296cdc8728b4727f74aa9803aefe438522df6d42e041078364d9",
+        "scripts/figure_export.py": "b2c7ba3c82d6cce39735ed1ef509a5a5952452db0230eecc3519d86937b2cfdc",
+        "scripts/image_metadata.py": "1e8dbc9a1a4de4a1b0049b056c4903eb2777e496aff5e90b512783e668fd7f83",
+        "scripts/palette_audit.py": "6bd51add71388cd111e531cc60deab38a675ddf2f1845381546fe3bdbf923f13",
+        "scripts/style_presets.py": "48ae33af80f50e1705f53dc37b9770cc28e7d9fc072689ac2c2c94c0a731769f",
+        "scripts/style_preview.py": "b6b5f346a48f2d8c050e57a861c53fdc210347b463fc15c7c6362504cbd27463",
+        "scripts/_common.py": "334bedac12f899c4dface3a8f2740f75ada51586948788b6d101f8431bbb5fcb"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "seaborn",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "subdirectory": "skills/seaborn",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata."
+      ],
+      "files_sha256": {
+        "SKILL.md": "76b205c57788665ae95658bac18ce1c70f5a050f71ca2e66662be5c22de1abe1",
+        "UPSTREAM-LICENSE.md": "5c793d8fe1c553d49c305f3c178ac360b6d32607bdf1bca06b10d3ba9881d78f",
+        "references/examples.md": "a7c620b96a065b6357a3ff4ac931f0c4a50f729f8817ac9f3b4659e42b082a21",
+        "references/function_reference.md": "4f8556a1efb4c6682081149e68d1e9ed9d400119b0df822516b0d6e0d92889b5",
+        "references/grids_and_levels.md": "371b72d34be860340346da0fc88009eb971d293bd1a4b941e78db822cba8a2ec",
+        "references/objects_interface.md": "e33dbc450a9d5cb509b3e6c69c541c7cd82ea41c97f7e78625d7d777aff1f6bb",
+        "references/palettes_and_theming.md": "9ca4e9dce8a2f7950ae674a45181f9efe21ca71e035534b02d7dd8f7f84e6e67",
+        "references/patterns_and_troubleshooting.md": "1cb15be0d4b4ce0e76e70a412f0b0eb298824f623acb5f5a00dacf4376c425cb",
+        "references/plotting_functions.md": "1240e2b6abb9eb320f0f3c89e50dc6b93ee83e9b3f34a3b33f0b529881a55190"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "grammar-of-graphics-and-declarative-visualization",
+      "repository": "openai/plugins",
+      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "subdirectory": "plugins/build-web-data-visualization/skills/grammar-of-graphics-and-declarative-visualization",
+      "adaptations": [
+        "Bundled shared visualization foundations."
+      ],
+      "files_sha256": {
+        "SKILL.md": "7b011f5b350616a0e4179af9c595b27dbb768d9c7bfaf1b46dcce91b686f72ea",
+        "agents/openai.yaml": "464e3590b1dc7e977050473e275d783c4ce52b9da436fd08b7b9d1ac9ecb639c",
+        "references/observable-plot.md": "7f56b5b624fe3c1dacec05039c3d395094b1e341decf05f45e4f413c3fbe6450",
+        "references/vega-lite-and-vega.md": "f6ad6b02737f81a532e985d12d93e52392ef8ba81bca0a0e476dc66d35f7202e",
+        "references/when-to-stay-declarative.md": "2bcf3ec22f114cdcdb0cd7324883270cda607927c73b899cac5c1ee0cde32145",
+        "references/shared/foundations/art-directed-interactive-visual-stories.md": "054946a76343155fd9901987b25137052749bb03763496555ad61e3023c7d0ca",
+        "references/shared/foundations/domain-contextual-surfaces.md": "566195f1832062d6d9e5463780db646e1e8675de80d5da00c03b864e5ee93a0c",
+        "references/shared/foundations/editorial-infographic-system.md": "88e3c5e58722074e95ac92b11ab17e6b878ba690fc799511ade82378637fab20",
+        "references/shared/foundations/embedded-visualization-self-use.md": "eba2d00d88d6d86d34b01f2ebf7f5c4f8230155642721a701c3220f011833d32",
+        "references/shared/foundations/fictional-data-story-simulation.md": "807eed73926ccbb87e6b630786b7d60909d337507939ddc417cd68de3dff6cc5",
+        "references/shared/foundations/implementation-design-and-tradeoffs.md": "e3bbf562e8874a636693fb0af62c61a03aad1b91576c333540e8344725b94f06",
+        "references/shared/foundations/interaction-models-and-progressive-disclosure.md": "c67ca0b97232ab27eb3ae98b6557143ba7bf4c4b64dace4fdc53161e9c25ece2",
+        "references/shared/foundations/layout-hierarchy-and-self-explanatory-ux.md": "5987a961cdc91ef0af2f6b395b706055cb1b94e7d957d504d149e3b5a27ecf38",
+        "references/shared/foundations/meaning-preserving-visual-design-workflow.md": "94f4c739f8c5160389171aea8ef3ce9f72395b9b14e26d1ece9bc0ce34d6ac57",
+        "references/shared/foundations/mobile-first-responsive-visualization.md": "72eb259e4cbeba93b06c8c0d24ca6e19793a4005453f2dbf7afc281019299fa9",
+        "references/shared/foundations/operational-visualization-workspaces.md": "d13f255210c06b69ea4a8ac5d80a7be2baeb4062c5c591f5299ec29855ace89d",
+        "references/shared/foundations/perception-color-and-encoding.md": "c992380a3c4f373a644bb4122242961617cee1f394422b61f0870bd07db6c17b",
+        "references/shared/foundations/sensitive-geopolitical-and-humanitarian-stories.md": "a6e15d74217ea613054227a1b70fb6ce9dbd9f1d89a22065a8e8755af3f9463b",
+        "references/shared/foundations/shareable-state-and-persistence.md": "74a67c31a2d29245cf8b95a2a050357848790c42a65e926f88f08137f474ad08",
+        "references/shared/foundations/storytelling-annotation-and-critique.md": "bb99e317bafb087ae9440dcc39f0f75a8726a2298360a20417fda9c3107feafa",
+        "references/shared/foundations/task-abstraction-and-chart-selection.md": "fb291ca2da22a82b70d81dcb9cbffbc643b6acba6a5a3a874cef10b92a33ebec",
+        "references/shared/foundations/theory-and-principles.md": "01b9ee4c81c5e586f42705ac8e314eabcf194b89caa901c1a8879bd25302b9d8",
+        "references/shared/source-index/export-and-automation-sources.md": "5d393f62441374e12f8d7d25e7a2cde853602a8c0e6de0ed1d8b8243555f1256",
+        "references/shared/source-index/official-implementation-docs.md": "33f2eaeeeb13a2ef6807954d62400b3658dd5e606a2efad4d588d4aecb957a60",
+        "references/shared/source-index/practitioner-guides.md": "a7e91bee59f05235768fef917c8c561b3045a67f0f74e4b0ca6adeed1513a206",
+        "references/shared/source-index/theory-books-and-papers.md": "c22bb223871122a9e0de17de460d63d2d2055cba30f5520fda464823bfba4c35"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "statistical-and-uncertainty-visualization",
+      "repository": "openai/plugins",
+      "commit": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "subdirectory": "plugins/build-web-data-visualization/skills/statistical-and-uncertainty-visualization",
+      "adaptations": [
+        "Bundled shared visualization foundations."
+      ],
+      "files_sha256": {
+        "SKILL.md": "8fcf0d2114f4765d763494f6adbc67585f237aba333801374f95e2ab229f1827",
+        "agents/openai.yaml": "36f421a3c371dc2fd366c225b3bce5320fce889d587a3ae94a0ac2060290a619",
+        "references/distribution-and-summary-choices.md": "c86b1bf49bea44e7cf7dae5f5dd718afef628c51c5f600d919bd8502efed9f97",
+        "references/experimental-and-analytical-pitfalls.md": "1cc777d41a7f5f14d39a507295fc32514ad9fdc1e4ef1ef82e443a1942b37bd1",
+        "references/missingness-and-confidence.md": "4fd2a8005e2721f1fdda9e716cc641ebd2413df6ecf3804b95f79e37c6d7ef02",
+        "references/uncertainty-encodings.md": "08520849c9bd3f7e727784357ed7fd64c393177596708bddc17d5841ffe1c6b9",
+        "references/shared/foundations/art-directed-interactive-visual-stories.md": "054946a76343155fd9901987b25137052749bb03763496555ad61e3023c7d0ca",
+        "references/shared/foundations/domain-contextual-surfaces.md": "566195f1832062d6d9e5463780db646e1e8675de80d5da00c03b864e5ee93a0c",
+        "references/shared/foundations/editorial-infographic-system.md": "88e3c5e58722074e95ac92b11ab17e6b878ba690fc799511ade82378637fab20",
+        "references/shared/foundations/embedded-visualization-self-use.md": "eba2d00d88d6d86d34b01f2ebf7f5c4f8230155642721a701c3220f011833d32",
+        "references/shared/foundations/fictional-data-story-simulation.md": "807eed73926ccbb87e6b630786b7d60909d337507939ddc417cd68de3dff6cc5",
+        "references/shared/foundations/implementation-design-and-tradeoffs.md": "e3bbf562e8874a636693fb0af62c61a03aad1b91576c333540e8344725b94f06",
+        "references/shared/foundations/interaction-models-and-progressive-disclosure.md": "c67ca0b97232ab27eb3ae98b6557143ba7bf4c4b64dace4fdc53161e9c25ece2",
+        "references/shared/foundations/layout-hierarchy-and-self-explanatory-ux.md": "5987a961cdc91ef0af2f6b395b706055cb1b94e7d957d504d149e3b5a27ecf38",
+        "references/shared/foundations/meaning-preserving-visual-design-workflow.md": "94f4c739f8c5160389171aea8ef3ce9f72395b9b14e26d1ece9bc0ce34d6ac57",
+        "references/shared/foundations/mobile-first-responsive-visualization.md": "72eb259e4cbeba93b06c8c0d24ca6e19793a4005453f2dbf7afc281019299fa9",
+        "references/shared/foundations/operational-visualization-workspaces.md": "d13f255210c06b69ea4a8ac5d80a7be2baeb4062c5c591f5299ec29855ace89d",
+        "references/shared/foundations/perception-color-and-encoding.md": "c992380a3c4f373a644bb4122242961617cee1f394422b61f0870bd07db6c17b",
+        "references/shared/foundations/sensitive-geopolitical-and-humanitarian-stories.md": "a6e15d74217ea613054227a1b70fb6ce9dbd9f1d89a22065a8e8755af3f9463b",
+        "references/shared/foundations/shareable-state-and-persistence.md": "74a67c31a2d29245cf8b95a2a050357848790c42a65e926f88f08137f474ad08",
+        "references/shared/foundations/storytelling-annotation-and-critique.md": "bb99e317bafb087ae9440dcc39f0f75a8726a2298360a20417fda9c3107feafa",
+        "references/shared/foundations/task-abstraction-and-chart-selection.md": "fb291ca2da22a82b70d81dcb9cbffbc643b6acba6a5a3a874cef10b92a33ebec",
+        "references/shared/foundations/theory-and-principles.md": "01b9ee4c81c5e586f42705ac8e314eabcf194b89caa901c1a8879bd25302b9d8",
+        "references/shared/source-index/export-and-automation-sources.md": "5d393f62441374e12f8d7d25e7a2cde853602a8c0e6de0ed1d8b8243555f1256",
+        "references/shared/source-index/official-implementation-docs.md": "33f2eaeeeb13a2ef6807954d62400b3658dd5e606a2efad4d588d4aecb957a60",
+        "references/shared/source-index/practitioner-guides.md": "a7e91bee59f05235768fef917c8c561b3045a67f0f74e4b0ca6adeed1513a206",
+        "references/shared/source-index/theory-books-and-papers.md": "c22bb223871122a9e0de17de460d63d2d2055cba30f5520fda464823bfba4c35"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "ssci-plots",
+      "repository": "O0000-code/SSCI-Plots",
+      "commit": "f697b922e8fc11ca13a61f29d58c1f83963c5b1b",
+      "subdirectory": ".",
+      "adaptations": [],
+      "files_sha256": {
+        ".gitignore": "5b1fb3324dcc63574778baf0752f440f2f045246ddfdd0556d0cd10431a80b6c",
+        "CHANGELOG.md": "aedcb3503527dd71c48ac3f6f1404594f26ffcf3d3af55ad958876757a17d2fc",
+        "CITATION.cff": "dfd016259292175464906ca5f57e8f0a6a253b0d8c4287ce3d16dc76c1543a62",
+        "CONTRIBUTING.md": "e3865135e51bd872852c6a6fc137669e5948d6754f3c4d4c0a0c355a88a88923",
+        "LICENSE": "6db33424e8f089ea62a76e60afece6eac1cd0cf20a12853318e22d04cb9a50aa",
+        "README.md": "b6ef39a07f3d597d63f75566bb8e6ee76dd7b4b4af24b61e1d4e45bee9f1bc94",
+        "README.zh-CN.md": "d69fd3977eb2b2e8353d3ffcf0cc5d07c9ef823fa8c86dffe86fe556c416ac38",
+        "SKILL.md": "e19ccdc8f2bf11d5947f5f888ec03fa0bae6033f8e12868c8d65f07ee11d9782",
+        ".git/config": "884474d1ab81e8efc6306479a5a117cdd0613fc40f170b088512fa3aa77696fe",
+        ".git/description": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+        ".git/HEAD": "32569e69a64c29a00310580cbd3e94a5dffde6d9737115adcea160ef028d7608",
+        ".git/index": "09f68a3fa09eff19568e104b64b2b54ccc3d4b17b06c6c1856b13af397e7f03a",
+        ".git/packed-refs": "d77bfc347f67e7e9aaf84b5b5223d184e9474dc8802250ae3dc4e0f31c48a35c",
+        "examples/01-default-vs-apa.png": "ebd9fa136ec3d6268d6b485425ff3f381d6737383c2332d0f73730ddf333734f",
+        "examples/02-apa-style.png": "0903589ab1174f06693505edf404a34b50f8876673b43c2b2668c8e7e9a37455",
+        "examples/03-elsevier-style.png": "33e322a3f757db8eecd7cff8bded1b8c196dcfa812c595c89d79e474c7614f12",
+        "examples/04-wiley-style.png": "8ee5bcfc9fa97a0978f5571e66f8e243a3e29cafb9e24bc2db9421c7ae85aaec",
+        "examples/05-sage-style.png": "008aedf420102a49fb64b0fa502037b23d494fe3af624bbb8d5a5ef8be45030d",
+        "examples/06-oup-style.png": "740542ed0133aa14faf251990c9bf3e34e8b4bf4c1488925121e2f285fd81616",
+        "examples/07-apa-raincloud.png": "a6afd71abd46e4c1b5dac0802a7dd148a386cc652162018a5f1951686d839b37",
+        "examples/08-multipanel.png": "c190952b920c850b7584818001124152be3c7e3b84b2c0e3fdd5aa644f41eb19",
+        "examples/09-event-study-did.png": "0307e46659d2c0693ea61e171e2935918c5f3575422335c6c8935b0b060bfb60",
+        "examples/10-regression-discontinuity.png": "7efb359a27bfbc00cd31e4d7aa29e66f755d67be28e79813edaad2eec16771bf",
+        "examples/11-kaplan-meier-nejm.png": "2f8a44653b7d97e834069addec21155bbf8701b82d61971664bc22d8d798568e",
+        "examples/12-mobility-matrix.png": "95afd5cc2353e08a490792006d1339cc283e922f781f32c9b9f75e9a0d373ffc",
+        "examples/13-coefficient-plot.png": "f329a008734fb9fd5ff20793af8ea95520911c9c34e576e4d15a371ba0bd0df1",
+        "examples/14-ideological-scaling.png": "f442a790c2d2d2b229f31f33aba13ab9f98157d526a067faefe0e45aae6277f8",
+        "examples/15-choropleth-mobility.png": "8baa0084b225bb7c80a7b1a336a4ace985235a4507be9abcc21ed9c681400de1",
+        "examples/16-specification-curve.png": "fdcf2a2359fffa074fe0524dec51e1a4b7f0cfcf7a90a772f13a366d1a65ef50",
+        "examples/17-growth-curve.png": "57e8627648c9182bf2bb8eedd78d955932731e19c2400ff6c88386f496d7f913",
+        "examples/18-research-dashboard.png": "c077e220cf93edaead570bd56c255e259eccea163490d4188090e4b4e70954ab",
+        "examples/generate_examples.py": "c200f1ee87d034deccb880fe59078b1f8a6490240471f198c5bccb2ed3fa1aca",
+        "references/apa-figure-standards.md": "cf9370b92247d9dffe6fb19a34250034152e0a3d7e44afa93cdd8f1f1cca2aa9",
+        "references/chart-type-guide.md": "7113e90edd0d5c7557a6693e46d638f1135554cadfceb0181a471b6348d0b04b",
+        "references/chart-types-applied.md": "517572335991832588aa5e5c3c9082c9797c7220c207024e084513a32407822a",
+        "references/chart-types-causal-econ.md": "1ace3618ea1592a5f9fdedce7c967c6e41c5adff12fee91165aeaf48af76168d",
+        "references/chart-types-core.md": "3004b65d6b946c39bc051d99b1aac5e6b596277a72e1f95c8b02f1b3d0287b60",
+        "references/chart-types-models.md": "73909691a2518835dee90d90cbb88565a97066b8a4af5093571298fb4462044c",
+        "references/chart-types-quick-reference.md": "b182031a1a1b0268afb64cd29bad153e27969be51e655f0d4d977fc9f6a2ad1c",
+        "references/color-system.md": "dc78e081958c45813f653a55625867a184a4573a14c2a79f87498a22c6f61816",
+        "references/complexity-elements-catalog.md": "6dee2f73b3cece479c8302122f10ea9fa6204188a699cc846476dc6b6d1d04c0",
+        "references/journal-presets.md": "fcd84dbbbd77a875f941a783c06bb052871f1ba7ea8376552dff241b71c3a7e2",
+        "references/multi-figure-gallery-pitfalls.md": "6da4b31697448d5c335396475fd12104ff1752157ac8da5509f530210dbf85c6",
+        "references/multi-panel.md": "06becd7c8130c7d65546ad38c22eee944b5370e8b6cd10ffc9b2a526e29d6b76",
+        "references/statistical-annotations.md": "aa4648b47538e8b17583beced8b3be427d66ed8e14a5b59f213e7af5acd9a0c6",
+        "scripts/ssci.mplstyle": "360830790fbd402db5599124069fac3584adf9b501357c901a9c66758d233831",
+        "scripts/ssci_style.py": "75365223d4c6e525d14946ac199662d2bea6dacad5c2003dc53dc6117344e787",
+        ".git/hooks/applypatch-msg.sample": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+        ".git/hooks/commit-msg.sample": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437",
+        ".git/hooks/fsmonitor-watchman.sample": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0",
+        ".git/hooks/post-update.sample": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+        ".git/hooks/pre-applypatch.sample": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+        ".git/hooks/pre-commit.sample": "f9af7d95eb1231ecf2eba9770fedfa8d4797a12b02d7240e98d568201251244a",
+        ".git/hooks/pre-merge-commit.sample": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+        ".git/hooks/pre-push.sample": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+        ".git/hooks/pre-rebase.sample": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3",
+        ".git/hooks/pre-receive.sample": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+        ".git/hooks/prepare-commit-msg.sample": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619",
+        ".git/hooks/push-to-checkout.sample": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+        ".git/hooks/sendemail-validate.sample": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+        ".git/hooks/update.sample": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+        ".git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+        ".git/logs/HEAD": "5adc846af101a6094923966c58d1599104a2cf58cbb3dca3741f8070c516a9a0",
+        ".git/logs/refs/heads/main": "2d653b2026ef166aa3b88ba1795f18a6bafb067489ea0cb4db13fd0e5df9e32c",
+        ".git/logs/refs/remotes/origin/HEAD": "2d653b2026ef166aa3b88ba1795f18a6bafb067489ea0cb4db13fd0e5df9e32c",
+        ".git/objects/pack/pack-03be66237483a08a096847486f70dead9feabc7e.idx": "b8c887e2183eb50294d7ca3d07c2fd6622f4b5f6e1788e4acafd8f93ce80d759",
+        ".git/objects/pack/pack-03be66237483a08a096847486f70dead9feabc7e.pack": "12b7bda45da6cc3bd251d650951b6e6706d7a6c25bd62f0b6b22a2f3ddfd252b",
+        ".git/objects/pack/pack-03be66237483a08a096847486f70dead9feabc7e.promisor": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".git/objects/pack/pack-03be66237483a08a096847486f70dead9feabc7e.rev": "6d48dfa1d5f4eeb945804796fb093401a1213f6be59ad6e431e0e317171b280a",
+        ".git/objects/pack/pack-5da004af7792a4ebca7d2c8f1b26ca7a6d6b1734.idx": "aad485e070f8eedd403c1f7e707f6f8b1f45fe68d95d0d7e36f22a7ce64bc6fc",
+        ".git/objects/pack/pack-5da004af7792a4ebca7d2c8f1b26ca7a6d6b1734.pack": "a82f2dfbe7d79725eab5166861f07e508e5f527685c2d6de1ed6305a22bf076b",
+        ".git/objects/pack/pack-5da004af7792a4ebca7d2c8f1b26ca7a6d6b1734.promisor": "9e4e331476c4acee0b95c12784729f9bacc0279457feb3b81e4b775f6f417d8b",
+        ".git/objects/pack/pack-5da004af7792a4ebca7d2c8f1b26ca7a6d6b1734.rev": "d774c7e70af1067c305a138b65b88090d6faf2106a64e042e2ab916d4d37e85d",
+        ".git/refs/heads/main": "32569e69a64c29a00310580cbd3e94a5dffde6d9737115adcea160ef028d7608",
+        ".git/refs/remotes/origin/HEAD": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+        ".github/ISSUE_TEMPLATE/bug_report.md": "a2625e4d2a55783ab8ddb4331a2d2092a15f54a286386c95a81f2e08dbf3a233",
+        ".github/ISSUE_TEMPLATE/feature_request.md": "03492995c91a4fa9f98b43f17babc707c81c702e14fd5238e46cdb3e1e52eff4"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "hyperformula",
+      "repository": "handsontable/handsontable-skills",
+      "commit": "3be958a30c41b904c9a3a66557123108c44c38c3",
+      "subdirectory": "skills/hyperformula",
+      "adaptations": [],
+      "files_sha256": {
+        "package.json": "6efd2a1d3d8394000bc54d43479b5ad9eb517d115883d5bf38eaa2de0c74e235",
+        "README.md": "601c7dfb70fc201f08fe0a14e0e062b44fa94509ce33836bbb3bc46a2e340ca9",
+        "SKILL.md": "59b4882f769b8e9197f41b7240ed7628a6955ce8868c10ade05ab7ca5c701db7",
+        "UPSTREAM-LICENSE.txt": "86cd637dec8d2c3843761e426d9721b735daffa6a302e2348a6c75352bdf41fc",
+        "references/api-quickref.md": "6e3a5f8007b5919a791338f512599f37b423be769d4c5798d08a40ba170b3838",
+        "references/configuration.md": "5742ef264e339815ee281c7a49cced4eeac67757a750dfc7a67ee9ddee2b4d47",
+        "references/custom-functions.md": "c66aa08b5ecdea098abe2140f36225d63c35f25af08658d4b93fb97bb93cee04",
+        "references/error-handling.md": "cbc589ca21eed4a3bf7c638351df1444f0fdcf8078d8dda25922880d9c973ff8",
+        "references/general-pitfalls.md": "fa29470a831b6f9e9e861877162242fb946fb86bcab75fbe86a47d5eee64dbc2",
+        "references/getting-started.md": "514514c0092d420fc82a0f9cb5dea5159ef15b2b58a40c503076a84b58c16c68",
+        "references/vue3.md": "35595f2070ed2129a9558033e1336c0edd11619d40d293bce07320f9a960490e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "handsontable",
+      "repository": "handsontable/handsontable-skills",
+      "commit": "3be958a30c41b904c9a3a66557123108c44c38c3",
+      "subdirectory": "skills/handsontable",
+      "adaptations": [],
+      "files_sha256": {
+        "SKILL.md": "77b9014396fbbb60eb3fa6bb78d47bd36e5289753d32cbc3b3c89cb2d44c6c0e",
+        "UPSTREAM-LICENSE.txt": "86cd637dec8d2c3843761e426d9721b735daffa6a302e2348a6c75352bdf41fc",
+        "references/custom-cells.md": "fbaf75d3d1650bef0a700f29b36884f305678cf7a6be96c679189edfdeecf9a8",
+        "references/data-workflows.md": "fa1c6db9a5617ea50bf3211b54e954821ad2fe60a1e3d576fc7af8488d8fbf58",
+        "references/docs-map.md": "f7038e3294c51f1af72032d1e3e01afd5a8de762e8b0ef0a45b17bcdaa5d5e92",
+        "references/interaction-plugins.md": "069a0e7e8dcef5ab983aa1d087e8aaa95cf73f0cf6635ce3263dae6f3ba901ce",
+        "references/type-definitions.md": "850441ffdf1438b56277797f443258bde3be0ce1330abc55fb3199ef73cab613"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "univer-integrate",
+      "repository": "dream-num/univer-sdk-skills",
+      "commit": "60e9cbbdbbde9594ad61bad58ad9fbb4d5e17112",
+      "subdirectory": "skills/univer-integrate",
+      "adaptations": [
+        "Quoted upstream colon-containing YAML description."
+      ],
+      "files_sha256": {
+        "SKILL.md": "7f5633a2fca22fbd1863f91d04e012a5fcdc2267882e38e0a4d5322b9d689cb8",
+        "UPSTREAM-LICENSE": "6d1d968fb225eca367cb7f0b8831ab012a35d92b547e945e17ef8e7b05c3e5cc",
+        "agents/openai.yaml": "bab2b87d0443aba8796b8ca8567e7dabddd352705cece827d53bfafc02d6b9b0",
+        "references/common-tasks.md": "b90a75948470af6e1883f323e6ed36ffa6f597dd04a05799fe97006c14cf9778",
+        "references/custom-functions.md": "c88a748730cb2b48fae537349c03d32999318187d402aedcfae602083e263ad6",
+        "references/facade-api-guide.md": "418320dff143c99395f64a94b916fe7e6b28bf7b83278d0d1784f622c927e690",
+        "references/framework-integration.md": "8b41ac497d56c471e254dc32d0e4dcf0261be54ab3d46e704a67a16b50752b35",
+        "references/multi-unit-management.md": "8e35dac26eabdf329877d6dd8a356bab25ac4c668c41e25be2fa68b641656c7a",
+        "references/network-and-others.md": "072ddb8b39821acf640e21eaeff8f323be745f0d29725f36cb3631907c97ee37",
+        "references/permissions.md": "7e56a780c3c19e28b3d80c233dbb7e6916bcb295ed65769f508dbce4176ce357",
+        "references/plugin-registry.md": "cd6284f9c037dee21cc557d2f9b82f8a7b51cf9d4ad06e81637a695a4d87483d",
+        "references/worker-setup.md": "951853ddad2829b82079cfde62847d7168cd677957835428b68b114b59d11108",
+        "assets/templates/node/index.ts": "bc6226152df438a623cc16c64e368b808f4899b56dd9b5e0829edf674fd9657f",
+        "assets/templates/node/package.json": "e8bedf1c694e56b629d085b541e4e6e9edef25cf42cc6ce82a05d504f3ac35d2",
+        "assets/templates/plain-html/index.html": "f1a6eb4bbba28681bef2d2d88b4a79640481ac42abe36204a2be2bb8bf2fe9e0",
+        "assets/templates/react-vite/main.tsx": "58c0db7856b9087435b5f65e4024dbf9fb65672d0a0190002cf1d92e83caafec",
+        "assets/templates/react-vite/package.json": "0ebae6d9627c5302110a84460af73a9b4e65e9e62206f6394a1f3947bb897bda",
+        "assets/templates/vue3-vite/main.ts": "2a829e110957c62e219e6bf22f9da0d910ab5b209d629bef2700b9dea2e8e41e",
+        "assets/templates/vue3-vite/package.json": "45dae2aeb85e60ebe6e10ea75914d8c16eacaa4ef3cfd076fb4dafa7784228ad"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "statistical-analysis",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "subdirectory": "skills/statistical-analysis",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata."
+      ],
+      "files_sha256": {
+        "SKILL.md": "44bfd83222bc847500ce14d927abfb3234ce49becbbdcf6c4e56ad8a9554cb7a",
+        "UPSTREAM-LICENSE.md": "5c793d8fe1c553d49c305f3c178ac360b6d32607bdf1bca06b10d3ba9881d78f",
+        "references/assumptions_and_diagnostics.md": "c685336ae68b9f5959d552aac844c64991c5ce5429463659584aea0343f3994d",
+        "references/bayesian_statistics.md": "14c51daa7723c75482d960b57d3a37846b11c91038dfe7665b6a06d0a97fd5c7",
+        "references/effect_sizes_and_power.md": "b93f5044c22b09ebd2edf2668b83efb187d1cc31ed14db765acf6f3f77f10b72",
+        "references/reporting_standards.md": "a25b4c51530ff64292a10a9096b76347f804e89a73dd8037eb5d9acb26973fb4",
+        "references/test_selection_guide.md": "17f2898ccc5bae0cc331d1ea7b17cc4f43799e42cfb4d23d767adbcc3a76d066",
+        "scripts/assumption_checks.py": "e5ad57f02fbacf303e3cf0e4633e36ef232f79535e39716e2bf49d0ee29ebb58"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "psy-ana-coder",
+      "repository": "soupandpsy/amazing-psycoder-skills",
+      "commit": "3b9a0ac8763e85f1f36beef3d73f9ffb5d26172b",
+      "subdirectory": "amazing-psycoder/psy-ana-coder",
+      "adaptations": [
+        "Resolved parent contract to pinned source checkout, retaining its shared validation scripts."
+      ],
+      "files_sha256": {
+        "README.md": "544d229196123ab4d26629f51c7fbca6e39c031853f5a9c1a361c7f8bea5ba35",
+        "SKILL.md": "de0a5dd1ee931635f3d242a13f7a3755af9bbf14324d49f49aec82ea61e1c7ad",
+        "UPSTREAM-LICENSE": "b018f75b91e921e5d6cf82d1dcb3aadbc991aefcb57d3a97844c4b8b8300abe9",
+        "agents/openai.yaml": "5a67212e274d6b868a53b8a147fdfff8e3a7bf66bb9a5841e8785957059ab0db",
+        "python/checklist/README.md": "71899675ae05b4d82936006d241014b56435437317be6c637bd71d0106b13eda",
+        "python/demo/README.md": "f67d4db6be9998e6e9c0c0f1879a6c5bca95ce152ff32ae559e573f3c86bd5ef",
+        "python/demo/stroop_lmer.py": "ada10b980388d4cb7d7b16b590acbdcd91d0307fb1eb27be00cc16f0d7536d6c",
+        "python/demo/stroop_ttest.py": "b26435b0fbbdd5d177bbd30be986c5efc7af4f8c1248a30ed7868c25c4a889a0",
+        "python/mapping/README.md": "c1abc81cc10c5535b2907821b2569a0dcaa7927d33920cd78357b43041b9782e",
+        "python/spec/README.md": "9ec243deec9364c4c42ca67ae92627873ec47095134d51b8a6bb4465fe136b83",
+        "r/checklist/README.md": "1e971068465bb5ff9fe7e89c89c05cf675018ee58459639a05abfbc0699e7aea",
+        "r/demo/README.md": "f67d4db6be9998e6e9c0c0f1879a6c5bca95ce152ff32ae559e573f3c86bd5ef",
+        "r/demo/stroop_lmer.R": "74152883e45da89b681b7c6d4d59fe00b99a51ee616b3ba9d33b73169289dcd7",
+        "r/demo/stroop_ttest.R": "00fdda6fe7d406f72f593031d11d27545fad8c3fac4c41c52dce4d6f61719bb2",
+        "r/mapping/README.md": "f856b05383e40ab7004a994cbce032c0e9fea6c6482ff129ee2974f92ecf5a3a",
+        "r/spec/README.md": "6430ed9afce6af1d3f14f8ac386521522b1698f4e4c194dd3b39eb48e5ef7574"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "psy-ana-reviewer",
+      "repository": "soupandpsy/amazing-psycoder-skills",
+      "commit": "3b9a0ac8763e85f1f36beef3d73f9ffb5d26172b",
+      "subdirectory": "amazing-psycoder/psy-ana-reviewer",
+      "adaptations": [
+        "Resolved parent contract to pinned source checkout, retaining its shared validation scripts."
+      ],
+      "files_sha256": {
+        "README.md": "67830c24c4aac2f9f27467b083696f7ecbbd57230211df55be11f14b6f3103bf",
+        "SKILL.md": "2a27cd9830ca079a0fb3bb4965117d6975a72ad4f0f71d37d1b104d81a623243",
+        "UPSTREAM-LICENSE": "b018f75b91e921e5d6cf82d1dcb3aadbc991aefcb57d3a97844c4b8b8300abe9",
+        "agents/openai.yaml": "c687582ad781c424e87c9f7c45ea7191c8dec36ade0e1d0ce32ff6303c196b9e",
+        "python/checklist/README.md": "eb8c9f101ac3d6cc1c0f1c44d950db990988d9dd586cd2e76504fabf70e0558c",
+        "r/checklist/README.md": "721a076a5926c12eef4d65fd84d006a3c9b8954c1ff0ab1b6ee60062edd2daf4"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-brainstorming",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/brainstorming",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "builder-check-prompt.md": "4c65f7c350b92053b92205b0b75ba7334a4e6ac1b4dd49d4eb986713beb51270",
+        "SKILL.md": "ec0c4f09f062ca7fc8adaf2b5a7a7cda9004b4b0f9cd856ee214b2d675ea2b84",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "visual-companion.md": "95a58903eeac8e247f75335d46d5cbbe29e041e1731a15ff89aec82e96a7c989",
+        "scripts/frame-template.html": "7b9418e9939dded0cf8e6a5549a18162b7c7e5495deeefa83a12f3394b81395d",
+        "scripts/helper.js": "43c6d69954a46ec34a2a262bcc62a9a7e83e839c739f199cb72646d397c686e3",
+        "scripts/server.cjs": "a2397d59c7f7bd1a110e258c707ccf47ede42ba8dfc765c03669a3ee81cf3791",
+        "scripts/start-server.sh": "a4e5ae84275bcaacd2f84345afeabe59cf7b00ba080e123da7cc1fb226f12847",
+        "scripts/stop-server.sh": "0b5ccbbd57f62d3ed88993f7940b5ee0e5c0fc9b21c550c623da4f6292e47daf"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-diagnosing-superpowers",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/diagnosing-superpowers",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "9b7e0834d1c15a055e56e32740ac1e904ea5e6d6694c1575e058bb04ada880d3",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "prompts/analyst-common.md": "87f5303d6c45b3fb7ba6d54a46b06f0227e5f8f2f3fdd54c1c698d33efbaf3f6",
+        "prompts/cost-and-time.md": "72ee384cf6bc3daeb3f954230a05edd96ca9b3c03e303bba031612fe259e2868",
+        "prompts/plan-adherence.md": "d2681d76bf70eff9fba380c6d6c9c2b6e1af7afff32d0bd282e17c977da6fc37",
+        "prompts/quality-evidence.md": "01b29eea22501ddd22416418b8de1c7a6124a293d13c41d417f7ecf08bb690a3",
+        "prompts/repeated-work.md": "e9a7b8bde8521c896b959b9c63570e7f832ce75d5db3f4cfecc14f988e2e7524",
+        "prompts/request-conflicts.md": "2fee01230cf625de4702ad2ad83cd68d3c236b69b51d3823342f9d12449ab166",
+        "prompts/scrub-audit.md": "c230befe2ab708faee327d708760c2fbe6fc39f874653ca21fed660068209d15",
+        "prompts/scrub.md": "58e84fb2db013a945de00ab67f2945b2829deb70abb132c0a18fad4a5cdc2216",
+        "prompts/similar-session.md": "abec588fb5f59a2bc1c54ca0aa1bda538989ef0c48e32bb85030097c1dd43908",
+        "prompts/skill-timeline.md": "c2f24ba30c7be3b13ae5fd1c51d4a2397bd1cdc1700f7e7b37b259f9b2357535",
+        "prompts/stumbles.md": "bf103612b7b78dcd160fa7b6a58e31a5349334adb4092781471016ef07619e27",
+        "references/context-safety.md": "39c5259de8416f309b9d4e7a559fb7f5f1db52d865522efc87635f7669edb334",
+        "references/github-issues.md": "0444c209fa848cda33636fa45e834c399c31d4e3b3d86c01ee7e1123d9c6048f",
+        "references/redaction-policy.md": "6eca8a3a16b174f2a4505fafb7d55b756904ea176147bde2aaf2e5ad5333d89b",
+        "references/session-discovery.md": "383801d792eed50a7049f7c39997dee9d12945a7618bffa1ff9c0c1256f8d4cc",
+        "templates/bundle-README.md": "75e2d9c9dc1bf2ab6818c0d36363d08a4b162f8f8d8ea5c8ab30d7af40b7f383",
+        "templates/case.md": "8e5ecb243d01a9a4d6189f6ec3f179bd42a6cb28a6e781345c097e8237515ac4",
+        "templates/issue.md": "f8a6d000e412be1159bbfd947c5475c9522512e4b13335dbc6b64bd99ae03e5d",
+        "templates/report.md": "5844320cd9cfefb064ec1249b1deab91e6157e2199b911a30459e082035ce987"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-dispatching-parallel-agents",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/dispatching-parallel-agents",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "6ecba2c64515d397e60c36b86c084655d5397865a0389aadc392f1ab9cb9b5ce",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-executing-plans",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/executing-plans",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "3c3ce96bf3fa7c34cbb450b6ecc46937ecf3f27528bdff0d7cc4741398feef41",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "scripts/task-done": "91e1a68e50a2c9b31193e8ca7feeba9f21e81eee9aa409ba05e5d407ff926bd6",
+        "scripts/task-start": "5eb4db5457bfe9d201712fd7322896afd2f7f12b277b563900331b4e2ddfb114"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-finishing-a-development-branch",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/finishing-a-development-branch",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "7be9a15aaaeb50645b71e330309208357d43bebb69f27ac0d70fdf76dbad369a",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-receiving-code-review",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/receiving-code-review",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "311fc4067ed3be932889fb63d8f17e01d52000c0ad3c86df4c1146bc1a9912ff",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-requesting-code-review",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/requesting-code-review",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "code-reviewer.md": "5e618b2a89ab9616112791b5245957948a1a26079ca6c30339f42fb378411e32",
+        "SKILL.md": "38d05ebac49b0845e05e25c4b452e064839954806bc3852b3f58efbbc569c665",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-subagent-driven-development",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/subagent-driven-development",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "implementer-prompt.md": "bda42c4969d1578eab92bc1cca864397203329d22dbc143a8c6a896adb548b42",
+        "re-review-prompt.md": "ea2d362871c1269ba44f3d5e4c6d7b6785da7572e6b7e27b7c5f92443f55d0ac",
+        "SKILL.md": "ab1d70cf8a88bef251bfc911e036e5116613991d3e3e9393393535c5242a70b9",
+        "task-reviewer-prompt.md": "f1431b65a6e63e5fbaddda1922b4c97375cd4feeecf9ecdd9a9391ff1c405843",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "scripts/review-package": "f617c52c538f09b13bd19a301cf5201584dcfd7aaf552eedefb3405f3f90fe0e",
+        "scripts/sdd-workspace": "882dd51412f09717fadad6a84c5e60266a8d8a902f43b49bc07f8cc739222c79",
+        "scripts/task-brief": "51bb3fb73b07f85fd19d8f29f178451f7557b8c3d084a85835c5bc6bc15869f3"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-systematic-debugging",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/systematic-debugging",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "condition-based-waiting-example.ts": "40ae5ebe497fdf310200e43fe986552546d0a22837c0d39e855db1cfd33eb88e",
+        "condition-based-waiting.md": "02aa854bd9e761f275e1450d7136ba60f1a4d103fe94b552fdce822dd3c99506",
+        "CREATION-LOG.md": "397f122f115f994372a1805e30071fc0ad86c0dc1e427fbf5b5f1b14143399f5",
+        "defense-in-depth.md": "9407efcbd028a5ec45edfdf6692b988716c0a7b34d1fb5e05d60146171d8041e",
+        "find-polluter.sh": "dd7b8f13c4cc2a24b33ff87b18da9248f3e1c80a085c3316224f69ff0fa5c43c",
+        "root-cause-tracing.md": "f6359a35f1c695f789fac7b08d46ae0bb74f9a24123f9add96a7de053019b9bb",
+        "SKILL.md": "67e8d329c9f0688d00438682e61325e076590dfbae59a248c82b118f8c4683b1",
+        "test-academic.md": "51e07c1c56052a6c46cde8e7d42d6612598ea076f128086fd85911f4d2d3e8dd",
+        "test-pressure-1.md": "fbf04219c44460e76d96642d7dc16960a2390936e0a6937d0b133e013fa55afb",
+        "test-pressure-2.md": "fc6b2594bed3f2a15ece75d0a211b55cb9a4668d85b9873f2bab5ee54ed31cbf",
+        "test-pressure-3.md": "69ed6a5a59dac92d58d284519991a46b90978bc40a229776dac0ffa3a6123bfe",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-test-driven-development",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/test-driven-development",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "73dcc96e57dbbd102c212ca8e4c72e2b916f555973ac464fc88c1e274c4189dd",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "writing-good-tests.md": "11096c3f9ff52f39fd25eaba33c209dfe2930e66c46c850a648efac5a19b4c9d"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-using-git-worktrees",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/using-git-worktrees",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "dd22b7fc024cf8c536656595d7dc9921b5ed20210e8d22478f9e5e22b7d42c2a",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-using-superpowers",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/using-superpowers",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "342fb11f004e9dc5cf1ded626c7664302504564b8e81751187b6dc14a34f81ae",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "references/antigravity-tools.md": "343af08abab2936a4063399ec0908a0d3a129f66a54a42ef1f14e9b9edc0b8fa",
+        "references/claude-code-tools.md": "c2aeb6e5649d57ed7d6704c1a4ae2379cf4e97d9ecbfd2ac37b9fd438d97b595",
+        "references/codex-tools.md": "51d2e878aac90809bfdd0358c974281e2fb88c7d46571e6310587d9df6cd55ea",
+        "references/gemini-tools.md": "00994e715fbf80649c7bc6f253c706c8cf269698d0fde82ad318cc165eb93707",
+        "references/hermes-tools.md": "32c262e22da268ac1bc33f2b318e597e78539f10be170a7453dee07ff432f36b",
+        "references/muse-tools.md": "7fc9b703682c55b453b1ed56a498d99df2293242cdbd9b53af15f8982e513969",
+        "references/pi-tools.md": "fb6db6991508e958b0117861b6107fb1cafcc752210c7cfe66def13f1e34d371"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-verification-before-completion",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/verification-before-completion",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "0e9983dd3ec3b95df07c62dfd94d7f8c968839ea51854b5f381d728a2e60302a",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-writing-plans",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/writing-plans",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "SKILL.md": "98d3f7b6781da8ab6b9b651a7a0a340d9d0f248e33d48a311922757c47b56341",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-writing-skills",
+      "repository": "obra/superpowers",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "subdirectory": "skills/writing-skills",
+      "adaptations": [
+        "Prefixed skill identifiers and sibling references with superpowers-."
+      ],
+      "files_sha256": {
+        "anthropic-best-practices.md": "26f2fc231b4bea7ad7ec034a61615f8fe8bfff6c436ad77e60d5734be16a6a15",
+        "graphviz-conventions.dot": "b18a02773875f6c7b92f2a260e88550c92a62549b0009df9d680f7e9541d0ecc",
+        "persuasion-principles.md": "73ffb3d9d9f510f82296de0e3509bdcc1bae13379ef56354877e3f33303b44bf",
+        "render-graphs.js": "c7f412cc629461c4d10287e668731874c0497707023e3e3f74a5355eb2cee196",
+        "SKILL.md": "da31419f513598321264a19b3626b0fc0096900d246e1182f47c0bfe016012f8",
+        "testing-skills-with-subagents.md": "b86adfd84d421a210dcdbb6957f9016289d67fce560828ef5a756646f5c55d91",
+        "UPSTREAM-LICENSE": "0da33ed814ee87e72db078f489c4447af72f13d9f25d9e17476f32efd77705fc",
+        "examples/CLAUDE_MD_TESTING.md": "3648a10c414546fdea2eae3a8f21345cda2234aca54a084042e5f933a6b332ca"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-manager",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-manager",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "be3c3f668e4810a740d392e0457f675faf9dd2977f1eca05bbfe397cbe928260",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-pause-work",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-pause-work",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "f8c445c1df375ee6ab3da51a0c082b61566d9375327964dc2d4fc59f7f7f4f5c",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-import",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-import",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "da98cd70cbd2184372b637f7e8aac287c0071d0758982a8caeb1449fba4b1594",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-update",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-update",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "31fffcb3f0068396f5d2e10c30bed93e083e5f97f4dacad778df552710074604",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-ingest-docs",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-ingest-docs",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "6e99c90109a760b483d4fd2610bd42bbdc3d1b8427104c6c1dace21c503a88eb",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-workspace",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-workspace",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "404adba1abf56bab9529683c124e511241ef8e804c63d300a5ab95efa9e0b94d",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-execute-phase",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-execute-phase",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "37a43a56a9f3e0d429ede523f59191a53ebcc3cd89173b5cb67290ac6ab39f9e",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-phase",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-phase",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "29707b1bdde33982eeca9a4e9807647e58e3029e459980e331bafaa3af71cc3e",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-help",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-help",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "9f96968a11befe5bbb090a465718b4eaa02616958e845334a4bcb64c4d73ca78",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-settings",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-settings",
+      "adaptations": [
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "391e3abec548b1d54ac244566bfb7745b3a61ba49e71fcf53be14b1632534d93",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-verify-work",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-verify-work",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "0eb5f9893680429b0156c6d59a246f0163a07651e4c0fa66e15bb37e7c28bc3c",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-config",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-config",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "c2adcbe317ded13b2161245e5e8cc269a002249bb4a7a140781e77512744542f",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-progress",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-progress",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "2b61fcf35bce1f02b19c99f37f27dc4a892cacb04138a4257d4bffd5524f8e95",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-code-review",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-code-review",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "1c0ee56d67f5b8db86c3b3590f92db9a6cd506f44c0534e3e4e165cd96c7ce40",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-map-codebase",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-map-codebase",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "8957a04724e9f88f16577aca1a3ddb6d633c1c8b88a70c7518fbb4f9ee97eadd",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-surface",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-surface",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "6c7ee71b3c0d6fc48fde4cdb1a567d663d08a5b4ac0e05b6a134403190b5cbc0",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-new-project",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-new-project",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "ce8325676f71a706df62767a0679743ced2dc8cac489c120ceda2011e07caaab",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-resume-work",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-resume-work",
+      "adaptations": [
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "a471328eb777b6070accb6e19494e3b0e2f6609433ea3bd12064f5966e75aee7",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-discuss-phase",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-discuss-phase",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "7d0cffbe1757ff221cd2373e12941fb544615500e14d3e44ab6288418b23c828",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-onboard",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-onboard",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "1716bb423645b1e238e90b5b0b6da1809eb2b4ba166c923bb3b66b691f19c61e",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-quick",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-quick",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "483619485e4a09cbadc43b09eb5c123d12b1adbe2dbafec66a84195e36bcbded",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-review",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-review",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "de2bc0e22a75f3f5f1b8c19c4224f1eebb171c68edff34a78f208ff258211ded",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-plan-phase",
+      "repository": "open-gsd/gsd-core",
+      "commit": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "subdirectory": "skills/gsd-plan-phase",
+      "adaptations": [
+        "Preserved extra upstream frontmatter inside metadata.",
+        "Resolved GSD workflow references to the pinned canonical source checkout; no hooks/config installed."
+      ],
+      "files_sha256": {
+        "SKILL.md": "63d509a7acdcb41074fadcc42f3e88eee5585319da923b96c8ac972d829bc5fb",
+        "UPSTREAM-LICENSE": "3a160aec61eeb28e75e8017346ee190db07986a09c4bd72555cc706f1d99e27e"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "agents-inc-accessibility",
+      "source": "Existing reviewed For-AI bundled companion",
+      "adaptations": [],
+      "files_sha256": {
+        "LICENSE": "50bc6e75845f4acdfb7c1df6e67f0fb9a0d80486b34e583c78d89637fa94865e",
+        "SKILL.md": "29e58c345dcca617a3df9f3ef269b2c1af6626c2bbf8623fded1ed7011fc0395",
+        "UPSTREAM.json": "d84297ca6e4f79554d86203dea98dd494114523e51dd8929e0a0a3b0c45d718b",
+        "agents/openai.yaml": "57475d0973054ec5603d137c321d8181bf65d234d3fec17b0886a6482ab84836",
+        "references/criteria.md": "0dc880857f07b32cf3980bbad3cba3acc9795e35d0b4d37516739fdf6c759a20"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "agents-inc-web-performance",
+      "source": "Existing reviewed For-AI bundled companion",
+      "adaptations": [],
+      "files_sha256": {
+        "LICENSE": "50bc6e75845f4acdfb7c1df6e67f0fb9a0d80486b34e583c78d89637fa94865e",
+        "SKILL.md": "eec94d8aafe296343037e2e0587fc975643d39b1491df0ff6139e97b2d6490da",
+        "UPSTREAM.json": "e40575eda62b56d77c03cec5493438a6058f9e464071d4e154707ffb9073a902",
+        "agents/openai.yaml": "29a49f148ef43877d9efad3fa439597fb5327486db1dacf53f0de2b70b8d3e41",
+        "references/measurement.md": "00f9d624b454b37d50c69563d36bc33aa2933be94fe7edd1189e6f5256ca78e2"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "mobx-integration",
+      "source": "Existing reviewed For-AI bundled companion",
+      "adaptations": [],
+      "files_sha256": {
+        "LICENSE": "50bc6e75845f4acdfb7c1df6e67f0fb9a0d80486b34e583c78d89637fa94865e",
+        "SKILL.md": "da955ca9dd9076b98998abced4db22718b700e74238722b5f7243a023152f0b9",
+        "UPSTREAM.json": "21f15f14c40373c53afcbd6914dc629598a76803c1124738e170d7e404c36579",
+        "agents/openai.yaml": "f2428952d1b61d9d9a1274ba14b3e2c394d1eb7df0735e006afb2c8ba582bed3",
+        "references/acceptance.md": "d3d27d309381ceaed88cb00ef5044e2805944391ef3d4e6a3e38dafd40f0fc33",
+        "references/reactivity.md": "781ceb2ed623827d513cfe5fa780cc8dca59c449232326e18dd8147b5b0419f0",
+        "references/surfaces.md": "c354dd966c231623f47b466196b8b12c16104612b775cf2cf9dbc2ae6a158fa2"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "rtk",
+      "source": "Existing reviewed project fallback",
+      "adaptations": [],
+      "files_sha256": {
+        "SKILL.md": "d24387ff519b99dc9d3923ed7aec40e2ce9e77519ef398e0deb4d067098b36f2"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "gsd-core-workflow",
+      "source": "Existing reviewed project fallback",
+      "adaptations": [],
+      "files_sha256": {
+        "SKILL.md": "1cc3c8ad7c326c7fcf289b248f55cf2512ef86bb9116d64d577eb66c9a2fd388"
+      },
+      "validation": "PASS"
+    },
+    {
+      "name": "superpowers-workflow",
+      "source": "Existing reviewed project fallback",
+      "adaptations": [],
+      "files_sha256": {
+        "SKILL.md": "b007481e6c9905bd53ad326e69c86ae969069b88cc22f2ca900b7db84a063e98"
+      },
+      "validation": "PASS"
+    }
+  ],
+  "unresolved": {
+    "consensus-mcp": "No exact upstream skill found; configured Consensus connector remains available. Do not substitute an unrelated consensus skill."
+  },
+  "gsd_runtime": "Pinned workflow assets available; CLI compiled runtime not installed or executed."
+}

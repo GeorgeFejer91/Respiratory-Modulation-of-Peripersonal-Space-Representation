@@ -6,12 +6,18 @@
 <a class="skip" href="#overview">Skip to data and questions</a>
 <header><nav aria-label="Study 5 tools"><a data-measure href="workbook.html">Run analyses</a><a data-measure href="pivot/">Full pivot</a><a data-measure href="results/">Results</a></nav></header>
 <div class="reading-layout">
-<aside class="contents" aria-label="Section navigation"><details open><summary data-measure>Jump to a section</summary><nav aria-label="Scientific questions"><ol start="0"><li><a href="#data">Data explorer</a></li><li><a href="#baseline">Baseline</a></li><li><a href="#shape">Response shape</a></li><li><a href="#parameters">Reliability</a></li><li><a href="#effects">Experimental effects</a></li><li><a href="#sensitivity">Sensitivity</a></li><li><a href="#averages">Average responses</a></li><li><a href="#questionnaires">Self-report</a></li><li><a href="#reproducibility">Reproducibility</a></li></ol></nav></details></aside>
+<aside class="contents" aria-label="Section navigation"><details open><summary data-measure>Jump to a section</summary><nav aria-label="Scientific questions"><ol start="0"><li><a href="#data">Data explorer</a></li><li><a href="#baseline">Basic SOA effect</a></li><li><a href="#shape">Response shape</a></li><li><a href="#parameters">Reliability</a></li><li><a href="#effects">Experimental effects</a></li><li><a href="#sensitivity">Sensitivity</a></li><li><a href="#averages">Average responses</a></li><li><a href="#questionnaires">Self-report</a></li><li><a href="#reproducibility">Reproducibility</a></li></ol></nav></details></aside>
 <main id="overview"><h1>Study 5</h1>
 <section id="data" aria-labelledby="data-title"><h2 id="data-title">0. Data explorer</h2>
 <iframe id="core-pivot" src="pivot/?view=core" title="Descriptive means with SD: interactive pivot chart and table"></iframe>
 </section>
-<section id="baseline" aria-labelledby="baseline-title"><h2 id="baseline-title">1. Does baseline correction change the observed RT pattern?</h2><a href="ANALYSIS_PLAN.md">Analysis and evidence</a></section>
+<section id="baseline" aria-labelledby="baseline-title"><h2 id="baseline-title">1. Does reaction time differ across SOAs?</h2>
+<figure id="soa-figure"><figcaption><strong>Figure 1</strong><br><em>Observed reaction times across stimulus onset asynchronies</em></figcaption>
+<a href="results/pps_soa/soa_rt.svg" aria-label="Open Figure 1 at full size"><img src="results/pps_soa/soa_rt.svg" width="720" height="460" alt="Forty participant RT profiles across five SOAs, with the equal-participant mean and pointwise 95% confidence intervals. Exact values and settings are available in the linked downloads."></a>
+<div id="soa-statistics"><!-- SOA_APA --></div>
+<div class="figure-note"><em>Note.</em> Exploratory within-person SOA test; N = 40. Grey: participant means; black: mean and pointwise 95% t CI. Raw AT RT, averaged equally across condition and phase. Greenhouse–Geisser correction. An SOA effect alone does not establish a spatial PPS mechanism or boundary. Native calculation; saved results shown here.</div>
+</figure>
+<nav class="soa-downloads" aria-label="Segment 1 evidence"><a href="results/pps_soa/RESULTS.md">Analysis and evidence</a> · <a href="results/pps_soa/summary.csv">Exact values (CSV)</a> · <a href="results/pps_soa/results.zip">Download results</a></nav></section>
 <section id="shape" aria-labelledby="shape-title"><h2 id="shape-title">2. Do the RT observations support a sigmoid response?</h2><a href="results/">Analysis and evidence</a></section>
 <section id="parameters" aria-labelledby="parameters-title"><h2 id="parameters-title">3. Can midpoint and sharpness be estimated reliably?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
 <section id="effects" aria-labelledby="effects-title"><h2 id="effects-title">4. Do condition, breathing phase or their interaction change PPS?</h2><a href="results/">Analysis and evidence</a></section>

@@ -2,6 +2,38 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Current bounded goal — Segment 1 basic PPS phenomenon check
+
+Owner request (2026-10-23): Segment 1 first asks whether RT differs by SOA,
+using the simplest appropriate paired analysis, a graph and APA-style statistics.
+This replaces its baseline-correction question. Keep the wider publication goal open.
+
+- [x] Freeze the exploratory one-factor SOA question, existing cleaning, primary40,
+  equal Condition × Phase cell weights, GG correction and linkage sensitivities in
+  `results/pps_soa/SPECIFICATION.md` before execution.
+- [x] Compute the five-level RM ANOVA and a raw RT graph with participant profiles,
+  pointwise 95% t CIs and APA results. Retain all sensitivities, effect magnitude,
+  diagnostics, data/source hashes and downloads in `results/pps_soa/`.
+- [x] Independently verify ANOVA with statsmodels, GG epsilon with projected sample
+  covariance, means/CIs with pandas/SciPy, baseline translation and missing cells.
+- [x] Install 55 absent project-routed skills with the Codex installer helpers;
+  validate discovery metadata, retain source pins/licenses and existing skills.
+  Receipt: `orchestration/project_skills_installation.json`. Exact `consensus-mcp`
+  skill unresolved; the connected Consensus tool is available. GSD skills/workflow
+  assets installed; compiled CLI/runtime/hooks not installed or executed.
+- [ ] Verify the production page, accessible graph/downloads and responsive layout;
+  commit/push and verify the exact Pages deployment and live Segment 1.
+
+State: native primary N = 40, F(2.52, 98.11) = 3.28, p = .031, partial eta squared
+= .078, GG epsilon = .629. Mean RT decreases from 681.47 to 665.69 ms across the
+endpoint SOAs; paired endpoint difference −15.78 ms, 95% CI [−31.95, 0.39].
+Tail deviations remain visible in contrast Q–Q plots; inferential assumptions and
+temporal-expectancy alternatives remain. This establishes neither a spatially
+specific PPS mechanism nor a physiological boundary. New source owner is
+`workbook/pps_soa.py`; saved native results are displayed, not fitted in-browser.
+Work proceeds in the managed `codex/pps-soa-check` worktree from source `955fccb`.
+Next action: production-build/browser gates, then authorized publication.
+
 Owner decision (2026-10-21, D-0015): develop the current publication primarily as
 a live HTML paper on GitHub Pages, with its analysis available there and versioned
 source/results in GitHub. This supersedes the pause on current-paper HTML

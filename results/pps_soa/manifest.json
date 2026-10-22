@@ -1,0 +1,31 @@
+{
+  "classification": "exploratory",
+  "execution": "native Python; saved display in browser",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "input_sha256": {
+    "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "source_sha256": {
+    "workbook/pps_soa.py": "ba00b14b8162d046baf9d4954eae1d6a2eb4129aa3043122137b30bed63c7d15",
+    "workbook/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
+    "workbook/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
+    "workbook/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
+    "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945"
+  },
+  "artifact_sha256": {
+    "SPECIFICATION.md": "02e39fc9b1ce4857f96036ac5dfe6375a5dbb86fae7d4d4995ac3a6e5b812b92",
+    "results.json": "08dfcc01da927d0d26d1c8052eb25eac1fb4eb03b40ed8e860602670e25835ba",
+    "participant_cells.csv": "019fa80fde3e6be4cb8b47511a1822a5fd3c80c03d0b3bd4a9a022ced5b953fe",
+    "summary.csv": "4f212d28b5a374907c3ace8aa28797ad264e4caf00a55c08f7d13421f98f14cb",
+    "soa_rt.svg": "289c2a4b8911fe470766b95b719ae1daefb5902b849898c5802b54528ab064c7",
+    "soa_rt.png": "107b3a521c7184ca6c5a5e4a94a06210ef3a92c200dec4bbca08e2c2b0210fd8",
+    "diagnostics.png": "19d207ff91fdfbb898caa526b99914ba6b15b8f2b60327f69f4c19143a520b13",
+    "RESULTS.md": "df37f3f1c1d0c90d0e42066444afb5cf408030f2bf705444903d793d77a9e6ee"
+  }
+}

@@ -1,5 +1,19 @@
 # Publication companion: analysis contract
 
+## Segment 1 basic SOA check (2026-10-23)
+
+Before curve/reliability/experimental-effect questions, Segment 1 asks whether
+raw Audio–Tactile RT differs across the five SOAs. The exploratory, finite
+specification is [results/pps_soa/SPECIFICATION.md](../results/pps_soa/SPECIFICATION.md).
+Reuse current cleaning, primary40 and complete participant cells; average the
+four Condition × Phase cells equally. One five-level within-person omnibus
+ANOVA uses the existing SOA main effect with always-Greenhouse–Geisser correction.
+Show participant means, marginal pointwise 95% t CIs, APA statistics and all
+declared linkage sensitivities. A descriptive paired endpoint CI quantifies
+magnitude without an additional p test. This initial SOA check does not establish
+spatial specificity, a sigmoid or a PPS boundary. `workbook/pps_soa.py` computes
+native results; the overview displays saved, hashed values and downloads.
+
 ## Native trial-cleaning amendment (2026-10-20)
 
 The owner authorizes implementing the trial-distribution, SD-filtering,

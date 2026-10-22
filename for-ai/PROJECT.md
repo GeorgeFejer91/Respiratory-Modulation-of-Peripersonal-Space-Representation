@@ -120,9 +120,17 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
+Segment 1 first tests the basic SOA-dependent RT phenomenon with a five-level
+within-person omnibus ANOVA, existing cleaning/primary40, equal Condition × Phase
+cell averages and always-GG correction. Show participant RT profiles, marginal
+95% t CIs, APA statistics and hashed downloads; see `results/pps_soa/`. This
+exploratory prerequisite does not establish spatial specificity or a PPS boundary.
+The page displays native saved results and labels that execution limit.
+
 The landing page is a compact nine-section scientific overview, built from
 `workbook/overview_assets/`. Segment 0 is the central descriptive explorer;
-each later section contains one question and a link to its analysis/evidence.
+each later section contains one question and a link to its analysis/evidence;
+Segment 1 additionally presents its initial SOA graph and APA result directly.
 The section menu stays fixed beside desktop content and collapses at the phone's
 bottom edge; embedded dialogs reserve space for this navigation.
 Keep narrative, assumptions and detailed results in those linked reports. The original

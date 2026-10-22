@@ -226,6 +226,33 @@ def build(output, development=False):
     # Keep the executable notebook and its relative assets at the same level.
     shutil.copyfile(output / "index.html", output / "workbook.html")
     shutil.copytree(notebook.parent / "overview_assets", output, dirs_exist_ok=True)
+    # Segment 1 displays a verified native result, without refitting in the page.
+    soa_source = root / "results/pps_soa"
+    soa_manifest = json.loads((soa_source / "manifest.json").read_text())
+    for name, digest in soa_manifest["input_sha256"].items():
+        if sha256((root / "data/raw" / name).read_bytes()).hexdigest() != digest:
+            raise RuntimeError("Segment 1 input changed: " + name)
+    for name, digest in soa_manifest["source_sha256"].items():
+        if sha256((root / name).read_bytes()).hexdigest() != digest:
+            raise RuntimeError("Segment 1 source changed: rerun pps_soa.py: " + name)
+    for name, digest in soa_manifest["artifact_sha256"].items():
+        if sha256((soa_source / name).read_bytes()).hexdigest() != digest:
+            raise RuntimeError("Segment 1 result changed: " + name)
+    with zipfile.ZipFile(soa_source / "results.zip") as archive:
+        if set(archive.namelist()) != {*soa_manifest["artifact_sha256"], "manifest.json"}:
+            raise RuntimeError("Segment 1 archive inventory changed.")
+        for name in archive.namelist():
+            if archive.read(name) != (soa_source / name).read_bytes():
+                raise RuntimeError("Segment 1 archive mismatch: " + name)
+    soa_target = output / "results/pps_soa"
+    soa_target.mkdir(parents=True, exist_ok=True)
+    for name in [*soa_manifest["artifact_sha256"], "manifest.json", "results.zip"]:
+        shutil.copyfile(soa_source / name, soa_target / name)
+        if name.endswith(".csv"):
+            allowed.append((soa_target / name).resolve())
+    soa_result = json.loads((soa_source / "results.json").read_text())
+    page = output / "index.html"
+    page.write_text(page.read_text(encoding="utf-8").replace("<!-- SOA_APA -->", escape(soa_result["apa"])), encoding="utf-8")
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:
         marker.write_text("Unpublished browser verification build. No reference report or paper.\n")

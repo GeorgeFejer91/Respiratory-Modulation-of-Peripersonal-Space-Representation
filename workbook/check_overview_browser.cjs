@@ -1,6 +1,8 @@
 // Serve a production build, then run with Playwright available in NODE_PATH.
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
@@ -15,6 +17,17 @@ const assert = require('node:assert/strict');
     assert.equal(await page.locator('.contents a').count(), 9);
     assert.equal(await page.locator('main p').count(), 0, 'Keep the reading page free of explanatory paragraphs');
     assert.equal(await page.locator('main section h2').count(), 9);
+    assert.equal(await page.locator('#baseline h2').innerText(), '1. Does reaction time differ across SOAs?');
+    assert.equal(await page.locator('#soa-figure img').evaluate(image => image.complete && image.naturalWidth > 0), true);
+    const soa = await (await page.request.get(new URL('results/pps_soa/results.json', base).href)).json();
+    assert.equal(await page.locator('#soa-statistics').innerText(), soa.apa);
+    assert.equal(soa.anova.n, 40);
+    assert.equal(soa.execution, 'native Python; saved display in browser');
+    assert((await page.request.get(new URL('results/pps_soa/results.zip', base).href)).ok());
+    const [soaDownload] = await Promise.all([page.waitForEvent('download'), page.locator('.soa-downloads a[href$=".zip"]').click()]);
+    const soaStream = await soaDownload.createReadStream(), soaChunks = [];
+    for await (const chunk of soaStream) soaChunks.push(chunk);
+    assert.deepEqual(Buffer.concat(soaChunks), fs.readFileSync(path.join(__dirname, '../results/pps_soa/results.zip')), 'Actual Segment 1 download matches verified local archive');
     const core = page.frameLocator('#core-pivot');
     await core.locator('#table-region[aria-busy="false"]').waitFor();
     assert.equal(await core.locator('html').getAttribute('data-record-count'), '800');

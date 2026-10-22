@@ -23,6 +23,12 @@ h2 { font-size: 1.4rem; line-height: 1.35; margin: 0 0 24px; }
 h3 { font-size: 1rem; margin: 24px 0 4px; }
 p { margin: 0 0 16px; max-width: 75ch; }
 section { padding: 32px 0; border-top: 1px solid #ccd5df; scroll-margin-top: 16px; }
+figure { margin: 0 0 20px; }
+figure img { display: block; width: 100%; height: auto; margin: 12px 0; }
+figcaption { line-height: 1.5; }
+#soa-statistics { margin: 12px 0; font-weight: bold; }
+.figure-note { font-size: .9em; line-height: 1.6; }
+.soa-downloads { line-height: 2; }
 footer { padding: 24px; border-top: 1px solid #ccd5df; }
 @media (max-width: 800px) {
   body { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
