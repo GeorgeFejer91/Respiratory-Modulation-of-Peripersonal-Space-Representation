@@ -25,6 +25,9 @@ SD toggle, table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Ru
 all grouping/correction/cohort/filter combinations. Retain unequal within-person
 counts, n=1/undefined SD, missing values and zero-valued means. Repeated condition/
 phase cells must be pooled within person before calculating across-person SD.
+Every nonnegative chart must use exactly zero as its lower y-axis bound with no
+padding below it. If negative observations or SD whiskers occur, retain their full
+extent and render an explicit zero reference; never clip them to satisfy the bound.
 
 GitHub Pages is the primary publication/analysis target. Before marking a version
 publication-ready, verify all of the following, in addition to the applicable

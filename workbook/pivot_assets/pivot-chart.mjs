@@ -102,9 +102,10 @@ export function renderChart(result, settings, measure, mode, source) {
   const bars = mode === 'bars' || mode === 'auto' && !model.numericX;
   const low = Math.min(...present.map(point => point.y - (showSD && Number.isFinite(point.sd) ? point.sd : 0))),
     high = Math.max(...present.map(point => point.y + (showSD && Number.isFinite(point.sd) ? point.sd : 0)));
-  let yMin = bars ? Math.min(0, low) : low, yMax = bars ? Math.max(0, high) : high;
+  let yMin = Math.min(0, low), yMax = Math.max(0, high);
   const pad = (yMax - yMin || Math.abs(yMax) * .1 || 1) * .12;
-  yMin -= pad; yMax += pad;
+  if (yMin < 0) yMin -= pad;
+  yMax += pad;
   const yScale = value => margin.top + innerHeight * (yMax - value) / (yMax - yMin);
   const xMin = model.xValues[0], xMax = model.xValues.at(-1);
   const categorical = bars || !model.numericX;
@@ -136,7 +137,8 @@ export function renderChart(result, settings, measure, mode, source) {
   });
   xTicks.forEach((node, index) => { if (!retained.includes(index)) node.remove(); });
   if (!model.numericX) byId('chart-x-label').textContent += ' · category positions (full labels on points and table)';
-  if (yMin < 0 && yMax > 0) chart.append(svgElement('line', { x1: margin.left, x2: width - margin.right, y1: yScale(0), y2: yScale(0), class: 'chart-zero' }));
+  chart.append(svgElement('line', { x1: margin.left, x2: width - margin.right, y1: yScale(0), y2: yScale(0),
+    class: 'chart-zero', 'data-zero-baseline': '', 'aria-label': 'Zero reference' }));
   const focusable = [];
   model.series.forEach((series, seriesIndex) => {
     const color = `var(--chart-${seriesIndex % 6 + 1})`, dash = dashes[seriesIndex % dashes.length];

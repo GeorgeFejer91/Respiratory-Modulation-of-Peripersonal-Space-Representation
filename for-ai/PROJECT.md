@@ -127,6 +127,9 @@ before computing across-person means, sample SDs (n−1) and nonmissing n at eac
 SOA/group. These SDs describe participant variation, not SEM or confidence intervals;
 n<2 has undefined SD. The table and CSV retain mean/SD/n. Preserve the existing
 correction, cleaning, primary40 and cohort sensitivities; no model is refitted.
+Charts of nonnegative quantities use zero as the exact lower axis bound. For
+quantities that can be negative, preserve every value and show an explicit zero
+reference instead of clipping observations or whiskers.
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility
@@ -138,7 +141,9 @@ participant-distance means, questionnaires or a lazy catalogue of tracked public
 result CSVs. A linked SVG chart consumes the same structured worker cells as
 the table, initially by SOA with Condition × Phase series. Settings apply live;
 chart measure/style change presentation, with separate units, missing gaps and
-explicit dense/mixed-unit states. It contains no heatmap or explanatory report. Pivot interaction
+explicit dense/mixed-unit states. Nonnegative chart values start at zero; when
+negative values must remain visible, the chart retains them and marks zero as a
+reference. It contains no heatmap or explanatory report. Pivot interaction
 remains descriptive; it does not refit models or silently change the paper's
 analysis. The scientific inference roadmap stays open.
 The sibling `/exploratory/` subpage preserves the expanded exploration controls,
