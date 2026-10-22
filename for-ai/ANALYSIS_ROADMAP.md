@@ -55,7 +55,12 @@ raw-RT preview under 64 KiB; unchanged trial records remain selectable. The core
 frame auto-sizes and fits dialogs to the reader's viewport. Local production build,
 59 tests, 60 Python/JavaScript parity cases and both overview/standalone rendered
 checks pass, including source/summary/cohort/style changes and raw-RT CSV export.
-Publication of this extension is pending. Scientific and later-section work stays open.
+Source `a206328` is pushed to `main`. Actions run 39792749159 completed all build,
+reference-analysis and independent-numerical checks; its Pages deployment remains
+queued waiting for a runner. The live-page check still encounters the previous
+version, so live verification of segment 0 is pending. The actual embedded raw-RT
+CSV also matches a fresh Python summary in all 30 numeric cells at 1e-10.
+Scientific and later-section work stays open.
 Next action: verify this deployment, then add the relevant tables and analyses
 inside each later question section, linked to their approved manifests,
 and port native-only methods in finite batches. The existing
