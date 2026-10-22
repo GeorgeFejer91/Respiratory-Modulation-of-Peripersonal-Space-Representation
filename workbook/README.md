@@ -15,8 +15,11 @@ fast pivot as the authoritative implementations until a scoped replacement
 passes numerical and real-browser checks.
 
 Segment 0 on the overview has an Excel-style **Pivot fields** list. Drag fields
-into **Rows** or **Columns**, or tap a field to add it. Tap an assigned field to
-move, reorder or remove it using the same actions with a keyboard. SOA is optional.
+into **Rows** or **Columns**. Drop onto another field to place it before that field;
+drag back to **Available fields** to remove it. Clicking or tapping does not assign
+fields: both views change only on a valid drop. Touch dragging supports edge scrolling.
+Keyboard: Space picks up, Left/Right chooses a box, Up/Down or Home/End chooses
+position, Enter drops, Escape cancels. SOA is optional.
 Removing all fields (or **Clear layout**) displays the selected cohort's individual
 trial records, including retained/excluded flags, without aggregation or a summary
 chart. Adding a field returns to summaries of retained Audio–Tactile participant

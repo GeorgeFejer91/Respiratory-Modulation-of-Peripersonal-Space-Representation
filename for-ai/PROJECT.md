@@ -129,17 +129,22 @@ Keep narrative, assumptions and detailed results in those linked reports. The or
 executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
-frame. Its core-data starting view uses a compact uncorrected Audio–Tactile RT
+frame. Its core-data starting view uses a compact Audio–Tactile RT
 means payload, primary 40 cohort and equal-person summaries. A visible pivot field
 list assigns SOA, distance, condition, breathing phase and participant to Rows or
-Columns. Native drag/reordering and equivalent tap/keyboard actions drive both
-the table and chart. Removing every grouping field shows individual trial records
+Columns. Field placement is drop-driven: native mouse dragging, touch/pen dragging
+with visible targets/edge scrolling, and keyboard pick-up/position/drop. Clicks
+and taps never assign fields or open a move menu. Valid drops update both views;
+cancelled/outside drops leave the layout unchanged. Dropping before another field
+reorders; dropping in Available fields removes. Removing every grouping field
+shows individual trial records
 with all fields and retained/excluded flags, filtered only by the chosen cohort
 and active field filters; it hides the summary chart. Raw records load on demand.
 Adding a field returns to the retained AT participant-distance source, labelled in
 the source status. The full pivot subpage retains its broader source catalogue.
-Baseline correction and Mean/Mean ± SD presentation use selects, with the latter
-updating both views. Segment 0's field/filter interactions use buttons, not checkboxes.
+Baseline correction uses the default-on Baseline − RT toggle described above;
+Mean/Mean ± SD presentation uses a select updating both views. Segment 0's field/
+filter interactions use buttons, not checkboxes.
 Readers can change cohort, aggregation, chart style and filters and export every
 row/column. For Mean over
 the participant-distance source, pool unselected factors within each participant

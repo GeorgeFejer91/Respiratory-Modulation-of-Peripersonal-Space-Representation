@@ -20,7 +20,13 @@ section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
 For Segment 0, verify field addition/removal, actual native dragging, Row/Column
-moves and reordering through touch/keyboard actions. SOA must be removable. With
+moves and reordering through touch/keyboard dragging. Verify clicks/taps do not
+assign fields or open a move menu; pending drags leave table/chart unchanged until
+a valid drop. Check highlighted destinations, insertion before fields, removal to
+Available fields, invalid/cancelled drops, touch/pen pointer handling, edge scrolling
+in the embedded reader, and keyboard pick-up/arrows/Enter/Escape with focus and
+announcements. Use trusted touch events for the real pointer path. SOA must be
+removable. With
 no grouping fields, every selected trial record/column appears in one internally
 scrollable table and in CSV; exclusion flags remain and no summary chart is shown.
 Adding factors returns to the labelled retained-AT means source. Check condition-

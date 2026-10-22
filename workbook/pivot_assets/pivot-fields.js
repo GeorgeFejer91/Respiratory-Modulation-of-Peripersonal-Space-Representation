@@ -1,70 +1,158 @@
 import { fieldLabel } from './pivot-chart.mjs';
 
 const factors = ['soa_ms', 'condition', 'phase', 'distance_cm', 'participant_id'];
+const areas = ['available', 'rows', 'columns'];
 const byId = id => document.getElementById(id);
 
-// Native dragging on desktop; the same moves are available by tap or keyboard.
+// All input methods stage a move; only a valid drop changes the shared layout.
 export function pivotFields(settings, changed) {
-  let selected;
-  function move(field, axis, before = null) {
-    if (!factors.includes(field)) return;
+  let drag, touch, ghost, animation;
+  const region = axis => byId(`field-${axis}`);
+  const announce = text => { byId('field-announcement').textContent = text; };
+  const buttons = axis => [...region(axis).querySelectorAll('button')].filter(button => button.dataset.field !== drag?.field);
+  function target(axis, before = null) {
+    if (!drag) return;
+    drag.axis = axis; drag.before = before;
+    for (const area of areas) {
+      region(area).toggleAttribute('data-drop-active', area === axis);
+      for (const button of region(area).querySelectorAll('button')) button.toggleAttribute('data-drop-before', button.dataset.field === before);
+    }
+  }
+  function begin(field, kind) {
+    cancel(); drag = { field, kind };
+    document.querySelector(`[data-field="${field}"]`).setAttribute('data-dragging', '');
+    announce(`${fieldLabel(field)} picked up. Choose a box; drop to apply. Escape cancels.`);
+  }
+  function cancel() {
+    cancelAnimationFrame(animation); ghost?.remove(); ghost = null;
+    for (const element of document.querySelectorAll('[data-drop-active],[data-drop-before],[data-dragging]')) {
+      for (const attribute of ['data-drop-active', 'data-drop-before', 'data-dragging']) element.removeAttribute(attribute);
+    }
+    drag = null; touch = null;
+  }
+  function drop(axis, before = null) {
+    const field = drag?.field;
+    cancel();
+    if (!factors.includes(field) || !areas.includes(axis) || field === before) return;
+    const prior = JSON.stringify([settings.rows, settings.columns]);
     for (const key of ['rows', 'columns']) settings[key] = settings[key].filter(value => value !== field);
-    if (axis) {
+    if (axis !== 'available') {
       const index = settings[axis].indexOf(before);
       settings[axis].splice(index < 0 ? settings[axis].length : index, 0, field);
     }
-    changed();
+    if (prior !== JSON.stringify([settings.rows, settings.columns])) changed();
+    document.querySelector(`[data-field="${field}"]`)?.focus({ preventScroll: true });
+    announce(`${fieldLabel(field)} dropped in ${axis === 'available' ? 'Available fields' : axis}.`);
+  }
+  function atPoint(x, y) {
+    const element = document.elementFromPoint(x, y);
+    const box = element?.closest('.field-area');
+    target(box?.dataset.axis, element?.closest('button[data-field]')?.dataset.field);
+  }
+  function touchFrame() {
+    if (!touch || !drag) return;
+    // The embedded pivot is same-origin; scroll the reader's visible viewport.
+    const frame = window.frameElement?.getBoundingClientRect() || { left: 0, top: 0 };
+    const host = window.frameElement ? window.parent : window;
+    const y = touch.y - frame.top, x = touch.x - frame.left;
+    ghost.style.left = `${Math.max(0, Math.min(innerWidth - ghost.offsetWidth, x + 12))}px`;
+    ghost.style.top = `${Math.max(0, y - 44)}px`;
+    atPoint(x, y);
+    host.scrollBy(0, touch.y < 40 ? -12 : touch.y > host.innerHeight - 40 ? 12 : 0);
+    animation = requestAnimationFrame(touchFrame);
   }
   function refresh() {
     const focused = document.activeElement?.dataset.field;
-    for (const axis of ['available', 'rows', 'columns']) {
-      const region = byId(`field-${axis}`);
-      region.replaceChildren();
+    for (const axis of areas) {
+      const box = region(axis);
+      box.dataset.axis = axis; box.tabIndex = 0;
+      box.replaceChildren();
       const fields = axis === 'available' ? factors.filter(field => !settings.rows.includes(field) && !settings.columns.includes(field)) : settings[axis];
       for (const field of fields) {
         const button = document.createElement('button');
         button.type = 'button'; button.textContent = fieldLabel(field);
         button.dataset.field = field; button.dataset.axis = axis;
         button.dataset.fitLabel = ''; button.draggable = true;
-        button.setAttribute('aria-label', axis === 'available' ? `Add ${fieldLabel(field)}` : `${fieldLabel(field)} in ${axis}. Move or remove field`);
-        button.onclick = () => {
-          if (axis === 'available') { move(field, ['condition', 'phase'].includes(field) ? 'columns' : 'rows'); return; }
-          selected = { field, axis };
-          byId('field-menu-title').textContent = fieldLabel(field);
-          byId('field-up').disabled = settings[axis].indexOf(field) === 0;
-          byId('field-down').disabled = settings[axis].indexOf(field) === settings[axis].length - 1;
-          byId('field-menu').showModal();
+        button.setAttribute('aria-label', `Drag ${fieldLabel(field)} from ${axis}. Space to pick up`);
+        button.setAttribute('aria-describedby', 'field-instructions');
+        button.ondragstart = event => {
+          begin(field, 'native'); event.dataTransfer.setData('text/plain', field); event.dataTransfer.effectAllowed = 'move';
         };
-        button.ondragstart = event => { event.dataTransfer.setData('text/plain', field); event.dataTransfer.effectAllowed = 'move'; };
-        region.append(button);
+        button.ondragend = () => cancel();
+        button.onpointerdown = event => {
+          if (event.pointerType === 'mouse' || !event.isPrimary || event.button !== 0) return;
+          const frame = window.frameElement?.getBoundingClientRect() || { left: 0, top: 0 };
+          touch = { x: event.clientX + frame.left, y: event.clientY + frame.top, startX: event.clientX, startY: event.clientY };
+          button.setPointerCapture(event.pointerId);
+        };
+        button.onpointermove = event => {
+          if (!touch) return;
+          const frame = window.frameElement?.getBoundingClientRect() || { left: 0, top: 0 };
+          const point = { ...touch, x: event.clientX + frame.left, y: event.clientY + frame.top };
+          if (!drag && Math.hypot(event.clientX - touch.startX, event.clientY - touch.startY) > 6) {
+            begin(field, 'touch'); touch = point;
+            ghost = button.cloneNode(true); ghost.classList.add('field-drag-ghost');
+            ghost.removeAttribute('data-field'); ghost.removeAttribute('data-fit-label');
+            ghost.removeAttribute('data-dragging'); ghost.removeAttribute('aria-describedby');
+            ghost.tabIndex = -1; ghost.setAttribute('aria-hidden', 'true'); document.body.append(ghost);
+            animation = requestAnimationFrame(touchFrame);
+          } else touch = point;
+        };
+        button.onpointerup = event => {
+          if (drag?.kind === 'touch') { atPoint(event.clientX, event.clientY); drop(drag.axis, drag.before); }
+          else touch = null;
+        };
+        button.onpointercancel = () => {
+          if (drag?.kind !== 'native') { cancel(); announce('Move cancelled. Layout unchanged.'); }
+        };
+        box.append(button);
       }
       if (!fields.length) {
         const empty = document.createElement('span');
-        empty.textContent = axis === 'available' ? 'All fields are in the layout' : 'Drop or add a field';
-        empty.dataset.fitLabel = ''; region.append(empty);
+        empty.textContent = axis === 'available' ? 'Drop here to remove a field' : 'Drop a field here';
+        empty.dataset.fitLabel = ''; box.append(empty);
       }
-      region.ondragover = event => { event.preventDefault(); event.dataTransfer.dropEffect = 'move'; };
-      region.ondrop = event => {
-        event.preventDefault();
-        const field = event.dataTransfer.getData('text/plain');
-        const before = event.target.closest('[data-field]')?.dataset.field;
-        if (field !== before) move(field, axis === 'available' ? null : axis, before);
+      box.ondragover = event => {
+        if (drag?.kind !== 'native') return;
+        event.preventDefault(); event.dataTransfer.dropEffect = 'move';
+        target(axis, event.target.closest('button[data-field]')?.dataset.field);
       };
+      box.ondragleave = event => { if (drag?.kind === 'native' && !box.contains(event.relatedTarget)) target(null); };
+      box.ondrop = event => { event.preventDefault(); if (drag?.kind === 'native') drop(axis, event.target.closest('button[data-field]')?.dataset.field); };
     }
     byId('pivot-clear').disabled = !settings.rows.length && !settings.columns.length;
     if (focused) document.querySelector(`[data-field="${focused}"]`)?.focus({ preventScroll: true });
     document.dispatchEvent(new Event('pivot-layout'));
   }
-  byId('pivot-clear').onclick = () => { settings.rows = []; settings.columns = []; changed(); };
-  for (const axis of ['rows', 'columns']) byId(`field-to-${axis}`).onclick = () => {
-    byId('field-menu').close(); move(selected.field, axis);
-  };
-  for (const [id, offset] of [['up', -1], ['down', 1]]) byId(`field-${id}`).onclick = () => {
-    const fields = settings[selected.axis], index = fields.indexOf(selected.field);
-    [fields[index], fields[index + offset]] = [fields[index + offset], fields[index]];
-    byId('field-menu').close(); changed();
-  };
-  byId('field-remove').onclick = () => { byId('field-menu').close(); move(selected.field, null); };
+  byId('core-controls').addEventListener('keydown', event => {
+    if (event.key === 'Escape' && drag) {
+      const field = drag.field; cancel(); announce('Move cancelled. Layout unchanged.');
+      document.querySelector(`[data-field="${field}"]`)?.focus(); event.preventDefault(); return;
+    }
+    const field = event.target.dataset.field;
+    const box = event.target.closest('.field-area');
+    if (!box) return;
+    if ([' ', 'Enter'].includes(event.key)) {
+      event.preventDefault();
+      if (!drag && field) { begin(field, 'keyboard'); target(box.dataset.axis); box.focus(); }
+      else if (drag?.kind === 'keyboard') drop(box.dataset.axis, field || drag.before);
+      return;
+    }
+    if (drag?.kind !== 'keyboard') return;
+    const axis = box.dataset.axis;
+    if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+      const next = areas[(areas.indexOf(axis) + (event.key === 'ArrowLeft' ? 2 : 1)) % areas.length];
+      target(next); region(next).focus();
+    } else if (['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
+      const choices = buttons(axis), index = choices.findIndex(button => button.dataset.field === drag.before);
+      const position = event.key === 'Home' ? 0 : event.key === 'End' ? choices.length :
+        Math.max(0, Math.min(choices.length, (index < 0 ? choices.length : index) + (event.key === 'ArrowUp' ? -1 : 1)));
+      target(axis, choices[position]?.dataset.field); box.focus();
+    } else return;
+    event.preventDefault(); announce(`${drag.axis}, ${drag.before ? `before ${fieldLabel(drag.before)}` : 'at end'}. Enter to drop.`);
+  });
+  byId('pivot-clear').onclick = () => { cancel(); settings.rows = []; settings.columns = []; changed(); };
+  window.addEventListener('blur', cancel);
   refresh();
   return refresh;
 }

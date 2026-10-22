@@ -90,6 +90,27 @@ corrected plots. Continue the active field-list amendment below.
 
 ## Visualization — fast pivot table and linked chart
 
+### Active amendment — drop-driven field placement
+
+Owner request (2026-10-23): drag field boxes into destination boxes to change the
+layout; remove click-to-add and click-menu moves. Stage pointer/keyboard moves
+until a valid drop, with visible destination/insertion feedback. Keep mouse,
+touch/pen and keyboard pick-up/drop, removal, reordering and cancellation; preserve
+the shared table/chart state and all baseline/SD/zero/data contracts.
+
+- [x] Replace click placement/menu with pending drag/drop and destination feedback.
+- [x] Verify actual mouse/touch/keyboard drops, cancellation and responsive rendering.
+- [ ] Commit, publish and verify exact deployment and live interaction.
+
+State: production build, 59 workbook tests, 170 independent numerical cases and both
+rendered browser scripts pass. Native dragging/reordering, outside drops, keyboard
+pending/drop/Escape, trusted touch drop/cancel, inert clicks/taps and embedded edge
+scrolling pass. No table/chart update occurs during a pending move. The phone UI
+was visually inspected; four/six viewports, 200% text and spacing pass. These are
+Chromium/emulated touch checks, not physical iPhone/Safari/pen qualification.
+Next action: complete the authorized Git/Pages publication flow and live checks.
+The overall scientific goal remains open.
+
 ### Active amendment — baseline benefit toggle
 
 Owner request (2026-10-22): Segment 0 starts with baseline correction on and uses

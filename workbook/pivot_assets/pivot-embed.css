@@ -14,7 +14,12 @@ body.embedded-core, body.embedded-core[data-flow=true] {
 .field-bank,.field-layout>section { display:grid; align-content:start; gap:6px; }
 .field-layout { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
 .field-area { display:flex; align-content:start; align-items:start; flex-wrap:wrap; gap:6px; min-height:64px; padding:8px; border:1px solid var(--line); background:var(--wash); }
-.field-area button { text-align:left; background:var(--paper); cursor:grab; }
+.field-area button { text-align:left; background:var(--paper); cursor:grab; touch-action:none; user-select:none; }
+.field-area button[data-dragging] { opacity:.5; cursor:grabbing; }
+.field-area[data-drop-active] { border:2px dashed var(--link); padding:7px; }
+.field-area button[data-drop-before] { box-shadow:inset 3px 0 var(--link); }
+.field-drag-ghost { position:fixed; z-index:30; pointer-events:none; max-width:calc(100% - 24px); background:var(--paper); border:2px solid var(--link); }
+.field-announcement { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .field-area span,.field-hint { color:var(--muted); font-size:.85em; }
 #core-values label { display:grid; gap:4px; }
 #core-values label>span { font-size:.85em; }
@@ -26,8 +31,6 @@ body.embedded-core, body.embedded-core[data-flow=true] {
 #core-correction[aria-checked=true] .correction-track::after { margin-left:auto; background:var(--paper); }
 #core-filter { justify-self:start; }
 .embedded-core button[aria-pressed=true] { background:var(--wash); border-color:var(--ink); font-weight:bold; }
-.embedded-core #field-menu { height:auto; max-height:var(--host-dialog-height,calc(100dvh - 24px)); width:min(360px,calc(100% - 24px)); }
-.field-menu { display:grid; gap:8px; }
 .embedded-core[data-raw-records=true] .linked-views { grid-template-columns:minmax(0,1fr); }
 @media(max-width:600px) { .field-layout { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } #core-values { grid-column:1/-1; } }
 @media(max-width:380px) { .field-layout { grid-template-columns:minmax(0,1fr); } }
