@@ -138,7 +138,7 @@ with their existing anchors preserved.
 - [x] Run the production build, 60 workbook tests, data audit and overview
   browser gate: section order/numbering, phase navigation, real Pretext, four
   viewports, 200% text, spacing, keyboard/touch and existing Segment 0 controls.
-- [ ] Commit/push and verify exact CI, Pages deployment and changed live behavior.
+- [x] Commit/push and verify exact CI, Pages deployment and changed live behavior.
 
 Result: raw Inhale−Exhale = +18.47 ms (95% CI 6.96 to 29.98; p=.0024),
 so raw AT responses were slower during inhale. Matched AT−Baseline phase contrast
@@ -152,8 +152,15 @@ test and complete overview browser script pass; desktop screenshot visually
 reviewed. Windows build uses Python UTF-8 mode. RTK is unavailable here; bounded
 native commands and the reviewed local GSD/Superpowers fallback guides were used.
 Physical iPhone/Safari and scientific publication acceptance remain open.
-Branch: main; source/publication pending. Next action: commit, push and verify the
-exact deployment, then resume the remaining living-publication checklist.
+Publication: source `8268f9e` on main passed Actions run `39873722384`, including
+the full workbook/fixed analysis, independent numerical validation and Pages
+deployment. The complete overview browser gate also passes on the live site,
+including Segment 2, its navigation/Pretext and preserved Segment 0 interactions.
+The later independently developed Segment 1 integration `da66210` was fast-forwarded
+locally and preserves Segment 2; its separate run `39874757294` is still in progress
+and is not covered by this deployment claim. Branch: main, synchronized before
+this evidence update. Segment 2 is complete. Next action: resume the remaining
+living-publication checklist; keep the overall scientific/publication goal open.
 
 ## Visualization — fast pivot table and linked chart
 
