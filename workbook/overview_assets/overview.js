@@ -1,9 +1,17 @@
 // Reuse the locked Pretext runtime for both tool and question navigation.
 for (const link of document.querySelectorAll('.contents a')) link.setAttribute('data-measure', '');
-await import('./pivot/text-fit.js');
-
 const links = [...document.querySelectorAll('.contents a')];
 const sections = links.map(link => document.querySelector(link.hash));
+const menu = document.querySelector('.contents details');
+const mobile = matchMedia('(max-width: 800px)');
+function syncMenu() { menu.open = !mobile.matches; }
+syncMenu();
+mobile.addEventListener('change', syncMenu);
+for (const link of links) link.addEventListener('click', () => {
+  if (mobile.matches) menu.open = false;
+});
+await import('./pivot/text-fit.js');
+
 let scheduled = false;
 function updateCurrent() {
   const current = sections.filter(section => section.getBoundingClientRect().top <= 120).at(-1) || sections[0];

@@ -71,6 +71,13 @@ links, scroll tracking, keyboard, Pretext, four viewports, 200% text and spacing
 The actual embedded raw-RT
 CSV also matches a fresh Python summary in all 30 numeric cells at 1e-10.
 Scientific and later-section work stays open.
+Navigation update (2026-10-22): the overview's nine-section menu is fixed beside
+the article on desktop and collapses into a bottom menu on phones. Local production
+build passes; rendered checks confirm smooth section navigation, current-section
+tracking, Pretext fit, a 56px phone menu, and no horizontal overflow at 320×568,
+640×360, 900×900 and 1920×1080. The standard overview browser script could not
+start because Node Playwright is unavailable. Commit, Pages deployment and live
+verification remain pending.
 Next action: add the relevant tables and analyses
 inside each later question section, linked to their approved manifests,
 and port native-only methods in finite batches. The existing

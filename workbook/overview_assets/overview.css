@@ -8,9 +8,9 @@ a:focus-visible, summary:focus-visible { outline: 3px solid #c75c12; outline-off
 header { border-bottom: 1px solid #ccd5df; padding: 16px 24px; }
 header nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 header a { display: block; }
-.reading-layout { max-width: 1240px; margin: auto; display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 48px; padding: 32px 24px; }
-.contents { position: sticky; top: 24px; align-self: start; max-height: calc(100dvh - 48px); overflow-y: auto; scrollbar-gutter: stable; padding-right: 12px; }
-.contents summary { font-weight: bold; cursor: pointer; min-height: 44px; }
+.reading-layout { max-width: 1240px; margin: auto; padding: 32px 24px; }
+.contents { position: fixed; z-index: 2; top: 80px; left: max(24px, calc((100vw - 1240px) / 2 + 24px)); width: 250px; align-self: start; max-height: calc(100dvh - 104px); overflow-y: auto; scrollbar-gutter: stable; padding-right: 12px; }
+.contents summary { font-weight: bold; cursor: pointer; min-height: 44px; padding: 14px 0; }
 .contents ol { margin: 8px 0; padding-left: 28px; }
 .core-table { border-collapse:collapse; width:100%; margin:16px 0 24px; }
 .core-table th, .core-table td { text-align:left; vertical-align:top; border-bottom:1px solid #ccd5df; padding:8px; overflow-wrap:anywhere; }
@@ -20,6 +20,7 @@ header a { display: block; }
 .contents a { display: block; padding: 8px 4px; line-height: 1.45; border-left: 2px solid transparent; }
 .contents a[aria-current] { border-color: #175b9e; font-weight: bold; }
 main, section { min-width: 0; }
+main { margin-left: 298px; }
 h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 16px; }
 h2 { font-size: 1.4rem; line-height: 1.35; margin: 0 0 24px; }
 h3 { font-size: 1rem; margin: 24px 0 4px; }
@@ -33,10 +34,14 @@ img { display: block; width: 100%; height: auto; }
 figcaption { margin-top: 12px; font-size: .9rem; }
 footer { padding: 24px; border-top: 1px solid #ccd5df; }
 @media (max-width: 800px) {
-  .reading-layout { display: block; padding: 24px 16px; }
+  body { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+  .reading-layout { padding: 24px 16px; }
+  main { margin-left: 0; }
   header { padding: 16px; }
-  .contents { position: static; max-height: none; margin-bottom: 24px; padding: 0; }
-  .contents ol { max-height: 36dvh; overflow-y: auto; }
+  .contents { top: auto; right: 0; bottom: 0; left: 0; width: auto; max-height: none; margin: 0; padding: 0 16px env(safe-area-inset-bottom); overflow: visible; background: #fff; border-top: 1px solid #ccd5df; box-shadow: 0 -4px 16px rgb(36 50 64 / 10%); }
+  .contents summary { display: flex; align-items: center; min-height: 56px; }
+  .contents nav { max-height: min(45dvh, 360px); overflow-y: auto; overscroll-behavior: contain; }
+  .contents ol { margin: 0 0 8px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { .contents, header, .skip { display: none; } .reading-layout { display: block; } section { break-inside: avoid; } }
