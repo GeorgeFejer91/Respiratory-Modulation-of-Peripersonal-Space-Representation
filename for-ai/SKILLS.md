@@ -145,6 +145,12 @@ acceptance criteria pass. Do not create a duplicate progress ledger.
 | HTML controls, keyboard, focus, and accessible names | `agents-inc-accessibility`; combine with Pretext geometry in one verification matrix |
 | Measured browser/WebView performance work | `agents-inc-web-performance`; retain project budgets, native authority, and no-scroll/full-text contracts |
 
+For every Excel-like or data table on a live page, render the complete result in
+one table with internal scrolling and controls to adjust its height and width.
+Never split table rows or columns across Next/Previous buttons. Use the project's
+existing table owner and preserve full values, keyboard access and responsive
+layout.
+
 GSD owns active phase plans and task state. Superpowers techniques operate
 inside that workflow. Keep one plan and state owner. Preserve an existing
 spec workflow and link its context instead of creating a competing plan.

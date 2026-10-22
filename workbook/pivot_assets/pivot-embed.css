@@ -8,11 +8,11 @@ body.embedded-core, body.embedded-core[data-flow=true] {
 }
 .embedded-core .page-header>nav, .embedded-core #pages-open,
 .embedded-core .toolbar h1 { display:none!important; }
-.embedded-core #table-region { height:400px; }
 .embedded-core #core-controls { display:flex; flex-wrap:wrap; align-items:end; gap:12px; padding:12px; border-bottom:1px solid var(--line); }
 .embedded-core #core-controls>label:not(.switch) { display:grid; gap:4px; flex:1 1 220px; }
 .embedded-core #core-controls .switch { padding-block:4px; }
 .embedded-core #chart-hover { min-height:1.5em; }
+.embedded-core #table-region { height:440px; }
 .embedded-core .linked-views { grid-template-columns:minmax(0,1fr); }
 .embedded-core dialog { top:12px; bottom:auto; margin:0 auto; height:min(680px,var(--host-dialog-height,calc(100dvh - 24px))); }
 @media(min-width:1000px) {

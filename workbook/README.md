@@ -24,15 +24,16 @@ those selections and restores every record in the chosen cohort. Open
 **Pivot settings** to choose participant-distance means, every trial,
 participant/questionnaire records or a saved analysis table, then assign Rows,
 Columns, Values and a summary function; **Done** closes settings. Numeric
-summaries offer numeric Values fields; counts also allow text. **Export CSV** downloads every pivot row
-and column, including those outside the current page. Phone controls page across
-both axes rather than squeezing the table into unreadable columns. Settings
-stretch with the available space and page through ordered groups when needed.
+summaries offer numeric Values fields; counts also allow text. **Export CSV**
+downloads every pivot row and column. The table shows the complete result at
+once, scrolls within its own viewport, and has height and width controls. No
+Next/Previous buttons page table data, field choices or settings groups. Settings
+stretch with the available space and keep all ordered groups visible.
 CSV downloads retain full precision; displayed summaries use six significant digits.
 Use **Chart style** for automatic, line, points or grouped bars. A multi-measure
 pivot exposes **Chart measure**, keeping different measures off the same y-axis.
 Other row fields split into additional series; column groups keep their pivot
-identity. Table pagination leaves the chart unchanged. Hover/tap compares every
+identity. Table scrolling and sizing leave the chart unchanged. Hover/tap compares every
 series at that x; keyboard focus and arrow keys read individual points. Numeric
 x values keep their actual spacing in line/point views; categorical bar positions
 refer back to full labels on points and table rows. Grand totals are omitted from
@@ -41,7 +42,8 @@ connect descriptive summaries and supply no fitted model or inferential interval
 Mixed measurement units in generic saved summaries require a parameter/quantity/
 units filter before plotting. Dense charts show an explicit filter request above
 4,000 cells, 48 series or 100 x values; the full table and export remain available.
-On narrow screens, chart and paginated table use ordinary document scrolling.
+On narrow screens, chart and the internally scrollable table use ordinary document
+scrolling.
 
 The default is the 40-person behavioural cohort; select Full release for all 42
 records. The page performs descriptive aggregation and never refits saved models.

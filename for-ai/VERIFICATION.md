@@ -104,9 +104,10 @@ Pyodide and without preloading trials, questionnaires, the full means payload or
 saved catalogues. Check the first-table DOM timing and actual lazy source changes.
 Check 320×568 portrait, 640×360 landscape, intermediate and desktop sizes, 200%
 text and text-spacing overrides. Verify settings' header/footer anchors, ordered
-group/control pages and no internal overflow; outer document flow is the explicit
-fallback for short enlarged pages. Check row and column paging, full-value detail,
-touch targets, focus, Escape and CSV export. Pretext predictions require actual
+stretch groups, full control visibility and no Next/Previous paging. Verify the
+complete result row/column count is present at once, internal table scrolling,
+height/width controls, full-value access, touch targets, focus, Escape and CSV
+export. Pretext predictions require actual
 bounded-label measurements and rendered checks; unsupported word spacing remains
 browser-verified. Record physical-browser/device coverage limits. Verify the default
 minimal view hides filters/settings, activating filters reveals controls, and
@@ -114,8 +115,8 @@ deactivating them restores the chosen cohort regardless of retained selections.
 For the linked chart, verify exact point/cell identity, exclusion of grand totals,
 actual SOA spacing, separate measures/units, sample-SD/count semantics, missing
 gaps versus true zeros, combined Condition/SOA filters and empty/error states.
-The initial compact payload includes SOA and stays below 64 KiB. Table pagination
-must not truncate chart data. Check hover/tap comparisons of overlapping series,
+The initial compact payload includes SOA and stays below 64 KiB. Table scrolling
+and sizing must not truncate chart data. Check hover/tap comparisons of overlapping series,
 keyboard point navigation, density limits, source races and mixed-unit warnings.
 With Playwright/Chromium available to Node (or through `NODE_PATH`), run
 `node workbook/check_pivot_browser.cjs <HTTP pivot URL>` against the audited build.

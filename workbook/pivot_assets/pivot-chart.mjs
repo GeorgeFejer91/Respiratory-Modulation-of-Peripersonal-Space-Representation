@@ -81,7 +81,7 @@ export function renderChart(result, settings, measure, mode, source) {
   const showSD = result.participantSummary && settings.sdWhiskers;
   byId('chart-note').textContent = result.participantSummary ?
     `Participant means${showSD ? ' ±1 sample SD' : ''}; pooled factors averaged within each person. Descriptive, not a confidence interval.` :
-    `${weights} Table pagination does not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
+    `${weights} Table scrolling and size do not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
   if (!result.count) { byId('chart-hover').textContent = 'No records match these filters. Clear filters or choose other values.'; return; }
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));

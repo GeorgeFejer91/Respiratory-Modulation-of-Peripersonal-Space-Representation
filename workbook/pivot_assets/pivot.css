@@ -117,16 +117,17 @@ main {
   align-items:center;
   justify-content:space-between;
   gap:.5rem;
-  min-height:44px
+  min-height:44px;
+  flex-wrap:wrap
 }
+.table-controls { display:flex; align-items:center; flex-wrap:wrap; gap:.25rem .75rem; }
+.table-controls label { display:flex; align-items:center; gap:.35rem; font-size:.9em; }
+.table-controls input { width:clamp(5rem,12vw,9rem); min-height:36px; accent-color:var(--link); }
 #summary {
   color:var(--muted);
   font-size:.9em
 }
-#table-region {
-  height:clamp(280px,55vh,560px);
-  min-height:0
-}
+#table-region { height:440px; min-height:160px; min-width:0; overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; border:1px solid var(--line); }
 .linked-views { display:grid; gap:1.25rem; align-items:start; }
 #chart-region { display:grid; gap:.5rem; min-width:0; padding-block:.5rem; }
 .chart-controls { display:flex; flex-wrap:wrap; gap:.5rem 1rem; }
@@ -158,8 +159,8 @@ main {
 }
 table {
   border-collapse:collapse;
-  width:100%;
-  table-layout:fixed
+  width:max(100%,var(--table-width,100%));
+  table-layout:auto
 }
 caption {
   text-align:left;
@@ -181,17 +182,6 @@ th:first-child,td:first-child {
 thead {
   background:var(--wash)
 }
-td button {
-  padding:0;
-  border:0;
-  width:100%;
-  text-align:inherit;
-  background:transparent;
-  min-height:44px
-}
-th button {
-  font-weight:bold
-}
 #error {
   padding:1rem;
   color:#a53120;
@@ -202,10 +192,7 @@ th button {
   padding:.35rem var(--space)
 }
 .pager {
-  justify-content:space-between
-}
-.pager span {
-  font-size:.85em
+  justify-content:flex-start
 }
 #status {
   font-size:.8em;
@@ -222,17 +209,17 @@ dialog {
   width:min(960px,calc(100% - 1rem));
   height:min(760px,calc(100dvh - 1rem));
   max-height:none;
-  overflow:visible
+  overflow:auto
 }
 dialog::backdrop {
   background:#0006
 }
 .stretch-panel {
-  height:100%;
+  min-height:min(640px,calc(100dvh - 2rem));
+  height:auto;
   display:grid;
-  grid-template-rows:auto minmax(0,1fr) auto;
+  grid-template-rows:auto auto auto;
   gap:var(--space);
-  min-height:0
 }
 .stretch-panel>header,.stretch-panel>footer {
   display:flex;
@@ -267,9 +254,7 @@ dialog::backdrop {
 select {
   width:100%
 }
-#chooser .stretch-panel {
-  grid-template-rows:auto auto minmax(0,1fr) auto
-}
+#chooser .stretch-panel { grid-template-rows:auto auto minmax(0,1fr); }
 .search-label {
   display:grid;
   grid-template-columns:auto minmax(0,1fr);
@@ -278,9 +263,12 @@ select {
 }
 #choices {
   display:grid;
-  align-content:space-between;
+  align-content:start;
+  grid-auto-rows:min-content;
   gap:.25rem;
-  min-height:0
+  min-height:0;
+  overflow:auto;
+  overscroll-behavior:contain
 }
 .choice {
   display:flex;
@@ -367,12 +355,6 @@ select {
   .toolbar button {
     padding:.35rem
   }
-  .pager {
-    gap:.25rem
-  }
-  .pager button {
-    padding:.35rem
-  }
   nav {
     gap:1rem
   }
@@ -415,27 +397,6 @@ body[data-compact=true] .page-header {
 body[data-compact=true] .toolbar {
   display:contents
 }
-body[data-compact=true] .pager {
-  gap:.25rem
-}
-body[data-compact=true] .pager button {
-  padding:.25rem .4rem
-}
-#page-links nav {
-  display:grid;
-  align-content:space-between
-}
-#page-links a {
-  min-height:44px
-}
-th button {
-  padding:0;
-  border:0;
-  width:100%;
-  text-align:inherit;
-  min-height:44px;
-  background:transparent
-}
 .stretch-panel>footer {
   flex-wrap:wrap
 }
@@ -446,9 +407,6 @@ body[data-flow=true] {
   height:auto;
   min-height:100dvh;
   grid-template-rows:auto auto auto
-}
-body[data-flow=true] #table-region {
-  min-height:min-content
 }
 [data-layout-hidden=true] {
   display:none!important

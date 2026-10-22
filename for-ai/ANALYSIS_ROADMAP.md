@@ -82,7 +82,8 @@ owner. This step changes no statistical models or historical manuscripts.
 ### Verified table foundation
 
 This checklist records the earlier table-only milestone. The linked-chart step
-below supersedes its table-only default and compact-payload size.
+below supersedes its table-only default and compact-payload size. The full-table
+viewport amendment below supersedes this milestone's pagination behavior.
 
 - [x] Keep the default page limited to the table, Activate filters and Pivot
   settings. Disabling filters ignores retained selections. Export CSV includes
@@ -143,6 +144,32 @@ CSV identity and the six-size/enlarged-text matrix. Prior deployed evidence abov
 belongs to the earlier table-only version. Physical iPhone/Safari remains untested.
 Next action: use the linked pivot to choose the next descriptive comparison.
 The broader living-publication and scientific inference goals remain open.
+
+### Full-table viewport rule — owner request 2026-10-22
+
+Standard for every Excel-like or data table shown on a live page: render the
+complete result in one table with internal scrolling and user controls for table
+height and width. Never divide table rows or columns across Next/Previous buttons.
+The existing 100,000-cell result guard remains in force; complete table display
+does not authorize unbounded data expansion. Settings preserve ordered stretch
+groups, and chooser lists expose all choices through scrolling rather than pages.
+
+- [x] Render every current pivot row and column at once; keep CSV bytes and linked
+  chart cells identical to the full result.
+- [x] Add keyboard-operable height/width controls and an internally scrollable
+  table viewport; remove table, settings and chooser pagination buttons.
+- [x] Verify local Chromium rendering at 1254×720: all six default rows and six
+  columns appear together; both size controls update; all settings groups and the
+  complete field chooser are reachable without Next/Previous buttons. Also verify
+  the embedded grouped means table retains its SD/n details and grouping controls.
+  Build, 59 workbook tests, 125 JavaScript/Python parity cases and the context gate pass.
+- [ ] Push the reviewed source and verify the exact Pages deployment and live
+  pivot/embedded view. The repository's Playwright package is unavailable here;
+  direct Chromium rendering was used, but physical iPhone/Safari remains untested.
+
+State: implementation and local-browser verification pass; publication remains.
+Next action: commit/push the task-owned change, then verify CI, exact Pages
+deployment and the deployed pivot/embedded view.
 
 Visualization skill setup (2026-10-21): the five owner-requested figure,
 exploration and uncertainty skills are installed and routed in `SKILLS.md`;

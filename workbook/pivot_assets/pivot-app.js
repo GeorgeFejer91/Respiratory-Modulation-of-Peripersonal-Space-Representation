@@ -13,7 +13,6 @@ if (coreView) {
 const worker = new Worker(new URL('./pivot-worker.js', import.meta.url), { type: 'module' });
 const pending = new Map();
 let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings, resultSource, fields = [], numeric = [], catalog;
-let rowPage = 0, columnPage = 0, rowCapacity = 8, columnCapacity = 4;
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
 let chartGeometry = '';
@@ -95,8 +94,6 @@ function reportError(error) {
   byId('pivot-table').tBodies[0].replaceChildren();
   byId('table-caption').textContent = 'Pivot unavailable';
   byId('summary').textContent = 'No pivot calculated';
-  byId('row-page').textContent = byId('col-page').textContent = '';
-  for (const id of ['row-prev', 'row-next', 'col-prev', 'col-next']) byId(id).disabled = true;
   delete document.documentElement.dataset.recordCount;
   document.body.dataset.flow = 'true';
   byId('error').textContent = error.message;
@@ -125,7 +122,6 @@ async function update() {
       fields = reply.columns;
       numeric = reply.numeric;
     }
-    rowPage = columnPage = 0;
     byId('table-region').setAttribute('aria-busy', 'false');
     byId('export').disabled = false;
     byId('summary').textContent = `${result.count.toLocaleString()} source records · ${submitted.filtersEnabled ? 'Filters on' : 'Filters off'}`;
@@ -153,16 +149,10 @@ function cellText(value) {
   if (typeof value === 'number') return Number.isFinite(value) ? value.toLocaleString(undefined, { maximumSignificantDigits: 6 }) : String(value);
   return String(value);
 }
-function tableCell(tag, label, full, fallback = 'Read full value') {
+function tableCell(tag, label, full) {
   const cell = document.createElement(tag);
-  const text = String(label);
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.textContent = text.length > 36 ? fallback : text;
-  button.dataset.fitLabel = '';
-  button.setAttribute('aria-label', String(full));
-  button.onclick = () => showDetail(full);
-  cell.append(button);
+  cell.textContent = String(label);
+  cell.title = String(full);
   return cell;
 }
 export function renderTable() {
@@ -171,51 +161,28 @@ export function renderTable() {
   const font = parseFloat(getComputedStyle(table).fontSize);
   const width = region.clientWidth;
   document.body.dataset.compact = String(width / font < 18);
-  columnCapacity = Math.max(1, Math.floor((width - Math.max(90, font * 6)) / Math.max(125, font * 8)));
-  columnPage = Math.min(columnPage, Math.max(0, Math.ceil((result.columns.length - result.axisCount) / columnCapacity) - 1));
-  const start = result.axisCount + columnPage * columnCapacity;
-  const displayed = result.columns.slice(start, start + columnCapacity);
   const header = document.createElement('tr');
   const rowTitle = resultSettings.rows.join(' / ') || 'All records';
   header.append(tableCell('th', resultSettings.rows.map(fieldLabel).join(' / ') || 'All records', rowTitle));
-  displayed.forEach(label => {
+  result.columns.slice(result.axisCount).forEach(label => {
     const shorter = (resultSettings.values.length === 1 || resultSettings.aggregation === 'Row count') && resultSettings.columns.length ? label.split(' · ').slice(1).join(' · ') : label;
     header.append(tableCell('th', shorter, label));
   });
   table.tHead.replaceChildren(header);
-  const captionHeight = byId('table-caption').getBoundingClientRect().height;
-  const headerHeight = table.tHead.getBoundingClientRect().height;
-  rowCapacity = Math.max(1, Math.min(50, Math.floor((region.clientHeight - captionHeight - headerHeight - 3) / Math.max(60, font * 3.8))));
-  rowPage = Math.min(rowPage, Math.max(0, result.rows.length - 1));
   const tbody = table.tBodies[0];
   tbody.replaceChildren();
   byId('empty-table').hidden = result.count > 0;
-  result.rows.slice(rowPage, rowPage + rowCapacity).forEach((row, index) => {
+  result.rows.forEach((row, rowIndex) => {
     const tr = document.createElement('tr');
     const rowLabel = row.slice(0, result.axisCount).map(cellText).filter(Boolean).join(' / ');
-    tr.append(tableCell('td', rowLabel, rowLabel, `Row ${rowPage + index + 1}`));
-    row.slice(start, start + columnCapacity).forEach((value, columnIndex) => {
-      const stats = result.stats?.[rowPage + index]?.[start + columnIndex - result.axisCount];
+    tr.append(tableCell('td', rowLabel, rowLabel));
+    row.slice(result.axisCount).forEach((value, columnIndex) => {
+      const stats = result.stats?.[rowIndex]?.[columnIndex];
       tr.append(stats ? tableCell('td', `${cellText(value)} ± ${cellText(stats.sd)}`, `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`) :
         tableCell('td', cellText(value), value ?? 'Missing value'));
     });
     tbody.append(tr);
   });
-  while (table.getBoundingClientRect().height > region.clientHeight && tbody.rows.length > 1) {
-    rowCapacity--;
-    tbody.lastElementChild.remove();
-  }
-  const minimumHeight = document.querySelector('.page-header').getBoundingClientRect().height +
-    document.querySelector('.page-footer').getBoundingClientRect().height +
-    document.querySelector('.table-heading').getBoundingClientRect().height + captionHeight + headerHeight +
-    (tbody.rows[0]?.getBoundingClientRect().height || 60) + 12;
-  document.body.dataset.flow = String(minimumHeight > document.documentElement.clientHeight);
-  byId('row-page').textContent = result.rows.length ? `${rowPage + 1}–${Math.min(rowPage + rowCapacity, result.rows.length)} / ${result.rows.length}` : '0 rows';
-  byId('col-page').textContent = result.count ? `${Math.min(columnPage * columnCapacity + 1, result.columns.length - result.axisCount)}–${Math.min((columnPage + 1) * columnCapacity, result.columns.length - result.axisCount)} / ${result.columns.length - result.axisCount}` : '0 columns';
-  byId('row-prev').disabled = rowPage === 0;
-  byId('row-next').disabled = rowPage + rowCapacity >= result.rows.length;
-  byId('col-prev').disabled = columnPage === 0;
-  byId('col-next').disabled = (columnPage + 1) * columnCapacity >= result.columns.length - result.axisCount;
   document.dispatchEvent(new Event('pivot-layout'));
 }
 
@@ -229,6 +196,14 @@ function drawChart(force = true) {
 }
 byId('chart-measure').onchange = () => drawChart();
 byId('chart-style').onchange = () => drawChart();
+byId('table-height').oninput = event => {
+  byId('table-region').style.height = `${event.target.value}px`;
+  byId('table-height-value').value = `${event.target.value} px`;
+};
+byId('table-width').oninput = event => {
+  byId('pivot-table').style.setProperty('--table-width', `${event.target.value}%`);
+  byId('table-width-value').value = `${event.target.value}%`;
+};
 
 for (const name of aggregations) byId('aggregation').add(new Option({ 'Standard deviation': 'Sample SD', 'Count nonmissing': 'Count present', 'Unique values': 'Distinct' }[name] || name, name));
 for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).onclick = () => {
@@ -345,10 +320,14 @@ byId('pages-open').onclick = () => byId('page-links').showModal();
 byId('about-data').onclick = () => showDetail('Totals are recomputed from the underlying source records. Corrected RT = retained Audio–Tactile RT − participant × Condition × Phase baseline mean. Repeated distance cells are not extra participants. P011 and P033 have linked recordings and are excluded from the primary behavioural cohort. Saved parameter summaries remain descriptive; averaging posterior medians does not fit a new model.');
 byId('filter-help').onclick = () => showDetail('Add a field, then choose the values to include. Empty selections include all values, including missing entries. Disabling Activate filters ignores every selection and preserves them for later. Clear filters removes all field selections.');
 byId('chooser').addEventListener('close', () => { byId('source').value = source; });
-byId('row-prev').onclick = () => { rowPage = Math.max(0, rowPage - rowCapacity); renderTable(); };
-byId('row-next').onclick = () => { rowPage += rowCapacity; renderTable(); };
-byId('col-prev').onclick = () => { columnPage--; renderTable(); };
-byId('col-next').onclick = () => { columnPage++; renderTable(); };
+byId('table-height').oninput = event => {
+  byId('table-region').style.height = `${event.target.value}px`;
+  byId('table-height-value').value = `${event.target.value} px`;
+};
+byId('table-width').oninput = event => {
+  byId('pivot-table').style.setProperty('--table-width', `${event.target.value}%`);
+  byId('table-width-value').value = `${event.target.value}%`;
+};
 byId('export').onclick = () => {
   if (!result) return;
   const url = URL.createObjectURL(new Blob([csvText(result)], { type: 'text/csv;charset=utf-8' }));

@@ -1,6 +1,5 @@
-const byId = id => document.getElementById(id);
 const cache = new Map();
-let scheduled = false, groupPage = 0, pageCount = 3, pretext;
+let scheduled = false, pretext;
 
 function measureLabels() {
   if (!pretext) return;
@@ -33,42 +32,11 @@ function measureLabels() {
   document.documentElement.dataset.pretext = '1.0.0';
 }
 
-function layoutSettings() {
-  if (!byId('settings').open) return;
-  const region = byId('settings-groups');
-  const groups = [...region.children];
-  groups.forEach(group => {
-    group.hidden = false;
-    [...group.children].forEach(control => { delete control.dataset.layoutHidden; });
-  });
-  region.style.removeProperty('grid-template-columns');
-  const fits = region.scrollHeight <= region.clientHeight + 1;
-  byId('group-prev').hidden = byId('group-next').hidden = fits;
-  if (fits) {
-    byId('group-page').textContent = '';
-    return;
-  }
-  region.style.gridTemplateColumns = 'minmax(0,1fr)';
-  const controlPages = groups.some(group => group.scrollHeight > region.clientHeight + 1);
-  const pages = controlPages ? groups.flatMap(group => [...group.children].filter(control => control.tagName !== 'H3' && !control.hidden).map(control => ({ group, control }))) : groups.map(group => ({ group }));
-  pageCount = pages.length;
-  groupPage = Math.min(groupPage, pageCount - 1);
-  groups.forEach(group => { group.hidden = group !== pages[groupPage].group; });
-  if (controlPages) [...pages[groupPage].group.children].forEach(control => {
-    control.dataset.layoutHidden = String(control.tagName !== 'H3' && control !== pages[groupPage].control);
-  });
-  byId('group-page').textContent = `${groupPage + 1} / ${pageCount}`;
-  byId('group-prev').disabled = groupPage === 0;
-  byId('group-next').disabled = groupPage === pageCount - 1;
-  byId('settings').dataset.layout = controlPages ? 'control-pages' : 'group-pages';
-}
-
 export function scheduleLayout() {
   if (scheduled) return;
   scheduled = true;
   requestAnimationFrame(() => {
     scheduled = false;
-    layoutSettings();
     try { measureLabels(); }
     catch (error) {
       document.documentElement.dataset.pretext = 'unavailable';
@@ -76,8 +44,6 @@ export function scheduleLayout() {
     }
   });
 }
-byId('group-prev').onclick = () => { groupPage = Math.max(0, groupPage - 1); scheduleLayout(); };
-byId('group-next').onclick = () => { groupPage = Math.min(pageCount - 1, groupPage + 1); scheduleLayout(); };
 document.addEventListener('pivot-layout', scheduleLayout);
 const observer = new ResizeObserver(scheduleLayout);
 observer.observe(document.body);
@@ -90,5 +56,5 @@ Promise.all([import('./vendor/pretext/dist/layout.js'), document.fonts.ready]).t
 }).catch(error => {
   document.documentElement.dataset.pretext = 'unavailable';
   for (const label of document.querySelectorAll('[data-fit-label],select')) label.dataset.fit = 'unavailable';
-  console.warn('Pretext unavailable; native text wrapping and control pagination remain active.', error);
+  console.warn('Pretext unavailable; native text wrapping remains active.', error);
 });

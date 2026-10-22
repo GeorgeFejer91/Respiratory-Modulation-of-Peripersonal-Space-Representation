@@ -144,13 +144,14 @@ analysis. The scientific inference roadmap stays open.
 The sibling `/exploratory/` subpage preserves the expanded exploration controls,
 heatmap, source inspection and downloads, sharing the pivot preparation and
 saved-result catalogue rather than fitting new models.
-The original marimo pivot remains available under `/pivot/app/`. Settings use
-outside-in stretch geometry and ordered group/control pagination on no-fit;
-field/value lists and the table page through their unbounded contents. Locked
+The original marimo pivot remains available under `/pivot/app/`. Any Excel-like
+or data table shown on a live page must render its complete result in one table,
+with internal scrolling and user controls for table height and width. Do not split
+table rows or columns across Next/Previous buttons. Pivot settings retain ordered
+stretch groups; chooser lists scroll to expose all options without paging. Locked
 Pretext 1.0.0 measures bounded labels after the first table. Preserve user text
-enlargement; very short enlarged layouts may use deliberate outer document flow,
-while the settings panel has no internal scrollbar. Browser-size emulation does
-not establish actual iPhone/Safari verification.
+enlargement; very short enlarged layouts may use deliberate outer document flow.
+Browser-size emulation does not establish actual iPhone/Safari verification.
 
 Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
 [editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
