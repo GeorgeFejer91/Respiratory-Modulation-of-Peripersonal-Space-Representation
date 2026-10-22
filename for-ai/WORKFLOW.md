@@ -67,18 +67,42 @@ author review of scientific interpretations and missing provenance.
 
 ## Git checkpoints and publication
 
-- Inspect status and diff before and after edits.
-- Stage explicit paths; never absorb unrelated work to make the tree clean.
-- Keep one coherent concern per commit and checkpoint meaningful milestones.
-- Completed, validated implementation work should be pushed promptly under the
-  repository's branch/PR policy. This standing rule does not authorize a push
-  for read-only review or unrelated local changes.
+Owner standing instruction (2026-10-22): automatically complete the Superpowers
+Git flow for every authorized repository change, including protocol/documentation
+changes. This is continuing authorization to commit and push validated task-owned
+work and publish live-page changes; do not ask again for routine commits, pushes
+or permitted integration. The rule persists across sessions until the owner changes it.
+
+Use the installed Superpowers verification/branch-finishing skills when present;
+otherwise use the reviewed local
+[`superpowers-workflow`](skills/superpowers-workflow/SKILL.md) guide with this
+project-specific completion sequence. Do not claim upstream skills ran when absent.
+
+1. Inspect status, branch, upstream and worktrees; isolate work when needed and
+   preserve unrelated changes. Use the existing roadmap as the goal/state owner.
+2. Run applicable `VERIFICATION.md` gates and review the complete task diff.
+   Fix regressions before publication; checkpoint only coherent task-owned changes.
+3. Stage explicit paths and create descriptive Git commits automatically. Commit
+   durable protocol/evidence updates as part of the task; do not sweep in unrelated
+   files, caches, private inputs or another task's unfinished work.
+4. Fetch and integrate current remote changes without rewriting shared history.
+   Push promptly and integrate into `main` using the permitted normal fast-forward,
+   merge or PR path. Respect branch protection; resolve ordinary conflicts within
+   scope and rerun affected checks. Create/attach a PR when the required path uses one.
+5. For live-page changes, follow the exact source SHA through the existing Pages
+   workflow, CI and deployment, then exercise the changed live behavior. A source
+   push, successful build and successful live deployment are separate observations.
+   Protocol-only commits need their context/link/diff checks and remote-SHA check;
+   do not trigger a redundant site build when the served artifact is unchanged.
+6. Record observed evidence, commit/remote/publication state, blockers and the next
+   action in `ANALYSIS_ROADMAP.md`. If an external gate prevents completion, retain
+   the ready commit, identify the exact gate and resume its verification at the next
+   task entry. Ask only for genuinely missing information or an external action
+   that cannot be completed under the standing authorization.
+
 - Never force-push, rewrite shared history, bypass branch protection, bypass
   secret scanning, or publish known-broken/private material.
-- If credentials, network, CI, conflicts, ownership, or validation block
-  publication, report the exact blocker and preserve the ready local state.
-- After pushing, verify the remote SHA and applicable CI/deployment. A push by
-  itself is not deployment evidence.
+- Read-only review does not authorize changing or publishing unrelated work.
 
 ## Self-review
 

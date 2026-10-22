@@ -9,6 +9,14 @@ authoring; it does not overwrite the preserved version-1.9 manuscript or resolve
 the scientific identification questions below. Keep this checklist open until
 the executable analysis, paper, reproducibility and publication gates pass.
 
+Standing execution goal (owner instruction, 2026-10-22): use the Superpowers
+completion flow for every authorized change, automatically committing validated
+task-owned work, pushing through the permitted Git path and verifying live-page
+publication. The exact protocol is in `WORKFLOW.md`; authorization persists across
+sessions. Keep this publication goal open until its scientific acceptance gates pass.
+
+- [x] Record automatic Superpowers Git completion, commit/push authorization and
+  live-deployment verification in the canonical router, skill route and workflow.
 - [x] Install and validate the HyperFormula, Handsontable and Univer integration
   skill assets, preserve their references/licenses and record pinned provenance
   in `orchestration/spreadsheet_skills.json`; route them in `SKILLS.md`.
@@ -56,12 +64,14 @@ frame auto-sizes and fits dialogs to the reader's viewport. Local production bui
 59 tests, 60 Python/JavaScript parity cases and both overview/standalone rendered
 checks pass, including source/summary/cohort/style changes and raw-RT CSV export.
 Source `a206328` is pushed to `main`. Actions run 39792749159 completed all build,
-reference-analysis and independent-numerical checks; its Pages deployment remains
-queued waiting for a runner. The live-page check still encounters the previous
-version, so live verification of segment 0 is pending. The actual embedded raw-RT
+reference-analysis and independent-numerical checks and successful Pages deployment.
+Actual live Chromium verification now passes the inline core pivot/chart, raw-RT
+CSV, aggregation/cohort/style/source controls, embedded reflow/settings, artifact
+links, scroll tracking, keyboard, Pretext, four viewports, 200% text and spacing.
+The actual embedded raw-RT
 CSV also matches a fresh Python summary in all 30 numeric cells at 1e-10.
 Scientific and later-section work stays open.
-Next action: verify this deployment, then add the relevant tables and analyses
+Next action: add the relevant tables and analyses
 inside each later question section, linked to their approved manifests,
 and port native-only methods in finite batches. The existing
 pivot/frontend work below retains its own execution and deployment evidence.

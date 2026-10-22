@@ -177,6 +177,13 @@ For shell inspection, builds and tests, use [rtk](skills/rtk/SKILL.md); keep exa
 <!-- for-ai-coding-workflows:start -->
 ## Coding workflow protocols (conditional)
 
+For every authorized repository change, apply the Superpowers completion flow in
+[`WORKFLOW.md`](WORKFLOW.md#git-checkpoints-and-publication), including when GSD
+owns the larger plan. The owner explicitly authorizes automatic validated commits,
+pushes, permitted integration and live-page publication across future sessions.
+Use available upstream verification/branch-finishing skills or the local reviewed
+guide; skill installation is not required to carry out this authorized flow.
+
 - Focused feature, bug fix, refactor, or review: [superpowers-workflow](skills/superpowers-workflow/SKILL.md).
 - Multi-phase, large, or cross-session work: [gsd-core-workflow](skills/gsd-core-workflow/SKILL.md).
 

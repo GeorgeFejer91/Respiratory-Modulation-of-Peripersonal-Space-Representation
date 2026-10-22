@@ -53,6 +53,12 @@ task touches.
    changed.
 7. Report evidence, limitations, commit/remote state, and any blocker.
 
+Standing owner authorization: use the Superpowers Git completion flow to
+automatically commit and push validated task-owned changes and publish live-page
+updates. Follow [`WORKFLOW.md`](WORKFLOW.md#git-checkpoints-and-publication) for
+verification, integration, deployment checks and external blockers; do not ask
+again for routine publication already covered by this instruction.
+
 ## Publication boundary
 
 The project owner authorised public repository visibility on 2026-10-16,
