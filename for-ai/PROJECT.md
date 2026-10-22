@@ -10,6 +10,11 @@ evidence must trace to the same declared data/code/result version. The ordered
 [analysis roadmap](ANALYSIS_ROADMAP.md) remains the single active checklist.
 Publication-ready is an acceptance goal, not a status conferred by hosting.
 
+General figure rule: quantitative data plots use an actual zero reference. When
+all plotted values and uncertainty are nonnegative, the y-axis lower bound is
+exactly zero with no padding below it. When values or intervals extend below
+zero, retain their full extent and mark zero explicitly rather than clipping data.
+
 This supersedes the results-only pause for authoring the current HTML publication.
 Keep the version-1.9 LaTeX/Typst/PDF and reference artifacts as historical
 snapshots; do not automatically overwrite or promote them. Preserve the
@@ -127,9 +132,6 @@ before computing across-person means, sample SDs (n−1) and nonmissing n at eac
 SOA/group. These SDs describe participant variation, not SEM or confidence intervals;
 n<2 has undefined SD. The table and CSV retain mean/SD/n. Preserve the existing
 correction, cleaning, primary40 and cohort sensitivities; no model is refitted.
-Charts of nonnegative quantities use zero as the exact lower axis bound. For
-quantities that can be negative, preserve every value and show an explicit zero
-reference instead of clipping observations or whiskers.
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility

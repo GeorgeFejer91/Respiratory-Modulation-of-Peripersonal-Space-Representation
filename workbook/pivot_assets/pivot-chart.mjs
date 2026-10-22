@@ -139,6 +139,7 @@ export function renderChart(result, settings, measure, mode, source) {
   if (!model.numericX) byId('chart-x-label').textContent += ' · category positions (full labels on points and table)';
   chart.append(svgElement('line', { x1: margin.left, x2: width - margin.right, y1: yScale(0), y2: yScale(0),
     class: 'chart-zero', 'data-zero-baseline': '', 'aria-label': 'Zero reference' }));
+  if (yMin < 0) tick(margin.left - 8, yScale(0) + font * .3, '0', 'end');
   const focusable = [];
   model.series.forEach((series, seriesIndex) => {
     const color = `var(--chart-${seriesIndex % 6 + 1})`, dash = dashes[seriesIndex % dashes.length];
