@@ -163,13 +163,18 @@ groups, and chooser lists expose all choices through scrolling rather than pages
   complete field chooser are reachable without Next/Previous buttons. Also verify
   the embedded grouped means table retains its SD/n details and grouping controls.
   Build, 59 workbook tests, 125 JavaScript/Python parity cases and the context gate pass.
-- [ ] Push the reviewed source and verify the exact Pages deployment and live
-  pivot/embedded view. The repository's Playwright package is unavailable here;
-  direct Chromium rendering was used, but physical iPhone/Safari remains untested.
+- [x] Push reviewed source `b8e955a1d09671dbd64673a84039eaf560c70ada`; Pages
+  workflow run [39810516916](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39810516916)
+  completed successfully, including build, analysis, independent numerical
+  validation and deploy. Verified the public pivot and `?view=core` pages in
+  Chromium: the complete tables, internal scroll regions, height/width sliders,
+  and core mean/SD/n cells are present without Next/Previous controls. The
+  repository's Playwright package is unavailable here; direct Chromium rendering
+  was used, and physical iPhone/Safari remains untested.
 
-State: implementation and local-browser verification pass; publication remains.
-Next action: commit/push the task-owned change, then verify CI, exact Pages
-deployment and the deployed pivot/embedded view.
+State: implementation, local and deployed browser verification pass. The broader
+living-publication and scientific inference goals remain open.
+Next action: continue the broader publication work from its active checklist.
 
 Visualization skill setup (2026-10-21): the five owner-requested figure,
 exploration and uncertainty skills are installed and routed in `SKILLS.md`;
