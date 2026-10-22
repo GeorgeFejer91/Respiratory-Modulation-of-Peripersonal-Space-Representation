@@ -115,13 +115,12 @@ can support a paper claim. These skills do not replace scientific model checks.
 <!-- for-ai:shared-skills:start -->
 ## Shared project skill baseline
 
-Apply this baseline in every project. This repository includes the three baseline
-guides supplied by the installed For-AI skill: `rtk`, `gsd-core-workflow` and
-`superpowers-workflow`, under `for-ai/skills/`. Its additive migration was previewed
-and run on 2026-10-21, preserving the existing copies and routes. Load only the
-selected skill bodies and task references. The installed package does not contain
-the previously referenced `references/skill-composition.md`; use this ownership
-policy and its `references/for-ai-standard.md` instead.
+Apply this baseline in every project. Read the installed `for-ai` skill's
+`references/skill-composition.md` for shared ownership rules. This repository
+retains its nested `rtk`, `gsd-core-workflow`, and `superpowers-workflow`
+guides under `for-ai/skills/` as documented fallbacks when the corresponding
+installed tools are unavailable. Preserve those guides and the existing
+task-state owner; load only task-relevant bodies and references.
 
 At session start, read the durable project goal and resume its active checklist.
 Use GSD `.planning/STATE.md`, `ROADMAP.md`, and the active phase plan when
