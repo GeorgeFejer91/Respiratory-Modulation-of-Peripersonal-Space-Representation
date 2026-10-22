@@ -14,12 +14,14 @@ try {
       const key = JSON.stringify([text, font, spacing]);
       if (!prepared.has(key)) prepared.set(key, prepareWithSegments(text, font, { letterSpacing: spacing }));
       const handle = prepared.get(key);
-      region.style.width = `${Math.min(Math.ceil(measureNaturalWidth(handle)) + 3, region.parentElement.clientWidth)}px`;
+      const inlinePadding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+      const inlineBorders = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+      region.style.width = `${Math.min(Math.ceil(measureNaturalWidth(handle)) + inlinePadding + inlineBorders + 3, region.parentElement.clientWidth)}px`;
       const width = region.clientWidth;
-      const stats = measureLineStats(handle, Math.max(1, width - 2));
+      const stats = measureLineStats(handle, Math.max(1, width - inlinePadding - 2));
       const height = stats.lineCount * parseFloat(style.lineHeight);
-      region.style.minHeight = `${Math.ceil(height)}px`;
-      region.dataset.fit = stats.maxLineWidth <= width && height <= region.clientHeight + 1 ? 'fit' : 'reflow';
+      region.style.minHeight = `${Math.ceil(height + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth))}px`;
+      region.dataset.fit = stats.maxLineWidth <= width - inlinePadding && height <= region.clientHeight + 1 ? 'fit' : 'reflow';
       region.dataset.naturalWidth = measureNaturalWidth(handle).toFixed(2);
       region.dataset.lines = String(stats.lineCount);
     }

@@ -1,6 +1,9 @@
 // Embed the existing pivot without a second data engine or duplicated controls.
 if (parent !== window) {
-  const fitDialog = () => document.body.style.setProperty('--host-dialog-height', `${Math.max(120, parent.innerHeight - 24)}px`);
+  const fitDialog = () => {
+    const navigation = parent.matchMedia('(max-width: 800px)').matches ? parent.document.querySelector('.contents')?.getBoundingClientRect().height || 0 : 0;
+    document.body.style.setProperty('--host-dialog-height', `${Math.max(120, parent.innerHeight - 24 - navigation)}px`);
+  };
   fitDialog();
   parent.addEventListener('resize', fitDialog);
   // Dialogs must fit the reader's viewport, rather than the full-height frame.

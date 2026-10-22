@@ -12,6 +12,11 @@
     <nav aria-label="Study 5 pages"><a href="../" data-fit-label>Workbook</a><a href="../exploratory/" data-fit-label>Exploratory figures</a></nav>
     <div class="toolbar"><h1 data-fit-label>Pivot table</h1><label class="switch"><input id="filters-enabled" type="checkbox"><span data-fit-label>Activate filters</span></label><button id="settings-open" aria-expanded="false" aria-controls="settings" data-fit-label>Pivot settings</button></div>
   </header>
+  <div id="core-controls" hidden>
+    <label><span data-fit-label>Group by</span><select id="core-group"><option value="both">Condition × breathing phase</option><option value="phase">Breathing phase</option><option value="condition">Condition (Viscereality / Control)</option><option value="none">All participants</option><option value="custom" hidden>Custom pivot</option></select></label>
+    <label><span data-fit-label>Reaction time</span><select id="core-correction"><option value="raw">Baseline uncorrected</option><option value="corrected">Baseline corrected</option></select></label>
+    <label class="switch"><input type="checkbox" id="core-sd" checked><span data-fit-label>SD whiskers</span></label>
+  </div>
   <main id="worksheet" aria-label="Pivot worksheet">
     <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><button id="filters-open" hidden data-fit-label>Choose filters</button></div>
     <div class="linked-views">

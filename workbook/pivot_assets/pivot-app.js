@@ -20,7 +20,37 @@ let chartGeometry = '';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
 if (coreView) {
   settings.values = ['reaction_time_ms'];
+  settings.totals = false;
+  settings.sdWhiskers = true;
+  byId('totals').checked = false;
+  byId('core-controls').hidden = false;
   byId('choose-values').textContent = 'Values: reaction_time_ms';
+}
+function coreControls() {
+  if (!coreView) return;
+  const active = source === 'means' && settings.aggregation === 'Mean';
+  byId('core-group').disabled = byId('core-correction').disabled = byId('core-sd').disabled = !active;
+  byId('totals').disabled = active;
+  if (active) byId('totals').checked = false;
+  byId('core-group').value = active ? ({ 'condition,phase': 'both', phase: 'phase', condition: 'condition', '': 'none' }[settings.columns.join(',')] || 'custom') : 'custom';
+  byId('core-correction').value = settings.values[0] === 'corrected_rt_ms' ? 'corrected' : 'raw';
+}
+if (coreView) {
+  byId('core-group').onchange = () => {
+    if (source !== 'means' || settings.aggregation !== 'Mean') return;
+    settings.rows = ['soa_ms'];
+    settings.columns = { both: ['condition', 'phase'], phase: ['phase'], condition: ['condition'], none: [] }[byId('core-group').value];
+    settings.totals = false;
+    byId('totals').checked = false;
+    byId('choose-columns').textContent = `Columns: ${settings.columns.join(', ') || 'None'}`;
+    update();
+  };
+  byId('core-correction').onchange = () => {
+    settings.values = [byId('core-correction').value === 'corrected' ? 'corrected_rt_ms' : 'reaction_time_ms'];
+    byId('choose-values').textContent = `Values: ${settings.values[0]}`;
+    update();
+  };
+  byId('core-sd').onchange = () => { settings.sdWhiskers = byId('core-sd').checked; drawChart(); };
 }
 const names = { means: 'Participant-distance means', trials: 'All trial records', participants: 'Participants and questionnaires', saved: 'Saved analysis table' };
 const sourceURL = () => source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? 'means-core-preview' : 'means-preview') : source}.json`;
@@ -78,6 +108,8 @@ function reportError(error) {
 async function update() {
   const revision = ++generation;
   const submitted = structuredClone(settings);
+  submitted.participantSummary = coreView && source === 'means' && submitted.aggregation === 'Mean';
+  if (submitted.participantSummary) submitted.totals = false;
   byId('table-region').setAttribute('aria-busy', 'true');
   byId('chart-region').setAttribute('aria-busy', 'true');
   byId('error').hidden = true;
@@ -88,6 +120,7 @@ async function update() {
     result = reply.result;
     resultSettings = submitted;
     resultSource = source;
+    coreControls();
     if (!(source === 'means' && fullMeans && reply.columns.length < fields.length)) {
       fields = reply.columns;
       numeric = reply.numeric;
@@ -96,7 +129,8 @@ async function update() {
     byId('table-region').setAttribute('aria-busy', 'false');
     byId('export').disabled = false;
     byId('summary').textContent = `${result.count.toLocaleString()} source records · ${submitted.filtersEnabled ? 'Filters on' : 'Filters off'}`;
-    byId('table-caption').textContent = submitted.aggregation === 'Row count' ? 'Records' : submitted.values.map(field => measureLabel(field, submitted.aggregation)).join(' / ');
+    byId('table-caption').textContent = result.stats ? `${submitted.values.map(fieldLabel).join(' / ')} · Mean ± SD` :
+      submitted.aggregation === 'Row count' ? 'Records' : submitted.values.map(field => measureLabel(field, submitted.aggregation)).join(' / ');
     byId('status').textContent = source === 'saved' ? saved.source : `${names[source]} · ${submitted.cohort}`;
     document.documentElement.dataset.recordCount = String(result.count);
     renderTable();
@@ -160,7 +194,11 @@ export function renderTable() {
     const tr = document.createElement('tr');
     const rowLabel = row.slice(0, result.axisCount).map(cellText).filter(Boolean).join(' / ');
     tr.append(tableCell('td', rowLabel, rowLabel, `Row ${rowPage + index + 1}`));
-    row.slice(start, start + columnCapacity).forEach(value => tr.append(tableCell('td', cellText(value), value ?? 'Missing value')));
+    row.slice(start, start + columnCapacity).forEach((value, columnIndex) => {
+      const stats = result.stats?.[rowPage + index]?.[start + columnIndex - result.axisCount];
+      tr.append(stats ? tableCell('td', `${cellText(value)} ± ${cellText(stats.sd)}`, `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`) :
+        tableCell('td', cellText(value), value ?? 'Missing value'));
+    });
     tbody.append(tr);
   });
   while (table.getBoundingClientRect().height > region.clientHeight && tbody.rows.length > 1) {
@@ -186,7 +224,7 @@ function drawChart(force = true) {
   const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
   if (result && (force || chartGeometry !== geometry)) {
     chartGeometry = geometry;
-    renderChart(result, resultSettings, byId('chart-measure').value, byId('chart-style').value, resultSource);
+    renderChart(result, { ...resultSettings, sdWhiskers: settings.sdWhiskers }, byId('chart-measure').value, byId('chart-style').value, resultSource);
   }
 }
 byId('chart-measure').onchange = () => drawChart();

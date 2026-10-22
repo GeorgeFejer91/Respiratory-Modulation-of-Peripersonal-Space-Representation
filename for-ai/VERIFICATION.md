@@ -19,6 +19,12 @@ For changes to the question-led landing page, serve a production build and run
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
+For segment 0, verify the 4/2/2/1 series groupings, raw/corrected RT switching and
+SD toggle, table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Run
+`check_pivot_javascript.py` for independent pandas means, sample SDs and n across
+all grouping/correction/cohort/filter combinations. Retain unequal within-person
+counts, n=1/undefined SD, missing values and zero-valued means. Repeated condition/
+phase cells must be pooled within person before calculating across-person SD.
 
 GitHub Pages is the primary publication/analysis target. Before marking a version
 publication-ready, verify all of the following, in addition to the applicable

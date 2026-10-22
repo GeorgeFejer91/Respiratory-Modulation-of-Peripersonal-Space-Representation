@@ -31,9 +31,10 @@ export function chartModel(result, settings, measure) {
       if (!groups.has(key)) {
         const text = [...otherAxes.map(axis => `${fieldLabel(axis.field)}: ${row[axis.index]}`),
           ...part.group.map((value, index) => settings.columns[index] ? String(value) : '')].filter(Boolean);
-        groups.set(key, { key, label: text.join(' · ') || fieldLabel(measure), points: [] });
+        groups.set(key, { key, label: text.join(' · ') || (result.participantSummary ? 'All participants' : fieldLabel(measure)), points: [] });
       }
-      const point = { x, y: row[part.column], row: rowIndex, column: part.column, series: key };
+      const stats = result.stats?.[rowIndex]?.[part.column - result.axisCount];
+      const point = { x, y: row[part.column], row: rowIndex, column: part.column, series: key, ...(stats || {}) };
       groups.get(key).points.push(point);
       points.push(point);
     }
@@ -77,7 +78,10 @@ export function renderChart(result, settings, measure, mode, source) {
   byId('chart-y-label').textContent = model.yLabel;
   byId('chart-x-label').textContent = model.xLabel;
   const weights = source === 'means' ? 'Participant-distance cells weighted equally.' : source === 'trials' ? 'Trial records weighted equally.' : 'Descriptive source-record summaries.';
-  byId('chart-note').textContent = `${weights} Table pagination does not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
+  const showSD = result.participantSummary && settings.sdWhiskers;
+  byId('chart-note').textContent = result.participantSummary ?
+    `Participant means${showSD ? ' ±1 sample SD' : ''}; pooled factors averaged within each person. Descriptive, not a confidence interval.` :
+    `${weights} Table pagination does not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
   if (!result.count) { byId('chart-hover').textContent = 'No records match these filters. Clear filters or choose other values.'; return; }
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
@@ -96,7 +100,8 @@ export function renderChart(result, settings, measure, mode, source) {
     'aria-label': `${model.yLabel} by ${model.xLabel}. ${model.series.length} series. Values also available in the pivot table.` });
   plot.append(chart);
   const bars = mode === 'bars' || mode === 'auto' && !model.numericX;
-  const low = Math.min(...present.map(point => point.y)), high = Math.max(...present.map(point => point.y));
+  const low = Math.min(...present.map(point => point.y - (showSD && Number.isFinite(point.sd) ? point.sd : 0))),
+    high = Math.max(...present.map(point => point.y + (showSD && Number.isFinite(point.sd) ? point.sd : 0)));
   let yMin = bars ? Math.min(0, low) : low, yMax = bars ? Math.max(0, high) : high;
   const pad = (yMax - yMin || Math.abs(yMax) * .1 || 1) * .12;
   yMin -= pad; yMax += pad;
@@ -151,18 +156,27 @@ export function renderChart(result, settings, measure, mode, source) {
       if (point.y === null || !Number.isFinite(point.y)) continue;
       const x = xScale(point.x), y = yScale(point.y);
       const barWidth = categoryWidth * .8 / model.series.length;
+      const center = bars ? x - categoryWidth * .4 + (seriesIndex + .5) * barWidth - .5 : x;
+      let whisker;
+      if (showSD && Number.isFinite(point.sd)) {
+        const upper = yScale(point.y + point.sd), lower = yScale(point.y - point.sd);
+        whisker = svgElement('path', { d: `M${center},${upper}V${lower} M${center - 4},${upper}H${center + 4} M${center - 4},${lower}H${center + 4}`,
+          fill: 'none', 'stroke-width': 1.5, 'data-sd-whisker': '', 'data-sd': point.sd, 'data-n': point.n,
+          'pointer-events': 'none', 'data-low': point.y - point.sd, 'data-high': point.y + point.sd });
+      }
       const attributes = bars ? { x: x - categoryWidth * .4 + seriesIndex * barWidth,
         y: Math.min(y, yScale(0)), width: Math.max(.5, barWidth - 1), height: Math.max(1, Math.abs(y - yScale(0))) } : { cx: x, cy: y, r: 5 };
       const node = svgElement(bars ? 'rect' : 'circle', { ...attributes, 'data-chart-point': '', 'data-row': point.row,
         'data-column': point.column, 'data-value': point.y, tabindex: focusable.length ? -1 : 0, role: 'button', 'stroke-width': 2 });
-      const detail = `${seriesIndex + 1}. ${series.label} · ${model.xLabel}: ${point.x} · ${model.yLabel}: ${format(point.y)}`;
+      const spread = value => value.n === undefined ? '' : ` · SD: ${Number.isFinite(value.sd) ? format(value.sd) : 'undefined (n < 2)'} · n: ${value.n}`;
+      const detail = `${seriesIndex + 1}. ${series.label} · ${model.xLabel}: ${point.x} · ${model.yLabel}: ${format(point.y)}${spread(point)}`;
       node.setAttribute('aria-label', detail);
       node.append(svgElement('title', {}, detail));
       const reveal = () => { byId('chart-hover').textContent = detail; document.dispatchEvent(new Event('pivot-layout')); };
       const compare = () => {
         const values = model.series.map((item, index) => {
-          const value = item.points.find(other => other.x === point.x)?.y;
-          return `${index + 1}. ${item.label}: ${value === null || value === undefined ? '— (missing)' : format(value)}`;
+          const other = item.points.find(other => other.x === point.x), value = other?.y;
+          return `${index + 1}. ${item.label}: ${value === null || value === undefined ? '— (missing)' : format(value) + spread(other)}`;
         });
         byId('chart-hover').textContent = `${model.xLabel}: ${point.x} · ${model.yLabel} · ${values.join('; ')}`;
         document.dispatchEvent(new Event('pivot-layout'));
@@ -181,6 +195,7 @@ export function renderChart(result, settings, measure, mode, source) {
         } else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); reveal(); }
       });
       focusable.push(node); group.append(node);
+      if (whisker) group.append(whisker);
     }
     const item = document.createElement('li'), sample = svgElement('svg', { width: 28, height: 16, 'aria-hidden': true });
     sample.append(svgElement('line', { x1: 0, x2: 28, y1: 8, y2: 8, stroke: color, 'stroke-width': 3, 'stroke-dasharray': dash }));

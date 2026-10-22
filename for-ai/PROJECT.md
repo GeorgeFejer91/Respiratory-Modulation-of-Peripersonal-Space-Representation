@@ -107,9 +107,12 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
-The landing page is a nine-question scientific overview, built from
-`workbook/overview_assets/`. Its contents menu links to distinct question-led
-sections with methods, assumptions, evidence and remaining limits. The original
+The landing page is a compact nine-section scientific overview, built from
+`workbook/overview_assets/`. Segment 0 is the central descriptive explorer;
+each later section contains one question and a link to its analysis/evidence.
+The section menu stays fixed beside desktop content and collapses at the phone's
+bottom edge; embedded dialogs reserve space for this navigation.
+Keep narrative, assumptions and detailed results in those linked reports. The original
 executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
@@ -117,6 +120,13 @@ frame. Its core-data starting view uses a compact uncorrected Audio–Tactile RT
 means payload, primary 40 cohort and equal-person summaries. Readers can change
 sources, fields, cohorts, aggregation, chart style and filters and export CSV.
 Raw released trials remain available, with retained/excluded flags unchanged.
+Visible controls group the descriptive means by phase, condition, both or neither,
+switch baseline correction and show/hide mean ±1 sample-SD whiskers. For Mean over
+the participant-distance source, pool unselected factors within each participant
+before computing across-person means, sample SDs (n−1) and nonmissing n at each
+SOA/group. These SDs describe participant variation, not SEM or confidence intervals;
+n<2 has undefined SD. The table and CSV retain mean/SD/n. Preserve the existing
+correction, cleaning, primary40 and cohort sensitivities; no model is refitted.
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility

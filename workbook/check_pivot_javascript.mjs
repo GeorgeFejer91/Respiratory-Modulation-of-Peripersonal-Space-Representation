@@ -19,6 +19,14 @@ for (const [index, result] of results.entries()) {
     assert(model.points.every(point => point.row < result.dataRowCount));
   }
 }
+const participantCase = payload.cases.findIndex(test => test.frame === 'people-edge');
+const participantResult = results[participantCase];
+assert.equal(participantResult.rows[0][1], 8); // A = (2+4+6)/3 = 4; B = (10+14)/2 = 12.
+assert.equal(participantResult.stats[0][0].n, 2);
+assert(Math.abs(participantResult.stats[0][0].sd - Math.sqrt(32)) < 1e-12);
+assert.equal(participantResult.stats[1][0].n, 1);
+assert.equal(participantResult.stats[1][0].sd, null);
+assert(csvText(participantResult).includes(' · SD'));
 const frame = payload.frames['Participant-distance means'];
 const selection = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms', 'reaction_time_ms'],
   aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: true,

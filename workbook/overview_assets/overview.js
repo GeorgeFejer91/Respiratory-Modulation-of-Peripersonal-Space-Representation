@@ -14,7 +14,9 @@ await import('./pivot/text-fit.js');
 
 let scheduled = false;
 function updateCurrent() {
-  const current = sections.filter(section => section.getBoundingClientRect().top <= 120).at(-1) || sections[0];
+  const target = sections.find(section => `#${section.id}` === location.hash);
+  const top = target?.getBoundingClientRect().top;
+  const current = top >= 0 && top < innerHeight ? target : sections.filter(section => section.getBoundingClientRect().top <= 120).at(-1) || sections[0];
   for (const link of links) {
     if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
@@ -25,6 +27,7 @@ addEventListener('scroll', () => {
   if (!scheduled) { scheduled = true; requestAnimationFrame(updateCurrent); }
 }, { passive: true });
 addEventListener('resize', updateCurrent);
+addEventListener('hashchange', updateCurrent);
 updateCurrent();
 
 const coreFrame = document.getElementById('core-pivot');

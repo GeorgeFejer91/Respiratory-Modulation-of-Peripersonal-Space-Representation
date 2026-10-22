@@ -43,45 +43,30 @@ sessions. Keep this publication goal open until its scientific acceptance gates 
 - [ ] Complete author/scientific review and verify the exact Pages deployment
   and live paper/analysis paths; only then label that release publication-ready.
 
-State: a nine-section scientific overview now owns the site landing page, with
-anchor navigation, a scrollable contents menu, explicit assumptions and evidence
-links. Its average-response figure links to the archived unpooled Bayesian browser
-bundle; the executable notebook remains at `workbook.html`, with assets unchanged.
-Native-only extensions are labelled separately. Local production build, 59 workbook
-tests, strict/WASM workbook checks, input audit and rendered Chromium navigation/
-reflow checks pass. Scientific review, migration and publication readiness remain
-open; this overview is not a complete publication-ready paper.
-Publication state: implementation `c40d470` pushed to `main`; GitHub Actions run
-39789304758 passed the full reference analysis, independent numerical validation
-and exact Pages deployment. The actual live Chromium check passes all nine anchors,
-scroll tracking, evidence/tool links, keyboard skip access, Pretext measurements,
-four viewports, 200% text and spacing overrides. Physical iPhone/Safari is untested.
-Current extension: segment 0 contains the core-data summary table and embedded
-responsive pivot chart/table, starting from uncorrected cleaned AT means and the
-primary 40 cohort. It reuses the same worker and controls, with a separate compact
-raw-RT preview under 64 KiB; unchanged trial records remain selectable. The core
-frame auto-sizes and fits dialogs to the reader's viewport. Local production build,
-59 tests, 60 Python/JavaScript parity cases and both overview/standalone rendered
-checks pass, including source/summary/cohort/style changes and raw-RT CSV export.
-Source `a206328` is pushed to `main`. Actions run 39792749159 completed all build,
-reference-analysis and independent-numerical checks and successful Pages deployment.
-Actual live Chromium verification now passes the inline core pivot/chart, raw-RT
-CSV, aggregation/cohort/style/source controls, embedded reflow/settings, artifact
-links, scroll tracking, keyboard, Pretext, four viewports, 200% text and spacing.
-The actual embedded raw-RT
-CSV also matches a fresh Python summary in all 30 numeric cells at 1e-10.
-Scientific and later-section work stays open.
-Navigation update (2026-10-22): the overview's nine-section menu is fixed beside
-the article on desktop and collapses into a bottom menu on phones. Local production
-build passes; rendered checks confirm smooth section navigation, current-section
-tracking, Pretext fit, a 56px phone menu, and no horizontal overflow at 320×568,
-640×360, 900×900 and 1920×1080. The standard overview browser script could not
-start because Node Playwright is unavailable. Commit, Pages deployment and live
-verification remain pending.
-Next action: add the relevant tables and analyses
-inside each later question section, linked to their approved manifests,
-and port native-only methods in finite batches. The existing
-pivot/frontend work below retains its own execution and deployment evidence.
+State: the landing page is a compact nine-section overview. Segment 0 is only
+its central descriptive pivot chart/table; later sections each contain one question
+and a link to analysis/evidence. Narrative and detailed limitations remain in linked
+reports. The executable workbook remains at `workbook.html`; models/data are unchanged.
+The desktop menu remains fixed; phones use the collapsible bottom menu, with
+embedded dialogs reserving its visible height.
+
+Current extension: visible grouping controls select phase, condition, both or
+neither, with baseline-corrected/uncorrected RT and optional ±1 sample-SD whiskers.
+Unselected factors are averaged within person before across-person mean/SD/n.
+The table/CSV preserve those statistics; n<2 has undefined SD. The raw/corrected
+compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
+125 independent JavaScript/pandas cases and rendered overview/standalone checks
+pass, including grouping, correction, whiskers, source changes, export, keyboard,
+four/six viewports, 200% text and spacing. Native-only branches stay native-only.
+
+Publication: the preceding segment-0 source `a206328` passed Actions run
+39792749159 and actual live interaction checks. The compact-page/SD extension is
+verified locally; its source push and exact live deployment remain pending.
+Scientific review, remaining browser migration and publication readiness stay open.
+Next action: publish and verify this extension, then develop the table/analysis
+behind each remaining single question without restoring a text-heavy landing page.
+Physical iPhone/Safari remains untested. The pivot/frontend milestones below retain
+their own execution/deployment evidence.
 
 ## Visualization — fast pivot table and linked chart
 

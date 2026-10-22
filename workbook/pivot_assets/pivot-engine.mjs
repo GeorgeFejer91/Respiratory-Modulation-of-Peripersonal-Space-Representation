@@ -73,6 +73,33 @@ function summarize(values, aggregation) {
 }
 
 export function pivot(frame, settings) {
+  if (settings.participantSummary) {
+    if (settings.aggregation !== 'Mean' || !frame.columns.includes('participant_id')) {
+      throw new Error('Participant summaries require participant IDs and Mean.');
+    }
+    const source = selectRecords(frame, settings);
+    const indices = [...new Set(['participant_id', ...settings.rows, ...settings.columns])].map(field => frame.columns.indexOf(field));
+    if (indices.some(index => index < 0)) throw new Error('Unknown participant-summary field.');
+    const grouped = new Map();
+    for (const row of source) {
+      const key = JSON.stringify(indices.map(index => row[index]));
+      if (!grouped.has(key)) grouped.set(key, []);
+      grouped.get(key).push(row);
+    }
+    const records = [...grouped.values()].map(rows => {
+      const record = [...rows[0]];
+      for (const field of settings.values) {
+        const index = frame.columns.indexOf(field);
+        record[index] = summarize(rows.map(row => row[index]), 'Mean');
+      }
+      return record;
+    });
+    const result = pivot({ ...frame, rows: records }, { ...settings, participantSummary: false,
+      includeSD: true, totals: false, filtersEnabled: false, cohort: 'Full release' });
+    result.count = source.length;
+    result.participantSummary = true;
+    return result;
+  }
   const { rows, columns, values, aggregation, totals } = settings;
   if (!aggregations.includes(aggregation)) throw new Error('Choose a summary.');
   if (rows.some(field => columns.includes(field))) throw new Error('A field can be in Rows or Columns, not both.');
@@ -114,10 +141,21 @@ export function pivot(frame, settings) {
     typeof value === 'number' && frame.types?.[field] === 'number' && Number.isInteger(value) ? value.toFixed(1) : String(value);
   const resultColumns = rowNames.concat(descriptors.map(part => [part.measure, ...part.label.map((value, index) => axisLabel(value, columns[index]))].join(' · ')));
   const aggregate = (records, index) => summarize(records.map(record => aggregation === 'Row count' ? 1 : record[measureFields[index]]), aggregation);
+  const stats = [];
   const resultRows = orderedRows.map(([rowKey, group]) => group.label.concat(descriptors.map(part => {
     const records = part.total ? group.records : cells.get(JSON.stringify([rowKey, part.key]));
     return records ? aggregate(records, part.index) : null;
   })));
+  if (settings.includeSD && aggregation === 'Mean') {
+    for (const [rowKey, group] of orderedRows) {
+      stats.push(descriptors.map(part => {
+        const records = part.total ? group.records : cells.get(JSON.stringify([rowKey, part.key])) || [];
+        const values = records.map(record => record[measureFields[part.index]]);
+        return { n: values.filter(value => value !== null && Number.isFinite(value)).length,
+          sd: summarize(values, 'Standard deviation') };
+      }));
+    }
+  }
   if (totals) resultRows.push(['Grand total', ...Array(rowNames.length - 1).fill(''), ...descriptors.map(part =>
     aggregate(part.total || !columns.length ? source : columnGroups.get(part.key).records, part.index))]);
   const series = descriptors.map((part, index) => ({ measure: part.measure, group: part.label,
@@ -128,10 +166,14 @@ export function pivot(frame, settings) {
     if (index >= 0) contexts[field] = [...new Set(source.map(record => record[index]).filter(value => value !== null))];
   }
   return { columns: resultColumns, rows: resultRows, axisCount: rowNames.length, count: source.length,
-    dataRowCount: orderedRows.length, series, contexts };
+    dataRowCount: orderedRows.length, series, contexts, ...(settings.includeSD ? { stats } : {}) };
 }
 
 export function csvText(result) {
   const escape = value => '"' + String(typeof value === 'boolean' ? (value ? 'True' : 'False') : value ?? '').replaceAll('"', '""') + '"';
-  return '\uFEFF' + [result.columns, ...result.rows].map(row => row.map(escape).join(',')).join('\r\n') + '\r\n';
+  const expand = (row, index) => row.flatMap((value, column) => column < result.axisCount ? [value] :
+    [value, result.stats[index]?.[column - result.axisCount]?.sd ?? null, result.stats[index]?.[column - result.axisCount]?.n ?? null]);
+  const columns = result.stats ? result.columns.flatMap((value, column) => column < result.axisCount ? [value] : [value, `${value} · SD`, `${value} · n`]) : result.columns;
+  const rows = result.stats ? result.rows.map(expand) : result.rows;
+  return '\uFEFF' + [columns, ...rows].map(row => row.map(escape).join(',')).join('\r\n') + '\r\n';
 }
