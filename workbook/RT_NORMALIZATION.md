@@ -49,7 +49,7 @@ of this study's display.
   across participants and nonmissing n; n<2 has undefined SD. SD whiskers can
   extend outside 0–1 and must not be clipped or called confidence intervals.
 - Raw normalized scores increase with slower RT; normalized baseline benefits
-  increase with greater benefit. Zero is the participant's observed minimum,
+  increase with greater benefit. For min–max, zero is the observed minimum,
   not zero milliseconds or absence of facilitation. A value of 0.5 is the
   midpoint of that person's observed range, not a probability or half-speed.
 - Z-scores are measured in within-participant SD units and may be negative or
