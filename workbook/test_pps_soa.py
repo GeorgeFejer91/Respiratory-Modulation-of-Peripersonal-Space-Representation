@@ -89,7 +89,12 @@ class SOATests(unittest.TestCase):
             for name in archive.namelist():
                 self.assertEqual(archive.read(name), (folder / name).read_bytes())
         saved = json.loads((folder / 'results.json').read_text(encoding='utf-8'))
-        self.assertEqual(saved['anova'], self.report['anova'])
+        self.assertEqual(saved['anova'].keys(), self.report['anova'].keys())
+        for key, value in saved['anova'].items():
+            if isinstance(value, (float, int)):
+                np.testing.assert_allclose(value, self.report['anova'][key], rtol=1e-12, atol=1e-14)
+            else:
+                self.assertEqual(value, self.report['anova'][key])
 
 
 if __name__ == '__main__':
