@@ -120,9 +120,14 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 
 ## Browser companion and ownership
 
-The landing page is a compact nine-section scientific overview, built from
+The landing page is a compact ten-section scientific overview, built from
 `workbook/overview_assets/`. Segment 0 is the central descriptive explorer;
 each later section contains one question and a link to its analysis/evidence.
+Segment 2 additionally answers the overall Inhale−Exhale RT question using the
+saved native primary40 paired contrasts: raw AT slowing during inhale and an
+inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
+cohort/weighting/uncertainty labels and links to the complete contrast family;
+it does not execute or refit that analysis in the browser.
 The section menu stays fixed beside desktop content and collapses at the phone's
 bottom edge; embedded dialogs reserve space for this navigation.
 Keep narrative, assumptions and detailed results in those linked reports. The original

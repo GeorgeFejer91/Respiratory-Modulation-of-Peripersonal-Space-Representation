@@ -6,19 +6,24 @@
 <a class="skip" href="#overview">Skip to data and questions</a>
 <header><nav aria-label="Study 5 tools"><a data-measure href="workbook.html">Run analyses</a><a data-measure href="pivot/">Full pivot</a><a data-measure href="results/">Results</a></nav></header>
 <div class="reading-layout">
-<aside class="contents" aria-label="Section navigation"><details open><summary data-measure>Jump to a section</summary><nav aria-label="Scientific questions"><ol start="0"><li><a href="#data">Data explorer</a></li><li><a href="#baseline">Baseline</a></li><li><a href="#shape">Response shape</a></li><li><a href="#parameters">Reliability</a></li><li><a href="#effects">Experimental effects</a></li><li><a href="#sensitivity">Sensitivity</a></li><li><a href="#averages">Average responses</a></li><li><a href="#questionnaires">Self-report</a></li><li><a href="#reproducibility">Reproducibility</a></li></ol></nav></details></aside>
+<aside class="contents" aria-label="Section navigation"><details open><summary data-measure>Jump to a section</summary><nav aria-label="Scientific questions"><ol start="0"><li><a href="#data">Data explorer</a></li><li><a href="#baseline">Baseline</a></li><li><a href="#phase">Inhale vs exhale RT</a></li><li><a href="#shape">Response shape</a></li><li><a href="#parameters">Reliability</a></li><li><a href="#effects">Experimental effects</a></li><li><a href="#sensitivity">Sensitivity</a></li><li><a href="#averages">Average responses</a></li><li><a href="#questionnaires">Self-report</a></li><li><a href="#reproducibility">Reproducibility</a></li></ol></nav></details></aside>
 <main id="overview"><h1>Study 5</h1>
 <section id="data" aria-labelledby="data-title"><h2 id="data-title">0. Data explorer</h2>
 <iframe id="core-pivot" src="pivot/?view=core" title="Descriptive means with SD: interactive pivot chart and table"></iframe>
 </section>
 <section id="baseline" aria-labelledby="baseline-title"><h2 id="baseline-title">1. Does baseline correction change the observed RT pattern?</h2><a href="ANALYSIS_PLAN.md">Analysis and evidence</a></section>
-<section id="shape" aria-labelledby="shape-title"><h2 id="shape-title">2. Do the RT observations support a sigmoid response?</h2><a href="results/">Analysis and evidence</a></section>
-<section id="parameters" aria-labelledby="parameters-title"><h2 id="parameters-title">3. Can midpoint and sharpness be estimated reliably?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
-<section id="effects" aria-labelledby="effects-title"><h2 id="effects-title">4. Do condition, breathing phase or their interaction change PPS?</h2><a href="results/">Analysis and evidence</a></section>
-<section id="sensitivity" aria-labelledby="sensitivity-title"><h2 id="sensitivity-title">5. Are the results robust to analysis assumptions?</h2><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/trial_cleaning/RESULTS.md">Analysis and evidence</a></section>
-<section id="averages" aria-labelledby="averages-title"><h2 id="averages-title">6. How do the four average response curves differ?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
-<section id="questionnaires" aria-labelledby="questionnaires-title"><h2 id="questionnaires-title">7. Are PPS estimates associated with MAIA-2 or spatial ratings?</h2><a href="literature_review/QUESTIONNAIRES.html">Analysis and evidence</a></section>
-<section id="reproducibility" aria-labelledby="reproducibility-title"><h2 id="reproducibility-title">8. Can the reported results be reproduced?</h2><a href="workbook.html">Analysis and evidence</a></section>
+<section id="phase" aria-labelledby="phase-title"><h2 id="phase-title">2. Were RTs generally faster during inhale than exhale?</h2>
+<p id="phase-answer">No. Raw audio–tactile RTs were <strong>18.47 ms slower during inhale</strong> (95% CI 6.96 to 29.98 ms; paired p = .0024). After matched baseline subtraction, Inhale − Exhale was −2.16 ms (95% CI −12.15 to 7.82 ms; p = .664): the corrected phase effect was inconclusive.</p>
+<p>Exploratory paired analysis of 40 participants, excluding P011/P033; equal weight across conditions and SOAs, then across participants. Two-sided p values are unadjusted. These are RT differences, not PPS boundary effects.</p>
+<a data-measure href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/RESULTS.md">Analysis and evidence (saved native results)</a>
+<a data-measure href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/response_tests.csv">Complete contrasts and sensitivities (CSV)</a></section>
+<section id="shape" aria-labelledby="shape-title"><h2 id="shape-title">3. Do the RT observations support a sigmoid response?</h2><a href="results/">Analysis and evidence</a></section>
+<section id="parameters" aria-labelledby="parameters-title"><h2 id="parameters-title">4. Can midpoint and sharpness be estimated reliably?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
+<section id="effects" aria-labelledby="effects-title"><h2 id="effects-title">5. Do condition, breathing phase or their interaction change PPS?</h2><a href="results/">Analysis and evidence</a></section>
+<section id="sensitivity" aria-labelledby="sensitivity-title"><h2 id="sensitivity-title">6. Are the results robust to analysis assumptions?</h2><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/trial_cleaning/RESULTS.md">Analysis and evidence</a></section>
+<section id="averages" aria-labelledby="averages-title"><h2 id="averages-title">7. How do the four average response curves differ?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
+<section id="questionnaires" aria-labelledby="questionnaires-title"><h2 id="questionnaires-title">8. Are PPS estimates associated with MAIA-2 or spatial ratings?</h2><a href="literature_review/QUESTIONNAIRES.html">Analysis and evidence</a></section>
+<section id="reproducibility" aria-labelledby="reproducibility-title"><h2 id="reproducibility-title">9. Can the reported results be reproduced?</h2><a href="workbook.html">Analysis and evidence</a></section>
 </main></div>
 <footer><nav aria-label="Methods and sources"><a href="DATA_RELEASE.md">Data and exclusions</a> · <a href="ANALYSIS_PLAN.md">Methods</a> · <a href="literature_review/">References</a> · <a href="https://aspredicted.org/az9f89.pdf">Registration</a></nav></footer>
 <script type="module" src="overview.js"></script>
