@@ -176,7 +176,7 @@ owner permits multiple methods. Supersedes the earlier drop-driven layout.
   every person's retained AT trial distribution pooled across all factors.
   Correction on normalizes baseline benefit; off normalizes raw RT. Visibility
   does not change references; constant/undefined scales remain missing.
-- [ ] Complete rendered checks, commit/push, and exact live deployment.
+- [x] Complete rendered checks, commit/push, and exact live deployment.
 
 State: production build, 59 workbook tests, 270 independent JavaScript/pandas
 cases and both rendered browser scripts pass, including all 16 series
@@ -185,8 +185,16 @@ undefined scales. Research/access limits and formulas are in
 workbook/RT_NORMALIZATION.md. The normalized payload loads on demand.
 Keyboard/touch, Pretext, four/six viewports, 200% text and spacing pass; the phone
 controls were visually inspected. Physical iPhone/Safari remains untested.
-Source is ready for commit/push on main; exact CI/live deployment is pending.
-Broader scientific acceptance stays open. Next action: publish and verify live.
+Source commits ebe6e3e/955fccb were pushed on main and included in deployment
+8268f9e. Actions run 39873722384 passed the full reference analyses, numerical
+checks and Pages deployment. Both standard browser scripts then passed against
+the live overview and pivot; deployed app/engine/chart/HTML bytes match that Git
+revision (compare Git blobs, since Windows working copies use CRLF).
+The later combined main build da66210 failed a separate Segment 1 floating-point
+equality test and did not replace this deployment. Its owner retains that work;
+this task did not modify those changes. Broader scientific acceptance stays open.
+Next action: continue the remaining question-led analyses; retain this Segment 0
+normalization contract and verify newer deployments through their own gates.
 
 ### Active amendment — drop-driven field placement
 
