@@ -52,11 +52,16 @@ Next action: connect further current-paper results to their approved manifests
 and port native-only methods in finite batches. The existing
 pivot/frontend work below retains its own execution and deployment evidence.
 
-## Active visualization step — fast pivot table
+## Visualization — fast pivot table and linked chart
 
 Owner-approved priority: fast loading and smartphone compatibility. `/pivot/`
 uses lightweight JavaScript and lazy JSON prepared by the established Python
 owner. This step changes no statistical models or historical manuscripts.
+
+### Verified table foundation
+
+This checklist records the earlier table-only milestone. The linked-chart step
+below supersedes its table-only default and compact-payload size.
 
 - [x] Keep the default page limited to the table, Activate filters and Pivot
   settings. Disabling filters ignores retained selections. Export CSV includes
@@ -92,7 +97,9 @@ At 200% text, small settings use nine ordered control pages; very short enlarged
 worksheets deliberately scroll the outer document. Text-spacing overrides are
 browser-verified because Pretext does not model word spacing. Physical iPhone/
 Safari remains untested. Details are in `docs/engineering/SESSION.md`.
-Current extension: a linked descriptive chart on `/pivot/`, using the same
+### Linked chart
+
+Verified extension: a linked descriptive chart on `/pivot/`, using the same
 worker result and selection state as the table. No new inference is authorized.
 
 - [x] Add structured pivot series metadata and an SOA default without loading
@@ -101,16 +108,20 @@ worker result and selection state as the table. No new inference is authorized.
   gaps, multi-measure selection and empty/error states; preserve table exports.
 - [x] Verify combined Condition/SOA filters, grouping/measure/summary changes,
   source races, mobile/enlarged layouts, notebook gates and production build.
-- [ ] Record the verified Git state and exact publication outcome.
+- [x] Record the verified Git state and exact publication outcome.
 
 State: local implementation, 60 numerical parity cases, chart fixtures, 59 workbook
 tests, strict/WASM notebooks, native fallback and audited production build pass.
 Browser checks cover six viewports, 200% text, spacing, source races and CSV identity.
 The compact SOA payload is 51,603 bytes; no new runtime dependency was added.
-Publication of this extension remains pending; prior deployed evidence above
+Implementation `e111a63` is included in deployed source `c40d470` on `main`.
+The complete CI/reference analysis, independent numerical validation and Pages
+deployment pass. Six live pivot assets match the reviewed bytes; the complete
+browser regression also passes on the live page, including combined filters,
+CSV identity and the six-size/enlarged-text matrix. Prior deployed evidence above
 belongs to the earlier table-only version. Physical iPhone/Safari remains untested.
-Next action: publish the verified linked chart and inspect the exact deployment. The broader living-publication
-and scientific inference goals remain open.
+Next action: use the linked pivot to choose the next descriptive comparison.
+The broader living-publication and scientific inference goals remain open.
 
 Visualization skill setup (2026-10-21): the five owner-requested figure,
 exploration and uncertainty skills are installed and routed in `SKILLS.md`;

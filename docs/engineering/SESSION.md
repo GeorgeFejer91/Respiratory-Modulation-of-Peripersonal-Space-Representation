@@ -27,7 +27,18 @@ SVG tick collisions and Escape/focus are checked. SVG text/word-spacing geometry
 is browser-verified rather than a Pretext line-box parity claim. Physical iPhone/
 Safari is untested. The chart and table use deliberate document flow on phones.
 The Windows HTTP preview needs `.mjs` served as JavaScript. No private data enter
-the preview or build. Publication of the linked extension is pending.
+the preview or build.
+
+Publication verified: implementation `e111a63` is included in deployed `c40d470`
+on `main`, alongside the separately owned overview. The complete CI/reference
+analysis, independent validation and Pages deployment pass. Live HTML, application,
+chart, engine, layout and CSS bytes match the reviewed pivot source. The entire
+browser regression passes against the live URL, including combined Condition/SOA
+filters, exact CSV bytes, all source/measure/grouping changes and the six-size/
+200%-text matrix. The earlier implementation-only run was superseded by the
+combined build rather than a numerical failure. Concurrent overview edits in the
+original checkout were preserved; the evidence update uses an isolated checkout.
+The broader publication/scientific readiness goal remains open.
 
 ## Earlier table-only release
 
