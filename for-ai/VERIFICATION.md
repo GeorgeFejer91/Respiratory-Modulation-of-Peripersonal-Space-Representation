@@ -26,7 +26,12 @@ scrollable table and in CSV; exclusion flags remain and no summary chart is show
 Adding factors returns to the labelled retained-AT means source. Check condition-
 only and phase/condition summaries without SOA, all four cells with SOA, raw/corrected
 RT, Mean/Mean ± SD presentation in both views, button filters, no visible checkboxes,
-table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Run
+table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Check that
+the baseline toggle starts on, then switch off/on with mouse, Space and Enter. Verify
+its accessible switch name/state, visible formula, Baseline − RT direction against
+the original baseline/RT values, and `baseline_benefit_ms` CSV identity. Do not
+negate SDs, clamp negatives, fill missing corrections or mutate original records.
+The ungrouped record view disables the toggle and preserves source columns. Run
 `check_pivot_javascript.py` for independent pandas means, sample SDs and n across
 all grouping/correction/cohort/filter combinations. Retain unequal within-person
 counts, n=1/undefined SD, missing values and zero-valued means. Repeated condition/

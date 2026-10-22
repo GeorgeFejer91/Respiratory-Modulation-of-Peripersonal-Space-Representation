@@ -23,6 +23,9 @@ def validate(node):
     frames["people-edge"] = pd.DataFrame({"participant_id": ["A", "A", "A", "B", "B", "C"],
         "soa_ms": [1, 1, 1, 1, 1, 2], "phase": ["I", "I", "E", "I", "E", "I"],
         "rt": [2., 4., 6., 10., 14., 0.]})
+    frames["benefit-edge"] = pd.DataFrame({"participant_id": ["A", "B", "C", "D"],
+        "soa_ms": [100, 100, 200, 300], "reaction_time_ms": [400., 700., 500., 500.],
+        "baseline_mean_ms": [500., 600., 500., 600.], "corrected_rt_ms": [-100., 100., 0., None]})
     snapshots = [dict(columns=["group", "rt", "flag", "empty"], rows=[
         dict(group="x", rt="2.25", flag="True", empty=""),
         dict(group="y", rt="", flag="False", empty="")])]
@@ -54,7 +57,7 @@ def validate(node):
                         totals=False, cohort="Primary behavioural cohort", filtersEnabled=enabled, filters={"phase": ["Exhale"]})
         cases.append(dict(frame="Participant-distance means", settings=settings))
     for columns in [[], ["phase"], ["condition"], ["condition", "phase"]]:
-        for value in ["reaction_time_ms", "corrected_rt_ms"]:
+        for value in ["reaction_time_ms", "corrected_rt_ms", "baseline_benefit_ms"]:
             for cohort in ["Primary behavioural cohort", "Full release", "Exclude P011", "Exclude P033"]:
                 for filtered in [False, True]:
                     cases.append(dict(frame="Participant-distance means", settings=dict(rows=["soa_ms"], columns=columns,
@@ -72,6 +75,9 @@ def validate(node):
         cases.append(dict(frame="Participant-distance means", settings=dict(rows=rows, columns=columns,
             values=["reaction_time_ms"], aggregation="Mean", totals=False, cohort="Primary behavioural cohort",
             participantSummary=True, filtersEnabled=False)))
+    for aggregation in ["Mean", "Minimum", "Maximum", "Standard deviation"]:
+        add("benefit-edge", ["soa_ms"], [], ["baseline_benefit_ms"], aggregation)
+    add("benefit-edge", [], [], ["baseline_benefit_ms"], "Mean", rawRecords=True)
     payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots)
     runner = Path(__file__).with_name("check_pivot_javascript.mjs")
     process = subprocess.run([node, str(runner)], input=json.dumps(payload, allow_nan=False), text=True,
@@ -94,6 +100,9 @@ def validate(node):
             assert observed["rows"] == expected["rows"]
             assert observed["count"] == source_count
             continue
+        if "baseline_benefit_ms" in settings["values"]:
+            frame["baseline_benefit_ms"] = (frame.baseline_mean_ms - frame.reaction_time_ms).where(
+                frame.corrected_rt_ms.notna())
         if settings.get("participantSummary"):
             keys = list(dict.fromkeys(["participant_id", *settings["rows"], *settings["columns"]]))
             frame = frame.groupby(keys, dropna=False, as_index=False)[settings["values"]].mean()

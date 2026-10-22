@@ -53,6 +53,8 @@ embedded dialogs reserving its visible height.
 Current extension: an Excel-style field list assigns factors to Rows/Columns,
 including removable SOA, with baseline-corrected/uncorrected RT and optional ±1
 sample-SD presentation in both views. Removing all factors shows trial records.
+The latest display amendment makes correction a default-on toggle showing
+Baseline − RT, with its own named CSV measure; fixed analyses retain their sign.
 Unselected factors are averaged within person before across-person mean/SD/n.
 The table/CSV preserve those statistics; n<2 has undefined SD. The raw/corrected
 compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
@@ -87,6 +89,25 @@ the zero tick, and the field-list browser checks verify the rendered label on
 corrected plots. Continue the active field-list amendment below.
 
 ## Visualization — fast pivot table and linked chart
+
+### Active amendment — baseline benefit toggle
+
+Owner request (2026-10-22): Segment 0 starts with baseline correction on and uses
+a toggle to switch to uncorrected RT. Corrected display is Baseline − AT RT,
+labelled `baseline_benefit_ms` in CSV; fixed AT − Baseline analyses stay unchanged.
+Positive means indicate faster responses. Preserve genuine negatives, nulls,
+participant grouping, sample SD/n and the existing zero-reference rule.
+
+- [x] Add the default-on accessible switch and shared derived table/chart measure.
+- [x] Independently verify sign, missingness, grouping, SD/n and original records.
+- [ ] Verify rendered local behavior, publish and exercise the exact live deployment.
+
+State: 170 independent JavaScript/pandas cases, 59 workbook tests, production
+build and the overview/standalone rendered browser checks pass. Keyboard Space/
+Enter and pointer switching restore identical corrected means/SDs; chart/table/
+CSV identify Baseline − RT. The compact payload remains unchanged at 63,941 bytes.
+Next action: complete the authorized Git/Pages flow and verify actual live behavior.
+The overall scientific/publication goal remains open.
 
 ### Active amendment — field-based Segment 0
 

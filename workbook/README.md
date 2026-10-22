@@ -20,8 +20,14 @@ move, reorder or remove it using the same actions with a keyboard. SOA is option
 Removing all fields (or **Clear layout**) displays the selected cohort's individual
 trial records, including retained/excluded flags, without aggregation or a summary
 chart. Adding a field returns to summaries of retained Audio–Tactile participant
-means, and the table and chart update together. **Reaction time** chooses baseline
-correction; **Display** selects means with or without sample SD in both views.
+means, and the table and chart update together. The **Baseline correction** toggle
+starts on: **Baseline − RT (ms)**, using the existing retained participant × condition
+× phase baseline mean. Positive values indicate faster-than-baseline responses;
+negative values remain visible. Switch it off for uncorrected RT. The corrected
+CSV measure is `baseline_benefit_ms`; this reverses the existing `corrected_rt_ms`
+without changing source records or historical analyses. The toggle is disabled
+in the ungrouped original-record view. **Display** selects means with or without
+sample SD in both views.
 Full-value details and CSV always retain SD/n. Trial records load only when needed.
 **Pivot settings** keeps cohort and calculation controls; the standalone pivot below
 also provides the broader data-source catalogue. Nonnegative plots start at zero;
@@ -80,7 +86,7 @@ subpage keeps the expanded explorer, heatmap, source inspection and separate
 CSV/settings downloads. Its source is `exploratory_figures.py`; both pages share
 the same authoritative preparation and saved-result snapshot catalogue.
 
-Corrected RT is AT minus the retained participant × condition × phase Baseline
+The original `corrected_rt_ms` is AT minus the retained participant × condition × phase Baseline
 mean, in ms. Default means weight participant-distance cells equally; trial
 summaries weight trials equally. MAIA is baseline-only and spatial ratings are
 per condition, with unverified pictogram anchors. Questionnaire values repeated

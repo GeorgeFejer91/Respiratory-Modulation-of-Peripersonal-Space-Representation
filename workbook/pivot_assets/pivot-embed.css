@@ -18,6 +18,12 @@ body.embedded-core, body.embedded-core[data-flow=true] {
 .field-area span,.field-hint { color:var(--muted); font-size:.85em; }
 #core-values label { display:grid; gap:4px; }
 #core-values label>span { font-size:.85em; }
+#core-correction { display:flex; align-items:center; flex-wrap:wrap; gap:8px; text-align:left; }
+#core-correction-formula { font-size:.85em; color:var(--muted); }
+.correction-track { flex:0 0 32px; height:20px; padding:2px; border:1px solid var(--ink); border-radius:12px; background:var(--wash); }
+.correction-track::after { content:''; display:block; width:14px; height:14px; border-radius:50%; background:var(--ink); }
+#core-correction[aria-checked=true] .correction-track { background:var(--link); border-color:var(--link); }
+#core-correction[aria-checked=true] .correction-track::after { margin-left:auto; background:var(--paper); }
 #core-filter { justify-self:start; }
 .embedded-core button[aria-pressed=true] { background:var(--wash); border-color:var(--ink); font-weight:bold; }
 .embedded-core #field-menu { height:auto; max-height:var(--host-dialog-height,calc(100dvh - 24px)); width:min(360px,calc(100% - 24px)); }

@@ -28,6 +28,15 @@ assert.equal(participantResult.stats[1][0].n, 1);
 assert.equal(participantResult.stats[1][0].sd, null);
 assert(csvText(participantResult).includes(' · SD'));
 const frame = payload.frames['Participant-distance means'];
+assert(!frame.columns.includes('baseline_benefit_ms'), 'Derived display values must not mutate the cached source');
+const benefitSettings = { rows: ['soa_ms'], columns: [], values: ['baseline_benefit_ms'],
+  aggregation: 'Mean', totals: false, cohort: 'Full release', filtersEnabled: false, participantSummary: true };
+const benefit = pivot(payload.frames['benefit-edge'], benefitSettings);
+assert.deepEqual(benefit.rows.map(row => row[1]), [0, 0, null]);
+assert.equal(benefit.stats[0][0].n, 2);
+assert.equal(benefit.stats[1][0].sd, null);
+assert.equal(benefit.stats[2][0].n, 0);
+assert.equal(chartModel(benefit, benefitSettings, 'baseline_benefit_ms').yLabel, 'Mean · Baseline − RT (ms)');
 const selection = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms', 'reaction_time_ms'],
   aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: true,
   filters: { condition: ['Control'], soa_ms: [300, 1500] } };

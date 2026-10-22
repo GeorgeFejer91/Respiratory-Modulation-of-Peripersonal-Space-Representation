@@ -49,11 +49,19 @@ five adjusted fits/five additional predictive folds in `session_specification.js
 and `SESSION_RESULTS.md` under that results directory. Early blocks of each
 intervention are not a fatigue exclusion. Neither time adjustment nor smoothing
 guarantees a supported PPS parameter effect.
-The owner explicitly specifies `corrected RT = Audio–Tactile RT − Baseline RT`.
+Fixed analyses retain `corrected RT = Audio–Tactile RT − Baseline RT`.
 Use the existing within-participant × Condition × Phase baseline mean as the
 primary correction for both interventions and phases; retain same-nominal-SOA
 subtraction as a timing-unverified sensitivity and raw RT as a reference. Propagate
 baseline-estimation uncertainty. Plateau normalization is not baseline subtraction.
+Owner display amendment (2026-10-22): Segment 0's baseline correction is a toggle,
+on by default, showing `baseline_benefit_ms = Baseline RT − Audio–Tactile RT`.
+Use the same matched baseline and retained data; preserve participant-weighted
+means, sample SD/n, nulls and negative values. Off shows uncorrected RT. Label the
+direction in the table/chart and the derived CSV measure explicitly. Original
+trial records and `corrected_rt_ms` remain unchanged, including the ungrouped
+table, fixed analysis outputs and standalone pivot. Disable the toggle for the
+ungrouped original-record view. This display reversal is not a new model/refit.
 
 Retain the joint hierarchical sigmoid as the first nonlinear approach, alongside
 frequentist nonlinear estimation and linear/log-distance models. Report midpoint

@@ -20,12 +20,12 @@ let workerFailure;
 let chartGeometry = '';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
 if (coreView) {
-  settings.values = ['reaction_time_ms'];
+  settings.values = ['baseline_benefit_ms'];
   settings.totals = false;
   settings.sdWhiskers = true;
   byId('totals').checked = false;
   byId('core-controls').hidden = false;
-  byId('choose-values').textContent = 'Values: reaction_time_ms';
+  byId('choose-values').textContent = 'Values: baseline_benefit_ms';
   byId('source').replaceChildren(new Option('Core behavioural data', 'means'));
   byId('source').disabled = true;
   byId('choose-rows').closest('section').hidden = true;
@@ -43,14 +43,17 @@ function coreControls() {
   byId('core-spread').closest('label').hidden = settings.aggregation !== 'Mean';
   byId('totals').disabled = true;
   byId('totals').checked = false;
-  byId('core-correction').value = settings.values[0] === 'corrected_rt_ms' ? 'corrected' : 'raw';
+  const corrected = settings.values[0] === 'baseline_benefit_ms';
+  byId('core-correction').setAttribute('aria-checked', String(corrected));
+  byId('core-correction-state').textContent = corrected ? 'On' : 'Off';
+  byId('core-correction-formula').textContent = corrected ? 'Baseline − RT (ms)' : 'Uncorrected RT (ms)';
   byId('core-filter').setAttribute('aria-pressed', String(settings.filtersEnabled));
   byId('core-filter').textContent = settings.filtersEnabled ? 'Deactivate filters' : 'Activate filters';
   refreshCoreFields();
 }
 if (coreView) {
-  byId('core-correction').onchange = () => {
-    settings.values = [byId('core-correction').value === 'corrected' ? 'corrected_rt_ms' : 'reaction_time_ms'];
+  byId('core-correction').onclick = () => {
+    settings.values = [settings.values[0] === 'baseline_benefit_ms' ? 'reaction_time_ms' : 'baseline_benefit_ms'];
     byId('choose-values').textContent = `Values: ${settings.values[0]}`;
     update();
   };
@@ -362,7 +365,7 @@ async function chooseSaved() {
 byId('source').onchange = event => event.target.value === 'saved' ? chooseSaved() : changeSource(event.target.value);
 byId('saved-table').onclick = chooseSaved;
 byId('pages-open').onclick = () => byId('page-links').showModal();
-byId('about-data').onclick = () => showDetail('Totals are recomputed from the underlying source records. Corrected RT = retained Audio–Tactile RT − participant × Condition × Phase baseline mean. Repeated distance cells are not extra participants. P011 and P033 have linked recordings and are excluded from the primary behavioural cohort. Saved parameter summaries remain descriptive; averaging posterior medians does not fit a new model.');
+byId('about-data').onclick = () => showDetail((coreView ? 'Baseline correction on: participant × Condition × Phase baseline mean − retained Audio–Tactile RT. Positive values indicate faster responses than baseline; negative values remain visible. Off: uncorrected RT. ' : '') + 'Totals are recomputed from the underlying source records. The original corrected_rt_ms field remains retained Audio–Tactile RT − participant × Condition × Phase baseline mean. Repeated distance cells are not extra participants. P011 and P033 have linked recordings and are excluded from the primary behavioural cohort. Saved parameter summaries remain descriptive; averaging posterior medians does not fit a new model.');
 byId('filter-help').onclick = () => showDetail('Add a field, then choose the values to include. Empty selections include all values, including missing entries. Disabling Activate filters ignores every selection and preserves them for later. Clear filters removes all field selections.');
 byId('chooser').addEventListener('close', () => { byId('source').value = source; });
 byId('table-height').oninput = event => {

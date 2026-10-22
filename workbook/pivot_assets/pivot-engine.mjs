@@ -78,6 +78,14 @@ export function pivot(frame, settings) {
     return { columns: frame.columns, rows, rawRecords: true, axisCount: 0,
       count: rows.length, dataRowCount: rows.length, series: [], contexts: {} };
   }
+  // Display benefit reverses the established correction without changing source records.
+  if (settings.values.includes('baseline_benefit_ms') && !frame.columns.includes('baseline_benefit_ms')) {
+    const corrected = frame.columns.indexOf('corrected_rt_ms');
+    if (corrected < 0) throw new Error('Baseline correction is unavailable for this source.');
+    frame = { ...frame, columns: [...frame.columns, 'baseline_benefit_ms'],
+      numeric: [...frame.numeric, 'baseline_benefit_ms'], types: { ...frame.types, baseline_benefit_ms: 'number' },
+      rows: frame.rows.map(row => [...row, row[corrected] === null ? null : -row[corrected]]) };
+  }
   if (settings.participantSummary) {
     if (settings.aggregation !== 'Mean' || !frame.columns.includes('participant_id')) {
       throw new Error('Participant summaries require participant IDs and Mean.');

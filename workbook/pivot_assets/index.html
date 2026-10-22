@@ -19,7 +19,7 @@
     <div class="field-layout">
       <section><h3 data-fit-label>Rows</h3><div id="field-rows" class="field-area" aria-label="Row fields"></div></section>
       <section><h3 data-fit-label>Columns</h3><div id="field-columns" class="field-area" aria-label="Column fields"></div></section>
-      <section id="core-values"><h3 data-fit-label>Values</h3><label><span data-fit-label>Reaction time</span><select id="core-correction"><option value="raw">Baseline uncorrected</option><option value="corrected">Baseline corrected</option></select></label><label><span data-fit-label>Display</span><select id="core-spread"><option value="sd">Mean ± SD</option><option value="mean">Mean only</option></select></label></section>
+      <section id="core-values"><h3 data-fit-label>Values</h3><button id="core-correction" type="button" role="switch" aria-checked="true" aria-label="Baseline correction" aria-describedby="core-correction-formula"><span class="correction-track" aria-hidden="true"></span><span data-fit-label>Baseline correction</span><strong id="core-correction-state" aria-hidden="true" data-fit-label>On</strong></button><span id="core-correction-formula" data-fit-label>Baseline − RT (ms)</span><label><span data-fit-label>Display</span><select id="core-spread"><option value="sd">Mean ± SD</option><option value="mean">Mean only</option></select></label></section>
     </div>
     <button id="core-filter" aria-pressed="false" data-fit-label>Activate filters</button>
   </section>

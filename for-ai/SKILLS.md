@@ -73,6 +73,8 @@ installed or executed during skill setup.
 
 For Study 5, preserve the four Condition × Phase cells, AT minus Baseline sign,
 participant pairing, primary40/linkage sensitivities and existing exclusions.
+The separately labelled Segment 0 display benefit reverses this sign under the
+owner's current request; see `PROJECT.md`. Fixed analysis outputs stay unchanged.
 Do not treat trials or pooled posterior medians as independent participants.
 Use approved participant-level resampling or posterior draws for inferential
 intervals; separate observed RTs from imposed sigmoid geometry and smoothing.
