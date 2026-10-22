@@ -12,20 +12,22 @@
     "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
   },
   "source_sha256": {
-    "workbook/pps_soa.py": "ba00b14b8162d046baf9d4954eae1d6a2eb4129aa3043122137b30bed63c7d15",
+    "workbook/pps_soa.py": "dbc45c7225e6ad02d7a702260076a7f670b220f8202c2278c90566821f2542f6",
+    "workbook/test_pps_soa.py": "eff3292cb5c90749ec207392ce42a2bf3554557a36c095d679b70c222d0c9d11",
     "workbook/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
     "workbook/inference.py": "85a9ad5119486de16592646086d404bbf5717d510965209fc2e12d386cddf4f5",
     "workbook/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
-    "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945"
+    "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945",
+    "workbook/requirements-validation.txt": "e9391f2d5e7a322f46fab8ca0ad75240676b80804915864ef8f56979306d64d5"
   },
   "artifact_sha256": {
     "SPECIFICATION.md": "02e39fc9b1ce4857f96036ac5dfe6375a5dbb86fae7d4d4995ac3a6e5b812b92",
-    "results.json": "08dfcc01da927d0d26d1c8052eb25eac1fb4eb03b40ed8e860602670e25835ba",
-    "participant_cells.csv": "019fa80fde3e6be4cb8b47511a1822a5fd3c80c03d0b3bd4a9a022ced5b953fe",
-    "summary.csv": "4f212d28b5a374907c3ace8aa28797ad264e4caf00a55c08f7d13421f98f14cb",
-    "soa_rt.svg": "289c2a4b8911fe470766b95b719ae1daefb5902b849898c5802b54528ab064c7",
+    "results.json": "e749e681636d04efe3228c06abd6d39fe650313ae4a748df1113c18223791f88",
+    "participant_cells.csv": "dadb517b15c792aa96171cdf0fa978ff80babe0fa6ddafd86590d9b797b43eb8",
+    "summary.csv": "d978f014d42338590f7584d8b20a703e1f6b47cb832b20f91082ed4bba1466aa",
+    "soa_rt.svg": "fdfb78000e0cd417a16b2fc91f44436cb39ec82427143721efb7d64f3b520de1",
     "soa_rt.png": "107b3a521c7184ca6c5a5e4a94a06210ef3a92c200dec4bbca08e2c2b0210fd8",
     "diagnostics.png": "19d207ff91fdfbb898caa526b99914ba6b15b8f2b60327f69f4c19143a520b13",
-    "RESULTS.md": "df37f3f1c1d0c90d0e42066444afb5cf408030f2bf705444903d793d77a9e6ee"
+    "RESULTS.md": "fc4c83501fa19985b3a5aedf3216c25f51c82a66e4d51e791ed33015fd0db8b8"
   }
 }

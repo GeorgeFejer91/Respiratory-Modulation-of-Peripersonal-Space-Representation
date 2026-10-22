@@ -75,9 +75,9 @@ def build(root):
             warning="Full release includes dependent linked recordings" if not excluded else "Unresolved linked-record attribution"))
     report["runtime"] = dict(python=platform.python_version(), numpy=np.__version__,
         scipy=scipy.__version__, matplotlib=matplotlib.__version__)
-    (output / "results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8")
+    (output / "results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
     with (output / "participant_cells.csv").open("w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, lineterminator="\n")
         writer.writerow(["participant_id", "condition", "phase", "soa_ms", "reaction_time_ms"])
         for pid, cells in zip(report["participant_ids"], cube):
             for ci, condition in enumerate(CONDITIONS):
@@ -85,7 +85,7 @@ def build(root):
                     for si, soa in enumerate(SOAS):
                         writer.writerow([pid, condition, phase, int(soa), cells[ci, pi, si]])
     with (output / "summary.csv").open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=list(report["summary"][0]))
+        writer = csv.DictWriter(file, fieldnames=list(report["summary"][0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(report["summary"])
     with plt.rc_context({"font.family":"DejaVu Sans", "font.size":12, "svg.fonttype":"none",
@@ -100,6 +100,9 @@ def build(root):
                xticks=SOAS, xlim=(180, 2820), ylim=(0, max(means.max(), (group+half).max())*1.06))
         ax.legend(frameon=False, loc="lower left", fontsize=11)
         fig.savefig(output / "soa_rt.svg", metadata={"Date":None}, facecolor="white")
+        # Canonical text bytes survive Git's Windows/Linux line-ending policy.
+        svg = output / "soa_rt.svg"
+        svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n", encoding="utf-8", newline="\n")
         fig.savefig(output / "soa_rt.png", dpi=300, facecolor="white")
         plt.close(fig)
         fig, axes = plt.subplots(2, 2, figsize=(8, 7), layout="constrained")
@@ -123,7 +126,8 @@ incomplete exclusions: {report['incomplete_excluded'] or 'none'}. P011/P033 excl
 {finding} This is an SOA check, not proof
 of a specifically spatial PPS mechanism, sigmoid or physiological boundary.
 
-**Figure 1**  
+**Figure 1**
+
 *Observed reaction times across stimulus onset asynchronies*
 
 ![Participant RT profiles and group means](soa_rt.svg)
@@ -170,14 +174,14 @@ This is a basic SOA check; temporal expectancy/foreperiod explanations remain.
 Statistical and figure review used Scientific Agent Skills: Kassis, T., Agarwal,
 V., He, Y., Patel, D., & Brueckner, A. M. (2026). *Scientific Agent Skills: A Library
 of Procedural Knowledge for Research Agents*. https://doi.org/10.48550/arXiv.2609.00065
-""", encoding="utf-8")
+""", encoding="utf-8", newline="\n")
     artifacts = ["SPECIFICATION.md", "results.json", "participant_cells.csv", "summary.csv", "soa_rt.svg", "soa_rt.png", "diagnostics.png", "RESULTS.md"]
-    source_paths = ["workbook/pps_soa.py", "workbook/paper_analysis.py", "workbook/inference.py", "workbook/preparation.py", "workbook/requirements.txt"]
+    source_paths = ["workbook/pps_soa.py", "workbook/test_pps_soa.py", "workbook/paper_analysis.py", "workbook/inference.py", "workbook/preparation.py", "workbook/requirements.txt", "workbook/requirements-validation.txt"]
     manifest = dict(classification="exploratory", execution=report["execution"], runtime=report["runtime"],
         input_sha256={name:sha256((root/"data/raw"/name).read_bytes()).hexdigest() for name in FILES},
         source_sha256={p:sha256((root/p).read_bytes()).hexdigest() for p in source_paths},
         artifact_sha256={p:sha256((output/p).read_bytes()).hexdigest() for p in artifacts})
-    (output / "manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8")
+    (output / "manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8", newline="\n")
     with zipfile.ZipFile(output / "results.zip", "w", zipfile.ZIP_DEFLATED) as archive:
         for name in [*artifacts, "manifest.json"]:
             archive.write(output / name, name)

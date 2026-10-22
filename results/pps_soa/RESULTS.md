@@ -6,7 +6,8 @@ incomplete exclusions: none. P011/P033 excluded.
 The omnibus test supports different population mean RTs across SOAs. This is an SOA check, not proof
 of a specifically spatial PPS mechanism, sigmoid or physiological boundary.
 
-**Figure 1**  
+**Figure 1**
+
 *Observed reaction times across stimulus onset asynchronies*
 
 ![Participant RT profiles and group means](soa_rt.svg)

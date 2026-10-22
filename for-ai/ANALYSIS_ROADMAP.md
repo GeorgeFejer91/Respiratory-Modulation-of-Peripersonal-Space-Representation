@@ -21,8 +21,13 @@ This replaces its baseline-correction question. Keep the wider publication goal 
   Receipt: `orchestration/project_skills_installation.json`. Exact `consensus-mcp`
   skill unresolved; the connected Consensus tool is available. GSD skills/workflow
   assets installed; compiled CLI/runtime/hooks not installed or executed.
-- [ ] Verify the production page, accessible graph/downloads and responsive layout;
-  commit/push and verify the exact Pages deployment and live Segment 1.
+- [x] Verify the production page, accessible graph/downloads and responsive layout.
+  Production build, 64 workbook tests and the rendered overview gate pass: four
+  viewports, enlarged text/spacing, Pretext, keyboard/touch, Segment 0/2 preservation
+  and an actual Segment 1 ZIP download matching the verified archive. All 17 result
+  manifest hashes match canonical staged Git bytes. Skill validation rechecks all
+  55 entries and 380 installed-file hashes. Physical iPhone/Safari remains untested.
+- [ ] Commit/push and verify the exact Pages deployment and live Segment 1.
 
 State: native primary N = 40, F(2.52, 98.11) = 3.28, p = .031, partial eta squared
 = .078, GG epsilon = .629. Mean RT decreases from 681.47 to 665.69 ms across the
@@ -31,8 +36,9 @@ Tail deviations remain visible in contrast Q–Q plots; inferential assumptions 
 temporal-expectancy alternatives remain. This establishes neither a spatially
 specific PPS mechanism nor a physiological boundary. New source owner is
 `workbook/pps_soa.py`; saved native results are displayed, not fitted in-browser.
-Work proceeds in the managed `codex/pps-soa-check` worktree from source `955fccb`.
-Next action: production-build/browser gates, then authorized publication.
+Work proceeds in the managed `codex/pps-soa-check` worktree from source `955fccb`,
+preserving the independently published Segment 2 addition `8268f9e` in integration.
+Next action: authorized push, exact CI/Pages deployment and live verification.
 
 Owner decision (2026-10-21, D-0015): develop the current publication primarily as
 a live HTML paper on GitHub Pages, with its analysis available there and versioned
@@ -75,9 +81,10 @@ sessions. Keep this publication goal open until its scientific acceptance gates 
 - [ ] Complete author/scientific review and verify the exact Pages deployment
   and live paper/analysis paths; only then label that release publication-ready.
 
-State: the landing page is a compact nine-section overview. Segment 0 is only
+State: the landing page is a compact ten-section overview. Segment 0 is only
 its central descriptive pivot chart/table; later sections each contain one question
-and a link to analysis/evidence. Narrative and detailed limitations remain in linked
+and links to analysis/evidence. Segment 2 also gives a compact RT phase answer.
+Narrative and detailed limitations remain in linked
 reports. The executable workbook remains at `workbook.html`; models/data are unchanged.
 The desktop menu remains fixed; phones use the collapsible bottom menu, with
 embedded dialogs reserving its visible height.
@@ -115,6 +122,38 @@ The explicit zero tick refinement is commit `ae6d7ba`; run 39813873259 subsequen
 completed successfully, including Pages deployment. Its served JavaScript includes
 the zero tick, and the field-list browser checks verify the rendered label on
 corrected plots. Continue the active field-list amendment below.
+
+## Segment 2 — overall inhale versus exhale RT
+
+Owner request (2026-10-23): add Segment 2 answering whether RTs were generally
+faster during inhale. The existing response-level paired contrasts already answer
+this; no new fitting or cleaning is needed. Later sections are renumbered 3–9,
+with their existing anchors preserved.
+
+- [x] Add the question, compact answer, cohort/weighting labels and links to the
+  saved native report and complete contrast/sensitivity CSV.
+- [x] Independently reproduce primary40 raw and pooled-baseline phase estimates,
+  paired t statistics, two-sided p values and 95% CIs from released participant
+  cells, and verify the displayed rounding (`workbook/test_overview.py`).
+- [x] Run the production build, 60 workbook tests, data audit and overview
+  browser gate: section order/numbering, phase navigation, real Pretext, four
+  viewports, 200% text, spacing, keyboard/touch and existing Segment 0 controls.
+- [ ] Commit/push and verify exact CI, Pages deployment and changed live behavior.
+
+Result: raw Inhale−Exhale = +18.47 ms (95% CI 6.96 to 29.98; p=.0024),
+so raw AT responses were slower during inhale. Matched AT−Baseline phase contrast
+= −2.16 ms (95% CI −12.15 to 7.82; p=.664), inconclusive. Equal condition/SOA
+weights within each of 40 participants; P011/P033 excluded; unadjusted tests.
+These exploratory native results do not establish a PPS parameter effect or
+browser execution of the analysis. The source data and saved results are unchanged.
+
+Local evidence: production build `.for-ai-local/phase-site`, independent numerical
+test and complete overview browser script pass; desktop screenshot visually
+reviewed. Windows build uses Python UTF-8 mode. RTK is unavailable here; bounded
+native commands and the reviewed local GSD/Superpowers fallback guides were used.
+Physical iPhone/Safari and scientific publication acceptance remain open.
+Branch: main; source/publication pending. Next action: commit, push and verify the
+exact deployment, then resume the remaining living-publication checklist.
 
 ## Visualization — fast pivot table and linked chart
 

@@ -19,6 +19,11 @@ For changes to the question-led landing page, serve a production build and run
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
+For Segment 2, run `python -m unittest discover -s workbook -p 'test_overview.py' -v`
+to independently reproduce the paired primary40 phase contrasts from released
+participant cells and check the saved results and displayed rounding. Check its
+position/numbering, native-result labels, evidence links, Pretext measurements,
+navigation and reflow in the overview browser gate.
 For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
 drag/drop controls, all 16 combinations of the four native Condition/Phase
 checkboxes, and empty results when either group is unchecked. Check mouse,

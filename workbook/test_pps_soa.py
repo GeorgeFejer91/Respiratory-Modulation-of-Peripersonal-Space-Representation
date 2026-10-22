@@ -1,5 +1,9 @@
 """Independent numerical checks for the basic Segment 1 SOA test."""
 import unittest
+import json
+import zipfile
+from hashlib import sha256
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -68,6 +72,24 @@ class SOATests(unittest.TestCase):
         report, _, _ = analyze(self.people, removed)
         self.assertIn('P001', report['incomplete_excluded'])
         self.assertEqual(report['anova']['n'], 39)
+
+    def test_saved_hashes_archive_and_portable_text_bytes(self):
+        root = Path(__file__).resolve().parents[1]
+        folder = root / 'results/pps_soa'
+        manifest = json.loads((folder / 'manifest.json').read_text(encoding='utf-8'))
+        for section, prefix in (('source_sha256', root), ('input_sha256', root/'data/raw'),
+                                ('artifact_sha256', folder)):
+            for name, digest in manifest[section].items():
+                data = (prefix / name).read_bytes()
+                self.assertEqual(sha256(data).hexdigest(), digest, name)
+                if section == 'artifact_sha256' and name.endswith(('.json','.md','.csv','.svg')):
+                    self.assertNotIn(b'\r\n', data, 'Generated text must survive Git LF conversion')
+        with zipfile.ZipFile(folder / 'results.zip') as archive:
+            self.assertEqual(set(archive.namelist()), {*manifest['artifact_sha256'], 'manifest.json'})
+            for name in archive.namelist():
+                self.assertEqual(archive.read(name), (folder / name).read_bytes())
+        saved = json.loads((folder / 'results.json').read_text(encoding='utf-8'))
+        self.assertEqual(saved['anova'], self.report['anova'])
 
 
 if __name__ == '__main__':
