@@ -14,7 +14,17 @@
   </header>
   <main id="worksheet" aria-label="Pivot worksheet">
     <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><button id="filters-open" hidden data-fit-label>Choose filters</button></div>
-    <div id="table-region" aria-busy="true"><table id="pivot-table"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="error" role="alert" hidden></p></div>
+    <div class="linked-views">
+      <section id="chart-region" aria-labelledby="chart-y-label" aria-busy="true">
+        <div class="chart-controls"><label><span data-fit-label>Chart style</span><select id="chart-style"><option value="auto">Auto</option><option value="line">Line</option><option value="points">Points</option><option value="bars">Bars</option></select></label><label id="chart-measure-control" hidden><span data-fit-label>Chart measure</span><select id="chart-measure"></select></label></div>
+        <h2 id="chart-y-label" data-fit-label>Linked chart</h2>
+        <div id="chart-plot"></div><p id="chart-x-label" data-fit-label></p>
+        <ul id="chart-legend" aria-label="Chart series"></ul>
+        <p id="chart-hover" role="status" data-fit-label>Preparing chart</p>
+        <p id="chart-note" data-fit-label></p>
+      </section>
+      <div id="table-region" aria-busy="true"><table id="pivot-table"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
+    </div>
   </main>
   <footer class="page-footer">
     <div class="pager" aria-label="Table pages"><button id="row-prev" aria-label="Previous rows" ><span class="long-label" data-fit-label>↑ Rows</span><span class="compact-label" data-fit-label>↑</span></button><span id="row-page" data-fit-label></span><button id="row-next" aria-label="Next rows" ><span class="long-label" data-fit-label>Rows ↓</span><span class="compact-label" data-fit-label>↓</span></button><button id="col-prev" aria-label="Previous columns" data-fit-label>←</button><span id="col-page" data-fit-label></span><button id="col-next" aria-label="Next columns" data-fit-label>→</button><button id="export" aria-label="Export CSV"><span class="long-label" data-fit-label>Export CSV</span><span class="compact-label" data-fit-label>CSV</span></button></div>
@@ -25,10 +35,10 @@
       <header><h2 id="settings-title" data-fit-label>Pivot settings</h2><button type="button" data-close="settings" aria-label="Close settings"><span class="long-label" data-fit-label>Close</span><span class="compact-label" data-fit-label>×</span></button></header>
       <div class="stretch-groups" id="settings-groups">
         <section class="control-group"><h3 data-fit-label>1. Data</h3><label><span data-fit-label>Source</span><select id="source"><option value="means">Means</option><option value="trials">All trials</option><option value="participants">Participants</option><option value="saved">Saved tables</option></select></label><button type="button" id="saved-table" hidden data-fit-label>Choose saved table</button><label><span data-fit-label>Cohort</span><select id="cohort"><option value="Primary behavioural cohort">Primary 40</option><option>Full release</option><option value="Exclude P011">− P011</option><option value="Exclude P033">− P033</option></select></label></section>
-        <section class="control-group"><h3 data-fit-label>2. Fields</h3><button type="button" id="choose-rows" data-fit-label>Rows: distance_cm</button><button type="button" id="choose-columns" data-fit-label>Columns: condition, phase</button><button type="button" id="choose-values" data-fit-label>Values: corrected_rt_ms</button></section>
+        <section class="control-group"><h3 data-fit-label>2. Fields</h3><button type="button" id="choose-rows" data-fit-label>Rows: soa_ms</button><button type="button" id="choose-columns" data-fit-label>Columns: condition, phase</button><button type="button" id="choose-values" data-fit-label>Values: corrected_rt_ms</button></section>
         <section class="control-group"><h3 data-fit-label>3. Summary</h3><label><span data-fit-label>Calculation</span><select id="aggregation"></select></label><label class="switch"><input id="totals" type="checkbox" checked><span data-fit-label>Grand totals</span></label><button type="button" id="about-data" data-fit-label>About the data</button><a href="app/" data-fit-label>Open marimo notebook</a></section>
       </div>
-      <footer><button type="button" id="group-prev" data-fit-label hidden>Back</button><span id="group-page" data-fit-label></span><button type="button" id="group-next" data-fit-label hidden>Next</button><button type="submit" data-fit-label>Apply</button></footer>
+      <footer><button type="button" id="group-prev" data-fit-label hidden>Back</button><span id="group-page" data-fit-label></span><button type="button" id="group-next" data-fit-label hidden>Next</button><button type="submit" data-fit-label>Done</button></footer>
     </form>
   </dialog>
   <dialog id="chooser" aria-labelledby="chooser-title"><div class="stretch-panel"><header><h2 id="chooser-title" data-fit-label>Choose fields</h2><button type="button" data-close="chooser" data-fit-label>Done</button></header><label class="search-label"><span data-fit-label>Search</span><input id="search" type="search" autocomplete="off"></label><div id="choices"></div><footer><button id="choice-prev" data-fit-label>Previous</button><span id="choice-page" data-fit-label></span><button id="choice-next" data-fit-label>Next</button></footer></div></dialog>

@@ -18,7 +18,9 @@ function measureLabels() {
     const height = bounds.height - parseFloat(style.borderTopWidth) - parseFloat(style.borderBottomWidth) - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
     const stats = measureLineStats(prepared, width);
     const lineHeight = parseFloat(style.lineHeight);
-    const supported = !parseFloat(style.wordSpacing);
+    // SVG text has painted bounds rather than an HTML line box; verify its
+    // actual tick geometry in the browser instead of claiming height parity.
+    const supported = !parseFloat(style.wordSpacing) && label.namespaceURI !== 'http://www.w3.org/2000/svg';
     const fit = stats.maxLineWidth <= width && stats.lineCount * lineHeight <= height + 1;
     return { label, fit: supported ? (fit ? 'fit' : 'reflow') : 'browser-only', lines: stats.lineCount, natural: measureNaturalWidth(prepared) };
   });

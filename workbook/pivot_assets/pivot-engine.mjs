@@ -84,7 +84,7 @@ export function pivot(frame, settings) {
   }
   const source = selectRecords(frame, settings);
   const rowNames = rows.length ? rows : ['All records'];
-  if (!source.length) return { columns: rowNames, rows: [], axisCount: rowNames.length, count: 0 };
+  if (!source.length) return { columns: rowNames, rows: [], axisCount: rowNames.length, count: 0, dataRowCount: 0, series: [], contexts: {} };
   const rowFields = rows.map(field => frame.columns.indexOf(field));
   const colFields = columns.map(field => frame.columns.indexOf(field));
   const measures = aggregation === 'Row count' ? ['Record count'] : values;
@@ -120,7 +120,15 @@ export function pivot(frame, settings) {
   })));
   if (totals) resultRows.push(['Grand total', ...Array(rowNames.length - 1).fill(''), ...descriptors.map(part =>
     aggregate(part.total || !columns.length ? source : columnGroups.get(part.key).records, part.index))]);
-  return { columns: resultColumns, rows: resultRows, axisCount: rowNames.length, count: source.length };
+  const series = descriptors.map((part, index) => ({ measure: part.measure, group: part.label,
+    total: Boolean(part.total), column: rowNames.length + index }));
+  const contexts = {};
+  for (const field of ['units', 'parameter', 'quantity']) {
+    const index = frame.columns.indexOf(field);
+    if (index >= 0) contexts[field] = [...new Set(source.map(record => record[index]).filter(value => value !== null))];
+  }
+  return { columns: resultColumns, rows: resultRows, axisCount: rowNames.length, count: source.length,
+    dataRowCount: orderedRows.length, series, contexts };
 }
 
 export function csvText(result) {

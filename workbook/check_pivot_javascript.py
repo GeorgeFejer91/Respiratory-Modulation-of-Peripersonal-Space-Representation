@@ -53,7 +53,9 @@ def validate(node):
     payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots)
     runner = Path(__file__).with_name("check_pivot_javascript.mjs")
     process = subprocess.run([node, str(runner)], input=json.dumps(payload, allow_nan=False), text=True,
-                             encoding="utf-8", capture_output=True, check=True)
+                             encoding="utf-8", capture_output=True)
+    if process.returncode:
+        raise RuntimeError(process.stderr)
     actual = json.loads(process.stdout)
     for index, (case, observed) in enumerate(zip(cases, actual["results"], strict=True)):
         settings = case["settings"]
@@ -80,7 +82,7 @@ def validate(node):
                     assert target == value, (index, target, value)
     assert actual["snapshot"] == browser_frame(frames["snapshot"])
     assert actual["csv"] == '\ufeff"a","b"\r\n"=literal","quote""comma,"\r\n'
-    print(f"JavaScript / Python parity: {len(cases)} cases; CSV quoting and snapshot typing pass.")
+    print(f"JavaScript / Python parity: {len(cases)} cases; linked chart cells, combined SOA/condition filters, missingness, totals, CSV and typing pass.")
 
 
 if __name__ == "__main__":

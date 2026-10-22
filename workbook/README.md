@@ -15,16 +15,34 @@ fast pivot as the authoritative implementations until a scoped replacement
 passes numerical and real-browser checks.
 
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
-is a lightweight JavaScript subpage displaying the pivot table. Switch on
+is a lightweight JavaScript subpage with a pivot table and linked chart. The
+initial chart uses SOA (ms) on x and Condition × Phase as series, showing mean
+corrected RT (ms). Both views use the same worker result: field assignments,
+summary, cohort and filter changes update them immediately. Switch on
 **Activate filters** to choose fields and values to keep. Switching it off ignores
 those selections and restores every record in the chosen cohort. Open
 **Pivot settings** to choose participant-distance means, every trial,
 participant/questionnaire records or a saved analysis table, then assign Rows,
-Columns, Values and a summary function. **Export CSV** downloads every pivot row
+Columns, Values and a summary function; **Done** closes settings. Numeric
+summaries offer numeric Values fields; counts also allow text. **Export CSV** downloads every pivot row
 and column, including those outside the current page. Phone controls page across
 both axes rather than squeezing the table into unreadable columns. Settings
 stretch with the available space and page through ordered groups when needed.
 CSV downloads retain full precision; displayed summaries use six significant digits.
+Use **Chart style** for automatic, line, points or grouped bars. A multi-measure
+pivot exposes **Chart measure**, keeping different measures off the same y-axis.
+Other row fields split into additional series; column groups keep their pivot
+identity. Table pagination leaves the chart unchanged. Hover/tap compares every
+series at that x; keyboard focus and arrow keys read individual points. Numeric
+x values keep their actual spacing in line/point views; categorical bar positions
+refer back to full labels on points and table rows. Grand totals are omitted from
+the chart, missing cells break lines, and actual zeros remain visible. Lines
+connect descriptive summaries and supply no fitted model or inferential interval.
+Mixed measurement units in generic saved summaries require a parameter/quantity/
+units filter before plotting. Dense charts show an explicit filter request above
+4,000 cells, 48 series or 100 x values; the full table and export remain available.
+On narrow screens, chart and paginated table use ordinary document scrolling.
+
 The default is the 40-person behavioural cohort; select Full release for all 42
 records. The page performs descriptive aggregation and never refits saved models.
 Saved-table snapshots are built from tracked result CSVs, record their source
@@ -35,7 +53,10 @@ table, with readable browser wrapping as fallback. Text enlargement is preserved
 very short enlarged layouts use ordinary document scrolling.
 `pivot_static.py` exports the existing `pivot_data.py` preparation, sharing the
 established cleaner and questionnaire scorer. JavaScript/Python parity is checked
-with `python workbook/check_pivot_javascript.py` (Node 22).
+with `python workbook/check_pivot_javascript.py` (Node 22 or later). With
+Playwright/Chromium available to Node, `node workbook/check_pivot_browser.cjs
+http://127.0.0.1:8765/pivot/` checks an HTTP-served build, including real selections,
+CSV downloads, missing/empty/error states, source races and rendered text geometry.
 The [marimo pivot notebook](https://georgefejer91.github.io/Study5_Publication/pivot/app/)
 remains available; run it locally with `marimo run workbook/pivot_explorer.py`.
 

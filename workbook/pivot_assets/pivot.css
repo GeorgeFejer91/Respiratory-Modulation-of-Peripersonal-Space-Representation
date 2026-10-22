@@ -15,7 +15,7 @@
 }
 body {
   margin:0;
-  height:100dvh;
+  min-height:100dvh;
   display:grid;
   grid-template-rows:auto minmax(0,1fr) auto;
   font:var(--type)/1.5 Arial,sans-serif;
@@ -124,7 +124,37 @@ main {
   font-size:.9em
 }
 #table-region {
+  height:clamp(280px,55vh,560px);
   min-height:0
+}
+.linked-views { display:grid; gap:1.25rem; align-items:start; }
+#chart-region { display:grid; gap:.5rem; min-width:0; padding-block:.5rem; }
+.chart-controls { display:flex; flex-wrap:wrap; gap:.5rem 1rem; }
+.chart-controls label { display:grid; gap:.25rem; flex:1 1 8rem; }
+.chart-controls label>span { font-size:.9em; }
+#chart-y-label { font-size:1em; overflow-wrap:anywhere; }
+#chart-plot { width:100%; min-height:240px; }
+#chart-plot:empty { min-height:0; }
+#chart-plot svg { display:block; max-width:100%; overflow:visible; }
+.chart-tick { fill:var(--ink); stroke:none; font-size:.85em; }
+.chart-grid { stroke:var(--line); stroke-width:1; }
+.chart-zero { stroke:var(--muted); stroke-dasharray:3 3; }
+[data-chart-point] { cursor:pointer; }
+[data-chart-point]:hover,[data-chart-point]:focus { stroke:var(--ink); stroke-width:4; outline:none; }
+#chart-x-label { text-align:center; }
+#chart-legend { display:flex; flex-wrap:wrap; gap:.25rem 1rem; list-style:none; padding:0; margin:0; }
+#chart-legend li { display:flex; align-items:center; gap:.35rem; font-size:.85em; }
+#chart-legend svg { flex:none; }
+#chart-legend span { overflow-wrap:anywhere; }
+#chart-hover { min-height:3em; overflow-wrap:anywhere; font-size:.9em; }
+#chart-note { color:var(--muted); font-size:.8em; overflow-wrap:anywhere; }
+#empty-table { padding-block:1rem; }
+:root { --chart-1:#175b9e; --chart-2:#b45309; --chart-3:#047857; --chart-4:#9d3e72; --chart-5:#6754a1; --chart-6:#53616c; }
+@media(min-width:1100px) {
+  .linked-views { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+}
+@media(prefers-color-scheme:dark) {
+  :root { --chart-1:#9ccaff; --chart-2:#fbbf77; --chart-3:#80d5b6; --chart-4:#eaa4c9; --chart-5:#c2b2ef; --chart-6:#b7c1ca; }
 }
 table {
   border-collapse:collapse;

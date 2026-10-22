@@ -99,6 +99,18 @@ bounded-label measurements and rendered checks; unsupported word spacing remains
 browser-verified. Record physical-browser/device coverage limits. Verify the default
 minimal view hides filters/settings, activating filters reveals controls, and
 deactivating them restores the chosen cohort regardless of retained selections.
+For the linked chart, verify exact point/cell identity, exclusion of grand totals,
+actual SOA spacing, separate measures/units, sample-SD/count semantics, missing
+gaps versus true zeros, combined Condition/SOA filters and empty/error states.
+The initial compact payload includes SOA and stays below 64 KiB. Table pagination
+must not truncate chart data. Check hover/tap comparisons of overlapping series,
+keyboard point navigation, density limits, source races and mixed-unit warnings.
+With Playwright/Chromium available to Node (or through `NODE_PATH`), run
+`node workbook/check_pivot_browser.cjs <HTTP pivot URL>` against the audited build.
+Its fixtures additionally check broken lines, explicit limits and missing-Pretext
+fallback. Serve `.mjs` as JavaScript; the Windows Python MIME map may require an
+explicit server override. The chart's SVG ticks use actual rendered bounds for
+overlap checks; their Pretext height status is browser-only.
 Run the same strict/WASM checks on `workbook/exploratory_figures.py` and verify
 its heatmap/expanded controls remain available at `/exploratory/`; its saved
 tables must load from the shared `/pivot/app/public/snapshots/` catalogue.

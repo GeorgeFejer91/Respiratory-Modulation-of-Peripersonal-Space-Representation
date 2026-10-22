@@ -82,8 +82,25 @@ At 200% text, small settings use nine ordered control pages; very short enlarged
 worksheets deliberately scroll the outer document. Text-spacing overrides are
 browser-verified because Pretext does not model word spacing. Physical iPhone/
 Safari remains untested. Details are in `docs/engineering/SESSION.md`.
-Next action: use the pivot to choose the next visual comparison. The broader
-living-publication and scientific inference goals remain open.
+Current extension: a linked descriptive chart on `/pivot/`, using the same
+worker result and selection state as the table. No new inference is authorized.
+
+- [x] Add structured pivot series metadata and an SOA default without loading
+  full sources at startup; verify exact cell/point and aggregation consistency.
+- [x] Add responsive chart controls, units, hover/keyboard values, missing-data
+  gaps, multi-measure selection and empty/error states; preserve table exports.
+- [x] Verify combined Condition/SOA filters, grouping/measure/summary changes,
+  source races, mobile/enlarged layouts, notebook gates and production build.
+- [ ] Record the verified Git state and exact publication outcome.
+
+State: local implementation, 60 numerical parity cases, chart fixtures, 59 workbook
+tests, strict/WASM notebooks, native fallback and audited production build pass.
+Browser checks cover six viewports, 200% text, spacing, source races and CSV identity.
+The compact SOA payload is 51,603 bytes; no new runtime dependency was added.
+Publication of this extension remains pending; prior deployed evidence above
+belongs to the earlier table-only version. Physical iPhone/Safari remains untested.
+Next action: publish the verified linked chart and inspect the exact deployment. The broader living-publication
+and scientific inference goals remain open.
 
 Visualization skill setup (2026-10-21): the five owner-requested figure,
 exploration and uncertainty skills are installed and routed in `SKILLS.md`;

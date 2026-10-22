@@ -26,7 +26,7 @@ def build_views(people, trials, destination):
         payload = browser_frame(frame)
         (destination / filename).write_text(json.dumps(payload, allow_nan=False, separators=(",", ":")), encoding="utf-8")
         if filename == "means.json":
-            preview = browser_frame(frame[["participant_id", "condition", "phase", "distance_cm", "corrected_rt_ms"]])
+            preview = browser_frame(frame[["participant_id", "condition", "phase", "soa_ms", "distance_cm", "corrected_rt_ms"]])
             preview_text = json.dumps(preview, allow_nan=False, separators=(",", ":"))
             if len(preview_text.encode("utf-8")) > 65536:
                 raise ValueError("The default pivot data exceeds its 64 KiB startup budget.")

@@ -114,7 +114,10 @@ Python owner. The first table uses only a compact default-view payload; larger
 field sets, trials and saved tables load on demand. Keep Python/Pyodide off this
 page's startup path. Its Pivot settings select the audited release,
 participant-distance means, questionnaires or a lazy catalogue of tracked public
-result CSVs. It contains no heatmap or explanatory report. Pivot interaction
+result CSVs. A linked SVG chart consumes the same structured worker cells as
+the table, initially by SOA with Condition × Phase series. Settings apply live;
+chart measure/style change presentation, with separate units, missing gaps and
+explicit dense/mixed-unit states. It contains no heatmap or explanatory report. Pivot interaction
 remains descriptive; it does not refit models or silently change the paper's
 analysis. The scientific inference roadmap stays open.
 The sibling `/exploratory/` subpage preserves the expanded exploration controls,

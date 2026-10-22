@@ -1,14 +1,16 @@
 import { aggregations, csvText } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
+import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
 
 const byId = id => document.getElementById(id);
 const worker = new Worker(new URL('./pivot-worker.js', import.meta.url), { type: 'module' });
 const pending = new Map();
-let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings, fields = [], numeric = [], catalog;
+let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings, resultSource, fields = [], numeric = [], catalog;
 let rowPage = 0, columnPage = 0, rowCapacity = 8, columnCapacity = 4;
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
-const settings = { rows: ['distance_cm'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
+let chartGeometry = '';
+const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
 const names = { means: 'Participant-distance means', trials: 'All trial records', participants: 'Participants and questionnaires', saved: 'Saved analysis table' };
 const sourceURL = () => source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? 'means-preview' : source}.json`;
 
@@ -45,6 +47,9 @@ async function fullFields() {
 }
 function reportError(error) {
   result = null;
+  clearChart('Chart unavailable. Adjust Pivot settings to calculate both views again.');
+  byId('chart-measure').disabled = true;
+  byId('empty-table').hidden = true;
   byId('pivot-table').tHead.replaceChildren();
   byId('pivot-table').tBodies[0].replaceChildren();
   byId('table-caption').textContent = 'Pivot unavailable';
@@ -57,12 +62,13 @@ function reportError(error) {
   byId('error').hidden = false;
   byId('table-region').setAttribute('aria-busy', 'false');
   byId('export').disabled = true;
-  byId('status').textContent = 'Adjust Pivot settings and apply again.';
+  byId('status').textContent = 'Adjust Pivot settings to calculate again.';
 }
 async function update() {
   const revision = ++generation;
   const submitted = structuredClone(settings);
   byId('table-region').setAttribute('aria-busy', 'true');
+  byId('chart-region').setAttribute('aria-busy', 'true');
   byId('error').hidden = true;
   byId('export').disabled = true;
   try {
@@ -70,6 +76,7 @@ async function update() {
     if (revision !== generation) return;
     result = reply.result;
     resultSettings = submitted;
+    resultSource = source;
     if (!(source === 'means' && fullMeans && reply.columns.length < fields.length)) {
       fields = reply.columns;
       numeric = reply.numeric;
@@ -78,11 +85,17 @@ async function update() {
     byId('table-region').setAttribute('aria-busy', 'false');
     byId('export').disabled = false;
     byId('summary').textContent = `${result.count.toLocaleString()} source records · ${submitted.filtersEnabled ? 'Filters on' : 'Filters off'}`;
-    const measure = submitted.aggregation === 'Row count' ? 'Records' : submitted.values.join(', ');
-    byId('table-caption').textContent = `${submitted.aggregation} · ${measure === 'corrected_rt_ms' ? 'Corrected RT (ms)' : measure}`;
+    byId('table-caption').textContent = submitted.aggregation === 'Row count' ? 'Records' : submitted.values.map(field => measureLabel(field, submitted.aggregation)).join(' / ');
     byId('status').textContent = source === 'saved' ? saved.source : `${names[source]} · ${submitted.cohort}`;
     document.documentElement.dataset.recordCount = String(result.count);
     renderTable();
+    const measures = submitted.aggregation === 'Row count' ? ['Record count'] : submitted.values;
+    const priorMeasure = byId('chart-measure').value;
+    byId('chart-measure').replaceChildren(...measures.map(field => new Option(fieldLabel(field), field)));
+    if (measures.includes(priorMeasure)) byId('chart-measure').value = priorMeasure;
+    byId('chart-measure').disabled = false;
+    byId('chart-measure-control').hidden = measures.length < 2;
+    drawChart();
     requestAnimationFrame(() => {
       if (!document.documentElement.dataset.readyMs) document.documentElement.dataset.readyMs = performance.now().toFixed(1);
       import('./pivot-layout.js').then(module => module.scheduleLayout()).catch(error => console.warn('Text geometry unavailable; readable browser layout remains active.', error));
@@ -119,7 +132,7 @@ export function renderTable() {
   const displayed = result.columns.slice(start, start + columnCapacity);
   const header = document.createElement('tr');
   const rowTitle = resultSettings.rows.join(' / ') || 'All records';
-  header.append(tableCell('th', rowTitle === 'distance_cm' ? 'Distance (cm)' : rowTitle, rowTitle));
+  header.append(tableCell('th', resultSettings.rows.map(fieldLabel).join(' / ') || 'All records', rowTitle));
   displayed.forEach(label => {
     const shorter = (resultSettings.values.length === 1 || resultSettings.aggregation === 'Row count') && resultSettings.columns.length ? label.split(' · ').slice(1).join(' · ') : label;
     header.append(tableCell('th', shorter, label));
@@ -131,6 +144,7 @@ export function renderTable() {
   rowPage = Math.min(rowPage, Math.max(0, result.rows.length - 1));
   const tbody = table.tBodies[0];
   tbody.replaceChildren();
+  byId('empty-table').hidden = result.count > 0;
   result.rows.slice(rowPage, rowPage + rowCapacity).forEach((row, index) => {
     const tr = document.createElement('tr');
     const rowLabel = row.slice(0, result.axisCount).map(cellText).filter(Boolean).join(' / ');
@@ -148,7 +162,7 @@ export function renderTable() {
     (tbody.rows[0]?.getBoundingClientRect().height || 60) + 12;
   document.body.dataset.flow = String(minimumHeight > document.documentElement.clientHeight);
   byId('row-page').textContent = result.rows.length ? `${rowPage + 1}–${Math.min(rowPage + rowCapacity, result.rows.length)} / ${result.rows.length}` : '0 rows';
-  byId('col-page').textContent = `${Math.min(columnPage * columnCapacity + 1, result.columns.length - result.axisCount)}–${Math.min((columnPage + 1) * columnCapacity, result.columns.length - result.axisCount)} / ${result.columns.length - result.axisCount}`;
+  byId('col-page').textContent = result.count ? `${Math.min(columnPage * columnCapacity + 1, result.columns.length - result.axisCount)}–${Math.min((columnPage + 1) * columnCapacity, result.columns.length - result.axisCount)} / ${result.columns.length - result.axisCount}` : '0 columns';
   byId('row-prev').disabled = rowPage === 0;
   byId('row-next').disabled = rowPage + rowCapacity >= result.rows.length;
   byId('col-prev').disabled = columnPage === 0;
@@ -156,11 +170,26 @@ export function renderTable() {
   document.dispatchEvent(new Event('pivot-layout'));
 }
 
+function drawChart(force = true) {
+  const plot = byId('chart-plot');
+  const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
+  if (result && (force || chartGeometry !== geometry)) {
+    chartGeometry = geometry;
+    renderChart(result, resultSettings, byId('chart-measure').value, byId('chart-style').value, resultSource);
+  }
+}
+byId('chart-measure').onchange = () => drawChart();
+byId('chart-style').onchange = () => drawChart();
+
 for (const name of aggregations) byId('aggregation').add(new Option({ 'Standard deviation': 'Sample SD', 'Count nonmissing': 'Count present', 'Unique values': 'Distinct' }[name] || name, name));
 for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).onclick = () => {
-  openChoices(`Choose ${axis}`, fields.map(field => ({ label: field, value: field })), settings[axis], chosen => {
+  const count = ['Row count', 'Count nonmissing', 'Unique values'].includes(settings.aggregation);
+  const available = fields.filter(field => ['rows', 'columns', 'values'].every(other => other === axis || !settings[other].includes(field)) &&
+    (axis !== 'values' || count || numeric.includes(field) || settings.values.includes(field)));
+  openChoices(`Choose ${axis}`, available.map(field => ({ label: field, value: field })), settings[axis], chosen => {
     settings[axis] = chosen;
     byId(`choose-${axis}`).textContent = `${axis[0].toUpperCase() + axis.slice(1)}: ${chosen.length} fields`;
+    update();
   });
 };
 byId('settings-open').onclick = async () => {
@@ -176,12 +205,11 @@ byId('settings-open').onclick = async () => {
 byId('settings').onclose = () => byId('settings-open').setAttribute('aria-expanded', 'false');
 byId('settings-form').onsubmit = event => {
   event.preventDefault();
-  settings.aggregation = byId('aggregation').value;
-  settings.totals = byId('totals').checked;
-  settings.cohort = byId('cohort').value;
   byId('settings').close();
-  update();
 };
+byId('aggregation').onchange = event => { settings.aggregation = event.target.value; update(); };
+byId('totals').onchange = event => { settings.totals = event.target.checked; update(); };
+byId('cohort').onchange = event => { settings.cohort = event.target.value; update(); };
 byId('filters-enabled').onchange = event => {
   settings.filtersEnabled = event.target.checked;
   byId('filters-open').hidden = !settings.filtersEnabled;
@@ -223,6 +251,9 @@ async function changeSource(key, entry = null) {
   const sourceRevision = ++sourceGeneration;
   generation++;
   source = key; saved = entry; settings.filters = {}; renderFilters();
+  byId('table-region').setAttribute('aria-busy', 'true');
+  byId('chart-region').setAttribute('aria-busy', 'true');
+  byId('export').disabled = true;
   byId('source').value = key;
   byId('status').textContent = `Loading ${names[key]}…`;
   for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).disabled = true;
@@ -233,7 +264,7 @@ async function changeSource(key, entry = null) {
     if (sourceRevision !== sourceGeneration) return;
     fields = reply.columns; numeric = reply.numeric;
     const savedKeys = ['model', 'cohort', 'prior', 'quantity', 'parameter', 'term', 'contrast', 'participant_id', 'cell', 'basis', 'distance_cm', 'soa_ms', 'effect', 'measure', 'units', 'metric'].filter(field => fields.includes(field));
-    settings.rows = key === 'saved' ? (savedKeys.length ? savedKeys : [fields[0]]) : [key === 'participants' ? 'participant_id' : 'distance_cm'];
+    settings.rows = key === 'saved' ? (savedKeys.length ? savedKeys : [fields[0]]) : [key === 'participants' ? 'participant_id' : 'soa_ms'];
     settings.columns = ['condition', 'phase'].filter(field => fields.includes(field) && !settings.rows.includes(field));
     const preferredValue = ['corrected_rt_ms', 'reaction_time_ms', 'posterior_median', 'median', 'age_years'].find(field => numeric.includes(field) && !settings.rows.includes(field) && !settings.columns.includes(field));
     settings.values = [preferredValue || numeric.find(field => !settings.rows.includes(field) && !settings.columns.includes(field))].filter(Boolean);
@@ -280,6 +311,6 @@ let resizeScheduled = false;
 new ResizeObserver(() => {
   if (resizeScheduled) return;
   resizeScheduled = true;
-  requestAnimationFrame(() => { resizeScheduled = false; renderTable(); renderChoices(); });
+  requestAnimationFrame(() => { resizeScheduled = false; renderTable(); renderChoices(); drawChart(false); });
 }).observe(document.body);
 update();

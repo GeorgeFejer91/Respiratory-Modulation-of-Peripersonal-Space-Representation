@@ -1,4 +1,35 @@
-# Fast pivot frontend scope
+# Pivot frontend scope and evidence
+
+The linked-chart extension uses structured series/row metadata from the same
+worker result as the table, with SOA as the initial axis. No models, source CSVs,
+saved numerical results or scientific cleaning changed. Settings update live;
+chart style/measure remain presentation choices. Totals stay out of the chart;
+nulls break lines and genuine zeros remain points. Shared hover/tap values handle
+overlapping series; keyboard arrows navigate individual points. Generic saved
+summaries cannot mix known measurement units on one chart axis. Density limits
+request filtering and preserve the table/export instead of silently sampling.
+
+Observed extension checks: 59 tests in the pinned Python 3.12 environment; all
+60 Python/JavaScript parity cases plus point/cell identity, combined Condition/SOA,
+unequal totals, missingness, text counts and mixed-unit fixtures. Strict/WASM checks
+on all three notebooks and native pivot execution pass. The audited production
+build passes with UTF-8 enabled on Windows. The compact default payload now has
+SOA and is 51,603 bytes, below the existing 64 KiB budget. RTK was unavailable;
+bounded native commands were used. No new product runtime dependency was needed.
+
+`check_pivot_browser.cjs` exercises actual clicks, filters (800→160→800), full CSV
+identity, summary/measure/grouping changes, empty/invalid/all-missing states,
+keyboard point navigation, saved sources, an actually delayed uncached trial
+request, partial-null line gaps, dense output and missing-Pretext fallback.
+Its geometry matrix covers 320×568, 375×667, 640×360, 768×1024, 1280×800 and
+1920×1080, including 200% text and spacing overrides; page edges, modal overflow,
+SVG tick collisions and Escape/focus are checked. SVG text/word-spacing geometry
+is browser-verified rather than a Pretext line-box parity claim. Physical iPhone/
+Safari is untested. The chart and table use deliberate document flow on phones.
+The Windows HTTP preview needs `.mjs` served as JavaScript. No private data enter
+the preview or build. Publication of the linked extension is pending.
+
+## Earlier table-only release
 
 Replace only `/pivot/` with lightweight JavaScript and a worker, using build-time
 JSON from the established Python preparation. Keep `/pivot/app/` as the marimo
