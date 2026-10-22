@@ -43,9 +43,13 @@ Native-only extensions are labelled separately. Local production build, 59 workb
 tests, strict/WASM workbook checks, input audit and rendered Chromium navigation/
 reflow checks pass. Scientific review, migration and publication readiness remain
 open; this overview is not a complete publication-ready paper.
-Publication state: isolated implementation verified locally; deployment pending.
-Next action: verify publication, then connect further current-paper results to
-their approved manifests and port native-only methods in finite batches. The existing
+Publication state: implementation `c40d470` pushed to `main`; GitHub Actions run
+39789304758 passed the full reference analysis, independent numerical validation
+and exact Pages deployment. The actual live Chromium check passes all nine anchors,
+scroll tracking, evidence/tool links, keyboard skip access, Pretext measurements,
+four viewports, 200% text and spacing overrides. Physical iPhone/Safari is untested.
+Next action: connect further current-paper results to their approved manifests
+and port native-only methods in finite batches. The existing
 pivot/frontend work below retains its own execution and deployment evidence.
 
 ## Active visualization step — fast pivot table
