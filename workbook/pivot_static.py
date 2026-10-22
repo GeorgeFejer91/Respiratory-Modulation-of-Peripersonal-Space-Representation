@@ -31,5 +31,10 @@ def build_views(people, trials, destination):
             if len(preview_text.encode("utf-8")) > 65536:
                 raise ValueError("The default pivot data exceeds its 64 KiB startup budget.")
             (destination / "means-preview.json").write_text(preview_text, encoding="utf-8")
+            core = browser_frame(frame[["participant_id", "condition", "phase", "soa_ms", "distance_cm", "reaction_time_ms"]])
+            core_text = json.dumps(core, allow_nan=False, separators=(",", ":"))
+            if len(core_text.encode("utf-8")) > 65536:
+                raise ValueError("The core-data preview exceeds its 64 KiB startup budget.")
+            (destination / "means-core-preview.json").write_text(core_text, encoding="utf-8")
         catalog.append(dict(name=name, file=filename, records=len(frame)))
     return catalog

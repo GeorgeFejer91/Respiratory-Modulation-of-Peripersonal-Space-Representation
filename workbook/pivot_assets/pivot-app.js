@@ -3,6 +3,13 @@ import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
 
 const byId = id => document.getElementById(id);
+const coreView = new URLSearchParams(location.search).get('view') === 'core';
+if (coreView) {
+  document.body.classList.add('embedded-core');
+  const style = document.createElement('link');
+  style.rel = 'stylesheet'; style.href = 'pivot-embed.css'; document.head.append(style);
+  import('./pivot-embed.js');
+}
 const worker = new Worker(new URL('./pivot-worker.js', import.meta.url), { type: 'module' });
 const pending = new Map();
 let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings, resultSource, fields = [], numeric = [], catalog;
@@ -11,8 +18,12 @@ let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
 let chartGeometry = '';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
+if (coreView) {
+  settings.values = ['reaction_time_ms'];
+  byId('choose-values').textContent = 'Values: reaction_time_ms';
+}
 const names = { means: 'Participant-distance means', trials: 'All trial records', participants: 'Participants and questionnaires', saved: 'Saved analysis table' };
-const sourceURL = () => source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? 'means-preview' : source}.json`;
+const sourceURL = () => source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? 'means-core-preview' : 'means-preview') : source}.json`;
 
 worker.onmessage = ({ data: reply }) => {
   const handlers = pending.get(reply.id);

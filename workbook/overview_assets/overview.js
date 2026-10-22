@@ -18,3 +18,11 @@ addEventListener('scroll', () => {
 }, { passive: true });
 addEventListener('resize', updateCurrent);
 updateCurrent();
+
+const coreFrame = document.getElementById('core-pivot');
+addEventListener('message', event => {
+  if (event.origin !== location.origin || event.source !== coreFrame.contentWindow ||
+      event.data?.type !== 'study5-core-height') return;
+  const height = event.data.height;
+  if (Number.isFinite(height) && height >= 200 && height <= 20000) coreFrame.style.height = `${height}px`;
+});

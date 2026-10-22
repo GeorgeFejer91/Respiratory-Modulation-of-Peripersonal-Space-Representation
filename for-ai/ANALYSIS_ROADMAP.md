@@ -35,7 +35,7 @@ the executable analysis, paper, reproducibility and publication gates pass.
 - [ ] Complete author/scientific review and verify the exact Pages deployment
   and live paper/analysis paths; only then label that release publication-ready.
 
-State: a nine-question scientific overview now owns the site landing page, with
+State: a nine-section scientific overview now owns the site landing page, with
 anchor navigation, a scrollable contents menu, explicit assumptions and evidence
 links. Its average-response figure links to the archived unpooled Bayesian browser
 bundle; the executable notebook remains at `workbook.html`, with assets unchanged.
@@ -48,7 +48,16 @@ Publication state: implementation `c40d470` pushed to `main`; GitHub Actions run
 and exact Pages deployment. The actual live Chromium check passes all nine anchors,
 scroll tracking, evidence/tool links, keyboard skip access, Pretext measurements,
 four viewports, 200% text and spacing overrides. Physical iPhone/Safari is untested.
-Next action: connect further current-paper results to their approved manifests
+Current extension: segment 0 contains the core-data summary table and embedded
+responsive pivot chart/table, starting from uncorrected cleaned AT means and the
+primary 40 cohort. It reuses the same worker and controls, with a separate compact
+raw-RT preview under 64 KiB; unchanged trial records remain selectable. The core
+frame auto-sizes and fits dialogs to the reader's viewport. Local production build,
+59 tests, 60 Python/JavaScript parity cases and both overview/standalone rendered
+checks pass, including source/summary/cohort/style changes and raw-RT CSV export.
+Publication of this extension is pending. Scientific and later-section work stays open.
+Next action: verify this deployment, then add the relevant tables and analyses
+inside each later question section, linked to their approved manifests,
 and port native-only methods in finite batches. The existing
 pivot/frontend work below retains its own execution and deployment evidence.
 

@@ -18,8 +18,8 @@
 <div class="reading-layout">
 <aside class="contents" aria-label="Question navigation">
   <details open><summary>Questions on this page</summary>
-  <nav aria-label="Scientific questions"><ol>
-    <li><a href="#data">Which data can answer our questions?</a></li>
+  <nav aria-label="Scientific questions"><ol start="0">
+    <li><a href="#data">Core data: explore the chart and table</a></li>
     <li><a href="#baseline">How do we isolate the Audio–Tactile response?</a></li>
     <li><a href="#shape">Do the observations support a sigmoid?</a></li>
     <li><a href="#parameters">Can we estimate reliable individual boundaries?</a></li>
@@ -38,17 +38,24 @@
   <p><strong>Working overview · 22 October 2026.</strong> The registration and later exploratory extensions remain distinct. This page summarizes existing evidence; it does not execute models. Browser analyses, native-only extensions and outstanding validation are identified below. Scientific review and publication readiness remain open.</p>
 </div>
 <section id="data" aria-labelledby="data-title">
-  <h2 id="data-title">1. Which data can answer our questions?</h2>
-  <h3>Analysis approach</h3>
-  <p>Audit the released participant and trial tables, missingness, fixed cleaning and questionnaire scoring. Preserve the four within-person cells: Control/Viscereality × Exhale/Inhale.</p>
-  <h3>Assumptions and checks</h3>
-  <p>Participant records must represent independent recordings. P011 and P033 share the same 408 behavioural rows with condition labels swapped; the recording-to-person mapping is unresolved. Primary new behavioural inference excludes both, with full-release and single-exclusion sensitivities.</p>
-  <h3>Current evidence</h3>
-  <p>The audited release contains 42 participant records and 17,114 trial rows. Primary new behavioural inference uses 40 records. Exclusion protects the analysis from duplicated RT evidence but cannot resolve the missing source mapping. Belt compliance and waveform timing cannot be verified from these CSVs.</p>
-  <p class="evidence"><a href="DATA_RELEASE.md">Data release and audit</a><a href="pivot/">Inspect released data</a><a href="results/">Recorded findings</a></p>
+  <h2 id="data-title">0. Core data: explore the chart and table</h2>
+  <table class="core-table"><caption>Released data and starting view</caption>
+    <thead><tr><th scope="col">Data</th><th scope="col">Coverage</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Public release</th><td>42 participant records · 17,114 trial rows</td></tr>
+      <tr><th scope="row">Starting cohort</th><td>Primary 40 · excludes linked recordings P011/P033</td></tr>
+      <tr><th scope="row">Starting measure</th><td>Uncorrected Audio–Tactile RT (ms), after the fixed cleaning rule</td></tr>
+      <tr><th scope="row">Starting summary</th><td>Equal-person means at each SOA, split by condition × breathing phase</td></tr>
+    </tbody>
+  </table>
+  <p>Use <strong>Pivot settings</strong> to change the source, cohort, rows, columns, measure or calculation. Activate filters to select records. The chart and table update together; CSV export includes the complete pivot, including off-page cells.</p>
+  <iframe id="core-pivot" src="pivot/?view=core" title="Core data: interactive pivot chart and table"></iframe>
+  <p>The starting view contains cleaned participant-distance means, not every recorded trial. Choose <strong>All trial records</strong> to inspect individual trials, including their retained/excluded flags, or <strong>Participants and questionnaires</strong> for participant-level fields. Summaries describe the selected records; they do not fit models or test hypotheses.</p>
+  <p>P011/P033 share behavioural recordings with swapped condition labels; their mapping remains unresolved. The release is preserved, and cohort settings expose both single-exclusion sensitivities and the full release. Repeated trials and distance cells are not extra participants.</p>
+  <p class="evidence"><a href="DATA_RELEASE.md">Data release and audit</a><a href="pivot/?view=core" target="_blank" rel="noopener">Open data explorer in a separate tab</a><a href="public/data/study5_participants.csv" download>Participant CSV</a><a href="public/data/study5_pps_trials.csv" download>Trial CSV</a></p>
 </section>
 <section id="baseline" aria-labelledby="baseline-title">
-  <h2 id="baseline-title">2. How do we isolate the Audio–Tactile response?</h2>
+  <h2 id="baseline-title">1. How do we isolate the Audio–Tactile response?</h2>
   <h3>Analysis approach</h3>
   <p>Define corrected RT as <strong>Audio–Tactile RT − Baseline RT</strong>. The primary correction uses the baseline mean within participant × condition × phase. Keep raw RT as a reference and same-nominal-SOA subtraction as a timing-unverified sensitivity.</p>
   <h3>Assumptions and checks</h3>
@@ -58,7 +65,7 @@
   <p class="evidence"><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/RESULTS.md">Native corrected-model results</a><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/analysis_registry.json">Finite model registry</a></p>
 </section>
 <section id="shape" aria-labelledby="shape-title">
-  <h2 id="shape-title">3. Do the observations support a sigmoid?</h2>
+  <h2 id="shape-title">2. Do the observations support a sigmoid?</h2>
   <h3>Analysis approach</h3>
   <p>Inspect trial-level responses and participant profiles. Compare constant, linear, log-distance and sigmoid predictions on held-out distances, keeping the validation targets unsmoothed. Separate observed curvature from a model's imposed S-shaped geometry.</p>
   <h3>Assumptions and checks</h3>
@@ -68,7 +75,7 @@
   <p class="evidence"><a href="results/">Shape, prediction and reliability findings</a><a href="literature_review/ANALYSIS_RATIONALE.html">Method rationale</a></p>
 </section>
 <section id="parameters" aria-labelledby="parameters-title">
-  <h2 id="parameters-title">4. Can we estimate reliable individual boundaries?</h2>
+  <h2 id="parameters-title">3. Can we estimate reliable individual boundaries?</h2>
   <h3>Analysis approach</h3>
   <p>Estimate the midpoint <strong>m (cm)</strong> and normalized midpoint sharpness <strong>1/(4w) (cm⁻¹)</strong> for each participant's four cells. Propagate parameter uncertainty, compare priors, examine split halves and test recovery with known signals.</p>
   <h3>Assumptions and checks</h3>
@@ -78,7 +85,7 @@
   <p class="evidence"><a href="results/bayesian_results.html">Browser-reference parameter detail</a><a href="results/bayesian_participant_atlas.pdf">Browser-reference individual curves</a><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/directional_sigmoid/RESULTS.md">Native directional extension</a></p>
 </section>
 <section id="effects" aria-labelledby="effects-title">
-  <h2 id="effects-title">5. Do condition and breathing phase change PPS?</h2>
+  <h2 id="effects-title">4. Do condition and breathing phase change PPS?</h2>
   <h3>Analysis approach</h3>
   <p>For both midpoint and normalized sharpness, report Phase (Inhale − Exhale), Condition (Viscereality − Control), and Condition × Phase. Preserve participant pairing and all six primary parameter contrasts.</p>
   <h3>Assumptions and checks</h3>
@@ -88,7 +95,7 @@
   <p class="evidence"><a href="results/">Browser-reference experimental findings</a><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/RESULTS.md">Native model-family findings</a><a href="ANALYSIS_PLAN.md">Browser analysis specification</a></p>
 </section>
 <section id="sensitivity" aria-labelledby="sensitivity-title">
-  <h2 id="sensitivity-title">6. Do conclusions depend on analysis assumptions?</h2>
+  <h2 id="sensitivity-title">5. Do conclusions depend on analysis assumptions?</h2>
   <h3>Analysis approach</h3>
   <p>Compare the declared baseline rules, model families, priors, linkage cohorts, trial filters, early-block selections, rolling means and continuous session-time adjustment. Preserve the original analysis alongside every sensitivity.</p>
   <h3>Assumptions and checks</h3>
@@ -98,7 +105,7 @@
   <p class="evidence"><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/trial_cleaning/RESULTS.md">Trial-cleaning and rolling results</a><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/trial_cleaning/SESSION_RESULTS.md">Continuous session-time results</a><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/visible_sigmoid/RESULTS.md">Visible-S approximation</a></p>
 </section>
 <section id="averages" aria-labelledby="averages-title">
-  <h2 id="averages-title">7. What do the four average responses show?</h2>
+  <h2 id="averages-title">6. What do the four average responses show?</h2>
   <h3>Analysis approach</h3>
   <p>Show all four condition × phase response functions with observed RTs and uncertainty. Retain equal-person summaries; an average of individual sigmoids need not itself be sigmoid-shaped.</p>
   <h3>Assumptions and checks</h3>
@@ -109,7 +116,7 @@
   <p class="evidence"><a href="results/bayesian_results.html">Figure methods and results</a><a href="results/bayesian-results.zip">Download the figure's result bundle</a><a href="pivot/">Explore descriptive summaries</a></p>
 </section>
 <section id="questionnaires" aria-labelledby="questionnaires-title">
-  <h2 id="questionnaires-title">8. Are PPS estimates related to self-report?</h2>
+  <h2 id="questionnaires-title">7. Are PPS estimates related to self-report?</h2>
   <h3>Analysis approach</h3>
   <p>Explore all eight baseline MAIA-2 subscales and condition-matched post-intervention spatial ratings. Evaluate within-person spatial change (Viscereality − Control), ordinal sensitivities and exploratory moderation while propagating PPS parameter uncertainty.</p>
   <h3>Assumptions and checks</h3>
@@ -119,7 +126,7 @@
   <p class="evidence"><a href="results/">Full questionnaire findings</a><a href="literature_review/QUESTIONNAIRES.html">Questionnaire evidence and limits</a></p>
 </section>
 <section id="reproducibility" aria-labelledby="reproducibility-title">
-  <h2 id="reproducibility-title">9. What can readers reproduce and what remains open?</h2>
+  <h2 id="reproducibility-title">8. What can readers reproduce and what remains open?</h2>
   <h3>Available now</h3>
   <p>The executable workbook contains the established frequentist and unpooled Bayesian branches. Their archived browser downloads have independent native comparisons. The pivot provides descriptive summaries and saved-output inspection; displaying a native result there does not execute its model.</p>
   <h3>Evidence boundaries</h3>

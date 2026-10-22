@@ -1,0 +1,16 @@
+/* Content height is independent of the iframe height, avoiding resize feedback. */
+body.embedded-core, body.embedded-core[data-flow=true] {
+  display:block; min-height:0; height:auto; color-scheme:light;
+  --paper:#fff; --ink:#243240; --line:#c4cdd5; --muted:#53616c;
+  --wash:#f5f6f7; --link:#175b9e; --space:12px; --type:1rem;
+  --chart-1:#175b9e; --chart-2:#b45309; --chart-3:#047857;
+  --chart-4:#9d3e72; --chart-5:#6754a1; --chart-6:#53616c;
+}
+.embedded-core .page-header>nav, .embedded-core #pages-open,
+.embedded-core .toolbar h1 { display:none!important; }
+.embedded-core #table-region { height:400px; }
+.embedded-core .linked-views { grid-template-columns:minmax(0,1fr); }
+.embedded-core dialog { top:12px; bottom:auto; margin:0 auto; height:min(680px,var(--host-dialog-height,calc(100dvh - 24px))); }
+@media(min-width:1000px) {
+  .embedded-core .linked-views { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+}

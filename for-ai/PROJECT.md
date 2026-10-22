@@ -112,6 +112,11 @@ The landing page is a nine-question scientific overview, built from
 sections with methods, assumptions, evidence and remaining limits. The original
 executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
+Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
+frame. Its core-data starting view uses a compact uncorrected Audio–Tactile RT
+means payload, primary 40 cohort and equal-person summaries. Readers can change
+sources, fields, cohorts, aggregation, chart style and filters and export CSV.
+Raw released trials remain available, with retained/excluded flags unchanged.
 
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility
