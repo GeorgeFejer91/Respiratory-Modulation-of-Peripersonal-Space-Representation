@@ -1,6 +1,6 @@
 const labels = { soa_ms: 'SOA (ms)', distance_cm: 'Distance (cm)', corrected_rt_ms: 'Corrected RT (ms)',
   reaction_time_ms: 'Reaction time (ms)', baseline_mean_ms: 'Baseline RT (ms)', n_trials: 'Trials per cell',
-  participant_id: 'Participant', condition: 'Condition', phase: 'Phase', age_years: 'Age (years)',
+  participant_id: 'Participant', condition: 'Condition', phase: 'Breathing phase', age_years: 'Age (years)',
   midpoint_cm: 'Midpoint (cm)', width_cm: 'Width (cm)', normalized_steepness_per_cm: 'Normalized sharpness (cm⁻¹)' };
 const fieldUnit = field => /_per_cm(?:_|$)/.test(field) ? 'cm⁻¹' : /_cm(?:_|$)/.test(field) ? 'cm' : /_ms(?:_|$)/.test(field) ? 'ms' : '';
 export const fieldLabel = field => labels[field] || field.replaceAll('_', ' ') + (fieldUnit(field) ? ` (${fieldUnit(field)})` : '');

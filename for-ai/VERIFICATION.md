@@ -19,8 +19,14 @@ For changes to the question-led landing page, serve a production build and run
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
-For segment 0, verify the 4/2/2/1 series groupings, raw/corrected RT switching and
-SD toggle, table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Run
+For Segment 0, verify field addition/removal, actual native dragging, Row/Column
+moves and reordering through touch/keyboard actions. SOA must be removable. With
+no grouping fields, every selected trial record/column appears in one internally
+scrollable table and in CSV; exclusion flags remain and no summary chart is shown.
+Adding factors returns to the labelled retained-AT means source. Check condition-
+only and phase/condition summaries without SOA, all four cells with SOA, raw/corrected
+RT, Mean/Mean ± SD presentation in both views, button filters, no visible checkboxes,
+table/CSV mean-SD-n identity, and SD-aware chart extents/tooltips. Run
 `check_pivot_javascript.py` for independent pandas means, sample SDs and n across
 all grouping/correction/cohort/filter combinations. Retain unequal within-person
 counts, n=1/undefined SD, missing values and zero-valued means. Repeated condition/

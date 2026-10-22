@@ -62,6 +62,16 @@ def validate(node):
                         filtersEnabled=filtered, filters={"phase": ["Inhale"]})))
     cases.append(dict(frame="people-edge", settings=dict(rows=["soa_ms"], columns=[], values=["rt"],
         aggregation="Mean", totals=False, cohort="Full release", participantSummary=True, filtersEnabled=False)))
+    for name in ["All trial records", "Participant-distance means"]:
+        for filtered in [False, True]:
+            cases.append(dict(frame=name, settings=dict(rows=[], columns=[], values=[], aggregation="Mean",
+                totals=False, cohort="Primary behavioural cohort", rawRecords=True,
+                filtersEnabled=filtered, filters={"phase": ["Inhale"]})))
+    for rows, columns in [([], ["condition"]), ([], ["phase", "condition"]),
+                          (["phase", "soa_ms"], ["condition"]), (["condition", "phase"], ["soa_ms"])]:
+        cases.append(dict(frame="Participant-distance means", settings=dict(rows=rows, columns=columns,
+            values=["reaction_time_ms"], aggregation="Mean", totals=False, cohort="Primary behavioural cohort",
+            participantSummary=True, filtersEnabled=False)))
     payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots)
     runner = Path(__file__).with_name("check_pivot_javascript.mjs")
     process = subprocess.run([node, str(runner)], input=json.dumps(payload, allow_nan=False), text=True,
@@ -77,6 +87,13 @@ def validate(node):
                 if values:
                     frame = frame[frame[field].isin(values)]
         source_count = len(frame)
+        if settings.get("rawRecords"):
+            expected = browser_frame(frame)
+            assert observed["rawRecords"] and observed["axisCount"] == 0
+            assert observed["columns"] == expected["columns"]
+            assert observed["rows"] == expected["rows"]
+            assert observed["count"] == source_count
+            continue
         if settings.get("participantSummary"):
             keys = list(dict.fromkeys(["participant_id", *settings["rows"], *settings["columns"]]))
             frame = frame.groupby(keys, dropna=False, as_index=False)[settings["values"]].mean()
@@ -101,7 +118,7 @@ def validate(node):
                 expected_stats = browser_frame(pivot_frame(frame, settings["rows"], settings["columns"],
                     settings["values"], aggregation, False))
                 for row_index, row in enumerate(expected_stats["rows"]):
-                    for column, target in enumerate(row[len(settings["rows"]):]):
+                    for column, target in enumerate(row[observed["axisCount"]:]):
                         value = observed["stats"][row_index][column][name]
                         assert target is value if target is None else math.isclose(target, value, rel_tol=1e-10, abs_tol=1e-10), (index, name, target, value)
     assert actual["snapshot"] == browser_frame(frames["snapshot"])

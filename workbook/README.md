@@ -14,6 +14,19 @@ been added to this site. Keep the current preparation, statistical engines and
 fast pivot as the authoritative implementations until a scoped replacement
 passes numerical and real-browser checks.
 
+Segment 0 on the overview has an Excel-style **Pivot fields** list. Drag fields
+into **Rows** or **Columns**, or tap a field to add it. Tap an assigned field to
+move, reorder or remove it using the same actions with a keyboard. SOA is optional.
+Removing all fields (or **Clear layout**) displays the selected cohort's individual
+trial records, including retained/excluded flags, without aggregation or a summary
+chart. Adding a field returns to summaries of retained Audio–Tactile participant
+means, and the table and chart update together. **Reaction time** chooses baseline
+correction; **Display** selects means with or without sample SD in both views.
+Full-value details and CSV always retain SD/n. Trial records load only when needed.
+**Pivot settings** keeps cohort and calculation controls; the standalone pivot below
+also provides the broader data-source catalogue. Nonnegative plots start at zero;
+negative values remain visible with a labeled zero reference.
+
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
 is a lightweight JavaScript subpage with a pivot table and linked chart. The
 initial chart uses SOA (ms) on x and Condition × Phase as series, showing mean

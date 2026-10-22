@@ -22,6 +22,21 @@ export function renderChoices() {
   const font = parseFloat(getComputedStyle(region).fontSize);
   region.replaceChildren();
   for (const [index, choice] of choices.entries()) {
+    if (document.body.classList.contains('embedded-core')) {
+      const button = document.createElement('button');
+      const key = JSON.stringify(choice.value);
+      button.type = 'button'; button.textContent = String(choice.label); button.dataset.fitLabel = '';
+      button.setAttribute('aria-pressed', String(selection.selected.has(key)));
+      button.onclick = () => {
+        const chosen = selection.selected.has(key);
+        if (selection.single) selection.selected.clear();
+        chosen && !selection.single ? selection.selected.delete(key) : selection.selected.add(key);
+        selection.onChange([...selection.selected].map(value => JSON.parse(value)));
+        selection.single ? byId('chooser').close() : renderChoices();
+      };
+      region.append(button);
+      continue;
+    }
     const label = document.createElement('label');
     label.className = 'choice';
     const input = document.createElement('input');

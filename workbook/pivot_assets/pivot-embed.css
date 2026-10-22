@@ -8,11 +8,27 @@ body.embedded-core, body.embedded-core[data-flow=true] {
 }
 .embedded-core .page-header>nav, .embedded-core #pages-open,
 .embedded-core .toolbar h1 { display:none!important; }
-.embedded-core #core-controls { display:flex; flex-wrap:wrap; align-items:end; gap:12px; padding:12px; border-bottom:1px solid var(--line); }
-.embedded-core #core-controls>label:not(.switch) { display:grid; gap:4px; flex:1 1 220px; }
-.embedded-core #core-controls .switch { padding-block:4px; }
+.embedded-core .toolbar .switch { display:none; }
+.embedded-core #core-controls { display:grid; gap:12px; padding:12px; border-bottom:1px solid var(--line); }
+.embedded-core #core-controls>header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.field-bank,.field-layout>section { display:grid; align-content:start; gap:6px; }
+.field-layout { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.field-area { display:flex; align-content:start; align-items:start; flex-wrap:wrap; gap:6px; min-height:64px; padding:8px; border:1px solid var(--line); background:var(--wash); }
+.field-area button { text-align:left; background:var(--paper); cursor:grab; }
+.field-area span,.field-hint { color:var(--muted); font-size:.85em; }
+#core-values label { display:grid; gap:4px; }
+#core-values label>span { font-size:.85em; }
+#core-filter { justify-self:start; }
+.embedded-core button[aria-pressed=true] { background:var(--wash); border-color:var(--ink); font-weight:bold; }
+.embedded-core #field-menu { height:auto; max-height:var(--host-dialog-height,calc(100dvh - 24px)); width:min(360px,calc(100% - 24px)); }
+.field-menu { display:grid; gap:8px; }
+.embedded-core[data-raw-records=true] .linked-views { grid-template-columns:minmax(0,1fr); }
+@media(max-width:600px) { .field-layout { grid-template-columns:minmax(0,1fr) minmax(0,1fr); } #core-values { grid-column:1/-1; } }
+@media(max-width:380px) { .field-layout { grid-template-columns:minmax(0,1fr); } }
 .embedded-core #chart-hover { min-height:1.5em; }
 .embedded-core #table-region { height:440px; }
+.embedded-core #pivot-table th,.embedded-core #pivot-table td { white-space:nowrap; }
+.embedded-core #pivot-table thead { position:sticky; top:0; z-index:1; }
 .embedded-core .linked-views { grid-template-columns:minmax(0,1fr); }
 .embedded-core dialog { top:12px; bottom:auto; margin:0 auto; height:min(680px,var(--host-dialog-height,calc(100dvh - 24px))); }
 @media(min-width:1000px) {

@@ -1,8 +1,10 @@
 import { aggregations, csvText } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
+import { pivotFields } from './pivot-fields.js';
 
 const byId = id => document.getElementById(id);
+const numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: 6 });
 const coreView = new URLSearchParams(location.search).get('view') === 'core';
 if (coreView) {
   document.body.classList.add('embedded-core');
@@ -24,35 +26,47 @@ if (coreView) {
   byId('totals').checked = false;
   byId('core-controls').hidden = false;
   byId('choose-values').textContent = 'Values: reaction_time_ms';
+  byId('source').replaceChildren(new Option('Core behavioural data', 'means'));
+  byId('source').disabled = true;
+  byId('choose-rows').closest('section').hidden = true;
+  byId('totals').closest('label').hidden = true;
 }
+const refreshCoreFields = coreView ? pivotFields(settings, () => {
+  for (const axis of ['rows', 'columns']) byId(`choose-${axis}`).textContent = `${axis}: ${settings[axis].join(', ') || 'None'}`;
+  update();
+}) : () => {};
 function coreControls() {
   if (!coreView) return;
-  const active = source === 'means' && settings.aggregation === 'Mean';
-  byId('core-group').disabled = byId('core-correction').disabled = byId('core-sd').disabled = !active;
-  byId('totals').disabled = active;
-  if (active) byId('totals').checked = false;
-  byId('core-group').value = active ? ({ 'condition,phase': 'both', phase: 'phase', condition: 'condition', '': 'none' }[settings.columns.join(',')] || 'custom') : 'custom';
+  const raw = !settings.rows.length && !settings.columns.length;
+  byId('core-correction').disabled = raw;
+  byId('core-spread').disabled = raw || settings.aggregation !== 'Mean';
+  byId('core-spread').closest('label').hidden = settings.aggregation !== 'Mean';
+  byId('totals').disabled = true;
+  byId('totals').checked = false;
   byId('core-correction').value = settings.values[0] === 'corrected_rt_ms' ? 'corrected' : 'raw';
+  byId('core-filter').setAttribute('aria-pressed', String(settings.filtersEnabled));
+  byId('core-filter').textContent = settings.filtersEnabled ? 'Deactivate filters' : 'Activate filters';
+  refreshCoreFields();
 }
 if (coreView) {
-  byId('core-group').onchange = () => {
-    if (source !== 'means' || settings.aggregation !== 'Mean') return;
-    settings.rows = ['soa_ms'];
-    settings.columns = { both: ['condition', 'phase'], phase: ['phase'], condition: ['condition'], none: [] }[byId('core-group').value];
-    settings.totals = false;
-    byId('totals').checked = false;
-    byId('choose-columns').textContent = `Columns: ${settings.columns.join(', ') || 'None'}`;
-    update();
-  };
   byId('core-correction').onchange = () => {
     settings.values = [byId('core-correction').value === 'corrected' ? 'corrected_rt_ms' : 'reaction_time_ms'];
     byId('choose-values').textContent = `Values: ${settings.values[0]}`;
     update();
   };
-  byId('core-sd').onchange = () => { settings.sdWhiskers = byId('core-sd').checked; drawChart(); };
+  byId('core-spread').onchange = () => {
+    settings.sdWhiskers = byId('core-spread').value === 'sd'; labelTable(); renderTable(); drawChart();
+  };
+  byId('core-filter').onclick = () => {
+    settings.filtersEnabled = !settings.filtersEnabled;
+    byId('filters-enabled').checked = settings.filtersEnabled;
+    byId('filters-open').hidden = !settings.filtersEnabled;
+    update();
+  };
 }
 const names = { means: 'Participant-distance means', trials: 'All trial records', participants: 'Participants and questionnaires', saved: 'Saved analysis table' };
-const sourceURL = () => source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? 'means-core-preview' : 'means-preview') : source}.json`;
+const sourceURL = () => coreView && !settings.rows.length && !settings.columns.length ? 'data/trials.json' :
+  source === 'saved' ? `app/public/snapshots/${saved.file}` : `data/${source === 'means' && !fullMeans ? (coreView ? 'means-core-preview' : 'means-preview') : source}.json`;
 
 worker.onmessage = ({ data: reply }) => {
   const handlers = pending.get(reply.id);
@@ -75,6 +89,7 @@ function request(action, extra = {}) {
   });
 }
 async function fullFields() {
+  if (coreView) return;
   if (source !== 'means' || fullMeans) return;
   if (!fullMeansRequest) fullMeansRequest = request('metadata', { url: 'data/means.json' }).then(reply => {
     if (source === 'means') {
@@ -104,30 +119,34 @@ function reportError(error) {
 }
 async function update() {
   const revision = ++generation;
+  coreControls();
   const submitted = structuredClone(settings);
-  submitted.participantSummary = coreView && source === 'means' && submitted.aggregation === 'Mean';
+  submitted.rawRecords = coreView && !submitted.rows.length && !submitted.columns.length;
+  submitted.participantSummary = coreView && !submitted.rawRecords && source === 'means' && submitted.aggregation === 'Mean';
   if (submitted.participantSummary) submitted.totals = false;
   byId('table-region').setAttribute('aria-busy', 'true');
   byId('chart-region').setAttribute('aria-busy', 'true');
   byId('error').hidden = true;
   byId('export').disabled = true;
+  if (coreView) byId('summary').textContent = submitted.rawRecords ? 'Loading trial records…' : 'Updating summary…';
   try {
-    const reply = await request('pivot', { settings: submitted });
+    const reply = await request('pivot', { settings: submitted, url: submitted.rawRecords ? 'data/trials.json' : sourceURL() });
     if (revision !== generation) return;
     result = reply.result;
     resultSettings = submitted;
-    resultSource = source;
+    resultSource = submitted.rawRecords ? 'trials' : source;
     coreControls();
-    if (!(source === 'means' && fullMeans && reply.columns.length < fields.length)) {
+    if (coreView || !(source === 'means' && fullMeans && reply.columns.length < fields.length)) {
       fields = reply.columns;
       numeric = reply.numeric;
     }
     byId('table-region').setAttribute('aria-busy', 'false');
     byId('export').disabled = false;
     byId('summary').textContent = `${result.count.toLocaleString()} source records · ${submitted.filtersEnabled ? 'Filters on' : 'Filters off'}`;
-    byId('table-caption').textContent = result.stats ? `${submitted.values.map(fieldLabel).join(' / ')} · Mean ± SD` :
-      submitted.aggregation === 'Row count' ? 'Records' : submitted.values.map(field => measureLabel(field, submitted.aggregation)).join(' / ');
-    byId('status').textContent = source === 'saved' ? saved.source : `${names[source]} · ${submitted.cohort}`;
+    labelTable();
+    byId('status').textContent = source === 'saved' ? saved.source : `${names[resultSource]} · ${submitted.cohort}${coreView && !result.rawRecords ? ' · retained Audio–Tactile data' : ''}`;
+    document.body.dataset.rawRecords = String(Boolean(result.rawRecords));
+    byId('chart-region').hidden = Boolean(result.rawRecords);
     document.documentElement.dataset.recordCount = String(result.count);
     renderTable();
     const measures = submitted.aggregation === 'Row count' ? ['Record count'] : submitted.values;
@@ -146,8 +165,15 @@ async function update() {
 
 function cellText(value) {
   if (value === null) return '—';
-  if (typeof value === 'number') return Number.isFinite(value) ? value.toLocaleString(undefined, { maximumSignificantDigits: 6 }) : String(value);
+  if (typeof value === 'number') return Number.isFinite(value) ? numberFormat.format(value) : String(value);
   return String(value);
+}
+function labelTable() {
+  if (!result) return;
+  const config = resultSettings;
+  byId('table-caption').textContent = result.rawRecords ? 'Trial records · ungrouped · exclusion flags retained' : result.stats ?
+    `${config.values.map(fieldLabel).join(' / ')} · ${settings.sdWhiskers ? 'Mean ± SD' : 'Mean'}` :
+    config.aggregation === 'Row count' ? 'Records' : config.values.map(field => measureLabel(field, config.aggregation)).join(' / ');
 }
 function tableCell(tag, label, full) {
   const cell = document.createElement(tag);
@@ -155,13 +181,31 @@ function tableCell(tag, label, full) {
   cell.title = String(full);
   return cell;
 }
-export function renderTable() {
-  if (!result) return;
+function sizeTable() {
   const table = byId('pivot-table'), region = byId('table-region');
   const font = parseFloat(getComputedStyle(table).fontSize);
   const width = region.clientWidth;
   document.body.dataset.compact = String(width / font < 18);
+}
+export function renderTable() {
+  if (!result) return;
+  sizeTable();
+  const table = byId('pivot-table');
   const header = document.createElement('tr');
+  if (result.rawRecords) {
+    for (const field of result.columns) header.append(tableCell('th', fieldLabel(field), field));
+    table.tHead.replaceChildren(header);
+    const fragment = document.createDocumentFragment();
+    for (const row of result.rows) {
+      const tr = document.createElement('tr');
+      for (const value of row) tr.append(tableCell('td', cellText(value), value ?? 'Missing value'));
+      fragment.append(tr);
+    }
+    table.tBodies[0].replaceChildren(fragment);
+    byId('empty-table').hidden = result.count > 0;
+    document.dispatchEvent(new Event('pivot-layout'));
+    return;
+  }
   const rowTitle = resultSettings.rows.join(' / ') || 'All records';
   header.append(tableCell('th', resultSettings.rows.map(fieldLabel).join(' / ') || 'All records', rowTitle));
   result.columns.slice(result.axisCount).forEach(label => {
@@ -178,7 +222,7 @@ export function renderTable() {
     tr.append(tableCell('td', rowLabel, rowLabel));
     row.slice(result.axisCount).forEach((value, columnIndex) => {
       const stats = result.stats?.[rowIndex]?.[columnIndex];
-      tr.append(stats ? tableCell('td', `${cellText(value)} ± ${cellText(stats.sd)}`, `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`) :
+      tr.append(stats ? tableCell('td', settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`) :
         tableCell('td', cellText(value), value ?? 'Missing value'));
     });
     tbody.append(tr);
@@ -187,6 +231,7 @@ export function renderTable() {
 }
 
 function drawChart(force = true) {
+  if (result?.rawRecords) { clearChart('Add grouping fields to create a summary chart.'); return; }
   const plot = byId('chart-plot');
   const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
   if (result && (force || chartGeometry !== geometry)) {
@@ -266,7 +311,7 @@ async function chooseFilterValues(field) {
     });
   } catch (error) { reportError(error); }
 }
-byId('add-filter').onclick = () => openChoices('Choose filter field', fields.map(field => ({ label: field, value: field })), [], chosen => {
+byId('add-filter').onclick = () => openChoices('Choose filter field', (coreView ? ['participant_id', 'condition', 'phase', 'soa_ms', 'distance_cm'] : fields).map(field => ({ label: coreView ? fieldLabel(field) : field, value: field })), [], chosen => {
   if (!chosen.length) return;
   setTimeout(() => chooseFilterValues(chosen[0]), 0);
 }, true);
@@ -332,13 +377,13 @@ byId('export').onclick = () => {
   if (!result) return;
   const url = URL.createObjectURL(new Blob([csvText(result)], { type: 'text/csv;charset=utf-8' }));
   const link = document.createElement('a');
-  link.href = url; link.download = 'study5-pivot.csv'; link.click();
+  link.href = url; link.download = result.rawRecords ? 'study5-trial-records.csv' : 'study5-pivot.csv'; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 };
 let resizeScheduled = false;
 new ResizeObserver(() => {
   if (resizeScheduled) return;
   resizeScheduled = true;
-  requestAnimationFrame(() => { resizeScheduled = false; renderTable(); renderChoices(); drawChart(false); });
+  requestAnimationFrame(() => { resizeScheduled = false; sizeTable(); renderChoices(); drawChart(false); });
 }).observe(document.body);
 update();

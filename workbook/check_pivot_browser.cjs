@@ -66,7 +66,7 @@ async function check() {
     assert.equal(await page.locator('[id$="-next"], [id$="-prev"]').count(), 0, 'The live pivot must not paginate data or controls');
     await page.locator('#table-height').evaluate(element => { element.value = '600'; element.dispatchEvent(new Event('input', { bubbles: true })); });
     await page.locator('#table-width').evaluate(element => { element.value = '200'; element.dispatchEvent(new Event('input', { bubbles: true })); });
-    assert.equal(await page.locator('#table-region').evaluate(element => element.clientHeight), 600);
+    assert.equal(await page.locator('#table-region').evaluate(element => element.getBoundingClientRect().height), 600);
     assert.equal(await page.locator('#table-height-value').textContent(), '600 px');
     assert.equal(await page.locator('#table-width-value').textContent(), '200%');
     assert.equal(await page.locator('#pivot-table').evaluate(element => element.scrollWidth > document.querySelector('#table-region').clientWidth), true);

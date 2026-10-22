@@ -122,15 +122,23 @@ executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
 frame. Its core-data starting view uses a compact uncorrected Audio–Tactile RT
-means payload, primary 40 cohort and equal-person summaries. Readers can change
-sources, fields, cohorts, aggregation, chart style and filters and export CSV.
-Raw released trials remain available, with retained/excluded flags unchanged.
-Visible controls group the descriptive means by phase, condition, both or neither,
-switch baseline correction and show/hide mean ±1 sample-SD whiskers. For Mean over
+means payload, primary 40 cohort and equal-person summaries. A visible pivot field
+list assigns SOA, distance, condition, breathing phase and participant to Rows or
+Columns. Native drag/reordering and equivalent tap/keyboard actions drive both
+the table and chart. Removing every grouping field shows individual trial records
+with all fields and retained/excluded flags, filtered only by the chosen cohort
+and active field filters; it hides the summary chart. Raw records load on demand.
+Adding a field returns to the retained AT participant-distance source, labelled in
+the source status. The full pivot subpage retains its broader source catalogue.
+Baseline correction and Mean/Mean ± SD presentation use selects, with the latter
+updating both views. Segment 0's field/filter interactions use buttons, not checkboxes.
+Readers can change cohort, aggregation, chart style and filters and export every
+row/column. For Mean over
 the participant-distance source, pool unselected factors within each participant
 before computing across-person means, sample SDs (n−1) and nonmissing n at each
 SOA/group. These SDs describe participant variation, not SEM or confidence intervals;
-n<2 has undefined SD. The table and CSV retain mean/SD/n. Preserve the existing
+n<2 has undefined SD. Full-value details and CSV retain mean/SD/n even when the
+display hides SD. Preserve the existing
 correction, cleaning, primary40 and cohort sensitivities; no model is refitted.
 
 The owner has resumed GitHub Pages work for sequential visual exploration.

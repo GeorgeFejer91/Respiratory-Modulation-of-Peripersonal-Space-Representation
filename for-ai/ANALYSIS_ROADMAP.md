@@ -50,12 +50,13 @@ reports. The executable workbook remains at `workbook.html`; models/data are unc
 The desktop menu remains fixed; phones use the collapsible bottom menu, with
 embedded dialogs reserving its visible height.
 
-Current extension: visible grouping controls select phase, condition, both or
-neither, with baseline-corrected/uncorrected RT and optional ±1 sample-SD whiskers.
+Current extension: an Excel-style field list assigns factors to Rows/Columns,
+including removable SOA, with baseline-corrected/uncorrected RT and optional ±1
+sample-SD presentation in both views. Removing all factors shows trial records.
 Unselected factors are averaged within person before across-person mean/SD/n.
 The table/CSV preserve those statistics; n<2 has undefined SD. The raw/corrected
 compact preview is 63,941 bytes, below 64 KiB. Local production build, 59 tests,
-125 independent JavaScript/pandas cases and rendered overview/standalone checks
+133 independent JavaScript/pandas cases and rendered overview/standalone checks
 pass, including grouping, correction, whiskers, source changes, export, keyboard,
 four/six viewports, 200% text and spacing. Native-only branches stay native-only.
 
@@ -80,13 +81,39 @@ The shared pivot chart now uses that scale and labels the zero line when its ran
 extends below zero. Local production build and JavaScript syntax check pass. Commit
 `d5bcf76` passed full Actions run 39811976223 and its live chart was checked: raw
 means start at zero; corrected means below zero remain visible with a zero reference.
-The explicit zero tick refinement is commit `ae6d7ba`; full analysis, numerical
-validation and Pages artifact upload passed in run 39813873259. At this checkpoint,
-that run's deployment job is still queued and the live asset does not yet include
-the tick label. Next action: verify run 39813873259's Pages deployment and confirm
-the live corrected chart displays the labeled zero reference.
+The explicit zero tick refinement is commit `ae6d7ba`; run 39813873259 subsequently
+completed successfully, including Pages deployment. Its served JavaScript includes
+the zero tick, and the field-list browser checks verify the rendered label on
+corrected plots. Continue the active field-list amendment below.
 
 ## Visualization — fast pivot table and linked chart
+
+### Active amendment — field-based Segment 0
+
+Owner request: replace mode/checkbox controls with an Excel-style field list.
+Readers add, remove, move and reorder SOA, distance, condition, phase and
+participant fields in Rows/Columns; one layout drives the table and chart.
+No grouping fields means an unaggregated trial table with original exclusion
+flags and the selected cohort. Grouped means continue to use retained AT
+participant-distance means and equal-person means/sample SD/n. Keep the
+baseline correction selector, zero reference and complete scrollable/exportable
+table. Desktop dragging needs equivalent touch/keyboard field actions.
+
+- [x] Implement field list, area/reordering interactions and ungrouped records.
+- [x] Verify independent summaries/raw exports and linked table/chart identity.
+- [x] Verify responsive/keyboard/Pretext behavior and preserve standalone pivot.
+- [ ] Commit, publish, check exact deployment and record observed live behavior.
+
+State: local production build, 59 workbook tests, 133 independent JavaScript/pandas
+cases and both rendered browser scripts pass. The overview checks cover native
+dragging, keyboard/touch moves and order, no-SOA groups, raw trial rows/CSV, button
+filters, correction/SD, table/plot identity, zero ticks, four viewports, 200% text
+and spacing. Standalone coverage spans six viewports and source races. Full release
+contains 17,114 raw trial rows; Primary 40 contains 16,298. One local raw-view
+render took 6,150 ms; this is not a physical-phone/network benchmark. Table resizing
+no longer rebuilds its rows, and labels/values scroll within the complete grid.
+No new spreadsheet runtime or statistical model. Next action: publish the verified
+source and check the exact Pages deployment and live field interactions.
 
 Owner-approved priority: fast loading and smartphone compatibility. `/pivot/`
 uses lightweight JavaScript and lazy JSON prepared by the established Python

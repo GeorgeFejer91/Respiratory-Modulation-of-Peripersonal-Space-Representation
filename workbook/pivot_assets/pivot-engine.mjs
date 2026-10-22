@@ -73,6 +73,11 @@ function summarize(values, aggregation) {
 }
 
 export function pivot(frame, settings) {
+  if (settings.rawRecords) {
+    const rows = selectRecords(frame, settings);
+    return { columns: frame.columns, rows, rawRecords: true, axisCount: 0,
+      count: rows.length, dataRowCount: rows.length, series: [], contexts: {} };
+  }
   if (settings.participantSummary) {
     if (settings.aggregation !== 'Mean' || !frame.columns.includes('participant_id')) {
       throw new Error('Participant summaries require participant IDs and Mean.');
