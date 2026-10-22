@@ -102,7 +102,7 @@ table. Desktop dragging needs equivalent touch/keyboard field actions.
 - [x] Implement field list, area/reordering interactions and ungrouped records.
 - [x] Verify independent summaries/raw exports and linked table/chart identity.
 - [x] Verify responsive/keyboard/Pretext behavior and preserve standalone pivot.
-- [ ] Commit, publish, check exact deployment and record observed live behavior.
+- [x] Commit, publish, check exact deployment and record observed live behavior.
 
 State: local production build, 59 workbook tests, 133 independent JavaScript/pandas
 cases and both rendered browser scripts pass. The overview checks cover native
@@ -112,8 +112,19 @@ and spacing. Standalone coverage spans six viewports and source races. Full rele
 contains 17,114 raw trial rows; Primary 40 contains 16,298. One local raw-view
 render took 6,150 ms; this is not a physical-phone/network benchmark. Table resizing
 no longer rebuilds its rows, and labels/values scroll within the complete grid.
-No new spreadsheet runtime or statistical model. Next action: publish the verified
-source and check the exact Pages deployment and live field interactions.
+No new spreadsheet runtime or statistical model. Source `3744bf7` is published on
+`main`; [Actions run 39825629998](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39825629998)
+passed the full reference analysis, independent numerical validation and Pages
+deployment. Both browser scripts also pass against the actual live overview and
+standalone pivot: field dragging/moving/reordering, raw records/CSV, linked grouped
+means/SD/n, correction, zero labels, filters, cohort changes, keyboard and the
+responsive/enlarged-text matrix. The live Primary 40 raw view rendered all 16,298
+rows in 6,681 ms in one Chromium run; this is not a physical-phone/network benchmark.
+A separate local 320×568 raw-view check confirms all 26 columns and 16,298 rows,
+internal horizontal/vertical scrolling and no outer-page overflow. Physical
+iPhone/Safari remains untested. This visualization amendment is complete; the
+broader scientific/publication goal stays open. Next action: develop the table and
+analysis behind each remaining single question from the active roadmap.
 
 Owner-approved priority: fast loading and smartphone compatibility. `/pivot/`
 uses lightweight JavaScript and lazy JSON prepared by the established Python
