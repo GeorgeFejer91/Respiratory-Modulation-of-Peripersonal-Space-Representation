@@ -223,6 +223,9 @@ def build(output, development=False):
         page.write_text(re.sub(r"(<body[^>]*>)", lambda match: match.group(0) + navigation,
                                page.read_text(encoding="utf-8"), count=1), encoding="utf-8")
     (output / ".nojekyll").touch()
+    # Keep the executable notebook and its relative assets at the same level.
+    shutil.copyfile(output / "index.html", output / "workbook.html")
+    shutil.copytree(notebook.parent / "overview_assets", output, dirs_exist_ok=True)
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:
         marker.write_text("Unpublished browser verification build. No reference report or paper.\n")
