@@ -2,7 +2,7 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Active amendment — focused D3 controls for Segment 2
+### Completed amendment — focused D3 controls for Segment 2
 
 Owner request (2026-10-23): use one supplied plotting toolbox and give Segment 2
 relevant flexibility comparable to Segment 0. Reuse this chart worktree and the
@@ -15,7 +15,7 @@ scales, data joins and density geometry, bundled locally with license/provenance
   phase values from the verified participant groups and reuse the existing paired
   t-interval method at build time; independently compare with Condition × Phase
   participant cells. No new p values, exclusions, fitting or normalization.
-- [ ] Verify all control combinations, exact points/exports, empty states,
+- [x] Verify all control combinations, exact points/exports, empty states,
   mobile/enlarged-text/Pretext, independent review, regression gates and the exact
   deployed source/live behavior. Keep the wider publication goal open.
 
@@ -38,8 +38,20 @@ citation/focus/reflow, overview/point/border/error-metric browser checks pass.
 Desktop/phone/raw/corrected/citation renders inspected. Review found and verified
 a fix for CI-only inspection and dynamic count labels; final review has no
 material findings. Physical Safari and screen readers remain untested.
-Next action: finish regression gates, publish the combined source and verify its
-exact CI/Pages deployment and live phase/citation behavior. The wider goal is open.
+Source `85fc18e` is pushed to main and the retained chart branch. Actions run
+`39975177111` passed the complete analysis, independent numerical validation and
+Pages deployment. Live phase32/citation/overview/point/border checks pass. The
+new chart, citation code, D3/license and landing HTML match the validated build
+after newline normalization; the full numerical payload matches exactly as data.
+The first live border checks exposed a harness startup race (count before chart
+readiness); moving the existing ready wait before that count fixes the gate,
+which then passes live. This follow-up changes only verification/state, no served
+asset. Consensus still returns UNAUTHORIZED; the regular browser is not connected
+to available UI tools. The connection-page/login handoff was opened in-app and
+the exact connection link supplied for the owner’s regular browser. Primary
+publisher/PMC sources and Crossref metadata support the review independently.
+Next action: resume the broader scientific/publication checklist; Consensus
+needs manual reconnection if requested for further searches. The wider goal is open.
 
 ### Active cleanup — remove the supplemental Segment 2 block
 
