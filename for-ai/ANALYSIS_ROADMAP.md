@@ -2,6 +2,36 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Completed analysis — overall RT drift across consecutive blocks
+
+Owner request (2026-10-23): average RT across all chronological blocks spanning
+both consecutive conditions. This exploratory native analysis is complete;
+the wider scientific/publication goal remains open.
+
+- [x] Freeze the 12-block question, original cleaning, participant-level linear
+  slope test, quadratic/condition-adjusted checks and linkage sensitivities in
+  `results/block_rt/SPECIFICATION.md` before numerical execution.
+- [x] Export participant/block means, all-available primary40 descriptives,
+  complete-block statistics, trajectories, diagnostics and input/source/output
+  hashes. `results/block_rt/RESULTS.md` records all findings and limitations.
+- [x] Independently check chronology/condition order, pandas trial aggregation,
+  117 statsmodels coefficients, saved means/p values, synthetic effects and hashes
+  with `for-ai/orchestration/block_rt.py --check`; release audit and all 66
+  workbook tests pass. Both exported figures were visually inspected.
+
+Complete-block inference retains 39 participants: P011/P033 remain excluded for
+linkage, and P008 lacks usable AT RTs in block 7. P008's other blocks remain in
+the all-available primary40 table. Linear slope is −0.685 ms/block, 95% CI
+[−3.199, 1.829], t(38)=−0.552, p=.584; adjusted for condition, −0.057 ms/block,
+p=.968. Quadratic p=.820 with a strong tail departure. No systematic decline is
+established; lack of significance does not establish absence of practice/fatigue.
+The first-to-last paired change is −20.54 ms, 95% CI [−52.22, 11.15].
+
+Source/results commit `a68de1a` on main preserves the independently completed
+Segment 2 work. Native results are not a browser-executed analysis; the landing
+page and historical manuscript were not edited for this question. Next action:
+resume the remaining question-led analyses and the wider open acceptance gates.
+
 ### Completed amendment — Segment 1 basic PPS phenomenon check
 
 Owner request (2026-10-23): Segment 1 first asks whether RT differs by SOA,
