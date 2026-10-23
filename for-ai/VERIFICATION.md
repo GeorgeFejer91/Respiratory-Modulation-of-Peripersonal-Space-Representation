@@ -168,8 +168,8 @@ saved catalogues. Check the first-table DOM timing and actual lazy source change
 Check 320×568 portrait, 640×360 landscape, intermediate and desktop sizes, 200%
 text and text-spacing overrides. Verify settings' header/footer anchors, ordered
 stretch groups, full control visibility and no Next/Previous paging. Verify the
-complete result row/column count is present at once, internal table scrolling,
-height/width controls, full-value access, touch targets, focus, Escape and CSV
+complete result row/column count is present at once, content-fit table height
+without nested scrolling, draggable borders, full-value access, touch targets, focus, Escape and CSV
 export. Pretext predictions require actual
 bounded-label measurements and rendered checks; unsupported word spacing remains
 browser-verified. Record physical-browser/device coverage limits. Verify the default
@@ -403,6 +403,12 @@ repository-settings action required; do not ask again for already-given data-rel
 authorisation. Saving a cloud environment draft is separate from deploying Pages.
 
 ## Handoff
+
+For layout/border changes, run `node workbook/check_panel_resize.cjs SITE_URL`:
+actual border dragging, keyboard reset/arrows, emulated touch dragging, chart
+redraw, content-fit table minima, one document scroll surface, wide-screen space,
+phone/landscape reflow, 200% text and spacing. Run the existing overview/pivot,
+chart-layer and table-copy checks to preserve plotting and spreadsheet access.
 
 Report changes, checks and limits, control-plane updates, commit/remote state,
 actual deployment status and the smallest remaining action. Keep raw logs and

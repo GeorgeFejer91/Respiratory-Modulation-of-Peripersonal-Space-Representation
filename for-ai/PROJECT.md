@@ -166,8 +166,8 @@ comparison: mixed directions, task/alignment limits and access-qualified sources
 directional agreement alone does not establish replication. It separates external
 multisensory synchrony judgments from speeded target RTs; the latter cannot verify
 subjective simultaneity or temporal binding-window changes.
-The section menu stays fixed beside desktop content and collapses at the phone's
-bottom edge; embedded dialogs reserve space for this navigation.
+The section menu stays beside desktop content and collapses above phone content.
+It uses page flow when expanded beyond the viewport, without a nested scroller.
 Segment 3 shows the baseline-corrected chronological-block RT graph from `results/block_rt/`, the
 inconclusive linear trend, 39-person complete-block inference and downloadable
 all-available primary40 descriptives. Both conditions span one continuous 12-block
@@ -242,8 +242,16 @@ The sibling `/exploratory/` subpage preserves the expanded exploration controls,
 heatmap, source inspection and downloads, sharing the pivot preparation and
 saved-result catalogue rather than fitting new models.
 The original marimo pivot remains available under `/pivot/app/`. Any Excel-like
-or data table shown on a live page must render its complete result in one table,
-with internal scrolling and user controls for table height and width. Do not split
+or data table shown on a live page must render its complete result in one table.
+Owner amendment (2026-10-23): tables and plot surfaces use directly draggable
+borders with keyboard/touch access, replacing height/width sliders. Tables grow
+in page flow; dragging shorter stops at readable content rather than clipping
+or adding an internal scrollbar. Resizing a chart redraws it at its new size.
+The overview uses available screen width with responsive graph/table space
+sharing and one document scroll surface. Legacy figures retain their aspect
+ratio inside resizable layout surfaces while their separate native-chart
+migration remains open; this layout change does not rerun statistical analyses.
+Do not split
 table rows or columns across Next/Previous buttons. The shared read-only pivot
 table supports rectangular mouse, keyboard and touch selection and
 full-precision TSV clipboard export to Excel;

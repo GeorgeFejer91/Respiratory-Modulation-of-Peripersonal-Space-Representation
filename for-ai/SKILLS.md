@@ -155,8 +155,11 @@ acceptance criteria pass. Do not create a duplicate progress ledger.
 | HTML controls, keyboard, focus, and accessible names | `agents-inc-accessibility`; combine with Pretext geometry in one verification matrix |
 | Measured browser/WebView performance work | `agents-inc-web-performance`; retain project budgets, native authority, and no-scroll/full-text contracts |
 
-For every Excel-like or data table on a live page, render the complete result in
-one table with internal scrolling and controls to adjust its height and width.
+Owner amendment (2026-10-23): live tables and plots use draggable borders with
+keyboard/touch access, replacing height/width sliders. Render complete tables
+in document flow without nested scrolling or clipping; readable content sets
+the minimum height. Use available screen width for the overview and its plots.
+This supersedes the earlier internal-scroll/size-slider rule.
 Never split table rows or columns across Next/Previous buttons. Use the project's
 existing table owner and preserve full values, keyboard access and responsive
 layout.

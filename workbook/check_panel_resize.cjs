@@ -1,0 +1,86 @@
+const { chromium } = require('playwright');
+const assert = require('node:assert/strict');
+(async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport:{width:1600,height:1000} });
+    const base = process.argv[2] || 'http://127.0.0.1:8767/';
+    const errors = []; page.on('pageerror', error => errors.push(error.message));
+    await page.goto(new URL('pivot/?view=core',base).href);
+    await page.locator('#table-region[aria-busy="false"]').waitFor();
+    assert.equal(await page.locator('#table-height,#table-width').count(), 0, 'Sizing sliders must be removed');
+    const drag = async (handle, dx, dy) => {
+      await handle.scrollIntoViewIfNeeded(); const box = await handle.boundingBox();
+      await page.mouse.move(box.x+box.width/2,box.y+box.height/2); await page.mouse.down();
+      await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:10}); await page.mouse.up();
+    };
+    const before = await page.locator('#table-region').boundingBox();
+    await drag(page.locator('#table-region [data-resize-edge="bottom"]'),0,100);
+    assert((await page.locator('#table-region').boundingBox()).height > before.height+80);
+    await page.locator('#table-region [data-resize-edge="bottom"]').focus(); await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowUp');
+    assert(await page.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1));
+    const tableWidth = (await page.locator('.table-sheet').boundingBox()).width;
+    await drag(page.locator('#table-region [data-resize-edge="left"]'),-100,0);
+    assert((await page.locator('.table-sheet').boundingBox()).width > tableWidth+60);
+    const plot = page.locator('#chart-plot'), initialHeight = (await plot.boundingBox()).height;
+    await drag(page.locator('#chart-region [data-resize-edge="bottom"]'),0,90);
+    assert((await plot.boundingBox()).height > initialHeight+70);
+    assert.equal(await page.locator('[data-chart-point]').count(),20);
+    const height = await plot.locator('svg').getAttribute('height');
+    await page.locator('#chart-region [data-resize-edge="bottom"]').focus(); await page.keyboard.press('ArrowDown');
+    await page.waitForFunction(previous => +document.querySelector('#chart-plot svg').getAttribute('height') > +previous, height);
+    for (const [width,height] of [[320,568],[640,360],[1280,800],[1920,1080]]) {
+      await page.setViewportSize({width,height});
+      await page.waitForTimeout(100);
+      assert(await page.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1 && element.scrollWidth <= element.clientWidth+1), `${width} nested table scrolling`);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1), `${width} page overflow`);
+      for (const mode of ['large','spacing']) {
+        const style = await page.addStyleTag({content: mode === 'large' ? 'html{font-size:200%!important}' :
+          '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}'});
+        await page.waitForTimeout(60);
+        assert(await page.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1 && element.scrollWidth <= element.clientWidth+1), `${width} ${mode} nested scroll`);
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1), `${width} ${mode} overflow`);
+        await style.evaluate(element=>element.remove());
+      }
+      await page.locator('#table-region').evaluate(element => { element.scrollTop=50; });
+      assert.equal(await page.locator('#table-region').evaluate(element => element.scrollTop),0);
+    }
+    // A width chosen while stacked must not shrink a panel inside a desktop grid track.
+    await page.setViewportSize({width:800,height:900});
+    await page.locator('#table-region [data-resize-edge="right"]').focus();
+    await page.keyboard.press('Shift+ArrowLeft'); await page.keyboard.press('Shift+ArrowLeft');
+    await page.setViewportSize({width:1600,height:1000}); await page.waitForTimeout(60);
+    const expanded=(await page.locator('.table-sheet').boundingBox()).width;
+    await page.locator('#table-region [data-resize-edge="left"]').focus(); await page.keyboard.press('ArrowLeft');
+    assert((await page.locator('.table-sheet').boundingBox()).width>expanded, 'Desktop left border must grow the table after a stacked resize');
+    await page.goto(base); await page.frameLocator('#core-pivot').locator('#table-region[aria-busy="false"]').waitFor();
+    await page.setViewportSize({width:1920,height:1080});
+    assert((await page.locator('main').boundingBox()).width > 1450, 'Use desktop width instead of a narrow centered column');
+    assert.equal(await page.locator('figure [data-resize-edge="bottom"]').count(),4);
+    for(const width of [320,640,1280,1920]) {
+      await page.setViewportSize({width,height:800}); await page.waitForTimeout(150);
+      const core=page.frameLocator('#core-pivot');
+      await page.waitForFunction(() => {
+        const frame=document.querySelector('#core-pivot');
+        return frame.clientHeight >= frame.contentDocument.documentElement.scrollHeight-1;
+      });
+      assert(await core.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1 && element.scrollWidth <= element.clientWidth+1));
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1));
+    }
+    const touch=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
+    await touch.goto(new URL('pivot/?view=core',base).href);
+    await touch.locator('#table-region[aria-busy="false"]').waitFor();
+    const handle=touch.locator('#table-region [data-resize-edge="bottom"]');
+    await handle.scrollIntoViewIfNeeded(); const box=await handle.boundingBox();
+    const client=await touch.context().newCDPSession(touch);
+    const natural=(await touch.locator('#table-region').boundingBox()).height;
+    await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:box.x+box.width/2,y:box.y+box.height/2}]});
+    await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:box.x+box.width/2,y:box.y+box.height/2+60}]});
+    await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+    await touch.waitForFunction(previous=>document.querySelector('#table-region').clientHeight>previous+40,natural);
+    await touch.close();
+    assert.deepEqual(errors,[]);
+    console.log('Panel resizing passes: border dragging, keyboard, plot redraw, content-fit tables, full-width overview and one document scroll surface.');
+  } finally {await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

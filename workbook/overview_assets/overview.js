@@ -1,10 +1,14 @@
+import { resizePanel } from './pivot/panel-resize.js';
 // Reuse the locked Pretext runtime for both tool and question navigation.
 for (const link of document.querySelectorAll('.contents a')) link.setAttribute('data-measure', '');
 const links = [...document.querySelectorAll('.contents a')];
 const sections = links.map(link => document.querySelector(link.hash));
 const menu = document.querySelector('.contents details');
 const mobile = matchMedia('(max-width: 800px)');
-function syncMenu() { menu.open = !mobile.matches; }
+function fitMenu() { document.querySelector('.contents').style.position = menu.getBoundingClientRect().height > innerHeight-32 ? 'static' : ''; }
+function syncMenu() { menu.open = !mobile.matches; requestAnimationFrame(fitMenu); }
+menu.addEventListener('toggle',fitMenu);
+addEventListener('resize',fitMenu);
 syncMenu();
 mobile.addEventListener('change', syncMenu);
 for (const link of links) link.addEventListener('click', () => {
@@ -30,10 +34,19 @@ addEventListener('resize', updateCurrent);
 addEventListener('hashchange', updateCurrent);
 updateCurrent();
 
+// Shared geometry for current figure surfaces; native-chart owners can reuse this wrapper.
+for (const figure of document.querySelectorAll('figure')) {
+  const surface = figure.querySelector(':scope > a:has(img), :scope > [data-live-chart]');
+  if (!surface) continue;
+  const panel = document.createElement('div'); panel.className = 'plot-panel';
+  surface.before(panel); panel.append(surface);
+  resizePanel(panel,{label:figure.querySelector('figcaption strong')?.textContent || 'Figure'});
+}
+
 const coreFrame = document.getElementById('core-pivot');
 addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== coreFrame.contentWindow ||
       event.data?.type !== 'study5-core-height') return;
   const height = event.data.height;
-  if (Number.isFinite(height) && height >= 200 && height <= 20000) coreFrame.style.height = `${height}px`;
+  if (Number.isFinite(height) && height >= 200 && height <= 5000000) coreFrame.style.height = `${height}px`;
 });

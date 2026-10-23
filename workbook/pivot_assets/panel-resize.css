@@ -1,0 +1,12 @@
+.resizable-panel { position:relative; max-width:100%; min-width:0; }
+.resize-edge { position:absolute; z-index:2; touch-action:none; user-select:none; }
+.resize-edge::after { content:''; position:absolute; background:var(--line,#c4cdd5); }
+.resize-right,.resize-left { top:0; bottom:0; width:12px; cursor:ew-resize; }
+.resize-right { right:0; }
+.resize-left { left:0; display:none; }
+.resize-right::after,.resize-left::after { top:0; bottom:0; width:2px; left:5px; }
+.resize-bottom { bottom:0; left:0; right:0; height:12px; cursor:ns-resize; }
+.resize-bottom::after { left:0; right:0; top:5px; height:2px; }
+.resize-edge:hover::after,.resize-edge:focus-visible::after { background:var(--link,#175b9e); }
+.resize-edge:focus-visible { outline:2px solid var(--link,#175b9e); outline-offset:-2px; }
+@media print { .resize-edge { display:none; } }

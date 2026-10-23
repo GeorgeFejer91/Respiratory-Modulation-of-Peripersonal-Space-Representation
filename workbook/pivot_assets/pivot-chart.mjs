@@ -141,7 +141,7 @@ export function renderChart(result, settings, measure, mode, source) {
   }
   const plot = byId('chart-plot');
   const font = parseFloat(getComputedStyle(plot).fontSize);
-  const width = Math.max(240, plot.clientWidth), height = Math.max(240, font * 15);
+  const width = Math.max(180, plot.clientWidth), height = Math.max(240, font * 12, plot.clientHeight);
   const margin = { left: font * 4.5, right: font, top: font, bottom: font * 2.5 };
   const innerWidth = width - margin.left - margin.right, innerHeight = height - margin.top - margin.bottom;
   const chart = svgElement('svg', { viewBox: `0 0 ${width} ${height}`, width, height, role: 'group',

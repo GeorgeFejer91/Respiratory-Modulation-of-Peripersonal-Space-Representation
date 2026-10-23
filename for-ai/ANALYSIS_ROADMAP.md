@@ -2,6 +2,32 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — direct resizing and page flow
+
+Owner request (2026-10-23): remove table size sliders, drag table borders directly,
+eliminate nested scrolling and use available screen space across plot layouts.
+This supersedes historical internal-scroll/size-control instructions below.
+
+- [x] Replace sliders with shared border handles for tables and plot surfaces,
+  keyboard reset/arrows and pointer/touch capture. Tables grow with content;
+  the desktop graph/table share width, and the overview uses screen width.
+- [ ] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
+  independent review, combined production build and exact live publication.
+
+Plan/state: reuse pivot/overview owners and pinned Pretext; actual borders alter
+layout/SVG dimensions while statistical outputs stay fixed. Native chart migration
+remains its own open item. Work is isolated on codex/resize-panels from 60fedb2;
+69 workbook tests, 270 independent JavaScript/pandas cases, production build,
+border/layer/copy/overview/pivot checks pass. Expanded border checks include
+mouse/keyboard/emulated touch, layout-breakpoint transitions, one scroll surface,
+200% text/spacing, and full-width desktop/phone rendering. A reproduced review
+finding about stale stacked widths was fixed and regression-tested; final review
+has no further findings. Narrow cells show three significant digits while copy,
+CSV, full-value details and selected cell nodes retain full precision/identity.
+Physical Safari and assistive-technology coverage remain untested.
+Next action: integrate current main and publish under standing authority.
+The wider scientific/publication goal remains open.
+
 ### Live-page plot rule — 2026-10-23
 
 - [x] Record the owner's native-web-chart requirement in `PROJECT.md` and its

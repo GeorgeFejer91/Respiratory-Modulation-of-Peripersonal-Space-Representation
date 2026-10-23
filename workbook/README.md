@@ -74,10 +74,17 @@ participant/questionnaire records or a saved analysis table, then assign Rows,
 Columns, Values and a summary function; **Done** closes settings. Numeric
 summaries offer numeric Values fields; counts also allow text. **Export CSV**
 downloads every pivot row and column. The table shows the complete result at
-once, scrolls within its own viewport, and has height and width controls. No
+once and grows with its contents in page flow. Drag the table/plot borders to
+resize; focused borders also support arrow keys (Shift for larger steps), Home
+or double-click to reset. The shared border between desktop chart and table
+adjusts their widths; the bottom borders adjust table/plot height. Tables stop
+shrinking at readable content height, preserving every row without an inner
+scrollbar. The overview uses the available screen width. No
 Next/Previous buttons page table data, field choices or settings groups. Settings
 stretch with the available space and keep all ordered groups visible.
-CSV downloads retain full precision; displayed summaries use six significant digits.
+Copying and CSV downloads retain full precision. Displayed summaries use six
+significant digits in roomy cells and three in narrow cells, without changing
+the underlying values or selected range.
 The read-only table supports rectangular cell selection: drag, Shift-click, or
 use arrows with Shift to extend a range, then Ctrl+C/⌘C or **Copy selection**.
 On touch screens, tap the first cell, enable **Extend selection**, and tap the
@@ -97,7 +104,7 @@ connect descriptive summaries and supply no fitted model or inferential interval
 Mixed measurement units in generic saved summaries require a parameter/quantity/
 units filter before plotting. Dense charts show an explicit filter request above
 4,000 cells, 48 series or 100 x values; the full table and export remain available.
-On narrow screens, chart and the internally scrollable table use ordinary document
+On narrow screens, chart and the content-fit table use ordinary document
 scrolling.
 
 The default is the 40-person behavioural cohort; select Full release for all 42
