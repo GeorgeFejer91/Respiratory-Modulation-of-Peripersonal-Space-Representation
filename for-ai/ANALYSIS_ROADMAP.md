@@ -2,7 +2,7 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Active amendment — Segment 2 rainclouds and point inspection
+### Completed amendment — Segment 2 rainclouds and point inspection
 
 Owner request (2026-10-23): promote the six raw Inhale−Exhale trial-group deltas
 as the main Segment 2 visualization, stacked rainclouds, with exact-value click/
@@ -18,7 +18,7 @@ the preserved corrected overall inference or cleaning. Keep the wider goal open.
   touch, dismissal and a static/data fallback. Inspect existing plot owners first.
   Owner selected current page/explorer plots and future plots; older workbook/
   archived report figures are outside this retrofit.
-- [ ] Verify source/data identity, density math, all points, real browser point
+- [x] Verify source/data identity, density math, all points, real browser point
   activation, reflow/Pretext, existing controls, suite, authorized Git publication,
   exact CI/Pages deployment and changed live behavior.
 
@@ -37,7 +37,16 @@ Python/JavaScript comparisons, overview/point/pivot/layer/copy/border browser ga
 pass. The border gate includes HTML raincloud growth, Home reset and content
 minima; phone/desktop renders were inspected. Independent review confirms
 unchanged results and no remaining material findings after the caption correction.
-Next action: publish and verify the exact live deployment. The wider goal is open.
+Source `5710b14` is pushed on main and the retained chart branch. Actions run
+`39964405325` passed the full fixed analysis, independent numerical validation
+and Pages deployment. Live overview, point-inspection, border-resize and chart-
+layer gates pass at the renamed publication URL. All 240 deltas match the live
+CSV; the entire numerical payload equals the validated build. New chart script
+bytes match after LF normalization; inspector, CSV and raincloud SVG match exactly.
+The current page has no embedded plot images. Static downloads remain separate.
+No external blocker remains for this amendment. Next action: resume the broader
+scientific/publication checklist; physical Safari and screen-reader testing remain
+unrun. The wider goal is open.
 
 
 ### Scientific web-figure selection guide — 2026-10-23
@@ -122,14 +131,16 @@ and publication acceptance checklist. The wider publication goal remains open.
 
 - [x] Record the owner's native-web-chart requirement in `PROJECT.md` and its
   rendering/data checks in `VERIFICATION.md`; static exports remain available.
-- [ ] Migrate existing embedded plot images to charts rendered from the approved
-  data, preserving estimates, uncertainty, pairing and accessible data access.
+- [x] Migrate current overview/explorer plot images to charts rendered from the
+  approved data, preserving estimates, uncertainty, pairing and accessible data
+  access. Live verification is recorded in the completed raincloud amendment
+  above. Older workbook/archived report figures retain the owner-selected scope.
 
-This instruction-only change starts from clean, synchronized `main` at `13b35ef`.
-Context/link and diff checks plus exact remote-SHA verification apply; served
-assets are unchanged and no new deployment is claimed. Next action: inventory
-and migrate the existing live plot images, then run the applicable chart/browser
-and deployment gates. The wider publication goal remains open.
+The instruction-only checkpoint started from clean, synchronized `main` at
+`13b35ef` and changed no served assets. Its current-page migration is now verified
+through source `5710b14` and successful deployment `39964405325`, as recorded
+above. Future plots retain this rule. Next action: resume the broader scientific
+and publication gates. The wider publication goal remains open.
 
 ### Completed amendment — spreadsheet-style table copying
 
