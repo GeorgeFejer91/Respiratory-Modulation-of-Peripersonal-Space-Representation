@@ -177,6 +177,12 @@ and sizing must not truncate chart data. Check hover/tap comparisons of overlapp
 keyboard point navigation, density limits, source races and mixed-unit warnings.
 With Playwright/Chromium available to Node (or through `NODE_PATH`), run
 `node workbook/check_pivot_browser.cjs <HTTP pivot URL>` against the audited build.
+Also run `node workbook/check_table_copy.cjs <HTTP site root URL>` for rectangular
+mouse/keyboard/touch selection, range reset, full-precision TSV, zero/missing
+positions, real clipboard reads and the embedded-page clipboard fallback. Verify
+the highlighted range and focus visually. Mean ± SD is copied as text in one cell;
+Mean only copies numbers. Chromium clipboard evidence does not establish an
+actual Excel paste, physical Safari behavior or screen-reader conformance.
 Its fixtures additionally check broken lines, explicit limits and missing-Pretext
 fallback. Serve `.mjs` as JavaScript; the Windows Python MIME map may require an
 explicit server override. The chart's SVG ticks use actual rendered bounds for

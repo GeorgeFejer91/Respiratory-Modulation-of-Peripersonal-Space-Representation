@@ -2,6 +2,23 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — spreadsheet-style table copying
+
+- [x] Reuse the shared read-only pivot table for rectangular drag, Shift-click,
+  keyboard and touch ranges, select all and Excel-compatible TSV copying. Keep
+  full precision, blank missing cells, internal scrolling and size controls.
+- [x] Production build, all 69 workbook tests, 270 Python/JavaScript parity cases,
+  pivot and overview browser gates pass. Dedicated Chromium checks pass for
+  ranges, clipboard values, result reset and actual embedded clipboard fallback;
+  phone/desktop renders inspected. RTK is unavailable; bounded native commands
+  were used. Actual Excel paste, physical Safari and screen readers are untested.
+- [ ] Complete authorized commit/push, exact Pages deployment and live checks.
+  Working on `main` from synchronized `2fe2971`; only this amendment's paths are
+  changed. The wider scientific/publication acceptance checklist remains open.
+
+Next action: publish this amendment and verify the changed live behavior, then
+resume the existing measurement/publication questions.
+
 ### GitHub synchronization checkpoint — 2026-10-23
 
 - [x] Fetch and inspect all five worktrees: clean, with `main` matching

@@ -1,6 +1,7 @@
 import { aggregations, csvText } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
+import { resetSelection } from './pivot-selection.js';
 
 const byId = id => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: 6 });
@@ -113,6 +114,7 @@ function reportError(error) {
   byId('error').textContent = error.message;
   byId('error').hidden = false;
   byId('table-region').setAttribute('aria-busy', 'false');
+  resetSelection();
   byId('export').disabled = true;
   byId('status').textContent = 'Adjust Pivot settings to calculate again.';
 }
@@ -124,6 +126,7 @@ async function update() {
   submitted.participantSummary = coreView && !submitted.rawRecords && source === 'means' && submitted.aggregation === 'Mean';
   if (submitted.participantSummary) submitted.totals = false;
   byId('table-region').setAttribute('aria-busy', 'true');
+  resetSelection();
   byId('chart-region').setAttribute('aria-busy', 'true');
   byId('error').hidden = true;
   byId('export').disabled = true;
@@ -174,10 +177,11 @@ function labelTable() {
     `${config.values.map(fieldLabel).join(' / ')} · ${settings.sdWhiskers ? 'Mean ± SD' : 'Mean'}` :
     config.aggregation === 'Row count' ? 'Records' : config.values.map(field => measureLabel(field, config.aggregation)).join(' / ');
 }
-function tableCell(tag, label, full) {
+function tableCell(tag, label, full, copyValue = label) {
   const cell = document.createElement(tag);
   cell.textContent = String(label);
   cell.title = String(full);
+  cell.dataset.copyValue = String(copyValue ?? '');
   return cell;
 }
 function sizeTable() {
@@ -197,11 +201,12 @@ export function renderTable() {
     const fragment = document.createDocumentFragment();
     for (const row of result.rows) {
       const tr = document.createElement('tr');
-      for (const value of row) tr.append(tableCell('td', cellText(value), value ?? 'Missing value'));
+      for (const value of row) tr.append(tableCell('td', cellText(value), value ?? 'Missing value', value));
       fragment.append(tr);
     }
     table.tBodies[0].replaceChildren(fragment);
     byId('empty-table').hidden = result.count > 0;
+    resetSelection();
     document.dispatchEvent(new Event('pivot-layout'));
     return;
   }
@@ -218,14 +223,16 @@ export function renderTable() {
   result.rows.forEach((row, rowIndex) => {
     const tr = document.createElement('tr');
     const rowLabel = row.slice(0, result.axisCount).map(cellText).filter(Boolean).join(' / ');
-    tr.append(tableCell('td', rowLabel, rowLabel));
+    tr.append(tableCell('td', rowLabel, rowLabel, row.slice(0, result.axisCount).map(value => value ?? '').join(' / ')));
     row.slice(result.axisCount).forEach((value, columnIndex) => {
       const stats = result.stats?.[rowIndex]?.[columnIndex];
-      tr.append(stats ? tableCell('td', settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`) :
-        tableCell('td', cellText(value), value ?? 'Missing value'));
+      tr.append(stats ? tableCell('td', settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`,
+        settings.sdWhiskers && value !== null ? `${value} ± ${stats.sd ?? '—'}` : value) :
+        tableCell('td', cellText(value), value ?? 'Missing value', value));
     });
     tbody.append(tr);
   });
+  resetSelection();
   document.dispatchEvent(new Event('pivot-layout'));
 }
 

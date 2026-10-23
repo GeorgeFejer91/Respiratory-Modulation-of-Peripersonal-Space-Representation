@@ -236,8 +236,12 @@ saved-result catalogue rather than fitting new models.
 The original marimo pivot remains available under `/pivot/app/`. Any Excel-like
 or data table shown on a live page must render its complete result in one table,
 with internal scrolling and user controls for table height and width. Do not split
-table rows or columns across Next/Previous buttons. Pivot settings retain ordered
-stretch groups; chooser lists scroll to expose all options without paging. Locked
+table rows or columns across Next/Previous buttons. The shared read-only pivot
+table supports rectangular mouse, keyboard and touch selection and
+full-precision TSV clipboard export to Excel;
+missing cells copy blank, Mean ± SD stays one text cell, and result changes clear
+selection. No grid runtime or editable-data engine is required. Pivot settings
+retain ordered stretch groups; chooser lists scroll to expose all options without paging. Locked
 Pretext 1.0.0 measures bounded labels after the first table. Preserve user text
 enlargement; very short enlarged layouts may use deliberate outer document flow.
 Browser-size emulation does not establish actual iPhone/Safari verification.
