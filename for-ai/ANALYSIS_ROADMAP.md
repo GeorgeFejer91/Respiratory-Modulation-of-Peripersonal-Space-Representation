@@ -2,6 +2,19 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Live-page plot rule — 2026-10-23
+
+- [x] Record the owner's native-web-chart requirement in `PROJECT.md` and its
+  rendering/data checks in `VERIFICATION.md`; static exports remain available.
+- [ ] Migrate existing embedded plot images to charts rendered from the approved
+  data, preserving estimates, uncertainty, pairing and accessible data access.
+
+This instruction-only change starts from clean, synchronized `main` at `13b35ef`.
+Context/link and diff checks plus exact remote-SHA verification apply; served
+assets are unchanged and no new deployment is claimed. Next action: inventory
+and migrate the existing live plot images, then run the applicable chart/browser
+and deployment gates. The wider publication goal remains open.
+
 ### Completed amendment — spreadsheet-style table copying
 
 - [x] Reuse the shared read-only pivot table for rectangular drag, Shift-click,

@@ -10,6 +10,14 @@ evidence must trace to the same declared data/code/result version. The ordered
 [analysis roadmap](ANALYSIS_ROADMAP.md) remains the single active checklist.
 Publication-ready is an acceptance goal, not a status conferred by hosting.
 
+Live-page plot rule (owner, 2026-10-23): render plots as native web charts from
+their underlying data, using HTML/inline SVG or JavaScript-driven canvas. Do not
+embed pre-rendered plot images as the live chart, including SVG files in image
+elements. Reuse the existing chart owner where practical. Keep static figure
+downloads and publication exports available separately. Apply this to new and
+revised live plots; existing image-based plots still require migration before
+the live page fully meets this rule.
+
 General figure rule: quantitative data plots use an actual zero reference. When
 all plotted values and uncertainty are nonnegative, the y-axis lower bound is
 exactly zero with no padding below it. When values or intervals extend below

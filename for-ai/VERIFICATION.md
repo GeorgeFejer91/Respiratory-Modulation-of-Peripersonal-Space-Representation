@@ -14,6 +14,12 @@ must be reconciled by a normal validated push, never by resetting user work.
 
 ### Living publication acceptance (D-0015)
 
+For new or revised live-page plots, inspect the rendered page and chart source:
+the chart must render from underlying data through HTML/inline SVG or
+JavaScript-driven canvas, rather than embed a pre-rendered plot image (including
+an SVG image file). Verify plotted values against the approved results, responsive
+rendering and accessible labels/data access. Static downloads remain separate.
+
 For changes to the question-led landing page, serve a production build and run
 `node workbook/check_overview_browser.cjs URL` with Playwright available. Check
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
