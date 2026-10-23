@@ -1,5 +1,5 @@
 import { resizePanel } from './panel-resize.js';
-import { aggregations, csvText } from './pivot-engine.mjs';
+import { aggregations, csvText, errorLabels, errorValues } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
 import { resetSelection } from './pivot-selection.js';
@@ -28,7 +28,7 @@ const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['
 if (coreView) {
   settings.values = ['baseline_benefit_ms'];
   settings.totals = false;
-  settings.sdWhiskers = true;
+  settings.errorMetric = 'sd';
   byId('totals').checked = false;
   byId('core-controls').hidden = false;
   byId('choose-values').textContent = 'Values: baseline_benefit_ms';
@@ -60,7 +60,7 @@ if (coreView) {
   byId('core-normalize').onclick = () => { coreNormalized = !coreNormalized; setCoreMeasure(); };
   byId('core-normalization-method').onchange = event => { normalizationMethod = event.target.value; setCoreMeasure(); };
   byId('core-spread').onchange = () => {
-    settings.sdWhiskers = byId('core-spread').value === 'sd'; labelTable(); renderTable(); drawChart();
+    settings.errorMetric = byId('core-spread').value; labelTable(); renderTable(); drawChart();
   };
   for (const checkbox of document.querySelectorAll('[data-group-field]')) checkbox.onchange = () => {
     settings.columns = [...document.querySelectorAll('[data-group-field]:checked')].map(input => input.dataset.groupField);
@@ -177,7 +177,7 @@ function labelTable() {
   if (!result) return;
   const config = resultSettings;
   byId('table-caption').textContent = result.rawRecords ? 'Trial records · ungrouped · exclusion flags retained' : result.stats ?
-    `${config.values.map(fieldLabel).join(' / ')} · ${settings.sdWhiskers ? 'Mean ± SD' : 'Mean'}` :
+    `${config.values.map(fieldLabel).join(' / ')} · ${errorLabels[settings.errorMetric].join(' / ')}` :
     config.aggregation === 'Row count' ? 'Records' : config.values.map(field => measureLabel(field, config.aggregation)).join(' / ');
 }
 function tableCell(tag, label, full, copyValue = label) {
@@ -192,17 +192,18 @@ function sizeTable() {
   const font = parseFloat(getComputedStyle(table).fontSize);
   const width = region.clientWidth;
   document.body.dataset.compact = String(width / font < 18);
-  const columns = result ? result.rawRecords ? result.columns.length : result.columns.length - result.axisCount + 1 : 1;
+  const columns = result ? result.rawRecords ? result.columns.length : (result.columns.length - result.axisCount) * (result.stats ? errorLabels[settings.errorMetric].length : 1) + 1 : 1;
   const next = width / columns < font * 5 ? 3 : 6;
   if (next === digits) return false;
   digits = next; numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: digits });
   return true;
 }
-const displayCell = (value, stats) => stats && settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value);
 export function renderTable() {
   if (!result) return;
   sizeTable();
   const table = byId('pivot-table');
+  table.classList.toggle('summary-errors', Boolean(result.stats));
+  table.style.setProperty('--summary-columns', result.stats ? errorLabels[settings.errorMetric].length : 1);
   const header = document.createElement('tr');
   if (result.rawRecords) {
     for (const field of result.columns) header.append(tableCell('th', fieldLabel(field), field));
@@ -223,7 +224,10 @@ export function renderTable() {
   header.append(tableCell('th', resultSettings.rows.map(fieldLabel).join(' / ') || 'All records', rowTitle));
   result.columns.slice(result.axisCount).forEach(label => {
     const shorter = (resultSettings.values.length === 1 || resultSettings.aggregation === 'Row count') && resultSettings.columns.length ? label.split(' · ').slice(1).join(' · ') : label;
-    header.append(tableCell('th', shorter, label));
+    for (const metric of result.stats ? errorLabels[settings.errorMetric] : ['']) {
+      const cell = tableCell('th', `${shorter}${metric ? ' · ' + metric : ''}`, `${label}${metric ? ' · ' + metric : ''}`);
+      cell.scope = 'col'; header.append(cell);
+    }
   });
   table.tHead.replaceChildren(header);
   const tbody = table.tBodies[0];
@@ -235,9 +239,18 @@ export function renderTable() {
     tr.append(tableCell('td', rowLabel, rowLabel, row.slice(0, result.axisCount).map(value => value ?? '').join(' / ')));
     row.slice(result.axisCount).forEach((value, columnIndex) => {
       const stats = result.stats?.[rowIndex]?.[columnIndex];
-      tr.append(stats ? tableCell('td', displayCell(value, stats), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`,
-        settings.sdWhiskers && value !== null ? `${value} ± ${stats.sd ?? '—'}` : value) :
-        tableCell('td', cellText(value), value ?? 'Missing value', value));
+      const values = result.stats ? errorValues(value, stats, settings.errorMetric) : [value];
+      values.forEach((entry, metric) => {
+        const detail = stats ? `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}; ${errorLabels[settings.errorMetric][metric]}: ${entry ?? 'undefined (n < 2)'}` : entry ?? 'Missing value';
+        const cell = tableCell('td', cellText(entry), detail, entry);
+        if (result.stats) {
+          const label = document.createElement('span'); label.className = 'summary-cell-label'; label.dataset.fitLabel = '';
+          label.textContent = header.cells[tr.cells.length].textContent;
+          const number = document.createElement('span'); number.className = 'summary-cell-number'; number.textContent = cell.textContent;
+          cell.replaceChildren(label, number);
+        }
+        tr.append(cell);
+      });
     });
     tbody.append(tr);
   });
@@ -253,8 +266,8 @@ function drawChart(force = true) {
     chartGeometry = geometry;
     byId('chart-layers').hidden = !result.participantSummary || byId('chart-style').value==='heatmap';
     byId('chart-style').closest('label').hidden = Boolean(result.participantSummary) && !exploratoryView;
-    document.querySelector('[data-chart-layer="summary"]').textContent = settings.sdWhiskers ? 'Mean ± SD' : 'Mean dots';
-    renderChart(result, { ...resultSettings, sdWhiskers: settings.sdWhiskers,
+    document.querySelector('[data-chart-layer="summary"]').textContent = {sd:'Mean ± SD',se:'Mean ± SE',ci95:'Mean + 95% CI',mean:'Mean dots'}[settings.errorMetric] || 'Mean dots';
+    renderChart(result, { ...resultSettings, errorMetric: settings.errorMetric,
       ...(result.participantSummary && byId('chart-style').value!=='heatmap' ? { chartLayers } : {}) }, byId('chart-measure').value, byId('chart-style').value, resultSource);
   }
 }
@@ -414,9 +427,11 @@ function reformatTable() {
   if (!result || !sizeTable()) return;
   // Reformat existing cells without replacing selection nodes or full-precision copy values.
   [...byId('pivot-table').tBodies[0].rows].forEach((row, index) => {
-    const values = result.rawRecords ? result.rows[index] : result.rows[index].slice(result.axisCount);
+    const values = result.rawRecords ? result.rows[index] : result.rows[index].slice(result.axisCount).flatMap((value,column) =>
+      result.stats ? errorValues(value, result.stats[index]?.[column], settings.errorMetric) : [value]);
     values.forEach((value, column) => {
-      row.cells[column + (result.rawRecords ? 0 : 1)].textContent = displayCell(value, result.stats?.[index]?.[column]);
+      const cell = row.cells[column + (result.rawRecords ? 0 : 1)];
+      (cell.querySelector('.summary-cell-number') || cell).textContent = cellText(value);
     });
   });
 }

@@ -2,6 +2,31 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — independent error metric and numeric error cells
+
+Owner request (2026-10-23): select SD, confidence intervals or another standard
+error measure independently, and put the selected error in separate responsive
+table cells. Reuse the existing pooled participant means and shared chart owner.
+
+- [x] Add SD (default), SE, pointwise 95% Student-t CI and none. Use participant
+  sample SD/n after within-person pooling; undefined n < 2 and zero spread remain
+  distinct. Keep marginal uncertainty separate from paired-effect inference and
+  baseline-estimation uncertainty; no fixed analysis/model changes.
+- [x] Separate numeric mean/SD/SE cells and lower/upper CI cells, full-precision
+  rectangular clipboard export, stable complete CSV with every error measure,
+  labelled narrow-screen reflow and content-fit table border resizing.
+- [ ] Complete final local gates, authorized commit/integration/push and exact
+  CI/Pages/live verification; record source/remote state here.
+
+Plan/evidence: bounded change in existing pivot engine, app, HTML/CSS and chart;
+the existing 270 JavaScript/pandas cases and 516 SciPy interval fixtures pass.
+All 70 workbook tests and production build pass (Windows requires UTF-8 mode).
+Local interval/copy/pivot/overview/border/point gates pass. Independent review
+found one stale hidden-layer caption, now fixed with a regression assertion.
+The t lookup covers the released maximum 42 participants, with unavailable CIs
+for larger samples. Physical Safari and assistive technology remain untested.
+Next action: final affected checks and publication. The broader goal stays open.
+
 ### Active amendment — table below the plot
 
 Owner clarification (2026-10-23): put the pivot table under its visualization,

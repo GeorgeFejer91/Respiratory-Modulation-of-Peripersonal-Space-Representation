@@ -132,6 +132,16 @@ main {
 #selection-help,#selection-status { font-size:.85em; color:var(--muted); overflow-wrap:anywhere; }
 #extend-selection[aria-pressed=true] { outline:2px solid var(--link); outline-offset:-3px; }
 #pivot-table { user-select:none; }
+.summary-cell-label { display:none; }
+@media(max-width:700px) {
+  #pivot-table.summary-errors, #pivot-table.summary-errors thead, #pivot-table.summary-errors tbody { display:block; }
+  #pivot-table.summary-errors caption { display:block; width:100%; }
+  #pivot-table.summary-errors { min-height:min-content; }
+  #pivot-table.summary-errors tr { display:grid; grid-template-columns:repeat(var(--summary-columns),minmax(0,1fr)); }
+  #pivot-table.summary-errors tr > :first-child { grid-column:1 / -1; background:var(--wash); font-weight:600; }
+  #pivot-table.summary-errors .summary-cell-label { display:block; font-size:.85em; color:var(--muted); margin-bottom:.25em; }
+  #pivot-table.summary-errors .summary-cell-number { display:block; }
+}
 #pivot-table th,#pivot-table td { border:1px solid var(--line); cursor:cell; white-space:normal; overflow-wrap:anywhere; }
 #pivot-table [aria-selected=true] { background:color-mix(in srgb,var(--link) 18%,var(--paper)); box-shadow:inset 0 0 0 1px var(--link); }
 #pivot-table :focus { outline:2px solid var(--link); outline-offset:-2px; }

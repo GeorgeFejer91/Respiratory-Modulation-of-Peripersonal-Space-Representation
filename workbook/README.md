@@ -44,15 +44,26 @@ These are descriptive display transformations, preserving data and fixed
 analyses. See [normalization methods and researched sources](RT_NORMALIZATION.md).
 Mean ± SD whiskers are not confidence intervals and may extend beyond 0–1.
 
-**Display** selects means with or without sample SD in both views. Full-value
-details and CSV retain SD/n. **Pivot settings** keeps cohort and calculation
+**Error metric** separately selects sample **SD** (default), **SE**, a **95% confidence
+interval**, or **None (mean only)** in both views. SE = SD/√n; the pointwise CI
+is mean ± t(.975, n−1) × SE, using nonmissing participant means after pooling.
+These marginal intervals are not paired-effect intervals or tests of group differences;
+they do not propagate baseline-estimation uncertainty. Full-release intervals assume
+independence despite linked P011/P033 records; prefer the primary cohort.
+Errors are undefined for n < 2; zero spread remains zero. The fixed t lookup covers
+the audited release's maximum 42 people; larger samples have unavailable t intervals.
+Means and SD/SE occupy separate numeric cells, and CI lower/upper limits each get
+their own cell. Narrow tables reflow each SOA row into labelled groups in page flow.
+Full-value details retain SD/n; CSV always includes mean, SD, n, SE and both CI limits,
+regardless of presentation. **Pivot settings** keeps cohort and calculation
 controls; the standalone pivot below provides the broader field/filter/source
 catalogue. Nonnegative plots start at zero; negative values remain visible with
 a labeled zero reference.
 
 In Segment 0's Mean view, **Show together** lets you combine **Mean ± SD**,
 **Mean line**, **Participant dots**, **Spaghetti** and **Violin** independently.
-Choose Mean only in Display to hide the sample-SD whiskers. Participant values
+Choose None in Error metric to hide whiskers. The mean-layer label follows the
+selected SD, SE or CI. Participant values
 are actual per-person means after pooling unchecked factors, not trial rows;
 they follow the same baseline and normalization controls. Spaghetti joins the
 same person within each group, with gaps for missing SOAs. Violins are smoothed
@@ -89,8 +100,8 @@ The read-only table supports rectangular cell selection: drag, Shift-click, or
 use arrows with Shift to extend a range, then Ctrl+C/⌘C or **Copy selection**.
 On touch screens, tap the first cell, enable **Extend selection**, and tap the
 last cell. **Select all cells** includes headers. Copied tab-separated rows paste
-directly into Excel, retaining full precision and blank missing cells. **Mean ± SD**
-copies as one text cell; select **Mean only** for numeric cells. A new result
+directly into Excel, retaining full precision and blank missing cells. Means and
+error metrics copy into separate numeric cells. A new result
 clears the selection; the released data remain read-only.
 Use **Chart style** for automatic, line, points or grouped bars. A multi-measure
 pivot exposes **Chart measure**, keeping different measures off the same y-axis.

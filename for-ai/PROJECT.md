@@ -211,7 +211,14 @@ sample SD and n; table/chart/CSV share the result. Segment 0 has no field draggi
 axis reassignment or ungrouped trial-record mode.
 The full pivot subpage retains its broader source catalogue.
 Baseline correction uses the default-on Baseline − RT toggle described above;
-Mean/Mean ± SD presentation uses a select updating both views. The adjacent
+An independent Error metric select updates both views: none (mean only), sample
+SD (default), SE = SD/√n, or pointwise 95% Student-t CI with n−1 degrees of freedom.
+Use pooled nonmissing participant means, never trial counts. These marginal display
+intervals are not paired-effect inference and do not propagate baseline-estimation
+uncertainty. Mean and selected error use separate numeric table cells; CI lower/upper
+each have their own cell. Narrow tables reflow rows into labelled groups in page flow.
+CSV always includes SD, n, SE and both CI limits. The t lookup covers the audited
+42-person release; larger samples have unavailable t intervals. The adjacent
 default-off Normalize RT toggle offers 0–1 min–max and z-score methods.
 For each participant, estimate minimum/maximum and mean/sample SD using all
 retained AT trials across both conditions, both phases and all SOAs, before
@@ -279,7 +286,7 @@ Do not split
 table rows or columns across Next/Previous buttons. The shared read-only pivot
 table supports rectangular mouse, keyboard and touch selection and
 full-precision TSV clipboard export to Excel;
-missing cells copy blank, Mean ± SD stays one text cell, and result changes clear
+missing cells copy blank, mean/error values occupy separate numeric cells, and result changes clear
 selection. No grid runtime or editable-data engine is required. Pivot settings
 retain ordered stretch groups; chooser lists scroll to expose all options without paging. Locked
 Pretext 1.0.0 measures bounded labels after the first table. Preserve user text

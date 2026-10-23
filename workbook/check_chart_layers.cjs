@@ -41,6 +41,7 @@ const assert = require('node:assert/strict');
     assert.match(csv.split('\n')[0], /participant_id.*soa_ms.*condition.*phase.*baseline_benefit_ms/);
     assert(!csv.includes('P011') && !csv.includes('P033'));
     await set('summary', false); await set('line', false); await set('violin', false);
+    assert.match(await page.locator('#chart-note').innerText(), /error whiskers are hidden/);
     const dot = page.locator('[data-participant-point]').first();
     await dot.focus(); await page.keyboard.press('ArrowRight');
     assert.match(await page.locator('#chart-hover').innerText(), /P\d+.*Participant mean/);

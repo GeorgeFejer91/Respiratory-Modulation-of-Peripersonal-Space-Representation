@@ -7,7 +7,7 @@ import subprocess
 from pathlib import Path
 
 import pandas as pd
-from scipy.stats import gaussian_kde
+from scipy.stats import gaussian_kde, t
 
 from pivot_data import AGGREGATIONS, cohort_frame, exploration_views, pivot_frame, typed_frame
 from pivot_static import browser_frame, normalization_parameters
@@ -86,7 +86,15 @@ def validate(node):
     for value in ["reaction_time_norm", "baseline_benefit_norm", "reaction_time_z", "baseline_benefit_z"]:
         add("benefit-edge", ["soa_ms"], [], [value], "Mean", participantSummary=True, totals=False)
     add("benefit-edge", [], [], ["baseline_benefit_ms"], "Mean", rawRecords=True)
-    payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots)
+    intervals = []
+    for mean in [-3., 0., 7., None]:
+        for sd in [0., 2.5, None]:
+            for n in range(43):
+                se = sd / math.sqrt(n) if n >= 2 and sd is not None and mean is not None else None
+                half = t.ppf(.975, n-1) * se if se is not None else None
+                intervals.append(dict(mean=mean,sd=sd,n=n,se=se,
+                    low=mean-half if half is not None else None, high=mean+half if half is not None else None))
+    payload = dict(frames={name: browser_frame(frame) for name, frame in frames.items()}, cases=cases, snapshots=snapshots, intervals=intervals)
     payload["frames"]["Participant-distance means"]["normalizers"] = normalization_parameters(frames["All trial records"])
     edge_trials = frames["benefit-edge"].assign(retained_global=True, trial_type="Audio-Tactile")
     payload["frames"]["benefit-edge"]["normalizers"] = normalization_parameters(edge_trials)

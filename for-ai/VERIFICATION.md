@@ -80,8 +80,13 @@ checkboxes: 4 curves, 2 condition curves, 2 phase curves, or 1 pooled curve.
 Every state retains all source cells. Independently verify pooling within person
 before across-person mean/sample SD/n, including normalized scores. Check mouse,
 keyboard and touch selection, raw/baseline-benefit RT with normalization off, min–max and z-scores,
-Mean/Mean ± SD in both views, table/CSV mean-SD-n identity, and SD-aware chart
-extents/tooltips. Normalization references use each participant's complete retained AT trials
+SD/SE/95% CI/none in both views, separate numeric mean/error and CI limit cells,
+table/CSV/whisker identity and error-aware chart extents/tooltips. Run
+`node workbook/check_error_metrics.cjs SITE_URL` locally and live for clipboard,
+keyboard, labelled phone reflow, enlarged text, spacing and actual Pretext.
+The JavaScript/Python gate checks all release-supported sample sizes against SciPy
+t quantiles, undefined small samples and zero spread.
+Normalization references use each participant's complete retained AT trials
 across conditions/phases/SOAs before cell averaging/grouping; pooling factors must
 not renormalize scores. Independently compare trial-based mean/sample SD and
 minimum/maximum. Verify normalization data loads on demand.
@@ -212,8 +217,8 @@ With Playwright/Chromium available to Node (or through `NODE_PATH`), run
 Also run `node workbook/check_table_copy.cjs <HTTP site root URL>` for rectangular
 mouse/keyboard/touch selection, range reset, full-precision TSV, zero/missing
 positions, real clipboard reads and the embedded-page clipboard fallback. Verify
-the highlighted range and focus visually. Mean ± SD is copied as text in one cell;
-Mean only copies numbers. Chromium clipboard evidence does not establish an
+the highlighted range and focus visually. Mean and error metrics copy as separate
+numeric cells, including separate CI limits. Chromium clipboard evidence does not establish an
 actual Excel paste, physical Safari behavior or screen-reader conformance.
 Its fixtures additionally check broken lines, explicit limits and missing-Pretext
 fallback. Serve `.mjs` as JavaScript; the Windows Python MIME map may require an

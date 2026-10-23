@@ -26,7 +26,8 @@
         <span id="core-correction-formula" data-fit-label>Baseline − RT (ms)</span>
         <label><span data-fit-label>Normalization method</span><select id="core-normalization-method"><option value="norm">0–1 range (min–max)</option><option value="z">Z-score (mean 0, SD 1)</option></select></label>
         <span id="core-normalize-formula" data-fit-label>One scale per participant, using all retained AT trials across conditions, phases and SOAs.</span>
-        <label><span data-fit-label>Display</span><select id="core-spread"><option value="sd">Mean ± SD</option><option value="mean">Mean only</option></select></label>
+        <label><span data-fit-label>Error metric</span><select id="core-spread" aria-describedby="core-error-help"><option value="sd">Standard deviation (SD)</option><option value="se">Standard error (SE)</option><option value="ci95">95% confidence interval</option><option value="mean">None (mean only)</option></select></label>
+        <span id="core-error-help" data-fit-label>SD shows participant spread; SE and pointwise 95% t CIs describe uncertainty in the mean. Each metric has its own table cells. Undefined for n &lt; 2. These are marginal intervals, not paired-effect tests.</span>
       </section>
     </div>
   </section>
@@ -55,7 +56,7 @@
       </section>
       <section class="table-sheet" aria-label="Data table">
         <div class="selection-controls"><button id="copy-selection" disabled data-fit-label>Copy selection</button><button id="select-all-cells" disabled data-fit-label>Select all cells</button><button id="extend-selection" aria-pressed="false" disabled data-fit-label>Extend selection</button></div>
-        <p id="selection-help" data-fit-label>Drag cells or Shift-click to select a range. Keyboard: arrows, Shift+arrows, Ctrl+C (Mac: ⌘C). Touch: tap the first cell, turn on Extend selection, then tap the last. Copies full values; Mean ± SD stays in one cell.</p>
+        <p id="selection-help" data-fit-label>Drag cells or Shift-click to select a range. Keyboard: arrows, Shift+arrows, Ctrl+C (Mac: ⌘C). Touch: tap the first cell, turn on Extend selection, then tap the last. Copies full values; means and error metrics use separate numeric cells.</p>
         <p id="selection-status" role="status" data-fit-label>No cells selected</p>
         <div id="table-region" aria-busy="true" aria-label="Pivot table. Drag borders to resize."><table id="pivot-table" role="grid" aria-readonly="true" aria-multiselectable="true" aria-describedby="selection-help"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
       </section>
