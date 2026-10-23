@@ -9,6 +9,9 @@ const assert = require('node:assert/strict');
     await page.goto(new URL('pivot/?view=core',base).href);
     await page.locator('#table-region[aria-busy="false"]').waitFor();
     assert.equal(await page.locator('#table-height,#table-width').count(), 0, 'Sizing sliders must be removed');
+    const chartBounds = await page.locator('#chart-region').boundingBox();
+    assert((await page.locator('.table-sheet').boundingBox()).y >= chartBounds.y + chartBounds.height,
+      'The table must be below the plot on desktop too');
     const drag = async (handle, dx, dy) => {
       await handle.scrollIntoViewIfNeeded(); const box = await handle.boundingBox();
       await page.mouse.move(box.x+box.width/2,box.y+box.height/2); await page.mouse.down();
@@ -21,8 +24,8 @@ const assert = require('node:assert/strict');
     await page.keyboard.press('ArrowUp');
     assert(await page.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1));
     const tableWidth = (await page.locator('.table-sheet').boundingBox()).width;
-    await drag(page.locator('#table-region [data-resize-edge="left"]'),-100,0);
-    assert((await page.locator('.table-sheet').boundingBox()).width > tableWidth+60);
+    await drag(page.locator('#table-region [data-resize-edge="right"]'),-100,0);
+    assert((await page.locator('.table-sheet').boundingBox()).width < tableWidth-60);
     const plot = page.locator('#chart-plot'), initialHeight = (await plot.boundingBox()).height;
     await drag(page.locator('#chart-region [data-resize-edge="bottom"]'),0,90);
     assert((await plot.boundingBox()).height > initialHeight+70);
@@ -46,14 +49,14 @@ const assert = require('node:assert/strict');
       await page.locator('#table-region').evaluate(element => { element.scrollTop=50; });
       assert.equal(await page.locator('#table-region').evaluate(element => element.scrollTop),0);
     }
-    // A width chosen while stacked must not shrink a panel inside a desktop grid track.
+    // Width resizing keeps the same behavior across viewport sizes.
     await page.setViewportSize({width:800,height:900});
     await page.locator('#table-region [data-resize-edge="right"]').focus();
     await page.keyboard.press('Shift+ArrowLeft'); await page.keyboard.press('Shift+ArrowLeft');
     await page.setViewportSize({width:1600,height:1000}); await page.waitForTimeout(60);
     const expanded=(await page.locator('.table-sheet').boundingBox()).width;
-    await page.locator('#table-region [data-resize-edge="left"]').focus(); await page.keyboard.press('ArrowLeft');
-    assert((await page.locator('.table-sheet').boundingBox()).width>expanded, 'Desktop left border must grow the table after a stacked resize');
+    await page.locator('#table-region [data-resize-edge="right"]').focus(); await page.keyboard.press('ArrowRight');
+    assert((await page.locator('.table-sheet').boundingBox()).width>expanded, 'The right border grows the table at every viewport size');
     await page.goto(base); await page.frameLocator('#core-pivot').locator('#table-region[aria-busy="false"]').waitFor();
     await page.setViewportSize({width:1920,height:1080});
     assert((await page.locator('main').boundingBox()).width > 1450, 'Use desktop width instead of a narrow centered column');
@@ -77,6 +80,9 @@ const assert = require('node:assert/strict');
         return frame.clientHeight >= frame.contentDocument.documentElement.scrollHeight-1;
       });
       assert(await core.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight+1 && element.scrollWidth <= element.clientWidth+1));
+      assert(await core.locator('.linked-views').evaluate(element =>
+        element.querySelector('.table-sheet').getBoundingClientRect().top >=
+        element.querySelector('#chart-region').getBoundingClientRect().bottom), `${width} embedded table order`);
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1));
     }
     const touch=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});

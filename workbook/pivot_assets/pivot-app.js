@@ -421,20 +421,7 @@ function reformatTable() {
   });
 }
 new ResizeObserver(reformatTable).observe(byId('table-region'));
-const sheet = document.querySelector('.table-sheet'), views = document.querySelector('.linked-views');
-const splitLayout = matchMedia('(min-width:1100px)');
-const sideBySide = () => splitLayout.matches;
-splitLayout.addEventListener('change', () => {
-  sheet.style.width = ''; byId('chart-region').style.width = '';
-});
-resizePanel(byId('table-region'), { label:'Table', width:sheet, height:byId('pivot-table'), table:true, west:true,
-  setWidth: value => {
-    if (sideBySide()) views.style.setProperty('--table-share', `${Math.min(70,Math.max(20,value/views.clientWidth*100))}%`);
-    else sheet.style.width = `${value/views.clientWidth*100}%`;
-  } });
-resizePanel(byId('chart-region'), { label:'Plot', height:byId('chart-plot'),
-  setWidth: value => {
-    if (sideBySide()) views.style.setProperty('--table-share', `${Math.min(70,Math.max(20,(views.clientWidth-value-20)/views.clientWidth*100))}%`);
-    else byId('chart-region').style.width = `${value/views.clientWidth*100}%`;
-  } });
+resizePanel(byId('table-region'), { label:'Table', width:document.querySelector('.table-sheet'),
+  height:byId('pivot-table'), table:true });
+resizePanel(byId('chart-region'), { label:'Plot', height:byId('chart-plot') });
 update();

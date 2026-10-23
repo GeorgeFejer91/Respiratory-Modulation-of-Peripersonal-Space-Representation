@@ -431,7 +431,7 @@ authorisation. Saving a cloud environment draft is separate from deploying Pages
 ## Handoff
 
 For layout/border changes, run `node workbook/check_panel_resize.cjs SITE_URL`:
-actual border dragging, keyboard reset/arrows, emulated touch dragging, chart
+table below plot at all viewport sizes, actual border dragging, keyboard reset/arrows, emulated touch dragging, chart
 redraw, content-fit table minima, one document scroll surface, wide-screen space,
 phone/landscape reflow, 200% text and spacing. Run the existing overview/pivot,
 chart-layer and table-copy checks to preserve plotting and spreadsheet access.

@@ -269,8 +269,10 @@ Owner amendment (2026-10-23): tables and plot surfaces use directly draggable
 borders with keyboard/touch access, replacing height/width sliders. Tables grow
 in page flow; dragging shorter stops at readable content rather than clipping
 or adding an internal scrollbar. Resizing a chart redraws it at its new size.
-The overview uses available screen width with responsive graph/table space
-sharing and one document scroll surface. Legacy figures retain their aspect
+The overview uses available screen width and one document scroll surface.
+Owner amendment (2026-10-23): the pivot table always sits below its plot, including
+on desktop; both default to full width and resize independently from right/bottom
+borders. Legacy figures retain their aspect
 ratio inside resizable layout surfaces while their separate native-chart
 migration remains open; this layout change does not rerun statistical analyses.
 Do not split

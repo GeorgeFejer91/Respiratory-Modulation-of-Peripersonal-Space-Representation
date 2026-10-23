@@ -76,8 +76,8 @@ summaries offer numeric Values fields; counts also allow text. **Export CSV**
 downloads every pivot row and column. The table shows the complete result at
 once and grows with its contents in page flow. Drag the table/plot borders to
 resize; focused borders also support arrow keys (Shift for larger steps), Home
-or double-click to reset. The shared border between desktop chart and table
-adjusts their widths; the bottom borders adjust table/plot height. Tables stop
+or double-click to reset. The table sits below the plot at every screen size.
+Their right borders adjust width independently; bottom borders adjust height. Tables stop
 shrinking at readable content height, preserving every row without an inner
 scrollbar. The overview uses the available screen width. No
 Next/Previous buttons page table data, field choices or settings groups. Settings

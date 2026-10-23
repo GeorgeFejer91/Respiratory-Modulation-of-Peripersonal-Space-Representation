@@ -2,6 +2,26 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — table below the plot
+
+Owner clarification (2026-10-23): put the pivot table under its visualization,
+including desktop. Retain border resizing and page flow without nested scrolling.
+
+- [x] Use one full-width column in both standalone and embedded pivots; remove
+  desktop width-sharing logic and resize table/plot independently from the right.
+- [ ] Verify desktop/phone order, resize/copy/point access, production build and
+  exact live deployment under the existing publication workflow.
+
+Plan/state: small change to the existing pivot CSS/resizer bindings and border
+regression gate on codex/table-below-plot from 9360736. The initial regression
+correctly failed the desktop table-below-plot requirement. Statistical data and
+rendering owners remain unchanged. Next action: complete browser gates and publish.
+Production build, all 70 workbook tests, and border/overview/pivot/layer/copy/
+point-inspection browser gates pass. Independent review found no actionable
+issues. Table order is checked inside the iframe in one layout read, avoiding
+scroll-anchoring races. Next action: authorized push and exact live verification.
+The wider scientific/publication goal remains open.
+
 ### Completed amendment — Segment 2 rainclouds and point inspection
 
 Owner request (2026-10-23): promote the six raw Inhale−Exhale trial-group deltas
