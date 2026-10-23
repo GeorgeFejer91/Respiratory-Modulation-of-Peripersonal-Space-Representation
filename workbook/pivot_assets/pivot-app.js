@@ -17,6 +17,7 @@ let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings,
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
 let chartGeometry = '';
+const chartLayers = { summary: true, line: true, dots: false, spaghetti: false, violin: false };
 let coreCorrected = true, coreNormalized = false;
 let normalizationMethod = 'norm';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
@@ -234,9 +235,33 @@ function drawChart(force = true) {
   const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
   if (result && (force || chartGeometry !== geometry)) {
     chartGeometry = geometry;
-    renderChart(result, { ...resultSettings, sdWhiskers: settings.sdWhiskers }, byId('chart-measure').value, byId('chart-style').value, resultSource);
+    byId('chart-layers').hidden = !result.participantSummary;
+    byId('chart-style').closest('label').hidden = Boolean(result.participantSummary);
+    document.querySelector('[data-chart-layer="summary"]').textContent = settings.sdWhiskers ? 'Mean ± SD' : 'Mean dots';
+    renderChart(result, { ...resultSettings, sdWhiskers: settings.sdWhiskers,
+      ...(result.participantSummary ? { chartLayers } : {}) }, byId('chart-measure').value, byId('chart-style').value, resultSource);
   }
 }
+for (const button of document.querySelectorAll('[data-chart-layer]')) button.onclick = () => {
+  const key = button.dataset.chartLayer;
+  chartLayers[key] = !chartLayers[key];
+  button.setAttribute('aria-pressed', String(chartLayers[key]));
+  drawChart();
+};
+byId('chart-data-export').onclick = () => {
+  if (!result?.participantSummary) return;
+  const measure = byId('chart-measure').value;
+  const columns = ['participant_id', ...resultSettings.rows, ...resultSettings.columns, measure];
+  const rows = [];
+  for (let row = 0; row < result.dataRowCount; row++) for (const part of result.series.filter(part => !part.total && part.measure === measure)) {
+    for (const observation of result.stats[row][part.column - result.axisCount].observations) {
+      rows.push([observation.participant, ...result.rows[row].slice(0, result.axisCount), ...part.group, observation.value]);
+    }
+  }
+  const url = URL.createObjectURL(new Blob([csvText({ columns, rows })], { type: 'text/csv;charset=utf-8' }));
+  const link = document.createElement('a'); link.href = url; link.download = 'participant-chart-values.csv'; link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
 byId('chart-measure').onchange = () => drawChart();
 byId('chart-style').onchange = () => drawChart();
 byId('table-height').oninput = event => {

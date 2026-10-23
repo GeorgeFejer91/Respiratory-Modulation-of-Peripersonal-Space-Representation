@@ -50,6 +50,18 @@ controls; the standalone pivot below provides the broader field/filter/source
 catalogue. Nonnegative plots start at zero; negative values remain visible with
 a labeled zero reference.
 
+In Segment 0's Mean view, **Show together** lets you combine **Mean ± SD**,
+**Mean line**, **Participant dots**, **Spaghetti** and **Violin** independently.
+Choose Mean only in Display to hide the sample-SD whiskers. Participant values
+are actual per-person means after pooling unchecked factors, not trial rows;
+they follow the same baseline and normalization controls. Spaghetti joins the
+same person within each group, with gaps for missing SOAs. Violins are smoothed
+participant distributions, with their bandwidth/trim shown below the chart;
+width does not encode sample size, and n < 3 or constant groups have no violin.
+**Download participant values (CSV)** exports these values at full precision.
+Summary table/CSV values do not change when switching figure layers. For other
+aggregations, the existing Chart style selector remains available.
+
 The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
 is a lightweight JavaScript subpage with a pivot table and linked chart. The
 initial chart uses SOA (ms) on x and Condition × Phase as series, showing mean

@@ -339,6 +339,33 @@ Next action: resume the wider open living-publication/scientific acceptance gate
 
 ## Visualization — fast pivot table and linked chart
 
+### Active amendment — combinable figure layers
+
+Owner request (2026-10-23): switch/combine dot-whisker summaries, actual
+participant values, spaghetti trajectories and violin distributions in Segment 0.
+
+- [x] Retain the already pooled participant values behind each mean/SD/n cell.
+- [x] Add independent mean dots/whiskers, mean line, participant dots, spaghetti
+  and violin toggles, preserving correction/normalization, grouping and pairing.
+- [ ] Verify independent numerical parity, rendered accessibility/reflow, source
+  downloads and missing/constant/small-n cases; commit/push and verify deployment.
+
+Plan: extend the existing pivot engine/chart/app and their regression checks;
+reuse SVG, native controls and pinned Pretext. Participant values are per-person
+means after pooling unchecked factors, never trial rows. Violin KDE is descriptive
+and explicitly labelled. Existing fixed analyses remain unchanged.
+State: 69 tests, 270 JavaScript/pandas cases (including every participant value),
+independent SciPy KDE and production build pass. All 32 combinations, participant
+CSV, missing/constant/small-n cases, correction/normalization/grouping,
+keyboard/touch, six viewports, 200% text/spacing and real Pretext pass in Chromium.
+Both standard overview/pivot browser gates pass; desktop/phone images were
+visually inspected. Independent code review reports no actionable findings.
+Physical Safari/assistive-technology coverage remains untested; RTK is unavailable.
+The context gate's remote mismatch is expected on the feature branch until
+normal integration/push. The concurrent table-copy change is preserved.
+Next action: integrate current origin/main, verify combined behavior and publish.
+The overall scientific/publication acceptance goal remains open.
+
 ### Active amendment — Condition/Phase grouping checkboxes
 
 Owner clarification (2026-10-23): use one checkbox per factor to pool data when

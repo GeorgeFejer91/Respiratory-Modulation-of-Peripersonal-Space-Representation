@@ -202,6 +202,19 @@ n<2 has undefined SD. Full-value details and CSV retain mean/SD/n even when the
 display hides SD. Preserve the existing
 correction, cleaning, primary40 and cohort sensitivities; no model is refitted.
 
+Segment 0's Mean view offers independent figure layers: mean dots with optional
+sample-SD whiskers, mean line, participant dots, within-person spaghetti and
+violins. Dots and trajectories use the same pooled participant means behind
+the summary, retaining IDs, nulls, correction and normalization. Horizontal
+dodge/jitter changes no measured value. Trajectories break at missing SOAs.
+Violins use Gaussian KDE with bandwidth 1.06 × sample SD × n^(−1/5), trimmed to
+the observed range and normalized to equal peak width; suppress density for
+n < 3 or zero variance and label smoothing as descriptive. Include all displayed
+observations in axis extents and retain zero. Participant CSV downloads preserve
+full precision, grouping and missing values. These layers are available only
+for participant Mean summaries; other sources/aggregations keep their existing
+Chart style controls. The shared chart/worker remain the owners.
+
 The owner has resumed GitHub Pages work for sequential visual exploration.
 The separate `/pivot/` page prioritizes fast loading and smartphone compatibility
 using lightweight JavaScript, a worker and lazy JSON prepared by the existing

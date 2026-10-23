@@ -36,6 +36,18 @@
       <section id="chart-region" aria-labelledby="chart-y-label" aria-busy="true">
         <div class="chart-controls"><label><span data-fit-label>Chart style</span><select id="chart-style"><option value="auto">Auto</option><option value="line">Line</option><option value="points">Points</option><option value="bars">Bars</option></select></label><label id="chart-measure-control" hidden><span data-fit-label>Chart measure</span><select id="chart-measure"></select></label></div>
         <h2 id="chart-y-label" data-fit-label>Linked chart</h2>
+        <fieldset id="chart-layers" hidden aria-describedby="chart-layer-help">
+          <legend data-fit-label>Show together</legend>
+          <div class="chart-layer-buttons">
+            <button type="button" data-chart-layer="summary" aria-pressed="true" data-fit-label>Mean ± SD</button>
+            <button type="button" data-chart-layer="line" aria-pressed="true" data-fit-label>Mean line</button>
+            <button type="button" data-chart-layer="dots" aria-pressed="false" data-fit-label>Participant dots</button>
+            <button type="button" data-chart-layer="spaghetti" aria-pressed="false" data-fit-label>Spaghetti</button>
+            <button type="button" data-chart-layer="violin" aria-pressed="false" data-fit-label>Violin</button>
+          </div>
+          <p id="chart-layer-help" data-fit-label>Combine views. Participant values are means, with unchecked factors pooled within each person.</p>
+          <button id="chart-data-export" type="button" data-fit-label>Download participant values (CSV)</button>
+        </fieldset>
         <div id="chart-plot"></div><p id="chart-x-label" data-fit-label></p>
         <ul id="chart-legend" aria-label="Chart series"></ul>
         <p id="chart-hover" role="status" data-fit-label>Preparing chart</p>

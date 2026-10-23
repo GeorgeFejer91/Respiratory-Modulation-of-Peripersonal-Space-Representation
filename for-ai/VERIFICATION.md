@@ -54,6 +54,13 @@ across conditions/phases/SOAs before cell averaging/grouping; pooling factors mu
 not renormalize scores. Independently compare trial-based mean/sample SD and
 minimum/maximum. Verify normalization data loads on demand.
 Verify dimensionless labels/CSV names and zero/undefined range as missing scores.
+For Segment 0 figure layers, run `node workbook/check_chart_layers.cjs PIVOT_URL`
+against the production build and changed live deployment. Verify all 32 layer
+combinations, participant CSV, pairing/missing gaps, small/constant distributions,
+normalization/grouping, keyboard/touch, six viewports, 200% text/spacing and real
+Pretext. `check_pivot_javascript.py` independently checks every pooled participant
+value against pandas and Gaussian KDE against SciPy. The 4,000-value density
+limit must be explicit and never silently sample observations.
 Run check_pivot_javascript.py for independent pandas means, sample SDs and n
 across grouping/correction/cohort/filter combinations, including normalization.
 Retain unequal within-person counts, n=1/undefined SD, missing values and

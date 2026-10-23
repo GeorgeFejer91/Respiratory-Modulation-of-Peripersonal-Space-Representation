@@ -7,6 +7,7 @@ import subprocess
 from pathlib import Path
 
 import pandas as pd
+from scipy.stats import gaussian_kde
 
 from pivot_data import AGGREGATIONS, cohort_frame, exploration_views, pivot_frame, typed_frame
 from pivot_static import browser_frame, normalization_parameters
@@ -95,6 +96,9 @@ def validate(node):
     if process.returncode:
         raise RuntimeError(process.stderr)
     actual = json.loads(process.stdout)
+    density = gaussian_kde([0., 1., 4., 9., 16.], bw_method=1.06 * 5 ** (-.2))
+    for point in actual["violin"]["points"]:
+        assert math.isclose(point["density"], float(density([point["value"]])[0]), rel_tol=1e-12)
     for index, (case, observed) in enumerate(zip(cases, actual["results"], strict=True)):
         settings = case["settings"]
         frame = cohort_frame(frames[case["frame"]], settings["cohort"])
@@ -147,6 +151,18 @@ def validate(node):
                 else:
                     assert target == value, (index, target, value)
         if settings.get("participantSummary"):
+            # Independent per-person records must survive the worker unchanged.
+            for row_index, row in enumerate(observed["rows"][:observed["dataRowCount"]]):
+                for part in observed["series"]:
+                    selected = frame
+                    for field, target in zip(settings["rows"] + settings["columns"],
+                                             row[:len(settings["rows"])] + part["group"], strict=True):
+                        selected = selected[selected[field].isna() if target == "(missing)" else selected[field] == target]
+                    records = observed["stats"][row_index][part["column"] - observed["axisCount"]]["observations"]
+                    expected_people = selected.sort_values("participant_id")
+                    assert [record["participant"] for record in records] == expected_people.participant_id.tolist(), index
+                    for record, target in zip(records, expected_people[part["measure"]], strict=True):
+                        assert record["value"] is None if pd.isna(target) else math.isclose(record["value"], target, abs_tol=1e-10), index
             for name, aggregation in [("sd", "Standard deviation"), ("n", "Count nonmissing")]:
                 expected_stats = browser_frame(pivot_frame(frame, settings["rows"], settings["columns"],
                     settings["values"], aggregation, False))

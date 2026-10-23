@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { pivot, snapshotFrame, csvText } from './pivot_assets/pivot-engine.mjs';
-import { chartModel, measureLabel } from './pivot_assets/pivot-chart.mjs';
+import { chartModel, measureLabel, violinDensity, linePath } from './pivot_assets/pivot-chart.mjs';
 
 const payload = JSON.parse(readFileSync(0, 'utf8'));
 const results = payload.cases.map(test => {
@@ -26,6 +26,15 @@ assert.equal(participantResult.stats[0][0].n, 2);
 assert(Math.abs(participantResult.stats[0][0].sd - Math.sqrt(32)) < 1e-12);
 assert.equal(participantResult.stats[1][0].n, 1);
 assert.equal(participantResult.stats[1][0].sd, null);
+assert.deepEqual(participantResult.stats[0][0].observations, [
+  { participant: 'A', value: 4 }, { participant: 'B', value: 12 }]);
+assert.deepEqual(participantResult.stats[1][0].observations, [{ participant: 'C', value: 0 }]);
+assert.equal(linePath([{x:1,y:2},{x:2,y:null},{x:3,y:0}], [1,2,3], x => x, y => y), 'M1,2 M3,0 ');
+for (const values of [[], [1], [1,2], [2,2,2], [null,1,1]]) assert.equal(violinDensity(values), null);
+const violin = violinDensity([0,1,4,9,16]);
+assert.equal(violin.points[0].value, 0);
+assert.equal(violin.points.at(-1).value, 16);
+assert.equal(Math.max(...violin.points.map(point => point.width)), 1);
 assert(csvText(participantResult).includes(' · SD'));
 const frame = payload.frames['Participant-distance means'];
 assert(!frame.columns.includes('baseline_benefit_ms'), 'Derived display values must not mutate the cached source');
@@ -69,5 +78,5 @@ const unitSettings = { ...handSettings, rows: ['parameter'], columns: [], values
 assert(chartModel(pivot(unitFrame, unitSettings), unitSettings, 'median').mixedUnits);
 unitSettings.filtersEnabled = true; unitSettings.filters = {parameter:['midpoint_cm']};
 assert.equal(chartModel(pivot(unitFrame, unitSettings), unitSettings, 'median').yLabel, 'Mean · median (cm)');
-process.stdout.write(JSON.stringify({ results, snapshot: snapshotFrame(payload.snapshots[0]),
+process.stdout.write(JSON.stringify({ results, violin, snapshot: snapshotFrame(payload.snapshots[0]),
   csv: csvText({ columns: ['a', 'b'], rows: [['=literal', 'quote"comma,']] }) }));

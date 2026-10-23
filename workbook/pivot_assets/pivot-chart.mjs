@@ -59,6 +59,34 @@ const byId = id => document.getElementById(id);
 const svgNS = 'http://www.w3.org/2000/svg';
 const dashes = ['', '7 4', '2 4', '10 3 2 3'];
 const format = value => value.toLocaleString(undefined, { maximumSignificantDigits: 6 });
+// Gaussian KDE, observed-range trim, equal peak width across groups. No inference.
+export function violinDensity(values) {
+  const present = values.filter(Number.isFinite);
+  if (present.length < 3) return null;
+  const mean = present.reduce((a, b) => a + b, 0) / present.length;
+  const sd = Math.sqrt(present.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (present.length - 1));
+  if (!(sd > 0)) return null;
+  const bandwidth = 1.06 * sd * present.length ** (-.2);
+  const low = Math.min(...present), high = Math.max(...present);
+  const points = Array.from({ length: 49 }, (_, index) => {
+    const value = low + (high - low) * index / 48;
+    const density = present.reduce((sum, point) => sum + Math.exp(-.5 * ((value - point) / bandwidth) ** 2), 0) /
+      (present.length * bandwidth * Math.sqrt(2 * Math.PI));
+    return { value, density };
+  });
+  const peak = Math.max(...points.map(point => point.density));
+  return { bandwidth, points: points.map(point => ({ ...point, width: point.density / peak })) };
+}
+export function linePath(points, xValues, xScale, yScale) {
+  let path = '', penDown = false;
+  for (const x of xValues) {
+    const point = points.find(point => point.x === x);
+    if (!point || !Number.isFinite(point.y)) { penDown = false; continue; }
+    path += `${penDown ? 'L' : 'M'}${xScale(x)},${yScale(point.y)} `;
+    penDown = true;
+  }
+  return path;
+}
 function svgElement(tag, attributes = {}, text) {
   const node = document.createElementNS(svgNS, tag);
   for (const [name, value] of Object.entries(attributes)) node.setAttribute(name, value);
@@ -77,14 +105,21 @@ export function clearChart(message) {
 
 export function renderChart(result, settings, measure, mode, source) {
   const model = chartModel(result, settings, measure);
+  const layers = result.participantSummary ? settings.chartLayers : null;
+  const individuals = layers && (layers.dots || layers.spaghetti || layers.violin);
+  const summary = !layers || layers.summary;
   clearChart('Hover or tap a point to compare series at that x. Keyboard: Tab, then arrow keys.');
   byId('chart-y-label').textContent = model.yLabel;
   byId('chart-x-label').textContent = model.xLabel;
   const weights = source === 'means' ? 'Participant-distance cells weighted equally.' : source === 'trials' ? 'Trial records weighted equally.' : 'Descriptive source-record summaries.';
-  const showSD = result.participantSummary && settings.sdWhiskers;
+  const showSD = result.participantSummary && settings.sdWhiskers && summary;
   byId('chart-note').textContent = result.participantSummary ?
     `Participant means${showSD ? ' ±1 sample SD' : ''}; pooled factors averaged within each person. Descriptive, not a confidence interval.` :
     `${weights} Table scrolling and size do not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
+  if (individuals) byId('chart-note').textContent +=
+    ' Participant dots/trajectories use the same pooled per-person means, not individual trials. Horizontal offsets separate groups; dot jitter changes no measured value. Trajectories connect only adjacent observed SOAs within the same person and group.';
+  if (layers?.violin) byId('chart-note').textContent +=
+    ' Violins: Gaussian kernel density, bandwidth 1.06 × sample SD × n^(−1/5), trimmed to observed min/max; equal peak width, not sample size. No violin for n < 3 or zero SD. Smoothing is descriptive.';
   if (/_norm$|_z$/.test(measure)) byId('chart-note').textContent += measure.endsWith('_z') ?
     ' Within-person z-scores use the mean and sample SD of all retained AT trials before cell averaging and series selection. Zero/undefined SD gives missing scores.' :
     ' Within-person 0–1 scores use the minimum/maximum of all retained AT trials before cell averaging and series selection. Constant ranges give missing scores; SD whiskers may extend beyond 0–1.';
@@ -92,6 +127,13 @@ export function renderChart(result, settings, measure, mode, source) {
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
   if (!present.length) { byId('chart-hover').textContent = 'No numeric values to plot for this measure. Missing cells remain in the table.'; return; }
+  if (layers && !Object.values(layers).some(Boolean)) {
+    byId('chart-hover').textContent = 'Choose at least one figure layer. The table and downloads remain available.'; return;
+  }
+  const observations = individuals ? model.points.flatMap(point => (point.observations || []).filter(item => Number.isFinite(item.value))) : [];
+  if (observations.length > 4000) {
+    byId('chart-hover').textContent = 'Participant layers exceed 4,000 values. Pool groups or filter participants; no observations have been sampled.'; return;
+  }
   // Keep an explicit limit rather than silently sampling or freezing the phone.
   if (model.points.length > 4000 || model.series.length > 48 || model.xValues.length > 100) {
     byId('chart-hover').textContent = 'This chart is too dense to display (limit: 4,000 cells, 48 series, 100 x values). Filter records or remove a grouping field. The complete pivot is available in the table and CSV.';
@@ -105,9 +147,9 @@ export function renderChart(result, settings, measure, mode, source) {
   const chart = svgElement('svg', { viewBox: `0 0 ${width} ${height}`, width, height, role: 'group',
     'aria-label': `${model.yLabel} by ${model.xLabel}. ${model.series.length} series. Values also available in the pivot table.` });
   plot.append(chart);
-  const bars = mode === 'bars' || mode === 'auto' && !model.numericX;
-  const low = Math.min(...present.map(point => point.y - (showSD && Number.isFinite(point.sd) ? point.sd : 0))),
-    high = Math.max(...present.map(point => point.y + (showSD && Number.isFinite(point.sd) ? point.sd : 0)));
+  const bars = !layers && (mode === 'bars' || mode === 'auto' && !model.numericX);
+  const low = Math.min(...present.map(point => point.y - (showSD && Number.isFinite(point.sd) ? point.sd : 0)), ...observations.map(item => item.value)),
+    high = Math.max(...present.map(point => point.y + (showSD && Number.isFinite(point.sd) ? point.sd : 0)), ...observations.map(item => item.value));
   let yMin = Math.min(0, low), yMax = Math.max(0, high);
   const pad = (yMax - yMin || Math.abs(yMax) * .1 || 1) * .12;
   if (yMin < 0) yMin -= pad;
@@ -116,8 +158,9 @@ export function renderChart(result, settings, measure, mode, source) {
   const xMin = model.xValues[0], xMax = model.xValues.at(-1);
   const categorical = bars || !model.numericX;
   const categoryWidth = innerWidth / model.xValues.length;
+  const inset = individuals ? Math.min(font * 3, innerWidth * .12) : 0;
   const xScale = value => categorical ? margin.left + categoryWidth * (model.xValues.findIndex(x => JSON.stringify(x) === JSON.stringify(value)) + .5) :
-    margin.left + (xMax === xMin ? innerWidth / 2 : innerWidth * (value - xMin) / (xMax - xMin));
+    margin.left + inset + (xMax === xMin ? (innerWidth - inset * 2) / 2 : (innerWidth - inset * 2) * (value - xMin) / (xMax - xMin));
   const tick = (x, y, text, anchor) => {
     const node = svgElement('text', { x, y, 'text-anchor': anchor, 'data-fit-label': '', class: 'chart-tick' }, text);
     chart.append(node); return node;
@@ -147,23 +190,70 @@ export function renderChart(result, settings, measure, mode, source) {
     class: 'chart-zero', 'data-zero-baseline': '', 'aria-label': 'Zero reference' }));
   if (yMin < 0) tick(margin.left - 8, yScale(0) + font * .3, '0', 'end');
   const focusable = [];
+  const bindPoint = (node, detail, compare) => {
+    node.setAttribute('tabindex', focusable.length ? '-1' : '0');
+    node.setAttribute('role', 'button'); node.setAttribute('aria-label', detail);
+    node.append(svgElement('title', {}, detail));
+    const reveal = () => { byId('chart-hover').textContent = detail; document.dispatchEvent(new Event('pivot-layout')); };
+    node.addEventListener('pointerenter', compare || reveal);
+    node.addEventListener('focus', reveal);
+    node.addEventListener('click', compare || reveal);
+    node.addEventListener('keydown', event => {
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
+        event.preventDefault();
+        const current = focusable.indexOf(node);
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? focusable.length - 1 :
+          Math.max(0, Math.min(focusable.length - 1, current + (['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 1)));
+        focusable.forEach(pointNode => pointNode.setAttribute('tabindex', '-1'));
+        focusable[next].setAttribute('tabindex', '0'); focusable[next].focus();
+      } else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); (compare || reveal)(); }
+    });
+    focusable.push(node);
+  };
+  const gap = model.xValues.length > 1 ? Math.min(...model.xValues.slice(1).map((x, i) => xScale(x) - xScale(model.xValues[i]))) : innerWidth;
+  const lane = Math.min(font * 3, gap * .8) / model.series.length;
   model.series.forEach((series, seriesIndex) => {
     const color = `var(--chart-${seriesIndex % 6 + 1})`, dash = dashes[seriesIndex % dashes.length];
     const group = svgElement('g', { fill: color, stroke: color, 'data-series': series.label });
     chart.append(group);
-    if (!bars && mode !== 'points') {
-      let path = '', penDown = false;
-      for (const value of model.xValues) {
-        const point = series.points.find(point => point.x === value);
-        if (!point || point.y === null || !Number.isFinite(point.y)) { penDown = false; continue; }
-        path += `${penDown ? 'L' : 'M'}${xScale(point.x)},${yScale(point.y)} `;
-        penDown = true;
-      }
-      group.append(svgElement('path', { d: path, fill: 'none', 'stroke-width': 2, 'stroke-dasharray': dash, 'data-line': '' }));
+    const groupX = x => xScale(x) + (individuals ? (seriesIndex - (model.series.length - 1) / 2) * lane : 0);
+    if (layers?.violin) for (const point of series.points) {
+      const density = violinDensity((point.observations || []).map(item => item.value));
+      if (!density) continue;
+      const side = sign => density.points.map(item => `${groupX(point.x) + sign * item.width * lane * .42},${yScale(item.value)}`);
+      const path = svgElement('path', { d: `M${side(1).join('L')}L${side(-1).reverse().join('L')}Z`,
+        'fill-opacity': .16, 'stroke-width': 1, 'stroke-dasharray': dash, 'data-violin': '',
+        'data-row': point.row, 'data-column': point.column, 'data-bandwidth': density.bandwidth, 'data-n': point.n });
+      path.append(svgElement('title', {}, `${series.label} · ${model.xLabel}: ${point.x} · n: ${point.n} · smoothed participant distribution`));
+      group.append(path);
     }
-    for (const point of series.points) {
+    if (layers?.spaghetti) {
+      const people = new Map();
+      for (const point of series.points) for (const item of point.observations || []) {
+        if (!people.has(item.participant)) people.set(item.participant, []);
+        people.get(item.participant).push({ x: point.x, y: item.value });
+      }
+      for (const [participant, points] of people) group.append(svgElement('path', {
+        d: linePath(points, model.xValues, groupX, yScale), fill: 'none', 'stroke-width': 1,
+        'stroke-opacity': .3, 'stroke-dasharray': dash, 'data-spaghetti': '', 'data-participant': participant,
+        'pointer-events': 'none' }));
+    }
+    if (!bars && (layers ? layers.line : mode !== 'points'))
+      group.append(svgElement('path', { d: linePath(series.points, model.xValues, groupX, yScale), fill: 'none', 'stroke-width': 2, 'stroke-dasharray': dash, 'data-line': '' }));
+    if (layers?.dots || layers?.spaghetti) for (const point of series.points) for (const item of point.observations || []) {
+      if (!Number.isFinite(item.value)) continue;
+      // Stable per-person horizontal jitter; trajectories retain exact SOA centers.
+      const hash = [...String(item.participant)].reduce((hash, char) => (hash * 31 + char.charCodeAt(0)) >>> 0, 7);
+      const jitter = layers.dots ? ((hash * 2654435761 >>> 0) / 4294967295 - .5) * lane * .75 : 0;
+      const node = svgElement('circle', { cx: groupX(point.x) + jitter, cy: yScale(item.value), r: layers.dots ? 2.5 : 2,
+        'fill-opacity': .65, 'stroke-width': .5, 'data-participant-point': '', 'data-participant': item.participant,
+        'data-value': item.value, 'data-row': point.row, 'data-column': point.column, 'data-x': point.x });
+      bindPoint(node, `${item.participant} · ${series.label} · ${model.xLabel}: ${point.x} · Participant mean · ${fieldLabel(measure)}: ${format(item.value)}`);
+      group.append(node);
+    }
+    if (summary) for (const point of series.points) {
       if (point.y === null || !Number.isFinite(point.y)) continue;
-      const x = xScale(point.x), y = yScale(point.y);
+      const x = groupX(point.x), y = yScale(point.y);
       const barWidth = categoryWidth * .8 / model.series.length;
       const center = bars ? x - categoryWidth * .4 + (seriesIndex + .5) * barWidth - .5 : x;
       let whisker;
@@ -179,9 +269,6 @@ export function renderChart(result, settings, measure, mode, source) {
         'data-column': point.column, 'data-value': point.y, tabindex: focusable.length ? -1 : 0, role: 'button', 'stroke-width': 2 });
       const spread = value => value.n === undefined ? '' : ` · SD: ${Number.isFinite(value.sd) ? format(value.sd) : 'undefined (n < 2)'} · n: ${value.n}`;
       const detail = `${seriesIndex + 1}. ${series.label} · ${model.xLabel}: ${point.x} · ${model.yLabel}: ${format(point.y)}${spread(point)}`;
-      node.setAttribute('aria-label', detail);
-      node.append(svgElement('title', {}, detail));
-      const reveal = () => { byId('chart-hover').textContent = detail; document.dispatchEvent(new Event('pivot-layout')); };
       const compare = () => {
         const values = model.series.map((item, index) => {
           const other = item.points.find(other => other.x === point.x), value = other?.y;
@@ -190,20 +277,8 @@ export function renderChart(result, settings, measure, mode, source) {
         byId('chart-hover').textContent = `${model.xLabel}: ${point.x} · ${model.yLabel} · ${values.join('; ')}`;
         document.dispatchEvent(new Event('pivot-layout'));
       };
-      node.addEventListener('pointerenter', compare);
-      node.addEventListener('focus', reveal);
-      node.addEventListener('click', compare);
-      node.addEventListener('keydown', event => {
-        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
-          event.preventDefault();
-          const current = focusable.indexOf(node);
-          const next = event.key === 'Home' ? 0 : event.key === 'End' ? focusable.length - 1 :
-            Math.max(0, Math.min(focusable.length - 1, current + (['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 1)));
-          focusable.forEach(pointNode => pointNode.setAttribute('tabindex', '-1'));
-          focusable[next].setAttribute('tabindex', '0'); focusable[next].focus();
-        } else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); reveal(); }
-      });
-      focusable.push(node); group.append(node);
+      bindPoint(node, detail, compare);
+      group.append(node);
       if (whisker) group.append(whisker);
     }
     const item = document.createElement('li'), sample = svgElement('svg', { width: 28, height: 16, 'aria-hidden': true });

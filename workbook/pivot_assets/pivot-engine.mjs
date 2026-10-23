@@ -123,7 +123,7 @@ export function pivot(frame, settings) {
       return record;
     });
     const result = pivot({ ...frame, rows: records }, { ...settings, participantSummary: false,
-      includeSD: true, totals: false, filtersEnabled: false, cohort: 'Full release' });
+      includeSD: true, includeObservations: true, totals: false, filtersEnabled: false, cohort: 'Full release' });
     result.count = source.length;
     result.participantSummary = true;
     return result;
@@ -180,7 +180,9 @@ export function pivot(frame, settings) {
         const records = part.total ? group.records : cells.get(JSON.stringify([rowKey, part.key])) || [];
         const values = records.map(record => record[measureFields[part.index]]);
         return { n: values.filter(value => value !== null && Number.isFinite(value)).length,
-          sd: summarize(values, 'Standard deviation') };
+          sd: summarize(values, 'Standard deviation'), ...(settings.includeObservations ? {
+            observations: records.map(record => ({ participant: record[frame.columns.indexOf('participant_id')],
+              value: record[measureFields[part.index]] })).sort((a, b) => compareValue(a.participant, b.participant)) } : {}) };
       }));
     }
   }
