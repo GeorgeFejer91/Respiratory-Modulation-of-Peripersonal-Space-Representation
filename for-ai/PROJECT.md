@@ -30,6 +30,20 @@ all plotted values and uncertainty are nonnegative, the y-axis lower bound is
 exactly zero with no padding below it. When values or intervals extend below
 zero, retain their full extent and mark zero explicitly rather than clipping data.
 
+General live-page formatting rule (owner, 2026-10-23): use Uncodixfy Pretext's
+accordion-stretch layout logic for bounded settings, controls and resizable
+panels on new or revised live-page surfaces. Preserve header/action anchors,
+label/input pairs and reading/keyboard order; distribute spare width and height
+between meaningful groups with bounded spacing and shrinkable Grid/Flex tracks.
+Measure bounded text with the existing pinned Pretext runtime after fonts load,
+using the actual inner boxes. Grow or reflow before reducing type; preserve
+readable minima, user text enlargement and full-text access. Clipping, overlap,
+ellipsis and hidden overflow do not establish fit. If content cannot fit, reflow
+or raise the content minimum rather than add a panel scrollbar. Long publication
+text and complete tables remain in document flow with the existing document
+scroll policy; chooser lists retain their explicit scroll policy. Apply the
+rendered layout gate in `VERIFICATION.md` before claiming overflow prevention.
+
 This supersedes the results-only pause for authoring the current HTML publication.
 Keep the version-1.9 LaTeX/Typst/PDF and reference artifacts as historical
 snapshots; do not automatically overwrite or promote them. Preserve the

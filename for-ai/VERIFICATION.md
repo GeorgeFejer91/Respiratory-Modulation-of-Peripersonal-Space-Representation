@@ -29,6 +29,27 @@ For changes confined to `for-ai/visualization/` and its routing/state links:
 
 Actual chart changes still require the applicable gates below.
 
+## General live-page text layout
+
+For new or revised bounded live-page surfaces, verify the accordion-stretch
+contract in `PROJECT.md` using actual pinned Pretext measurements after fonts
+load and rendered browser checks. Exercise minimum/normal/maximum width and
+height independently, both sides of reflow breakpoints, 320 CSS px portrait,
+phone landscape, 200% text/zoom, text-spacing overrides and long real/localized
+labels. Confirm header/action anchors, label/input pairing, reading/keyboard
+order, visible focus and full-text access. Check that group spacing expands with
+available height and inline spacing with width, while readable type grows only
+when both dimensions allow it; never counteract user enlargement.
+
+Inspect panel/shell/status scroll dimensions and actual text/control bounds for
+clipping, overlap and unintended horizontal or vertical overflow. Bounded stretch
+panels have no internal scrollbars within their supported dimensions; hidden
+overflow is not evidence of fit. At no-fit, reflow or enforce a readable content
+minimum. Preserve document scrolling for long publication text and complete
+tables, and the explicit chooser-list policy. Reuse the relevant existing browser
+gates and report tested sizes/browser coverage, no-fit states and unavailable
+measurements. A policy-only edit does not establish runtime layout compliance.
+
 ## Workbook and data
 
 ### Living publication acceptance (D-0015)

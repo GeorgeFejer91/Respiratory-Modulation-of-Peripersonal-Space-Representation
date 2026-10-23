@@ -2,6 +2,27 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Completed formatting rule — Pretext accordion stretch
+
+Owner request (2026-10-23): make Uncodixfy Pretext accordion-stretch logic the
+general live-page formatting rule to prevent text overflow.
+
+- [x] Record the bounded-panel contract in `PROJECT.md`, require its skill route
+  in `SKILLS.md`, and add Pretext plus rendered overflow/resize acceptance checks
+  to `VERIFICATION.md`. Preserve document flow for long text and complete tables.
+- [x] Review the policy diff against the installed skill and existing document/
+  chooser scroll contracts; context/safety and whitespace checks pass. Referenced
+  project documents and installed stretch guidance exist.
+
+This is a protocol-only change; no runtime layout or deployment claim follows.
+The Pages path filter excludes these edits, so no site rebuild is required.
+Observed baseline: clean `main` at `f4900c8`, synchronized with `origin/main`;
+only these four control-plane files are task-owned. Commit/push follows the
+standing workflow, with exact remote-SHA verification at handoff. RTK was
+unavailable; bounded native shell commands were used. No blocker for this rule.
+Next action: apply the rule and its rendered gate to subsequent live-page layout
+changes; continue the existing scientific/publication checklist. Overall goal open.
+
 ### Active amendment — independent error metric and numeric error cells
 
 Owner request (2026-10-23): select SD, confidence intervals or another standard
