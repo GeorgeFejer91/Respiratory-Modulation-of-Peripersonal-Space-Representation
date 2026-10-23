@@ -14,14 +14,15 @@
   anchors resolve; 26 reference URLs are accessible (one throttled HEAD request
   was confirmed with browser fetch). JSON, context/safety and whitespace gates
   pass. RTK is unavailable; bounded native shell output was used.
-- [ ] Commit/push the reviewed documentation and confirm the exact remote SHA.
+- [x] Commit/push guide checkpoint `06167f8` on `main`; verify its full SHA
+  equals remote `refs/heads/main` and the working tree is clean.
 
 Scope: agent reference documentation only; no plotting runtime, plugin, model,
-served figure or publication-readiness status changes. Pre-commit observation:
-`main` at `63ede43` matches fetched `origin/main`; the diff is task-owned guidance.
-Next action: publish the documentation checkpoint, then resume live-plot migration
-and the existing scientific acceptance checklist. The wider publication goal
-remains open.
+served figure or publication-readiness status changes. Source publication is
+verified; chart runtime/build/deployment checks were not run for this protocol-only
+change. No external blocker remains for the guide. Next action: resume live-plot
+migration and the existing scientific acceptance checklist. The wider publication
+goal remains open.
 
 ### Active amendment — direct resizing and page flow
 
