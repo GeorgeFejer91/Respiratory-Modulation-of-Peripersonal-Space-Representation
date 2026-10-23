@@ -15,10 +15,14 @@ fast pivot as the authoritative implementations until a scoped replacement
 passes numerical and real-browser checks.
 
 Segment 0 fixes the X-axis to the released SOA values: **300, 800, 1500, 2200,
-2700 ms**. Check **Control**, **Viscereality**, **Exhale** and **Inhale** to show
-either or both levels of each factor. All four start selected; clearing either
-group shows an empty chart/table. Checkboxes filter the same cells in the chart,
-table and CSV. There is no drag-and-drop or editable axis layout in this segment.
+2700 ms**. **Group curves by** has one checkbox for **Condition** and one for
+**Phase**, both initially checked. Both checked shows four Condition × Phase
+curves. Condition only shows two condition curves pooled over phases; Phase only
+shows two phase curves pooled over conditions. Neither checked shows one curve
+pooled over both factors. Pool within each participant before across-person mean
+and sample SD: every state retains all source cells and equal participant weight.
+The table and CSV use the same grouping. There is no field dragging or editable
+axis layout in this segment.
 
 The **Baseline correction** toggle starts on: **Baseline − RT (ms)**, using the
 existing retained participant × condition × phase baseline mean. Positive values
@@ -33,7 +37,7 @@ normalize raw RT with correction off, or Baseline − AT RT benefit with it on.
 
 Z-scores use each participant's mean and sample SD (n−1); min–max uses their
 minimum/maximum. Missing values remain missing and zero/undefined scale gives
-missing scores. Hiding a series does not recalculate the scale. CSV names end
+missing scores. Changing grouping does not recalculate the scale. CSV names end
 in _z or _norm respectively; millisecond measures keep _ms. Raw scores increase
 with slower RT; corrected scores increase with greater baseline benefit.
 These are descriptive display transformations, preserving data and fixed
