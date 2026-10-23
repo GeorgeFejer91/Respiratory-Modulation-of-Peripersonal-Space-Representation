@@ -24,7 +24,7 @@ change. No external blocker remains for the guide. Next action: resume live-plot
 migration and the existing scientific acceptance checklist. The wider publication
 goal remains open.
 
-### Active amendment — direct resizing and page flow
+### Completed amendment — direct resizing and page flow
 
 Owner request (2026-10-23): remove table size sliders, drag table borders directly,
 eliminate nested scrolling and use available screen space across plot layouts.
@@ -33,7 +33,7 @@ This supersedes historical internal-scroll/size-control instructions below.
 - [x] Replace sliders with shared border handles for tables and plot surfaces,
   keyboard reset/arrows and pointer/touch capture. Tables grow with content;
   the desktop graph/table share width, and the overview uses screen width.
-- [ ] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
+- [x] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
   independent review, combined production build and exact live publication.
 
 Plan/state: reuse pivot/overview owners and pinned Pretext; actual borders alter
@@ -47,7 +47,17 @@ finding about stale stacked widths was fixed and regression-tested; final review
 has no further findings. Narrow cells show three significant digits while copy,
 CSV, full-value details and selected cell nodes retain full precision/identity.
 Physical Safari and assistive-technology coverage remain untested.
-Next action: integrate current main and publish under standing authority.
+Source ccdf710 was normally merged with the publication-title update and pushed
+as 63ede43. Actions run 39962510271 passed the full fixed analyses, independent
+numerical checks and Pages deployment. Live resize, overview/pivot, chart-layer
+and table-copy gates pass at the renamed publication URL. Shared resizer,
+overview/app JavaScript and CSS bytes match that exact Git revision. One initial
+evidence-link request failed during deployment propagation; direct HTTP checks
+and the complete repeated overview gate pass. This evidence-only update changes
+no served artifact. Next action: resume native-plot migration and the broader
+scientific/publication checklist, using the existing visualization-selection
+guide for the owner's toolkit suggestions. The resize worktree/branch is retained
+at the source checkpoint. Physical Safari and screen-reader checks remain unrun.
 The wider scientific/publication goal remains open.
 
 ### Publication-name rename — 2026-10-23
