@@ -356,7 +356,7 @@ Next action: resume the wider open living-publication/scientific acceptance gate
 
 ## Visualization — fast pivot table and linked chart
 
-### Active amendment — combinable figure layers
+### Completed amendment — combinable figure layers
 
 Owner request (2026-10-23): switch/combine dot-whisker summaries, actual
 participant values, spaghetti trajectories and violin distributions in Segment 0.
@@ -364,7 +364,7 @@ participant values, spaghetti trajectories and violin distributions in Segment 0
 - [x] Retain the already pooled participant values behind each mean/SD/n cell.
 - [x] Add independent mean dots/whiskers, mean line, participant dots, spaghetti
   and violin toggles, preserving correction/normalization, grouping and pairing.
-- [ ] Verify independent numerical parity, rendered accessibility/reflow, source
+- [x] Verify independent numerical parity, rendered accessibility/reflow, source
   downloads and missing/constant/small-n cases; commit/push and verify deployment.
 
 Plan: extend the existing pivot engine/chart/app and their regression checks;
@@ -378,9 +378,17 @@ keyboard/touch, six viewports, 200% text/spacing and real Pretext pass in Chromi
 Both standard overview/pivot browser gates pass; desktop/phone images were
 visually inspected. Independent code review reports no actionable findings.
 Physical Safari/assistive-technology coverage remains untested; RTK is unavailable.
-The context gate's remote mismatch is expected on the feature branch until
-normal integration/push. The concurrent table-copy change is preserved.
-Next action: integrate current origin/main, verify combined behavior and publish.
+Source 562e64f was normally integrated with the concurrent table-copy change and
+pushed on main as a129ddd. Both changes passed the combined local browser gates.
+[Actions run 39957489994](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39957489994)
+passed the full fixed analyses, independent numerical validation and deployment.
+All 32 combinations and participant CSV, the overview and the table-copy gate
+also pass on the live deployment. Served HTML/app/chart/engine/CSS bytes match
+that exact Git revision. The context/secret-pattern gate passes with main
+matching origin/main; only existing roadmap/archive warnings remain.
+This evidence-only checkpoint changes no served artifact. The worktree and
+feature branch are retained; the canonical checkout is synchronized after push.
+Next action: resume the wider question-led scientific/publication checklist.
 The overall scientific/publication acceptance goal remains open.
 
 ### Active amendment — Condition/Phase grouping checkboxes
