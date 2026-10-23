@@ -28,7 +28,10 @@ established; lack of significance does not establish absence of practice/fatigue
 The first-to-last paired change is −20.54 ms, 95% CI [−52.22, 11.15].
 
 Source/results commit `a68de1a` on main preserves the independently completed
-Segment 2 work. Native results are not a browser-executed analysis; the landing
+Segment 2 work. Analysis and state were pushed through `517dbc1`; the exact
+remote main SHA was verified and the working tree was clean. The automatic
+Pages run for that SHA was pending when checked; no deployment is claimed for
+this native result addition. Native results are not a browser-executed analysis; the landing
 page and historical manuscript were not edited for this question. Next action:
 resume the remaining question-led analyses and the wider open acceptance gates.
 
