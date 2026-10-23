@@ -73,6 +73,12 @@ changes. This is continuing authorization to commit and push validated task-owne
 work and publish live-page changes; do not ask again for routine commits, pushes
 or permitted integration. The rule persists across sessions until the owner changes it.
 
+Owner reaffirmation (2026-10-23): keep completed work pushed regularly. The active
+Codex hourly follow-up checks this repository and its worktrees, commits and pushes
+verified public-safe work, and preserves historical branch checkpoints without
+automatically merging them. Keep ignored/private material excluded and unfinished
+concurrent edits intact. Verify remote SHAs; report meaningful pushes or blockers.
+
 Use the installed Superpowers verification/branch-finishing skills when present;
 otherwise use the reviewed local
 [`superpowers-workflow`](skills/superpowers-workflow/SKILL.md) guide with this

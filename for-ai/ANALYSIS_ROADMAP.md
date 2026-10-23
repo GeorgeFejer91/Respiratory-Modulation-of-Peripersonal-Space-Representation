@@ -2,6 +2,24 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### GitHub synchronization checkpoint — 2026-10-23
+
+- [x] Fetch and inspect all five worktrees: clean, with `main` matching
+  `origin/main` at `9fab5aa`. One historical local-only checkpoint, `7990a9e`,
+  contains the earlier overview source; preserve it on its branch without merging.
+- [x] Run the required context/secret-pattern gate and whitespace check; both pass.
+  Existing roadmap-length and archived-image warnings remain. RTK is unavailable;
+  bounded native commands provide the observed evidence.
+- [x] Activate the hourly Codex follow-up `keep-study-5-pushed-to-github` under the
+  owner's continuing commit/push authorization. It checks verified public-safe
+  work and stays quiet when unchanged, preserving private and unfinished material.
+- [ ] Push this synchronization policy/checkpoint and all existing local branch
+  tips, then verify exact remote SHAs. This is a publication-of-source task;
+  no served-site files change and no new deployment is claimed.
+
+Next action: finish remote-SHA verification, then resume the existing ordered
+scientific/publication checklist. The wider publication goal remains open.
+
 ### Completed amendment — baseline-corrected RT is the default
 
 Owner clarification (2026-10-23): current SOA, phase and block analyses and future
