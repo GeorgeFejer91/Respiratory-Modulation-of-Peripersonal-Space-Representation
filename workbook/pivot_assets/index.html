@@ -15,8 +15,10 @@
   <section id="core-controls" aria-label="Data selection" hidden>
     <div class="core-layout">
       <fieldset><legend data-fit-label>Group curves by</legend>
-        <label><input type="checkbox" data-group-field="condition" checked><span data-fit-label>Condition</span></label>
-        <label><input type="checkbox" data-group-field="phase" checked><span data-fit-label>Phase</span></label>
+        <div class="chart-layer-buttons">
+          <label class="group-toggle"><input type="checkbox" data-group-field="condition" checked><span data-fit-label>Condition</span></label>
+          <label class="group-toggle"><input type="checkbox" data-group-field="phase" checked><span data-fit-label>Phase</span></label>
+        </div>
       </fieldset>
       <section id="core-values"><h3 data-fit-label>Values</h3>
         <div class="core-toggles">
@@ -26,8 +28,6 @@
         <span id="core-correction-formula" data-fit-label>Baseline − RT (ms)</span>
         <label><span data-fit-label>Normalization method</span><select id="core-normalization-method"><option value="norm">0–1 range (min–max)</option><option value="z">Z-score (mean 0, SD 1)</option></select></label>
         <span id="core-normalize-formula" data-fit-label>One scale per participant, using all retained AT trials across conditions, phases and SOAs.</span>
-        <label><span data-fit-label>Error metric</span><select id="core-spread" aria-describedby="core-error-help"><option value="sd">Standard deviation (SD)</option><option value="se">Standard error (SE)</option><option value="ci95">95% confidence interval</option><option value="mean">None (mean only)</option></select></label>
-        <span id="core-error-help" data-fit-label>SD shows participant spread; SE and pointwise 95% t CIs describe uncertainty in the mean. Each metric has its own table cells. Undefined for n &lt; 2. These are marginal intervals, not paired-effect tests.</span>
       </section>
     </div>
   </section>
@@ -37,18 +37,26 @@
       <section id="chart-region" aria-labelledby="chart-y-label" aria-busy="true">
         <div class="chart-controls"><label><span data-fit-label>Chart style</span><select id="chart-style"><option value="auto">Auto</option><option value="line">Line</option><option value="points">Points</option><option value="bars">Bars</option><option value="heatmap">Heatmap</option></select></label><label id="chart-measure-control" hidden><span data-fit-label>Chart measure</span><select id="chart-measure"></select></label></div>
         <h2 id="chart-y-label" data-fit-label>Linked chart</h2>
-        <fieldset id="chart-layers" hidden aria-describedby="chart-layer-help">
-          <legend data-fit-label>Show together</legend>
-          <div class="chart-layer-buttons">
-            <button type="button" data-chart-layer="summary" aria-pressed="true" data-fit-label>Mean ± SD</button>
+        <div id="chart-layers" hidden>
+          <fieldset aria-describedby="chart-layer-help"><legend data-fit-label>Graph display</legend>
+            <div class="chart-layer-buttons">
+            <button type="button" data-chart-layer="summary" aria-pressed="true" data-fit-label>Mean points</button>
             <button type="button" data-chart-layer="line" aria-pressed="true" data-fit-label>Mean line</button>
             <button type="button" data-chart-layer="dots" aria-pressed="false" data-fit-label>Participant dots</button>
             <button type="button" data-chart-layer="spaghetti" aria-pressed="false" data-fit-label>Spaghetti</button>
             <button type="button" data-chart-layer="violin" aria-pressed="false" data-fit-label>Violin</button>
-          </div>
+            </div>
           <p id="chart-layer-help" data-fit-label>Combine views. Participant values are means, with unchecked factors pooled within each person.</p>
+          </fieldset>
+          <fieldset id="core-error-controls" hidden aria-describedby="core-error-help"><legend data-fit-label>Error bars / whiskers</legend>
+            <div class="error-controls">
+              <button type="button" data-chart-layer="errors" aria-pressed="true" data-fit-label>Whiskers</button>
+              <label id="core-error-metric" hidden><span data-fit-label>Error metric</span><select id="core-spread" aria-describedby="core-error-help"><option value="sd">Standard deviation (SD)</option><option value="se">Standard error (SE)</option><option value="ci95">95% confidence interval</option><option value="mean">None (mean only)</option></select></label>
+            </div>
+            <p id="core-error-help" data-fit-label>Whiskers can be shown independently of mean points and lines. SD shows participant spread; SE and pointwise 95% t CIs describe uncertainty in the mean. The selected metric also sets the table cells. Intervals are undefined for n &lt; 2 and are not paired-effect tests.</p>
+          </fieldset>
           <button id="chart-data-export" type="button" data-fit-label>Download participant values (CSV)</button>
-        </fieldset>
+        </div>
         <div id="chart-plot"></div><p id="chart-x-label" data-fit-label></p>
         <ul id="chart-legend" aria-label="Chart series"></ul>
         <p id="chart-hover" role="status" data-fit-label>Preparing chart</p>

@@ -2,6 +2,31 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — separate graph display and error controls
+
+Owner request (2026-10-23): style Condition/Phase like the combinable chart
+controls and distinguish graph display layers from error-bar/whisker settings.
+
+- [x] Keep native grouping checkboxes with matching selected-button styling;
+  separate Graph display from Error bars / whiskers, move the error metric beside
+  its independent Whiskers toggle and give mean points a stable, precise label.
+- [x] Verify all 64 display/whisker combinations, independently inspect whiskers
+  by keyboard, preserve table/downloads, pooling, corrections and normalization.
+  The 71-test pinned workbook suite, 270 independent JavaScript/pandas cases,
+  error-metric, chart-layer, pivot and overview browser gates pass locally.
+  Desktop/phone screenshots are visually checked; real Pretext, eight viewports,
+  long localized labels, 200% text and spacing are covered in Chromium. Physical
+  Safari and screen readers remain untested. RTK is unavailable; bounded native
+  commands are used.
+- [ ] Commit/push, verify the exact Pages deployment and live controls.
+
+Work started from clean main `1740166`; task branch is
+`codex/graph-control-groups`. The initial system-Python attempt lacked statsmodels
+and defaulted to Windows legacy text encoding; checks use the existing pinned
+`.venv` and UTF-8. No scientific inputs, methods or saved results changed.
+Next action: finish the authorized Git/publication flow; the broader scientific
+and living-publication goal stays open.
+
 ### Completed amendment — A4 publication preview default
 
 Owner request (2026-10-23): start desktop publication content at A4 portrait width,

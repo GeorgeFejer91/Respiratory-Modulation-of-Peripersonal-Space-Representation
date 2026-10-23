@@ -60,10 +60,13 @@ controls; the standalone pivot below provides the broader field/filter/source
 catalogue. Nonnegative plots start at zero; negative values remain visible with
 a labeled zero reference.
 
-In Segment 0's Mean view, **Show together** lets you combine **Mean ± SD**,
+In Segment 0's Mean view, **Graph display** lets you combine **Mean points**,
 **Mean line**, **Participant dots**, **Spaghetti** and **Violin** independently.
-Choose None in Error metric to hide whiskers. The mean-layer label follows the
-selected SD, SE or CI. Participant values
+**Error bars / whiskers** separately controls whisker visibility and the
+SD, SE or CI metric, which also sets the numeric table cells. Whiskers remain
+available with mean points and lines off; hiding whiskers does not change the
+table or downloads. Condition/Phase grouping uses matching selected controls
+while retaining native checkboxes. Participant values
 are actual per-person means after pooling unchecked factors, not trial rows;
 they follow the same baseline and normalization controls. Spaghetti joins the
 same person within each group, with gaps for missing SOAs. Violins are smoothed

@@ -150,12 +150,20 @@ main {
 .chart-controls { display:flex; flex-wrap:wrap; gap:.5rem 1rem; }
 .chart-controls label { display:grid; gap:.25rem; flex:1 1 8rem; }
 .chart-controls label>span { font-size:.9em; }
-#chart-layers { margin:0; padding:.5rem; border:1px solid var(--line); }
+#chart-layers { display:grid; gap:var(--space); align-content:space-between; }
+#chart-layers fieldset { margin:0; padding:.65rem; border:1px solid var(--line); }
+#chart-layers legend { font-weight:bold; }
 .chart-layer-buttons { display:flex; flex-wrap:wrap; gap:.35rem; }
-.chart-layer-buttons button { flex:1 1 8rem; }
-.chart-layer-buttons button[aria-pressed=true] { background:var(--link); color:var(--paper); border-color:var(--link); }
-#chart-layer-help { font-size:.85em; color:var(--muted); margin-block:.5rem; overflow-wrap:break-word; }
-#chart-data-export { font-size:.85em; }
+.chart-layer-buttons button,.group-toggle { flex:1 1 8rem; }
+.group-toggle { border:1px solid var(--line); border-radius:3px; padding:.4rem .65rem; justify-content:center; }
+.group-toggle span { overflow-wrap:anywhere; }
+.group-toggle:has(:focus-visible) { outline:3px solid #be5c13; outline-offset:2px; }
+.chart-layer-buttons button[aria-pressed=true],.group-toggle:has(:checked),[data-chart-layer="errors"][aria-pressed=true] { background:var(--link); color:var(--paper); border-color:var(--link); }
+.error-controls { display:flex; flex-wrap:wrap; align-items:end; gap:.5rem 1rem; }
+.error-controls>label { display:grid; gap:.25rem; flex:1 1 16rem; }
+.error-controls>button { flex:0 1 10rem; }
+#chart-layer-help,#core-error-help { font-size:.85em; color:var(--muted); margin-block:.5rem 0; overflow-wrap:break-word; }
+#chart-data-export { font-size:.85em; justify-self:start; }
 [data-participant-point] { cursor:pointer; }
 [data-participant-point]:hover,[data-participant-point]:focus { opacity:1; stroke:var(--ink); stroke-width:2; outline:none; }
 #chart-y-label { font-size:1em; overflow-wrap:anywhere; }

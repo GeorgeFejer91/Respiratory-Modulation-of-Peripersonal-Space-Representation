@@ -122,9 +122,9 @@ not renormalize scores. Independently compare trial-based mean/sample SD and
 minimum/maximum. Verify normalization data loads on demand.
 Verify dimensionless labels/CSV names and zero/undefined range as missing scores.
 For Segment 0 figure layers, run `node workbook/check_chart_layers.cjs PIVOT_URL`
-against the production build and changed live deployment. Verify all 32 layer
+against the production build and changed live deployment. Verify all 64 display/whisker
 combinations, participant CSV, pairing/missing gaps, small/constant distributions,
-normalization/grouping, keyboard/touch, six viewports, 200% text/spacing and real
+normalization/grouping, keyboard/touch, eight viewports, long labels, 200% text/spacing and real
 Pretext. `check_pivot_javascript.py` independently checks every pooled participant
 value against pandas and Gaussian KDE against SciPy. The 4,000-value density
 limit must be explicit and never silently sample observations.

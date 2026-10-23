@@ -248,6 +248,10 @@ are filtered out. Pool within each participant before across-person mean,
 sample SD and n; table/chart/CSV share the result. Segment 0 has no field dragging,
 axis reassignment or ungrouped trial-record mode.
 The full pivot subpage retains its broader source catalogue.
+Segment 0's Condition/Phase checkboxes use the same selected-button styling as
+the graph layers. Graph display groups mean points/line, participant dots,
+spaghetti and violin separately from Error bars / whiskers. The Whiskers toggle
+is independent of mean points and lines; hiding it preserves table/CSV values.
 Baseline correction uses the default-on Baseline − RT toggle described above;
 An independent Error metric select updates both views: none (mean only), sample
 SD (default), SE = SD/√n, or pointwise 95% Student-t CI with n−1 degrees of freedom.

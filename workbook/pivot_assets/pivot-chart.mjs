@@ -116,12 +116,12 @@ export function renderChart(result, settings, measure, mode, source) {
   byId('chart-x-label').textContent = model.xLabel;
   const weights = source === 'means' ? 'Participant-distance cells weighted equally.' : source === 'trials' ? 'Trial records weighted equally.' : 'Descriptive source-record summaries.';
   const errorMetric = settings.errorMetric || 'mean';
-  const showError = result.participantSummary && errorMetric !== 'mean' && summary;
+  const showError = result.participantSummary && errorMetric !== 'mean' && (!layers || layers.errors);
   const intervalNote = { mean: 'Means only; no error whiskers.', sd: 'Whiskers: ±1 sample SD, showing participant spread.',
     se: 'Whiskers: ±1 SE (sample SD / √n), showing uncertainty in each mean; not a 95% interval.',
     ci95: 'Whiskers: pointwise 95% Student-t CI, mean ± t(.975, n−1) × SD/√n. Marginal intervals; not within-person contrast intervals or a test of group differences.' }[errorMetric];
   byId('chart-note').textContent = result.participantSummary ?
-    `Participant means; pooled factors averaged within each person. ${summary ? intervalNote : 'Mean dots and error whiskers are hidden.'} n counts nonmissing participant means; intervals undefined for n < 2. Full-release intervals assume independence despite the linked P011/P033 records; use the primary cohort for independent-person summaries.` :
+    `Participant means; pooled factors averaged within each person. ${showError ? intervalNote : 'Error whiskers are hidden.'} n counts nonmissing participant means; intervals undefined for n < 2. Full-release intervals assume independence despite the linked P011/P033 records; use the primary cohort for independent-person summaries.` :
     `${weights} Table scrolling and size do not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
   if (individuals) byId('chart-note').textContent +=
     ' Participant dots/trajectories use the same pooled per-person means, not individual trials. Horizontal offsets separate groups; dot jitter changes no measured value. Trajectories connect only adjacent observed SOAs within the same person and group.';
@@ -135,7 +135,7 @@ export function renderChart(result, settings, measure, mode, source) {
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
   if (!present.length) { byId('chart-hover').textContent = 'No numeric values to plot for this measure. Missing cells remain in the table.'; return; }
   if(mode === 'heatmap') { renderHeatmap(model); return; }
-  if (layers && !Object.values(layers).some(Boolean)) {
+  if (layers && !showError && !Object.entries(layers).some(([key, active]) => key !== 'errors' && active)) {
     byId('chart-hover').textContent = 'Choose at least one figure layer. The table and downloads remain available.'; return;
   }
   const observations = individuals ? model.points.flatMap(point => (point.observations || []).filter(item => Number.isFinite(item.value))) : [];
@@ -263,7 +263,7 @@ export function renderChart(result, settings, measure, mode, source) {
       bindPoint(node, `${item.participant} · ${series.label} · ${model.xLabel}: ${point.x} · Participant mean · ${fieldLabel(measure)}: ${format(item.value)}`, null, {Participant:item.participant, Series:series.label, [model.xLabel]:point.x, [fieldLabel(measure)]:item.value});
       group.append(node);
     }
-    if (summary) for (const point of series.points) {
+    if (summary || showError) for (const point of series.points) {
       if (point.y === null || !Number.isFinite(point.y)) continue;
       const x = groupX(point.x), y = yScale(point.y);
       const barWidth = categoryWidth * .8 / model.series.length;
@@ -274,7 +274,7 @@ export function renderChart(result, settings, measure, mode, source) {
         const upper = yScale(interval[1]), lower = yScale(interval[0]);
         whisker = svgElement('path', { d: `M${center},${upper}V${lower} M${center - 4},${upper}H${center + 4} M${center - 4},${lower}H${center + 4}`,
           fill: 'none', 'stroke-width': 1.5, 'data-error-whisker': errorMetric, ...(errorMetric === 'sd' ? {'data-sd-whisker':''} : {}), 'data-sd': point.sd, 'data-n': point.n,
-          'pointer-events': 'none', 'data-low': interval[0], 'data-high': interval[1] });
+          'pointer-events': summary ? 'none' : 'stroke', 'data-low': interval[0], 'data-high': interval[1] });
       }
       const attributes = bars ? { x: x - categoryWidth * .4 + seriesIndex * barWidth,
         y: Math.min(y, yScale(0)), width: Math.max(.5, barWidth - 1), height: Math.max(1, Math.abs(y - yScale(0))) } : { cx: x, cy: y, r: 5 };
@@ -293,9 +293,10 @@ export function renderChart(result, settings, measure, mode, source) {
         byId('chart-hover').textContent = `${model.xLabel}: ${point.x} · ${model.yLabel} · ${values.join('; ')}`;
         document.dispatchEvent(new Event('pivot-layout'));
       };
-      bindPoint(node, detail, compare, {Series:series.label, [model.xLabel]:point.x, [model.yLabel]:point.y, ...(point.n===undefined?{}:{"Sample SD":Number.isFinite(point.sd)?point.sd:"Undefined (n < 2)", n:point.n,
+      const target = summary ? node : whisker;
+      if (target) bindPoint(target, detail, compare, {Series:series.label, [model.xLabel]:point.x, [model.yLabel]:point.y, ...(point.n===undefined?{}:{"Sample SD":Number.isFinite(point.sd)?point.sd:"Undefined (n < 2)", n:point.n,
         ...Object.fromEntries(errorLabels[errorMetric].slice(1).map((label,index) => [label,errorValues(point.y,point,errorMetric)[index+1] ?? 'Undefined (n < 2)']))})});
-      group.append(node);
+      if (summary) group.append(node);
       if (whisker) group.append(whisker);
     }
     const item = document.createElement('li'), sample = svgElement('svg', { width: 28, height: 16, 'aria-hidden': true });

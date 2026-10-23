@@ -21,7 +21,7 @@ let requestId = 0, generation = 0, sourceGeneration = 0, result, resultSettings,
 let source = 'means', saved = null, fullMeans = false, fullMeansRequest;
 let workerFailure;
 let chartGeometry = '';
-const chartLayers = { summary: true, line: true, dots: false, spaghetti: false, violin: false };
+const chartLayers = { summary: true, line: true, dots: false, spaghetti: false, violin: false, errors: true };
 let coreCorrected = true, coreNormalized = false;
 let normalizationMethod = 'norm';
 const settings = { rows: ['soa_ms'], columns: ['condition', 'phase'], values: ['corrected_rt_ms'], aggregation: 'Mean', totals: true, cohort: 'Primary behavioural cohort', filtersEnabled: false, filters: {} };
@@ -39,6 +39,7 @@ if (coreView) {
 }
 function coreControls() {
   if (!coreView) return;
+  byId('core-error-controls').hidden = settings.aggregation !== 'Mean';
   byId('core-spread').disabled = settings.aggregation !== 'Mean';
   byId('core-spread').closest('label').hidden = settings.aggregation !== 'Mean';
   byId('totals').disabled = true;
@@ -266,7 +267,6 @@ function drawChart(force = true) {
     chartGeometry = geometry;
     byId('chart-layers').hidden = !result.participantSummary || byId('chart-style').value==='heatmap';
     byId('chart-style').closest('label').hidden = Boolean(result.participantSummary) && !exploratoryView;
-    document.querySelector('[data-chart-layer="summary"]').textContent = {sd:'Mean ± SD',se:'Mean ± SE',ci95:'Mean + 95% CI',mean:'Mean dots'}[settings.errorMetric] || 'Mean dots';
     renderChart(result, { ...resultSettings, errorMetric: settings.errorMetric,
       ...(result.participantSummary && byId('chart-style').value!=='heatmap' ? { chartLayers } : {}) }, byId('chart-measure').value, byId('chart-style').value, resultSource);
   }
