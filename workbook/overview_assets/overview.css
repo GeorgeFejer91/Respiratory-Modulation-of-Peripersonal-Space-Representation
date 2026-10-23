@@ -23,14 +23,12 @@ h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 16px; }
 h2 { font-size: 1.4rem; line-height: 1.35; margin: 0 0 24px; }
 h3 { font-size: 1rem; margin: 24px 0 4px; }
 p { margin: 0 0 16px; max-width: 75ch; }
-#phase > a, #blocks > a { display: block; margin: 8px 0; }
+#blocks > a { display: block; margin: 8px 0; }
 section { padding: 32px 0; border-top: 1px solid #ccd5df; scroll-margin-top: 16px; }
 figure { margin: 0 0 20px; }
 .plot-panel { width:100%; height:auto; margin:12px 0; padding:0 12px 12px 0; }
 .publication-plot { min-width:0; width:100%; }
 .publication-plot > svg { display:block; width:100%; height:auto; overflow:visible; }
-.phase-reference { margin:16px 0; }
-.phase-reference > summary { cursor:pointer; padding:10px 0; min-height:44px; }
 figcaption { line-height: 1.5; }
 #soa-statistics { margin: 12px 0; font-weight: bold; }
 .figure-note { font-size: .9em; line-height: 1.6; }

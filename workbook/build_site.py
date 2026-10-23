@@ -285,7 +285,7 @@ def build(output, development=False):
     # Browser charts consume verified data, never pixels from exported figures.
     payload = dict(phase=json.loads((phase_source/'results.json').read_text(encoding='utf-8')),
         phaseDeltas=rows(phase_source,'trial_group_deltas.csv'), phaseGroups=rows(phase_source,'participant_trial_groups.csv'),
-        phaseOverall=rows(phase_source,'participant_phases.csv'), soa=soa_result,
+        soa=soa_result,
         soaCells=rows(soa_source,'participant_cells.csv'),
         blocks=json.loads((block_source/'results.json').read_text(encoding='utf-8')),
         blockCells=rows(block_source,'participant_blocks.csv'))

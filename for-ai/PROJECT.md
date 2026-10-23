@@ -171,12 +171,15 @@ Segment 1 additionally shows its initial SOA graph and APA result directly.
 Segment 2 additionally answers the overall Inhale−Exhale RT question using the
 saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
-cohort/weighting/uncertainty labels and links to the complete contrast family;
+cohort/weighting/uncertainty labels; the complete contrast family stays archived;
 it does not execute or refit that analysis in the browser.
 Owner visualization amendment (2026-10-23): Figure 2 now makes the six raw
 Inhale−Exhale trial-group deltas the main visual as stacked rainclouds; preserve
-raw labels and the corrected overall inference above it. The corrected overall
-plot remains under a supplemental disclosure. Half densities use Gaussian KDE,
+raw labels and the corrected overall inference above it. Owner cleanup
+(2026-10-23): omit the supplemental corrected-overall plot and
+its trailing explanatory paragraph/download-link list from the overview; retain
+the main raincloud, corrected inference above it and archived evidence downloads.
+Half densities use Gaussian KDE,
 bandwidth 1.06 × sample SD × n^(−1/5), observed-range trim and equal peak height.
 Show all 240 paired participant deltas, median/quartile boxes/1.5-IQR whiskers,
 and the original mean/pointwise 95% t CIs in a separate band. Density is descriptive;

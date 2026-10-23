@@ -2,6 +2,27 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active cleanup — remove the supplemental Segment 2 block
+
+Owner request (2026-10-23): remove the screenshot's corrected-overall comparison
+and trailing explanatory paragraph/link list as clutter. Keep the main raincloud,
+corrected phase answer and archived evidence unchanged. This supersedes the
+supplemental-disclosure portion of the earlier raincloud amendment below.
+
+- [x] Remove the block, unused renderer/styles and unused overall chart payload.
+  Adapt existing browser gates to require its absence and verify archived CSV bytes.
+- [x] Production build, all 70 workbook tests, overview/point/border browser
+  gates, rendered desktop review, context/safety and whitespace checks pass.
+- [ ] Observe authorized push, exact CI/Pages deployment and changed live page.
+
+Work is on main from 67e2bdc; no pre-existing changes were present. Four viewport
+layouts, 200% text/spacing, real Pretext, keyboard/touch and all 240 raincloud
+values pass. The Windows test server required an explicit JavaScript MIME type
+for .mjs; the existing project Python environment supplies statsmodels. No source
+data or native statistical results changed. The wider scientific/publication
+goal stays open. Next action: exact remote/deployment/live verification.
+RTK is unavailable; bounded native commands are the documented fallback.
+
 ### Completed formatting rule — Pretext accordion stretch
 
 Owner request (2026-10-23): make Uncodixfy Pretext accordion-stretch logic the

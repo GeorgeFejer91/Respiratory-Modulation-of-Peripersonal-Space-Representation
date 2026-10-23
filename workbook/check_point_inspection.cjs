@@ -27,9 +27,7 @@ const assert=require('node:assert/strict');
  assert.equal(await page.locator('#soa-figure [data-point-detail]').count(),205);
  assert.equal(await page.locator('#blocks-figure [data-point-detail]').count(),480);
  await inspect(page.locator('#blocks-figure [data-point-detail]').first());
- await page.locator('.phase-reference > summary').click();
- assert.equal(await page.locator('#phase-corrected-figure [data-point-detail]').count(),82);
- await inspect(page.locator('#phase-corrected-figure [data-point-detail]').first());
+ assert.equal(await page.locator('.phase-reference,#phase-corrected-figure').count(),0);
  for(const width of [320,768,1440]){
   await page.setViewportSize({width,height:900});
   await page.waitForFunction(()=>{const host=document.querySelector('[data-plot="phase"]');return Math.abs(Number(host.querySelector('svg').getAttribute('width'))-host.clientWidth)<1;});

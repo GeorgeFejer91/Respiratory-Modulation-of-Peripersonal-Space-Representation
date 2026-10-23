@@ -80,7 +80,7 @@ prepared participant cells, reverse input ordering, retain subtraction signs,
 and verify figure/source/result hashes. Run `python workbook/phase_rt.py` to
 rebuild its SVG/PNG/PDF and audit report; the production build rejects stale hashes.
 Visually inspect the exported figure and phone/desktop page, zero references and
-all participant observations. Verify the actual phase-CSV download, alt text,
+all participant observations. Verify archived phase-CSV availability and exact bytes, chart labels,
 raw-versus-benefit explanation and physiological-label limitation in the browser gate.
 Run `test_phase_groups.py` for independent pandas/SciPy checks of all six trial-
 group deltas, equal condition weights, pooled baseline, paired CIs and series-color

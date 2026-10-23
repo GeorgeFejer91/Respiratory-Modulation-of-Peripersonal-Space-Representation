@@ -60,7 +60,7 @@ const assert = require('node:assert/strict');
     await page.goto(base); await page.frameLocator('#core-pivot').locator('#table-region[aria-busy="false"]').waitFor();
     await page.setViewportSize({width:1920,height:1080});
     assert((await page.locator('main').boundingBox()).width > 1450, 'Use desktop width instead of a narrow centered column');
-    assert.equal(await page.locator('figure [data-resize-edge="bottom"]').count(),4);
+    assert.equal(await page.locator('figure [data-resize-edge="bottom"]').count(),3);
     await page.locator('#phase-figure[data-interactive="ready"]').waitFor();
     const rain=page.locator('#phase-figure .publication-plot svg');
     const rainHeight=Number(await rain.getAttribute('height'));
