@@ -13,12 +13,13 @@
 - [x] Activate the hourly Codex follow-up `keep-study-5-pushed-to-github` under the
   owner's continuing commit/push authorization. It checks verified public-safe
   work and stays quiet when unchanged, preserving private and unfinished material.
-- [ ] Push this synchronization policy/checkpoint and all existing local branch
-  tips, then verify exact remote SHAs. This is a publication-of-source task;
-  no served-site files change and no new deployment is claimed.
+- [x] Push synchronization policy `6888c6e` on `main` and all six other local branch
+  tips. Verify every branch's exact SHA using `git ls-remote --heads origin`;
+  all seven match, with a clean working tree after the push. This source-only
+  update changes no served-site files and claims no new deployment.
 
-Next action: finish remote-SHA verification, then resume the existing ordered
-scientific/publication checklist. The wider publication goal remains open.
+Next action: the hourly follow-up checks for new completed work; resume the
+existing scientific/publication checklist. The wider publication goal remains open.
 
 ### Completed amendment — baseline-corrected RT is the default
 
