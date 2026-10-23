@@ -41,7 +41,7 @@ material findings. Physical Safari and screen readers remain untested.
 Next action: finish regression gates, publish the combined source and verify its
 exact CI/Pages deployment and live phase/citation behavior. The wider goal is open.
 
-### Active cleanup — remove the supplemental Segment 2 block
+### Completed cleanup — remove the supplemental Segment 2 block
 
 Owner request (2026-10-23): remove the screenshot's corrected-overall comparison
 and trailing explanatory paragraph/link list as clutter. Keep the main raincloud,
@@ -52,14 +52,23 @@ supplemental-disclosure portion of the earlier raincloud amendment below.
   Adapt existing browser gates to require its absence and verify archived CSV bytes.
 - [x] Production build, all 70 workbook tests, overview/point/border browser
   gates, rendered desktop review, context/safety and whitespace checks pass.
-- [ ] Observe authorized push, exact CI/Pages deployment and changed live page.
+- [x] Push cleanup source 8f4d523 to main and verify the remote SHA. Live
+  overview/point gates pass; HTML, CSS, both chart scripts and numerical payload
+  match the tested production build after newline normalization.
+- [ ] Resolve the superseded deployment status with the newer combined source
+  under the active D3 amendment above; do not claim this workflow succeeded.
 
 Work is on main from 67e2bdc; no pre-existing changes were present. Four viewport
 layouts, 200% text/spacing, real Pretext, keyboard/touch and all 240 raincloud
 values pass. The Windows test server required an explicit JavaScript MIME type
 for .mjs; the existing project Python environment supplies statsmodels. No source
 data or native statistical results changed. The wider scientific/publication
-goal stays open. Next action: exact remote/deployment/live verification.
+goal stays open. Cleanup CI completed its build and full numerical validations;
+its deploy step reported success, but concurrent main update 85fc18e superseded
+the run and GitHub recorded cancellation/deployment error. The served cleanup
+was independently verified; the combined-source publication remains the active
+D3 amendment's next action. At handoff main includes that concurrent integration,
+which preserves this removal; no unrelated work was edited.
 RTK is unavailable; bounded native commands are the documented fallback.
 
 ### Completed formatting rule — Pretext accordion stretch
