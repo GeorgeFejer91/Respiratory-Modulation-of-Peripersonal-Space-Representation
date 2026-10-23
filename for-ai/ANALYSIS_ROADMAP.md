@@ -2,6 +2,27 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Scientific web-figure selection guide — 2026-10-23
+
+- [x] Add [data-to-plot and toolkit decision trees](visualization/README.md),
+  seven toolkit profiles and a commit-pinned [source inventory](visualization/catalog.json)
+  for Observable Plot, D3, D3 Graph Gallery, Vega-Lite, Plotly.js, Penrose and SVG.js.
+  Route future chart selection from the README and skill index; preserve approved
+  statistics, native live charts, existing owners and the lightweight startup path.
+- [x] Verify all seven inventories against non-truncated pinned source trees,
+  their tree hashes and 62 fetched-source SHA-256 receipts. All 49 local links/
+  anchors resolve; 26 reference URLs are accessible (one throttled HEAD request
+  was confirmed with browser fetch). JSON, context/safety and whitespace gates
+  pass. RTK is unavailable; bounded native shell output was used.
+- [ ] Commit/push the reviewed documentation and confirm the exact remote SHA.
+
+Scope: agent reference documentation only; no plotting runtime, plugin, model,
+served figure or publication-readiness status changes. Pre-commit observation:
+`main` at `63ede43` matches fetched `origin/main`; the diff is task-owned guidance.
+Next action: publish the documentation checkpoint, then resume live-plot migration
+and the existing scientific acceptance checklist. The wider publication goal
+remains open.
+
 ### Active amendment — direct resizing and page flow
 
 Owner request (2026-10-23): remove table size sliders, drag table borders directly,

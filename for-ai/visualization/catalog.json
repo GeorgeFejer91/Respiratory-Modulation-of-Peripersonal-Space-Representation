@@ -1,0 +1,3653 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-10-23",
+  "purpose": "Agent reference inventory only; no runtime installation or library execution. API identifiers and source paths, not copied implementations.",
+  "coverage_limit": "Exhaustive only for the finite source surfaces declared per toolkit and exact commit. Custom compositions, plugins, undocumented APIs and future versions are not exhaustive.",
+  "retrieval": "GitHub commit-pinned raw source and non-truncated recursive tree API; SHA-256 receipts identify fetched source bytes. Read-only extraction; no upstream code executed.",
+  "toolkits": {
+    "observable-plot": {
+      "repository": "https://github.com/observablehq/plot",
+      "commit": "535723d5e433727720d9b673c31622821bb03210",
+      "source_base": "https://github.com/observablehq/plot/blob/535723d5e433727720d9b673c31622821bb03210/",
+      "tree_api": "https://api.github.com/repos/observablehq/plot/git/trees/535723d5e433727720d9b673c31622821bb03210?recursive=1",
+      "tree_response_sha256": "e337902a0cc1aece58c673034af90e7ef03875151576e3c5fcb91aaf29c422c0",
+      "tree_truncated": false,
+      "package_version": "0.6.17",
+      "declared_license": "ISC",
+      "scope": "All named exports from marks, transforms, and interactions in src/index.js; classes/helpers are included and distinguished by name. Arbitrary compositions are open-ended.",
+      "catalogs": {
+        "marks": [
+          {
+            "source_path": "src/marks/area.js",
+            "exports": [
+              "Area",
+              "area",
+              "areaX",
+              "areaY"
+            ]
+          },
+          {
+            "source_path": "src/marks/arrow.js",
+            "exports": [
+              "Arrow",
+              "arrow"
+            ]
+          },
+          {
+            "source_path": "src/marks/auto.js",
+            "exports": [
+              "auto",
+              "autoSpec"
+            ]
+          },
+          {
+            "source_path": "src/marks/axis.js",
+            "exports": [
+              "axisX",
+              "axisY",
+              "axisFx",
+              "axisFy",
+              "gridX",
+              "gridY",
+              "gridFx",
+              "gridFy"
+            ]
+          },
+          {
+            "source_path": "src/marks/bar.js",
+            "exports": [
+              "BarX",
+              "BarY",
+              "barX",
+              "barY"
+            ]
+          },
+          {
+            "source_path": "src/marks/bollinger.js",
+            "exports": [
+              "bollinger",
+              "bollingerX",
+              "bollingerY"
+            ]
+          },
+          {
+            "source_path": "src/marks/box.js",
+            "exports": [
+              "boxX",
+              "boxY"
+            ]
+          },
+          {
+            "source_path": "src/marks/cell.js",
+            "exports": [
+              "Cell",
+              "cell",
+              "cellX",
+              "cellY"
+            ]
+          },
+          {
+            "source_path": "src/marks/contour.js",
+            "exports": [
+              "Contour",
+              "contour"
+            ]
+          },
+          {
+            "source_path": "src/marks/crosshair.js",
+            "exports": [
+              "crosshair",
+              "crosshairX",
+              "crosshairY"
+            ]
+          },
+          {
+            "source_path": "src/marks/delaunay.js",
+            "exports": [
+              "delaunayLink",
+              "delaunayMesh",
+              "hull",
+              "voronoi",
+              "voronoiMesh"
+            ]
+          },
+          {
+            "source_path": "src/marks/density.js",
+            "exports": [
+              "Density",
+              "density"
+            ]
+          },
+          {
+            "source_path": "src/marks/difference.js",
+            "exports": [
+              "differenceX",
+              "differenceY"
+            ]
+          },
+          {
+            "source_path": "src/marks/dot.js",
+            "exports": [
+              "Dot",
+              "dot",
+              "dotX",
+              "dotY",
+              "circle",
+              "hexagon"
+            ]
+          },
+          {
+            "source_path": "src/marks/frame.js",
+            "exports": [
+              "Frame",
+              "frame"
+            ]
+          },
+          {
+            "source_path": "src/marks/geo.js",
+            "exports": [
+              "Geo",
+              "geo",
+              "sphere",
+              "graticule"
+            ]
+          },
+          {
+            "source_path": "src/marks/hexgrid.js",
+            "exports": [
+              "Hexgrid",
+              "hexgrid"
+            ]
+          },
+          {
+            "source_path": "src/marks/image.js",
+            "exports": [
+              "Image",
+              "image"
+            ]
+          },
+          {
+            "source_path": "src/marks/line.js",
+            "exports": [
+              "Line",
+              "line",
+              "lineX",
+              "lineY"
+            ]
+          },
+          {
+            "source_path": "src/marks/linearRegression.js",
+            "exports": [
+              "linearRegressionX",
+              "linearRegressionY"
+            ]
+          },
+          {
+            "source_path": "src/marks/link.js",
+            "exports": [
+              "Link",
+              "link"
+            ]
+          },
+          {
+            "source_path": "src/marks/raster.js",
+            "exports": [
+              "Raster",
+              "raster"
+            ]
+          },
+          {
+            "source_path": "src/marks/raster.js",
+            "exports": [
+              "interpolateNone",
+              "interpolatorBarycentric",
+              "interpolateNearest",
+              "interpolatorRandomWalk"
+            ]
+          },
+          {
+            "source_path": "src/marks/rect.js",
+            "exports": [
+              "Rect",
+              "rect",
+              "rectX",
+              "rectY"
+            ]
+          },
+          {
+            "source_path": "src/marks/rule.js",
+            "exports": [
+              "RuleX",
+              "RuleY",
+              "ruleX",
+              "ruleY"
+            ]
+          },
+          {
+            "source_path": "src/marks/text.js",
+            "exports": [
+              "Text",
+              "text",
+              "textX",
+              "textY"
+            ]
+          },
+          {
+            "source_path": "src/marks/tick.js",
+            "exports": [
+              "TickX",
+              "TickY",
+              "tickX",
+              "tickY"
+            ]
+          },
+          {
+            "source_path": "src/marks/tip.js",
+            "exports": [
+              "Tip",
+              "tip"
+            ]
+          },
+          {
+            "source_path": "src/marks/tree.js",
+            "exports": [
+              "tree",
+              "cluster"
+            ]
+          },
+          {
+            "source_path": "src/marks/vector.js",
+            "exports": [
+              "Vector",
+              "vector",
+              "vectorX",
+              "vectorY",
+              "spike"
+            ]
+          },
+          {
+            "source_path": "src/marks/waffle.js",
+            "exports": [
+              "WaffleX",
+              "WaffleY",
+              "waffleX",
+              "waffleY"
+            ]
+          }
+        ],
+        "transforms": [
+          {
+            "source_path": "src/transforms/basic.js",
+            "exports": [
+              "filter",
+              "reverse",
+              "sort",
+              "shuffle",
+              "basic as transform",
+              "initializer"
+            ]
+          },
+          {
+            "source_path": "src/transforms/bin.js",
+            "exports": [
+              "bin",
+              "binX",
+              "binY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/centroid.js",
+            "exports": [
+              "centroid",
+              "geoCentroid"
+            ]
+          },
+          {
+            "source_path": "src/transforms/dodge.js",
+            "exports": [
+              "dodgeX",
+              "dodgeY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/group.js",
+            "exports": [
+              "find",
+              "group",
+              "groupX",
+              "groupY",
+              "groupZ"
+            ]
+          },
+          {
+            "source_path": "src/transforms/hexbin.js",
+            "exports": [
+              "hexbin"
+            ]
+          },
+          {
+            "source_path": "src/transforms/normalize.js",
+            "exports": [
+              "normalize",
+              "normalizeX",
+              "normalizeY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/map.js",
+            "exports": [
+              "map",
+              "mapX",
+              "mapY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/shift.js",
+            "exports": [
+              "shiftX",
+              "shiftY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/window.js",
+            "exports": [
+              "window",
+              "windowX",
+              "windowY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/select.js",
+            "exports": [
+              "select",
+              "selectFirst",
+              "selectLast",
+              "selectMaxX",
+              "selectMaxY",
+              "selectMinX",
+              "selectMinY"
+            ]
+          },
+          {
+            "source_path": "src/transforms/stack.js",
+            "exports": [
+              "stackX",
+              "stackX1",
+              "stackX2",
+              "stackY",
+              "stackY1",
+              "stackY2"
+            ]
+          },
+          {
+            "source_path": "src/transforms/tree.js",
+            "exports": [
+              "treeNode",
+              "treeLink"
+            ]
+          }
+        ],
+        "interactions": [
+          {
+            "source_path": "src/interactions/pointer.js",
+            "exports": [
+              "pointer",
+              "pointerX",
+              "pointerY"
+            ]
+          }
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "d7fe81d0430b4f10d797e4b1ad3e0bf8589b8de7fa5c3f0019affeb7a503e3de"
+        },
+        {
+          "path": "src/index.js",
+          "sha256": "5d9abf38ea380af152a5b4118dcfd5e69360f70e6421520503e99fdd68fcd8d0"
+        }
+      ]
+    },
+    "d3": {
+      "repository": "https://github.com/d3/d3",
+      "commit": "3d1a90c30805c17b79eb24c13c5aa45454534850",
+      "source_base": "https://github.com/d3/d3/blob/3d1a90c30805c17b79eb24c13c5aa45454534850/",
+      "tree_api": "https://api.github.com/repos/d3/d3/git/trees/3d1a90c30805c17b79eb24c13c5aa45454534850?recursive=1",
+      "tree_response_sha256": "ebd58f8f1f5c41c4c58dde602ecc2fce229347553166cfb0c718a0ce81613a32",
+      "tree_truncated": false,
+      "package_version": "7.9.0",
+      "declared_license": "ISC",
+      "scope": "All umbrella-package modules; these are building blocks, not a finite list of charts. Companion modules outside d3/d3 are excluded.",
+      "catalogs": {
+        "modules": [
+          "d3-array",
+          "d3-axis",
+          "d3-brush",
+          "d3-chord",
+          "d3-color",
+          "d3-contour",
+          "d3-delaunay",
+          "d3-dispatch",
+          "d3-drag",
+          "d3-dsv",
+          "d3-ease",
+          "d3-fetch",
+          "d3-force",
+          "d3-format",
+          "d3-geo",
+          "d3-hierarchy",
+          "d3-interpolate",
+          "d3-path",
+          "d3-polygon",
+          "d3-quadtree",
+          "d3-random",
+          "d3-scale",
+          "d3-scale-chromatic",
+          "d3-selection",
+          "d3-shape",
+          "d3-time",
+          "d3-time-format",
+          "d3-timer",
+          "d3-transition",
+          "d3-zoom"
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "fbc10b238e56da7eeb0fdb1c8fc1d95fcbe8ec5a12df2b0344d8c835198b1e22"
+        },
+        {
+          "path": "src/index.js",
+          "sha256": "0e14c593df847034f8312f2ece3e5adbf403e077b6db93a3947c7d3bd0b6f83b"
+        }
+      ]
+    },
+    "d3-gallery": {
+      "repository": "https://github.com/holtzy/D3-graph-gallery",
+      "commit": "8f12759d589c09248d841795293be9197308531b",
+      "source_base": "https://github.com/holtzy/D3-graph-gallery/blob/8f12759d589c09248d841795293be9197308531b/",
+      "tree_api": "https://api.github.com/repos/holtzy/D3-graph-gallery/git/trees/8f12759d589c09248d841795293be9197308531b?recursive=1",
+      "tree_response_sha256": "7e057e4a1b4eda8d350fbe678510faf714108166ceb31f43131f9d7227ad9d13",
+      "tree_truncated": false,
+      "scope": "Every local HTML page linked by the pinned landing page (including navigation pages) and every graph/*.html example; navigation pages are not chart types.",
+      "catalogs": {
+        "index_pages": [
+          "violin.html",
+          "density.html",
+          "histogram.html",
+          "boxplot.html",
+          "ridgeline.html",
+          "scatter.html",
+          "heatmap.html",
+          "correlogram.html",
+          "bubble.html",
+          "connectedscatter.html",
+          "density2d.html",
+          "barplot.html",
+          "spider.html",
+          "wordcloud.html",
+          "parallel.html",
+          "lollipop.html",
+          "circular_barplot.html",
+          "treemap.html",
+          "donut.html",
+          "pie.html",
+          "dendrogram.html",
+          "circularpacking.html",
+          "line.html",
+          "area.html",
+          "stackedarea.html",
+          "streamgraph.html",
+          "backgroundmap.html",
+          "choropleth.html",
+          "hexbinmap.html",
+          "cartogram.html",
+          "connectionmap.html",
+          "bubblemap.html",
+          "chord.html",
+          "network.html",
+          "sankey.html",
+          "arc.html",
+          "bundle.html",
+          "intro_d3js.html",
+          "custom.html",
+          "interactivity.html"
+        ],
+        "examples": [
+          "graph/0_template.html",
+          "graph/arc_basic.html",
+          "graph/arc_highlight.html",
+          "graph/arc_template.html",
+          "graph/arc_vertical.html",
+          "graph/area_basic.html",
+          "graph/area_brushZoom.html",
+          "graph/area_lineDot.html",
+          "graph/area_responsive.html",
+          "graph/area_smallmultiple.html",
+          "graph/backgroundmap_basic.html",
+          "graph/backgroundmap_canvas_basic.html",
+          "graph/backgroundmap_canvas_responsive.html",
+          "graph/backgroundmap_changeprojection.html",
+          "graph/backgroundmap_country.html",
+          "graph/backgroundmap_leaflet.html",
+          "graph/backgroundmap_leaflet_buttonLayer.html",
+          "graph/barplot_animation_start.html",
+          "graph/barplot_basic.html",
+          "graph/barplot_button_color.html",
+          "graph/barplot_button_data_csv.html",
+          "graph/barplot_button_data_hard.html",
+          "graph/barplot_button_data_simple.html",
+          "graph/barplot_grouped_basicWide.html",
+          "graph/barplot_horizontal.html",
+          "graph/barplot_ordered.html",
+          "graph/barplot_stacked_basicLong.html",
+          "graph/barplot_stacked_basicWide.html",
+          "graph/barplot_stacked_highlight.html",
+          "graph/barplot_stacked_hover.html",
+          "graph/barplot_stacked_percent.html",
+          "graph/basic_datamanipulation.html",
+          "graph/beeswarm_basic.html",
+          "graph/boxplot_basic.html",
+          "graph/boxplot_horizontal.html",
+          "graph/boxplot_several_groups.html",
+          "graph/boxplot_show_individual_points.html",
+          "graph/bubble_basic.html",
+          "graph/bubble_color.html",
+          "graph/bubble_legend.html",
+          "graph/bubble_template.html",
+          "graph/bubble_tooltip.html",
+          "graph/bubblemap_basic.html",
+          "graph/bubblemap_buttonControl.html",
+          "graph/bubblemap_circleFeatures.html",
+          "graph/bubblemap_leaflet_basic.html",
+          "graph/bubblemap_template.html",
+          "graph/bubblemap_tooltip.html",
+          "graph/canvas.html",
+          "graph/chord_axis_labels.html",
+          "graph/chord_basic.html",
+          "graph/chord_colors.html",
+          "graph/chord_interactive.html",
+          "graph/choropleth_basic.html",
+          "graph/choropleth_hover_effect.html",
+          "graph/circular_barplot_animation_start.html",
+          "graph/circular_barplot_basic.html",
+          "graph/circular_barplot_double.html",
+          "graph/circular_barplot_label.html",
+          "graph/circular_barplot_template.html",
+          "graph/circularpacking_basic.html",
+          "graph/circularpacking_drag.html",
+          "graph/circularpacking_group.html",
+          "graph/circularpacking_template.html",
+          "graph/connectedscatter_basic.html",
+          "graph/connectedscatter_legend.html",
+          "graph/connectedscatter_multi.html",
+          "graph/connectedscatter_select.html",
+          "graph/connectedscatter_tooltip.html",
+          "graph/connectionmap_basic.html",
+          "graph/connectionmap_csv.html",
+          "graph/connectionmap_multi.html",
+          "graph/correlogram_basic.html",
+          "graph/correlogram_histo.html",
+          "graph/correlogram_scatter.html",
+          "graph/custom_annotation.html",
+          "graph/custom_axis.html",
+          "graph/custom_color.html",
+          "graph/custom_legend.html",
+          "graph/custom_responsive.html",
+          "graph/custom_theme.html",
+          "graph/dendrogram_basic.html",
+          "graph/dendrogram_radial_basic.html",
+          "graph/density2d_contour.html",
+          "graph/density2d_hexbin.html",
+          "graph/density2d_histogram2d.html",
+          "graph/density2d_shading.html",
+          "graph/density_basic.html",
+          "graph/density_double.html",
+          "graph/density_filter.html",
+          "graph/density_mirror.html",
+          "graph/density_slider.html",
+          "graph/donut_basic.html",
+          "graph/donut_label.html",
+          "graph/heatmap_basic.html",
+          "graph/heatmap_style.html",
+          "graph/heatmap_tooltip.html",
+          "graph/hexbinmap_geo_basic.html",
+          "graph/hexbinmap_geo_label.html",
+          "graph/hierarchical_edge_bundling_basic.html",
+          "graph/histogram_basic.html",
+          "graph/histogram_binSize.html",
+          "graph/histogram_coloredTail.html",
+          "graph/histogram_double.html",
+          "graph/histogram_tooltip.html",
+          "graph/interactivity_brush.html",
+          "graph/interactivity_button.html",
+          "graph/interactivity_tooltip.html",
+          "graph/interactivity_transition.html",
+          "graph/interactivity_zoom.html",
+          "graph/line_basic.html",
+          "graph/line_brushZoom.html",
+          "graph/line_change_data.html",
+          "graph/line_color_gradient_svg.html",
+          "graph/line_confidence_interval.html",
+          "graph/line_cursor.html",
+          "graph/line_filter.html",
+          "graph/line_select.html",
+          "graph/line_several_group.html",
+          "graph/line_smallmultiple.html",
+          "graph/lollipop_animationStart.html",
+          "graph/lollipop_basic.html",
+          "graph/lollipop_button_data_csv.html",
+          "graph/lollipop_cleveland.html",
+          "graph/lollipop_horizontal.html",
+          "graph/lollipop_ordered.html",
+          "graph/network_animationStart.html",
+          "graph/network_basic.html",
+          "graph/network_data_format.html",
+          "graph/network_test.html",
+          "graph/parallel_basic.html",
+          "graph/parallel_custom.html",
+          "graph/parallel_selection.html",
+          "graph/pie_annotation.html",
+          "graph/pie_basic.html",
+          "graph/pie_changeData.html",
+          "graph/privacy.html",
+          "graph/ridgeline_animation.html",
+          "graph/ridgeline_basic.html",
+          "graph/ridgeline_template.html",
+          "graph/sankey_basic.html",
+          "graph/scatter_animation_start.html",
+          "graph/scatter_basic.html",
+          "graph/scatter_buttonXlim.html",
+          "graph/scatter_canvas.html",
+          "graph/scatter_grouped.html",
+          "graph/scatter_grouped_highlight.html",
+          "graph/scatter_tooltip.html",
+          "graph/shape.html",
+          "graph/stackedarea_basic.html",
+          "graph/stackedarea_template.html",
+          "graph/stackedarea_wideinput.html",
+          "graph/streamgraph_basic.html",
+          "graph/streamgraph_template.html",
+          "graph/treemap_basic.html",
+          "graph/treemap_custom.html",
+          "graph/treemap_json.html",
+          "graph/upset_basic.html",
+          "graph/violin_basicDens.html",
+          "graph/violin_basicHist.html",
+          "graph/violin_buttonLog.html",
+          "graph/violin_jitter.html",
+          "graph/wordcloud_basic.html",
+          "graph/wordcloud_custom.html",
+          "graph/wordcloud_size.html"
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "index.html",
+          "sha256": "28b8e4b2311cf1c6da567f5a4d11d8db4adebaee2f292f127adf1b615dd35ca3"
+        }
+      ]
+    },
+    "vega-lite": {
+      "repository": "https://github.com/vega/vega-lite",
+      "commit": "85fab8d12c873b3b224ef9a33c807642953325ba",
+      "source_base": "https://github.com/vega/vega-lite/blob/85fab8d12c873b3b224ef9a33c807642953325ba/",
+      "tree_api": "https://api.github.com/repos/vega/vega-lite/git/trees/85fab8d12c873b3b224ef9a33c807642953325ba?recursive=1",
+      "tree_response_sha256": "95688c98a5d8aab140dc8b4eee2c05db020aab87e777e036f8879fb6969a4462",
+      "tree_truncated": false,
+      "package_version": "6.5.0",
+      "declared_license": "BSD-3-Clause",
+      "scope": "All primitive/composite marks, every official gallery entry, and all examples/specs/*.vl.json (including variants and examples not featured in the gallery).",
+      "catalogs": {
+        "primitive_marks": [
+          "arc",
+          "area",
+          "bar",
+          "image",
+          "line",
+          "point",
+          "rect",
+          "rule",
+          "text",
+          "tick",
+          "trail",
+          "circle",
+          "square",
+          "geoshape"
+        ],
+        "composite_marks": [
+          "boxplot",
+          "errorbar",
+          "errorband"
+        ],
+        "featured_gallery": [
+          {
+            "id": "bar",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar.vl.json"
+          },
+          {
+            "id": "bar_size_responsive",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_size_responsive.vl.json"
+          },
+          {
+            "id": "bar_aggregate",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_aggregate.vl.json"
+          },
+          {
+            "id": "bar_aggregate_sort_by_encoding",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_aggregate_sort_by_encoding.vl.json"
+          },
+          {
+            "id": "bar_grouped",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_grouped.vl.json"
+          },
+          {
+            "id": "bar_grouped_repeated",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_grouped_repeated.vl.json"
+          },
+          {
+            "id": "stacked_bar_weather",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/stacked_bar_weather.vl.json"
+          },
+          {
+            "id": "stacked_bar_count_corner_radius_mark",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/stacked_bar_count_corner_radius_mark.vl.json"
+          },
+          {
+            "id": "stacked_bar_h",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/stacked_bar_h.vl.json"
+          },
+          {
+            "id": "stacked_bar_normalize",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/stacked_bar_normalize.vl.json"
+          },
+          {
+            "id": "stacked_bar_h_normalized_labeled",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/stacked_bar_h_normalized_labeled.vl.json"
+          },
+          {
+            "id": "bar_gantt",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_gantt.vl.json"
+          },
+          {
+            "id": "bar_color_disabled_scale",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_color_disabled_scale.vl.json"
+          },
+          {
+            "id": "bar_layered_transparent",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_layered_transparent.vl.json"
+          },
+          {
+            "id": "bar_diverging_stack_population_pyramid",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_diverging_stack_population_pyramid.vl.json"
+          },
+          {
+            "id": "bar_diverging_stack_transform",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_diverging_stack_transform.vl.json"
+          },
+          {
+            "id": "layer_bar_labels",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/layer_bar_labels.vl.json"
+          },
+          {
+            "id": "layer_bar_labels_grey",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/layer_bar_labels_grey.vl.json"
+          },
+          {
+            "id": "bar_month_temporal_initial",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_month_temporal_initial.vl.json"
+          },
+          {
+            "id": "bar_month_temporal_band_center",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_month_temporal_band_center.vl.json"
+          },
+          {
+            "id": "bar_negative",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_negative.vl.json"
+          },
+          {
+            "id": "bar_negative_horizontal_label",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_negative_horizontal_label.vl.json"
+          },
+          {
+            "id": "bar_axis_space_saving",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_axis_space_saving.vl.json"
+          },
+          {
+            "id": "bar_heatlane",
+            "category": "Single-View Plots / Bar Charts",
+            "source_path": "examples/specs/bar_heatlane.vl.json"
+          },
+          {
+            "id": "histogram",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/histogram.vl.json"
+          },
+          {
+            "id": "bar_binned_data",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/bar_binned_data.vl.json"
+          },
+          {
+            "id": "histogram_log",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/histogram_log.vl.json"
+          },
+          {
+            "id": "histogram_nonlinear",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/histogram_nonlinear.vl.json"
+          },
+          {
+            "id": "histogram_rel_freq",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/histogram_rel_freq.vl.json"
+          },
+          {
+            "id": "area_density",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/area_density.vl.json"
+          },
+          {
+            "id": "area_density_stacked",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/area_density_stacked.vl.json"
+          },
+          {
+            "id": "circle_binned",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/circle_binned.vl.json"
+          },
+          {
+            "id": "rect_binned_heatmap",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/rect_binned_heatmap.vl.json"
+          },
+          {
+            "id": "area_cumulative_freq",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/area_cumulative_freq.vl.json"
+          },
+          {
+            "id": "layer_cumulative_histogram",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/layer_cumulative_histogram.vl.json"
+          },
+          {
+            "id": "circle_wilkinson_dotplot",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/circle_wilkinson_dotplot.vl.json"
+          },
+          {
+            "id": "isotype_bar_chart",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/isotype_bar_chart.vl.json"
+          },
+          {
+            "id": "isotype_bar_chart_emoji",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/isotype_bar_chart_emoji.vl.json"
+          },
+          {
+            "id": "bar_percent_of_total",
+            "category": "Single-View Plots / Histograms, Density Plots, and Dot Plots",
+            "source_path": "examples/specs/bar_percent_of_total.vl.json"
+          },
+          {
+            "id": "point_2d",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/point_2d.vl.json"
+          },
+          {
+            "id": "tick_dot",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/tick_dot.vl.json"
+          },
+          {
+            "id": "tick_strip",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/tick_strip.vl.json"
+          },
+          {
+            "id": "point_color_with_shape",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/point_color_with_shape.vl.json"
+          },
+          {
+            "id": "circle_binned",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/circle_binned.vl.json"
+          },
+          {
+            "id": "point_bubble",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/point_bubble.vl.json"
+          },
+          {
+            "id": "point_invalid_color",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/point_invalid_color.vl.json"
+          },
+          {
+            "id": "circle",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/circle.vl.json"
+          },
+          {
+            "id": "circle_bubble_health_income",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/circle_bubble_health_income.vl.json"
+          },
+          {
+            "id": "circle_natural_disasters",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/circle_natural_disasters.vl.json"
+          },
+          {
+            "id": "text_scatterplot_colored",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/text_scatterplot_colored.vl.json"
+          },
+          {
+            "id": "scatter_image",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/scatter_image.vl.json"
+          },
+          {
+            "id": "circle_custom_tick_labels",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/circle_custom_tick_labels.vl.json"
+          },
+          {
+            "id": "point_offset_random",
+            "category": "Single-View Plots / Scatter & Strip Plots",
+            "source_path": "examples/specs/point_offset_random.vl.json"
+          },
+          {
+            "id": "line",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line.vl.json"
+          },
+          {
+            "id": "line_overlay",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_overlay.vl.json"
+          },
+          {
+            "id": "line_overlay_stroked",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_overlay_stroked.vl.json"
+          },
+          {
+            "id": "line_color",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_color.vl.json"
+          },
+          {
+            "id": "repeat_layer",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/repeat_layer.vl.json"
+          },
+          {
+            "id": "line_color_halo",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_color_halo.vl.json"
+          },
+          {
+            "id": "line_slope",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_slope.vl.json"
+          },
+          {
+            "id": "line_step",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_step.vl.json"
+          },
+          {
+            "id": "line_monotone",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_monotone.vl.json"
+          },
+          {
+            "id": "line_conditional_axis",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_conditional_axis.vl.json"
+          },
+          {
+            "id": "connected_scatterplot",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/connected_scatterplot.vl.json"
+          },
+          {
+            "id": "line_bump",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_bump.vl.json"
+          },
+          {
+            "id": "trail_color",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/trail_color.vl.json"
+          },
+          {
+            "id": "trail_comet",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/trail_comet.vl.json"
+          },
+          {
+            "id": "line_skip_invalid_mid_overlay",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_skip_invalid_mid_overlay.vl.json"
+          },
+          {
+            "id": "layer_line_co2_concentration",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/layer_line_co2_concentration.vl.json"
+          },
+          {
+            "id": "window_rank",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/window_rank.vl.json"
+          },
+          {
+            "id": "sequence_line_fold",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/sequence_line_fold.vl.json"
+          },
+          {
+            "id": "line_strokedash",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_strokedash.vl.json"
+          },
+          {
+            "id": "line_dashed_part",
+            "category": "Single-View Plots / Line Charts",
+            "source_path": "examples/specs/line_dashed_part.vl.json"
+          },
+          {
+            "id": "area",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/area.vl.json"
+          },
+          {
+            "id": "area_gradient",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/area_gradient.vl.json"
+          },
+          {
+            "id": "area_overlay",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/area_overlay.vl.json"
+          },
+          {
+            "id": "stacked_area",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/stacked_area.vl.json"
+          },
+          {
+            "id": "stacked_area_normalize",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/stacked_area_normalize.vl.json"
+          },
+          {
+            "id": "stacked_area_stream",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/stacked_area_stream.vl.json"
+          },
+          {
+            "id": "area_horizon",
+            "category": "Single-View Plots / Area Charts & Streamgraphs",
+            "source_path": "examples/specs/area_horizon.vl.json"
+          },
+          {
+            "id": "rect_heatmap",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/rect_heatmap.vl.json"
+          },
+          {
+            "id": "rect_heatmap_weather",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/rect_heatmap_weather.vl.json"
+          },
+          {
+            "id": "rect_binned_heatmap",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/rect_binned_heatmap.vl.json"
+          },
+          {
+            "id": "circle_github_punchcard",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/circle_github_punchcard.vl.json"
+          },
+          {
+            "id": "layer_text_heatmap",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/layer_text_heatmap.vl.json"
+          },
+          {
+            "id": "rect_lasagna",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/rect_lasagna.vl.json"
+          },
+          {
+            "id": "rect_mosaic_labelled_with_offset",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/rect_mosaic_labelled_with_offset.vl.json"
+          },
+          {
+            "id": "point_angle_windvector",
+            "category": "Single-View Plots / Table-based Plots",
+            "source_path": "examples/specs/point_angle_windvector.vl.json"
+          },
+          {
+            "id": "arc_pie",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/arc_pie.vl.json"
+          },
+          {
+            "id": "arc_pie_normalize_tooltip",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/arc_pie_normalize_tooltip.vl.json"
+          },
+          {
+            "id": "arc_donut",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/arc_donut.vl.json"
+          },
+          {
+            "id": "layer_arc_label",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/layer_arc_label.vl.json"
+          },
+          {
+            "id": "arc_radial",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/arc_radial.vl.json"
+          },
+          {
+            "id": "arc_pie_pyramid",
+            "category": "Single-View Plots / Circular Plots",
+            "source_path": "examples/specs/arc_pie_pyramid.vl.json"
+          },
+          {
+            "id": "bar_percent_of_total",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/bar_percent_of_total.vl.json"
+          },
+          {
+            "id": "joinaggregate_mean_difference",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/joinaggregate_mean_difference.vl.json"
+          },
+          {
+            "id": "joinaggregate_mean_difference_by_year",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/joinaggregate_mean_difference_by_year.vl.json"
+          },
+          {
+            "id": "joinaggregate_residual_graph",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/joinaggregate_residual_graph.vl.json"
+          },
+          {
+            "id": "window_rank",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/window_rank.vl.json"
+          },
+          {
+            "id": "waterfall_chart",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/waterfall_chart.vl.json"
+          },
+          {
+            "id": "window_top_k",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/window_top_k.vl.json"
+          },
+          {
+            "id": "window_top_k_others",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/window_top_k_others.vl.json"
+          },
+          {
+            "id": "lookup",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/lookup.vl.json"
+          },
+          {
+            "id": "area_cumulative_freq",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/area_cumulative_freq.vl.json"
+          },
+          {
+            "id": "layer_cumulative_histogram",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_cumulative_histogram.vl.json"
+          },
+          {
+            "id": "parallel_coordinate",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/parallel_coordinate.vl.json"
+          },
+          {
+            "id": "bar_argmax",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/bar_argmax.vl.json"
+          },
+          {
+            "id": "layer_line_mean_point_raw",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_line_mean_point_raw.vl.json"
+          },
+          {
+            "id": "layer_line_rolling_mean_point_raw",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_line_rolling_mean_point_raw.vl.json"
+          },
+          {
+            "id": "layer_line_window",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_line_window.vl.json"
+          },
+          {
+            "id": "point_quantile_quantile",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/point_quantile_quantile.vl.json"
+          },
+          {
+            "id": "layer_point_line_regression",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_point_line_regression.vl.json"
+          },
+          {
+            "id": "layer_point_line_loess",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/layer_point_line_loess.vl.json"
+          },
+          {
+            "id": "window_impute_null",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/window_impute_null.vl.json"
+          },
+          {
+            "id": "ternary",
+            "category": "Single-View Plots / Advanced Calculations",
+            "source_path": "examples/specs/ternary.vl.json"
+          },
+          {
+            "id": "layer_point_errorbar_ci",
+            "category": "Composite Marks / Error Bars & Error Bands",
+            "source_path": "examples/specs/layer_point_errorbar_ci.vl.json"
+          },
+          {
+            "id": "layer_point_errorbar_stdev",
+            "category": "Composite Marks / Error Bars & Error Bands",
+            "source_path": "examples/specs/layer_point_errorbar_stdev.vl.json"
+          },
+          {
+            "id": "layer_line_errorband_ci",
+            "category": "Composite Marks / Error Bars & Error Bands",
+            "source_path": "examples/specs/layer_line_errorband_ci.vl.json"
+          },
+          {
+            "id": "layer_scatter_errorband_1D_stdev_global_mean",
+            "category": "Composite Marks / Error Bars & Error Bands",
+            "source_path": "examples/specs/layer_scatter_errorband_1D_stdev_global_mean.vl.json"
+          },
+          {
+            "id": "boxplot_minmax_2D_vertical",
+            "category": "Composite Marks / Box Plots",
+            "source_path": "examples/specs/boxplot_minmax_2D_vertical.vl.json"
+          },
+          {
+            "id": "boxplot_2D_vertical",
+            "category": "Composite Marks / Box Plots",
+            "source_path": "examples/specs/boxplot_2D_vertical.vl.json"
+          },
+          {
+            "id": "boxplot_preaggregated",
+            "category": "Composite Marks / Box Plots",
+            "source_path": "examples/specs/boxplot_preaggregated.vl.json"
+          },
+          {
+            "id": "layer_bar_labels",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_bar_labels.vl.json"
+          },
+          {
+            "id": "layer_bar_fruit",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_bar_fruit.vl.json"
+          },
+          {
+            "id": "layer_text_heatmap",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_text_heatmap.vl.json"
+          },
+          {
+            "id": "layer_line_co2_concentration",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_line_co2_concentration.vl.json"
+          },
+          {
+            "id": "layer_bar_annotations",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_bar_annotations.vl.json"
+          },
+          {
+            "id": "layer_precipitation_mean",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_precipitation_mean.vl.json"
+          },
+          {
+            "id": "layer_histogram_global_mean",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_histogram_global_mean.vl.json"
+          },
+          {
+            "id": "layer_falkensee",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_falkensee.vl.json"
+          },
+          {
+            "id": "layer_line_mean_point_raw",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_line_mean_point_raw.vl.json"
+          },
+          {
+            "id": "layer_line_rolling_mean_point_raw",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_line_rolling_mean_point_raw.vl.json"
+          },
+          {
+            "id": "layer_likert",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/layer_likert.vl.json"
+          },
+          {
+            "id": "concat_layer_voyager_result",
+            "category": "Layered Plots / Labeling & Annotation",
+            "source_path": "examples/specs/concat_layer_voyager_result.vl.json"
+          },
+          {
+            "id": "layer_candlestick",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/layer_candlestick.vl.json"
+          },
+          {
+            "id": "layer_ranged_dot",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/layer_ranged_dot.vl.json"
+          },
+          {
+            "id": "facet_bullet",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/facet_bullet.vl.json"
+          },
+          {
+            "id": "layer_dual_axis",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/layer_dual_axis.vl.json"
+          },
+          {
+            "id": "area_horizon",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/area_horizon.vl.json"
+          },
+          {
+            "id": "bar_layered_weather",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/bar_layered_weather.vl.json"
+          },
+          {
+            "id": "wheat_wages",
+            "category": "Layered Plots / Other Layered Plots",
+            "source_path": "examples/specs/wheat_wages.vl.json"
+          },
+          {
+            "id": "trellis_bar",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_bar.vl.json"
+          },
+          {
+            "id": "trellis_stacked_bar",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_stacked_bar.vl.json"
+          },
+          {
+            "id": "trellis_scatter",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_scatter.vl.json"
+          },
+          {
+            "id": "trellis_bar_histogram",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_bar_histogram.vl.json"
+          },
+          {
+            "id": "trellis_anscombe",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_anscombe.vl.json"
+          },
+          {
+            "id": "trellis_barley",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_barley.vl.json"
+          },
+          {
+            "id": "trellis_area",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_area.vl.json"
+          },
+          {
+            "id": "trellis_area_seattle",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/trellis_area_seattle.vl.json"
+          },
+          {
+            "id": "area_density_facet",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/area_density_facet.vl.json"
+          },
+          {
+            "id": "facet_grid_bar",
+            "category": "Multi-View Displays / Faceting (Trellis Plot / Small Multiples)",
+            "source_path": "examples/specs/facet_grid_bar.vl.json"
+          },
+          {
+            "id": "repeat_layer",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/repeat_layer.vl.json"
+          },
+          {
+            "id": "vconcat_weather",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/vconcat_weather.vl.json"
+          },
+          {
+            "id": "repeat_histogram",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/repeat_histogram.vl.json"
+          },
+          {
+            "id": "interactive_splom",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/interactive_splom.vl.json"
+          },
+          {
+            "id": "concat_marginal_histograms",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/concat_marginal_histograms.vl.json"
+          },
+          {
+            "id": "concat_bar_scales_discretize",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/concat_bar_scales_discretize.vl.json"
+          },
+          {
+            "id": "nested_concat_align",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/nested_concat_align.vl.json"
+          },
+          {
+            "id": "concat_population_pyramid",
+            "category": "Multi-View Displays / Repeat & Concatenation",
+            "source_path": "examples/specs/concat_population_pyramid.vl.json"
+          },
+          {
+            "id": "geo_choropleth",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_choropleth.vl.json"
+          },
+          {
+            "id": "geo_circle",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_circle.vl.json"
+          },
+          {
+            "id": "geo_layer",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_layer.vl.json"
+          },
+          {
+            "id": "geo_rule",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_rule.vl.json"
+          },
+          {
+            "id": "geo_repeat",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_repeat.vl.json"
+          },
+          {
+            "id": "geo_text",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_text.vl.json"
+          },
+          {
+            "id": "geo_line",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_line.vl.json"
+          },
+          {
+            "id": "geo_trellis",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_trellis.vl.json"
+          },
+          {
+            "id": "geo_layer_line_london",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_layer_line_london.vl.json"
+          },
+          {
+            "id": "geo_params_projections",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/geo_params_projections.vl.json"
+          },
+          {
+            "id": "interactive_geo_earthquakes",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/interactive_geo_earthquakes.vl.json"
+          },
+          {
+            "id": "interactive_geo_facet_species",
+            "category": "Maps (Geographic Displays) / ",
+            "source_path": "examples/specs/interactive_geo_facet_species.vl.json"
+          },
+          {
+            "id": "interactive_bar_select_highlight",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_bar_select_highlight.vl.json"
+          },
+          {
+            "id": "interactive_histogram_full_height_hover",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_histogram_full_height_hover.vl.json"
+          },
+          {
+            "id": "interactive_legend",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_legend.vl.json"
+          },
+          {
+            "id": "point_href",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/point_href.vl.json"
+          },
+          {
+            "id": "interactive_brush",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_brush.vl.json"
+          },
+          {
+            "id": "interactive_area_brush",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_area_brush.vl.json"
+          },
+          {
+            "id": "interactive_paintbrush",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_paintbrush.vl.json"
+          },
+          {
+            "id": "selection_translate_scatterplot_drag",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/selection_translate_scatterplot_drag.vl.json"
+          },
+          {
+            "id": "interactive_query_widgets",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_query_widgets.vl.json"
+          },
+          {
+            "id": "selection_layer_bar_month",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/selection_layer_bar_month.vl.json"
+          },
+          {
+            "id": "interactive_line_hover",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_line_hover.vl.json"
+          },
+          {
+            "id": "interactive_line_point_hover",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_line_point_hover.vl.json"
+          },
+          {
+            "id": "interactive_multi_line_label",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_multi_line_label.vl.json"
+          },
+          {
+            "id": "interactive_multi_line_pivot_tooltip",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_multi_line_pivot_tooltip.vl.json"
+          },
+          {
+            "id": "interactive_multi_line_tooltip",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_multi_line_tooltip.vl.json"
+          },
+          {
+            "id": "isotype_grid",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/isotype_grid.vl.json"
+          },
+          {
+            "id": "brush_table",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/brush_table.vl.json"
+          },
+          {
+            "id": "selection_heatmap",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/selection_heatmap.vl.json"
+          },
+          {
+            "id": "bar_count_minimap",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/bar_count_minimap.vl.json"
+          },
+          {
+            "id": "interactive_index_chart",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_index_chart.vl.json"
+          },
+          {
+            "id": "interactive_bin_extent",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/interactive_bin_extent.vl.json"
+          },
+          {
+            "id": "dynamic_color_legend",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/dynamic_color_legend.vl.json"
+          },
+          {
+            "id": "param_search_input",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/param_search_input.vl.json"
+          },
+          {
+            "id": "selection_type_point_zorder",
+            "category": "Interactive / Interactive Charts",
+            "source_path": "examples/specs/selection_type_point_zorder.vl.json"
+          },
+          {
+            "id": "interactive_overview_detail",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_overview_detail.vl.json"
+          },
+          {
+            "id": "interactive_crossfilter",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_crossfilter.vl.json"
+          },
+          {
+            "id": "interactive_layered_crossfilter",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_layered_crossfilter.vl.json"
+          },
+          {
+            "id": "interactive_splom",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_splom.vl.json"
+          },
+          {
+            "id": "interactive_concat_layer",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_concat_layer.vl.json"
+          },
+          {
+            "id": "interactive_seattle_weather",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_seattle_weather.vl.json"
+          },
+          {
+            "id": "airport_connections",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/airport_connections.vl.json"
+          },
+          {
+            "id": "interactive_global_development",
+            "category": "Interactive / Interactive Multi-View Displays",
+            "source_path": "examples/specs/interactive_global_development.vl.json"
+          }
+        ],
+        "example_specs": [
+          "examples/specs/airport_connections.vl.json",
+          "examples/specs/animated_gapminder.vl.json",
+          "examples/specs/animated_hop.vl.json",
+          "examples/specs/arc_color_mappings.vl.json",
+          "examples/specs/arc_donut.vl.json",
+          "examples/specs/arc_facet.vl.json",
+          "examples/specs/arc_ordinal_theta.vl.json",
+          "examples/specs/arc_params.vl.json",
+          "examples/specs/arc_pie.vl.json",
+          "examples/specs/arc_pie_normalize_tooltip.vl.json",
+          "examples/specs/arc_pie_pyramid.vl.json",
+          "examples/specs/arc_radial.vl.json",
+          "examples/specs/arc_radial_histogram.vl.json",
+          "examples/specs/area.vl.json",
+          "examples/specs/area_cumulative_freq.vl.json",
+          "examples/specs/area_density.vl.json",
+          "examples/specs/area_density_facet.vl.json",
+          "examples/specs/area_density_stacked.vl.json",
+          "examples/specs/area_density_stacked_fold.vl.json",
+          "examples/specs/area_gradient.vl.json",
+          "examples/specs/area_horizon.vl.json",
+          "examples/specs/area_invalid_null.vl.json",
+          "examples/specs/area_overlay.vl.json",
+          "examples/specs/area_overlay_with_y2.vl.json",
+          "examples/specs/area_params.vl.json",
+          "examples/specs/area_ranged_offset_quantitative.vl.json",
+          "examples/specs/area_temperature_range.vl.json",
+          "examples/specs/area_vertical.vl.json",
+          "examples/specs/argmin_spaces.vl.json",
+          "examples/specs/bar.vl.json",
+          "examples/specs/bar_1d.vl.json",
+          "examples/specs/bar_1d_binned.vl.json",
+          "examples/specs/bar_1d_default_size.vl.json",
+          "examples/specs/bar_1d_dimension_only.vl.json",
+          "examples/specs/bar_1d_step_config.vl.json",
+          "examples/specs/bar_1d_temporal.vl.json",
+          "examples/specs/bar_aggregate.vl.json",
+          "examples/specs/bar_aggregate_count.vl.json",
+          "examples/specs/bar_aggregate_format.vl.json",
+          "examples/specs/bar_aggregate_size.vl.json",
+          "examples/specs/bar_aggregate_sort_by_encoding.vl.json",
+          "examples/specs/bar_aggregate_sort_mean.vl.json",
+          "examples/specs/bar_aggregate_transform.vl.json",
+          "examples/specs/bar_aggregate_vertical.vl.json",
+          "examples/specs/bar_argmax.vl.json",
+          "examples/specs/bar_argmax_transform.vl.json",
+          "examples/specs/bar_array_aggregate.vl.json",
+          "examples/specs/bar_axis_orient.vl.json",
+          "examples/specs/bar_axis_space_saving.vl.json",
+          "examples/specs/bar_axis_title_quoted.vl.json",
+          "examples/specs/bar_binned_data.vl.json",
+          "examples/specs/bar_binned_yearmonth_grouped.vl.json",
+          "examples/specs/bar_binned_yearmonth_grouped_center_band.vl.json",
+          "examples/specs/bar_binned_yearmonth_label.vl.json",
+          "examples/specs/bar_binned_yearmonth_label_band_center.vl.json",
+          "examples/specs/bar_binnedyearmonth.vl.json",
+          "examples/specs/bar_bullet_expr_bind.vl.json",
+          "examples/specs/bar_color_disabled_scale.vl.json",
+          "examples/specs/bar_column_fold.vl.json",
+          "examples/specs/bar_column_pivot.vl.json",
+          "examples/specs/bar_conditional_opacity.vl.json",
+          "examples/specs/bar_config_no_zero.vl.json",
+          "examples/specs/bar_corner_radius_end.vl.json",
+          "examples/specs/bar_count_minimap.vl.json",
+          "examples/specs/bar_custom_sort_full.vl.json",
+          "examples/specs/bar_custom_sort_partial.vl.json",
+          "examples/specs/bar_custom_time_domain.vl.json",
+          "examples/specs/bar_default_tooltip_title_null.vl.json",
+          "examples/specs/bar_distinct.vl.json",
+          "examples/specs/bar_diverging_stack_population_pyramid.vl.json",
+          "examples/specs/bar_diverging_stack_transform.vl.json",
+          "examples/specs/bar_filter_calc.vl.json",
+          "examples/specs/bar_fit.vl.json",
+          "examples/specs/bar_gantt.vl.json",
+          "examples/specs/bar_gantt_config_no_zero.vl.json",
+          "examples/specs/bar_group_timeunit.vl.json",
+          "examples/specs/bar_grouped.vl.json",
+          "examples/specs/bar_grouped_custom_color_domain.vl.json",
+          "examples/specs/bar_grouped_custom_padding.vl.json",
+          "examples/specs/bar_grouped_errorbar.vl.json",
+          "examples/specs/bar_grouped_facet.vl.json",
+          "examples/specs/bar_grouped_facet_independent_scale.vl.json",
+          "examples/specs/bar_grouped_facet_independent_scale_fixed_width.vl.json",
+          "examples/specs/bar_grouped_fixed_width.vl.json",
+          "examples/specs/bar_grouped_horizontal.vl.json",
+          "examples/specs/bar_grouped_label.vl.json",
+          "examples/specs/bar_grouped_repeated.vl.json",
+          "examples/specs/bar_grouped_stacked.vl.json",
+          "examples/specs/bar_grouped_step_for_offset.vl.json",
+          "examples/specs/bar_grouped_step_for_position.vl.json",
+          "examples/specs/bar_grouped_thin.vl.json",
+          "examples/specs/bar_grouped_thin_minBandSize.vl.json",
+          "examples/specs/bar_grouped_timeunit_yearweek.vl.json",
+          "examples/specs/bar_heatlane.vl.json",
+          "examples/specs/bar_invalid_color_show.vl.json",
+          "examples/specs/bar_invalid_color_show_override.vl.json",
+          "examples/specs/bar_layered_transparent.vl.json",
+          "examples/specs/bar_layered_weather.vl.json",
+          "examples/specs/bar_month.vl.json",
+          "examples/specs/bar_month_band.vl.json",
+          "examples/specs/bar_month_band_config.vl.json",
+          "examples/specs/bar_month_temporal.vl.json",
+          "examples/specs/bar_month_temporal_band_center.vl.json",
+          "examples/specs/bar_month_temporal_band_center_config.vl.json",
+          "examples/specs/bar_month_temporal_initial.vl.json",
+          "examples/specs/bar_multi_values_per_categories.vl.json",
+          "examples/specs/bar_narrow_int_span.vl.json",
+          "examples/specs/bar_negative.vl.json",
+          "examples/specs/bar_negative_horizontal_label.vl.json",
+          "examples/specs/bar_params.vl.json",
+          "examples/specs/bar_params_bound.vl.json",
+          "examples/specs/bar_percent_of_total.vl.json",
+          "examples/specs/bar_q_qpow.vl.json",
+          "examples/specs/bar_qq_stack.vl.json",
+          "examples/specs/bar_qq_stack_horizontal.vl.json",
+          "examples/specs/bar_ranged_not_binned.vl.json",
+          "examples/specs/bar_ranged_offset_quantitative.vl.json",
+          "examples/specs/bar_simple_binned_timeunit_special_chars.vl.json",
+          "examples/specs/bar_simple_extent.vl.json",
+          "examples/specs/bar_size_default.vl.json",
+          "examples/specs/bar_size_explicit_bad.vl.json",
+          "examples/specs/bar_size_fit.vl.json",
+          "examples/specs/bar_size_responsive.vl.json",
+          "examples/specs/bar_size_step_small.vl.json",
+          "examples/specs/bar_sort_by_count.vl.json",
+          "examples/specs/bar_swap_axes.vl.json",
+          "examples/specs/bar_swap_custom.vl.json",
+          "examples/specs/bar_temporal_color_config_time_unit_band_position.vl.json",
+          "examples/specs/bar_title.vl.json",
+          "examples/specs/bar_title_start.vl.json",
+          "examples/specs/bar_tooltip.vl.json",
+          "examples/specs/bar_tooltip_aggregate.vl.json",
+          "examples/specs/bar_tooltip_filter.vl.json",
+          "examples/specs/bar_tooltip_groupby.vl.json",
+          "examples/specs/bar_tooltip_multi.vl.json",
+          "examples/specs/bar_tooltip_title.vl.json",
+          "examples/specs/bar_x_offset_without_x.vl.json",
+          "examples/specs/bar_yearmonth.vl.json",
+          "examples/specs/bar_yearmonth_center_band.vl.json",
+          "examples/specs/bar_yearmonth_custom_format.vl.json",
+          "examples/specs/bar_yearmonthdate_minBandSize.vl.json",
+          "examples/specs/boxplot_1D_horizontal.vl.json",
+          "examples/specs/boxplot_1D_horizontal_custom_mark.vl.json",
+          "examples/specs/boxplot_1D_horizontal_explicit.vl.json",
+          "examples/specs/boxplot_1D_invalid.vl.json",
+          "examples/specs/boxplot_1D_vertical.vl.json",
+          "examples/specs/boxplot_2D_horizontal.vl.json",
+          "examples/specs/boxplot_2D_horizontal_color_size.vl.json",
+          "examples/specs/boxplot_2D_vertical.vl.json",
+          "examples/specs/boxplot_2D_vertical_single_per_group.vl.json",
+          "examples/specs/boxplot_2D_vertical_single_per_group_color.vl.json",
+          "examples/specs/boxplot_groupped.vl.json",
+          "examples/specs/boxplot_minmax_2D_horizontal.vl.json",
+          "examples/specs/boxplot_minmax_2D_horizontal_custom_midtick_color.vl.json",
+          "examples/specs/boxplot_minmax_2D_vertical.vl.json",
+          "examples/specs/boxplot_preaggregated.vl.json",
+          "examples/specs/boxplot_preaggregated_with_height.vl.json",
+          "examples/specs/boxplot_tooltip_aggregate.vl.json",
+          "examples/specs/boxplot_tooltip_not_aggregate.vl.json",
+          "examples/specs/brush_table.vl.json",
+          "examples/specs/circle.vl.json",
+          "examples/specs/circle_binned.vl.json",
+          "examples/specs/circle_binned_maxbins_2.vl.json",
+          "examples/specs/circle_binned_maxbins_20.vl.json",
+          "examples/specs/circle_binned_maxbins_5.vl.json",
+          "examples/specs/circle_bubble_health_income.vl.json",
+          "examples/specs/circle_custom_tick_labels.vl.json",
+          "examples/specs/circle_flatten.vl.json",
+          "examples/specs/circle_github_punchcard.vl.json",
+          "examples/specs/circle_labelangle_orient_signal.vl.json",
+          "examples/specs/circle_natural_disasters.vl.json",
+          "examples/specs/circle_opacity.vl.json",
+          "examples/specs/circle_scale_quantile.vl.json",
+          "examples/specs/circle_scale_quantize.vl.json",
+          "examples/specs/circle_scale_threshold.vl.json",
+          "examples/specs/circle_wilkinson_dotplot.vl.json",
+          "examples/specs/circle_wilkinson_dotplot_stacked.vl.json",
+          "examples/specs/concat_bar_layer_circle.vl.json",
+          "examples/specs/concat_bar_scales_discretize.vl.json",
+          "examples/specs/concat_bar_scales_discretize_2_cols.vl.json",
+          "examples/specs/concat_hover.vl.json",
+          "examples/specs/concat_hover_filter.vl.json",
+          "examples/specs/concat_layer_voyager_result.vl.json",
+          "examples/specs/concat_marginal_histograms.vl.json",
+          "examples/specs/concat_population_pyramid.vl.json",
+          "examples/specs/concat_weather.vl.json",
+          "examples/specs/config_numberFormatType_test.vl.json",
+          "examples/specs/config_numberFormatType_tooltip.vl.json",
+          "examples/specs/connected_scatterplot.vl.json",
+          "examples/specs/dynamic_color_legend.vl.json",
+          "examples/specs/embedded_csv.vl.json",
+          "examples/specs/errorband_2d_horizontal_color_encoding.vl.json",
+          "examples/specs/errorband_2d_vertical_borders.vl.json",
+          "examples/specs/errorband_tooltip.vl.json",
+          "examples/specs/errorbar_2d_vertical_ticks.vl.json",
+          "examples/specs/errorbar_aggregate.vl.json",
+          "examples/specs/errorbar_horizontal_aggregate.vl.json",
+          "examples/specs/errorbar_tooltip.vl.json",
+          "examples/specs/facet_bullet.vl.json",
+          "examples/specs/facet_column_facet_column_point_future.vl.json",
+          "examples/specs/facet_column_facet_row_point_future.vl.json",
+          "examples/specs/facet_cross_independent_scale.vl.json",
+          "examples/specs/facet_custom.vl.json",
+          "examples/specs/facet_custom_header.vl.json",
+          "examples/specs/facet_grid_bar.vl.json",
+          "examples/specs/facet_independent_scale.vl.json",
+          "examples/specs/facet_independent_scale_layer_broken.vl.json",
+          "examples/specs/facet_row_facet_row_point_future.vl.json",
+          "examples/specs/geo_choropleth.vl.json",
+          "examples/specs/geo_circle.vl.json",
+          "examples/specs/geo_constant_value.vl.json",
+          "examples/specs/geo_custom_projection.vl.json",
+          "examples/specs/geo_graticule.vl.json",
+          "examples/specs/geo_graticule_object.vl.json",
+          "examples/specs/geo_layer.vl.json",
+          "examples/specs/geo_layer_line_london.vl.json",
+          "examples/specs/geo_line.vl.json",
+          "examples/specs/geo_params_projections.vl.json",
+          "examples/specs/geo_point.vl.json",
+          "examples/specs/geo_repeat.vl.json",
+          "examples/specs/geo_rule.vl.json",
+          "examples/specs/geo_sphere.vl.json",
+          "examples/specs/geo_text.vl.json",
+          "examples/specs/geo_trellis.vl.json",
+          "examples/specs/hconcat_weather.vl.json",
+          "examples/specs/histogram.vl.json",
+          "examples/specs/histogram_bin_change.vl.json",
+          "examples/specs/histogram_bin_spacing.vl.json",
+          "examples/specs/histogram_bin_spacing_reverse.vl.json",
+          "examples/specs/histogram_bin_transform.vl.json",
+          "examples/specs/histogram_invalid_null.vl.json",
+          "examples/specs/histogram_log.vl.json",
+          "examples/specs/histogram_no_spacing.vl.json",
+          "examples/specs/histogram_nonlinear.vl.json",
+          "examples/specs/histogram_ordinal.vl.json",
+          "examples/specs/histogram_ordinal_sort.vl.json",
+          "examples/specs/histogram_rel_freq.vl.json",
+          "examples/specs/histogram_reverse.vl.json",
+          "examples/specs/image_scatter_no_size.vl.json",
+          "examples/specs/interactive_1d_geo_brush.vl.json",
+          "examples/specs/interactive_airport_crossfilter.vl.json",
+          "examples/specs/interactive_area_brush.vl.json",
+          "examples/specs/interactive_bar_select_highlight.vl.json",
+          "examples/specs/interactive_bin_extent.vl.json",
+          "examples/specs/interactive_bin_extent_bottom.vl.json",
+          "examples/specs/interactive_brush.vl.json",
+          "examples/specs/interactive_concat_layer.vl.json",
+          "examples/specs/interactive_crossfilter.vl.json",
+          "examples/specs/interactive_dashboard_europe_pop.vl.json",
+          "examples/specs/interactive_geo_earthquakes.vl.json",
+          "examples/specs/interactive_geo_facet_species.vl.json",
+          "examples/specs/interactive_global_development.vl.json",
+          "examples/specs/interactive_histogram_full_height_hover.vl.json",
+          "examples/specs/interactive_index_chart.vl.json",
+          "examples/specs/interactive_layered_crossfilter.vl.json",
+          "examples/specs/interactive_layered_crossfilter_discrete.vl.json",
+          "examples/specs/interactive_legend.vl.json",
+          "examples/specs/interactive_legend_dblclick.vl.json",
+          "examples/specs/interactive_line_brush_cursor.vl.json",
+          "examples/specs/interactive_line_hover.vl.json",
+          "examples/specs/interactive_line_point_hover.vl.json",
+          "examples/specs/interactive_multi_line_label.vl.json",
+          "examples/specs/interactive_multi_line_pivot_tooltip.vl.json",
+          "examples/specs/interactive_multi_line_tooltip.vl.json",
+          "examples/specs/interactive_overview_detail.vl.json",
+          "examples/specs/interactive_paintbrush.vl.json",
+          "examples/specs/interactive_paintbrush_color.vl.json",
+          "examples/specs/interactive_paintbrush_color_nearest.vl.json",
+          "examples/specs/interactive_paintbrush_interval.vl.json",
+          "examples/specs/interactive_paintbrush_simple_false.vl.json",
+          "examples/specs/interactive_paintbrush_simple_true.vl.json",
+          "examples/specs/interactive_panzoom_splom.vl.json",
+          "examples/specs/interactive_panzoom_vconcat_shared.vl.json",
+          "examples/specs/interactive_point_domainRaw_binding.vl.json",
+          "examples/specs/interactive_point_init.vl.json",
+          "examples/specs/interactive_query_widgets.vl.json",
+          "examples/specs/interactive_seattle_weather.vl.json",
+          "examples/specs/interactive_splom.vl.json",
+          "examples/specs/interactive_stocks_nearest_index.vl.json",
+          "examples/specs/isotype_bar_chart.vl.json",
+          "examples/specs/isotype_bar_chart_emoji.vl.json",
+          "examples/specs/isotype_grid.vl.json",
+          "examples/specs/joinaggregate_mean_difference.vl.json",
+          "examples/specs/joinaggregate_mean_difference_by_year.vl.json",
+          "examples/specs/joinaggregate_percent_of_total.vl.json",
+          "examples/specs/joinaggregate_residual_graph.vl.json",
+          "examples/specs/layer_arc_label.vl.json",
+          "examples/specs/layer_bar_annotations.vl.json",
+          "examples/specs/layer_bar_circle_grouped.vl.json",
+          "examples/specs/layer_bar_fruit.vl.json",
+          "examples/specs/layer_bar_grouped_line_ungrouped.vl.json",
+          "examples/specs/layer_bar_labels.vl.json",
+          "examples/specs/layer_bar_labels_grey.vl.json",
+          "examples/specs/layer_bar_labels_style.vl.json",
+          "examples/specs/layer_bar_line.vl.json",
+          "examples/specs/layer_bar_line_union.vl.json",
+          "examples/specs/layer_bar_month.vl.json",
+          "examples/specs/layer_bar_tick_binned_time_band_position.vl.json",
+          "examples/specs/layer_bar_tick_datum_grouped.vl.json",
+          "examples/specs/layer_boxplot_circle.vl.json",
+          "examples/specs/layer_candlestick.vl.json",
+          "examples/specs/layer_circle_independent_color.vl.json",
+          "examples/specs/layer_color_legend_left.vl.json",
+          "examples/specs/layer_cumulative_histogram.vl.json",
+          "examples/specs/layer_dual_axis.vl.json",
+          "examples/specs/layer_falkensee.vl.json",
+          "examples/specs/layer_histogram.vl.json",
+          "examples/specs/layer_histogram_global_mean.vl.json",
+          "examples/specs/layer_likert.vl.json",
+          "examples/specs/layer_line_co2_concentration.vl.json",
+          "examples/specs/layer_line_color_rule.vl.json",
+          "examples/specs/layer_line_datum_rule.vl.json",
+          "examples/specs/layer_line_datum_rule_datetime.vl.json",
+          "examples/specs/layer_line_errorband_2d_horizontal_borders_strokedash.vl.json",
+          "examples/specs/layer_line_errorband_ci.vl.json",
+          "examples/specs/layer_line_errorband_pre_aggregated.vl.json",
+          "examples/specs/layer_line_exponential.vl.json",
+          "examples/specs/layer_line_mean_point_raw.vl.json",
+          "examples/specs/layer_line_rolling_mean_point_raw.vl.json",
+          "examples/specs/layer_line_window.vl.json",
+          "examples/specs/layer_null_data.vl.json",
+          "examples/specs/layer_overlay.vl.json",
+          "examples/specs/layer_point_errorbar_1d_horizontal.vl.json",
+          "examples/specs/layer_point_errorbar_1d_vertical.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal_ci.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal_color_encoding.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal_custom_ticks.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal_iqr.vl.json",
+          "examples/specs/layer_point_errorbar_2d_horizontal_stdev.vl.json",
+          "examples/specs/layer_point_errorbar_2d_vertical.vl.json",
+          "examples/specs/layer_point_errorbar_ci.vl.json",
+          "examples/specs/layer_point_errorbar_pre_aggregated_asymmetric_error.vl.json",
+          "examples/specs/layer_point_errorbar_pre_aggregated_symmetric_error.vl.json",
+          "examples/specs/layer_point_errorbar_pre_aggregated_upper_lower.vl.json",
+          "examples/specs/layer_point_errorbar_stdev.vl.json",
+          "examples/specs/layer_point_line_loess.vl.json",
+          "examples/specs/layer_point_line_regression.vl.json",
+          "examples/specs/layer_precipitation_mean.vl.json",
+          "examples/specs/layer_ranged_dot.vl.json",
+          "examples/specs/layer_rect_extent.vl.json",
+          "examples/specs/layer_scatter_errorband_1D_stdev_global_mean.vl.json",
+          "examples/specs/layer_scatter_errorband_1d_stdev.vl.json",
+          "examples/specs/layer_single_color.vl.json",
+          "examples/specs/layer_text_heatmap.vl.json",
+          "examples/specs/layer_text_heatmap_joinaggregate.vl.json",
+          "examples/specs/layer_timeunit_rect.vl.json",
+          "examples/specs/line.vl.json",
+          "examples/specs/line_bump.vl.json",
+          "examples/specs/line_calculate.vl.json",
+          "examples/specs/line_color.vl.json",
+          "examples/specs/line_color_binned.vl.json",
+          "examples/specs/line_color_halo.vl.json",
+          "examples/specs/line_color_label.vl.json",
+          "examples/specs/line_color_with_scale_domain.vl.json",
+          "examples/specs/line_concat_facet.vl.json",
+          "examples/specs/line_conditional_axis.vl.json",
+          "examples/specs/line_conditional_axis_config.vl.json",
+          "examples/specs/line_dashed_part.vl.json",
+          "examples/specs/line_default_format.vl.json",
+          "examples/specs/line_detail.vl.json",
+          "examples/specs/line_domainminmax.vl.json",
+          "examples/specs/line_encoding_impute_keyvals.vl.json",
+          "examples/specs/line_encoding_impute_keyvals_sequence.vl.json",
+          "examples/specs/line_impute_frame.vl.json",
+          "examples/specs/line_impute_keyvals.vl.json",
+          "examples/specs/line_impute_method.vl.json",
+          "examples/specs/line_impute_transform_frame.vl.json",
+          "examples/specs/line_impute_transform_value.vl.json",
+          "examples/specs/line_impute_value.vl.json",
+          "examples/specs/line_inside_domain_using_clip.vl.json",
+          "examples/specs/line_inside_domain_using_transform.vl.json",
+          "examples/specs/line_invalid_null.vl.json",
+          "examples/specs/line_max_year.vl.json",
+          "examples/specs/line_mean_month.vl.json",
+          "examples/specs/line_mean_year.vl.json",
+          "examples/specs/line_monotone.vl.json",
+          "examples/specs/line_month.vl.json",
+          "examples/specs/line_month_center_band.vl.json",
+          "examples/specs/line_month_center_band_offset.vl.json",
+          "examples/specs/line_narrow_2year_span.vl.json",
+          "examples/specs/line_narrow_year_span.vl.json",
+          "examples/specs/line_narrow_yearmonth_span.vl.json",
+          "examples/specs/line_narrow_yearquarter_span.vl.json",
+          "examples/specs/line_outside_domain.vl.json",
+          "examples/specs/line_overlay.vl.json",
+          "examples/specs/line_overlay_stroked.vl.json",
+          "examples/specs/line_override_dynamic_format.vl.json",
+          "examples/specs/line_override_static_format.vl.json",
+          "examples/specs/line_params.vl.json",
+          "examples/specs/line_quarter_legend.vl.json",
+          "examples/specs/line_shape_overlay.vl.json",
+          "examples/specs/line_skip_invalid.vl.json",
+          "examples/specs/line_skip_invalid_mid.vl.json",
+          "examples/specs/line_skip_invalid_mid_cap_square.vl.json",
+          "examples/specs/line_skip_invalid_mid_overlay.vl.json",
+          "examples/specs/line_slope.vl.json",
+          "examples/specs/line_sort_axis.vl.json",
+          "examples/specs/line_step.vl.json",
+          "examples/specs/line_strokedash.vl.json",
+          "examples/specs/line_timestamp_domain.vl.json",
+          "examples/specs/line_timeunit_transform.vl.json",
+          "examples/specs/lookup.vl.json",
+          "examples/specs/nested_concat_align.vl.json",
+          "examples/specs/normalized/airport_connections_normalized.vl.json",
+          "examples/specs/normalized/arc_facet_normalized.vl.json",
+          "examples/specs/normalized/arc_radial_histogram_normalized.vl.json",
+          "examples/specs/normalized/arc_radial_normalized.vl.json",
+          "examples/specs/normalized/area_density_facet_normalized.vl.json",
+          "examples/specs/normalized/area_gradient_normalized.vl.json",
+          "examples/specs/normalized/area_horizon_normalized.vl.json",
+          "examples/specs/normalized/area_overlay_normalized.vl.json",
+          "examples/specs/normalized/area_overlay_with_y2_normalized.vl.json",
+          "examples/specs/normalized/bar_binned_yearmonth_label_band_center_normalized.vl.json",
+          "examples/specs/normalized/bar_binned_yearmonth_label_normalized.vl.json",
+          "examples/specs/normalized/bar_bullet_expr_bind_normalized.vl.json",
+          "examples/specs/normalized/bar_column_fold_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_errorbar_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_facet_independent_scale_fixed_width_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_facet_independent_scale_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_facet_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_label_normalized.vl.json",
+          "examples/specs/normalized/bar_grouped_repeated_normalized.vl.json",
+          "examples/specs/normalized/bar_heatlane_normalized.vl.json",
+          "examples/specs/normalized/bar_layered_weather_normalized.vl.json",
+          "examples/specs/normalized/bar_negative_horizontal_label_normalized.vl.json",
+          "examples/specs/normalized/bar_size_responsive_normalized.vl.json",
+          "examples/specs/normalized/boxplot_1D_horizontal_custom_mark_normalized.vl.json",
+          "examples/specs/normalized/boxplot_1D_horizontal_explicit_normalized.vl.json",
+          "examples/specs/normalized/boxplot_1D_horizontal_normalized.vl.json",
+          "examples/specs/normalized/boxplot_1D_invalid_normalized.vl.json",
+          "examples/specs/normalized/boxplot_1D_vertical_normalized.vl.json",
+          "examples/specs/normalized/boxplot_2D_horizontal_color_size_normalized.vl.json",
+          "examples/specs/normalized/boxplot_2D_horizontal_normalized.vl.json",
+          "examples/specs/normalized/boxplot_2D_vertical_normalized.vl.json",
+          "examples/specs/normalized/boxplot_2D_vertical_single_per_group_color_normalized.vl.json",
+          "examples/specs/normalized/boxplot_2D_vertical_single_per_group_normalized.vl.json",
+          "examples/specs/normalized/boxplot_groupped_normalized.vl.json",
+          "examples/specs/normalized/boxplot_minmax_2D_horizontal_custom_midtick_color_normalized.vl.json",
+          "examples/specs/normalized/boxplot_minmax_2D_horizontal_normalized.vl.json",
+          "examples/specs/normalized/boxplot_minmax_2D_vertical_normalized.vl.json",
+          "examples/specs/normalized/boxplot_preaggregated_normalized.vl.json",
+          "examples/specs/normalized/boxplot_preaggregated_with_height_normalized.vl.json",
+          "examples/specs/normalized/boxplot_tooltip_aggregate_normalized.vl.json",
+          "examples/specs/normalized/boxplot_tooltip_not_aggregate_normalized.vl.json",
+          "examples/specs/normalized/concat_hover_filter_normalized.vl.json",
+          "examples/specs/normalized/concat_layer_voyager_result_normalized.vl.json",
+          "examples/specs/normalized/config_numberFormatType_test_normalized.vl.json",
+          "examples/specs/normalized/connected_scatterplot_normalized.vl.json",
+          "examples/specs/normalized/errorband_2d_horizontal_color_encoding_normalized.vl.json",
+          "examples/specs/normalized/errorband_2d_vertical_borders_normalized.vl.json",
+          "examples/specs/normalized/errorband_tooltip_normalized.vl.json",
+          "examples/specs/normalized/errorbar_2d_vertical_ticks_normalized.vl.json",
+          "examples/specs/normalized/errorbar_tooltip_normalized.vl.json",
+          "examples/specs/normalized/facet_bullet_normalized.vl.json",
+          "examples/specs/normalized/facet_custom_header_normalized.vl.json",
+          "examples/specs/normalized/facet_custom_normalized.vl.json",
+          "examples/specs/normalized/facet_grid_bar_normalized.vl.json",
+          "examples/specs/normalized/geo_constant_value_normalized.vl.json",
+          "examples/specs/normalized/geo_custom_projection_normalized.vl.json",
+          "examples/specs/normalized/geo_repeat_normalized.vl.json",
+          "examples/specs/normalized/geo_sphere_normalized.vl.json",
+          "examples/specs/normalized/geo_text_normalized.vl.json",
+          "examples/specs/normalized/geo_trellis_normalized.vl.json",
+          "examples/specs/normalized/interactive_1d_geo_brush_normalized.vl.json",
+          "examples/specs/normalized/interactive_airport_crossfilter_normalized.vl.json",
+          "examples/specs/normalized/interactive_area_brush_normalized.vl.json",
+          "examples/specs/normalized/interactive_crossfilter_normalized.vl.json",
+          "examples/specs/normalized/interactive_geo_earthquakes_normalized.vl.json",
+          "examples/specs/normalized/interactive_geo_facet_species_normalized.vl.json",
+          "examples/specs/normalized/interactive_global_development_normalized.vl.json",
+          "examples/specs/normalized/interactive_index_chart_normalized.vl.json",
+          "examples/specs/normalized/interactive_layered_crossfilter_discrete_normalized.vl.json",
+          "examples/specs/normalized/interactive_layered_crossfilter_normalized.vl.json",
+          "examples/specs/normalized/interactive_line_hover_normalized.vl.json",
+          "examples/specs/normalized/interactive_line_point_hover_normalized.vl.json",
+          "examples/specs/normalized/interactive_multi_line_label_normalized.vl.json",
+          "examples/specs/normalized/interactive_multi_line_pivot_tooltip_normalized.vl.json",
+          "examples/specs/normalized/interactive_multi_line_tooltip_normalized.vl.json",
+          "examples/specs/normalized/interactive_panzoom_splom_normalized.vl.json",
+          "examples/specs/normalized/interactive_splom_normalized.vl.json",
+          "examples/specs/normalized/interactive_stocks_nearest_index_normalized.vl.json",
+          "examples/specs/normalized/isotype_bar_chart_emoji_normalized.vl.json",
+          "examples/specs/normalized/isotype_bar_chart_normalized.vl.json",
+          "examples/specs/normalized/layer_arc_label_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_annotations_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_circle_grouped_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_fruit_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_labels_grey_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_labels_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_tick_binned_time_band_position_normalized.vl.json",
+          "examples/specs/normalized/layer_bar_tick_datum_grouped_normalized.vl.json",
+          "examples/specs/normalized/layer_boxplot_circle_normalized.vl.json",
+          "examples/specs/normalized/layer_candlestick_normalized.vl.json",
+          "examples/specs/normalized/layer_color_legend_left_normalized.vl.json",
+          "examples/specs/normalized/layer_cumulative_histogram_normalized.vl.json",
+          "examples/specs/normalized/layer_dual_axis_normalized.vl.json",
+          "examples/specs/normalized/layer_likert_normalized.vl.json",
+          "examples/specs/normalized/layer_line_co2_concentration_normalized.vl.json",
+          "examples/specs/normalized/layer_line_errorband_2d_horizontal_borders_strokedash_normalized.vl.json",
+          "examples/specs/normalized/layer_line_errorband_ci_normalized.vl.json",
+          "examples/specs/normalized/layer_line_errorband_pre_aggregated_normalized.vl.json",
+          "examples/specs/normalized/layer_line_rolling_mean_point_raw_normalized.vl.json",
+          "examples/specs/normalized/layer_line_window_normalized.vl.json",
+          "examples/specs/normalized/layer_overlay_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_1d_horizontal_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_1d_vertical_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_ci_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_color_encoding_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_custom_ticks_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_iqr_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_horizontal_stdev_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_2d_vertical_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_ci_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_pre_aggregated_asymmetric_error_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_pre_aggregated_symmetric_error_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_pre_aggregated_upper_lower_normalized.vl.json",
+          "examples/specs/normalized/layer_point_errorbar_stdev_normalized.vl.json",
+          "examples/specs/normalized/layer_ranged_dot_normalized.vl.json",
+          "examples/specs/normalized/layer_scatter_errorband_1D_stdev_global_mean_normalized.vl.json",
+          "examples/specs/normalized/layer_scatter_errorband_1d_stdev_normalized.vl.json",
+          "examples/specs/normalized/layer_text_heatmap_joinaggregate_normalized.vl.json",
+          "examples/specs/normalized/layer_text_heatmap_normalized.vl.json",
+          "examples/specs/normalized/line_bump_normalized.vl.json",
+          "examples/specs/normalized/line_color_halo_normalized.vl.json",
+          "examples/specs/normalized/line_color_label_normalized.vl.json",
+          "examples/specs/normalized/line_concat_facet_normalized.vl.json",
+          "examples/specs/normalized/line_narrow_yearmonth_span_normalized.vl.json",
+          "examples/specs/normalized/line_overlay_normalized.vl.json",
+          "examples/specs/normalized/line_overlay_stroked_normalized.vl.json",
+          "examples/specs/normalized/line_shape_overlay_normalized.vl.json",
+          "examples/specs/normalized/line_skip_invalid_mid_overlay_normalized.vl.json",
+          "examples/specs/normalized/nested_concat_align_normalized.vl.json",
+          "examples/specs/normalized/parallel_coordinate_normalized.vl.json",
+          "examples/specs/normalized/repeat_child_layer_normalized.vl.json",
+          "examples/specs/normalized/repeat_histogram_autosize_normalized.vl.json",
+          "examples/specs/normalized/repeat_histogram_flights_normalized.vl.json",
+          "examples/specs/normalized/repeat_histogram_normalized.vl.json",
+          "examples/specs/normalized/repeat_independent_colors_normalized.vl.json",
+          "examples/specs/normalized/repeat_layer_normalized.vl.json",
+          "examples/specs/normalized/repeat_line_weather_normalized.vl.json",
+          "examples/specs/normalized/repeat_splom_cars_normalized.vl.json",
+          "examples/specs/normalized/repeat_splom_normalized.vl.json",
+          "examples/specs/normalized/selection_resolution_global_normalized.vl.json",
+          "examples/specs/normalized/selection_resolution_intersect_normalized.vl.json",
+          "examples/specs/normalized/selection_resolution_union_normalized.vl.json",
+          "examples/specs/normalized/stacked_area_overlay_normalized.vl.json",
+          "examples/specs/normalized/stacked_area_without_agg_normalized.vl.json",
+          "examples/specs/normalized/stacked_bar_h_normalized_labeled_normalized.vl.json",
+          "examples/specs/normalized/ternary_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_break_paths_filter_domains_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_break_paths_show_domains_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_break_paths_show_path_domains_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_color_filter_but_include_in_scale_invalid_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_color_filter_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_color_show_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_default_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_filter_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_null_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_opacity_filter_but_include_in_scale_invalid_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_opacity_filter_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_opacity_show_normalized.vl.json",
+          "examples/specs/normalized/test_invalid_show_normalized.vl.json",
+          "examples/specs/normalized/text_params_normalized.vl.json",
+          "examples/specs/normalized/trail_comet_normalized.vl.json",
+          "examples/specs/normalized/trellis_anscombe_normalized.vl.json",
+          "examples/specs/normalized/trellis_area_normalized.vl.json",
+          "examples/specs/normalized/trellis_area_sort_array_normalized.vl.json",
+          "examples/specs/normalized/trellis_bar_histogram_label_rotated_normalized.vl.json",
+          "examples/specs/normalized/trellis_bar_histogram_normalized.vl.json",
+          "examples/specs/normalized/trellis_bar_no_header_normalized.vl.json",
+          "examples/specs/normalized/trellis_bar_normalized.vl.json",
+          "examples/specs/normalized/trellis_barley_independent_normalized.vl.json",
+          "examples/specs/normalized/trellis_barley_layer_median_normalized.vl.json",
+          "examples/specs/normalized/trellis_barley_normalized.vl.json",
+          "examples/specs/normalized/trellis_column_year_normalized.vl.json",
+          "examples/specs/normalized/trellis_line_quarter_normalized.vl.json",
+          "examples/specs/normalized/trellis_row_column_normalized.vl.json",
+          "examples/specs/normalized/trellis_scatter_binned_row_normalized.vl.json",
+          "examples/specs/normalized/trellis_scatter_normalized.vl.json",
+          "examples/specs/normalized/trellis_scatter_small_normalized.vl.json",
+          "examples/specs/normalized/trellis_selections_normalized.vl.json",
+          "examples/specs/normalized/trellis_stacked_bar_normalized.vl.json",
+          "examples/specs/normalized/waterfall_chart_normalized.vl.json",
+          "examples/specs/normalized/wheat_wages_normalized.vl.json",
+          "examples/specs/normalized/window_impute_null_normalized.vl.json",
+          "examples/specs/parallel_coordinate.vl.json",
+          "examples/specs/param_expr.vl.json",
+          "examples/specs/param_search_input.vl.json",
+          "examples/specs/point_1d.vl.json",
+          "examples/specs/point_1d_array.vl.json",
+          "examples/specs/point_2d.vl.json",
+          "examples/specs/point_2d_aggregate.vl.json",
+          "examples/specs/point_2d_array.vl.json",
+          "examples/specs/point_2d_array_named.vl.json",
+          "examples/specs/point_2d_config_no_zero.vl.json",
+          "examples/specs/point_2d_tooltip.vl.json",
+          "examples/specs/point_2d_tooltip_data.vl.json",
+          "examples/specs/point_aggregate_detail.vl.json",
+          "examples/specs/point_angle_windvector.vl.json",
+          "examples/specs/point_background.vl.json",
+          "examples/specs/point_binned_color.vl.json",
+          "examples/specs/point_binned_opacity.vl.json",
+          "examples/specs/point_binned_size.vl.json",
+          "examples/specs/point_bubble.vl.json",
+          "examples/specs/point_color.vl.json",
+          "examples/specs/point_color_custom.vl.json",
+          "examples/specs/point_color_ordinal.vl.json",
+          "examples/specs/point_color_quantitative.vl.json",
+          "examples/specs/point_color_shape_constant.vl.json",
+          "examples/specs/point_color_with_shape.vl.json",
+          "examples/specs/point_colorramp_size.vl.json",
+          "examples/specs/point_conditional_opacity.vl.json",
+          "examples/specs/point_constant_legend_domain.vl.json",
+          "examples/specs/point_diverging_color.vl.json",
+          "examples/specs/point_dot_timeunit_color.vl.json",
+          "examples/specs/point_filled.vl.json",
+          "examples/specs/point_grouped.vl.json",
+          "examples/specs/point_href.vl.json",
+          "examples/specs/point_invalid_color.vl.json",
+          "examples/specs/point_invalid_size_show.vl.json",
+          "examples/specs/point_log.vl.json",
+          "examples/specs/point_no_axis_domain_grid.vl.json",
+          "examples/specs/point_offset_random.vl.json",
+          "examples/specs/point_ordinal_bin_offset_random.vl.json",
+          "examples/specs/point_ordinal_color.vl.json",
+          "examples/specs/point_overlap.vl.json",
+          "examples/specs/point_params.vl.json",
+          "examples/specs/point_quantile_quantile.vl.json",
+          "examples/specs/point_scale_range_field.vl.json",
+          "examples/specs/point_shape_custom.vl.json",
+          "examples/specs/point_tooltip.vl.json",
+          "examples/specs/rect_binned_heatmap.vl.json",
+          "examples/specs/rect_heatmap.vl.json",
+          "examples/specs/rect_heatmap_weather.vl.json",
+          "examples/specs/rect_heatmap_weather_temporal_center_band.vl.json",
+          "examples/specs/rect_heatmap_weather_temporal_center_band_config.vl.json",
+          "examples/specs/rect_lasagna.vl.json",
+          "examples/specs/rect_mosaic_labelled.vl.json",
+          "examples/specs/rect_mosaic_labelled_with_offset.vl.json",
+          "examples/specs/rect_mosaic_simple.vl.json",
+          "examples/specs/rect_params.vl.json",
+          "examples/specs/repeat_child_layer.vl.json",
+          "examples/specs/repeat_histogram.vl.json",
+          "examples/specs/repeat_histogram_autosize.vl.json",
+          "examples/specs/repeat_histogram_flights.vl.json",
+          "examples/specs/repeat_independent_colors.vl.json",
+          "examples/specs/repeat_layer.vl.json",
+          "examples/specs/repeat_line_weather.vl.json",
+          "examples/specs/repeat_splom.vl.json",
+          "examples/specs/repeat_splom_cars.vl.json",
+          "examples/specs/rule_color_mean.vl.json",
+          "examples/specs/rule_extent.vl.json",
+          "examples/specs/rule_params.vl.json",
+          "examples/specs/sample_scatterplot.vl.json",
+          "examples/specs/scatter_image.vl.json",
+          "examples/specs/selection_bind_cylyr.vl.json",
+          "examples/specs/selection_bind_origin.vl.json",
+          "examples/specs/selection_brush_timeunit.vl.json",
+          "examples/specs/selection_clear_brush.vl.json",
+          "examples/specs/selection_composition_and.vl.json",
+          "examples/specs/selection_composition_or.vl.json",
+          "examples/specs/selection_concat.vl.json",
+          "examples/specs/selection_filter.vl.json",
+          "examples/specs/selection_filter_composition.vl.json",
+          "examples/specs/selection_filter_false.vl.json",
+          "examples/specs/selection_filter_true.vl.json",
+          "examples/specs/selection_heatmap.vl.json",
+          "examples/specs/selection_insert.vl.json",
+          "examples/specs/selection_interval_mark_style.vl.json",
+          "examples/specs/selection_layer_bar_month.vl.json",
+          "examples/specs/selection_multi_condition.vl.json",
+          "examples/specs/selection_project_binned_interval.vl.json",
+          "examples/specs/selection_project_interval.vl.json",
+          "examples/specs/selection_project_interval_x.vl.json",
+          "examples/specs/selection_project_interval_x_y.vl.json",
+          "examples/specs/selection_project_interval_y.vl.json",
+          "examples/specs/selection_project_multi.vl.json",
+          "examples/specs/selection_project_multi_cylinders.vl.json",
+          "examples/specs/selection_project_multi_cylinders_origin.vl.json",
+          "examples/specs/selection_project_multi_origin.vl.json",
+          "examples/specs/selection_project_single.vl.json",
+          "examples/specs/selection_project_single_cylinders.vl.json",
+          "examples/specs/selection_project_single_cylinders_origin.vl.json",
+          "examples/specs/selection_project_single_origin.vl.json",
+          "examples/specs/selection_resolution_global.vl.json",
+          "examples/specs/selection_resolution_intersect.vl.json",
+          "examples/specs/selection_resolution_union.vl.json",
+          "examples/specs/selection_toggle_altKey.vl.json",
+          "examples/specs/selection_toggle_altKey_shiftKey.vl.json",
+          "examples/specs/selection_toggle_shiftKey.vl.json",
+          "examples/specs/selection_translate_brush_drag.vl.json",
+          "examples/specs/selection_translate_brush_shift-drag.vl.json",
+          "examples/specs/selection_translate_scatterplot_drag.vl.json",
+          "examples/specs/selection_translate_scatterplot_shift-drag.vl.json",
+          "examples/specs/selection_type_interval.vl.json",
+          "examples/specs/selection_type_interval_invert.vl.json",
+          "examples/specs/selection_type_point.vl.json",
+          "examples/specs/selection_type_point_zorder.vl.json",
+          "examples/specs/selection_type_single_dblclick.vl.json",
+          "examples/specs/selection_type_single_pointerover.vl.json",
+          "examples/specs/selection_zoom_brush_shift-wheel.vl.json",
+          "examples/specs/selection_zoom_brush_wheel.vl.json",
+          "examples/specs/selection_zoom_scatterplot_shift-wheel.vl.json",
+          "examples/specs/selection_zoom_scatterplot_wheel.vl.json",
+          "examples/specs/sequence_line.vl.json",
+          "examples/specs/sequence_line_fold.vl.json",
+          "examples/specs/square.vl.json",
+          "examples/specs/stacked_area.vl.json",
+          "examples/specs/stacked_area_binned.vl.json",
+          "examples/specs/stacked_area_normalize.vl.json",
+          "examples/specs/stacked_area_ordinal.vl.json",
+          "examples/specs/stacked_area_overlay.vl.json",
+          "examples/specs/stacked_area_stream.vl.json",
+          "examples/specs/stacked_area_without_agg.vl.json",
+          "examples/specs/stacked_bar_1d.vl.json",
+          "examples/specs/stacked_bar_count.vl.json",
+          "examples/specs/stacked_bar_count_corner_radius_config.vl.json",
+          "examples/specs/stacked_bar_count_corner_radius_mark.vl.json",
+          "examples/specs/stacked_bar_count_corner_radius_mark_x.vl.json",
+          "examples/specs/stacked_bar_count_corner_radius_stroke.vl.json",
+          "examples/specs/stacked_bar_h.vl.json",
+          "examples/specs/stacked_bar_h_custom_color_domain.vl.json",
+          "examples/specs/stacked_bar_h_normalized_labeled.vl.json",
+          "examples/specs/stacked_bar_h_order.vl.json",
+          "examples/specs/stacked_bar_h_order_custom.vl.json",
+          "examples/specs/stacked_bar_normalize.vl.json",
+          "examples/specs/stacked_bar_population.vl.json",
+          "examples/specs/stacked_bar_population_transform.vl.json",
+          "examples/specs/stacked_bar_size.vl.json",
+          "examples/specs/stacked_bar_sum_opacity.vl.json",
+          "examples/specs/stacked_bar_unaggregate.vl.json",
+          "examples/specs/stacked_bar_v.vl.json",
+          "examples/specs/stacked_bar_v_ascending.vl.json",
+          "examples/specs/stacked_bar_weather.vl.json",
+          "examples/specs/stocks-2009-layered-line-point.vl.json",
+          "examples/specs/ternary.vl.json",
+          "examples/specs/test_aggregate_nested.vl.json",
+          "examples/specs/test_field_with_spaces.vl.json",
+          "examples/specs/test_invalid_break_paths_filter_domains.vl.json",
+          "examples/specs/test_invalid_break_paths_show_domains.vl.json",
+          "examples/specs/test_invalid_break_paths_show_path_domains.vl.json",
+          "examples/specs/test_invalid_color_filter.vl.json",
+          "examples/specs/test_invalid_color_filter_but_include_in_scale_invalid.vl.json",
+          "examples/specs/test_invalid_color_show.vl.json",
+          "examples/specs/test_invalid_color_size_config_scale.vl.json",
+          "examples/specs/test_invalid_color_size_mark_filter_only.vl.json",
+          "examples/specs/test_invalid_color_size_mark_show_only.vl.json",
+          "examples/specs/test_invalid_default.vl.json",
+          "examples/specs/test_invalid_filter.vl.json",
+          "examples/specs/test_invalid_null.vl.json",
+          "examples/specs/test_invalid_opacity_filter.vl.json",
+          "examples/specs/test_invalid_opacity_filter_but_include_in_scale_invalid.vl.json",
+          "examples/specs/test_invalid_opacity_show.vl.json",
+          "examples/specs/test_invalid_show.vl.json",
+          "examples/specs/test_single_point_color.vl.json",
+          "examples/specs/test_subobject.vl.json",
+          "examples/specs/test_subobject_missing.vl.json",
+          "examples/specs/test_subobject_nested.vl.json",
+          "examples/specs/test_trellis_cross_sort_missing.vl.json",
+          "examples/specs/text_format.vl.json",
+          "examples/specs/text_params.vl.json",
+          "examples/specs/text_scatterplot_colored.vl.json",
+          "examples/specs/text_tooltip_image.vl.json",
+          "examples/specs/tick_dot.vl.json",
+          "examples/specs/tick_dot_thickness.vl.json",
+          "examples/specs/tick_grouped.vl.json",
+          "examples/specs/tick_histogram.vl.json",
+          "examples/specs/tick_sort.vl.json",
+          "examples/specs/tick_strip.vl.json",
+          "examples/specs/tick_strip_1D_with_height.vl.json",
+          "examples/specs/tick_strip_tick_band.vl.json",
+          "examples/specs/tick_strip_with_height.vl.json",
+          "examples/specs/tick_timeunit.vl.json",
+          "examples/specs/tick_width_band.vl.json",
+          "examples/specs/time_custom_step.vl.json",
+          "examples/specs/time_output_utc_scale.vl.json",
+          "examples/specs/time_output_utc_timeunit.vl.json",
+          "examples/specs/time_parse_binnedutc.vl.json",
+          "examples/specs/time_parse_binnedutc_with_escaped_field.vl.json",
+          "examples/specs/time_parse_local.vl.json",
+          "examples/specs/time_parse_utc.vl.json",
+          "examples/specs/time_parse_utc_format.vl.json",
+          "examples/specs/trail_color.vl.json",
+          "examples/specs/trail_comet.vl.json",
+          "examples/specs/trellis_anscombe.vl.json",
+          "examples/specs/trellis_area.vl.json",
+          "examples/specs/trellis_area_seattle.vl.json",
+          "examples/specs/trellis_area_sort_array.vl.json",
+          "examples/specs/trellis_bar.vl.json",
+          "examples/specs/trellis_bar_histogram.vl.json",
+          "examples/specs/trellis_bar_histogram_label_rotated.vl.json",
+          "examples/specs/trellis_bar_no_header.vl.json",
+          "examples/specs/trellis_barley.vl.json",
+          "examples/specs/trellis_barley_independent.vl.json",
+          "examples/specs/trellis_barley_layer_median.vl.json",
+          "examples/specs/trellis_column_year.vl.json",
+          "examples/specs/trellis_cross_sort.vl.json",
+          "examples/specs/trellis_cross_sort_array.vl.json",
+          "examples/specs/trellis_line_quarter.vl.json",
+          "examples/specs/trellis_row_column.vl.json",
+          "examples/specs/trellis_scatter.vl.json",
+          "examples/specs/trellis_scatter_binned_row.vl.json",
+          "examples/specs/trellis_scatter_small.vl.json",
+          "examples/specs/trellis_selections.vl.json",
+          "examples/specs/trellis_stacked_bar.vl.json",
+          "examples/specs/vconcat_flatten.vl.json",
+          "examples/specs/vconcat_weather.vl.json",
+          "examples/specs/waterfall_chart.vl.json",
+          "examples/specs/wheat_wages.vl.json",
+          "examples/specs/window_cumulative_running_average.vl.json",
+          "examples/specs/window_impute_null.vl.json",
+          "examples/specs/window_rank.vl.json",
+          "examples/specs/window_top_k.vl.json",
+          "examples/specs/window_top_k_others.vl.json"
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "6e702fb398bb612cb76a569581916075d1db3b5dda87f5814414d41a18ecfbb5"
+        },
+        {
+          "path": "site/_data/examples.json",
+          "sha256": "f93ac3d5b3883d1ce8e59556a757dbabe01d057f3f558dfa7e6cef9ce65cb7b2"
+        },
+        {
+          "path": "src/compositemark/index.ts",
+          "sha256": "74f7324068dea5545847833e2a544a70f0f9767ff8565783ea0f335bb3b6def6"
+        },
+        {
+          "path": "src/mark.ts",
+          "sha256": "31385ed2a7d9ec103472ff8a104d40c6275629858012cc3fab2d750c25a8fdf1"
+        }
+      ]
+    },
+    "plotly": {
+      "repository": "https://github.com/plotly/plotly.js",
+      "commit": "96c9eb33d55f4b3ef7ec177adfcc2f542904bfb2",
+      "source_base": "https://github.com/plotly/plotly.js/blob/96c9eb33d55f4b3ef7ec177adfcc2f542904bfb2/",
+      "tree_api": "https://api.github.com/repos/plotly/plotly.js/git/trees/96c9eb33d55f4b3ef7ec177adfcc2f542904bfb2?recursive=1",
+      "tree_response_sha256": "3ddba882b85cd7f4543407f11a6557b2e3461312f00d415f6c20701463782d7b",
+      "tree_truncated": false,
+      "package_version": "4.1.2",
+      "declared_license": "MIT",
+      "scope": "Every src/traces/*/index.js trace module at the pin, with source-declared categories. Trace mode, subplot, error-bar, layout and styling options are compositional, not additional trace types.",
+      "catalogs": {
+        "traces": [
+          {
+            "id": "bar",
+            "source_path": "src/traces/bar/index.js",
+            "categories": [
+              "bar-like",
+              "cartesian",
+              "svg",
+              "bar",
+              "oriented",
+              "errorBarsOK",
+              "showLegend",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "barpolar",
+            "source_path": "src/traces/barpolar/index.js",
+            "categories": [
+              "polar",
+              "bar",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "box",
+            "source_path": "src/traces/box/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "symbols",
+              "oriented",
+              "box-violin",
+              "showLegend",
+              "boxLayout",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "candlestick",
+            "source_path": "src/traces/candlestick/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "showLegend",
+              "candlestick",
+              "boxLayout"
+            ]
+          },
+          {
+            "id": "carpet",
+            "source_path": "src/traces/carpet/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "carpet",
+              "carpetAxis",
+              "notLegendIsolatable",
+              "noMultiCategory",
+              "noHover",
+              "noSortingByValue"
+            ]
+          },
+          {
+            "id": "choropleth",
+            "source_path": "src/traces/choropleth/index.js",
+            "categories": [
+              "geo",
+              "noOpacity",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "choroplethmap",
+            "source_path": "src/traces/choroplethmap/index.js",
+            "categories": [
+              "map",
+              "gl",
+              "noOpacity",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "cone",
+            "source_path": "src/traces/cone/index.js",
+            "categories": [
+              "gl3d",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "contour",
+            "source_path": "src/traces/contour/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "2dMap",
+              "contour",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "contourcarpet",
+            "source_path": "src/traces/contourcarpet/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "carpet",
+              "contour",
+              "symbols",
+              "showLegend",
+              "hasLines",
+              "carpetDependent",
+              "noHover",
+              "noSortingByValue"
+            ]
+          },
+          {
+            "id": "densitymap",
+            "source_path": "src/traces/densitymap/index.js",
+            "categories": [
+              "map",
+              "gl",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "funnel",
+            "source_path": "src/traces/funnel/index.js",
+            "categories": [
+              "bar-like",
+              "cartesian",
+              "svg",
+              "oriented",
+              "showLegend",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "funnelarea",
+            "source_path": "src/traces/funnelarea/index.js",
+            "categories": [
+              "pie-like",
+              "funnelarea",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "heatmap",
+            "source_path": "src/traces/heatmap/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "2dMap",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "histogram",
+            "source_path": "src/traces/histogram/index.js",
+            "categories": [
+              "bar-like",
+              "cartesian",
+              "svg",
+              "bar",
+              "histogram",
+              "oriented",
+              "errorBarsOK",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "histogram2d",
+            "source_path": "src/traces/histogram2d/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "2dMap",
+              "histogram",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "histogram2dcontour",
+            "source_path": "src/traces/histogram2dcontour/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "2dMap",
+              "contour",
+              "histogram",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "icicle",
+            "source_path": "src/traces/icicle/index.js",
+            "categories": []
+          },
+          {
+            "id": "image",
+            "source_path": "src/traces/image/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "2dMap",
+              "noSortingByValue"
+            ]
+          },
+          {
+            "id": "indicator",
+            "source_path": "src/traces/indicator/index.js",
+            "categories": [
+              "svg",
+              "noOpacity",
+              "noHover"
+            ]
+          },
+          {
+            "id": "isosurface",
+            "source_path": "src/traces/isosurface/index.js",
+            "categories": [
+              "gl3d",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "mesh3d",
+            "source_path": "src/traces/mesh3d/index.js",
+            "categories": [
+              "gl3d",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "ohlc",
+            "source_path": "src/traces/ohlc/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "parcats",
+            "source_path": "src/traces/parcats/index.js",
+            "categories": [
+              "noOpacity"
+            ]
+          },
+          {
+            "id": "parcoords",
+            "source_path": "src/traces/parcoords/index.js",
+            "categories": []
+          },
+          {
+            "id": "pie",
+            "source_path": "src/traces/pie/index.js",
+            "categories": [
+              "pie-like",
+              "pie",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "quiver",
+            "source_path": "src/traces/quiver/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "showLegend",
+              "scatter-like",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "sankey",
+            "source_path": "src/traces/sankey/index.js",
+            "categories": [
+              "noOpacity"
+            ]
+          },
+          {
+            "id": "scatter",
+            "source_path": "src/traces/scatter/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "symbols",
+              "errorBarsOK",
+              "showLegend",
+              "scatter-like",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "scatter3d",
+            "source_path": "src/traces/scatter3d/index.js",
+            "categories": [
+              "gl3d",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "scattercarpet",
+            "source_path": "src/traces/scattercarpet/index.js",
+            "categories": [
+              "svg",
+              "carpet",
+              "symbols",
+              "showLegend",
+              "carpetDependent",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "scattergeo",
+            "source_path": "src/traces/scattergeo/index.js",
+            "categories": [
+              "geo",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "scattergl",
+            "source_path": "src/traces/scattergl/index.js",
+            "categories": []
+          },
+          {
+            "id": "scattermap",
+            "source_path": "src/traces/scattermap/index.js",
+            "categories": [
+              "map",
+              "gl",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "scatterpolar",
+            "source_path": "src/traces/scatterpolar/index.js",
+            "categories": [
+              "polar",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "scatterpolargl",
+            "source_path": "src/traces/scatterpolargl/index.js",
+            "categories": []
+          },
+          {
+            "id": "scattersmith",
+            "source_path": "src/traces/scattersmith/index.js",
+            "categories": [
+              "smith",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "scatterternary",
+            "source_path": "src/traces/scatterternary/index.js",
+            "categories": [
+              "ternary",
+              "symbols",
+              "showLegend",
+              "scatter-like"
+            ]
+          },
+          {
+            "id": "splom",
+            "source_path": "src/traces/splom/index.js",
+            "categories": []
+          },
+          {
+            "id": "streamtube",
+            "source_path": "src/traces/streamtube/index.js",
+            "categories": [
+              "gl3d",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "sunburst",
+            "source_path": "src/traces/sunburst/index.js",
+            "categories": []
+          },
+          {
+            "id": "surface",
+            "source_path": "src/traces/surface/index.js",
+            "categories": [
+              "gl3d",
+              "2dMap",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "table",
+            "source_path": "src/traces/table/index.js",
+            "categories": [
+              "noOpacity"
+            ]
+          },
+          {
+            "id": "treemap",
+            "source_path": "src/traces/treemap/index.js",
+            "categories": []
+          },
+          {
+            "id": "violin",
+            "source_path": "src/traces/violin/index.js",
+            "categories": [
+              "cartesian",
+              "svg",
+              "symbols",
+              "oriented",
+              "box-violin",
+              "showLegend",
+              "violinLayout",
+              "zoomScale"
+            ]
+          },
+          {
+            "id": "volume",
+            "source_path": "src/traces/volume/index.js",
+            "categories": [
+              "gl3d",
+              "showLegend"
+            ]
+          },
+          {
+            "id": "waterfall",
+            "source_path": "src/traces/waterfall/index.js",
+            "categories": [
+              "bar-like",
+              "cartesian",
+              "svg",
+              "oriented",
+              "showLegend",
+              "zoomScale"
+            ]
+          }
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "6b987c5ae366ded1513ac05c1d934e0ffc51dcb8f393f9fbf309149eab0bff2f"
+        },
+        {
+          "path": "src/traces/bar/index.js",
+          "sha256": "c5e2d1d2e4992116952c977343f53f7da443c5d6bd61a840930ecd2e98021053"
+        },
+        {
+          "path": "src/traces/barpolar/index.js",
+          "sha256": "12757379861bfaeb7845fb9684b1ab92b090829607106946eb1d0c0c0e82911b"
+        },
+        {
+          "path": "src/traces/box/index.js",
+          "sha256": "2268406e459cb423e182d8aefd1551a56bf83e1dfc1de121b464acd3a6db3b56"
+        },
+        {
+          "path": "src/traces/candlestick/index.js",
+          "sha256": "95341ddc91b20c270d1d600103718effb86263afa91272b4bda09889631c3772"
+        },
+        {
+          "path": "src/traces/carpet/index.js",
+          "sha256": "b32663b101faf453741e1ac4939c71384a8fb8eda2076284710cfa154b429dd5"
+        },
+        {
+          "path": "src/traces/choropleth/index.js",
+          "sha256": "7747b5d824c32bb76ea1491bda83e74c9974c979b7414599352e7964686a12a0"
+        },
+        {
+          "path": "src/traces/choroplethmap/index.js",
+          "sha256": "cdf62683339a43b778252637f1ccd8c455c3f94d6fce9d1aeecb7cbca5bac4ac"
+        },
+        {
+          "path": "src/traces/cone/index.js",
+          "sha256": "5fadb1db71dd82f286f2d7a0d810ca906a15c5fdadc4be1e891eb0a4073537ff"
+        },
+        {
+          "path": "src/traces/contour/index.js",
+          "sha256": "9aa005974f6974cd37c9d414315ba8d9eb598a4e30c12096013035a3cb6b9461"
+        },
+        {
+          "path": "src/traces/contourcarpet/index.js",
+          "sha256": "da8ce6d5723cf644147f8e4a26ca6e46e8ee8cedd22f018d84fe63c40a4bf8ed"
+        },
+        {
+          "path": "src/traces/densitymap/index.js",
+          "sha256": "8d77570ac68fdabca2eff920fa3a3e37cab7692eb84c7581ed2ff63f7aa6d589"
+        },
+        {
+          "path": "src/traces/funnel/index.js",
+          "sha256": "e25629cd505633ac05f90ca8398204fdd1fd2fd4d7436be4fecee5b283a9736b"
+        },
+        {
+          "path": "src/traces/funnelarea/index.js",
+          "sha256": "bd2f17ec973c9bcc36aca48d615630ee62bd18d21b6ae0490fa8925ed2b9273a"
+        },
+        {
+          "path": "src/traces/heatmap/index.js",
+          "sha256": "4dacbc47f7d8c6e8a44bb8c25b7b52ec84c9e54b6dc60ffad2a2e818268672cb"
+        },
+        {
+          "path": "src/traces/histogram/index.js",
+          "sha256": "a3c525df43ef3815db7ed9e7a959d4a1f2ef6c570bd371238f453624da9aa926"
+        },
+        {
+          "path": "src/traces/histogram2d/index.js",
+          "sha256": "f866cafeffa396bae9ade01058d0bab2d55d2138a708cb88f0ddbc506df01394"
+        },
+        {
+          "path": "src/traces/histogram2dcontour/index.js",
+          "sha256": "6a7d0c78514cc82f0d6fa9c5a207c9e7ffab82362d3fdc2b36fa6d35ecfd67e1"
+        },
+        {
+          "path": "src/traces/icicle/index.js",
+          "sha256": "331aaa72796fc691b758c1237227146b60d771281295bd84e8a0813f90c98c33"
+        },
+        {
+          "path": "src/traces/image/index.js",
+          "sha256": "4bc751e0a7c271c60e7bf1eab3438d16c0b7e5643799edd56312f87ce6124583"
+        },
+        {
+          "path": "src/traces/indicator/index.js",
+          "sha256": "6286d555c0bd950d6c54290c6259c139cd3813c7a0e6964738142dd6ca0344d3"
+        },
+        {
+          "path": "src/traces/isosurface/index.js",
+          "sha256": "65c85284577aecdd3efeb6b8ca6c83f769d39edb445c3729ae8bdcf55fd6558d"
+        },
+        {
+          "path": "src/traces/mesh3d/index.js",
+          "sha256": "068989f62fdf2f3b2a0419eaf3e6bcb14885688434a1daf9a258ca8ed205cdf2"
+        },
+        {
+          "path": "src/traces/ohlc/index.js",
+          "sha256": "913e90ee426972ad93e866559a004d3fa3a4dd85c18675405c6696be883953fd"
+        },
+        {
+          "path": "src/traces/parcats/index.js",
+          "sha256": "e11ff9c9cbf5042252859b4f0d2efc2c911dcd1764dfd4cbeb04ccf3275b9f1c"
+        },
+        {
+          "path": "src/traces/parcoords/index.js",
+          "sha256": "839189c6b637ed0f16fcfaa619adf0892ad4fde49f3870c5813508c5789e14e3"
+        },
+        {
+          "path": "src/traces/pie/index.js",
+          "sha256": "43eecb880fb3e585e66e7ffbff63c665fa9d607c104458df5c93c9c1934b47f1"
+        },
+        {
+          "path": "src/traces/quiver/index.js",
+          "sha256": "332889bbc78098190d8248e7fb1175d04501a1dde957e5c722640585ebbf2197"
+        },
+        {
+          "path": "src/traces/sankey/index.js",
+          "sha256": "9417581bc987898f73e2404e361901dc08271535d094f620d523a600e9f0bb86"
+        },
+        {
+          "path": "src/traces/scatter/index.js",
+          "sha256": "725de5b0d977cc99b3d774a057321b8d41c8ca11cd9c590c9427535dc13dcc1b"
+        },
+        {
+          "path": "src/traces/scatter3d/index.js",
+          "sha256": "fcb27bffc2c398540f62f5fca3b5d4edfff4749d5836bfddf165a17f0bd22e68"
+        },
+        {
+          "path": "src/traces/scattercarpet/index.js",
+          "sha256": "ccd315497c472165ed54184f68a0090a31bc2b4e7571f9e52f4f6d1e15b6e5cb"
+        },
+        {
+          "path": "src/traces/scattergeo/index.js",
+          "sha256": "6db6c463db2e84c181da5a56d09becf91ecd76ba6eefb049baeecb4cafdd6a69"
+        },
+        {
+          "path": "src/traces/scattergl/index.js",
+          "sha256": "839189c6b637ed0f16fcfaa619adf0892ad4fde49f3870c5813508c5789e14e3"
+        },
+        {
+          "path": "src/traces/scattermap/index.js",
+          "sha256": "a4b1735fb905d80759973b5947fc8c62049c820b4938735d6539075829c208e0"
+        },
+        {
+          "path": "src/traces/scatterpolar/index.js",
+          "sha256": "fcc9bb26765dbe025454d9d6d876603b5f58008fce22f11b85e155eb7ee85a45"
+        },
+        {
+          "path": "src/traces/scatterpolargl/index.js",
+          "sha256": "839189c6b637ed0f16fcfaa619adf0892ad4fde49f3870c5813508c5789e14e3"
+        },
+        {
+          "path": "src/traces/scattersmith/index.js",
+          "sha256": "6e442e8ad47934f4e377897a28874228eee3f005938b51c88e6d993e1b9cc756"
+        },
+        {
+          "path": "src/traces/scatterternary/index.js",
+          "sha256": "1cada2f777acf0a1db735b62dbaccb69b5cd76cf3d07ade346bbc948340c96ea"
+        },
+        {
+          "path": "src/traces/splom/index.js",
+          "sha256": "c908153d766b9e28ec8a50b6b15f5903b0f203b1a83d472b6a06e708eb7d3d22"
+        },
+        {
+          "path": "src/traces/streamtube/index.js",
+          "sha256": "179385ccfb3ed5599103c6859b718624915bea8bd5f38f5120b259eced7d521d"
+        },
+        {
+          "path": "src/traces/sunburst/index.js",
+          "sha256": "21d67d1ae30b1723618280d986eeeadf94d74bad57ca8d63d0b5b7e3d5c72f5d"
+        },
+        {
+          "path": "src/traces/surface/index.js",
+          "sha256": "0d73ad11e257bad0987bd043ec0a6a60ab9913382b683d61ff4a8a4192490dcb"
+        },
+        {
+          "path": "src/traces/table/index.js",
+          "sha256": "27b9b5fb4031a2ac48fce2d39d3dac0a3da5a34674dfff065ed9b82a1b289ec8"
+        },
+        {
+          "path": "src/traces/treemap/index.js",
+          "sha256": "7b4bfd67a541a2c8ac1b5c77d9d0ec3675e90a4c74863fd0e0f3bdb2903196da"
+        },
+        {
+          "path": "src/traces/violin/index.js",
+          "sha256": "2c4a18902534921f3ad411d7fbe69e39f4b6f92ce9d132045174a964cca7be23"
+        },
+        {
+          "path": "src/traces/volume/index.js",
+          "sha256": "ab4ba66b678dd21c992ea16501d95ede5346116d47569993df50188cd7279fbc"
+        },
+        {
+          "path": "src/traces/waterfall/index.js",
+          "sha256": "3161e4271cbc4218767bfec415ad3ec7e20636f7585603cbd5767c2982b8da46"
+        }
+      ]
+    },
+    "penrose": {
+      "repository": "https://github.com/penrose/penrose",
+      "commit": "164ad55777e9975baa0e0860a5d18051f66beafa",
+      "source_base": "https://github.com/penrose/penrose/blob/164ad55777e9975baa0e0860a5d18051f66beafa/",
+      "tree_api": "https://api.github.com/repos/penrose/penrose/git/trees/164ad55777e9975baa0e0860a5d18051f66beafa?recursive=1",
+      "tree_response_sha256": "f423263365b1dc534d675b7a2a396ad70a12232f4db81bdaea1456d4d22de3dc",
+      "tree_truncated": false,
+      "package_version": null,
+      "declared_license": null,
+      "scope": "All example trio source files, top-level example folders, and gallery:true IDs in src/registry.json having a matching trio file. Folders are example families, not built-in plot guarantees.",
+      "catalogs": {
+        "trios": [
+          "packages/examples/src/Dynamics/Lyapunov.trio.json",
+          "packages/examples/src/alloy-models/dining-philosophers.trio.json",
+          "packages/examples/src/alloy-models/generic.trio.json",
+          "packages/examples/src/alloy-models/icicle-plot-file-system.trio.json",
+          "packages/examples/src/alloy-models/message-passing.trio.json",
+          "packages/examples/src/alloy-models/ring-leader-election.trio.json",
+          "packages/examples/src/alloy-models/river-crossing.trio.json",
+          "packages/examples/src/alloy-models/workstations.trio.json",
+          "packages/examples/src/animation/center-shrink-circle.trio.json",
+          "packages/examples/src/array-models/insertionSort.trio.json",
+          "packages/examples/src/atoms-and-bonds/one-water-molecule.trio.json",
+          "packages/examples/src/atoms-and-bonds/wet-floor.trio.json",
+          "packages/examples/src/box-arrow-diagram/computer-architecture.trio.json",
+          "packages/examples/src/curve-examples/blobs.trio.json",
+          "packages/examples/src/curve-examples/catmull-rom/catmull-rom.trio.json",
+          "packages/examples/src/curve-examples/closed-elastic-curve.trio.json",
+          "packages/examples/src/curve-examples/cubic-bezier.trio.json",
+          "packages/examples/src/curve-examples/evolute-of-cardioid.trio.json",
+          "packages/examples/src/curve-examples/frenet-frame.trio.json",
+          "packages/examples/src/curve-examples/offset.trio.json",
+          "packages/examples/src/curve-examples/open-elastic-curve.trio.json",
+          "packages/examples/src/curve-examples/osculating-circle.trio.json",
+          "packages/examples/src/curve-examples/space-curves.trio.json",
+          "packages/examples/src/curve-examples/space-curves/space-curves.trio.json",
+          "packages/examples/src/dataviz/linearreg.trio.json",
+          "packages/examples/src/dataviz/residual.trio.json",
+          "packages/examples/src/dinoshade/dinoshade.trio.json",
+          "packages/examples/src/envelopes/nephroid.trio.json",
+          "packages/examples/src/exterior-algebra/vector-wedge.trio.json",
+          "packages/examples/src/fake-3d-linear-algebra/projection.trio.json",
+          "packages/examples/src/fancy-text/fancy-text.trio.json",
+          "packages/examples/src/fractals/chaos-game/sierpinski-triangle.trio.json",
+          "packages/examples/src/fractals/chaos-game/vicsek-fractal.trio.json",
+          "packages/examples/src/fractals/ifs/ifs.trio.json",
+          "packages/examples/src/fractals/l-systems/tree.trio.json",
+          "packages/examples/src/geometric-queries/closest-point/test-group.trio.json",
+          "packages/examples/src/geometric-queries/closest-point/test.trio.json",
+          "packages/examples/src/geometric-queries/closest-silhouette-point/test.trio.json",
+          "packages/examples/src/geometric-queries/ray-intersect/test-group.trio.json",
+          "packages/examples/src/geometric-queries/ray-intersect/test.trio.json",
+          "packages/examples/src/geometric-queries/test.trio.json",
+          "packages/examples/src/geometry-domain/complementary-angles.trio.json",
+          "packages/examples/src/geometry-domain/siggraph-teaser.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/c01p01.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/c03p01.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/c05p01.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/c05p13.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/c11p12.trio.json",
+          "packages/examples/src/geometry-domain/textbook_problems/ex.trio.json",
+          "packages/examples/src/graph-domain/other-examples/arpanet.trio.json",
+          "packages/examples/src/graph-domain/other-examples/hamiltonian-cycle.trio.json",
+          "packages/examples/src/graph-domain/other-examples/nyc-subway.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig1.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig10.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig11.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig12.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig13.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig2.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig3.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig4.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig5.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig6.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig7.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig8a.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig8b.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec1/fig9.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig10a.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig10b.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig11a.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig11b.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig11c.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig12.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig13.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig14.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig16b.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig3.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig4.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig5.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig6.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec2/fig9.trio.json",
+          "packages/examples/src/graph-domain/textbook/sec5/ex32.trio.json",
+          "packages/examples/src/group-theory/quaternion-cayley-graph.trio.json",
+          "packages/examples/src/group-theory/quaternion-multiplication-table.trio.json",
+          "packages/examples/src/hypergraph/hypergraph.trio.json",
+          "packages/examples/src/impossible-ngon/ngon.trio.json",
+          "packages/examples/src/impossible-ngon/nsides-chirality.trio.json",
+          "packages/examples/src/impossible-ngon/parameters.trio.json",
+          "packages/examples/src/interactive/ellipse-rays.trio.json",
+          "packages/examples/src/interactive/planets.trio.json",
+          "packages/examples/src/interactive/viewport.trio.json",
+          "packages/examples/src/lagrange-bases/lagrange-bases.trio.json",
+          "packages/examples/src/linear-algebra-domain/two-vectors-perp.trio.json",
+          "packages/examples/src/logic-circuit-domain/half-adder.trio.json",
+          "packages/examples/src/matrix-library/crossProductMatrix.trio.json",
+          "packages/examples/src/matrix-library/diagonal2d.trio.json",
+          "packages/examples/src/matrix-library/diagonal3d.trio.json",
+          "packages/examples/src/matrix-library/identity2d.trio.json",
+          "packages/examples/src/matrix-library/identity3d.trio.json",
+          "packages/examples/src/matrix-library/inverse2d.trio.json",
+          "packages/examples/src/matrix-library/inverse3d.trio.json",
+          "packages/examples/src/matrix-library/matrix2d.trio.json",
+          "packages/examples/src/matrix-library/matrix3d.trio.json",
+          "packages/examples/src/matrix-library/outerProduct2d.trio.json",
+          "packages/examples/src/matrix-library/outerProduct3d.trio.json",
+          "packages/examples/src/matrix-library/rotate.trio.json",
+          "packages/examples/src/matrix-library/rotate2d.trio.json",
+          "packages/examples/src/matrix-library/rotate3d.trio.json",
+          "packages/examples/src/matrix-library/rotate3dh.trio.json",
+          "packages/examples/src/matrix-library/scale2d.trio.json",
+          "packages/examples/src/matrix-library/scale3d.trio.json",
+          "packages/examples/src/matrix-library/shear2d.trio.json",
+          "packages/examples/src/matrix-library/shear3d.trio.json",
+          "packages/examples/src/matrix-library/skew2d.trio.json",
+          "packages/examples/src/matrix-library/translate2d.trio.json",
+          "packages/examples/src/matrix-library/translate3dh.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-matrix-addition.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-matrix-division-elementwise.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-matrix-multiplication-elementwise.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-matrix-multiplication.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-matrix-subtraction.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-transpose.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-vector-left-multiplication.trio.json",
+          "packages/examples/src/matrix-ops/tests/matrix-vector-right-multiplication.trio.json",
+          "packages/examples/src/matrix-ops/tests/scalar-vector-division.trio.json",
+          "packages/examples/src/matrix-ops/tests/scalar-vector-left-multiplication.trio.json",
+          "packages/examples/src/matrix-ops/tests/scalar-vector-right-multiplication.trio.json",
+          "packages/examples/src/matrix-ops/tests/vector-vector-addition.trio.json",
+          "packages/examples/src/matrix-ops/tests/vector-vector-division-elementwise.trio.json",
+          "packages/examples/src/matrix-ops/tests/vector-vector-multiplication-elementwise.trio.json",
+          "packages/examples/src/matrix-ops/tests/vector-vector-outerproduct.trio.json",
+          "packages/examples/src/matrix-ops/tests/vector-vector-subtraction.trio.json",
+          "packages/examples/src/minkowski-tests/maze/non-convex.trio.json",
+          "packages/examples/src/mobius/mobius.trio.json",
+          "packages/examples/src/molecules/glutamine.trio.json",
+          "packages/examples/src/molecules/nitricacid-lewis.trio.json",
+          "packages/examples/src/molecules/sulfuric-acid.trio.json",
+          "packages/examples/src/persistent-homology/persistent-homology.trio.json",
+          "packages/examples/src/random-sampling/test.trio.json",
+          "packages/examples/src/ray-tracing/bidirectional.trio.json",
+          "packages/examples/src/ray-tracing/next-event-estimation.trio.json",
+          "packages/examples/src/ray-tracing/path-trace.trio.json",
+          "packages/examples/src/ray-tracing/specular-path.trio.json",
+          "packages/examples/src/set-potatoes/injections-post-inverses.trio.json",
+          "packages/examples/src/set-potatoes/non-injection-not-monomorphism.trio.json",
+          "packages/examples/src/set-potatoes/non-surjection-not-epimorphism.trio.json",
+          "packages/examples/src/set-potatoes/relation-not-a-function.trio.json",
+          "packages/examples/src/set-potatoes/surjections-pre-inverses.trio.json",
+          "packages/examples/src/set-theory-domain/continuousmap.trio.json",
+          "packages/examples/src/set-theory-domain/tree-euler-3d.trio.json",
+          "packages/examples/src/set-theory-domain/tree-euler.trio.json",
+          "packages/examples/src/set-theory-domain/tree-tree.trio.json",
+          "packages/examples/src/shape-distance/lines-around-rect.trio.json",
+          "packages/examples/src/shape-distance/points-around-line.trio.json",
+          "packages/examples/src/shape-distance/points-around-polyline.trio.json",
+          "packages/examples/src/shape-distance/points-around-star.trio.json",
+          "packages/examples/src/shape-spec/all-shapes.trio.json",
+          "packages/examples/src/shape-spec/arrowheads.trio.json",
+          "packages/examples/src/spectral-graphs/examples/4x4-sudoku-graph.trio.json",
+          "packages/examples/src/spectral-graphs/examples/7d-cube.trio.json",
+          "packages/examples/src/spectral-graphs/examples/box.trio.json",
+          "packages/examples/src/spectral-graphs/examples/dodecahedral-graph.trio.json",
+          "packages/examples/src/spectral-graphs/examples/hexagonal-lattice.trio.json",
+          "packages/examples/src/spectral-graphs/examples/hypercube.trio.json",
+          "packages/examples/src/spectral-graphs/examples/mobius.trio.json",
+          "packages/examples/src/spectral-graphs/examples/periodic-hexagonal-lattice.trio.json",
+          "packages/examples/src/spectral-graphs/examples/star-graph.trio.json",
+          "packages/examples/src/spectral-graphs/examples/torus.trio.json",
+          "packages/examples/src/spectral-graphs/examples/truncated-cube-graph.trio.json",
+          "packages/examples/src/stochastic-process/epsilon-shell/AbsorbingBoundary.trio.json",
+          "packages/examples/src/stochastic-process/epsilon-shell/ReflectingBoundary.trio.json",
+          "packages/examples/src/stochastic-process/stochastic-process.trio.json",
+          "packages/examples/src/structural-formula/molecules/caffeine.trio.json",
+          "packages/examples/src/structural-formula/molecules/glucose.trio.json",
+          "packages/examples/src/structural-formula/reactions/methane-combustion.trio.json",
+          "packages/examples/src/timeline/penrose.trio.json",
+          "packages/examples/src/triangle-mesh-2d/concyclic.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/angle-equivalence.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/concyclic-pair.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/cotan-formula.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/halfedge-mesh.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/relative-orientation.trio.json",
+          "packages/examples/src/triangle-mesh-2d/diagrams/triangle-centers.trio.json",
+          "packages/examples/src/triangle-mesh-3d/two-triangles.trio.json",
+          "packages/examples/src/tsne/tsne.trio.json",
+          "packages/examples/src/tutorials/tutorial1.trio.json",
+          "packages/examples/src/tutorials/tutorial2.trio.json",
+          "packages/examples/src/tutorials/tutorial3.trio.json",
+          "packages/examples/src/walk-on-spheres/SignedAngleOutside.trio.json",
+          "packages/examples/src/walk-on-spheres/laplace-estimator.trio.json",
+          "packages/examples/src/walk-on-spheres/nested-estimator.trio.json",
+          "packages/examples/src/walk-on-spheres/offcenter-estimator.trio.json",
+          "packages/examples/src/walk-on-spheres/poisson-estimator.trio.json",
+          "packages/examples/src/walk-on-spheres/walk-on-stars.trio.json",
+          "packages/examples/src/word-cloud/example.trio.json"
+        ],
+        "domains": [
+          "Dynamics",
+          "alloy-models",
+          "animation",
+          "array-models",
+          "atoms-and-bonds",
+          "box-arrow-diagram",
+          "curve-examples",
+          "dataviz",
+          "dinoshade",
+          "envelopes",
+          "exterior-algebra",
+          "fake-3d-linear-algebra",
+          "fancy-text",
+          "fractals",
+          "geometric-queries",
+          "geometry-domain",
+          "graph-domain",
+          "group-theory",
+          "hypergraph",
+          "impossible-ngon",
+          "interactive",
+          "lagrange-bases",
+          "linear-algebra-domain",
+          "logic-circuit-domain",
+          "matrix-library",
+          "matrix-ops",
+          "minkowski-tests",
+          "mobius",
+          "molecules",
+          "persistent-homology",
+          "random-sampling",
+          "ray-tracing",
+          "set-potatoes",
+          "set-theory-domain",
+          "shape-distance",
+          "shape-spec",
+          "spectral-graphs",
+          "stochastic-process",
+          "structural-formula",
+          "timeline",
+          "triangle-mesh-2d",
+          "triangle-mesh-3d",
+          "tsne",
+          "tutorials",
+          "walk-on-spheres",
+          "word-cloud"
+        ],
+        "featured_gallery_ids": [
+          "Dynamics/Lyapunov",
+          "array-models/insertionSort",
+          "box-arrow-diagram/computer-architecture",
+          "curve-examples/blobs",
+          "curve-examples/catmull-rom/catmull-rom",
+          "dataviz/linearreg",
+          "dinoshade/dinoshade",
+          "envelopes/nephroid",
+          "exterior-algebra/vector-wedge",
+          "fancy-text/fancy-text",
+          "fractals/chaos-game/sierpinski-triangle",
+          "fractals/ifs/ifs",
+          "geometric-queries/closest-point/test-group",
+          "geometric-queries/ray-intersect/test-group",
+          "geometric-queries/test",
+          "geometry-domain/siggraph-teaser",
+          "geometry-domain/textbook_problems/c11p12",
+          "graph-domain/other-examples/arpanet",
+          "graph-domain/other-examples/hamiltonian-cycle",
+          "graph-domain/textbook/sec1/fig5",
+          "group-theory/quaternion-cayley-graph",
+          "group-theory/quaternion-multiplication-table",
+          "hypergraph/hypergraph",
+          "impossible-ngon/ngon",
+          "interactive/ellipse-rays",
+          "interactive/planets",
+          "interactive/viewport",
+          "lagrange-bases/lagrange-bases",
+          "logic-circuit-domain/half-adder",
+          "matrix-ops/tests/matrix-matrix-multiplication",
+          "mobius/mobius",
+          "persistent-homology/persistent-homology",
+          "random-sampling/test",
+          "ray-tracing/next-event-estimation",
+          "set-potatoes/non-surjection-not-epimorphism",
+          "set-theory-domain/continuousmap",
+          "set-theory-domain/tree-euler",
+          "set-theory-domain/tree-euler-3d",
+          "spectral-graphs/examples/dodecahedral-graph",
+          "spectral-graphs/examples/hexagonal-lattice",
+          "spectral-graphs/examples/hypercube",
+          "spectral-graphs/examples/mobius",
+          "stochastic-process/epsilon-shell/AbsorbingBoundary",
+          "stochastic-process/stochastic-process",
+          "structural-formula/molecules/caffeine",
+          "structural-formula/reactions/methane-combustion",
+          "triangle-mesh-2d/diagrams/concyclic-pair",
+          "triangle-mesh-2d/diagrams/cotan-formula",
+          "triangle-mesh-3d/two-triangles",
+          "walk-on-spheres/SignedAngleOutside",
+          "walk-on-spheres/laplace-estimator",
+          "walk-on-spheres/walk-on-stars",
+          "word-cloud/example"
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "e8b79e1fb10491490ec193fc52936254f04542ae64ec2d762d71b2252cbfdadf"
+        },
+        {
+          "path": "packages/docs-site/examples.md",
+          "sha256": "09512ee2ddf4ee05b775fb99a65a37786dfe840fd2258432b7f69a6721a71476"
+        },
+        {
+          "path": "packages/examples/src/registry.json",
+          "sha256": "a627ad6c2a7793fbe548a16ae2bf0332961b5bca0c3f73509c980a4c259f6600"
+        }
+      ]
+    },
+    "svgjs": {
+      "repository": "https://github.com/svgdotjs/svg.js",
+      "commit": "4b8809b1554c44a84f8992cdbda60480336cc040",
+      "source_base": "https://github.com/svgdotjs/svg.js/blob/4b8809b1554c44a84f8992cdbda60480336cc040/",
+      "tree_api": "https://api.github.com/repos/svgdotjs/svg.js/git/trees/4b8809b1554c44a84f8992cdbda60480336cc040?recursive=1",
+      "tree_response_sha256": "1d1b23358437d76ba57b5a76b7738b7d55de96f00a041cc033c7dfeaafdcd0c5",
+      "tree_truncated": false,
+      "package_version": "3.2.8",
+      "declared_license": "MIT",
+      "scope": "All element classes exported by src/main.js and src/elements/*.js files. SVG.js has no built-in statistical chart catalogue.",
+      "catalogs": {
+        "element_classes": [
+          "Circle",
+          "ClipPath",
+          "Container",
+          "Defs",
+          "Dom",
+          "Element",
+          "Ellipse",
+          "ForeignObject",
+          "Fragment",
+          "Gradient",
+          "G",
+          "A",
+          "Image",
+          "Line",
+          "Marker",
+          "Mask",
+          "Path",
+          "Pattern",
+          "Polygon",
+          "Polyline",
+          "Rect",
+          "Shape",
+          "Stop",
+          "Style",
+          "Svg",
+          "Symbol",
+          "Text",
+          "TextPath",
+          "Tspan",
+          "Use"
+        ],
+        "element_sources": [
+          "src/elements/A.js",
+          "src/elements/Circle.js",
+          "src/elements/ClipPath.js",
+          "src/elements/Container.js",
+          "src/elements/Defs.js",
+          "src/elements/Dom.js",
+          "src/elements/Element.js",
+          "src/elements/Ellipse.js",
+          "src/elements/ForeignObject.js",
+          "src/elements/Fragment.js",
+          "src/elements/G.js",
+          "src/elements/Gradient.js",
+          "src/elements/Image.js",
+          "src/elements/Line.js",
+          "src/elements/Marker.js",
+          "src/elements/Mask.js",
+          "src/elements/Path.js",
+          "src/elements/Pattern.js",
+          "src/elements/Polygon.js",
+          "src/elements/Polyline.js",
+          "src/elements/Rect.js",
+          "src/elements/Shape.js",
+          "src/elements/Stop.js",
+          "src/elements/Style.js",
+          "src/elements/Svg.js",
+          "src/elements/Symbol.js",
+          "src/elements/Text.js",
+          "src/elements/TextPath.js",
+          "src/elements/Tspan.js",
+          "src/elements/Use.js"
+        ]
+      },
+      "source_receipts": [
+        {
+          "path": "package.json",
+          "sha256": "2f96f3acda379ebed14f7f57b585bd67a57022d0134b91183c4881021d5245ae"
+        },
+        {
+          "path": "src/main.js",
+          "sha256": "d4a8c8fab196d4e918605552651c9674a2cd618fb2da25cf660a1a0c1cb97341"
+        }
+      ]
+    }
+  }
+}
