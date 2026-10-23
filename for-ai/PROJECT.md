@@ -165,9 +165,11 @@ The overview displays archived evidence and does not execute or refit models.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
 frame. Its core-data starting view uses a compact Audio–Tactile RT
 means payload, primary 40 cohort and equal-person summaries. The X-axis is fixed to the released SOA values (300, 800, 1500, 2200, 2700 ms).
-Condition (Control/Viscereality) and phase (Exhale/Inhale) use four native
-checkboxes, all initially checked, to select series in both the table and chart.
-Clearing either group gives an empty result. Segment 0 has no field dragging,
+Two native grouping checkboxes, Condition and Phase, start checked. Both checked
+shows four Condition × Phase curves; one checked shows two curves pooled over
+the other factor; neither checked shows one curve pooled over both. No cells
+are filtered out. Pool within each participant before across-person mean,
+sample SD and n; table/chart/CSV share the result. Segment 0 has no field dragging,
 axis reassignment or ungrouped trial-record mode.
 The full pivot subpage retains its broader source catalogue.
 Baseline correction uses the default-on Baseline − RT toggle described above;

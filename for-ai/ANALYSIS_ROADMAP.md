@@ -63,13 +63,18 @@ All 78 rendered SVG segments match each participant's actual condition and style
 - [x] Pass final rendered browser checks: four viewport sizes, 200% text/spacing,
   real Pretext measurements, all 11 sections, block navigation, figure loading and
   an actual CSV download identical to the source. Physical Safari remains untested.
-- [ ] Verify the exact live deployment.
+- [x] Verify the exact live deployment: source `dc7360e`, Actions run
+  `39877716247`, successful build and Pages deployment. The full overview browser
+  gate passes on the live URL, including Figure 3, block navigation/download and
+  all four viewport/text matrices. Download references were pinned to that Git
+  revision because concurrent Segment 2 work had regenerated local phase files.
 
-Source/results were originally committed in `a68de1a` and pushed through
-`6962f11`; the native analysis remains distinct from browser display. The current
-Segment 3 publication amendment is in progress on main. Historical manuscript
-unchanged. Next action: finish the rendered check and authorized publication,
-then resume the remaining question-led analyses and wider open acceptance gates.
+Source/results were originally committed in `a68de1a`; the Segment 3 amendment
+is committed, pushed and deployed from `dc7360e` on main. Native computation
+remains distinct from the verified browser display. Concurrent uncommitted
+Segment 2 phase-source/results work was preserved. Historical manuscript
+unchanged. This amendment is complete. Next action: resume the remaining
+question-led analyses and wider open scientific/publication acceptance gates.
 
 ### Completed amendment — Segment 1 basic PPS phenomenon check
 
@@ -170,13 +175,14 @@ reports. The executable workbook remains at `workbook.html`; models/data are unc
 The desktop menu remains fixed; phones use the collapsible bottom menu, with
 embedded dialogs reserving its visible height.
 
-Current extension (2026-10-23): Segment 0 fixes SOA on X and replaces field
-drag/drop with Control/Viscereality and Exhale/Inhale checkboxes. Default-off
-Normalize RT offers min–max 0–1 and z-scores. Each participant's reference uses
-all retained AT trials across both conditions/phases and all SOAs before cell
-and group averaging or visibility selection. Baseline correction stays default-on.
-See the active amendment below; earlier field-placement evidence is historical.
-The standalone pivot retains its broader controls.
+Current extension (2026-10-23): Segment 0 fixes SOA on X and uses one grouping
+checkbox each for Condition and Phase. Both checked shows four curves; one
+checked shows two curves pooled over the other factor; neither shows one pooled
+curve. Every state preserves all source cells, pooling within participant before
+across-person summaries. Default-off Normalize RT retains trial-based min–max
+and z-score methods; grouping never changes the normalization references.
+See the active grouping amendment below. Earlier level-filter controls are
+superseded; the standalone pivot retains its broader controls.
 
 Publication: source `c4a4564` pushed to `main` passed Actions run 39808535590,
 including the full reference analyses, independent numerical validation and Pages
@@ -273,6 +279,30 @@ SVG is 331.2×561.6 pt. Source is on main; publication pending. Next action: pub
 and verify the exact live figure, then resume the wider living-publication goal.
 
 ## Visualization — fast pivot table and linked chart
+
+### Active amendment — Condition/Phase grouping checkboxes
+
+Owner clarification (2026-10-23): use one checkbox per factor to pool data when
+unchecked, replacing separate level-selection checkboxes. SOA stays fixed.
+Normalization and baseline controls retain their existing definitions.
+
+- [x] Replace four level filters with two factor grouping controls.
+- [x] Verify four/two/two/one curves, participant pooling/SD/n, normalization,
+  table/CSV identity, keyboard/touch and responsive rendering.
+- [ ] Commit/push and verify the exact live deployment.
+
+State: work is isolated on codex/segment0-pooling, based on main at ccf5750.
+The red browser check observed the original four controls instead of two.
+The generic system Python lacked statsmodels; a task-local environment now uses
+the pinned validation requirements. Production build, 67 workbook tests and
+270 independent JavaScript/pandas cases pass. Both production-browser scripts
+pass: every grouping state retains 800 cells/n=40, recomputes participant SD,
+preserves normalized pooling, exports CSV and supports keyboard/touch, actual
+Pretext, four/six viewports, 200% text and spacing. The phone UI was inspected;
+physical iPhone/Safari remains untested.
+Unrelated primary-checkout Segment 2 edits remain untouched.
+Next action: commit/integrate/publish, then verify the exact live deployment.
+The broader scientific publication goal stays open.
 
 ### Active amendment — fixed SOA, series selection and participant normalization
 
