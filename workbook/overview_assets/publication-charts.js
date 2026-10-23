@@ -17,10 +17,11 @@ function measureText(svg){
   }
 }
 const numeric=(rows,key)=>rows.map(r=>Number(r[key]));
+const requestedHeight=host=>Math.max(0,(parseFloat(host.closest('.plot-panel')?.style.height)||0)-12);
 const domain=values=>{const low=Math.min(0,...values),high=Math.max(0,...values),pad=(high-low||1)*.08;return [low<0?low-pad:0,high+pad];};
 function chart(host,{xs,ys,height=420,left=76,rain=false,xlabel='SOA (ms)',ylabel='AT − Baseline RT (ms)',xticks}){
   host.replaceChildren();const width=Math.max(240,host.clientWidth),f=parseFloat(getComputedStyle(host).fontSize);
-  if(!rain){left=Math.max(left,f*4.5);height=Math.max(height,f*21);}
+  if(!rain){left=Math.max(left,f*4.5);height=Math.max(height,f*21,requestedHeight(host));}
   const svg=el('svg',{viewBox:`0 0 ${width} ${height}`,width,height,role:'group','aria-label':host.getAttribute('aria-label')});host.append(svg);
   const margin={left,right:Math.max(16,f*1.6),top:Math.max(20,f*1.8),bottom:Math.max(56,f*3)};
   const x=v=>left+(v-xs[0])/(xs[1]-xs[0])*(width-left-margin.right);
@@ -52,7 +53,7 @@ function chart(host,{xs,ys,height=420,left=76,rain=false,xlabel='SOA (ms)',ylabe
 function raincloud(host,data){
   const groups=data.phase.trial_groups,records=data.phaseDeltas;
   const font=parseFloat(getComputedStyle(host).fontSize),stack=host.clientWidth<font*14;
-  const step=stack?font*5.8:Math.max(83,font*4.5),left=stack?28:Math.max(112,font*6.6);
+  const step=Math.max(stack?font*5.8:Math.max(83,font*4.5),(requestedHeight(host)-(stack?160:100))/6),left=stack?28:Math.max(112,font*6.6);
   const c=chart(host,{xs:domain(numeric(records,'delta_inhale_minus_exhale_ms')),ys:[0,1],rain:true,
     height:step*6+(stack?160:100),left,xlabel:'Δ RT (ms)'});
   if(stack)c.svg.querySelector('[data-zero-baseline]').remove();
@@ -116,11 +117,14 @@ if(typeof document!=='undefined'){
   const response=await fetch('publication-data.json');if(!response.ok)throw new Error('Chart data unavailable');const data=await response.json();
   for(const host of document.querySelectorAll('[data-plot]')){
     let scheduled=false,geometry='';const render=()=>{
-      const next=`${host.clientWidth}:${getComputedStyle(host).fontSize}`;
+      const panel=host.closest('.plot-panel'),font=parseFloat(getComputedStyle(host).fontSize);
+      const next=`${host.clientWidth}:${font}:${panel?.style.height}`;
       scheduled=false;if(next===geometry)return;geometry=next;
+      if(panel){const minimum=host.dataset.plot==='phase'?(host.clientWidth<font*14?font*5.8*6+160:Math.max(83,font*4.5)*6+100):Math.max(420,font*21);panel.style.minHeight=`${minimum+12}px`;}
       hidePoint();const c=renderers[host.dataset.plot](host,data);enablePointInspection(c.svg);measureText(c.svg);host.closest('figure').dataset.interactive='ready';
     };
-    new ResizeObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(render);}}).observe(host);
+    const observer=new ResizeObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(render);}});observer.observe(host);if(host.closest('.plot-panel'))observer.observe(host.closest('.plot-panel'));
+    document.addEventListener('panel-resize',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(render);}});
     render();
   }
 }

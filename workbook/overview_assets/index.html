@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Study 5 · Data and questions</title><link rel="stylesheet" href="overview.css"></head>
+<title>Respiratory Modulation of Peripersonal Space Representation</title><link rel="stylesheet" href="overview.css"></head>
 <body>
 <a class="skip" href="#overview">Skip to data and questions</a>
-<header><nav aria-label="Study 5 tools"><a data-measure href="workbook.html">Run analyses</a><a data-measure href="pivot/">Full pivot</a><a data-measure href="results/">Results</a></nav></header>
+<header><nav aria-label="Publication tools"><a data-measure href="workbook.html">Run analyses</a><a data-measure href="pivot/">Full pivot</a><a data-measure href="results/">Results</a></nav></header>
 <div class="reading-layout">
 <aside class="contents" aria-label="Section navigation"><details open><summary data-measure>Jump to a section</summary><nav aria-label="Scientific questions"><ol start="0"><li><a href="#data">Data explorer</a></li><li><a href="#baseline">Basic SOA effect</a></li><li><a href="#phase">Inhale vs exhale RT</a></li><li><a href="#blocks">RT across blocks</a></li><li><a href="#shape">Response shape</a></li><li><a href="#parameters">Reliability</a></li><li><a href="#effects">Experimental effects</a></li><li><a href="#sensitivity">Sensitivity</a></li><li><a href="#averages">Average responses</a></li><li><a href="#questionnaires">Self-report</a></li><li><a href="#reproducibility">Reproducibility</a></li></ol></nav></details></aside>
-<main id="overview">
-<p id="point-help">Click or tap a point for exact values. Keyboard: Tab to a plot, use arrows, then Enter; Esc closes.</p><h1>Study 5</h1>
+<main id="overview"><h1 data-measure>Respiratory Modulation of Peripersonal Space Representation</h1>
+<p id="point-help">Click or tap a point for exact values. Keyboard: Tab to a plot, use arrows, then Enter; Esc closes.</p>
 <section id="data" aria-labelledby="data-title"><h2 id="data-title">0. Data explorer</h2>
 <iframe id="core-pivot" src="pivot/?view=core" title="Descriptive means with SD: interactive pivot chart and table"></iframe>
 </section>
 <section id="baseline" data-primary-measure="corrected_rt_ms" aria-labelledby="baseline-title"><h2 id="baseline-title">1. Does reaction time differ across SOAs?</h2>
 <figure id="soa-figure"><figcaption><strong>Figure 1</strong><br><em>Baseline-corrected reaction times across stimulus onset asynchronies</em></figcaption>
-<div class="publication-plot" data-plot="soa" role="group" aria-label="Baseline-corrected RT across five SOAs: 40 participant profiles and mean confidence intervals"><span>Loading chart…</span></div>
+<div class="publication-plot" data-live-chart data-plot="soa" role="group" aria-label="Baseline-corrected RT across five SOAs: 40 participant profiles and mean confidence intervals"><span>Loading chart…</span></div>
 <div id="soa-statistics"><!-- SOA_APA --></div>
 <div class="figure-note"><em>Note.</em> Exploratory within-person SOA test; N = 40. Grey: participant means; black: mean and pointwise 95% t CI. AT − matched Baseline RT, averaged equally across condition and phase. Negative values mean faster AT responses than baseline; zero is marked. Greenhouse–Geisser correction. An SOA effect alone does not establish a spatial PPS mechanism or boundary. Native calculation; saved results shown here.</div>
 </figure>
@@ -22,11 +22,11 @@
 <section id="phase" data-primary-measure="corrected_rt_ms" aria-labelledby="phase-title"><h2 id="phase-title">2. How do RTs differ between inhale and exhale?</h2>
 <p id="phase-answer">Baseline-corrected RTs averaged −17.57 ms during exhale and −19.73 ms during inhale. Inhale − Exhale was −2.16 ms (95% CI −12.15 to 7.82 ms; p = .664): the <strong>corrected phase effect was inconclusive</strong>. Raw RT is an audit reference: exhale 662.19 ms, inhale 680.66 ms, or 18.47 ms slower during inhale (95% CI 6.96 to 29.98 ms; paired p = .0024).</p>
 <figure id="phase-figure"><figcaption><strong>Figure 2</strong><br><em>Raw RT phase differences across trial types</em></figcaption>
-<div class="publication-plot" data-plot="phase" role="group" aria-label="Inhale minus Exhale RT: six trial groups, 40 participant deltas each, descriptive densities and pointwise mean confidence intervals"><span>Loading chart…</span></div>
+<div class="publication-plot" data-live-chart data-plot="phase" role="group" aria-label="Inhale minus Exhale RT: six trial groups, 40 participant deltas each, descriptive densities and pointwise mean confidence intervals"><span>Loading chart…</span></div>
 <div class="figure-note"><em>Note.</em> Raw RT differences, Inhale − Exhale, within each participant. Right of zero means slower during inhale. Rainclouds show descriptive Gaussian density (bandwidth 1.06 × sample SD × n^(−1/5), trimmed to observed range), median/quartile boxes with 1.5-IQR whiskers, all participant dots, and hollow means with pointwise 95% t CIs below the dots. Vertical offsets only separate marks. Colors and row labels identify trial groups. These six intervals do not establish an SOA interaction. Baseline pools retained trials within condition/phase. Phase labels are scheduled/instructed; belt recordings are unavailable to verify actual breathing. Native results displayed here. Click/tap a point or focus the graph and use arrow keys, then Enter, for exact values.</div></figure>
-<details class="phase-reference"><summary>Baseline-corrected overall comparison</summary><figure id="phase-corrected-figure"><figcaption><strong>Corrected overall reference</strong><br><em>Baseline-corrected reaction times and paired phase differences</em></figcaption>
-<div class="publication-plot" data-plot="phaseCorrected" role="group" aria-label="Baseline-corrected participant RT pairs: Exhale and Inhale"><span>Loading chart…</span></div>
-<div class="figure-note"><em>Note.</em> Higher RT means slower responses. Panel A shows baseline-corrected participant pairs and marginal mean 95% t CIs. Negative means faster than matched baseline; zero is marked. Panel B shows paired phase differences and their mean 95% t CIs: above zero means slower during inhale. Baseline RT also increases during inhale. Segment 0’s default Baseline − RT benefit score reverses the correction sign. Phase labels are scheduled/instructed; belt recordings are unavailable to verify actual breathing. Native results displayed here.</div></figure>
+<details class="phase-reference"><summary>Baseline-corrected overall comparison</summary><figure id="phase-corrected-figure"><figcaption><strong>Corrected overall reference</strong><br><em>Baseline-corrected reaction times by phase</em></figcaption>
+<div class="publication-plot" data-live-chart data-plot="phaseCorrected" role="group" aria-label="Baseline-corrected participant RT pairs: Exhale and Inhale"><span>Loading chart…</span></div>
+<div class="figure-note"><em>Note.</em> Higher RT means slower responses. Lines connect baseline-corrected participant pairs; black marks show marginal means and 95% t CIs. Negative means faster than matched baseline; zero is marked. The narrative reports the paired phase contrast; the downloadable two-panel reference also displays its participant differences and mean 95% t CI. Baseline RT also increases during inhale. Segment 0’s default Baseline − RT benefit score reverses the correction sign. Phase labels are scheduled/instructed; belt recordings are unavailable to verify actual breathing. Native results displayed here.</div></figure>
 </details>
 <p>Exploratory paired analysis of 40 participants, excluding P011/P033; equal weight across conditions and SOAs, then across participants. Two-sided p values are unadjusted. These are RT differences, not PPS boundary effects.</p>
 <a data-measure href="results/phase_rt/RESULTS.md">Phase-label audit and figure evidence (saved native results)</a>
@@ -35,11 +35,11 @@
 <a data-measure href="results/phase_rt/phase_rt.pdf">Corrected overall comparison (PDF)</a>
 <a data-measure href="results/phase_rt/phase_raw_groups.pdf">Main raincloud figure (PDF)</a>
 <a data-measure href="literature_review/RESPIRATION_RT.html">Published research: breathing, RT and synchrony detection</a>
-<a data-measure href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/baseline_effects/response_tests.csv">Complete contrasts and sensitivities (CSV)</a></section>
+<a data-measure href="https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/results/baseline_effects/response_tests.csv">Complete contrasts and sensitivities (CSV)</a></section>
 <section id="blocks" data-primary-measure="corrected_rt_ms" aria-labelledby="blocks-title"><h2 id="blocks-title">3. Did baseline-corrected RTs decline across blocks?</h2>
 <p id="blocks-answer">There was <strong>no clear systematic RT decline</strong> across the 12 chronological blocks spanning both consecutive conditions. For AT − matched Baseline RT, the average participant slope was −0.12 ms per block (95% CI −1.32 to 1.08; t(38) = −0.20, p = .840).</p>
 <figure id="blocks-figure"><figcaption><strong>Figure 3</strong><br><em>Baseline-corrected reaction times across consecutive conditions and chronological blocks</em></figcaption>
-<div class="publication-plot" data-plot="blocks" role="group" aria-label="Baseline-corrected RT across 12 blocks: 39 participants, Control blue and solid, Viscereality red and dashed"><span>Loading chart…</span></div>
+<div class="publication-plot" data-live-chart data-plot="blocks" role="group" aria-label="Baseline-corrected RT across 12 blocks: 39 participants, Control blue and solid, Viscereality red and dashed"><span>Loading chart…</span></div>
 <div class="figure-note"><em>Note.</em> Blue solid segments: Control; red dashed segments: Viscereality. Each line follows one participant within a condition, with segments stopping at the switch after block 6. Black points average AT − matched Baseline RT equally across participants after correction within participant × condition × phase and averaging within each participant and block; error bars are pointwise marginal 95% t CIs. The graph and paired analysis use 39 participants with usable RTs in all 12 blocks; P008 has no usable RTs in block 7. Available-block descriptives retain all 40 primary participants, excluding P011/P033 for unresolved recording linkage. No smoothing or normalization. Negative values and an explicit zero reference are retained; raw RT remains a labelled reference in the downloads. These exploratory results do not establish the absence of practice or fatigue. Native calculation; saved results shown here.</div></figure>
 <a data-measure href="results/block_rt/RESULTS.md">Block RT analysis and evidence (saved native results)</a>
 <a id="blocks-data-export" data-measure href="results/block_rt/summary.csv" download>Complete-block means (CSV)</a>
@@ -49,7 +49,7 @@
 <section id="shape" aria-labelledby="shape-title"><h2 id="shape-title">4. Do the RT observations support a sigmoid response?</h2><a href="results/">Analysis and evidence</a></section>
 <section id="parameters" aria-labelledby="parameters-title"><h2 id="parameters-title">5. Can midpoint and sharpness be estimated reliably?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
 <section id="effects" aria-labelledby="effects-title"><h2 id="effects-title">6. Do condition, breathing phase or their interaction change PPS?</h2><a href="results/">Analysis and evidence</a></section>
-<section id="sensitivity" aria-labelledby="sensitivity-title"><h2 id="sensitivity-title">7. Are the results robust to analysis assumptions?</h2><a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/results/trial_cleaning/RESULTS.md">Analysis and evidence</a></section>
+<section id="sensitivity" aria-labelledby="sensitivity-title"><h2 id="sensitivity-title">7. Are the results robust to analysis assumptions?</h2><a href="https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/results/trial_cleaning/RESULTS.md">Analysis and evidence</a></section>
 <section id="averages" aria-labelledby="averages-title"><h2 id="averages-title">8. How do the four average response curves differ?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
 <section id="questionnaires" aria-labelledby="questionnaires-title"><h2 id="questionnaires-title">9. Are PPS estimates associated with MAIA-2 or spatial ratings?</h2><a href="literature_review/QUESTIONNAIRES.html">Analysis and evidence</a></section>
 <section id="reproducibility" aria-labelledby="reproducibility-title"><h2 id="reproducibility-title">10. Can the reported results be reproduced?</h2><a href="workbook.html">Analysis and evidence</a></section>

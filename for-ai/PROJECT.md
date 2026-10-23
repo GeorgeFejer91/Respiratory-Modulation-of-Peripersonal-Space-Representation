@@ -1,5 +1,12 @@
 # Project contract
 
+The project/publication name is **Respiratory Modulation of Peripersonal Space
+Representation**. Its canonical GitHub repository is
+`GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation`.
+Retain Study 5 identifiers in historical artifacts, data contracts and existing
+local checkout/worktree paths. Rename current project branding and maintained
+links without rewriting frozen provenance records.
+
 ## Active scope: browser analysis and a living publication on GitHub Pages
 
 The owner now makes GitHub Pages the primary analysis workspace and the primary
@@ -9,6 +16,14 @@ questions, methods, results, figures, interpretation, references and downloadabl
 evidence must trace to the same declared data/code/result version. The ordered
 [analysis roadmap](ANALYSIS_ROADMAP.md) remains the single active checklist.
 Publication-ready is an acceptance goal, not a status conferred by hosting.
+
+Live-page plot rule (owner, 2026-10-23): render plots as native web charts from
+their underlying data, using HTML/inline SVG or JavaScript-driven canvas. Do not
+embed pre-rendered plot images as the live chart, including SVG files in image
+elements. Reuse the existing chart owner where practical. Keep static figure
+downloads and publication exports available separately. Apply this to new and
+revised live plots; existing image-based plots still require migration before
+the live page fully meets this rule.
 
 General figure rule: quantitative data plots use an actual zero reference. When
 all plotted values and uncertainty are nonnegative, the y-axis lower bound is
@@ -162,8 +177,8 @@ comparison: mixed directions, task/alignment limits and access-qualified sources
 directional agreement alone does not establish replication. It separates external
 multisensory synchrony judgments from speeded target RTs; the latter cannot verify
 subjective simultaneity or temporal binding-window changes.
-The section menu stays fixed beside desktop content and collapses at the phone's
-bottom edge; embedded dialogs reserve space for this navigation.
+The section menu stays beside desktop content and collapses above phone content.
+It uses page flow when expanded beyond the viewport, without a nested scroller.
 Segment 3 shows the baseline-corrected chronological-block RT graph from `results/block_rt/`, the
 inconclusive linear trend, 39-person complete-block inference and downloadable
 all-available primary40 descriptives. Both conditions span one continuous 12-block
@@ -249,8 +264,16 @@ The sibling `/exploratory/` subpage uses the shared pivot controls, an HTML/SVG
 heatmap and exact-value point inspector, source inspection and downloads. It
 shares the preparation/worker and saved-result catalogue without fitting models.
 The original marimo pivot remains available under `/pivot/app/`. Any Excel-like
-or data table shown on a live page must render its complete result in one table,
-with internal scrolling and user controls for table height and width. Do not split
+or data table shown on a live page must render its complete result in one table.
+Owner amendment (2026-10-23): tables and plot surfaces use directly draggable
+borders with keyboard/touch access, replacing height/width sliders. Tables grow
+in page flow; dragging shorter stops at readable content rather than clipping
+or adding an internal scrollbar. Resizing a chart redraws it at its new size.
+The overview uses available screen width with responsive graph/table space
+sharing and one document scroll surface. Legacy figures retain their aspect
+ratio inside resizable layout surfaces while their separate native-chart
+migration remains open; this layout change does not rerun statistical analyses.
+Do not split
 table rows or columns across Next/Previous buttons. The shared read-only pivot
 table supports rectangular mouse, keyboard and touch selection and
 full-precision TSV clipboard export to Excel;
@@ -261,8 +284,8 @@ Pretext 1.0.0 measures bounded labels after the first table. Preserve user text
 enlargement; very short enlarged layouts may use deliberate outer document flow.
 Browser-size emulation does not establish actual iPhone/Safari verification.
 
-Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
-[editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
+Keep the [application](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/) and
+[editable workbook](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/editor/)
 runnable in the browser. Preserve the established full analysis and its exact
 version-1.9 reference. New analyses need an explicit specification, separate run
 state and independently hashed download before they can support the living paper.

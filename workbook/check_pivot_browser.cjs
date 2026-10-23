@@ -64,12 +64,12 @@ async function check() {
     assert.equal(fullTable.rows, expectedTable.rows.length, 'The table must render every result row at once');
     assert.equal(fullTable.columns, expectedTable.columns.length - expectedTable.axisCount + 1, 'The table must render every result column at once');
     assert.equal(await page.locator('[id$="-next"], [id$="-prev"]').count(), 0, 'The live pivot must not paginate data or controls');
-    await page.locator('#table-height').evaluate(element => { element.value = '600'; element.dispatchEvent(new Event('input', { bubbles: true })); });
-    await page.locator('#table-width').evaluate(element => { element.value = '200'; element.dispatchEvent(new Event('input', { bubbles: true })); });
-    assert.equal(await page.locator('#table-region').evaluate(element => element.getBoundingClientRect().height), 600);
-    assert.equal(await page.locator('#table-height-value').textContent(), '600 px');
-    assert.equal(await page.locator('#table-width-value').textContent(), '200%');
-    assert.equal(await page.locator('#pivot-table').evaluate(element => element.scrollWidth > document.querySelector('#table-region').clientWidth), true);
+    assert.equal(await page.locator('#table-height,#table-width').count(), 0);
+    const naturalHeight = await page.locator('#table-region').evaluate(element => element.clientHeight);
+    await page.locator('#table-region [data-resize-edge="bottom"]').focus();
+    await page.keyboard.press('ArrowDown');
+    await page.waitForFunction(previous => document.querySelector('#table-region').clientHeight > previous, naturalHeight);
+    assert(await page.locator('#table-region').evaluate(element => element.scrollHeight <= element.clientHeight + 1));
     assert.equal(await page.locator('[data-chart-point]').count(), 20, 'Table sizing must not change the chart');
     await page.locator('[data-chart-point]').first().focus();
     await page.keyboard.press('ArrowRight');

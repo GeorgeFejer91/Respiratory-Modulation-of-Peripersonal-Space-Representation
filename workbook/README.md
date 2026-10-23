@@ -62,7 +62,7 @@ width does not encode sample size, and n < 3 or constant groups have no violin.
 Summary table/CSV values do not change when switching figure layers. For other
 aggregations, the existing Chart style selector remains available.
 
-The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
+The [pivot explorer](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/pivot/)
 is a lightweight JavaScript subpage with a pivot table and linked chart. The
 initial chart uses SOA (ms) on x and Condition × Phase as series, showing mean
 corrected RT (ms). Both views use the same worker result: field assignments,
@@ -74,10 +74,17 @@ participant/questionnaire records or a saved analysis table, then assign Rows,
 Columns, Values and a summary function; **Done** closes settings. Numeric
 summaries offer numeric Values fields; counts also allow text. **Export CSV**
 downloads every pivot row and column. The table shows the complete result at
-once, scrolls within its own viewport, and has height and width controls. No
+once and grows with its contents in page flow. Drag the table/plot borders to
+resize; focused borders also support arrow keys (Shift for larger steps), Home
+or double-click to reset. The shared border between desktop chart and table
+adjusts their widths; the bottom borders adjust table/plot height. Tables stop
+shrinking at readable content height, preserving every row without an inner
+scrollbar. The overview uses the available screen width. No
 Next/Previous buttons page table data, field choices or settings groups. Settings
 stretch with the available space and keep all ordered groups visible.
-CSV downloads retain full precision; displayed summaries use six significant digits.
+Copying and CSV downloads retain full precision. Displayed summaries use six
+significant digits in roomy cells and three in narrow cells, without changing
+the underlying values or selected range.
 The read-only table supports rectangular cell selection: drag, Shift-click, or
 use arrows with Shift to extend a range, then Ctrl+C/⌘C or **Copy selection**.
 On touch screens, tap the first cell, enable **Extend selection**, and tap the
@@ -97,7 +104,7 @@ connect descriptive summaries and supply no fitted model or inferential interval
 Mixed measurement units in generic saved summaries require a parameter/quantity/
 units filter before plotting. Dense charts show an explicit filter request above
 4,000 cells, 48 series or 100 x values; the full table and export remain available.
-On narrow screens, chart and the internally scrollable table use ordinary document
+On narrow screens, chart and the content-fit table use ordinary document
 scrolling.
 
 The default is the 40-person behavioural cohort; select Full release for all 42
@@ -114,10 +121,10 @@ with `python workbook/check_pivot_javascript.py` (Node 22 or later). With
 Playwright/Chromium available to Node, `node workbook/check_pivot_browser.cjs
 http://127.0.0.1:8765/pivot/` checks an HTTP-served build, including real selections,
 CSV downloads, missing/empty/error states, source races and rendered text geometry.
-The [marimo pivot notebook](https://georgefejer91.github.io/Study5_Publication/pivot/app/)
+The [marimo pivot notebook](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/pivot/app/)
 remains available; run it locally with `marimo run workbook/pivot_explorer.py`.
 
-The [Exploratory figures](https://georgefejer91.github.io/Study5_Publication/exploratory/)
+The [Exploratory figures](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/exploratory/)
 subpage keeps the expanded explorer, heatmap, source inspection and separate
 CSV/settings downloads. Its source is `exploratory_figures.py`; both pages share
 the same authoritative preparation and saved-result snapshot catalogue.
@@ -151,7 +158,7 @@ Python helpers here; marimo turns those cells into a reactive workbook. Changes
 pushed to `main` trigger the Pages workflow. No marimo account, API token or
 Python server is needed for this browser deployment.
 
-The application is at `/Study5_Publication/`; `/Study5_Publication/editor/` exposes
+The application is at `/Respiratory-Modulation-of-Peripersonal-Space-Representation/`; `/Respiratory-Modulation-of-Peripersonal-Space-Representation/editor/` exposes
 the editable Python cells. Browser edits can be downloaded but do not automatically
 commit to GitHub. Commit reviewed edits to the repository to update the shared site.
 In the editor, use the run button to start the cells.
@@ -313,7 +320,7 @@ from `python workbook/build_site.py`, using a normal commit and push without for
 Do not merge generated site files into `main`.
 
 After successful deployment, verify both the application and editor at
-`https://georgefejer91.github.io/Study5_Publication/`. A pushed commit or a prepared
+`https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/`. A pushed commit or a prepared
 publishing branch is not proof that the website is live.
 
 The [questionnaire review](../literature_review/QUESTIONNAIRES.md) covers all

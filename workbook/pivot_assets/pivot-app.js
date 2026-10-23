@@ -1,10 +1,11 @@
+import { resizePanel } from './panel-resize.js';
 import { aggregations, csvText } from './pivot-engine.mjs';
 import { openChoices, renderChoices, showDetail } from './pivot-choices.js';
 import { clearChart, renderChart, fieldLabel, measureLabel } from './pivot-chart.mjs';
 import { resetSelection } from './pivot-selection.js';
 
 const byId = id => document.getElementById(id);
-const numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: 6 });
+let digits = 6, numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: digits });
 const exploratoryView = document.body.dataset.view === 'exploratory';
 if(exploratoryView) byId('chart-style').value='heatmap';
 const coreView = new URLSearchParams(location.search).get('view') === 'core';
@@ -191,7 +192,13 @@ function sizeTable() {
   const font = parseFloat(getComputedStyle(table).fontSize);
   const width = region.clientWidth;
   document.body.dataset.compact = String(width / font < 18);
+  const columns = result ? result.rawRecords ? result.columns.length : result.columns.length - result.axisCount + 1 : 1;
+  const next = width / columns < font * 5 ? 3 : 6;
+  if (next === digits) return false;
+  digits = next; numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: digits });
+  return true;
 }
+const displayCell = (value, stats) => stats && settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value);
 export function renderTable() {
   if (!result) return;
   sizeTable();
@@ -228,7 +235,7 @@ export function renderTable() {
     tr.append(tableCell('td', rowLabel, rowLabel, row.slice(0, result.axisCount).map(value => value ?? '').join(' / ')));
     row.slice(result.axisCount).forEach((value, columnIndex) => {
       const stats = result.stats?.[rowIndex]?.[columnIndex];
-      tr.append(stats ? tableCell('td', settings.sdWhiskers ? `${cellText(value)} ± ${cellText(stats.sd)}` : cellText(value), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`,
+      tr.append(stats ? tableCell('td', displayCell(value, stats), `Mean: ${value ?? 'missing'}; sample SD: ${stats.sd ?? 'undefined (n < 2)'}; n: ${stats.n}`,
         settings.sdWhiskers && value !== null ? `${value} ± ${stats.sd ?? '—'}` : value) :
         tableCell('td', cellText(value), value ?? 'Missing value', value));
     });
@@ -241,7 +248,7 @@ export function renderTable() {
 function drawChart(force = true) {
   if (result?.rawRecords) { clearChart('Add grouping fields to create a summary chart.'); return; }
   const plot = byId('chart-plot');
-  const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
+  const geometry = `${plot.clientWidth}:${plot.clientHeight}:${getComputedStyle(plot).fontSize}`;
   if (result && (force || chartGeometry !== geometry)) {
     chartGeometry = geometry;
     byId('chart-layers').hidden = !result.participantSummary || byId('chart-style').value==='heatmap';
@@ -273,14 +280,6 @@ byId('chart-data-export').onclick = () => {
 };
 byId('chart-measure').onchange = () => drawChart();
 byId('chart-style').onchange = () => drawChart();
-byId('table-height').oninput = event => {
-  byId('table-region').style.height = `${event.target.value}px`;
-  byId('table-height-value').value = `${event.target.value} px`;
-};
-byId('table-width').oninput = event => {
-  byId('pivot-table').style.setProperty('--table-width', `${event.target.value}%`);
-  byId('table-width-value').value = `${event.target.value}%`;
-};
 
 for (const name of aggregations) byId('aggregation').add(new Option({ 'Standard deviation': 'Sample SD', 'Count nonmissing': 'Count present', 'Unique values': 'Distinct' }[name] || name, name));
 for (const axis of ['rows', 'columns', 'values']) byId(`choose-${axis}`).onclick = () => {
@@ -397,14 +396,6 @@ byId('pages-open').onclick = () => byId('page-links').showModal();
 byId('about-data').onclick = () => showDetail((coreView ? 'Baseline correction on: participant × Condition × Phase baseline mean − retained Audio–Tactile RT. Positive values indicate faster responses than baseline; negative values remain visible. Off: uncorrected RT. ' : '') + 'Totals are recomputed from the underlying source records. The original corrected_rt_ms field remains retained Audio–Tactile RT − participant × Condition × Phase baseline mean. Repeated distance cells are not extra participants. P011 and P033 have linked recordings and are excluded from the primary behavioural cohort. Saved parameter summaries remain descriptive; averaging posterior medians does not fit a new model.');
 byId('filter-help').onclick = () => showDetail('Add a field, then choose the values to include. Empty selections include all values, including missing entries. Disabling Activate filters ignores every selection and preserves them for later. Clear filters removes all field selections.');
 byId('chooser').addEventListener('close', () => { byId('source').value = source; });
-byId('table-height').oninput = event => {
-  byId('table-region').style.height = `${event.target.value}px`;
-  byId('table-height-value').value = `${event.target.value} px`;
-};
-byId('table-width').oninput = event => {
-  byId('pivot-table').style.setProperty('--table-width', `${event.target.value}%`);
-  byId('table-width-value').value = `${event.target.value}%`;
-};
 byId('export').onclick = () => {
   if (!result) return;
   const url = URL.createObjectURL(new Blob([csvText(result)], { type: 'text/csv;charset=utf-8' }));
@@ -416,6 +407,34 @@ let resizeScheduled = false;
 new ResizeObserver(() => {
   if (resizeScheduled) return;
   resizeScheduled = true;
-  requestAnimationFrame(() => { resizeScheduled = false; sizeTable(); renderChoices(); drawChart(false); });
+  requestAnimationFrame(() => { resizeScheduled = false; reformatTable(); renderChoices(); drawChart(false); });
 }).observe(document.body);
+new ResizeObserver(() => drawChart(false)).observe(byId('chart-plot'));
+function reformatTable() {
+  if (!result || !sizeTable()) return;
+  // Reformat existing cells without replacing selection nodes or full-precision copy values.
+  [...byId('pivot-table').tBodies[0].rows].forEach((row, index) => {
+    const values = result.rawRecords ? result.rows[index] : result.rows[index].slice(result.axisCount);
+    values.forEach((value, column) => {
+      row.cells[column + (result.rawRecords ? 0 : 1)].textContent = displayCell(value, result.stats?.[index]?.[column]);
+    });
+  });
+}
+new ResizeObserver(reformatTable).observe(byId('table-region'));
+const sheet = document.querySelector('.table-sheet'), views = document.querySelector('.linked-views');
+const splitLayout = matchMedia('(min-width:1100px)');
+const sideBySide = () => splitLayout.matches;
+splitLayout.addEventListener('change', () => {
+  sheet.style.width = ''; byId('chart-region').style.width = '';
+});
+resizePanel(byId('table-region'), { label:'Table', width:sheet, height:byId('pivot-table'), table:true, west:true,
+  setWidth: value => {
+    if (sideBySide()) views.style.setProperty('--table-share', `${Math.min(70,Math.max(20,value/views.clientWidth*100))}%`);
+    else sheet.style.width = `${value/views.clientWidth*100}%`;
+  } });
+resizePanel(byId('chart-region'), { label:'Plot', height:byId('chart-plot'),
+  setWidth: value => {
+    if (sideBySide()) views.style.setProperty('--table-share', `${Math.min(70,Math.max(20,(views.clientWidth-value-20)/views.clientWidth*100))}%`);
+    else byId('chart-region').style.width = `${value/views.clientWidth*100}%`;
+  } });
 update();

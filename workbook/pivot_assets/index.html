@@ -31,7 +31,7 @@
     </div>
   </section>
   <main id="worksheet" aria-label="Pivot worksheet">
-    <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><div class="table-controls"><label><span data-fit-label>Table height</span><input id="table-height" type="range" min="280" max="800" step="20" value="440" aria-label="Table height"><output id="table-height-value" data-fit-label for="table-height">440 px</output></label><label><span data-fit-label>Table width</span><input id="table-width" type="range" min="100" max="300" step="25" value="100" aria-label="Table width"><output id="table-width-value" data-fit-label for="table-width">100%</output></label><button id="filters-open" hidden data-fit-label>Choose filters</button></div></div>
+    <div class="table-heading"><p id="summary" data-fit-label>Loading participant-distance means…</p><button id="filters-open" hidden data-fit-label>Choose filters</button></div>
     <div class="linked-views">
       <section id="chart-region" aria-labelledby="chart-y-label" aria-busy="true">
         <div class="chart-controls"><label><span data-fit-label>Chart style</span><select id="chart-style"><option value="auto">Auto</option><option value="line">Line</option><option value="points">Points</option><option value="bars">Bars</option><option value="heatmap">Heatmap</option></select></label><label id="chart-measure-control" hidden><span data-fit-label>Chart measure</span><select id="chart-measure"></select></label></div>
@@ -57,7 +57,7 @@
         <div class="selection-controls"><button id="copy-selection" disabled data-fit-label>Copy selection</button><button id="select-all-cells" disabled data-fit-label>Select all cells</button><button id="extend-selection" aria-pressed="false" disabled data-fit-label>Extend selection</button></div>
         <p id="selection-help" data-fit-label>Drag cells or Shift-click to select a range. Keyboard: arrows, Shift+arrows, Ctrl+C (Mac: ⌘C). Touch: tap the first cell, turn on Extend selection, then tap the last. Copies full values; Mean ± SD stays in one cell.</p>
         <p id="selection-status" role="status" data-fit-label>No cells selected</p>
-        <div id="table-region" aria-busy="true" aria-label="Scrollable pivot table"><table id="pivot-table" role="grid" aria-readonly="true" aria-multiselectable="true" aria-describedby="selection-help"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
+        <div id="table-region" aria-busy="true" aria-label="Pivot table. Drag borders to resize."><table id="pivot-table" role="grid" aria-readonly="true" aria-multiselectable="true" aria-describedby="selection-help"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
       </section>
     </div>
   </main>

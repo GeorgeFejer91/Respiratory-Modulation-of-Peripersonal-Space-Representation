@@ -36,7 +36,66 @@ Next action: integrate current title/resizing updates, repeat affected gates, th
 publish and verify the exact live deployment. The wider publication goal is open.
 
 
-### Active amendment — spreadsheet-style table copying
+### Active amendment — direct resizing and page flow
+
+Owner request (2026-10-23): remove table size sliders, drag table borders directly,
+eliminate nested scrolling and use available screen space across plot layouts.
+This supersedes historical internal-scroll/size-control instructions below.
+
+- [x] Replace sliders with shared border handles for tables and plot surfaces,
+  keyboard reset/arrows and pointer/touch capture. Tables grow with content;
+  the desktop graph/table share width, and the overview uses screen width.
+- [ ] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
+  independent review, combined production build and exact live publication.
+
+Plan/state: reuse pivot/overview owners and pinned Pretext; actual borders alter
+layout/SVG dimensions while statistical outputs stay fixed. Native chart migration
+remains its own open item. Work is isolated on codex/resize-panels from 60fedb2;
+69 workbook tests, 270 independent JavaScript/pandas cases, production build,
+border/layer/copy/overview/pivot checks pass. Expanded border checks include
+mouse/keyboard/emulated touch, layout-breakpoint transitions, one scroll surface,
+200% text/spacing, and full-width desktop/phone rendering. A reproduced review
+finding about stale stacked widths was fixed and regression-tested; final review
+has no further findings. Narrow cells show three significant digits while copy,
+CSV, full-value details and selected cell nodes retain full precision/identity.
+Physical Safari and assistive-technology coverage remain untested.
+Next action: integrate current main and publish under standing authority.
+The wider scientific/publication goal remains open.
+
+### Publication-name rename — 2026-10-23
+
+- [x] Confirm the publication title from the existing README and owner approval
+  to rename the project and GitHub repository. Update maintained links and the
+  landing-page title; preserve historical artifacts and active checkout paths.
+- [x] Rename GitHub and update the shared `origin`; save the publication title
+  through Codex's project service and legacy workspace label. Keep the existing
+  checkout/worktree roots so active chats and hourly synchronization remain valid.
+- [x] Production build, 69 workbook tests, 270 Python/JavaScript parity cases,
+  both changed notebook checks, context/secret-pattern gate and whitespace check
+  pass. Overview browser gate passes; the title additionally passes at
+  320/390/844/1440 px, 200% text and spacing overrides. Phone/desktop renders
+  inspected. Windows local serving required the correct `.mjs` MIME type and
+  UTF-8 build mode; no product workaround was added. RTK remains unavailable.
+- [ ] Verify deployment and exact remote synchronization; record source/run
+  evidence here. The running desktop may need a refresh to show its saved label.
+
+Next action: complete rename verification, then resume the existing scientific
+and publication acceptance checklist. The wider publication goal remains open.
+
+### Live-page plot rule — 2026-10-23
+
+- [x] Record the owner's native-web-chart requirement in `PROJECT.md` and its
+  rendering/data checks in `VERIFICATION.md`; static exports remain available.
+- [ ] Migrate existing embedded plot images to charts rendered from the approved
+  data, preserving estimates, uncertainty, pairing and accessible data access.
+
+This instruction-only change starts from clean, synchronized `main` at `13b35ef`.
+Context/link and diff checks plus exact remote-SHA verification apply; served
+assets are unchanged and no new deployment is claimed. Next action: inventory
+and migrate the existing live plot images, then run the applicable chart/browser
+and deployment gates. The wider publication goal remains open.
+
+### Completed amendment — spreadsheet-style table copying
 
 - [x] Reuse the shared read-only pivot table for rectangular drag, Shift-click,
   keyboard and touch ranges, select all and Excel-compatible TSV copying. Keep
@@ -46,12 +105,17 @@ publish and verify the exact live deployment. The wider publication goal is open
   ranges, clipboard values, result reset and actual embedded clipboard fallback;
   phone/desktop renders inspected. RTK is unavailable; bounded native commands
   were used. Actual Excel paste, physical Safari and screen readers are untested.
-- [ ] Complete authorized commit/push, exact Pages deployment and live checks.
-  Working on `main` from synchronized `2fe2971`; only this amendment's paths are
-  changed. The wider scientific/publication acceptance checklist remains open.
+- [x] Commit/push `a9a09dc` and verify deployment of combined source `a129ddd`
+  through successful Actions run `39957489994`; the earlier run was superseded
+  by the merged chart-layer change. Live clipboard and overview gates pass,
+  including real clipboard reads and the embedded fallback. The served HTML,
+  selection/app JavaScript and CSS match source hashes. The combined tree also
+  passes all 69 workbook tests, 270 parity cases and chart/pivot/overview gates.
+  `main` is synchronized through `2c4d6f3` before this evidence-only checkpoint;
+  no additional site deployment is needed for this roadmap update.
 
-Next action: publish this amendment and verify the changed live behavior, then
-resume the existing measurement/publication questions.
+Next action: resume the existing measurement/publication questions. The wider
+scientific/publication acceptance checklist remains open.
 
 ### GitHub synchronization checkpoint — 2026-10-23
 
@@ -390,7 +454,7 @@ Next action: resume the wider open living-publication/scientific acceptance gate
 
 ## Visualization — fast pivot table and linked chart
 
-### Active amendment — combinable figure layers
+### Completed amendment — combinable figure layers
 
 Owner request (2026-10-23): switch/combine dot-whisker summaries, actual
 participant values, spaghetti trajectories and violin distributions in Segment 0.
@@ -398,7 +462,7 @@ participant values, spaghetti trajectories and violin distributions in Segment 0
 - [x] Retain the already pooled participant values behind each mean/SD/n cell.
 - [x] Add independent mean dots/whiskers, mean line, participant dots, spaghetti
   and violin toggles, preserving correction/normalization, grouping and pairing.
-- [ ] Verify independent numerical parity, rendered accessibility/reflow, source
+- [x] Verify independent numerical parity, rendered accessibility/reflow, source
   downloads and missing/constant/small-n cases; commit/push and verify deployment.
 
 Plan: extend the existing pivot engine/chart/app and their regression checks;
@@ -412,9 +476,17 @@ keyboard/touch, six viewports, 200% text/spacing and real Pretext pass in Chromi
 Both standard overview/pivot browser gates pass; desktop/phone images were
 visually inspected. Independent code review reports no actionable findings.
 Physical Safari/assistive-technology coverage remains untested; RTK is unavailable.
-The context gate's remote mismatch is expected on the feature branch until
-normal integration/push. The concurrent table-copy change is preserved.
-Next action: integrate current origin/main, verify combined behavior and publish.
+Source 562e64f was normally integrated with the concurrent table-copy change and
+pushed on main as a129ddd. Both changes passed the combined local browser gates.
+[Actions run 39957489994](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39957489994)
+passed the full fixed analyses, independent numerical validation and deployment.
+All 32 combinations and participant CSV, the overview and the table-copy gate
+also pass on the live deployment. Served HTML/app/chart/engine/CSS bytes match
+that exact Git revision. The context/secret-pattern gate passes with main
+matching origin/main; only existing roadmap/archive warnings remain.
+This evidence-only checkpoint changes no served artifact. The worktree and
+feature branch are retained; the canonical checkout is synchronized after push.
+Next action: resume the wider question-led scientific/publication checklist.
 The overall scientific/publication acceptance goal remains open.
 
 ### Active amendment — Condition/Phase grouping checkboxes

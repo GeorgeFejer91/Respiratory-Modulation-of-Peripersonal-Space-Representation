@@ -100,7 +100,7 @@ def build_results(root, target):
             if (destination/local).is_file():
                 path = local
             elif path == "../for-ai/ANALYSIS_ROADMAP.md":
-                path = "https://github.com/GeorgeFejer91/Study5_Publication/blob/main/for-ai/ANALYSIS_ROADMAP.md"
+                path = "https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/for-ai/ANALYSIS_ROADMAP.md"
             elif path == "../workbook/ANALYSIS_PLAN.md":
                 path = "../ANALYSIS_PLAN.md"
             elif path == "browser-analysis/analysis_report.md":
@@ -109,7 +109,7 @@ def build_results(root, target):
                 path = "../reference/browser-results.zip"
             else:
                 relative = (Path("results")/path).as_posix()
-                path = "https://github.com/GeorgeFejer91/Study5_Publication/blob/main/"+relative
+                path = "https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/"+relative
             return attribute+'="'+path+'"'
         body = re.sub(r'(href|src)="([^"\s]+)"', rewrite, body)
         (destination/filename).write_text('''<!doctype html><html lang="en"><meta charset="utf-8">
@@ -119,7 +119,7 @@ a{color:#175b9e}h1,h2{line-height:1.25}h2{margin-top:2.2rem}img{max-width:100%;h
 table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}th,td{padding:.6rem;border:1px solid #ccd5df;text-align:left;vertical-align:top}
 th{background:#edf3f8}code{overflow-wrap:anywhere}nav{font-size:15px}:focus-visible{outline:3px solid #c75c12}</style>
 <nav><a href="../">Workbook</a> · <a href="../pivot/">Pivot table</a> · <a href="../exploratory/">Exploratory figures</a> · <a href="index.html">Results report</a> ·
-<a href="bayesian_results.html">Bayesian detail</a> · <a href="https://github.com/GeorgeFejer91/Study5_Publication/blob/main/for-ai/ANALYSIS_ROADMAP.md">Question checklist</a> ·
+<a href="bayesian_results.html">Bayesian detail</a> · <a href="https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/for-ai/ANALYSIS_ROADMAP.md">Question checklist</a> ·
 <a href="bayesian-results.zip">Download results</a> · <a href="bayesian_participant_atlas.pdf">Individual curves</a></nav>
 <main>'''+body+"</main></html>")
     (destination/"results_manifest.json").write_text(json.dumps(dict(

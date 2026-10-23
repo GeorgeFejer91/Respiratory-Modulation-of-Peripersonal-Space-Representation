@@ -1,4 +1,4 @@
-# Study5_Publication agent control plane
+# Respiratory Modulation of Peripersonal Space Representation agent control plane
 
 Read this file first. It is a router, not the complete project manual.
 

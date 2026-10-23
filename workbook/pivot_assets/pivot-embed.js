@@ -1,3 +1,6 @@
+// Use the reader's viewport rather than the growing iframe as the height reference.
+const fitPlot = () => document.body.style.setProperty('--plot-default-height', `${Math.max(260,Math.min(640,parent.innerHeight*.55))}px`);
+fitPlot(); parent.addEventListener('resize',fitPlot);
 // Embed the existing pivot without a second data engine or duplicated controls.
 if (parent !== window) {
   const fitDialog = () => {
