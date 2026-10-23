@@ -27,6 +27,9 @@ const assert = require('node:assert/strict');
       return Buffer.concat(chunks).toString('utf8');
     };
     const originalCSV = await download('#export');
+    await toggle('errors').hover();
+    assert.equal(await toggle('errors').evaluate(node => getComputedStyle(node).backgroundColor),
+      await toggle('summary').evaluate(node => getComputedStyle(node).backgroundColor), 'Selected whiskers keep their contrast on hover');
     for (let mask = 0; mask < 64; mask++) {
       for (const [i, key] of keys.entries()) await set(key, Boolean(mask & 1 << i));
       assert.equal(await page.locator('[data-chart-point]').count(), mask & 1 ? 20 : 0);

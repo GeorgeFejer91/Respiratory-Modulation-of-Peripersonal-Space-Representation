@@ -158,7 +158,7 @@ main {
 .group-toggle { border:1px solid var(--line); border-radius:3px; padding:.4rem .65rem; justify-content:center; }
 .group-toggle span { overflow-wrap:anywhere; }
 .group-toggle:has(:focus-visible) { outline:3px solid #be5c13; outline-offset:2px; }
-.chart-layer-buttons button[aria-pressed=true],.group-toggle:has(:checked),[data-chart-layer="errors"][aria-pressed=true] { background:var(--link); color:var(--paper); border-color:var(--link); }
+.chart-layer-buttons button[aria-pressed=true],.group-toggle:has(:checked),.error-controls button[aria-pressed=true] { background:var(--link); color:var(--paper); border-color:var(--link); }
 .error-controls { display:flex; flex-wrap:wrap; align-items:end; gap:.5rem 1rem; }
 .error-controls>label { display:grid; gap:.25rem; flex:1 1 16rem; }
 .error-controls>button { flex:0 1 10rem; }
