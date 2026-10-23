@@ -1,4 +1,4 @@
-# Study5_Publication agent instructions
+# Respiratory Modulation of Peripersonal Space Representation agent instructions
 
 Before inspecting, planning, editing, testing, or publishing this repository,
 read [`for-ai/README.md`](./for-ai/README.md). It is the canonical router to the

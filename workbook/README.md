@@ -62,7 +62,7 @@ width does not encode sample size, and n < 3 or constant groups have no violin.
 Summary table/CSV values do not change when switching figure layers. For other
 aggregations, the existing Chart style selector remains available.
 
-The [pivot explorer](https://georgefejer91.github.io/Study5_Publication/pivot/)
+The [pivot explorer](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/pivot/)
 is a lightweight JavaScript subpage with a pivot table and linked chart. The
 initial chart uses SOA (ms) on x and Condition × Phase as series, showing mean
 corrected RT (ms). Both views use the same worker result: field assignments,
@@ -121,10 +121,10 @@ with `python workbook/check_pivot_javascript.py` (Node 22 or later). With
 Playwright/Chromium available to Node, `node workbook/check_pivot_browser.cjs
 http://127.0.0.1:8765/pivot/` checks an HTTP-served build, including real selections,
 CSV downloads, missing/empty/error states, source races and rendered text geometry.
-The [marimo pivot notebook](https://georgefejer91.github.io/Study5_Publication/pivot/app/)
+The [marimo pivot notebook](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/pivot/app/)
 remains available; run it locally with `marimo run workbook/pivot_explorer.py`.
 
-The [Exploratory figures](https://georgefejer91.github.io/Study5_Publication/exploratory/)
+The [Exploratory figures](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/exploratory/)
 subpage keeps the expanded explorer, heatmap, source inspection and separate
 CSV/settings downloads. Its source is `exploratory_figures.py`; both pages share
 the same authoritative preparation and saved-result snapshot catalogue.
@@ -158,7 +158,7 @@ Python helpers here; marimo turns those cells into a reactive workbook. Changes
 pushed to `main` trigger the Pages workflow. No marimo account, API token or
 Python server is needed for this browser deployment.
 
-The application is at `/Study5_Publication/`; `/Study5_Publication/editor/` exposes
+The application is at `/Respiratory-Modulation-of-Peripersonal-Space-Representation/`; `/Respiratory-Modulation-of-Peripersonal-Space-Representation/editor/` exposes
 the editable Python cells. Browser edits can be downloaded but do not automatically
 commit to GitHub. Commit reviewed edits to the repository to update the shared site.
 In the editor, use the run button to start the cells.
@@ -320,7 +320,7 @@ from `python workbook/build_site.py`, using a normal commit and push without for
 Do not merge generated site files into `main`.
 
 After successful deployment, verify both the application and editor at
-`https://georgefejer91.github.io/Study5_Publication/`. A pushed commit or a prepared
+`https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/`. A pushed commit or a prepared
 publishing branch is not proof that the website is live.
 
 The [questionnaire review](../literature_review/QUESTIONNAIRES.md) covers all

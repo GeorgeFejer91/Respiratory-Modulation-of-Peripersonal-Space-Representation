@@ -98,7 +98,7 @@ async def _(Path, catalog, collection, fetch_json, mo, pd, saved_table, sys, typ
         else:
             source_frame = typed_frame(pd.read_csv(Path(__file__).resolve().parent.parent / _entry["source"],
                                                   dtype=str, keep_default_na=False).to_dict("records"))
-        source_note = f"Frozen saved output: [{_entry['source']}](https://github.com/GeorgeFejer91/Study5_Publication/blob/main/{_entry['source']}). No refitting."
+        source_note = f"Frozen saved output: [{_entry['source']}](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/{_entry['source']}). No refitting."
     else:
         source_frame = views[collection.value]
     mo.md(source_note)
