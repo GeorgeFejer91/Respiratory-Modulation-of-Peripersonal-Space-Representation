@@ -40,13 +40,18 @@ All 78 rendered SVG segments match each participant's actual condition and style
 - [x] Pass final rendered browser checks: four viewport sizes, 200% text/spacing,
   real Pretext measurements, all 11 sections, block navigation, figure loading and
   an actual CSV download identical to the source. Physical Safari remains untested.
-- [ ] Verify the exact live deployment.
+- [x] Verify the exact live deployment: source `dc7360e`, Actions run
+  `39877716247`, successful build and Pages deployment. The full overview browser
+  gate passes on the live URL, including Figure 3, block navigation/download and
+  all four viewport/text matrices. Download references were pinned to that Git
+  revision because concurrent Segment 2 work had regenerated local phase files.
 
-Source/results were originally committed in `a68de1a` and pushed through
-`6962f11`; the native analysis remains distinct from browser display. The current
-Segment 3 publication amendment is in progress on main. Historical manuscript
-unchanged. Next action: finish the rendered check and authorized publication,
-then resume the remaining question-led analyses and wider open acceptance gates.
+Source/results were originally committed in `a68de1a`; the Segment 3 amendment
+is committed, pushed and deployed from `dc7360e` on main. Native computation
+remains distinct from the verified browser display. Concurrent uncommitted
+Segment 2 phase-source/results work was preserved. Historical manuscript
+unchanged. This amendment is complete. Next action: resume the remaining
+question-led analyses and wider open scientific/publication acceptance gates.
 
 ### Completed amendment — Segment 1 basic PPS phenomenon check
 
