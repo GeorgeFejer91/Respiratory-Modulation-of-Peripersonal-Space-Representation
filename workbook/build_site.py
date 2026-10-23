@@ -266,6 +266,19 @@ def build(output, development=False):
         shutil.copyfile(phase_source / name, phase_target / name)
         if name.endswith(".csv"):
             allowed.append((phase_target / name).resolve())
+    # Segment 3 displays the verified chronological-block graph and its evidence.
+    block_source = root / "results/block_rt"
+    block_manifest = json.loads((block_source / "manifest.json").read_text(encoding="utf-8"))
+    for section, prefix in (("input_sha256", root / "data/raw"), ("source_sha256", root), ("artifact_sha256", block_source)):
+        for name, digest in block_manifest[section].items():
+            if sha256((prefix / name).read_bytes()).hexdigest() != digest:
+                raise RuntimeError("Segment 3 provenance changed: rerun for-ai/orchestration/block_rt.py: " + name)
+    block_target = output / "results/block_rt"
+    block_target.mkdir(parents=True, exist_ok=True)
+    for name in [*block_manifest["artifact_sha256"], "manifest.json"]:
+        shutil.copyfile(block_source / name, block_target / name)
+        if name.endswith(".csv"):
+            allowed.append((block_target / name).resolve())
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:
         marker.write_text("Unpublished browser verification build. No reference report or paper.\n")

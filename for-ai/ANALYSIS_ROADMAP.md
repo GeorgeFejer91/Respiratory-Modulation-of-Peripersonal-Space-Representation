@@ -27,13 +27,26 @@ p=.968. Quadratic p=.820 with a strong tail departure. No systematic decline is
 established; lack of significance does not establish absence of practice/fatigue.
 The first-to-last paired change is −20.54 ms, 95% CI [−52.22, 11.15].
 
-Source/results commit `a68de1a` on main preserves the independently completed
-Segment 2 work. Analysis and state were pushed through `517dbc1`; the exact
-remote main SHA was verified and the working tree was clean. The automatic
-Pages run for that SHA was pending when checked; no deployment is claimed for
-this native result addition. Native results are not a browser-executed analysis; the landing
-page and historical manuscript were not edited for this question. Next action:
-resume the remaining question-led analyses and the wider open acceptance gates.
+Owner follow-up: publish this graph in new Segment 3 after the phase question,
+renumbering later segments (11 sections total). Use one spaghetti panel, with
+actual participant segments blue/solid for Control and red/dashed for Viscereality;
+replace the order-group display. Black points retain the overall equal-person
+mean/pointwise 95% t CIs. The figure-only change leaves results.json byte-identical.
+All 78 rendered SVG segments match each participant's actual condition and style.
+
+- [x] Add the segment, native-result labels, missing-block note and complete/all-
+  available CSV downloads; production build checks the full block-result manifest.
+- [x] Preserve numerical estimates and pass all 67 workbook tests.
+- [x] Pass final rendered browser checks: four viewport sizes, 200% text/spacing,
+  real Pretext measurements, all 11 sections, block navigation, figure loading and
+  an actual CSV download identical to the source. Physical Safari remains untested.
+- [ ] Verify the exact live deployment.
+
+Source/results were originally committed in `a68de1a` and pushed through
+`6962f11`; the native analysis remains distinct from browser display. The current
+Segment 3 publication amendment is in progress on main. Historical manuscript
+unchanged. Next action: finish the rendered check and authorized publication,
+then resume the remaining question-led analyses and wider open acceptance gates.
 
 ### Completed amendment — Segment 1 basic PPS phenomenon check
 

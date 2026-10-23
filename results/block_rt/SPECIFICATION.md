@@ -34,7 +34,10 @@ question about average reaction-time drift across consecutive conditions.
   Diagnostics do not select another estimator or trigger exclusions.
 - Figure: observed participant trajectories plus equal-person means and pointwise
   marginal 95% t CIs, zero-based ms axis, switch marked between blocks 6/7.
-  A separate condition-order panel helps inspect effects of counterbalancing.
+  Figure-only owner amendment (2026-10-23): one spaghetti panel with participant
+  segments blue/solid for Control and red/dashed for Viscereality according to
+  each recorded block's condition. Remove the condition-order summary panel;
+  retain the overall mean and intervals. Numerical tests are unchanged.
 - Preserve inputs and older analyses. Native execution only; no automatic change
   to the live paper or historical manuscript. Record runtime and SHA-256 hashes.
 - Verify aggregation with independent pandas and slopes with statsmodels OLS,

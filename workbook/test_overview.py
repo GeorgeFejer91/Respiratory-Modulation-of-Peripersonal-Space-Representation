@@ -14,6 +14,26 @@ from preparation import load_pair, local_release_pair
 
 
 class PhaseOverviewTests(unittest.TestCase):
+    def test_block_segment_provenance_and_claims(self):
+        root = Path(__file__).resolve().parents[1]
+        folder = root / "results/block_rt"
+        manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+        for section, prefix in (("input_sha256", root / "data/raw"), ("source_sha256", root), ("artifact_sha256", folder)):
+            for name, digest in manifest[section].items():
+                self.assertEqual(sha256((prefix / name).read_bytes()).hexdigest(), digest, name)
+        report = json.loads((folder / "results.json").read_text(encoding="utf-8"))
+        html = (root / "workbook/overview_assets/index.html").read_text(encoding="utf-8")
+        section = html.split('<section id="blocks"', 1)[1].split('</section>', 1)[0]
+        r = report["tests"]["linear_ms_per_block"]
+        self.assertEqual(r["n"], 39)
+        self.assertEqual(report["incomplete_excluded"], ["P008"])
+        for value in (r["mean_ms"], r["ci_low_ms"], r["ci_high_ms"], r["t"]):
+            self.assertIn(f"{value:.2f}".replace("-", "−"), section)
+        self.assertIn(f"{r['p']:.3f}"[1:], section)
+        self.assertIn('Native calculation; saved results shown here.', section)
+        self.assertIn('results/block_rt/block_rt.svg', section)
+        self.assertEqual([r["n"] for r in report["available_primary40_descriptive"]], [40]*6+[39]+[40]*5)
+
     def test_literal_trial_labels_and_plot_data(self):
         from phase_rt import phase_values, summarize
         people, trials = load_pair(*local_release_pair())

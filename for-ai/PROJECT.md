@@ -127,7 +127,7 @@ cell averages and always-GG correction. Show participant RT profiles, marginal
 exploratory prerequisite does not establish spatial specificity or a PPS boundary.
 The page displays native saved results and labels that execution limit.
 
-The landing page is a compact ten-section scientific overview, built from
+The landing page is a compact eleven-section scientific overview, built from
 `workbook/overview_assets/`. Segment 0 is the central descriptive explorer;
 each later section contains one question and a link to its analysis/evidence.
 Segment 1 additionally shows its initial SOA graph and APA result directly.
@@ -144,6 +144,13 @@ State the scheduled/instructed label limit: the release cannot verify actual
 respiratory physiology or acquisition-side labelling without belt recordings.
 The section menu stays fixed beside desktop content and collapses at the phone's
 bottom edge; embedded dialogs reserve space for this navigation.
+Segment 3 shows the chronological-block RT graph from `results/block_rt/`, the
+inconclusive linear trend, 39-person complete-block inference and downloadable
+all-available primary40 descriptives. Both conditions span one continuous 12-block
+session, with the switch after block 6. Preserve its native-result label,
+missing-block explanation, participant weighting and pointwise CI definition.
+The graph is one spaghetti panel: participant segments are blue/solid in Control
+and red/dashed in Viscereality, with the pooled mean in black; no order-group panel.
 Keep narrative, assumptions and detailed results in those linked reports. The original
 executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.

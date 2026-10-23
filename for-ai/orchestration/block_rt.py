@@ -122,26 +122,30 @@ def build():
     (OUT / "results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
     with plt.rc_context({"font.size": 11, "axes.spines.top": False, "axes.spines.right": False,
                          "svg.fonttype": "none", "svg.hashsalt": "study5-block-rt"}):
-        fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.8), layout="constrained", sharey=True)
+        fig, ax = plt.subplots(figsize=(8.6, 5.2), layout="constrained")
         x = np.arange(1, 13)
-        axes[0].plot(x, wide.to_numpy().T, color="#999999", alpha=.38, lw=.65)
+        styles = {"Control": ("#005a9c", "-"), "Viscereality": ("#ba2525", "--")}
+        # Color each actual intervention segment, independent of presentation order.
+        for pid, values in wide.iterrows():
+            person = frame[frame.participant_id == pid].set_index("session_block")
+            for start in (1, 7):
+                blocks = np.arange(start, start+6)
+                condition = person.loc[start, "condition"]
+                assert person.loc[blocks, "condition"].nunique() == 1
+                color, linestyle = styles[condition]
+                line, = ax.plot(blocks, values.loc[blocks], color=color, linestyle=linestyle, alpha=.45, lw=.9)
+                line.set_gid(f"trajectory-{pid}-{start}-{condition}")
+        for condition, (color, linestyle) in styles.items():
+            ax.plot([], [], color=color, linestyle=linestyle, lw=1.5, label=condition)
         means = wide.mean().to_numpy()
         half = stats.t.ppf(.975, len(wide)-1)*wide.sem().to_numpy()
-        axes[0].errorbar(x, means, yerr=half, color="black", marker="o", capsize=3, lw=2,
+        ax.errorbar(x, means, yerr=half, color="black", marker="o", capsize=3, lw=2,
                          label=f"Equal-person mean, N={len(wide)}")
-        for order, color, marker in (("Control-Viscereality", "#005A8D", "o"), ("Viscereality-Control", "#994500", "s")):
-            ids = frame.loc[frame.condition_order == order, "participant_id"].unique()
-            group = wide.loc[wide.index.intersection(ids)]
-            error = stats.t.ppf(.975, len(group)-1)*group.sem()
-            axes[1].errorbar(x, group.mean(), yerr=error, color=color, marker=marker, capsize=3,
-                             label=f"{order.replace('-', ' then ')} (n={len(group)})")
-        for ax in axes:
-            ax.axvline(6.5, color="#555555", ls="--", lw=1)
-            ax.set(xlabel="Chronological block (condition switch after block 6)", xticks=x, xlim=(.65, 12.35))
-            ax.legend(frameon=False, fontsize=9, loc="lower left")
-        axes[0].set(ylabel="Audio–Tactile RT (ms)", ylim=(0, wide.to_numpy().max()*1.07), title="Observed session-wide RT")
-        axes[1].set_title("Means by condition order")
-        fig.suptitle("Raw RT across consecutive conditions · pointwise 95% t CIs")
+        ax.axvline(6.5, color="#555555", ls=":", lw=1)
+        ax.set(xlabel="Chronological block (condition switch after block 6)", xticks=x, xlim=(.65, 12.35),
+               ylabel="Audio–Tactile RT (ms)", ylim=(0, wide.to_numpy().max()*1.07),
+               title="Participant reaction times across consecutive conditions")
+        ax.legend(frameon=False, fontsize=10, loc="lower left")
         for extension in ("png", "svg"):
             fig.savefig(OUT / f"block_rt.{extension}", dpi=220, facecolor="white", metadata={"Date": None} if extension == "svg" else None)
         svg = OUT / "block_rt.svg"
@@ -157,8 +161,8 @@ def build():
     lines = ["# Does average RT decline across blocks?", "", "**The analysis does not establish a systematic RT decline across the session.**", "",
              "Exploratory native analysis; original cleaning and primary40. Both conditions occurred consecutively.", "",
              f"N = {len(wide)} participants, {report['retained_at']} retained AT trials. Incomplete-block exclusions: {report['incomplete_excluded'] or 'none'}.", "",
-             "![Individual RT trajectories, overall means and means by condition order across 12 chronological blocks](block_rt.png)", "",
-             "Grey lines are participant block means; black points are equal-person means. Intervals are pointwise marginal 95% t CIs, not paired-change CIs. The dashed line marks the condition switch. No smoothing, normalization or baseline subtraction. Zero-based y-axis. Underlying observations and retained-trial counts: participant_blocks.csv.", "",
+             "![Participant RT trajectories across 12 chronological blocks: blue solid Control segments, red dashed Viscereality segments, and black overall means](block_rt.png)", "",
+             "Blue solid lines are participant block means during Control; red dashed lines show Viscereality. Each person's segments use their actual condition in that part of the session and stop at the switch between blocks 6/7. Black points are equal-person means; intervals are pointwise marginal 95% t CIs, not paired-change CIs. The vertical dotted line marks the switch. No smoothing, normalization or baseline subtraction. Zero-based y-axis. Underlying observations and retained-trial counts: participant_blocks.csv. Owner-requested figure-only amendment: replace the order-group panel with condition-colored participant trajectories; statistical results are unchanged.", "",
              f"| Test | Mean coefficient | 95% t CI | t({len(wide)-1}) | Two-sided p | dz | Bootstrap 95% CI |", "| --- | ---: | --- | ---: | ---: | ---: | --- |"]
     for term, r in report["tests"].items():
         lines.append(f"| {term} | {r['mean_ms']:.3f} | [{r['ci_low_ms']:.3f}, {r['ci_high_ms']:.3f}] | {r['t']:.3f} | {r['p']:.6f} | {r['dz']:.3f} | [{r['bootstrap_ci_low']:.3f}, {r['bootstrap_ci_high']:.3f}] |")
@@ -174,7 +178,7 @@ def build():
         lines.append(f"- Excluding {s['excluded_linkage']}: n={r['n']}, linear slope {r['mean_ms']:.3f} ms/block, 95% CI [{r['ci_low_ms']:.3f}, {r['ci_high_ms']:.3f}], p={r['p']:.6f}. All three tests are retained in results.json.")
     lines += ["", "P008 has no retained AT responses in chronological block 7 (18 misses and two hits with missing RT) and is excluded only from complete-block inference; their other block means remain in participant_blocks.csv and the available40 table. P016 has a partial recorded session but usable RTs in every block and is retained. Complete-case inference does not correct informative missing responses or misses. Full42 descriptive means are in results.json; it is not 42 independent recordings. Original participant/trial exclusions and missingness counts are preserved there. Pooling retained trials can reflect changing phase/SOA composition; condition order, practice, carryover and fatigue are not causally separated. Block number is not elapsed time. These results concern overall RT, not a drift-diffusion parameter or a PPS boundary.", "",
               "All three participant-coefficient Q–Q plots are in diagnostics.png. The linear and adjusted slopes show moderate tail deviations; quadratic coefficients include a strong lower-tail outlier (Shapiro p < .001), making that t approximation particularly uncertain. Bootstrap intervals also include zero. Shapiro p values, leave-one-out mean ranges and fixed-seed whole-person bootstrap CIs are retained in results.json. Normality screens do not establish independence or justify post hoc cleaning. No diagnostic-driven method switch. Specifications, code/data/output hashes and runtime versions accompany the results.", "",
-              "Reproduce: `.venv/Scripts/python.exe for-ai/orchestration/block_rt.py`; independently verify: add `--check`. The historical paper and live page are unchanged."]
+              "Reproduce: `.venv/Scripts/python.exe for-ai/orchestration/block_rt.py`; independently verify: add `--check`. Native saved outputs are displayed in Segment 3; the historical manuscript is unchanged."]
     (OUT / "RESULTS.md").write_text("\n".join(lines)+"\n", encoding="utf-8", newline="\n")
     source = ["for-ai/orchestration/block_rt.py", "workbook/paper_analysis.py", "workbook/preparation.py", "workbook/requirements.txt", "workbook/requirements-validation.txt"]
     manifest = dict(classification="exploratory", runtime=report["runtime"], seed=SEED,
@@ -187,6 +191,7 @@ def build():
 
 def check():
     import statsmodels.api as sm
+    import xml.etree.ElementTree as ET
     people, trials = load_pair(*[(ROOT / "data/raw" / name).read_bytes() for name in FILES])
     frame, _, _, retained = prepare(people, trials)
     raw = pd.DataFrame(retained).query("trial_type == 'Audio-Tactile'").copy()
@@ -223,7 +228,19 @@ def check():
         assert sha256((ROOT / name).read_bytes()).hexdigest() == expected
     for name, expected in manifest["input_sha256"].items():
         assert sha256((ROOT / "data/raw" / name).read_bytes()).hexdigest() == expected
+    svg = ET.parse(OUT / "block_rt.svg")
+    segments = {node.attrib["id"]: node for node in svg.iter() if node.attrib.get("id", "").startswith("trajectory-")}
+    assert len(segments) == 2*len(wide)
+    for pid in wide.index:
+        person = frame[frame.participant_id == pid].set_index("session_block")
+        for start in (1, 7):
+            condition = person.loc[start, "condition"]
+            segment = segments[f"trajectory-{pid}-{start}-{condition}"]
+            style = " ".join(node.attrib.get("style", "") for node in segment.iter())
+            assert ("#005a9c" if condition == "Control" else "#ba2525") in style
+            assert ("stroke-dasharray" in style) == (condition == "Viscereality")
     print(f"PASS: chronology/order, independent trial aggregation, {3*len(wide)} statsmodels coefficients, saved/available40 means/p values, synthetic trends, all hashes")
+    print(f"PASS: {len(segments)} plotted participant segments match actual conditions, colors and line styles")
 
 
 if __name__ == "__main__":

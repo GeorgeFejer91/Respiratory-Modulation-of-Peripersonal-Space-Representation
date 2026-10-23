@@ -6,9 +6,9 @@ Exploratory native analysis; original cleaning and primary40. Both conditions oc
 
 N = 39 participants, 8280 retained AT trials. Incomplete-block exclusions: ['P008'].
 
-![Individual RT trajectories, overall means and means by condition order across 12 chronological blocks](block_rt.png)
+![Participant RT trajectories across 12 chronological blocks: blue solid Control segments, red dashed Viscereality segments, and black overall means](block_rt.png)
 
-Grey lines are participant block means; black points are equal-person means. Intervals are pointwise marginal 95% t CIs, not paired-change CIs. The dashed line marks the condition switch. No smoothing, normalization or baseline subtraction. Zero-based y-axis. Underlying observations and retained-trial counts: participant_blocks.csv.
+Blue solid lines are participant block means during Control; red dashed lines show Viscereality. Each person's segments use their actual condition in that part of the session and stop at the switch between blocks 6/7. Black points are equal-person means; intervals are pointwise marginal 95% t CIs, not paired-change CIs. The vertical dotted line marks the switch. No smoothing, normalization or baseline subtraction. Zero-based y-axis. Underlying observations and retained-trial counts: participant_blocks.csv. Owner-requested figure-only amendment: replace the order-group panel with condition-colored participant trajectories; statistical results are unchanged.
 
 | Test | Mean coefficient | 95% t CI | t(38) | Two-sided p | dz | Bootstrap 95% CI |
 | --- | ---: | --- | ---: | ---: | ---: | --- |
@@ -48,4 +48,4 @@ P008 has no retained AT responses in chronological block 7 (18 misses and two hi
 
 All three participant-coefficient Q–Q plots are in diagnostics.png. The linear and adjusted slopes show moderate tail deviations; quadratic coefficients include a strong lower-tail outlier (Shapiro p < .001), making that t approximation particularly uncertain. Bootstrap intervals also include zero. Shapiro p values, leave-one-out mean ranges and fixed-seed whole-person bootstrap CIs are retained in results.json. Normality screens do not establish independence or justify post hoc cleaning. No diagnostic-driven method switch. Specifications, code/data/output hashes and runtime versions accompany the results.
 
-Reproduce: `.venv/Scripts/python.exe for-ai/orchestration/block_rt.py`; independently verify: add `--check`. The historical paper and live page are unchanged.
+Reproduce: `.venv/Scripts/python.exe for-ai/orchestration/block_rt.py`; independently verify: add `--check`. Native saved outputs are displayed in Segment 3; the historical manuscript is unchanged.

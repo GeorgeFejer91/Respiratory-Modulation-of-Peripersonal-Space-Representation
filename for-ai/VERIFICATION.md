@@ -24,6 +24,11 @@ to independently reproduce the paired primary40 phase contrasts from released
 participant cells and check the saved results and displayed rounding. Check its
 position/numbering, native-result labels, evidence links, Pretext measurements,
 navigation and reflow in the overview browser gate.
+For Segment 3, the same tests check block-result provenance and displayed rounding.
+Run `python for-ai/orchestration/block_rt.py --check`; verify Figure 3 loads,
+all 11 sections retain sequential numbering, the block navigation tracks scrolling,
+the actual CSV download matches the source, and the graph/links reflow with
+Pretext measurement at the overview gate's viewports and text overrides.
 The Segment 2 tests also compare direct literal-trial aggregation to independently
 prepared participant cells, reverse input ordering, retain subtraction signs,
 and verify figure/source/result hashes. Run `python workbook/phase_rt.py` to
