@@ -1,0 +1,53 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch({headless:true});try{
+ const page=await browser.newPage({viewport:{width:1280,height:900},hasTouch:true});
+ const base=process.argv[2]||'http://127.0.0.1:8781/';
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base);await page.locator('#phase-figure[data-interactive="ready"]').waitFor();
+ const quartiles=await page.evaluate(async()=>{const {quantile}=await import('./publication-charts.js');const values=[30,0,20,10];return [quantile(values,.25),quantile(values,.5),quantile(values,.75),values];});
+ assert.deepEqual(quartiles,[7.5,15,22.5,[30,0,20,10]]);
+ const points=page.locator('#phase-figure [data-point-detail]');
+ assert.equal(await points.count(),246);
+ const observed=await points.evaluateAll(nodes=>nodes.map(n=>JSON.parse(n.dataset.pointDetail)).filter(d=>d.Participant));
+ assert.equal(observed.length,240);assert.equal(new Set(observed.map(d=>d.Participant)).size,40);
+ const response=await page.request.get(new URL('results/phase_rt/trial_group_deltas.csv',base).href);
+ const rows=(await response.text()).trim().split('\n').slice(1).map(row=>row.split(','));
+ for(const [pid,group,value] of rows){const detail=observed.find(d=>d.Participant===pid&&d['Trial group']===group);assert.equal(detail['Inhale − Exhale (ms)'],Number(value));}
+ const inspect=async(node)=>{const expected=JSON.parse(await node.getAttribute('data-point-detail'));await node.focus();await node.press('Enter');
+  const box=page.getByRole('dialog',{name:'Exact point values'});await box.waitFor();
+  for(const value of Object.values(expected)) assert((await box.innerText()).includes(String(value)));
+  await page.keyboard.press('Escape');assert.equal(await box.isVisible(),false);
+ };
+ assert.equal(await page.locator('main figure img,main figure image').count(),0);
+ await inspect(points.first());await inspect(points.last());
+ await inspect(page.locator('#soa-figure [data-point-detail]').first());
+ await inspect(page.locator('#soa-figure [data-point-detail]').last());
+ await page.locator('#baseline[data-interactive="ready"]').count();
+ assert.equal(await page.locator('#soa-figure [data-point-detail]').count(),205);
+ assert.equal(await page.locator('#blocks-figure [data-point-detail]').count(),480);
+ await inspect(page.locator('#blocks-figure [data-point-detail]').first());
+ await page.locator('.phase-reference > summary').click();
+ assert.equal(await page.locator('#phase-corrected-figure [data-point-detail]').count(),82);
+ await inspect(page.locator('#phase-corrected-figure [data-point-detail]').first());
+ for(const width of [320,768,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.waitForFunction(()=>{const host=document.querySelector('[data-plot="phase"]');return Math.abs(Number(host.querySelector('svg').getAttribute('width'))-host.clientWidth)<1;});
+  const extreme=await points.evaluateAll(nodes=>nodes.map((n,i)=>({i,d:JSON.parse(n.dataset.pointDetail)})).filter(p=>p.d.Participant).sort((a,b)=>b.d['Inhale − Exhale (ms)']-a.d['Inhale − Exhale (ms)'])[0].i);
+  await points.nth(extreme).tap();
+  const box=page.getByRole('dialog',{name:'Exact point values'});
+  await box.waitFor({state:'visible',timeout:3000});assert(await box.evaluate(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&r.top>=0&&r.bottom<=innerHeight+1}));
+  await box.getByRole('button',{name:'Next point',exact:true}).click();
+  await box.getByRole('button',{name:'Close',exact:true}).click();
+ }
+ await page.screenshot({path:'.for-ai-local/raincloud-phone.png'});
+ await page.goto(new URL('pivot/?view=core',base).href);await page.locator('#table-region[aria-busy="false"]').waitFor();
+ const mean=page.locator('[data-chart-point]').first();await inspect(mean);
+ const dots=page.locator('[data-chart-layer="dots"]');if(await dots.getAttribute('aria-pressed')!=='true')await dots.click();
+ await inspect(page.locator('[data-participant-point]').first());
+ await page.goto(new URL('exploratory/',base).href);await page.locator('#table-region[aria-busy="false"]').waitFor();
+ assert.equal(await page.locator('#chart-style').inputValue(),'heatmap');
+ await inspect(page.locator('[data-chart-point]').first());
+ assert.equal(await page.locator('#chart-plot img').count(),0);
+ assert.deepEqual(errors,[]);console.log('PASS: all 240 native phase values match CSV, all overview figure points inspectable, keyboard/Escape, touch/position, pivot means and participant exact values.');
+ }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

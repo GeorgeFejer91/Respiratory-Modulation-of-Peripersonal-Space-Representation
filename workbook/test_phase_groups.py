@@ -11,6 +11,18 @@ from preparation import load_pair, local_release_pair
 
 
 class PhaseGroupTests(unittest.TestCase):
+    def test_raincloud_density_is_trimmed_and_matches_fixed_gaussian_rule(self):
+        from phase_rt import raincloud_density
+        values = np.array([-30., -2., 4., 9., 45.])
+        grid, density, bandwidth = raincloud_density(values)
+        self.assertEqual((grid[0],grid[-1]),(-30.,45.))
+        expected_bw = 1.06 * values.std(ddof=1) * 5**(-.2)
+        self.assertAlmostEqual(bandwidth,expected_bw)
+        expected = stats.gaussian_kde(values,bw_method=1.06*5**(-.2))(grid)
+        np.testing.assert_allclose(density,expected,rtol=1e-12)
+        self.assertIsNone(raincloud_density([2.,2.,2.]))
+        self.assertIsNone(raincloud_density([1.,3.]))
+
     def test_named_trial_groups_against_independent_pandas_pairs(self):
         people, trials = load_pair(*local_release_pair())
         rows = trial_group_values(people, trials)

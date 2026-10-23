@@ -104,6 +104,10 @@ def build(root):
     report["trial_groups"], deltas = group_summaries(group_values)
     report["group_intervals"] = "Six exploratory pointwise 95% t CIs; not simultaneous; no additional p tests"
     report["group_colors"] = dict(zip((g for g, _ in TRIAL_GROUPS), COLORS))
+    report['raincloud'] = {'method':'Gaussian KDE', 'bandwidth':'1.06 × sample SD × n^(−1/5)',
+        'support':'trimmed to each observed min/max; equal peak height',
+        'box':'median, quartiles and 1.5 IQR whiskers; all observations shown separately',
+        'jitter':'deterministic vertical offsets, no measured-value displacement'}
     report["execution"] = "Native Python calculation; browser displays saved results"
     with (root/"results/baseline_effects/response_tests.csv").open(encoding="utf-8") as source:
         saved = {r["correction"]: r for r in csv.DictReader(source) if r["cohort"] == "primary40"
@@ -131,41 +135,7 @@ def build(root):
             writer.writerows(records)
     (output/"results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
     draw_corrected_overall(output, rows, report)
-    # Outline SVG glyphs so browsers need no locally installed plotting font.
-    with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 14, "svg.fonttype": "path", "pdf.fonttype": 42,
-                         "svg.hashsalt": "study5-phase-rt", "axes.spines.top": False, "axes.spines.right": False}):
-        fig, axes = plt.subplots(2, 1, figsize=(4.6, 8.4), layout="constrained")
-        ax = axes[0]
-        maximum = 0
-        for s, color, marker, line in zip(report["trial_groups"], COLORS, MARKERS, LINES):
-            means = [s["exhale_mean_ms"], s["inhale_mean_ms"]]
-            ax.plot([0, 1], means, color=color, marker=marker, linestyle=line, linewidth=2, markersize=7)
-            maximum = max(maximum, *means)
-        ax.set(title="A. Raw RT by Trial Group", ylabel="Mean Reaction Time (ms)",
-               xticks=[0, 1], xticklabels=PHASES, xlim=(-.2, 1.2), ylim=(0, maximum*1.10))
-        ax = axes[1]
-        all_values = []
-        for i, (s, color, marker, line) in enumerate(zip(report["trial_groups"], COLORS, MARKERS, LINES)):
-            values = np.array([r["delta_inhale_minus_exhale_ms"] for r in deltas if r["trial_group"] == s["trial_group"]])
-            all_values.extend(values)
-            ax.scatter(values, i+np.linspace(-.18, .05, len(values)), color=color, s=12)
-            # Put the estimate below its observations so the CI stays visible.
-            ax.plot([0, s["mean"]], [i+.25, i+.25], color=color, linestyle=line, linewidth=1.5)
-            ax.errorbar(s["mean"], i+.25, xerr=s["ci_high"]-s["mean"], color=color, marker=marker,
-                        markerfacecolor="white", markeredgewidth=1.5, capsize=4, linewidth=2, zorder=3)
-        ax.axvline(0, color="black", linestyle="--", linewidth=1)
-        labels = [f"{s['trial_group']}\n{s['mean']:+.2f} ms".replace("-", "−") for s in report["trial_groups"]]
-        ax.set(title="B. Inhale − Exhale", xlabel="Paired RT Difference (ms)",
-               yticks=range(6), yticklabels=labels, ylim=(5.6, -.6))
-        # Retain every participant difference and the explicit zero reference.
-        lower = min([0, *all_values, *[s["ci_low"] for s in report["trial_groups"]]])
-        upper = max([0, *all_values, *[s["ci_high"] for s in report["trial_groups"]]])
-        ax.set_xlim(lower-.08*(upper-lower), upper+.08*(upper-lower))
-        for extension, options in (("svg", {"metadata": {"Date": None}}), ("png", {"dpi": 300}), ("pdf", {})):
-            fig.savefig(output/f"phase_raw_groups.{extension}", facecolor="white", **options)
-        plt.close(fig)
-    svg = output/"phase_raw_groups.svg"
-    svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n", encoding="utf-8", newline="\n")
+    draw_raincloud(output, report, deltas)
     table = "\n".join(f"| {MEASURES[m]} | {s['mean']:+.2f} | [{s['ci_low']:.2f}, {s['ci_high']:.2f}] | {s['t']:.3f} | {s['p']:.6f} |" for m, s in report["contrasts"].items())
     means = [report["phase_means"][phase]["mean"] for phase in PHASES]
     group_table = "\n".join(f"| {s['trial_group']} | {s['exhale_mean_ms']:.2f} | {s['inhale_mean_ms']:.2f} | {s['mean']:+.2f} | [{s['ci_low']:.2f}, {s['ci_high']:.2f}] | {s['n']} |" for s in report["trial_groups"])
@@ -184,15 +154,21 @@ phase index, and independently checked against the pandas participant cells.
 The primary figure shows corrected participant pairs, marginal mean 95% t CIs,
 and paired overall contrasts. Its zero references retain all negative values.
 
-## Raw trial-group reference requested by the owner
+## Main visualization: six raw trial-group rainclouds
 
 ![Colored raw trial-group phase means and paired phase deltas](phase_raw_groups.svg)
 
-Panel A shows six raw group-mean phase pairs; colors, markers and line styles
-identify the five AT SOAs and pooled Baseline. Panel B uses the same key, shows
-every participant's paired delta, with means and pointwise 95% t CIs below the dots
-(39 df). Right of zero means slower during inhale; left means faster. No
-normalization or smoothing. All plotted observations are retained in the axes.
+Six horizontal rainclouds show all 40 participant deltas per trial group. Half
+violins use Gaussian KDE with bandwidth 1.06 × sample SD × n^(−1/5), trimmed to
+the observed range and scaled to equal peak height. Smoothing is descriptive.
+Boxes show median/quartiles and 1.5-IQR whiskers; every observed point is retained.
+Hollow markers below the dots show the mean and the original pointwise 95% t CI
+(39 df). Right of zero means slower during inhale; left means faster. Vertical
+offsets separate marks without changing values. No RT normalization is applied.
+The browser renders HTML/SVG charts directly from the saved data, with exact-value
+click/tap boxes. SVG/PNG/PDF files are static download alternatives.
+The owner selected this raw-delta display as the main visual; corrected inference
+and its overall plot remain available separately.
 
 | Trial group | Exhale M (ms) | Inhale M (ms) | Delta (ms) | Pointwise 95% CI (ms) | n |
 | --- | --- | --- | --- | --- | --- |
@@ -240,6 +216,47 @@ Software guidance is acknowledged in the [shared software note](../pps_soa/RESUL
         artifact_sha256={name: sha256((output/name).read_bytes()).hexdigest() for name in artifacts})
     (output/"manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8", newline="\n")
     print(json.dumps(report["trial_groups"], indent=2))
+
+
+def raincloud_density(values):
+    values = np.asarray(values, dtype=float)
+    if len(values) < 3 or not np.isfinite(values).all() or values.std(ddof=1) <= 0:
+        return None
+    bandwidth = float(1.06 * values.std(ddof=1) * len(values)**(-.2))
+    grid = np.linspace(values.min(), values.max(), 49)
+    density = stats.gaussian_kde(values, bw_method=1.06*len(values)**(-.2))(grid)
+    return grid, density, bandwidth
+
+
+def draw_raincloud(output, report, deltas):
+    with plt.rc_context({'font.family':'DejaVu Sans','font.size':13,'svg.fonttype':'path','pdf.fonttype':42,
+                         'svg.hashsalt':'study5-phase-raincloud','axes.spines.top':False,'axes.spines.right':False}):
+        fig, ax = plt.subplots(figsize=(7.6,6.8),layout='constrained')
+        for i,(summary,color,marker) in enumerate(zip(report['trial_groups'],COLORS,MARKERS)):
+            records=[r for r in deltas if r['trial_group']==summary['trial_group']]
+            values=np.array([r['delta_inhale_minus_exhale_ms'] for r in records])
+            cloud=raincloud_density(values)
+            if cloud is not None:
+                grid,density,_=cloud
+                ax.fill_between(grid,i-.08,i-.08-.4*density/density.max(),color=color,alpha=.22,edgecolor=color,lw=1)
+            ax.boxplot([values],positions=[i+.02],orientation='horizontal',widths=.09,showfliers=False,whis=1.5,
+                       manage_ticks=False,patch_artist=True,boxprops={'facecolor':'white','edgecolor':color},
+                       medianprops={'color':color,'linewidth':2},whiskerprops={'color':color},capprops={'color':color})
+            ax.scatter(values,i+np.linspace(.14,.32,len(values)),color=color,s=15)
+            ax.errorbar(summary['mean'],i+.48,xerr=summary['ci_high']-summary['mean'],color=color,
+                            marker=marker,markerfacecolor='white',markeredgewidth=1.5,capsize=4,linewidth=2)
+        ax.axvline(0,color='black',ls='--',lw=1)
+        labels=[f"{r['trial_group']}\n{r['mean']:+.2f} ms".replace('-','−') for r in report['trial_groups']]
+        ax.set(title='Inhale − Exhale',xlabel='Paired RT Difference (ms)',yticks=range(6),yticklabels=labels,ylim=(5.78,-.65))
+        all_values=[r['delta_inhale_minus_exhale_ms'] for r in deltas]
+        low,high=min(0,*all_values),max(0,*all_values)
+        ax.set_xlim(low-.07*(high-low),high+.07*(high-low))
+        fig.savefig(output/'phase_raw_groups.svg',facecolor='white',metadata={'Date':None})
+        fig.savefig(output/'phase_raw_groups.png',dpi=300,facecolor='white')
+        fig.savefig(output/'phase_raw_groups.pdf',facecolor='white')
+        plt.close(fig)
+    svg=output/'phase_raw_groups.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8',newline='\n')
 
 
 def draw_corrected_overall(output, rows, report):

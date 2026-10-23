@@ -335,3 +335,23 @@ linkage cohorts are exported in participant_repeated_measures.csv, with ordinary
 HC3 and hierarchical curve-refit uncertainty. The primary display excludes both
 ambiguous records. These are exploratory models of fitted proxies; they cannot
 remove the observed poor reliability or establish causal questionnaire influence.
+
+
+## Clickable HTML charts
+
+Current overview, pivot and exploratory charts are HTML/SVG elements drawn from
+numerical data, with a shared exact-value box. Click/tap a point or use Tab,
+arrows and Enter/Space; Esc or Close dismisses it. The box preserves participant
+identity/context, units and full numeric precision. Previous/Next exposes covered
+observations. This is also the rule for future current-page plots. Older workbook
+and archived report figures are outside this retrofit; SVG/PNG/PDF remain static
+download alternatives.
+
+Segment 2's main visual is six raw Inhale−Exhale rainclouds. Densities use the fixed
+descriptive Gaussian bandwidth, observed-range trim and equal peak height; boxes
+show median/quartiles/1.5-IQR whiskers, all 240 participant dots are retained, and
+mean/pointwise 95% t CIs remain separate. Corrected overall inference is preserved
+and its graph is available in a disclosure. The browser renders charts from
+verified `publication-data.json`; it does not refit inferential models.
+The current exploratory heatmap reuses the pivot controls, worker and complete
+scrollable table; the older notebook remains under `/exploratory/app/`.

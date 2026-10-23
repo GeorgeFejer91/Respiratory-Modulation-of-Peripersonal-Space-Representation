@@ -1,5 +1,6 @@
 """Build the publication companion and its audited deidentified data release."""
 
+import csv
 import argparse
 import subprocess
 import sys
@@ -209,12 +210,10 @@ def build(output, development=False):
     catalog = build_snapshots(root, pivot / "app" / "public" / "snapshots")
     if not catalog:
         raise RuntimeError("Missing saved-result pivot catalogue.")
-    exploratory_html = (pivot / "notebook-shell.html").read_text(encoding="utf-8").replace(
-        "Study 5 · Pivot table", "Study 5 · Exploratory figures").replace(
-        'src="text-fit.js"', 'src="../pivot/text-fit.js"').replace(
-        'href="../exploratory/">Exploratory figures', 'href="../pivot/">Pivot table').replace(
-        "Interactive Study 5 pivot notebook", "Study 5 exploratory figures")
-    (output / "exploratory" / "index.html").write_text(exploratory_html, encoding="utf-8")
+    exploratory_html = (pivot/'index.html').read_text(encoding='utf-8').replace(
+        '<head>', '<head><base href="../pivot/">',1).replace('<body>','<body data-view="exploratory">',1).replace(
+        'Study 5 · Pivot table','Study 5 · Exploratory figures').replace('>Pivot table</h1>','>Exploratory figures</h1>')
+    (output/'exploratory'/'index.html').write_text(exploratory_html,encoding='utf-8')
     for target, href, script in ((output, "pivot/", "pivot/text-fit.js"),
                                  (output / "editor", "../pivot/", "../pivot/text-fit.js")):
         page = target / "index.html"
@@ -280,6 +279,17 @@ def build(output, development=False):
         shutil.copyfile(block_source / name, block_target / name)
         if name.endswith(".csv"):
             allowed.append((block_target / name).resolve())
+    def rows(folder, name):
+        with (folder/name).open(encoding='utf-8',newline='') as source:
+            return list(csv.DictReader(source))
+    # Browser charts consume verified data, never pixels from exported figures.
+    payload = dict(phase=json.loads((phase_source/'results.json').read_text(encoding='utf-8')),
+        phaseDeltas=rows(phase_source,'trial_group_deltas.csv'), phaseGroups=rows(phase_source,'participant_trial_groups.csv'),
+        phaseOverall=rows(phase_source,'participant_phases.csv'), soa=soa_result,
+        soaCells=rows(soa_source,'participant_cells.csv'),
+        blocks=json.loads((block_source/'results.json').read_text(encoding='utf-8')),
+        blockCells=rows(block_source,'participant_blocks.csv'))
+    (output/'publication-data.json').write_text(json.dumps(payload,ensure_ascii=False,allow_nan=False)+'\n',encoding='utf-8')
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:
         marker.write_text("Unpublished browser verification build. No reference report or paper.\n")

@@ -13,15 +13,21 @@ phase index, and independently checked against the pandas participant cells.
 The primary figure shows corrected participant pairs, marginal mean 95% t CIs,
 and paired overall contrasts. Its zero references retain all negative values.
 
-## Raw trial-group reference requested by the owner
+## Main visualization: six raw trial-group rainclouds
 
 ![Colored raw trial-group phase means and paired phase deltas](phase_raw_groups.svg)
 
-Panel A shows six raw group-mean phase pairs; colors, markers and line styles
-identify the five AT SOAs and pooled Baseline. Panel B uses the same key, shows
-every participant's paired delta, with means and pointwise 95% t CIs below the dots
-(39 df). Right of zero means slower during inhale; left means faster. No
-normalization or smoothing. All plotted observations are retained in the axes.
+Six horizontal rainclouds show all 40 participant deltas per trial group. Half
+violins use Gaussian KDE with bandwidth 1.06 × sample SD × n^(−1/5), trimmed to
+the observed range and scaled to equal peak height. Smoothing is descriptive.
+Boxes show median/quartiles and 1.5-IQR whiskers; every observed point is retained.
+Hollow markers below the dots show the mean and the original pointwise 95% t CI
+(39 df). Right of zero means slower during inhale; left means faster. Vertical
+offsets separate marks without changing values. No RT normalization is applied.
+The browser renders HTML/SVG charts directly from the saved data, with exact-value
+click/tap boxes. SVG/PNG/PDF files are static download alternatives.
+The owner selected this raw-delta display as the main visual; corrected inference
+and its overall plot remain available separately.
 
 | Trial group | Exhale M (ms) | Inhale M (ms) | Delta (ms) | Pointwise 95% CI (ms) | n |
 | --- | --- | --- | --- | --- | --- |

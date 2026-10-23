@@ -144,10 +144,14 @@ saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
 cohort/weighting/uncertainty labels and links to the complete contrast family;
 it does not execute or refit that analysis in the browser.
-Its primary Figure 2 retains the baseline-corrected participant pairs and overall
-phase contrasts. Figure 2b uses literal released phase labels: six colored raw phase-mean lines
-for the five AT SOAs plus pooled Baseline, with matching participant deltas and
-pointwise paired 95% t CIs. Colors, markers and line styles identify trial groups.
+Owner visualization amendment (2026-10-23): Figure 2 now makes the six raw
+Inhale−Exhale trial-group deltas the main visual as stacked rainclouds; preserve
+raw labels and the corrected overall inference above it. The corrected overall
+plot remains under a supplemental disclosure. Half densities use Gaussian KDE,
+bandwidth 1.06 × sample SD × n^(−1/5), observed-range trim and equal peak height.
+Show all 240 paired participant deltas, median/quartile boxes/1.5-IQR whiskers,
+and the original mean/pointwise 95% t CIs in a separate band. Density is descriptive;
+vertical offsets change placement only. Colors plus row labels identify groups.
 The six intervals do not establish an SOA interaction. Overall raw phase means
 are Exhale 662.19 ms and Inhale 680.66 ms. `workbook/phase_rt.py` owns the native
 label-direction audit, figure and hashed exports in `results/phase_rt/`.
@@ -170,6 +174,17 @@ and red/dashed in Viscereality, with the pooled mean in black; no order-group pa
 Keep narrative, assumptions and detailed results in those linked reports. The original
 executable workbook remains at `/workbook.html`, with `/editor/` unchanged.
 The overview displays archived evidence and does not execute or refit models.
+Point inspection is a shared requirement for all current page/explorer plots and
+future plots. Current figures are HTML/SVG chart nodes rendered from verified
+numerical payloads, not embedded image files. `publication-charts.js` owns the
+overview charts; `pivot-chart.mjs` owns pivot and current exploratory charts.
+`point-inspector.js` owns the persistent click/tap box, units/context, full
+round-trip precision, keyboard arrows/Enter/Space, dismissal and actual Pretext
+measurement. Every observed/summary mark carries source values, never values
+inferred from pixels or rounded tick labels. Static SVG/PNG/PDF remain downloads.
+The older workbook and archived report figures remain outside this owner-selected
+interaction retrofit. The current exploratory page reuses the lightweight pivot
+controls/worker and a clickable heatmap; its older notebook stays under `/app/`.
 Segment 0 embeds the existing worker-based pivot in a same-origin, auto-height
 frame. Its core-data starting view uses a compact Audio–Tactile RT
 means payload, primary 40 cohort and equal-person summaries. The X-axis is fixed to the released SOA values (300, 800, 1500, 2200, 2700 ms).
@@ -230,9 +245,9 @@ negative values must remain visible, the chart retains them and marks zero as a
 reference. It contains no heatmap or explanatory report. Pivot interaction
 remains descriptive; it does not refit models or silently change the paper's
 analysis. The scientific inference roadmap stays open.
-The sibling `/exploratory/` subpage preserves the expanded exploration controls,
-heatmap, source inspection and downloads, sharing the pivot preparation and
-saved-result catalogue rather than fitting new models.
+The sibling `/exploratory/` subpage uses the shared pivot controls, an HTML/SVG
+heatmap and exact-value point inspector, source inspection and downloads. It
+shares the preparation/worker and saved-result catalogue without fitting models.
 The original marimo pivot remains available under `/pivot/app/`. Any Excel-like
 or data table shown on a live page must render its complete result in one table,
 with internal scrolling and user controls for table height and width. Do not split

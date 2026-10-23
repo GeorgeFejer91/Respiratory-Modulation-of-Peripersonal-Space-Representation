@@ -14,10 +14,17 @@ Export all six phase means/deltas, their sample SDs, n and pointwise 95% t CIs.
 These are exploratory descriptive contrasts; add no new p-value family or cleaning.
 The six intervals are pointwise, not simultaneous/multiplicity-adjusted intervals.
 Catch trials do not provide a comparable correct-hit target RT and remain excluded.
-Use consistent group colors plus markers/line styles across both reference panels: six raw
-group-mean phase pairs and all participant deltas. Preserve original overall results
-and the physiological-label limitation. Literature comparisons must cover contrary
-findings and distinguish task/phase measurement differences from replication.
+Owner visualization amendment (2026-10-23): make these six raw phase-delta groups
+the main Segment 2 visualization, using stacked horizontal rainclouds. Keep raw
+units and labels explicit; retain the corrected overall result/figure separately.
+Each cloud uses Gaussian KDE with bandwidth 1.06 × sample SD × n^(−1/5), trimmed
+to observed min/max and equal peak height. Suppress density for n<3 or zero SD.
+Show median/quartile boxes and 1.5-IQR whiskers, all 40 participant deltas, and the
+unchanged pointwise mean 95% t CI in a separate band. Vertical deterministic
+offsets affect only placement. The browser renders HTML/SVG charts directly from verified numerical data, with
+exact values, identity and units in a shared click/tap/keyboard inspector. Static
+exports remain separate download alternatives; do not embed chart images.
+Smoothing is descriptive; add no inferential test. Keep physiological-label limits.
 
 - Inputs: the unchanged audited public CSV pair. Reuse `paper_analysis.clean`:
   recorded AT/Baseline hits, existing catch rule and participant ±2.5 sample-SD
@@ -34,15 +41,9 @@ findings and distinguish task/phase measurement differences from replication.
 - Corrected RT is AT minus that matched baseline. All phase differences are
   **Inhale minus Exhale**; positive means slower RT during inhale. Segment 0's
   Baseline-minus-AT benefit display has the opposite correction sign.
-- Integration of the owner's concurrent primary-outcome clarification: retain
-  baseline-corrected overall participant pairs and raw/baseline/corrected overall
-  deltas as the primary `phase_rt` figure. Corrected negative values and zero
-  references remain visible. The requested six-group raw comparison is a separate,
-  explicitly labelled reference figure `phase_raw_groups`, not the primary outcome.
-- Raw reference Panel A: six phase-mean lines, with the nonnegative RT axis starting at zero.
-  Panel B: all participant deltas for each of the five AT SOAs and pooled Baseline,
-  with paired mean 95% t CIs, a visible zero reference, and all negative/positive
-  observations retained. Vertical offsets only separate points deterministically.
+- The selected main visual is `phase_raw_groups`; the corrected overall
+  `phase_rt` figure remains a supplemental reference. This changes display order,
+  not the preserved corrected overall inference. Keep all signed values and zero.
 - Reproduce the existing three primary40 mean/Phase rows in
   `results/baseline_effects/response_tests.csv` before exporting. Retain its full
   family/sensitivity link. Two-sided p values remain unadjusted; no new test is

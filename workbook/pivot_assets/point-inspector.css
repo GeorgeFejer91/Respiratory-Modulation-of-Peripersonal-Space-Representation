@@ -1,0 +1,9 @@
+.point-inspector { position:fixed; z-index:1000; width:340px; max-width:calc(100vw - 16px); max-height:calc(100dvh - 16px); overflow:auto; background:#fff; color:#243240; border:1px solid #657485; padding:12px; font:inherit; line-height:1.5; box-shadow:0 2px 8px #0002; box-sizing:border-box; }
+.point-inspector[hidden] { display:none; }
+.point-inspector dl { margin:0; }
+.point-inspector dt { font-weight:bold; }
+.point-inspector dd { margin:0 0 8px; overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+.point-inspector-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.point-inspector button { font:inherit; color:inherit; background:#fff; border:1px solid #657485; padding:8px; min-height:44px; cursor:pointer; }
+.point-inspector button:focus-visible, [data-point-detail]:focus-visible { outline:3px solid #c75c12; outline-offset:2px; }
+[data-point-detail] { cursor:pointer; }

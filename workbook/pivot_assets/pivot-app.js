@@ -5,6 +5,8 @@ import { resetSelection } from './pivot-selection.js';
 
 const byId = id => document.getElementById(id);
 const numberFormat = new Intl.NumberFormat(undefined, { maximumSignificantDigits: 6 });
+const exploratoryView = document.body.dataset.view === 'exploratory';
+if(exploratoryView) byId('chart-style').value='heatmap';
 const coreView = new URLSearchParams(location.search).get('view') === 'core';
 if (coreView) {
   document.body.classList.add('embedded-core');
@@ -242,11 +244,11 @@ function drawChart(force = true) {
   const geometry = `${plot.clientWidth}:${getComputedStyle(plot).fontSize}`;
   if (result && (force || chartGeometry !== geometry)) {
     chartGeometry = geometry;
-    byId('chart-layers').hidden = !result.participantSummary;
-    byId('chart-style').closest('label').hidden = Boolean(result.participantSummary);
+    byId('chart-layers').hidden = !result.participantSummary || byId('chart-style').value==='heatmap';
+    byId('chart-style').closest('label').hidden = Boolean(result.participantSummary) && !exploratoryView;
     document.querySelector('[data-chart-layer="summary"]').textContent = settings.sdWhiskers ? 'Mean ± SD' : 'Mean dots';
     renderChart(result, { ...resultSettings, sdWhiskers: settings.sdWhiskers,
-      ...(result.participantSummary ? { chartLayers } : {}) }, byId('chart-measure').value, byId('chart-style').value, resultSource);
+      ...(result.participantSummary && byId('chart-style').value!=='heatmap' ? { chartLayers } : {}) }, byId('chart-measure').value, byId('chart-style').value, resultSource);
   }
 }
 for (const button of document.querySelectorAll('[data-chart-layer]')) button.onclick = () => {

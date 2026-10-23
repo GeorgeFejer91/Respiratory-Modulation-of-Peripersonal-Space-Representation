@@ -1,3 +1,4 @@
+import { showPoint, hidePoint, enablePointInspection } from './point-inspector.js';
 const labels = { soa_ms: 'SOA (ms)', distance_cm: 'Distance (cm)', corrected_rt_ms: 'Corrected RT (ms)',
   baseline_benefit_ms: 'Baseline − RT (ms)',
   reaction_time_norm: 'Reaction time (0–1)', baseline_benefit_norm: 'Baseline − RT (0–1)',
@@ -94,6 +95,7 @@ function svgElement(tag, attributes = {}, text) {
   return node;
 }
 export function clearChart(message) {
+  hidePoint();
   byId('chart-plot').replaceChildren();
   byId('chart-legend').replaceChildren();
   byId('chart-hover').textContent = message;
@@ -127,6 +129,7 @@ export function renderChart(result, settings, measure, mode, source) {
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
   if (!present.length) { byId('chart-hover').textContent = 'No numeric values to plot for this measure. Missing cells remain in the table.'; return; }
+  if(mode === 'heatmap') { renderHeatmap(model); return; }
   if (layers && !Object.values(layers).some(Boolean)) {
     byId('chart-hover').textContent = 'Choose at least one figure layer. The table and downloads remain available.'; return;
   }
@@ -190,14 +193,17 @@ export function renderChart(result, settings, measure, mode, source) {
     class: 'chart-zero', 'data-zero-baseline': '', 'aria-label': 'Zero reference' }));
   if (yMin < 0) tick(margin.left - 8, yScale(0) + font * .3, '0', 'end');
   const focusable = [];
-  const bindPoint = (node, detail, compare) => {
+  const bindPoint = (node, detail, compare, fields) => {
+    const exact = fields || {Details:detail, Value:node.dataset.value};
+    node.dataset.pointDetail = JSON.stringify(exact);
     node.setAttribute('tabindex', focusable.length ? '-1' : '0');
     node.setAttribute('role', 'button'); node.setAttribute('aria-label', detail);
     node.append(svgElement('title', {}, detail));
     const reveal = () => { byId('chart-hover').textContent = detail; document.dispatchEvent(new Event('pivot-layout')); };
     node.addEventListener('pointerenter', compare || reveal);
     node.addEventListener('focus', reveal);
-    node.addEventListener('click', compare || reveal);
+    const inspect = () => { (compare || reveal)(); showPoint(node,exact); };
+    node.addEventListener('click', inspect);
     node.addEventListener('keydown', event => {
       if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
         event.preventDefault();
@@ -206,7 +212,7 @@ export function renderChart(result, settings, measure, mode, source) {
           Math.max(0, Math.min(focusable.length - 1, current + (['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 1)));
         focusable.forEach(pointNode => pointNode.setAttribute('tabindex', '-1'));
         focusable[next].setAttribute('tabindex', '0'); focusable[next].focus();
-      } else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); (compare || reveal)(); }
+      } else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); inspect(); }
     });
     focusable.push(node);
   };
@@ -248,7 +254,7 @@ export function renderChart(result, settings, measure, mode, source) {
       const node = svgElement('circle', { cx: groupX(point.x) + jitter, cy: yScale(item.value), r: layers.dots ? 2.5 : 2,
         'fill-opacity': .65, 'stroke-width': .5, 'data-participant-point': '', 'data-participant': item.participant,
         'data-value': item.value, 'data-row': point.row, 'data-column': point.column, 'data-x': point.x });
-      bindPoint(node, `${item.participant} · ${series.label} · ${model.xLabel}: ${point.x} · Participant mean · ${fieldLabel(measure)}: ${format(item.value)}`);
+      bindPoint(node, `${item.participant} · ${series.label} · ${model.xLabel}: ${point.x} · Participant mean · ${fieldLabel(measure)}: ${format(item.value)}`, null, {Participant:item.participant, Series:series.label, [model.xLabel]:point.x, [fieldLabel(measure)]:item.value});
       group.append(node);
     }
     if (summary) for (const point of series.points) {
@@ -277,7 +283,7 @@ export function renderChart(result, settings, measure, mode, source) {
         byId('chart-hover').textContent = `${model.xLabel}: ${point.x} · ${model.yLabel} · ${values.join('; ')}`;
         document.dispatchEvent(new Event('pivot-layout'));
       };
-      bindPoint(node, detail, compare);
+      bindPoint(node, detail, compare, {Series:series.label, [model.xLabel]:point.x, [model.yLabel]:point.y, ...(point.n===undefined?{}:{"Sample SD":Number.isFinite(point.sd)?point.sd:"Undefined (n < 2)", n:point.n})});
       group.append(node);
       if (whisker) group.append(whisker);
     }
@@ -287,4 +293,37 @@ export function renderChart(result, settings, measure, mode, source) {
     item.append(sample, label); byId('chart-legend').append(item);
   });
   document.dispatchEvent(new Event('pivot-layout'));
+}
+
+function renderHeatmap(model) {
+  if(model.points.length>4000 || model.series.length>48 || model.xValues.length>100){
+    byId('chart-hover').textContent='Heatmap exceeds 4,000 cells, 48 series or 100 row values. Filter or pool data; no cells have been sampled.';return;
+  }
+  const plot=byId('chart-plot'),width=Math.max(240,plot.clientWidth),font=parseFloat(getComputedStyle(plot).fontSize);
+  const left=font*4.5,top=font*2,height=top+model.xValues.length*font*2+font;
+  const cellWidth=(width-left-8)/model.series.length,cellHeight=font*2;
+  const values=model.points.map(p=>p.y).filter(Number.isFinite),low=Math.min(0,...values),high=Math.max(0,...values);
+  const svg=svgElement('svg',{viewBox:`0 0 ${width} ${height}`,width,height,role:'group','aria-label':`${model.yLabel} heatmap. Click or tap a cell for exact values.`});plot.append(svg);
+  const color=value=>{
+    if(!Number.isFinite(value))return '#dfe4e8';
+    const t=value<0?value/(low||-1):value/(high||1),end=value<0?[0,90,156]:[168,76,0];
+    return `rgb(${end.map(v=>Math.round(255+(v-255)*Math.min(1,t))).join(',')})`;
+  };
+  model.series.forEach((series,j)=>{
+    const label=svgElement('text',{x:left+(j+.5)*cellWidth,y:font*1.2,'text-anchor':'middle','font-size':font,'data-fit-label':''},String(j+1));svg.append(label);
+    const item=document.createElement('li');item.textContent=`${j+1}. ${series.label}`;byId('chart-legend').append(item);
+    for(const point of series.points){
+      const i=model.xValues.findIndex(x=>JSON.stringify(x)===JSON.stringify(point.x));
+      const fields={Series:series.label,[model.xLabel]:point.x,[model.yLabel]:point.y,...(point.n===undefined?{}:{n:point.n,'Sample SD':Number.isFinite(point.sd)?point.sd:'Undefined (n < 2)'})};
+      const rect=svgElement('rect',{x:left+j*cellWidth,y:top+i*cellHeight,width:cellWidth,height:cellHeight,fill:color(point.y),stroke:'#aeb8c2','data-chart-point':'','data-row':point.row,'data-column':point.column,'data-value':point.y,'data-point-detail':JSON.stringify(fields)});svg.append(rect);
+      if(cellWidth>55 && Number.isFinite(point.y)){
+        const label=svgElement('text',{x:left+(j+.5)*cellWidth,y:top+(i+.65)*cellHeight,'text-anchor':'middle','pointer-events':'none',fill:Math.abs(point.y)/(point.y<0?-low:high)>.55?'white':'#243240','font-size':font*.85},format(point.y));svg.append(label);
+      }
+      rect.addEventListener('focus',()=>{byId('chart-hover').textContent=Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join(' · ');});
+    }
+  });
+  model.xValues.forEach((value,i)=>svg.append(svgElement('text',{x:left-6,y:top+(i+.65)*cellHeight,'text-anchor':'end','font-size':font*.85},model.numericX?format(value):String(i+1))));
+  byId('chart-x-label').textContent=`Rows: ${model.xLabel}; columns: numbered series`;
+  byId('chart-note').textContent=`HTML/SVG heatmap of the same complete pivot cells. Color range ${low} to ${high}; white marks zero, blue negative, orange positive, grey missing. Click/tap or use keyboard arrows and Enter for full-precision values. No smoothing, sampling or model fitting.`;
+  enablePointInspection(svg);document.dispatchEvent(new Event('pivot-layout'));
 }

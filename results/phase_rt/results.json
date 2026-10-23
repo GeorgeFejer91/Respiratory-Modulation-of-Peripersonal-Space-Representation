@@ -136,6 +136,13 @@
     "AT 2700 ms": "#AA4499",
     "Baseline": "#000000"
   },
+  "raincloud": {
+    "method": "Gaussian KDE",
+    "bandwidth": "1.06 \u00d7 sample SD \u00d7 n^(\u22121/5)",
+    "support": "trimmed to each observed min/max; equal peak height",
+    "box": "median, quartiles and 1.5 IQR whiskers; all observations shown separately",
+    "jitter": "deterministic vertical offsets, no measured-value displacement"
+  },
   "execution": "Native Python calculation; browser displays saved results",
   "runtime": {
     "python": "3.12.14",

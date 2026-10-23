@@ -2,6 +2,40 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — Segment 2 rainclouds and point inspection
+
+Owner request (2026-10-23): promote the six raw Inhale−Exhale trial-group deltas
+as the main Segment 2 visualization, stacked rainclouds, with exact-value click/
+tap inspection across plots. This overrides the previous figure ordering, not
+the preserved corrected overall inference or cleaning. Keep the wider goal open.
+
+- [x] Render six stacked half-density/box/participant clouds, preserving all 240
+  paired deltas, the original pointwise mean CIs, colors and explicit zero. Use
+  the existing descriptive Gaussian-KDE rule (1.06 × sample SD × n^(−1/5)),
+  trim to observed support, and retain static SVG/PNG/PDF plus full data.
+- [x] Share a persistent point-detail box across the overview and live explorers;
+  include exact serialized values, units and identity/context, keyboard navigation,
+  touch, dismissal and a static/data fallback. Inspect existing plot owners first.
+  Owner selected current page/explorer plots and future plots; older workbook/
+  archived report figures are outside this retrofit.
+- [ ] Verify source/data identity, density math, all points, real browser point
+  activation, reflow/Pretext, existing controls, suite, authorized Git publication,
+  exact CI/Pages deployment and changed live behavior.
+
+Owner clarified HTML-based rendering: draw every current chart from numerical
+data with HTML/SVG elements; static image/PDF exports are downloads only.
+Work isolated on codex/phase-raincloud-points from main a129ddd.
+Pre-integration evidence: production build, all 70 workbook tests, 270 independent
+Python/JavaScript cases, and overview/pivot/layer/point-inspection browser checks
+pass locally. All 240 HTML raincloud point values match the CSV; all 1,013 current
+overview marks (SOA, raincloud, corrected pairs, blocks) expose exact data. The
+current exploratory heatmap also uses the shared HTML/SVG inspector. The original
+native statistical summaries and input data are unchanged. Phone/desktop renders
+were inspected; physical Safari and assistive technology remain untested.
+Next action: integrate current title/resizing updates, repeat affected gates, then
+publish and verify the exact live deployment. The wider publication goal is open.
+
+
 ### Active amendment — spreadsheet-style table copying
 
 - [x] Reuse the shared read-only pivot table for rectangular drag, Shift-click,

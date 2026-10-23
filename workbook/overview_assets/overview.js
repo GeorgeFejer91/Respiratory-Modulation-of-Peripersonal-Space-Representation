@@ -37,3 +37,9 @@ addEventListener('message', event => {
   const height = event.data.height;
   if (Number.isFinite(height) && height >= 200 && height <= 20000) coreFrame.style.height = `${height}px`;
 });
+
+try { await import('./publication-charts.js'); }
+catch(error) {
+  for(const host of document.querySelectorAll('[data-plot]')) host.textContent='Chart could not load. Exact data and static figure downloads remain available below.';
+  console.warn('Chart data could not load:',error);
+}

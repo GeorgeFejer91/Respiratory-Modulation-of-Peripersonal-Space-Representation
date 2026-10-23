@@ -39,7 +39,14 @@ raw-versus-benefit explanation and physiological-label limitation in the browser
 Run `test_phase_groups.py` for independent pandas/SciPy checks of all six trial-
 group deltas, equal condition weights, pooled baseline, paired CIs and series-color
 contrast. Verify 480 phase rows, 240 participant deltas and six summary rows,
-consistent SVG colors/markers and exact exported summary CSV. Check the linked
+consistent SVG colors/markers and exact exported summary CSV.
+For the raincloud amendment, verify the fixed Gaussian bandwidth/support against
+SciPy, all 240 exact participant deltas and the unchanged six mean/CI summaries.
+Run `node workbook/check_point_inspection.cjs URL`: HTML/SVG charts must preserve
+all exact participant values and match CSVs (no chart images), while
+all current overview and pivot point types support click/tap, full precision,
+keyboard, dismissal, overlap navigation and responsive measured detail boxes.
+No chart enhancement may change the numerical results or archived model engine. Check the linked
 published-evidence page and its access ledger; retain contrary findings and
 avoid treating six pointwise CIs or matching published directions as replication.
 For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
