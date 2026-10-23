@@ -253,6 +253,19 @@ def build(output, development=False):
     soa_result = json.loads((soa_source / "results.json").read_text())
     page = output / "index.html"
     page.write_text(page.read_text(encoding="utf-8").replace("<!-- SOA_APA -->", escape(soa_result["apa"])), encoding="utf-8")
+    # Segment 2 preserves the literal-label audit and its saved figure provenance.
+    phase_source = root / "results/phase_rt"
+    phase_manifest = json.loads((phase_source / "manifest.json").read_text(encoding="utf-8"))
+    for section, prefix in (("input_sha256", root / "data/raw"), ("source_sha256", root), ("artifact_sha256", phase_source)):
+        for name, digest in phase_manifest[section].items():
+            if sha256((prefix / name).read_bytes()).hexdigest() != digest:
+                raise RuntimeError("Segment 2 provenance changed: rerun phase_rt.py: " + name)
+    phase_target = output / "results/phase_rt"
+    phase_target.mkdir(parents=True, exist_ok=True)
+    for name in [*phase_manifest["artifact_sha256"], "manifest.json"]:
+        shutil.copyfile(phase_source / name, phase_target / name)
+        if name.endswith(".csv"):
+            allowed.append((phase_target / name).resolve())
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:
         marker.write_text("Unpublished browser verification build. No reference report or paper.\n")

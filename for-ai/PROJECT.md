@@ -136,6 +136,12 @@ saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
 cohort/weighting/uncertainty labels and links to the complete contrast family;
 it does not execute or refit that analysis in the browser.
+Its Figure 2 uses literal released phase labels, showing participant raw RT pairs
+and paired raw/baseline/AT−Baseline differences with 95% t CIs. Raw phase means
+are Exhale 662.19 ms and Inhale 680.66 ms. `workbook/phase_rt.py` owns the native
+label-direction audit, figure and hashed exports in `results/phase_rt/`.
+State the scheduled/instructed label limit: the release cannot verify actual
+respiratory physiology or acquisition-side labelling without belt recordings.
 The section menu stays fixed beside desktop content and collapses at the phone's
 bottom edge; embedded dialogs reserve space for this navigation.
 Keep narrative, assumptions and detailed results in those linked reports. The original

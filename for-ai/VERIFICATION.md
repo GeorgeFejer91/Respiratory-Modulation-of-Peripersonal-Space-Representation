@@ -24,6 +24,13 @@ to independently reproduce the paired primary40 phase contrasts from released
 participant cells and check the saved results and displayed rounding. Check its
 position/numbering, native-result labels, evidence links, Pretext measurements,
 navigation and reflow in the overview browser gate.
+The Segment 2 tests also compare direct literal-trial aggregation to independently
+prepared participant cells, reverse input ordering, retain subtraction signs,
+and verify figure/source/result hashes. Run `python workbook/phase_rt.py` to
+rebuild its SVG/PNG/PDF and audit report; the production build rejects stale hashes.
+Visually inspect the exported figure and phone/desktop page, zero references and
+all participant observations. Verify the actual phase-CSV download, alt text,
+raw-versus-benefit explanation and physiological-label limitation in the browser gate.
 For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
 drag/drop controls, all 16 combinations of the four native Condition/Phase
 checkboxes, and empty results when either group is unchecked. Check mouse,

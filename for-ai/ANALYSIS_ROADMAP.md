@@ -174,6 +174,35 @@ and is not covered by this deployment claim. Branch: main, synchronized before
 this evidence update. Segment 2 is complete. Next action: resume the remaining
 living-publication checklist; keep the overall scientific/publication goal open.
 
+### Segment 2 amendment — direction recheck and plot
+
+Owner request (2026-10-23): independently confirm inhale/exhale direction and add
+a plot. Keep the established cohort, cleaning and contrast family unchanged.
+
+- [x] Reaggregate literal released phase strings directly from retained trials;
+  independently compare with the existing pandas participant cells and confirm
+  all three saved native contrasts, CIs and two-sided p values.
+- [x] Add Figure 2 with raw participant pairs and raw/baseline/corrected paired
+  phase differences, explicit zero references, all observations and 95% t CIs.
+  Preserve SVG/PNG/PDF, exact participant phase means, settings/runtime and hashes
+  under `results/phase_rt/`; `workbook/phase_rt.py` is the owner.
+- [x] Clarify scheduled/instructed labels versus unverified actual physiology,
+  raw RT versus Segment 0's reversed-sign baseline benefit, and saved native status.
+- [x] Verify the production build, 66 workbook tests, release audit and local
+  overview browser gate (four viewports, 200% text/spacing, Pretext, keyboard/touch,
+  Figure 2, exact CSV download and existing Segment 0/1 controls/results).
+- [ ] Commit/push, follow exact CI/Pages deployment and verify the live figure.
+
+Result: Exhale raw M = 662.19 ms; Inhale M = 680.66 ms. Raw Inhale−Exhale is
++18.47 ms; pooled baseline phase difference is +20.63 ms; AT−Baseline phase
+difference is −2.16 ms, inconclusive. No label-order/index reversal was found in
+the current release/analysis path. Upstream acquisition labels and actual breathing
+remain unverifiable from these CSVs. Original inputs and native result family
+are unchanged. The graphic includes the shared software-guidance credit by link.
+Local figure inspected; PNG is 1380×2340 at 300 dpi with opaque white background,
+SVG is 331.2×561.6 pt. Source is on main; publication pending. Next action: publish
+and verify the exact live figure, then resume the wider living-publication goal.
+
 ## Visualization — fast pivot table and linked chart
 
 ### Active amendment — fixed SOA, series selection and participant normalization

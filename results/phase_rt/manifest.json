@@ -1,0 +1,29 @@
+{
+  "classification": "exploratory; visualization of existing contrasts",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "input_sha256": {
+    "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "source_sha256": {
+    "workbook/phase_rt.py": "728899ea4a679a83f24d03bae1f242b6509b8b4b81e443a97ed248e2206e9b05",
+    "workbook/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
+    "workbook/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
+    "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945",
+    "results/baseline_effects/response_tests.csv": "24506c492b63a6b10abaf304f2a62885b2798c45325cf08d5f532ff149eb6827"
+  },
+  "artifact_sha256": {
+    "SPECIFICATION.md": "02a8d0bccebd44ea1986f3a05a1a0c8af35dcf1909070df7de7b15f823aa72e8",
+    "RESULTS.md": "36b5527b4975b6456b8b8a7b271cbcbba6f2acd172671462f6888a1ba7125059",
+    "participant_phases.csv": "4346846cd5a1ce6dfa347c3cf930e764046b92a72fe23692a2904e4eee0d25b6",
+    "results.json": "64b626e5cd07244361266a389bc6990d0cf7ffc6095bbf0739fd71e36c7c9382",
+    "phase_rt.svg": "e8e246cfcf06dca1514aac91b492719a87e8d92a8e2cdf9da0717daed60f623d",
+    "phase_rt.png": "499831701e7c806134b599a3e68b5a54ab38709467b1a28aac42c3d57a46ce53",
+    "phase_rt.pdf": "b05527e25b6c22ffdde53e03c0359d05fc3cd28426887d8cc5e74a885b8e0fb1"
+  }
+}

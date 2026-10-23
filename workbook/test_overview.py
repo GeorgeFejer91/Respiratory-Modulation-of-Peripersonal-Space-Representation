@@ -2,6 +2,10 @@
 import csv
 from pathlib import Path
 import unittest
+import json
+from hashlib import sha256
+
+import numpy as np
 
 from scipy import stats
 
@@ -10,6 +14,42 @@ from preparation import load_pair, local_release_pair
 
 
 class PhaseOverviewTests(unittest.TestCase):
+    def test_literal_trial_labels_and_plot_data(self):
+        from phase_rt import phase_values, summarize
+        people, trials = load_pair(*local_release_pair())
+        values = phase_values(people, trials)
+        reference = cohort_frame(exploration_views(people, trials)["Participant-distance means"],
+                                 "Primary behavioural cohort")
+        expected = reference.groupby(["participant_id", "phase"])[
+            ["reaction_time_ms", "baseline_mean_ms", "corrected_rt_ms"]].mean()
+        self.assertEqual(len(values), 80)
+        for row in values:
+            np.testing.assert_allclose([row[k] for k in expected.columns],
+                                      expected.loc[(row["participant_id"], row["phase"])], atol=1e-10)
+        reverse = phase_values(people, list(reversed(trials)))
+        for first, second in zip(values, reverse):
+            self.assertEqual((first["participant_id"], first["phase"]), (second["participant_id"], second["phase"]))
+            np.testing.assert_allclose([first[k] for k in expected.columns], [second[k] for k in expected.columns], atol=1e-10)
+        report = summarize(values)
+        self.assertAlmostEqual(report["phase_means"]["Exhale"]["mean"], 662.1920580095339)
+        self.assertAlmostEqual(report["phase_means"]["Inhale"]["mean"], 680.661034801737)
+        for row in values:
+            self.assertAlmostEqual(row["corrected_rt_ms"], row["reaction_time_ms"]-row["baseline_mean_ms"])
+        self.assertAlmostEqual(report["contrasts"]["reaction_time_ms"]["mean"], 18.46897679220313)
+        self.assertAlmostEqual(report["contrasts"]["baseline_mean_ms"]["mean"], 20.63191179226738)
+        self.assertAlmostEqual(report["contrasts"]["corrected_rt_ms"]["mean"], -2.1629350000642553)
+
+    def test_phase_figure_provenance(self):
+        root = Path(__file__).resolve().parents[1]
+        folder = root / "results/phase_rt"
+        manifest = json.loads((folder/"manifest.json").read_text(encoding="utf-8"))
+        for section, prefix in (("input_sha256", root/"data/raw"), ("source_sha256", root), ("artifact_sha256", folder)):
+            for name, digest in manifest[section].items():
+                self.assertEqual(sha256((prefix/name).read_bytes()).hexdigest(), digest, name)
+        svg = (folder/"phase_rt.svg").read_text(encoding="utf-8")
+        for label in ("Exhale", "Inhale", "Inhale − Exhale", "+18.47", "+20.63", "−2.16"):
+            self.assertIn(label, svg)
+
     def test_paired_phase_claims(self):
         root = Path(__file__).resolve().parents[1]
         views = exploration_views(*load_pair(*local_release_pair()))
