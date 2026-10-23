@@ -14,7 +14,7 @@ Export all six phase means/deltas, their sample SDs, n and pointwise 95% t CIs.
 These are exploratory descriptive contrasts; add no new p-value family or cleaning.
 The six intervals are pointwise, not simultaneous/multiplicity-adjusted intervals.
 Catch trials do not provide a comparable correct-hit target RT and remain excluded.
-Use consistent group colors plus markers/line styles across both panels: six raw
+Use consistent group colors plus markers/line styles across both reference panels: six raw
 group-mean phase pairs and all participant deltas. Preserve original overall results
 and the physiological-label limitation. Literature comparisons must cover contrary
 findings and distinguish task/phase measurement differences from replication.
@@ -34,7 +34,12 @@ findings and distinguish task/phase measurement differences from replication.
 - Corrected RT is AT minus that matched baseline. All phase differences are
   **Inhale minus Exhale**; positive means slower RT during inhale. Segment 0's
   Baseline-minus-AT benefit display has the opposite correction sign.
-- Panel A: six raw phase-mean lines, with the nonnegative RT axis starting at zero.
+- Integration of the owner's concurrent primary-outcome clarification: retain
+  baseline-corrected overall participant pairs and raw/baseline/corrected overall
+  deltas as the primary `phase_rt` figure. Corrected negative values and zero
+  references remain visible. The requested six-group raw comparison is a separate,
+  explicitly labelled reference figure `phase_raw_groups`, not the primary outcome.
+- Raw reference Panel A: six phase-mean lines, with the nonnegative RT axis starting at zero.
   Panel B: all participant deltas for each of the five AT SOAs and pooled Baseline,
   with paired mean 95% t CIs, a visible zero reference, and all negative/positive
   observations retained. Vertical offsets only separate points deterministically.

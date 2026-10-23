@@ -15,14 +15,25 @@ import scipy
 from scipy import linalg, stats
 
 from inference import repeated_anova
-from paper_analysis import CONDITIONS, PHASES, SOAS, cell_cube, clean
+from paper_analysis import CONDITIONS, PHASES, SOAS, cell_cube, clean, grouped_means
 from preparation import FILES, audit_release, load_pair
 
 
-def analyze(people, trials, excluded=("P011", "P033")):
+def analyze(people, trials, excluded=("P011", "P033"), *, baseline_correct=True):
     retained, quality, counts = clean(people, trials)
     retained = [r for r in retained if r["participant_id"] not in excluded]
     ids, cube = cell_cube(retained)
+    baseline = grouped_means([r for r in retained if r["trial_type"] == "Baseline"],
+                             ("participant_id", "condition", "phase"))
+    missing_baseline = [pid for pid in ids if any((pid, c, p) not in baseline
+                        for c in CONDITIONS for p in PHASES)] if baseline_correct else []
+    if baseline_correct:
+        keep = [i for i, pid in enumerate(ids) if pid not in missing_baseline]
+        ids, cube = [ids[i] for i in keep], cube[keep].copy()
+        for i, pid in enumerate(ids):
+            for ci, condition in enumerate(CONDITIONS):
+                for pi, phase in enumerate(PHASES):
+                    cube[i, ci, pi] -= baseline[pid, condition, phase]
     if len(ids) < 3:
         raise ValueError("At least three complete participants are required.")
     means = cube.mean(axis=(1, 2))
@@ -35,7 +46,8 @@ def analyze(people, trials, excluded=("P011", "P033")):
         sd = float(values.std(ddof=1))
         half = float(stats.t.ppf(.975, len(ids)-1) * sd / np.sqrt(len(ids)))
         mean = float(values.mean())
-        summary.append(dict(soa_ms=soa, mean_ms=mean, sd_ms=sd, median_ms=float(np.median(values)),
+        summary.append(dict(soa_ms=soa, measure="corrected_rt_ms" if baseline_correct else "reaction_time_ms",
+                            mean_ms=mean, sd_ms=sd, median_ms=float(np.median(values)),
                             n=len(ids), ci_low_ms=mean-half, ci_high_ms=mean+half))
     difference = means[:, -1] - means[:, 0]
     half = float(stats.t.ppf(.975, len(ids)-1) * stats.sem(difference))
@@ -46,6 +58,9 @@ def analyze(people, trials, excluded=("P011", "P033")):
                         p=float(stats.shapiro(column).pvalue)) for i, column in enumerate(scores.T)]
     incomplete = sorted({r["participant_id"] for r in retained} - set(ids))
     report = dict(execution="native Python; saved display in browser", classification="exploratory",
+                  measure="corrected_rt_ms" if baseline_correct else "reaction_time_ms",
+                  correction="AT minus retained participant × Condition × Phase baseline mean; baseline SOAs pooled" if baseline_correct else "none; raw RT reference",
+                  missing_baseline_excluded=missing_baseline,
                   excluded_linkage=list(excluded), participant_ids=ids, incomplete_excluded=incomplete,
                   cleaning_counts_full_release=counts, quality=quality, anova=test,
                   summary=summary, endpoint_contrast=contrast, contrast_normality=diagnostics,
@@ -66,6 +81,10 @@ def build(root):
     people, trials = load_pair(*[(root / "data/raw" / name).read_bytes() for name in FILES])
     audit_release(people, trials)
     report, cube, means = analyze(people, trials)
+    raw_report, raw_cube, _ = analyze(people, trials, baseline_correct=False)
+    if raw_report["participant_ids"] != report["participant_ids"]:
+        raise ValueError("Primary and raw-reference cohorts differ; report matched cohorts before promotion.")
+    report["raw_reference"] = {key: raw_report[key] for key in ("measure", "correction", "anova", "summary", "endpoint_contrast")}
     report["apa"] = apa(report)
     report["linkage_sensitivities"] = []
     for excluded in ((), ("P011",), ("P033",)):
@@ -78,12 +97,14 @@ def build(root):
     (output / "results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
     with (output / "participant_cells.csv").open("w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file, lineterminator="\n")
-        writer.writerow(["participant_id", "condition", "phase", "soa_ms", "reaction_time_ms"])
-        for pid, cells in zip(report["participant_ids"], cube):
+        writer.writerow(["participant_id", "condition", "phase", "soa_ms", "reaction_time_ms", "baseline_mean_ms", "corrected_rt_ms"])
+        for i, (pid, cells) in enumerate(zip(report["participant_ids"], cube)):
             for ci, condition in enumerate(CONDITIONS):
                 for pi, phase in enumerate(PHASES):
                     for si, soa in enumerate(SOAS):
-                        writer.writerow([pid, condition, phase, int(soa), cells[ci, pi, si]])
+                        raw = raw_cube[i, ci, pi, si]
+                        corrected = cells[ci, pi, si]
+                        writer.writerow([pid, condition, phase, int(soa), raw, raw-corrected, corrected])
     with (output / "summary.csv").open("w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=list(report["summary"][0]), lineterminator="\n")
         writer.writeheader()
@@ -96,9 +117,12 @@ def build(root):
         half = np.array([r["ci_high_ms"]-r["mean_ms"] for r in report["summary"]])
         ax.errorbar(SOAS, group, yerr=half, color="black", marker="o", linewidth=2,
                     capsize=4, label=f"Mean and 95% CI (N = {len(means)})", zorder=3)
-        ax.set(xlabel="Stimulus onset asynchrony (ms)", ylabel="Audio–Tactile reaction time (ms)",
-               xticks=SOAS, xlim=(180, 2820), ylim=(0, max(means.max(), (group+half).max())*1.06))
-        ax.legend(frameon=False, loc="lower left", fontsize=11)
+        low, high = min(0., means.min(), (group-half).min()), max(0., means.max(), (group+half).max())
+        span = max(high-low, 1.)
+        ax.set(xlabel="Stimulus onset asynchrony (ms)", ylabel="AT − Baseline RT (ms)",
+               xticks=SOAS, xlim=(180, 2820), ylim=(low-.05*span if low < 0 else 0, high+.08*span))
+        ax.axhline(0, color="#555555", linestyle=":", linewidth=1)
+        ax.legend(frameon=False, loc="upper right", fontsize=11)
         fig.savefig(output / "soa_rt.svg", metadata={"Date":None}, facecolor="white")
         # Canonical text bytes survive Git's Windows/Linux line-ending policy.
         svg = output / "soa_rt.svg"
@@ -120,7 +144,8 @@ def build(root):
     sensitivity = "\n".join(f"- Excluded {s['excluded'] or 'neither linked record'}: N = {s['anova']['n']}; " + apa(s) + "." for s in report["linkage_sensitivities"])
     (output / "RESULTS.md").write_text(f"""# Segment 1: does RT depend on SOA?
 
-Exploratory basic phenomenon check. **{report['apa']}** (Greenhouse–Geisser correction).
+Exploratory basic phenomenon check using **baseline-corrected RT (AT − Baseline)**.
+**{report['apa']}** (Greenhouse–Geisser correction).
 N = {len(means)} complete participants; {report['retained_at']} retained AT trials;
 incomplete exclusions: {report['incomplete_excluded'] or 'none'}. P011/P033 excluded.
 {finding} This is an SOA check, not proof
@@ -128,15 +153,20 @@ of a specifically spatial PPS mechanism, sigmoid or physiological boundary.
 
 **Figure 1**
 
-*Observed reaction times across stimulus onset asynchronies*
+*Baseline-corrected reaction times across stimulus onset asynchronies*
 
 ![Participant RT profiles and group means](soa_rt.svg)
 
 *Note.* Grey lines show each person's five means, averaging the four Condition ×
 Phase cells equally. Black points show the equal-person mean with pointwise
 marginal 95% t CIs (39 df), not within-person contrast CIs or simultaneous bands.
-No baseline correction, normalization or smoothing. Lines are visual guides.
-The y-axis starts at zero. [Full settings and limitations](SPECIFICATION.md).
+Subtract each participant × Condition × Phase retained baseline mean (all
+baseline SOAs pooled) before averaging. Negative values mean AT responses are
+faster than baseline. No normalization or smoothing. Lines are visual guides.
+The zero reference and all negative values are retained. Mean intervals describe
+the corrected participant scores and include their observed baseline-estimation
+variation; they are not conditional trial-level or separately refitted baseline
+intervals. [Full settings and limitations](SPECIFICATION.md).
 
 | SOA (ms) | M (ms) | SD (ms) | Median (ms) | n | 95% CI (ms) |
 | --- | --- | --- | --- | --- | --- |
@@ -168,6 +198,16 @@ complete `results.zip` includes cell values, settings, statistics and figures.
 Independent statsmodels/pandas/covariance checks are in `workbook/test_pps_soa.py`.
 Input, source and output hashes and actual runtime versions are in `manifest.json`.
 This is a basic SOA check; temporal expectancy/foreperiod explanations remain.
+
+## Raw-RT reference
+
+Raw AT RT is retained explicitly in `raw_reference` in results.json and alongside
+the matched baseline and corrected RT in participant_cells.csv. Subtracting one
+constant from all SOAs within each participant × condition × phase does not alter
+their SOA contrasts under equal-cell averaging. Thus the raw-reference omnibus
+statistics and paired endpoint contrast agree with the corrected analysis (within
+roundoff), while the means, SDs and marginal CIs differ. The graph and primary
+summaries above now use corrected values, as clarified by the owner.
 
 ## Software guidance
 

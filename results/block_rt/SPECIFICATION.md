@@ -3,8 +3,12 @@
 Frozen before the new numerical analysis on 2026-10-23, following the owner's
 question about average reaction-time drift across consecutive conditions.
 
-- Outcome: raw Audio–Tactile hit RT in ms; reuse `paper_analysis.clean` exactly.
-  No new cutoff, local filtering, normalization, smoothing or baseline subtraction.
+- Owner clarification, 2026-10-23: use baseline-corrected values as the default,
+  superseding the initial raw primary outcome. Subtract the participant ×
+  Condition × Phase mean of retained Baseline trials (SOAs pooled) from each
+  retained AT trial before block aggregation. Reuse `paper_analysis.clean`
+  exactly; no new cutoff, local filtering, normalization or smoothing. Keep raw
+  block means and their full three-test family as a labelled reference.
 - Chronology: `session_block = 6 * (part_number - 1) + block_number`, 1–12.
   Verify against original trial_index and recorded condition_order, rather than
   ordering by condition name. Blocks are progression indices, not elapsed minutes.
@@ -33,7 +37,8 @@ question about average reaction-time drift across consecutive conditions.
   whole-participant percentile-bootstrap CIs for the three mean coefficients.
   Diagnostics do not select another estimator or trigger exclusions.
 - Figure: observed participant trajectories plus equal-person means and pointwise
-  marginal 95% t CIs, zero-based ms axis, switch marked between blocks 6/7.
+  marginal 95% t CIs, explicit zero reference and complete negative-value/interval
+  extent (zero lower bound only if all nonnegative), switch marked between 6/7.
   Figure-only owner amendment (2026-10-23): one spaghetti panel with participant
   segments blue/solid for Control and red/dashed for Viscereality according to
   each recorded block's condition. Remove the condition-order summary panel;

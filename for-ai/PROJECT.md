@@ -50,6 +50,14 @@ and `SESSION_RESULTS.md` under that results directory. Early blocks of each
 intervention are not a fatigue exclusion. Neither time adjustment nor smoothing
 guarantees a supported PPS parameter effect.
 Fixed analyses retain `corrected RT = Audio–Tactile RT − Baseline RT`.
+Owner clarification (2026-10-23): baseline-corrected RT is the default primary
+outcome for the current SOA, phase and block analyses and subsequent RT analyses.
+Apply the retained participant × Condition × Phase baseline mean before the
+analysis-specific aggregation; do not use a grand baseline, nominal-SOA matching
+or normalization as a replacement. Raw AT RT remains an explicitly labelled
+reference/audit sensitivity unless the owner specifically requests raw RT.
+This changes current primary displays/results, not historical manuscript or
+preregistered raw-result snapshots. Segment 0 retains its separate benefit sign.
 Use the existing within-participant × Condition × Phase baseline mean as the
 primary correction for both interventions and phases; retain same-nominal-SOA
 subtraction as a timing-unverified sensitivity and raw RT as a reference. Propagate
@@ -121,7 +129,7 @@ all prior/cohort sensitivities and its omission of within-fit uncertainty.
 ## Browser companion and ownership
 
 Segment 1 first tests the basic SOA-dependent RT phenomenon with a five-level
-within-person omnibus ANOVA, existing cleaning/primary40, equal Condition × Phase
+within-person omnibus ANOVA on baseline-corrected RT, existing cleaning/primary40, equal Condition × Phase
 cell averages and always-GG correction. Show participant RT profiles, marginal
 95% t CIs, APA statistics and hashed downloads; see `results/pps_soa/`. This
 exploratory prerequisite does not establish spatial specificity or a PPS boundary.
@@ -136,7 +144,8 @@ saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
 cohort/weighting/uncertainty labels and links to the complete contrast family;
 it does not execute or refit that analysis in the browser.
-Its Figure 2 uses literal released phase labels: six colored raw phase-mean lines
+Its primary Figure 2 retains the baseline-corrected participant pairs and overall
+phase contrasts. Figure 2b uses literal released phase labels: six colored raw phase-mean lines
 for the five AT SOAs plus pooled Baseline, with matching participant deltas and
 pointwise paired 95% t CIs. Colors, markers and line styles identify trial groups.
 The six intervals do not establish an SOA interaction. Overall raw phase means
@@ -151,7 +160,7 @@ multisensory synchrony judgments from speeded target RTs; the latter cannot veri
 subjective simultaneity or temporal binding-window changes.
 The section menu stays fixed beside desktop content and collapses at the phone's
 bottom edge; embedded dialogs reserve space for this navigation.
-Segment 3 shows the chronological-block RT graph from `results/block_rt/`, the
+Segment 3 shows the baseline-corrected chronological-block RT graph from `results/block_rt/`, the
 inconclusive linear trend, 39-person complete-block inference and downloadable
 all-available primary40 descriptives. Both conditions span one continuous 12-block
 session, with the switch after block 6. Preserve its native-result label,

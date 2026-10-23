@@ -92,6 +92,10 @@ method-specific checks below:
 ### Existing executable workbook checks
 
 For Segment 1, run `python workbook/pps_soa.py` and the `test_pps_soa.py` tests.
+Primary measure in Segments 1–3 must be `corrected_rt_ms`, using pooled retained
+participant × Condition × Phase baselines. Independently verify subtraction before
+aggregation and explicit raw-reference labels; missing baselines must not become
+zeros. Check all negative values/intervals and the zero reference in each figure.
 Independently check statsmodels one-factor RM ANOVA, projected-covariance GG
 epsilon/p, equal-cell pandas means, t intervals, matched-baseline invariance,
 complete-case exclusions and primary40. Inspect the graph/contrast Q–Q plots;

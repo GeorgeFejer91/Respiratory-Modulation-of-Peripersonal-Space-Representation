@@ -88,7 +88,9 @@ def summarize(rows):
         differences = [lookup[pid, "Inhale"][measure] - lookup[pid, "Exhale"][measure] for pid in ids]
         test = stats.ttest_1samp(differences, 0)
         contrasts[measure] = {**describe(differences), "t": float(test.statistic), "p": float(test.pvalue)}
-    return dict(phase_means={phase: describe([lookup[pid, phase]["reaction_time_ms"] for pid in ids]) for phase in PHASES},
+    return dict(primary_measure="corrected_rt_ms",
+                corrected_phase_means={phase: describe([lookup[pid, phase]["corrected_rt_ms"] for pid in ids]) for phase in PHASES},
+                phase_means={phase: describe([lookup[pid, phase]["reaction_time_ms"] for pid in ids]) for phase in PHASES},
                 contrasts=contrasts, direction="Inhale minus Exhale; positive = slower during inhale")
 
 
@@ -128,6 +130,7 @@ def build(root):
             writer.writeheader()
             writer.writerows(records)
     (output/"results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
+    draw_corrected_overall(output, rows, report)
     # Outline SVG glyphs so browsers need no locally installed plotting font.
     with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 14, "svg.fonttype": "path", "pdf.fonttype": 42,
                          "svg.hashsalt": "study5-phase-rt", "axes.spines.top": False, "axes.spines.right": False}):
@@ -159,21 +162,31 @@ def build(root):
         upper = max([0, *all_values, *[s["ci_high"] for s in report["trial_groups"]]])
         ax.set_xlim(lower-.08*(upper-lower), upper+.08*(upper-lower))
         for extension, options in (("svg", {"metadata": {"Date": None}}), ("png", {"dpi": 300}), ("pdf", {})):
-            fig.savefig(output/f"phase_rt.{extension}", facecolor="white", **options)
+            fig.savefig(output/f"phase_raw_groups.{extension}", facecolor="white", **options)
         plt.close(fig)
-    svg = output/"phase_rt.svg"
+    svg = output/"phase_raw_groups.svg"
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n", encoding="utf-8", newline="\n")
     table = "\n".join(f"| {MEASURES[m]} | {s['mean']:+.2f} | [{s['ci_low']:.2f}, {s['ci_high']:.2f}] | {s['t']:.3f} | {s['p']:.6f} |" for m, s in report["contrasts"].items())
     means = [report["phase_means"][phase]["mean"] for phase in PHASES]
     group_table = "\n".join(f"| {s['trial_group']} | {s['exhale_mean_ms']:.2f} | {s['inhale_mean_ms']:.2f} | {s['mean']:+.2f} | [{s['ci_low']:.2f}, {s['ci_high']:.2f}] | {s['n']} |" for s in report["trial_groups"])
     (output/"RESULTS.md").write_text(f"""# Segment 2: phase direction by main trial group
 
-Raw AT RT: Exhale **{means[0]:.2f} ms**, Inhale **{means[1]:.2f} ms**.
-The positive Inhale−Exhale contrast means slower raw RT during inhale.
+Primary baseline-corrected RT (AT − matched Baseline): Exhale **{report['corrected_phase_means']['Exhale']['mean']:.2f} ms**,
+Inhale **{report['corrected_phase_means']['Inhale']['mean']:.2f} ms**. The corrected phase contrast remains inconclusive.
+Raw AT RT is a labelled reference: Exhale {report['phase_means']['Exhale']['mean']:.2f} ms,
+Inhale {report['phase_means']['Inhale']['mean']:.2f} ms. Its positive Inhale−Exhale
+contrast means slower raw RT during inhale.
 It is reproduced directly from the released trial labels without a numeric
 phase index, and independently checked against the pandas participant cells.
 
-![Colored trial-group phase means and paired phase deltas](phase_rt.svg)
+![Primary baseline-corrected phase means and overall contrasts](phase_rt.svg)
+
+The primary figure shows corrected participant pairs, marginal mean 95% t CIs,
+and paired overall contrasts. Its zero references retain all negative values.
+
+## Raw trial-group reference requested by the owner
+
+![Colored raw trial-group phase means and paired phase deltas](phase_raw_groups.svg)
 
 Panel A shows six raw group-mean phase pairs; colors, markers and line styles
 identify the five AT SOAs and pooled Baseline. Panel B uses the same key, shows
@@ -220,13 +233,54 @@ or PPS-boundary claim is made. The browser displays the saved native figure.
 Software guidance is acknowledged in the [shared software note](../pps_soa/RESULTS.md#software-guidance).
 """, encoding="utf-8", newline="\n")
     paths = ["workbook/phase_rt.py", "workbook/test_phase_groups.py", "workbook/paper_analysis.py", "workbook/preparation.py", "workbook/requirements.txt", "results/baseline_effects/response_tests.csv"]
-    artifacts = ["SPECIFICATION.md", "RESULTS.md", "participant_phases.csv", "participant_trial_groups.csv", "trial_group_deltas.csv", "trial_group_summary.csv", "results.json", "phase_rt.svg", "phase_rt.png", "phase_rt.pdf"]
+    artifacts = ["SPECIFICATION.md", "RESULTS.md", "participant_phases.csv", "participant_trial_groups.csv", "trial_group_deltas.csv", "trial_group_summary.csv", "results.json", "phase_rt.svg", "phase_rt.png", "phase_rt.pdf", "phase_raw_groups.svg", "phase_raw_groups.png", "phase_raw_groups.pdf"]
     manifest = dict(classification="exploratory paired trial-group deltas; preserved overall reference contrasts", runtime=report["runtime"],
         input_sha256={name: sha256((root/"data/raw"/name).read_bytes()).hexdigest() for name in FILES},
         source_sha256={name: sha256((root/name).read_bytes()).hexdigest() for name in paths},
         artifact_sha256={name: sha256((output/name).read_bytes()).hexdigest() for name in artifacts})
     (output/"manifest.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8", newline="\n")
     print(json.dumps(report["trial_groups"], indent=2))
+
+
+def draw_corrected_overall(output, rows, report):
+    """Preserve the concurrently requested primary corrected-RT display."""
+    lookup = {(r["participant_id"], r["phase"]): r for r in rows}
+    ids = sorted({r["participant_id"] for r in rows})
+    corrected = np.array([[lookup[pid, phase]["corrected_rt_ms"] for phase in PHASES] for pid in ids])
+    with plt.rc_context({"font.family":"DejaVu Sans", "font.size":14, "svg.fonttype":"path", "pdf.fonttype":42,
+                         "svg.hashsalt":"study5-phase-rt", "axes.spines.top":False, "axes.spines.right":False}):
+        fig, axes = plt.subplots(2, 1, figsize=(4.6, 7.8), layout="constrained")
+        ax = axes[0]
+        ax.plot([0, 1], corrected.T, color="#666666", linewidth=.8, alpha=.8, marker=".", markersize=4)
+        means = [report["corrected_phase_means"][phase]["mean"] for phase in PHASES]
+        half = [report["corrected_phase_means"][phase]["ci_high"]-means[i] for i, phase in enumerate(PHASES)]
+        ax.errorbar([0, 1], means, yerr=half, color="black", marker="s", capsize=5, linewidth=2, zorder=3)
+        low, high = min(0., corrected.min(), min(np.array(means)-half)), max(0., corrected.max(), max(np.array(means)+half))
+        span = max(high-low, 1.)
+        ax.axhline(0, color="black", linestyle=":", linewidth=1)
+        ax.set(title="A. Baseline-corrected RT", ylabel="AT − Baseline RT (ms)",
+               xticks=[0, 1], xticklabels=[f"{phase}\nMean {means[i]:.2f} ms" for i, phase in enumerate(PHASES)],
+               xlim=(-.4, 1.4), ylim=(low-.08*span if low < 0 else 0, high+.08*span))
+        ax = axes[1]
+        all_values = []
+        for i, measure in enumerate(MEASURES):
+            values = np.array([lookup[pid, "Inhale"][measure]-lookup[pid, "Exhale"][measure] for pid in ids])
+            all_values.extend(values)
+            s = report["contrasts"][measure]
+            ax.scatter(i+np.linspace(-.13, .13, len(ids)), values, color="#666666", alpha=.8, s=16)
+            ax.errorbar(i, s["mean"], yerr=s["ci_high"]-s["mean"], color="black", marker="s", capsize=5, linewidth=2, zorder=3)
+        ax.axhline(0, color="black", linestyle="--", linewidth=1)
+        labels = [f"{name}\n{report['contrasts'][measure]['mean']:+.2f} ms".replace("-", "−")
+                  for measure, name in zip(MEASURES, ("Raw AT", "Baseline", "AT −\nBaseline"))]
+        ax.set(title="B. Inhale − Exhale", ylabel="Paired RT Difference (ms)", xticks=range(3), xticklabels=labels, xlim=(-.5, 2.5))
+        lower = min([0, *all_values, *[s["ci_low"] for s in report["contrasts"].values()]])
+        upper = max([0, *all_values, *[s["ci_high"] for s in report["contrasts"].values()]])
+        ax.set_ylim(lower-.08*(upper-lower), upper+.08*(upper-lower))
+        for extension, options in (("svg", {"metadata":{"Date":None}}), ("png", {"dpi":300}), ("pdf", {})):
+            fig.savefig(output/f"phase_rt.{extension}", facecolor="white", **options)
+        plt.close(fig)
+    svg = output/"phase_rt.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n", encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

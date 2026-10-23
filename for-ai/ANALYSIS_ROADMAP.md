@@ -2,6 +2,29 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — baseline-corrected RT is the default
+
+Owner clarification (2026-10-23): current SOA, phase and block analyses and future
+RT analyses use AT minus the retained participant × Condition × Phase baseline
+mean, pooling baseline SOAs, before their declared aggregation. Raw RT stays an
+explicit reference; historical snapshots and Segment 0's benefit sign are retained.
+
+- [x] Amend the three specifications and rebuild corrected primary means, figures,
+  downloads and result manifests. Keep negative values and explicit zero references.
+  SOA F/p and endpoint contrasts are unchanged; its corrected endpoint means are
+  −8.60 and −24.38 ms. Phase corrected means are −17.57/−19.73 ms, with unchanged
+  phase difference −2.16 ms, p=.664. Corrected block slope is −0.120 ms/block,
+  95% CI [−1.321, 1.081], t(38)=−0.203, p=.840; raw p=.584 is labelled reference.
+- [x] Independently verify matched pooled baselines, all four SOA cells, missing
+  baseline handling, invariance, block aggregation and 117 statsmodels coefficients;
+  all 67 workbook tests pass. Visually inspect all three corrected figures.
+- [ ] Finish production-page checks, authorized commit/push, exact CI/deployment
+  and live verification. Preserve unrelated ongoing phase-figure work in the
+  canonical checkout. Next action: rendered gate and publication.
+
+The initial raw-primary checkpoints below are historical; this amendment owns
+the current primary-measure choice. The wider publication goal remains open.
+
 ### Completed analysis — overall RT drift across consecutive blocks
 
 Owner request (2026-10-23): average RT across all chronological blocks spanning
@@ -21,7 +44,7 @@ the wider scientific/publication goal remains open.
 
 Complete-block inference retains 39 participants: P011/P033 remain excluded for
 linkage, and P008 lacks usable AT RTs in block 7. P008's other blocks remain in
-the all-available primary40 table. Linear slope is −0.685 ms/block, 95% CI
+the all-available primary40 table. The initial raw-reference linear slope is −0.685 ms/block, 95% CI
 [−3.199, 1.829], t(38)=−0.552, p=.584; adjusted for condition, −0.057 ms/block,
 p=.968. Quadratic p=.820 with a strong tail departure. No systematic decline is
 established; lack of significance does not establish absence of practice/fatigue.
@@ -236,11 +259,14 @@ established cohort, cleaning and overall contrast family unchanged.
 - [x] Reaggregate literal released phase strings directly from retained trials;
   independently compare with the existing pandas participant cells and confirm
   all three saved native contrasts, CIs and two-sided p values.
-- [x] Add Figure 2 with six raw phase-mean lines and matching individual paired
+- [x] Add raw-reference Figure 2b with six phase-mean lines and matching individual paired
   deltas/pointwise 95% t CIs, redundant colors/markers/line styles, explicit zero
   references and all observations. Preserve SVG/PNG/PDF, 480 participant/group/
   phase means, 240 participant deltas, six summaries, settings/runtime and hashes
   under `results/phase_rt/`; `workbook/phase_rt.py` is the native owner.
+- [x] Integrate the concurrent baseline-corrected-primary amendment while
+  preserving its primary overall figure. Keep the six-group plot as a labelled
+  raw reference (`phase_raw_groups`), with both sets of SVG/PNG/PDF exports.
 - [x] Clarify scheduled/instructed labels versus unverified actual physiology,
   raw RT versus Segment 0's reversed-sign baseline benefit, and saved native status.
 - [x] Verify the production build, 69 workbook tests and local
