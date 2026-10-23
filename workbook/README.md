@@ -66,6 +66,13 @@ once, scrolls within its own viewport, and has height and width controls. No
 Next/Previous buttons page table data, field choices or settings groups. Settings
 stretch with the available space and keep all ordered groups visible.
 CSV downloads retain full precision; displayed summaries use six significant digits.
+The read-only table supports rectangular cell selection: drag, Shift-click, or
+use arrows with Shift to extend a range, then Ctrl+C/⌘C or **Copy selection**.
+On touch screens, tap the first cell, enable **Extend selection**, and tap the
+last cell. **Select all cells** includes headers. Copied tab-separated rows paste
+directly into Excel, retaining full precision and blank missing cells. **Mean ± SD**
+copies as one text cell; select **Mean only** for numeric cells. A new result
+clears the selection; the released data remain read-only.
 Use **Chart style** for automatic, line, points or grouped bars. A multi-measure
 pivot exposes **Chart measure**, keeping different measures off the same y-axis.
 Other row fields split into additional series; column groups keep their pivot

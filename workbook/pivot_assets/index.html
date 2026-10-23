@@ -41,7 +41,12 @@
         <p id="chart-hover" role="status" data-fit-label>Preparing chart</p>
         <p id="chart-note" data-fit-label></p>
       </section>
-      <div id="table-region" aria-busy="true" tabindex="0" aria-label="Scrollable pivot table"><table id="pivot-table"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
+      <section class="table-sheet" aria-label="Data table">
+        <div class="selection-controls"><button id="copy-selection" disabled data-fit-label>Copy selection</button><button id="select-all-cells" disabled data-fit-label>Select all cells</button><button id="extend-selection" aria-pressed="false" disabled data-fit-label>Extend selection</button></div>
+        <p id="selection-help" data-fit-label>Drag cells or Shift-click to select a range. Keyboard: arrows, Shift+arrows, Ctrl+C (Mac: ⌘C). Touch: tap the first cell, turn on Extend selection, then tap the last. Copies full values; Mean ± SD stays in one cell.</p>
+        <p id="selection-status" role="status" data-fit-label>No cells selected</p>
+        <div id="table-region" aria-busy="true" aria-label="Scrollable pivot table"><table id="pivot-table" role="grid" aria-readonly="true" aria-multiselectable="true" aria-describedby="selection-help"><caption id="table-caption" data-fit-label>Mean corrected RT (ms)</caption><thead></thead><tbody></tbody></table><p id="empty-table" hidden data-fit-label>No records match these filters.</p><p id="error" role="alert" hidden></p></div>
+      </section>
     </div>
   </main>
   <footer class="page-footer">

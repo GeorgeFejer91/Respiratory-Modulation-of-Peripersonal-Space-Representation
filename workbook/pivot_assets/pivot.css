@@ -129,6 +129,16 @@ main {
   font-size:.9em
 }
 #table-region { height:440px; min-height:160px; min-width:0; overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; border:1px solid var(--line); }
+.table-sheet { min-width:0; display:grid; gap:.5rem; }
+.selection-controls { display:flex; flex-wrap:wrap; gap:.5rem; }
+.selection-controls button { max-width:100%; white-space:normal; }
+#selection-help,#selection-status { font-size:.85em; color:var(--muted); overflow-wrap:anywhere; }
+#extend-selection[aria-pressed=true] { outline:2px solid var(--link); outline-offset:-3px; }
+#pivot-table { user-select:none; }
+#pivot-table th,#pivot-table td { border:1px solid var(--line); cursor:cell; white-space:nowrap; }
+#pivot-table thead { position:sticky; top:0; z-index:1; }
+#pivot-table [aria-selected=true] { background:color-mix(in srgb,var(--link) 18%,var(--paper)); box-shadow:inset 0 0 0 1px var(--link); }
+#pivot-table :focus { outline:2px solid var(--link); outline-offset:-2px; }
 .linked-views { display:grid; gap:1.25rem; align-items:start; }
 #chart-region { display:grid; gap:.5rem; min-width:0; padding-block:.5rem; }
 .chart-controls { display:flex; flex-wrap:wrap; gap:.5rem 1rem; }
