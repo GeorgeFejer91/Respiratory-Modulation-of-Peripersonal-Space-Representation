@@ -2,7 +2,7 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Current bounded goal — Segment 1 basic PPS phenomenon check
+### Completed amendment — Segment 1 basic PPS phenomenon check
 
 Owner request (2026-10-23): Segment 1 first asks whether RT differs by SOA,
 using the simplest appropriate paired analysis, a graph and APA-style statistics.
@@ -27,7 +27,15 @@ This replaces its baseline-correction question. Keep the wider publication goal 
   and an actual Segment 1 ZIP download matching the verified archive. All 17 result
   manifest hashes match canonical staged Git bytes. Skill validation rechecks all
   55 entries and 380 installed-file hashes. Physical iPhone/Safari remains untested.
-- [ ] Commit/push and verify the exact Pages deployment and live Segment 1.
+- [x] Commit/push and verify the exact Pages deployment and live Segment 1.
+  Source `c4a26c7` on `main` passed Actions run `39874953819`: all 64 tests,
+  data/preparation checks, full fixed/reference analyses, independent numerical
+  validation, production build and Pages deployment. The complete overview browser
+  gate passes against the live site, including the SOA graph, exact APA text and
+  actual ZIP download matching the checked local archive. Native calculation and
+  saved-result display remain distinct. The earlier CI roundoff-only test failure
+  is resolved by 1e-12 relative/1e-14 absolute numerical tolerances; artifact hash
+  and ZIP comparisons remain exact.
 
 State: native primary N = 40, F(2.52, 98.11) = 3.28, p = .031, partial eta squared
 = .078, GG epsilon = .629. Mean RT decreases from 681.47 to 665.69 ms across the
@@ -36,9 +44,13 @@ Tail deviations remain visible in contrast Q–Q plots; inferential assumptions 
 temporal-expectancy alternatives remain. This establishes neither a spatially
 specific PPS mechanism nor a physiological boundary. New source owner is
 `workbook/pps_soa.py`; saved native results are displayed, not fitted in-browser.
-Work proceeds in the managed `codex/pps-soa-check` worktree from source `955fccb`,
-preserving the independently published Segment 2 addition `8268f9e` in integration.
-Next action: authorized push, exact CI/Pages deployment and live verification.
+The bounded Segment 1 request is complete. Source `c4a26c7` is deployed and the
+canonical `main` checkout was fast-forwarded to it; the managed
+`codex/pps-soa-check` worktree retains its verification evidence. Segment 0/2 work
+and unrelated ongoing edits are preserved. This evidence update changes only the
+control plane, so it does not require a redundant site deployment.
+Next action: continue the remaining ordered publication/measurement questions;
+the wider scientific, browser-migration and author-review acceptance stays open.
 
 Owner decision (2026-10-21, D-0015): develop the current publication primarily as
 a live HTML paper on GitHub Pages, with its analysis available there and versioned
