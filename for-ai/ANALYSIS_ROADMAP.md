@@ -2,7 +2,7 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Active amendment — separate graph display and error controls
+### Completed amendment — separate graph display and error controls
 
 Owner request (2026-10-23): style Condition/Phase like the combinable chart
 controls and distinguish graph display layers from error-bar/whisker settings.
@@ -18,14 +18,19 @@ controls and distinguish graph display layers from error-bar/whisker settings.
   long localized labels, 200% text and spacing are covered in Chromium. Physical
   Safari and screen readers remain untested. RTK is unavailable; bounded native
   commands are used.
-- [ ] Commit/push, verify the exact Pages deployment and live controls.
+- [x] Commit/push, verify the exact Pages deployment and live controls.
 
-Work started from clean main `1740166`; task branch is
-`codex/graph-control-groups`. The initial system-Python attempt lacked statsmodels
-and defaulted to Windows legacy text encoding; checks use the existing pinned
-`.venv` and UTF-8. No scientific inputs, methods or saved results changed.
-Next action: finish the authorized Git/publication flow; the broader scientific
-and living-publication goal stays open.
+Work started from clean main `1740166`. Source `ad7ccd7` and hover-contrast
+correction `a2fde56` are integrated and pushed on main; the local task branch
+`codex/graph-control-groups` is retained. Build/native checks use the existing
+pinned `.venv` and UTF-8. [Actions run 40004663639](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/40004663639)
+passed the full fixed analyses, independent numerical validation and deployment
+of `a2fde56`. Four served pivot assets match the tested production build exactly;
+all 64 display/whisker combinations, error-metric and overview gates pass live,
+including the selected-button hover regression. The live control screenshot is visually
+checked. No scientific inputs, methods or saved results changed. This evidence-only
+checkpoint changes no served artifact. No task blocker remains; next action is
+the broader scientific and living-publication checklist, which stays open.
 
 ### Completed amendment — A4 publication preview default
 
