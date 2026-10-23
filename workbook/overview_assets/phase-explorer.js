@@ -37,6 +37,7 @@ export function mountPhaseExplorer(host,data,measureSvg){
     const mask=layers.reduce((sum,layer,i)=>sum+(enabled.has(layer)?1<<i:0),0);
     Object.assign(host.dataset,{toolbox:'d3-7.9.0',outcome:outcome.value,groups:String(groups.length),layers:String(mask)});
     const corrected=outcome.value==='corrected',label=corrected?'AT − Baseline':'Raw RT';
+    host.setAttribute('aria-label',`${label}: ${groups.length} selected trial types, 40 paired participants per type; Inhale minus Exhale differences in ms.`);
     document.getElementById('phase-note-outcome').textContent=corrected?'Baseline-corrected RT differences':'Raw RT differences';
     document.getElementById('phase-caption').textContent=`${label} phase differences across trial types`;
     document.getElementById('phase-view-formula').textContent=corrected?
@@ -92,13 +93,15 @@ export function mountPhaseExplorer(host,data,measureSvg){
         .attr('data-phase-point','').attr('data-point-detail',r=>JSON.stringify({Participant:r.participant_id,'Trial group':name,Outcome:label,
           'Exhale RT (ms)':r.exhale_ms,'Inhale RT (ms)':r.inhale_ms,'Inhale − Exhale (ms)':r.delta_ms,
           ...(corrected?{'Exhale raw AT (ms)':r.raw_exhale_ms,'Inhale raw AT (ms)':r.raw_inhale_ms,'Exhale Baseline (ms)':r.baseline_exhale_ms,'Inhale Baseline (ms)':r.baseline_inhale_ms}:{})}));
+      const summaryDetail=JSON.stringify({Statistic:'Participant mean','Trial group':name,Outcome:label,'Inhale − Exhale (ms)':summary.mean,
+        'Pointwise 95% CI low (ms)':summary.ci_low,'Pointwise 95% CI high (ms)':summary.ci_high,n:summary.n});
       if(enabled.has('ci')){
-        line(x(summary.ci_low),center+38,x(summary.ci_high),center+38,{'stroke-width':2,'data-phase-ci':''});
+        const interval=line(x(summary.ci_low),center+38,x(summary.ci_high),center+38,{'stroke-width':2,'data-phase-ci':''});
+        if(!enabled.has('mean'))interval.attr('data-point-detail',summaryDetail);
         for(const value of [summary.ci_low,summary.ci_high])line(x(value),center+34,x(value),center+42);
       }
       if(enabled.has('mean'))row.append('circle').datum(summary).attr('cx',x(summary.mean)).attr('cy',center+38).attr('r',4).attr('fill','white').attr('stroke',color).attr('stroke-width',2)
-        .attr('data-phase-mean','').attr('data-point-detail',JSON.stringify({Statistic:'Participant mean','Trial group':name,Outcome:label,'Inhale − Exhale (ms)':summary.mean,
-          'Pointwise 95% CI low (ms)':summary.ci_low,'Pointwise 95% CI high (ms)':summary.ci_high,n:summary.n}));
+        .attr('data-phase-mean','').attr('data-point-detail',summaryDetail);
       const labels=[name,...(enabled.has('mean')?[`${summary.mean>=0?'+':''}${summary.mean.toFixed(2)} ms`]:[])];
       row.selectAll('text.row-label').data(labels).join('text').attr('class','row-label').attr('x',stack?4:left-9)
         .attr('y',(_,j)=>stack?font+i*step+j*font:center-1+j*font).attr('text-anchor',stack?'start':'end').attr('fill','#243240').attr('font-size',font*.84).text(d=>d);

@@ -20,6 +20,8 @@ const assert=require('node:assert/strict');
    for(const [i,selector,count] of [[0,'[data-phase-point]',240],[1,'[data-density]',6],[2,'[data-box]',6],[3,'[data-phase-mean]',6],[4,'[data-phase-ci]',6]]){
     assert.equal(await host.locator(selector).count(),bits&(1<<i)?count:0,`Layer ${layers[i]} in combination ${bits}`);
    }
+   assert.equal(await host.locator('[data-point-detail]').count(),(bits&1?240:0)+(bits&8?6:bits&16?6:0),'Every visible point/interval needs exact-value inspection');
+   if(bits===16){const interval=host.locator('[data-point-detail]').first();await interval.focus();await page.keyboard.press('Enter');const box=page.getByRole('dialog',{name:'Exact point values'});await box.waitFor();assert((await box.innerText()).includes(String(data.phase.trial_groups[0].ci_low)));await page.keyboard.press('Escape');}
    assert.equal(await host.locator('[data-zero-baseline]').count(),1);
   }
   await page.getByRole('button',{name:'Reset phase plot',exact:true}).click();

@@ -1,5 +1,22 @@
 export const aggregations = ['Mean', 'Median', 'Sum', 'Count nonmissing', 'Standard deviation', 'Minimum', 'Maximum', 'Unique values', 'Row count'];
 
+// scipy.stats.t.ppf(.975, df), df=1..41: the audited release has at most 42 people.
+// Keep exact small-sample t intervals rather than substituting a normal multiplier.
+const t95 = [null, 12.70620473617469, 4.302652729749462, 3.182446305283708, 2.776445105197793, 2.570581835636315, 2.446911851144979, 2.364624251592784, 2.306004135204166, 2.262157162798205, 2.228138851986274, 2.200985160091639, 2.178812829667228, 2.160368656462791, 2.144786687917804, 2.131449545559776, 2.119905299221255, 2.109815577833316, 2.100922040241038, 2.093024054408309, 2.085963447265863, 2.07961384472768, 2.073873067904025, 2.068657610419049, 2.063898561628025, 2.059538552753297, 2.055529438642874, 2.051830516480285, 2.048407141795245, 2.045229642132704, 2.042272456301238, 2.039513446396409, 2.036933343460102, 2.034515297449338, 2.032244509317719, 2.030107928250343, 2.02809400098045, 2.026192463029109, 2.024394163911969, 2.022690920036761, 2.021075390306273, 2.019540970441376];
+export const errorLabels = { mean: ['Mean'], sd: ['Mean', 'SD'], se: ['Mean', 'SE'], ci95: ['Mean', '95% CI lower', '95% CI upper'] };
+export function errorInterval(mean, stats, mode) {
+  if (mode === 'mean' || !Number.isFinite(mean) || !Number.isFinite(stats?.sd) || stats.n < 2) return null;
+  const se = stats.sd / Math.sqrt(stats.n);
+  const half = mode === 'sd' ? stats.sd : mode === 'se' ? se : t95[stats.n - 1] * se;
+  return Number.isFinite(half) ? [mean - half, mean + half] : null;
+}
+export function errorValues(mean, stats, mode) {
+  if (mode === 'mean') return [mean];
+  const interval = errorInterval(mean, stats, mode);
+  if (mode === 'ci95') return [mean, ...(interval || [null, null])];
+  return [mean, interval ? (mode === 'sd' ? stats.sd : stats.sd / Math.sqrt(stats.n)) : null];
+}
+
 export function snapshotFrame(snapshot) {
   const columns = snapshot.columns;
   const rows = snapshot.rows.map(row => columns.map(field => row[field] === '' ? null : row[field]));
@@ -202,8 +219,9 @@ export function pivot(frame, settings) {
 export function csvText(result) {
   const escape = value => '"' + String(typeof value === 'boolean' ? (value ? 'True' : 'False') : value ?? '').replaceAll('"', '""') + '"';
   const expand = (row, index) => row.flatMap((value, column) => column < result.axisCount ? [value] :
-    [value, result.stats[index]?.[column - result.axisCount]?.sd ?? null, result.stats[index]?.[column - result.axisCount]?.n ?? null]);
-  const columns = result.stats ? result.columns.flatMap((value, column) => column < result.axisCount ? [value] : [value, `${value} · SD`, `${value} · n`]) : result.columns;
+    [value, result.stats[index]?.[column - result.axisCount]?.sd ?? null, result.stats[index]?.[column - result.axisCount]?.n ?? null,
+      errorValues(value, result.stats[index]?.[column - result.axisCount], 'se')[1], ...errorValues(value, result.stats[index]?.[column - result.axisCount], 'ci95').slice(1)]);
+  const columns = result.stats ? result.columns.flatMap((value, column) => column < result.axisCount ? [value] : [value, `${value} · SD`, `${value} · n`, `${value} · SE`, `${value} · 95% CI lower`, `${value} · 95% CI upper`]) : result.columns;
   const rows = result.stats ? result.rows.map(expand) : result.rows;
   return '\uFEFF' + [columns, ...rows].map(row => row.map(escape).join(',')).join('\r\n') + '\r\n';
 }

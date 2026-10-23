@@ -29,6 +29,27 @@ For changes confined to `for-ai/visualization/` and its routing/state links:
 
 Actual chart changes still require the applicable gates below.
 
+## General live-page text layout
+
+For new or revised bounded live-page surfaces, verify the accordion-stretch
+contract in `PROJECT.md` using actual pinned Pretext measurements after fonts
+load and rendered browser checks. Exercise minimum/normal/maximum width and
+height independently, both sides of reflow breakpoints, 320 CSS px portrait,
+phone landscape, 200% text/zoom, text-spacing overrides and long real/localized
+labels. Confirm header/action anchors, label/input pairing, reading/keyboard
+order, visible focus and full-text access. Check that group spacing expands with
+available height and inline spacing with width, while readable type grows only
+when both dimensions allow it; never counteract user enlargement.
+
+Inspect panel/shell/status scroll dimensions and actual text/control bounds for
+clipping, overlap and unintended horizontal or vertical overflow. Bounded stretch
+panels have no internal scrollbars within their supported dimensions; hidden
+overflow is not evidence of fit. At no-fit, reflow or enforce a readable content
+minimum. Preserve document scrolling for long publication text and complete
+tables, and the explicit chooser-list policy. Reuse the relevant existing browser
+gates and report tested sizes/browser coverage, no-fit states and unavailable
+measurements. A policy-only edit does not establish runtime layout compliance.
+
 ## Workbook and data
 
 ### Living publication acceptance (D-0015)
@@ -59,7 +80,7 @@ prepared participant cells, reverse input ordering, retain subtraction signs,
 and verify figure/source/result hashes. Run `python workbook/phase_rt.py` to
 rebuild its SVG/PNG/PDF and audit report; the production build rejects stale hashes.
 Visually inspect the exported figure and phone/desktop page, zero references and
-all participant observations. Verify the actual phase-CSV download, alt text,
+all participant observations. Verify archived phase-CSV availability and exact bytes, chart labels,
 raw-versus-benefit explanation and physiological-label limitation in the browser gate.
 Run `test_phase_groups.py` for independent pandas/SciPy checks of all six trial-
 group deltas, equal condition weights, pooled baseline, paired CIs and series-color
@@ -89,8 +110,13 @@ checkboxes: 4 curves, 2 condition curves, 2 phase curves, or 1 pooled curve.
 Every state retains all source cells. Independently verify pooling within person
 before across-person mean/sample SD/n, including normalized scores. Check mouse,
 keyboard and touch selection, raw/baseline-benefit RT with normalization off, min–max and z-scores,
-Mean/Mean ± SD in both views, table/CSV mean-SD-n identity, and SD-aware chart
-extents/tooltips. Normalization references use each participant's complete retained AT trials
+SD/SE/95% CI/none in both views, separate numeric mean/error and CI limit cells,
+table/CSV/whisker identity and error-aware chart extents/tooltips. Run
+`node workbook/check_error_metrics.cjs SITE_URL` locally and live for clipboard,
+keyboard, labelled phone reflow, enlarged text, spacing and actual Pretext.
+The JavaScript/Python gate checks all release-supported sample sizes against SciPy
+t quantiles, undefined small samples and zero spread.
+Normalization references use each participant's complete retained AT trials
 across conditions/phases/SOAs before cell averaging/grouping; pooling factors must
 not renormalize scores. Independently compare trial-based mean/sample SD and
 minimum/maximum. Verify normalization data loads on demand.
@@ -221,8 +247,8 @@ With Playwright/Chromium available to Node (or through `NODE_PATH`), run
 Also run `node workbook/check_table_copy.cjs <HTTP site root URL>` for rectangular
 mouse/keyboard/touch selection, range reset, full-precision TSV, zero/missing
 positions, real clipboard reads and the embedded-page clipboard fallback. Verify
-the highlighted range and focus visually. Mean ± SD is copied as text in one cell;
-Mean only copies numbers. Chromium clipboard evidence does not establish an
+the highlighted range and focus visually. Mean and error metrics copy as separate
+numeric cells, including separate CI limits. Chromium clipboard evidence does not establish an
 actual Excel paste, physical Safari behavior or screen-reader conformance.
 Its fixtures additionally check broken lines, explicit limits and missing-Pretext
 fallback. Serve `.mjs` as JavaScript; the Windows Python MIME map may require an
@@ -440,7 +466,7 @@ authorisation. Saving a cloud environment draft is separate from deploying Pages
 ## Handoff
 
 For layout/border changes, run `node workbook/check_panel_resize.cjs SITE_URL`:
-actual border dragging, keyboard reset/arrows, emulated touch dragging, chart
+table below plot at all viewport sizes, actual border dragging, keyboard reset/arrows, emulated touch dragging, chart
 redraw, content-fit table minima, one document scroll surface, wide-screen space,
 phone/landscape reflow, 200% text and spacing. Run the existing overview/pivot,
 chart-layer and table-copy checks to preserve plotting and spreadsheet access.

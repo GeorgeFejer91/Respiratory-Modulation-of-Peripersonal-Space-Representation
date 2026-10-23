@@ -1,9 +1,19 @@
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { pivot, snapshotFrame, csvText } from './pivot_assets/pivot-engine.mjs';
+import { pivot, snapshotFrame, csvText, errorValues, errorInterval } from './pivot_assets/pivot-engine.mjs';
 import { chartModel, measureLabel, violinDensity, linePath } from './pivot_assets/pivot-chart.mjs';
 
 const payload = JSON.parse(readFileSync(0, 'utf8'));
+for (const test of payload.intervals) {
+  const {mean, sd, n, se, low, high} = test;
+  const stats = {sd,n};
+  const close = (actual, expected) => expected === null ? assert.equal(actual,null) : assert(Math.abs(actual-expected)<1e-10);
+  close(errorValues(mean,stats,'se')[1],se);
+  const values = errorValues(mean,stats,'ci95'); close(values[1],low); close(values[2],high);
+  assert.deepEqual(errorValues(mean,stats,'mean'),[mean]);
+  if (n<2 || sd===null || mean===null) assert.equal(errorInterval(mean,stats,'sd'),null);
+  else assert.deepEqual(errorInterval(mean,stats,'sd'),[mean-sd,mean+sd]);
+}
 const results = payload.cases.map(test => {
   try { return pivot(payload.frames[test.frame], test.settings); }
   catch (error) { return { error: error.message }; }

@@ -1,4 +1,5 @@
 import { showPoint, hidePoint, enablePointInspection } from './point-inspector.js';
+import { errorInterval, errorValues, errorLabels } from './pivot-engine.mjs';
 const labels = { soa_ms: 'SOA (ms)', distance_cm: 'Distance (cm)', corrected_rt_ms: 'Corrected RT (ms)',
   baseline_benefit_ms: 'Baseline − RT (ms)',
   reaction_time_norm: 'Reaction time (0–1)', baseline_benefit_norm: 'Baseline − RT (0–1)',
@@ -114,9 +115,13 @@ export function renderChart(result, settings, measure, mode, source) {
   byId('chart-y-label').textContent = model.yLabel;
   byId('chart-x-label').textContent = model.xLabel;
   const weights = source === 'means' ? 'Participant-distance cells weighted equally.' : source === 'trials' ? 'Trial records weighted equally.' : 'Descriptive source-record summaries.';
-  const showSD = result.participantSummary && settings.sdWhiskers && summary;
+  const errorMetric = settings.errorMetric || 'mean';
+  const showError = result.participantSummary && errorMetric !== 'mean' && summary;
+  const intervalNote = { mean: 'Means only; no error whiskers.', sd: 'Whiskers: ±1 sample SD, showing participant spread.',
+    se: 'Whiskers: ±1 SE (sample SD / √n), showing uncertainty in each mean; not a 95% interval.',
+    ci95: 'Whiskers: pointwise 95% Student-t CI, mean ± t(.975, n−1) × SD/√n. Marginal intervals; not within-person contrast intervals or a test of group differences.' }[errorMetric];
   byId('chart-note').textContent = result.participantSummary ?
-    `Participant means${showSD ? ' ±1 sample SD' : ''}; pooled factors averaged within each person. Descriptive, not a confidence interval.` :
+    `Participant means; pooled factors averaged within each person. ${summary ? intervalNote : 'Mean dots and error whiskers are hidden.'} n counts nonmissing participant means; intervals undefined for n < 2. Full-release intervals assume independence despite the linked P011/P033 records; use the primary cohort for independent-person summaries.` :
     `${weights} Table scrolling and size do not change the chart. Grand totals omitted; ${model.missingCount} missing cells shown as gaps. Lines connect summaries; no fitted model or uncertainty intervals.`;
   if (individuals) byId('chart-note').textContent +=
     ' Participant dots/trajectories use the same pooled per-person means, not individual trials. Horizontal offsets separate groups; dot jitter changes no measured value. Trajectories connect only adjacent observed SOAs within the same person and group.';
@@ -124,7 +129,7 @@ export function renderChart(result, settings, measure, mode, source) {
     ' Violins: Gaussian kernel density, bandwidth 1.06 × sample SD × n^(−1/5), trimmed to observed min/max; equal peak width, not sample size. No violin for n < 3 or zero SD. Smoothing is descriptive.';
   if (/_norm$|_z$/.test(measure)) byId('chart-note').textContent += measure.endsWith('_z') ?
     ' Within-person z-scores use the mean and sample SD of all retained AT trials before cell averaging and series selection. Zero/undefined SD gives missing scores.' :
-    ' Within-person 0–1 scores use the minimum/maximum of all retained AT trials before cell averaging and series selection. Constant ranges give missing scores; SD whiskers may extend beyond 0–1.';
+    ' Within-person 0–1 scores use the minimum/maximum of all retained AT trials before cell averaging and series selection. Constant ranges give missing scores; whiskers may extend beyond 0–1.';
   if (!result.count) { byId('chart-hover').textContent = 'No records match these filters. Clear filters or choose other values.'; return; }
   if (model.mixedUnits) { byId('chart-hover').textContent = 'Multiple measurement units are selected. Filter parameter, quantity or units before plotting these summaries on one axis. The pivot table and CSV remain available.'; return; }
   const present = model.points.filter(point => typeof point.y === 'number' && Number.isFinite(point.y));
@@ -151,8 +156,9 @@ export function renderChart(result, settings, measure, mode, source) {
     'aria-label': `${model.yLabel} by ${model.xLabel}. ${model.series.length} series. Values also available in the pivot table.` });
   plot.append(chart);
   const bars = !layers && (mode === 'bars' || mode === 'auto' && !model.numericX);
-  const low = Math.min(...present.map(point => point.y - (showSD && Number.isFinite(point.sd) ? point.sd : 0)), ...observations.map(item => item.value)),
-    high = Math.max(...present.map(point => point.y + (showSD && Number.isFinite(point.sd) ? point.sd : 0)), ...observations.map(item => item.value));
+  const bounds = point => showError ? errorInterval(point.y, point, errorMetric) || [point.y, point.y] : [point.y, point.y];
+  const low = Math.min(...present.map(point => bounds(point)[0]), ...observations.map(item => item.value)),
+    high = Math.max(...present.map(point => bounds(point)[1]), ...observations.map(item => item.value));
   let yMin = Math.min(0, low), yMax = Math.max(0, high);
   const pad = (yMax - yMin || Math.abs(yMax) * .1 || 1) * .12;
   if (yMin < 0) yMin -= pad;
@@ -263,17 +269,21 @@ export function renderChart(result, settings, measure, mode, source) {
       const barWidth = categoryWidth * .8 / model.series.length;
       const center = bars ? x - categoryWidth * .4 + (seriesIndex + .5) * barWidth - .5 : x;
       let whisker;
-      if (showSD && Number.isFinite(point.sd)) {
-        const upper = yScale(point.y + point.sd), lower = yScale(point.y - point.sd);
+      const interval = showError && errorInterval(point.y, point, errorMetric);
+      if (interval) {
+        const upper = yScale(interval[1]), lower = yScale(interval[0]);
         whisker = svgElement('path', { d: `M${center},${upper}V${lower} M${center - 4},${upper}H${center + 4} M${center - 4},${lower}H${center + 4}`,
-          fill: 'none', 'stroke-width': 1.5, 'data-sd-whisker': '', 'data-sd': point.sd, 'data-n': point.n,
-          'pointer-events': 'none', 'data-low': point.y - point.sd, 'data-high': point.y + point.sd });
+          fill: 'none', 'stroke-width': 1.5, 'data-error-whisker': errorMetric, ...(errorMetric === 'sd' ? {'data-sd-whisker':''} : {}), 'data-sd': point.sd, 'data-n': point.n,
+          'pointer-events': 'none', 'data-low': interval[0], 'data-high': interval[1] });
       }
       const attributes = bars ? { x: x - categoryWidth * .4 + seriesIndex * barWidth,
         y: Math.min(y, yScale(0)), width: Math.max(.5, barWidth - 1), height: Math.max(1, Math.abs(y - yScale(0))) } : { cx: x, cy: y, r: 5 };
       const node = svgElement(bars ? 'rect' : 'circle', { ...attributes, 'data-chart-point': '', 'data-row': point.row,
         'data-column': point.column, 'data-value': point.y, tabindex: focusable.length ? -1 : 0, role: 'button', 'stroke-width': 2 });
-      const spread = value => value.n === undefined ? '' : ` · SD: ${Number.isFinite(value.sd) ? format(value.sd) : 'undefined (n < 2)'} · n: ${value.n}`;
+      const spread = value => value.n === undefined ? '' : errorLabels[errorMetric].slice(1).map((label,index) => {
+        const metric = errorValues(value.y, value, errorMetric)[index+1];
+        return ` · ${label}: ${metric === null ? 'undefined (n < 2)' : format(metric)}`;
+      }).join('') + ` · n: ${value.n}`;
       const detail = `${seriesIndex + 1}. ${series.label} · ${model.xLabel}: ${point.x} · ${model.yLabel}: ${format(point.y)}${spread(point)}`;
       const compare = () => {
         const values = model.series.map((item, index) => {
@@ -283,7 +293,8 @@ export function renderChart(result, settings, measure, mode, source) {
         byId('chart-hover').textContent = `${model.xLabel}: ${point.x} · ${model.yLabel} · ${values.join('; ')}`;
         document.dispatchEvent(new Event('pivot-layout'));
       };
-      bindPoint(node, detail, compare, {Series:series.label, [model.xLabel]:point.x, [model.yLabel]:point.y, ...(point.n===undefined?{}:{"Sample SD":Number.isFinite(point.sd)?point.sd:"Undefined (n < 2)", n:point.n})});
+      bindPoint(node, detail, compare, {Series:series.label, [model.xLabel]:point.x, [model.yLabel]:point.y, ...(point.n===undefined?{}:{"Sample SD":Number.isFinite(point.sd)?point.sd:"Undefined (n < 2)", n:point.n,
+        ...Object.fromEntries(errorLabels[errorMetric].slice(1).map((label,index) => [label,errorValues(point.y,point,errorMetric)[index+1] ?? 'Undefined (n < 2)']))})});
       group.append(node);
       if (whisker) group.append(whisker);
     }

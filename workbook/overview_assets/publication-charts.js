@@ -72,15 +72,7 @@ function blocks(host,data){
   for(const r of summary){const block=Number(r.session_block);c.whisker(c.x(block),r.ci_low_ms,r.ci_high_ms,'black');c.point(c.x(block),c.y(r.mean_ms),{'Statistic':'Participant mean',Block:block,'AT − Baseline RT (ms)':r.mean_ms,'95% CI low (ms)':r.ci_low_ms,'95% CI high (ms)':r.ci_high_ms,n:r.n},'black',4);}
   c.line(c.x(6.5),20,c.x(6.5),c.height-56,'#657485',{'stroke-dasharray':'3 3'});return c;
 }
-function corrected(host,data){
-  const short=host.clientWidth<parseFloat(getComputedStyle(host).fontSize)*18;
-  const rows=data.phaseOverall,c=chart(host,{xs:[-.3,1.3],ys:domain(numeric(rows,'corrected_rt_ms')),xlabel:'Phase',xticks:[{value:0,label:short?'Exh.':'Exhale'},{value:1,label:short?'Inh.':'Inhale'}]});
-  for(const pid of new Set(rows.map(r=>r.participant_id))){const pair=['Exhale','Inhale'].map(p=>rows.find(r=>r.participant_id===pid&&r.phase===p));
-    c.line(c.x(0),c.y(Number(pair[0].corrected_rt_ms)),c.x(1),c.y(Number(pair[1].corrected_rt_ms)),'#888');
-    pair.forEach((r,i)=>c.point(c.x(i),c.y(Number(r.corrected_rt_ms)),{Participant:pid,Phase:r.phase,'AT − Baseline RT (ms)':Number(r.corrected_rt_ms)},'#777',2.5));}
-  ['Exhale','Inhale'].forEach((phase,i)=>{const r=data.phase.corrected_phase_means[phase];c.whisker(c.x(i),r.ci_low,r.ci_high,'black');c.point(c.x(i),c.y(r.mean),{Statistic:'Participant mean',Phase:phase,'AT − Baseline RT (ms)':r.mean,'95% CI low (ms)':r.ci_low,'95% CI high (ms)':r.ci_high,n:r.n},'black',4);});return c;
-}
-const renderers={soa,blocks,phaseCorrected:corrected};
+const renderers={soa,blocks};
 if(typeof document!=='undefined'){
   const response=await fetch('publication-data.json');if(!response.ok)throw new Error('Chart data unavailable');const data=await response.json();
   for(const host of document.querySelectorAll('[data-plot]')){

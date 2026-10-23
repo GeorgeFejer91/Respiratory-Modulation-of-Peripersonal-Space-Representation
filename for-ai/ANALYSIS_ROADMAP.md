@@ -9,9 +9,9 @@ relevant flexibility comparable to Segment 0. Reuse this chart worktree and the
 shared point inspector/resize/Pretext owners. D3 7.9.0 will own the Segment 2 SVG
 scales, data joins and density geometry, bundled locally with license/provenance.
 
-- [ ] Keep raw six-group rainclouds as default; add trial-group and independent
+- [x] Keep raw six-group rainclouds as default; add trial-group and independent
   dot/density/box/mean/pointwise-CI controls, reset, current-view CSV/SVG exports.
-- [ ] Offer matched-baseline-corrected paired deltas for five AT SOAs. Derive
+- [x] Offer matched-baseline-corrected paired deltas for five AT SOAs. Derive
   phase values from the verified participant groups and reuse the existing paired
   t-interval method at build time; independently compare with Condition × Phase
   participant cells. No new p values, exclusions, fitting or normalization.
@@ -30,8 +30,111 @@ handoff is open. Continue independent work with checked primary sources.
 Implementation choice: a small native control area above the existing figure;
 all layers start on, trial types retain fixed labels/colors/order. Corrected view
 omits the self-subtracted baseline and explains why. Original saved statistics,
-cohort, cleaning and static downloads stay fixed. Next action: add failing data
-and browser behavior checks, implement, then verify and publish.
+cohort, cleaning and static downloads stay fixed. Integrated newer main cleanup
+(no supplemental graph/trailing link list), error metrics and table-below layout.
+Local evidence: production build, 71 workbook tests, 270 independent Python/JS
+comparisons, all32 phase-layer combinations, raw/corrected/CSV/SVG/empty/reset,
+citation/focus/reflow, overview/point/border/error-metric browser checks pass.
+Desktop/phone/raw/corrected/citation renders inspected. Review found and verified
+a fix for CI-only inspection and dynamic count labels; final review has no
+material findings. Physical Safari and screen readers remain untested.
+Next action: finish regression gates, publish the combined source and verify its
+exact CI/Pages deployment and live phase/citation behavior. The wider goal is open.
+
+### Active cleanup — remove the supplemental Segment 2 block
+
+Owner request (2026-10-23): remove the screenshot's corrected-overall comparison
+and trailing explanatory paragraph/link list as clutter. Keep the main raincloud,
+corrected phase answer and archived evidence unchanged. This supersedes the
+supplemental-disclosure portion of the earlier raincloud amendment below.
+
+- [x] Remove the block, unused renderer/styles and unused overall chart payload.
+  Adapt existing browser gates to require its absence and verify archived CSV bytes.
+- [x] Production build, all 70 workbook tests, overview/point/border browser
+  gates, rendered desktop review, context/safety and whitespace checks pass.
+- [ ] Observe authorized push, exact CI/Pages deployment and changed live page.
+
+Work is on main from 67e2bdc; no pre-existing changes were present. Four viewport
+layouts, 200% text/spacing, real Pretext, keyboard/touch and all 240 raincloud
+values pass. The Windows test server required an explicit JavaScript MIME type
+for .mjs; the existing project Python environment supplies statsmodels. No source
+data or native statistical results changed. The wider scientific/publication
+goal stays open. Next action: exact remote/deployment/live verification.
+RTK is unavailable; bounded native commands are the documented fallback.
+
+### Completed formatting rule — Pretext accordion stretch
+
+Owner request (2026-10-23): make Uncodixfy Pretext accordion-stretch logic the
+general live-page formatting rule to prevent text overflow.
+
+- [x] Record the bounded-panel contract in `PROJECT.md`, require its skill route
+  in `SKILLS.md`, and add Pretext plus rendered overflow/resize acceptance checks
+  to `VERIFICATION.md`. Preserve document flow for long text and complete tables.
+- [x] Review the policy diff against the installed skill and existing document/
+  chooser scroll contracts; context/safety and whitespace checks pass. Referenced
+  project documents and installed stretch guidance exist.
+
+This is a protocol-only change; no runtime layout or deployment claim follows.
+The Pages path filter excludes these edits, so no site rebuild is required.
+Observed baseline: clean `main` at `f4900c8`, synchronized with `origin/main`;
+only these four control-plane files are task-owned. Commit/push follows the
+standing workflow, with exact remote-SHA verification at handoff. RTK was
+unavailable; bounded native shell commands were used. No blocker for this rule.
+Next action: apply the rule and its rendered gate to subsequent live-page layout
+changes; continue the existing scientific/publication checklist. Overall goal open.
+
+### Completed amendment — independent error metric and numeric error cells
+
+Owner request (2026-10-23): select SD, confidence intervals or another standard
+error measure independently, and put the selected error in separate responsive
+table cells. Reuse the existing pooled participant means and shared chart owner.
+
+- [x] Add SD (default), SE, pointwise 95% Student-t CI and none. Use participant
+  sample SD/n after within-person pooling; undefined n < 2 and zero spread remain
+  distinct. Keep marginal uncertainty separate from paired-effect inference and
+  baseline-estimation uncertainty; no fixed analysis/model changes.
+- [x] Separate numeric mean/SD/SE cells and lower/upper CI cells, full-precision
+  rectangular clipboard export, stable complete CSV with every error measure,
+  labelled narrow-screen reflow and content-fit table border resizing.
+- [x] Complete final local gates, authorized commit/integration/push and exact
+  CI/Pages/live verification; record source/remote state here.
+
+Plan/evidence: bounded change in existing pivot engine, app, HTML/CSS and chart;
+the existing 270 JavaScript/pandas cases and 516 SciPy interval fixtures pass.
+All 70 workbook tests and production build pass (Windows requires UTF-8 mode).
+Local interval/copy/pivot/overview/border/point/layer gates pass. Independent review
+found one stale hidden-layer caption, fixed with a regression assertion; final
+review found no remaining actionable issues. Source `f4900c8` was fast-forwarded
+to main and its remote SHA verified. Actions run `39972049299` passed the complete
+fixed-analysis/numerical-validation build and Pages deployment for that source.
+Live interval, clipboard, layer, border and overview gates pass. All five changed
+pivot assets match the validated source bytes after LF normalization. The overview
+and border gates were run from that exact commit because separate concurrent
+overview work changed the checkout while this release deployed; those unrelated
+changes were preserved. No external blocker remains for this amendment.
+The t lookup covers the released maximum 42 participants, with unavailable CIs
+for larger samples. Physical Safari and assistive technology remain untested.
+Next action: resume the wider scientific/publication checklist, which stays open.
+
+### Active amendment — table below the plot
+
+Owner clarification (2026-10-23): put the pivot table under its visualization,
+including desktop. Retain border resizing and page flow without nested scrolling.
+
+- [x] Use one full-width column in both standalone and embedded pivots; remove
+  desktop width-sharing logic and resize table/plot independently from the right.
+- [ ] Verify desktop/phone order, resize/copy/point access, production build and
+  exact live deployment under the existing publication workflow.
+
+Plan/state: small change to the existing pivot CSS/resizer bindings and border
+regression gate on codex/table-below-plot from 9360736. The initial regression
+correctly failed the desktop table-below-plot requirement. Statistical data and
+rendering owners remain unchanged. Next action: complete browser gates and publish.
+Production build, all 70 workbook tests, and border/overview/pivot/layer/copy/
+point-inspection browser gates pass. Independent review found no actionable
+issues. Table order is checked inside the iframe in one layout read, avoiding
+scroll-anchoring races. Next action: authorized push and exact live verification.
+The wider scientific/publication goal remains open.
 
 ### Completed amendment — Segment 2 rainclouds and point inspection
 

@@ -30,6 +30,20 @@ all plotted values and uncertainty are nonnegative, the y-axis lower bound is
 exactly zero with no padding below it. When values or intervals extend below
 zero, retain their full extent and mark zero explicitly rather than clipping data.
 
+General live-page formatting rule (owner, 2026-10-23): use Uncodixfy Pretext's
+accordion-stretch layout logic for bounded settings, controls and resizable
+panels on new or revised live-page surfaces. Preserve header/action anchors,
+label/input pairs and reading/keyboard order; distribute spare width and height
+between meaningful groups with bounded spacing and shrinkable Grid/Flex tracks.
+Measure bounded text with the existing pinned Pretext runtime after fonts load,
+using the actual inner boxes. Grow or reflow before reducing type; preserve
+readable minima, user text enlargement and full-text access. Clipping, overlap,
+ellipsis and hidden overflow do not establish fit. If content cannot fit, reflow
+or raise the content minimum rather than add a panel scrollbar. Long publication
+text and complete tables remain in document flow with the existing document
+scroll policy; chooser lists retain their explicit scroll policy. Apply the
+rendered layout gate in `VERIFICATION.md` before claiming overflow prevention.
+
 This supersedes the results-only pause for authoring the current HTML publication.
 Keep the version-1.9 LaTeX/Typst/PDF and reference artifacts as historical
 snapshots; do not automatically overwrite or promote them. Preserve the
@@ -157,7 +171,7 @@ Segment 1 additionally shows its initial SOA graph and APA result directly.
 Segment 2 additionally answers the overall Inhale−Exhale RT question using the
 saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
-cohort/weighting/uncertainty labels and links to the complete contrast family;
+cohort/weighting/uncertainty labels; the complete contrast family stays archived;
 it does not execute or refit that analysis in the browser.
 Owner explorer/citation amendment (2026-10-23): Segment 2 asks whether general
 RT differs between inhalation and exhalation. Its focused D3 7.9.0 explorer keeps
@@ -176,8 +190,11 @@ comparison limits; directional agreement does not establish replication.
 
 Owner visualization amendment (2026-10-23): Figure 2 now makes the six raw
 Inhale−Exhale trial-group deltas the main visual as stacked rainclouds; preserve
-raw labels and the corrected overall inference above it. The corrected overall
-plot remains under a supplemental disclosure. Half densities use Gaussian KDE,
+raw labels and the corrected overall inference above it. Owner cleanup
+(2026-10-23): omit the supplemental corrected-overall plot and
+its trailing explanatory paragraph/download-link list from the overview; retain
+the main raincloud, corrected inference above it and archived evidence downloads.
+Half densities use Gaussian KDE,
 bandwidth 1.06 × sample SD × n^(−1/5), observed-range trim and equal peak height.
 Show all 240 paired participant deltas, median/quartile boxes/1.5-IQR whiskers,
 and the original mean/pointwise 95% t CIs in a separate band. Density is descriptive;
@@ -226,7 +243,14 @@ sample SD and n; table/chart/CSV share the result. Segment 0 has no field draggi
 axis reassignment or ungrouped trial-record mode.
 The full pivot subpage retains its broader source catalogue.
 Baseline correction uses the default-on Baseline − RT toggle described above;
-Mean/Mean ± SD presentation uses a select updating both views. The adjacent
+An independent Error metric select updates both views: none (mean only), sample
+SD (default), SE = SD/√n, or pointwise 95% Student-t CI with n−1 degrees of freedom.
+Use pooled nonmissing participant means, never trial counts. These marginal display
+intervals are not paired-effect inference and do not propagate baseline-estimation
+uncertainty. Mean and selected error use separate numeric table cells; CI lower/upper
+each have their own cell. Narrow tables reflow rows into labelled groups in page flow.
+CSV always includes SD, n, SE and both CI limits. The t lookup covers the audited
+42-person release; larger samples have unavailable t intervals. The adjacent
 default-off Normalize RT toggle offers 0–1 min–max and z-score methods.
 For each participant, estimate minimum/maximum and mean/sample SD using all
 retained AT trials across both conditions, both phases and all SOAs, before
@@ -284,15 +308,17 @@ Owner amendment (2026-10-23): tables and plot surfaces use directly draggable
 borders with keyboard/touch access, replacing height/width sliders. Tables grow
 in page flow; dragging shorter stops at readable content rather than clipping
 or adding an internal scrollbar. Resizing a chart redraws it at its new size.
-The overview uses available screen width with responsive graph/table space
-sharing and one document scroll surface. Legacy figures retain their aspect
+The overview uses available screen width and one document scroll surface.
+Owner amendment (2026-10-23): the pivot table always sits below its plot, including
+on desktop; both default to full width and resize independently from right/bottom
+borders. Legacy figures retain their aspect
 ratio inside resizable layout surfaces while their separate native-chart
 migration remains open; this layout change does not rerun statistical analyses.
 Do not split
 table rows or columns across Next/Previous buttons. The shared read-only pivot
 table supports rectangular mouse, keyboard and touch selection and
 full-precision TSV clipboard export to Excel;
-missing cells copy blank, Mean ± SD stays one text cell, and result changes clear
+missing cells copy blank, mean/error values occupy separate numeric cells, and result changes clear
 selection. No grid runtime or editable-data engine is required. Pivot settings
 retain ordered stretch groups; chooser lists scroll to expose all options without paging. Locked
 Pretext 1.0.0 measures bounded labels after the first table. Preserve user text

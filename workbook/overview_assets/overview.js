@@ -54,6 +54,6 @@ addEventListener('message', event => {
 
 try { await import('./publication-charts.js'); }
 catch(error) {
-  for(const host of document.querySelectorAll('[data-plot]')) host.textContent='Chart could not load. Exact data and static figure downloads remain available below.';
+  for(const host of document.querySelectorAll('[data-plot]')) host.textContent='Chart could not load. Exact data and static figure downloads remain available in the Results archive.';
   console.warn('Chart data could not load:',error);
 }
