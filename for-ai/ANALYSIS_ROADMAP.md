@@ -2,6 +2,26 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Publication-name rename — 2026-10-23
+
+- [x] Confirm the publication title from the existing README and owner approval
+  to rename the project and GitHub repository. Update maintained links and the
+  landing-page title; preserve historical artifacts and active checkout paths.
+- [x] Rename GitHub and update the shared `origin`; save the publication title
+  through Codex's project service and legacy workspace label. Keep the existing
+  checkout/worktree roots so active chats and hourly synchronization remain valid.
+- [x] Production build, 69 workbook tests, 270 Python/JavaScript parity cases,
+  both changed notebook checks, context/secret-pattern gate and whitespace check
+  pass. Overview browser gate passes; the title additionally passes at
+  320/390/844/1440 px, 200% text and spacing overrides. Phone/desktop renders
+  inspected. Windows local serving required the correct `.mjs` MIME type and
+  UTF-8 build mode; no product workaround was added. RTK remains unavailable.
+- [ ] Verify deployment and exact remote synchronization; record source/run
+  evidence here. The running desktop may need a refresh to show its saved label.
+
+Next action: complete rename verification, then resume the existing scientific
+and publication acceptance checklist. The wider publication goal remains open.
+
 ### Live-page plot rule — 2026-10-23
 
 - [x] Record the owner's native-web-chart requirement in `PROJECT.md` and its

@@ -121,7 +121,7 @@ async def _(
         else:
             source_frame = typed_frame(pd.read_csv(Path(__file__).resolve().parent.parent / _entry["source"],
                                                   dtype=str, keep_default_na=False).to_dict("records"))
-        source_note = f"Frozen output: [{_entry['source']}](https://github.com/GeorgeFejer91/Study5_Publication/blob/main/{_entry['source']}). Keep quantities, units, variants and original cohorts separate."
+        source_note = f"Frozen output: [{_entry['source']}](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/{_entry['source']}). Keep quantities, units, variants and original cohorts separate."
     else:
         source_frame = views[collection.value]
     return source_frame, source_note
@@ -187,7 +187,7 @@ def _(
         mo.hstack([row_fields, column_fields, value_fields], wrap=True, justify="start", gap=2),
         mo.hstack([aggregation, totals], wrap=True, justify="start", gap=2),
         mo.md(source_note),
-        mo.md("Default: 40 participants, excluding linked P011/P033. Corrected RT (ms) = AT − retained participant × condition × phase Baseline mean. Participant-distance means give each cell equal weight; trials give each trial equal weight. Use the participant table for questionnaire means. These descriptive summaries do not propagate model uncertainty. [Methods](https://github.com/GeorgeFejer91/Study5_Publication/blob/main/workbook/README.md)."),
+        mo.md("Default: 40 participants, excluding linked P011/P033. Corrected RT (ms) = AT − retained participant × condition × phase Baseline mean. Participant-distance means give each cell equal weight; trials give each trial equal weight. Use the participant table for questionnaire means. These descriptive summaries do not propagate model uncertainty. [Methods](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/blob/main/workbook/README.md)."),
     ])})
     return
 

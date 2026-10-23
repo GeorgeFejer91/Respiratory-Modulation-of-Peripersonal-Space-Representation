@@ -1,5 +1,12 @@
 # Project contract
 
+The project/publication name is **Respiratory Modulation of Peripersonal Space
+Representation**. Its canonical GitHub repository is
+`GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation`.
+Retain Study 5 identifiers in historical artifacts, data contracts and existing
+local checkout/worktree paths. Rename current project branding and maintained
+links without rewriting frozen provenance records.
+
 ## Active scope: browser analysis and a living publication on GitHub Pages
 
 The owner now makes GitHub Pages the primary analysis workspace and the primary
@@ -254,8 +261,8 @@ Pretext 1.0.0 measures bounded labels after the first table. Preserve user text
 enlargement; very short enlarged layouts may use deliberate outer document flow.
 Browser-size emulation does not establish actual iPhone/Safari verification.
 
-Keep the [application](https://georgefejer91.github.io/Study5_Publication/) and
-[editable workbook](https://georgefejer91.github.io/Study5_Publication/editor/)
+Keep the [application](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/) and
+[editable workbook](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/editor/)
 runnable in the browser. Preserve the established full analysis and its exact
 version-1.9 reference. New analyses need an explicit specification, separate run
 state and independently hashed download before they can support the living paper.

@@ -4,7 +4,7 @@ Study 5 living publication and browser analysis project, with released
 deidentified behavioral data. [Preregistration](https://aspredicted.org/az9f89.pdf).
 
 **Current direction: GitHub Pages as the primary analysis workspace and living
-preprint.** The current [live site](https://georgefejer91.github.io/Study5_Publication/)
+preprint.** The current [live site](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/)
 contains executable analyses, exploration and saved results; the complete HTML
 paper and browser coverage of newer native methods are still being developed.
 Follow the
@@ -64,8 +64,8 @@ The coverage goal now includes every released data domain. See the
 [questionnaire and spatial-frame review](literature_review/QUESTIONNAIRES.md)
 for the scoring evidence, registration crosswalk, results and availability limits.
 
-Open the [live publication and analysis workspace](https://georgefejer91.github.io/Study5_Publication/)
-or the [editable browser workbook](https://georgefejer91.github.io/Study5_Publication/editor/).
+Open the [live publication and analysis workspace](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/)
+or the [editable browser workbook](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/editor/).
 For deployment instructions and how Codex connects to marimo, see
 [the workbook guide](workbook/README.md). The owner authorised public repository
 visibility on 2026-10-16; private backups, identity records and raw recordings
