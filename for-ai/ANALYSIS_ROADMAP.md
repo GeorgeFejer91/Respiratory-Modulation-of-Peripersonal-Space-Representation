@@ -44,7 +44,7 @@ unavailable; bounded native shell commands were used. No blocker for this rule.
 Next action: apply the rule and its rendered gate to subsequent live-page layout
 changes; continue the existing scientific/publication checklist. Overall goal open.
 
-### Active amendment — independent error metric and numeric error cells
+### Completed amendment — independent error metric and numeric error cells
 
 Owner request (2026-10-23): select SD, confidence intervals or another standard
 error measure independently, and put the selected error in separate responsive
@@ -57,17 +57,25 @@ table cells. Reuse the existing pooled participant means and shared chart owner.
 - [x] Separate numeric mean/SD/SE cells and lower/upper CI cells, full-precision
   rectangular clipboard export, stable complete CSV with every error measure,
   labelled narrow-screen reflow and content-fit table border resizing.
-- [ ] Complete final local gates, authorized commit/integration/push and exact
+- [x] Complete final local gates, authorized commit/integration/push and exact
   CI/Pages/live verification; record source/remote state here.
 
 Plan/evidence: bounded change in existing pivot engine, app, HTML/CSS and chart;
 the existing 270 JavaScript/pandas cases and 516 SciPy interval fixtures pass.
 All 70 workbook tests and production build pass (Windows requires UTF-8 mode).
-Local interval/copy/pivot/overview/border/point gates pass. Independent review
-found one stale hidden-layer caption, now fixed with a regression assertion.
+Local interval/copy/pivot/overview/border/point/layer gates pass. Independent review
+found one stale hidden-layer caption, fixed with a regression assertion; final
+review found no remaining actionable issues. Source `f4900c8` was fast-forwarded
+to main and its remote SHA verified. Actions run `39972049299` passed the complete
+fixed-analysis/numerical-validation build and Pages deployment for that source.
+Live interval, clipboard, layer, border and overview gates pass. All five changed
+pivot assets match the validated source bytes after LF normalization. The overview
+and border gates were run from that exact commit because separate concurrent
+overview work changed the checkout while this release deployed; those unrelated
+changes were preserved. No external blocker remains for this amendment.
 The t lookup covers the released maximum 42 participants, with unavailable CIs
 for larger samples. Physical Safari and assistive technology remain untested.
-Next action: final affected checks and publication. The broader goal stays open.
+Next action: resume the wider scientific/publication checklist, which stays open.
 
 ### Active amendment — table below the plot
 
