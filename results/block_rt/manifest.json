@@ -1,0 +1,34 @@
+{
+  "classification": "exploratory",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.4.3",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "seed": 20261023,
+  "input_sha256": {
+    "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+    "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+  },
+  "source_sha256": {
+    "for-ai/orchestration/block_rt.py": "c5c6211ff32fe0d249a797d9b759675bbeed240dafb7b405638bba3a67e65b15",
+    "workbook/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
+    "workbook/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
+    "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945",
+    "workbook/requirements-validation.txt": "e9391f2d5e7a322f46fab8ca0ad75240676b80804915864ef8f56979306d64d5"
+  },
+  "artifact_sha256": {
+    "available_primary40_summary.csv": "3fb3a114ee06726cd44d4c9065d745606b3bcd5c013171a4c0b1f1f6c839737b",
+    "block_rt.png": "4b180deeb2d538b26ae7d045346a91f455727d15434375f6ba469512e7098abd",
+    "block_rt.svg": "3800b1cfeb01ad9a1d21901bc706e504bc74ec8ae48e23c8cf32483e5e892397",
+    "diagnostics.png": "e480680398b0e4a5c4303ac28d9d7dd56265c64b2de496feaebec1b693792675",
+    "participant_blocks.csv": "2deb66004c11a8e17098c47b5bdaf2dadf3a794e6ff51cb24321d8b9f3b75af8",
+    "participant_coefficients.csv": "959639a471ce508d19ed434f894aa09721c2b3e98683c23ac36d3774142718f8",
+    "results.json": "731fa90d770444ed3fb02b8535e3f79b5337edf14ff791011c8d574f684050a4",
+    "RESULTS.md": "d777fd7f2ce4e349a41fcbb4d798c0ab793b7edf6dd3f1b62231c2179f33fb3e",
+    "SPECIFICATION.md": "7d25210a6ae31c33c47fb071135008d54b4cab1b4dc7ed86dd27cf130fdd1c8a",
+    "summary.csv": "9b12ce8e7ba8115f5d12750054660a80ed690726ab6744de158fd4ee6fb0eac6"
+  }
+}
