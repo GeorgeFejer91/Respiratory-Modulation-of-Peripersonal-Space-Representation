@@ -225,24 +225,31 @@ and is not covered by this deployment claim. Branch: main, synchronized before
 this evidence update. Segment 2 is complete. Next action: resume the remaining
 living-publication checklist; keep the overall scientific/publication goal open.
 
-### Segment 2 amendment — direction recheck and plot
+### Segment 2 amendment — direction audit, six trial groups and research
 
-Owner request (2026-10-23): independently confirm inhale/exhale direction and add
-a plot. Keep the established cohort, cleaning and contrast family unchanged.
+Owner requests (2026-10-23): independently confirm inhale/exhale direction, plot
+the five AT SOAs and pooled Baseline in matching colors, and compare published
+findings, specifically external multisensory synchrony-detection tasks. Keep the
+established cohort, cleaning and overall contrast family unchanged.
 
 - [x] Reaggregate literal released phase strings directly from retained trials;
   independently compare with the existing pandas participant cells and confirm
   all three saved native contrasts, CIs and two-sided p values.
-- [x] Add Figure 2 with raw participant pairs and raw/baseline/corrected paired
-  phase differences, explicit zero references, all observations and 95% t CIs.
-  Preserve SVG/PNG/PDF, exact participant phase means, settings/runtime and hashes
-  under `results/phase_rt/`; `workbook/phase_rt.py` is the owner.
+- [x] Add Figure 2 with six raw phase-mean lines and matching individual paired
+  deltas/pointwise 95% t CIs, redundant colors/markers/line styles, explicit zero
+  references and all observations. Preserve SVG/PNG/PDF, 480 participant/group/
+  phase means, 240 participant deltas, six summaries, settings/runtime and hashes
+  under `results/phase_rt/`; `workbook/phase_rt.py` is the native owner.
 - [x] Clarify scheduled/instructed labels versus unverified actual physiology,
   raw RT versus Segment 0's reversed-sign baseline benefit, and saved native status.
-- [x] Verify the production build, 66 workbook tests, release audit and local
+- [x] Verify the production build, 69 workbook tests and local
   overview browser gate (four viewports, 200% text/spacing, Pretext, keyboard/touch,
-  Figure 2, exact CSV download and existing Segment 0/1 controls/results).
-- [ ] Commit/push, follow exact CI/Pages deployment and verify the live figure.
+  Figure 2, six-row CSV download, responsive research page and existing segments).
+- [x] Save the 12-source targeted research comparison and access/query ledger in
+  `literature_review/RESPIRATION_RT.md` and `respiration_rt_sources.json`, including
+  contrary RT findings, explicit synchrony tasks and RT/perception dissociations.
+- [ ] Commit/push the six-group extension, follow exact CI/Pages deployment and
+  verify the final live figure, exports and research note.
 
 Result: Exhale raw M = 662.19 ms; Inhale M = 680.66 ms. Raw Inhale−Exhale is
 +18.47 ms; pooled baseline phase difference is +20.63 ms; AT−Baseline phase
@@ -250,9 +257,18 @@ difference is −2.16 ms, inconclusive. No label-order/index reversal was found 
 the current release/analysis path. Upstream acquisition labels and actual breathing
 remain unverifiable from these CSVs. Original inputs and native result family
 are unchanged. The graphic includes the shared software-guidance credit by link.
-Local figure inspected; PNG is 1380×2340 at 300 dpi with opaque white background,
-SVG is 331.2×561.6 pt. Source is on main; publication pending. Next action: publish
-and verify the exact live figure, then resume the wider living-publication goal.
+The six exploratory Inhale−Exhale estimates are +16.41, +8.94, +29.90, +22.91,
++14.18 and +20.63 ms; the 300/800/2700-ms pointwise intervals include zero. No
+six-test p family or SOA-interaction inference is added. Same-direction respiratory
+RT reports coexist with opposite findings. No directly matching respiratory-phase
+external synchrony-judgment study was identified in the targeted search; this does
+not establish literature absence. RTs cannot confirm a subjective-synchrony effect.
+Consensus was unauthorized; opened primary/institutional web sources were used.
+Local figure inspected; PNG is 1380×2520 at 300 dpi, opaque white, with SVG glyph
+outlines to avoid browser font substitution. Initial audit source `f24db05` was
+pushed; its deployment was superseded by the independently verified Segment 3
+source `dc7360e`. The present six-group/research extension is pending publication.
+Next action: verify its exact live deployment, then resume the wider open goal.
 
 ## Visualization — fast pivot table and linked chart
 

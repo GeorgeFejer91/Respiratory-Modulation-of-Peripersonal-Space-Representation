@@ -36,6 +36,12 @@ rebuild its SVG/PNG/PDF and audit report; the production build rejects stale has
 Visually inspect the exported figure and phone/desktop page, zero references and
 all participant observations. Verify the actual phase-CSV download, alt text,
 raw-versus-benefit explanation and physiological-label limitation in the browser gate.
+Run `test_phase_groups.py` for independent pandas/SciPy checks of all six trial-
+group deltas, equal condition weights, pooled baseline, paired CIs and series-color
+contrast. Verify 480 phase rows, 240 participant deltas and six summary rows,
+consistent SVG colors/markers and exact exported summary CSV. Check the linked
+published-evidence page and its access ledger; retain contrary findings and
+avoid treating six pointwise CIs or matching published directions as replication.
 For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
 drag/drop controls, all 16 combinations of the four native Condition/Phase
 checkboxes, and empty results when either group is unchecked. Check mouse,

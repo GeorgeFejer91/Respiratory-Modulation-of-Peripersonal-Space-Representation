@@ -133,3 +133,14 @@ queries is not absence from the literature, and inaccessible full text remains a
 coverage limit. The new goal and source inspection are completed; expanded model
 fits/effect tests are NOT RUN. Exact URLs, hashes, dispositions and claim limits
 are stored under `baseline_model_amendment` in [searches.json](searches.json).
+
+## Breathing phase, RT and external multisensory synchrony
+
+The 23 October 2026 targeted follow-up compares the six trial-group phase deltas
+with respiratory RT studies, contrary findings and explicit external synchrony-
+detection tasks. The [comparison](RESPIRATION_RT.md) and [12-source query/access
+ledger](respiration_rt_sources.json) distinguish inspected full texts from abstracts
+and institutional reports. No directly matching respiratory-phase external
+synchrony-judgment experiment was identified in these queries; no absence claim
+or direct replication is inferred. Consensus required reauthentication, so native
+web search/open supplied the evidence. No additional fitted model was run.

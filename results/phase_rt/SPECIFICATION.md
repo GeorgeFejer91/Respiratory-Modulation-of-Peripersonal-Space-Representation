@@ -1,7 +1,23 @@
 # Segment 2 phase-direction audit and figure
 
-This owner-requested visualization rechecks the existing exploratory response-level
-contrasts; it adds no model, cleaning choice or inferential comparison.
+This owner-requested analysis preserves the existing overall response-level
+contrasts and adds the six exploratory paired trial-group estimates below.
+It changes neither cleaning nor the fitted models.
+
+## Owner extension: all main RT trial groups
+
+The subsequent request separates raw AT trials at SOAs 300, 800, 1500, 2200 and
+2700 ms, plus one pooled Baseline group. For each person/group/phase, average
+conditions equally; pool baseline trials within condition/phase as before.
+Calculate each person's delta as Inhale minus Exhale before averaging people.
+Export all six phase means/deltas, their sample SDs, n and pointwise 95% t CIs.
+These are exploratory descriptive contrasts; add no new p-value family or cleaning.
+The six intervals are pointwise, not simultaneous/multiplicity-adjusted intervals.
+Catch trials do not provide a comparable correct-hit target RT and remain excluded.
+Use consistent group colors plus markers/line styles across both panels: six raw
+group-mean phase pairs and all participant deltas. Preserve original overall results
+and the physiological-label limitation. Literature comparisons must cover contrary
+findings and distinguish task/phase measurement differences from replication.
 
 - Inputs: the unchanged audited public CSV pair. Reuse `paper_analysis.clean`:
   recorded AT/Baseline hits, existing catch rule and participant ±2.5 sample-SD
@@ -18,11 +34,10 @@ contrasts; it adds no model, cleaning choice or inferential comparison.
 - Corrected RT is AT minus that matched baseline. All phase differences are
   **Inhale minus Exhale**; positive means slower RT during inhale. Segment 0's
   Baseline-minus-AT benefit display has the opposite correction sign.
-- Panel A: raw AT participant pairs and phase means with marginal 95% t CIs.
-  Start the nonnegative raw RT axis at zero. Panel B: all participant phase
-  differences for raw AT, baseline, and AT-minus-baseline, with paired mean 95%
-  t CIs, a visible zero reference, and all negative/positive observations retained.
-  Horizontal offsets only separate points; they are deterministic, not data values.
+- Panel A: six raw phase-mean lines, with the nonnegative RT axis starting at zero.
+  Panel B: all participant deltas for each of the five AT SOAs and pooled Baseline,
+  with paired mean 95% t CIs, a visible zero reference, and all negative/positive
+  observations retained. Vertical offsets only separate points deterministically.
 - Reproduce the existing three primary40 mean/Phase rows in
   `results/baseline_effects/response_tests.csv` before exporting. Retain its full
   family/sensitivity link. Two-sided p values remain unadjusted; no new test is

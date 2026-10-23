@@ -67,8 +67,11 @@ class PhaseOverviewTests(unittest.TestCase):
             for name, digest in manifest[section].items():
                 self.assertEqual(sha256((prefix/name).read_bytes()).hexdigest(), digest, name)
         svg = (folder/"phase_rt.svg").read_text(encoding="utf-8")
-        for label in ("Exhale", "Inhale", "Inhale − Exhale", "+18.47", "+20.63", "−2.16"):
+        for label in ("Exhale", "Inhale", "Inhale − Exhale", "AT 300 ms", "AT 800 ms", "AT 1500 ms", "AT 2200 ms", "AT 2700 ms", "Baseline"):
             self.assertIn(label, svg)
+        from phase_rt import COLORS
+        for color in COLORS:
+            self.assertIn(color.lower(), svg.lower())
 
     def test_paired_phase_claims(self):
         root = Path(__file__).resolve().parents[1]

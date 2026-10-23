@@ -24,7 +24,8 @@ def build_review(root, target):
     destination.mkdir(exist_ok=True)
     pages = {"README.md": "index.html", "EVIDENCE_TABLE.md": "EVIDENCE_TABLE.html",
              "ANALYSIS_RATIONALE.md": "ANALYSIS_RATIONALE.html", "SEARCH_LOG.md": "SEARCH_LOG.html",
-             "QUESTIONNAIRES.md": "QUESTIONNAIRES.html", "INDIVIDUAL_PARAMETERS.md":"INDIVIDUAL_PARAMETERS.html"}
+             "QUESTIONNAIRES.md": "QUESTIONNAIRES.html", "INDIVIDUAL_PARAMETERS.md":"INDIVIDUAL_PARAMETERS.html",
+             "RESPIRATION_RT.md": "RESPIRATION_RT.html"}
     links = dict(pages)
     links.update({"../analysis/sigmoid_literature_sources.json": "../sigmoid_literature_sources.json",
                   "../analysis/questionnaire_literature_sources.json": "../questionnaire_literature_sources.json",
@@ -37,7 +38,7 @@ def build_review(root, target):
     for name in ("paper_analysis.py", "descriptive_sigmoid.py", "sigmoid_shape.py", "publication_report.py", "questionnaires.py", "participant_sigmoid.py", "participant_report.py"):
         shutil.copyfile(root / "workbook" / name, code / name)
         links["../workbook/" + name] = "analysis_source/" + name
-    for name in (*pages, "searches.json", "references.bib"):
+    for name in (*pages, "searches.json", "references.bib", "respiration_rt_sources.json"):
         shutil.copyfile(source / name, destination / name)
     for name, output_name in pages.items():
         text = (source / name).read_text()

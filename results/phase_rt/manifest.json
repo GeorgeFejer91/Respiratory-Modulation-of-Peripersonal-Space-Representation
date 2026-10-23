@@ -1,5 +1,5 @@
 {
-  "classification": "exploratory; visualization of existing contrasts",
+  "classification": "exploratory paired trial-group deltas; preserved overall reference contrasts",
   "runtime": {
     "python": "3.12.14",
     "numpy": "2.4.3",
@@ -11,19 +11,23 @@
     "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
   },
   "source_sha256": {
-    "workbook/phase_rt.py": "728899ea4a679a83f24d03bae1f242b6509b8b4b81e443a97ed248e2206e9b05",
+    "workbook/phase_rt.py": "ad094a775db921bd589bee998d627eb8dcd07479bbf27ec14c699f963d833038",
+    "workbook/test_phase_groups.py": "3eb15094075071fa26abfa7d78235542709b7f5c4d0dfaf85bd56004a805c077",
     "workbook/paper_analysis.py": "92609f291991c34002753a2fa069f685db00a28de28047972dbf58de92a8e8b3",
     "workbook/preparation.py": "bf630f256761ff3fb81d10ef1fe5e9b157515632a2218ab78298c700183f346b",
     "workbook/requirements.txt": "2394fa644b80e3b653ac8dcef2c42d7b664d715b8565159a6a0c92048c33c945",
     "results/baseline_effects/response_tests.csv": "24506c492b63a6b10abaf304f2a62885b2798c45325cf08d5f532ff149eb6827"
   },
   "artifact_sha256": {
-    "SPECIFICATION.md": "02a8d0bccebd44ea1986f3a05a1a0c8af35dcf1909070df7de7b15f823aa72e8",
-    "RESULTS.md": "36b5527b4975b6456b8b8a7b271cbcbba6f2acd172671462f6888a1ba7125059",
-    "participant_phases.csv": "4346846cd5a1ce6dfa347c3cf930e764046b92a72fe23692a2904e4eee0d25b6",
-    "results.json": "64b626e5cd07244361266a389bc6990d0cf7ffc6095bbf0739fd71e36c7c9382",
-    "phase_rt.svg": "e8e246cfcf06dca1514aac91b492719a87e8d92a8e2cdf9da0717daed60f623d",
-    "phase_rt.png": "499831701e7c806134b599a3e68b5a54ab38709467b1a28aac42c3d57a46ce53",
-    "phase_rt.pdf": "b05527e25b6c22ffdde53e03c0359d05fc3cd28426887d8cc5e74a885b8e0fb1"
+    "SPECIFICATION.md": "9c747a51fe466c57bdf7699ee21f7303c426825aa2caecb55cfb03bebc2491cd",
+    "RESULTS.md": "ae53a4cb9a2d755ce1ccc1aadbfb09140838418b9bb6d2abc3c5f2bb13197739",
+    "participant_phases.csv": "31d6b49b97cccba040d2a56293e07b8b18eac469a325afbe1e9a2cdeaa96f7ec",
+    "participant_trial_groups.csv": "90597ac7fe0062fae0a676f62d365ea76c50c2d262a99ba214a984091191c5cf",
+    "trial_group_deltas.csv": "2d6d241cce364e7d5a6791d9a920bd308947358cd69b6bfa3ac3d53479fc7abf",
+    "trial_group_summary.csv": "fa4c768eec652f9ff11408f86923b521b5d8451aee7e3368480da5938dc65021",
+    "results.json": "160b526399cff90fb74b28a45f410fdc01d86c816858f11fc831fddbc477b2cf",
+    "phase_rt.svg": "8d87324ae34024438138391dc05794f61432be7b6e217f2697619275f39e1fb8",
+    "phase_rt.png": "58792b6d1061bc3a0d81e7903f72a8016eadf02ae304812b96d61637f859fce0",
+    "phase_rt.pdf": "08e1f989fbfb8b17e5b25ec14418a0d24cebad7286856b2841c6b0f213695e83"
   }
 }
