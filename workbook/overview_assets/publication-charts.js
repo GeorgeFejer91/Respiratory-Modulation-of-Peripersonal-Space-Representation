@@ -1,9 +1,7 @@
-import {violinDensity} from './pivot/pivot-chart.mjs';
 import {enablePointInspection,hidePoint} from './pivot/point-inspector.js';
 import {prepareWithSegments,measureNaturalWidth} from './pivot/vendor/pretext/dist/layout.js';
 
 const ns='http://www.w3.org/2000/svg';
-const colors=['#4477AA','#CC6677','#117733','#882255','#AA4499','#000000'];
 const el=(tag,attributes={},text)=>{const n=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attributes))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;};
 export function quantile(values,q){const sorted=[...values].sort((a,b)=>a-b),i=(sorted.length-1)*q,l=Math.floor(i);return sorted[l]+(sorted[Math.ceil(i)]-sorted[l])*(i-l);}
 const mean=values=>values.reduce((a,b)=>a+b,0)/values.length;
@@ -50,36 +48,6 @@ function chart(host,{xs,ys,height=420,left=76,rain=false,xlabel='SOA (ms)',ylabe
   }
   return {svg,x,y,line,text,point,whisker,append,width,height};
 }
-function raincloud(host,data){
-  const groups=data.phase.trial_groups,records=data.phaseDeltas;
-  const font=parseFloat(getComputedStyle(host).fontSize),stack=host.clientWidth<font*14;
-  const step=Math.max(stack?font*5.8:Math.max(83,font*4.5),(requestedHeight(host)-(stack?160:100))/6),left=stack?28:Math.max(112,font*6.6);
-  const c=chart(host,{xs:domain(numeric(records,'delta_inhale_minus_exhale_ms')),ys:[0,1],rain:true,
-    height:step*6+(stack?160:100),left,xlabel:'Δ RT (ms)'});
-  if(stack)c.svg.querySelector('[data-zero-baseline]').remove();
-  const lookup=new Map(data.phaseGroups.map(r=>[`${r.participant_id}|${r.phase}|${r.trial_group}`,Number(r.reaction_time_ms)]));
-  groups.forEach((s,i)=>{
-    const color=colors[i],start=font+i*step,cy=stack?start+font*2+40:50+i*step,rows=records.filter(r=>r.trial_group===s.trial_group),values=numeric(rows,'delta_inhale_minus_exhale_ms');
-    if(stack)c.line(c.x(0),cy-38,c.x(0),cy+44,'#243240',{'stroke-dasharray':'5 4','data-zero-baseline':''});
-    const density=violinDensity(values);
-    if(density){const coords=density.points.map(p=>`${c.x(p.value)},${cy-8-p.width*28}`);
-      c.append('path',{d:`M${c.x(density.points[0].value)},${cy-8}L${coords.join('L')}L${c.x(density.points.at(-1).value)},${cy-8}Z`,fill:color,'fill-opacity':.2,stroke:color,'stroke-width':1,'data-density':'','data-bandwidth':density.bandwidth});}
-    const q1=quantile(values,.25),q3=quantile(values,.75),median=quantile(values,.5),iqr=q3-q1;
-    c.line(c.x(Math.min(...values.filter(v=>v>=q1-1.5*iqr))),cy,c.x(Math.max(...values.filter(v=>v<=q3+1.5*iqr))),cy,color);
-    c.append('rect',{x:c.x(q1),y:cy-4,width:c.x(q3)-c.x(q1),height:8,fill:'white',stroke:color});
-    c.line(c.x(median),cy-4,c.x(median),cy+4,color,{'stroke-width':2});
-    rows.forEach((r,j)=>c.point(c.x(Number(r.delta_inhale_minus_exhale_ms)),cy+12+j/39*13,
-      {Participant:r.participant_id,'Trial group':s.trial_group,'Exhale RT (ms)':lookup.get(`${r.participant_id}|Exhale|${s.trial_group}`),
-       'Inhale RT (ms)':lookup.get(`${r.participant_id}|Inhale|${s.trial_group}`),'Inhale − Exhale (ms)':Number(r.delta_inhale_minus_exhale_ms)},color,2.8));
-    c.whisker(cy+38,s.ci_low,s.ci_high,color,true);
-    c.point(c.x(s.mean),cy+38,{'Statistic':'Participant mean','Trial group':s.trial_group,'Inhale − Exhale (ms)':s.mean,
-      'Pointwise 95% CI low (ms)':s.ci_low,'Pointwise 95% CI high (ms)':s.ci_high,n:s.n},'white',4,{stroke:color,'stroke-width':2});
-    const right=left-9;
-    c.text(stack?4:right,stack?start:cy-1,s.trial_group,stack?'start':'end',font*.84);
-    c.text(stack?4:right,stack?start+font:cy+font,`${s.mean>=0?'+':''}${s.mean.toFixed(2)} ms`,stack?'start':'end',font*.84);
-  });
-  return c;
-}
 function soa(host,data){
   const ids=data.soa.participant_ids,soas=data.soa.summary.map(r=>r.soa_ms);
   const records=ids.flatMap(pid=>soas.map(soa=>({pid,soa,value:mean(numeric(data.soaCells.filter(r=>r.participant_id===pid&&Number(r.soa_ms)===soa),'corrected_rt_ms'))})));
@@ -112,15 +80,16 @@ function corrected(host,data){
     pair.forEach((r,i)=>c.point(c.x(i),c.y(Number(r.corrected_rt_ms)),{Participant:pid,Phase:r.phase,'AT − Baseline RT (ms)':Number(r.corrected_rt_ms)},'#777',2.5));}
   ['Exhale','Inhale'].forEach((phase,i)=>{const r=data.phase.corrected_phase_means[phase];c.whisker(c.x(i),r.ci_low,r.ci_high,'black');c.point(c.x(i),c.y(r.mean),{Statistic:'Participant mean',Phase:phase,'AT − Baseline RT (ms)':r.mean,'95% CI low (ms)':r.ci_low,'95% CI high (ms)':r.ci_high,n:r.n},'black',4);});return c;
 }
-const renderers={phase:raincloud,soa,blocks,phaseCorrected:corrected};
+const renderers={soa,blocks,phaseCorrected:corrected};
 if(typeof document!=='undefined'){
   const response=await fetch('publication-data.json');if(!response.ok)throw new Error('Chart data unavailable');const data=await response.json();
   for(const host of document.querySelectorAll('[data-plot]')){
+    if(host.dataset.plot==='phase'){const {mountPhaseExplorer}=await import('./phase-explorer.js');mountPhaseExplorer(host,data,measureText);continue;}
     let scheduled=false,geometry='';const render=()=>{
       const panel=host.closest('.plot-panel'),font=parseFloat(getComputedStyle(host).fontSize);
       const next=`${host.clientWidth}:${font}:${panel?.style.height}`;
       scheduled=false;if(next===geometry)return;geometry=next;
-      if(panel){const minimum=host.dataset.plot==='phase'?(host.clientWidth<font*14?font*5.8*6+160:Math.max(83,font*4.5)*6+100):Math.max(420,font*21);panel.style.minHeight=`${minimum+12}px`;}
+      if(panel){const minimum=Math.max(420,font*21);panel.style.minHeight=`${minimum+12}px`;}
       hidePoint();const c=renderers[host.dataset.plot](host,data);enablePointInspection(c.svg);measureText(c.svg);host.closest('figure').dataset.interactive='ready';
     };
     const observer=new ResizeObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(render);}});observer.observe(host);if(host.closest('.plot-panel'))observer.observe(host.closest('.plot-panel'));

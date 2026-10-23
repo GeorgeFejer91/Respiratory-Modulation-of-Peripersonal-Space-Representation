@@ -150,7 +150,7 @@ cell averages and always-GG correction. Show participant RT profiles, marginal
 exploratory prerequisite does not establish spatial specificity or a PPS boundary.
 The page displays native saved results and labels that execution limit.
 
-The landing page is a compact eleven-section scientific overview, built from
+The landing page is a compact twelve-section scientific overview, built from
 `workbook/overview_assets/`. Segment 0 is the central descriptive explorer;
 each later section contains one question and a link to its analysis/evidence.
 Segment 1 additionally shows its initial SOA graph and APA result directly.
@@ -159,6 +159,21 @@ saved native primary40 paired contrasts: raw AT slowing during inhale and an
 inconclusive matched-baseline-corrected phase effect. It gives a compact answer,
 cohort/weighting/uncertainty labels and links to the complete contrast family;
 it does not execute or refit that analysis in the browser.
+Owner explorer/citation amendment (2026-10-23): Segment 2 asks whether general
+RT differs between inhalation and exhalation. Its focused D3 7.9.0 explorer keeps
+raw six-group rainclouds by default; supports trial-type selection and independent
+participant/density/box/mean/pointwise-CI layers, matched-baseline-corrected deltas
+for five AT SOAs, reset and displayed CSV/SVG export. No normalization or new p
+values. The build reuses `phase_rt.describe` for corrected paired t intervals;
+`test_phase_explorer.py` compares all 200 corrected differences against independent
+Condition × Phase cells. Saved original results and cleaning remain unchanged.
+D3 is bundled locally with license/integrity receipt; shared resize, point-detail
+and Pretext owners remain authoritative. Baseline self-subtraction is omitted
+from the corrected view, with explicit sign/formula labels. The mini review uses
+APA author–year links, accessible full-reference boxes and an alphabetical final
+References segment. The linked extended review/source ledger retains access and
+comparison limits; directional agreement does not establish replication.
+
 Owner visualization amendment (2026-10-23): Figure 2 now makes the six raw
 Inhale−Exhale trial-group deltas the main visual as stacked rainclouds; preserve
 raw labels and the corrected overall inference above it. The corrected overall

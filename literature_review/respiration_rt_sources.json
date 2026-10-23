@@ -34,5 +34,37 @@
     {"authors_year":"Molle et al. (2023)","title":"Inhalation boosts perceptual awareness and decision speed","doi":"10.1152/jn.00492.2022","opened_url":"https://pubmed.ncbi.nlm.nih.gov/37529836/","additional_opened_url":"https://research.dial.uclouvain.be/entities/publication/e947b064-1775-481d-88e7-2972e95bb70f","access":"Primary abstract and institutional record opened; publisher full text blocked; institutional download was a one-page abstract record","role":"opposite-direction counterevidence","finding":"N=30; near-threshold visual orientation decisions faster during inhalation","transfer_limit":"Different decision task; rules out a universal claim, not a direct statistical contradiction between matched estimands"},
     {"authors_year":"Johannknecht and Kayser (2022)","title":"The influence of the respiratory cycle on reaction times in sensory-cognitive paradigms","doi":"10.1038/s41598-022-06364-8","opened_url":"https://www.nature.com/articles/s41598-022-06364-8","access":"Publisher full text; respiratory coding, task methods/results and timing analyses inspected","role":"task/alignment context","finding":"RT covaries with respiration across multiple sensory-cognitive tasks; stimulus/response alignment matters","transfer_limit":"Measured respiratory state plus subphase is not the released scheduled/instructed binary label"},
     {"authors_year":"Harting et al. (2025)","title":"Respiration shapes response speed and accuracy with a systematic time lag","doi":"10.1098/rspb.2024.2566","opened_url":"https://pubmed.ncbi.nlm.nih.gov/40199358/","additional_opened_url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11978463/","access":"Primary abstract/figure descriptions opened; indexed full-text excerpts inspected; PMC full-text access intermittent","role":"time-lag and continuous-phase limitation","finding":"Across 12 datasets, RT association strongest for respiration about 2 seconds before response","transfer_limit":"Does not establish a universal binary exhale advantage; analysis cannot be reproduced with missing respiratory waveforms"}
-  ]
+  ],
+  "landing_page_mini_review": {
+    "observed_date": "2026-10-23",
+    "mode": "Grounded primary-source refresh with opposite-direction and outcome-mismatch checks; targeted, not systematic",
+    "consensus": "Search retried: UNAUTHORIZED. User requested reconnection; login handoff opened. No successful Consensus results cited.",
+    "metadata": "Crossref DOI records checked for authors/order, year, title, journal, volume/issue and pages/article number.",
+    "sources": [
+      {
+        "doi": "10.2466/pms.1965.20.3.961",
+        "url": "https://journals.sagepub.com/doi/10.2466/pms.1965.20.3.961",
+        "access": "Publisher abstract; full text restricted",
+        "supports": "Faster simple auditory responses with expiration in two experiments."
+      },
+      {
+        "doi": "10.1038/s41598-022-06364-8",
+        "url": "https://www.nature.com/articles/s41598-022-06364-8",
+        "access": "Publisher and PMC full text",
+        "supports": "Task-dependent RT associations, stronger for response alignment; three of six paradigms showed RT associations."
+      },
+      {
+        "doi": "10.1152/jn.00492.2022",
+        "url": "https://journals.physiology.org/doi/full/10.1152/jn.00492.2022",
+        "access": "Primary publisher search extraction includes Results/Discussion; direct full-text refresh returned HTTP 403. Crossref metadata verified.",
+        "supports": "Contrary direction: faster objective visual orientation decisions following inhalation stimuli; subjective latency distinct."
+      },
+      {
+        "doi": "10.1111/psyp.70145",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.70145",
+        "access": "Publisher full text",
+        "supports": "Forty participants; fast RT near peak inspiration/early expiration, integration maxima near ex2in; speed and race-model integration are different outcomes."
+      }
+    ]
+  }
 }

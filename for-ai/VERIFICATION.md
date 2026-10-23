@@ -71,6 +71,15 @@ Run `node workbook/check_point_inspection.cjs URL`: HTML/SVG charts must preserv
 all exact participant values and match CSVs (no chart images), while
 all current overview and pivot point types support click/tap, full precision,
 keyboard, dismissal, overlap navigation and responsive measured detail boxes.
+For the focused Segment 2 controls, run `test_phase_explorer.py` and
+`node workbook/check_phase_explorer.cjs URL`: check all 32 layer combinations,
+raw/corrected pairing and units, trial selection/empty/reset, CSV/SVG export,
+exact-value keyboard/touch access, zero/full extents, responsive controls and
+actual Pretext. Verify the bundled D3 version/license and integrity receipt.
+Run `node workbook/check_citations.cjs URL`: every author–year link resolves to
+one full APA entry and DOI; popovers support focus/Escape and enlarged-text/phone
+reflow, and links fall back to the end References segment. Verify primary-source
+claims and metadata, include contrary findings and document unavailable access.
 No chart enhancement may change the numerical results or archived model engine. Check the linked
 published-evidence page and its access ledger; retain contrary findings and
 avoid treating six pointwise CIs or matching published directions as replication.

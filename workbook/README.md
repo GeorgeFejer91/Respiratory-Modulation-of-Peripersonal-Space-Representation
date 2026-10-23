@@ -362,3 +362,11 @@ and its graph is available in a disclosure. The browser renders charts from
 verified `publication-data.json`; it does not refit inferential models.
 The current exploratory heatmap reuses the pivot controls, worker and complete
 scrollable table; the older notebook remains under `/exploratory/app/`.
+
+Segment 2 uses a locally bundled D3 7.9.0 explorer with independent raincloud
+layers, trial-type selection and raw/corrected paired differences. Corrected
+values use condition- and phase-matched participant baselines, with build-time
+pointwise paired t 95% CIs; existing saved results remain unchanged. Export the
+current data as CSV or the current drawing as SVG. APA author–year citations in
+the miniature review open full-reference boxes and also link to the final
+References segment. See the extended review for source/access qualifications.

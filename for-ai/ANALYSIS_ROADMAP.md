@@ -2,6 +2,37 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — focused D3 controls for Segment 2
+
+Owner request (2026-10-23): use one supplied plotting toolbox and give Segment 2
+relevant flexibility comparable to Segment 0. Reuse this chart worktree and the
+shared point inspector/resize/Pretext owners. D3 7.9.0 will own the Segment 2 SVG
+scales, data joins and density geometry, bundled locally with license/provenance.
+
+- [ ] Keep raw six-group rainclouds as default; add trial-group and independent
+  dot/density/box/mean/pointwise-CI controls, reset, current-view CSV/SVG exports.
+- [ ] Offer matched-baseline-corrected paired deltas for five AT SOAs. Derive
+  phase values from the verified participant groups and reuse the existing paired
+  t-interval method at build time; independently compare with Condition × Phase
+  participant cells. No new p values, exclusions, fitting or normalization.
+- [ ] Verify all control combinations, exact points/exports, empty states,
+  mobile/enlarged-text/Pretext, independent review, regression gates and the exact
+  deployed source/live behavior. Keep the wider publication goal open.
+
+Owner follow-up: phrase Segment 2 as a scientific general-RT question, embed a
+mini literature review with APA author–year/full-reference popovers, and add an
+end References segment. Preserve the statistical result and avoid causal or
+synchrony-perception claims. Verify citation identity/access, positive and contrary
+studies, keyboard/focus, DOI/fallback links and enlarged-text rendering. Consensus
+reauthentication was requested; only the in-app browser is connected and the login
+handoff is open. Continue independent work with checked primary sources.
+
+Implementation choice: a small native control area above the existing figure;
+all layers start on, trial types retain fixed labels/colors/order. Corrected view
+omits the self-subtracted baseline and explains why. Original saved statistics,
+cohort, cleaning and static downloads stay fixed. Next action: add failing data
+and browser behavior checks, implement, then verify and publish.
+
 ### Completed amendment — Segment 2 rainclouds and point inspection
 
 Owner request (2026-10-23): promote the six raw Inhale−Exhale trial-group deltas

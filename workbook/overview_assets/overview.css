@@ -47,3 +47,30 @@ footer { padding: 24px; border-top: 1px solid #ccd5df; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { .contents, header, .skip { display: none; } .reading-layout { display: block; } section { break-inside: avoid; } }
+
+#phase-controls { margin:16px 0; padding:16px 0; border-block:1px solid #ccd5df; min-width:0; }
+#phase-controls fieldset { border:0; padding:0; margin:12px 0; min-width:0; }
+#phase-controls legend { font-weight:bold; padding:0; max-width:100%; }
+#phase-controls [data-phase-label] { display:block; min-width:0; overflow-wrap:break-word; }
+.phase-outcome { display:grid; gap:4px; max-width:24rem; }
+.phase-choices,.phase-actions { display:flex; flex-wrap:wrap; gap:8px 20px; }
+.phase-choices label { display:flex; align-items:center; gap:8px; min-height:44px; min-width:0; max-width:100%; cursor:pointer; }
+#phase-controls input { width:20px; height:20px; flex:none; }
+#phase-controls button,#phase-controls select { font:inherit; color:inherit; background:#fff; border:1px solid #788b9d; border-radius:2px; padding:8px 12px; min-height:44px; max-width:100%; }
+#phase-controls button { cursor:pointer; white-space:normal; text-align:left; }
+#phase-controls select { width:100%; min-width:0; }
+#phase-controls button:disabled { opacity:.6; cursor:default; }
+#phase-controls :focus-visible { outline:3px solid #c75c12; outline-offset:2px; }
+#phase-controls p { margin:8px 0; }
+
+.reference-list { list-style:none; margin:16px 0; padding:0; max-width:85ch; }
+.reference-list li { margin:0 0 16px; padding-left:2em; text-indent:-2em; line-height:2; scroll-margin-top:24px; }
+a[data-citation] { text-decoration-style:dotted; text-underline-offset:3px; }
+.citation-box { position:fixed; z-index:10; width:min(36rem,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; padding:16px; border:1px solid #788b9d; background:white; box-shadow:0 3px 12px #0003; font:inherit; box-sizing:border-box; }
+.citation-box[hidden] { display:none; }
+.citation-box .reference-text { line-height:1.65; overflow-wrap:anywhere; }
+.citation-actions { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:12px; align-items:center; }
+.citation-actions button { font:inherit; padding:8px 12px; min-height:44px; color:inherit; background:#fff; border:1px solid #788b9d; cursor:pointer; }
+.citation-actions a { display:block; min-height:44px; padding:8px 0; }
+
+.reference-text { overflow-wrap:anywhere; }

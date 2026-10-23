@@ -289,6 +289,8 @@ def build(output, development=False):
         soaCells=rows(soa_source,'participant_cells.csv'),
         blocks=json.loads((block_source/'results.json').read_text(encoding='utf-8')),
         blockCells=rows(block_source,'participant_blocks.csv'))
+    from phase_explorer_data import build_phase_explorer
+    payload['phaseExplorer'] = build_phase_explorer(payload['phase'], payload['phaseGroups'])
     (output/'publication-data.json').write_text(json.dumps(payload,ensure_ascii=False,allow_nan=False)+'\n',encoding='utf-8')
     marker=output/"DEVELOPMENT_ONLY.txt"
     if development:

@@ -15,6 +15,7 @@ for (const link of links) link.addEventListener('click', () => {
   if (mobile.matches) menu.open = false;
 });
 await import('./pivot/text-fit.js');
+await import('./citations.js');
 
 let scheduled = false;
 function updateCurrent() {
