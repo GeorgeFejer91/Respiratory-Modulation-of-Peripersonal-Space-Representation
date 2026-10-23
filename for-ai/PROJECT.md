@@ -211,6 +211,12 @@ multisensory synchrony judgments from speeded target RTs; the latter cannot veri
 subjective simultaneity or temporal binding-window changes.
 The section menu stays beside desktop content and collapses above phone content.
 It uses page flow when expanded beyond the viewport, without a nested scroller.
+Owner default-width amendment (2026-10-23): the publication content column starts
+at A4 portrait width (210 CSS mm), excluding section navigation, and contracts to
+available space on smaller screens. Text, figures and the embedded explorer share
+this column. Its border can resize the whole column above or below A4; Home or a
+double-click restores the responsive A4 default. Individual plot/table resizing
+remains available. This supersedes the earlier full-screen overview default.
 Segment 3 shows the baseline-corrected chronological-block RT graph from `results/block_rt/`, the
 inconclusive linear trend, 39-person complete-block inference and downloadable
 all-available primary40 descriptives. Both conditions span one continuous 12-block

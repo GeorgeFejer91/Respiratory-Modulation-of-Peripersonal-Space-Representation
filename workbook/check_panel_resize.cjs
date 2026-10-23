@@ -14,8 +14,9 @@ const assert = require('node:assert/strict');
       'The table must be below the plot on desktop too');
     const drag = async (handle, dx, dy) => {
       await handle.scrollIntoViewIfNeeded(); const box = await handle.boundingBox();
-      await page.mouse.move(box.x+box.width/2,box.y+box.height/2); await page.mouse.down();
-      await page.mouse.move(box.x+box.width/2+dx,box.y+box.height/2+dy,{steps:10}); await page.mouse.up();
+      const y = Math.min(page.viewportSize().height-20,Math.max(20,box.y+box.height/2));
+      await page.mouse.move(box.x+box.width/2,y); await page.mouse.down();
+      await page.mouse.move(box.x+box.width/2+dx,y+dy,{steps:10}); await page.mouse.up();
     };
     const before = await page.locator('#table-region').boundingBox();
     await drag(page.locator('#table-region [data-resize-edge="bottom"]'),0,100);
@@ -59,7 +60,28 @@ const assert = require('node:assert/strict');
     assert((await page.locator('.table-sheet').boundingBox()).width>expanded, 'The right border grows the table at every viewport size');
     await page.goto(base); await page.frameLocator('#core-pivot').locator('#table-region[aria-busy="false"]').waitFor();
     await page.setViewportSize({width:1920,height:1080});
-    assert((await page.locator('main').boundingBox()).width > 1450, 'Use desktop width instead of a narrow centered column');
+    const a4Width = 210 * 96 / 25.4;
+    const content = page.locator('main');
+    assert(Math.abs((await content.boundingBox()).width - a4Width) < 1, 'Content starts at A4 width, excluding navigation');
+    assert((await page.locator('.contents').boundingBox()).x < (await content.boundingBox()).x);
+    const contentEdge = page.getByRole('separator', { name:'Publication content width. Drag or use arrow keys; Home resets.', exact:true });
+    await contentEdge.focus(); await page.keyboard.press('Shift+ArrowRight');
+    assert((await content.boundingBox()).width > a4Width+40, 'Readers can expand beyond A4');
+    await drag(contentEdge,100,0);
+    assert((await content.boundingBox()).width > a4Width+120, 'Content border supports mouse resizing');
+    await contentEdge.focus(); await page.keyboard.press('Home');
+    assert(Math.abs((await content.boundingBox()).width - a4Width) < 1, 'Reset restores A4');
+    await contentEdge.focus();
+    for (let step=0;step<4;step++) await page.keyboard.press('Shift+ArrowLeft');
+    await page.waitForFunction(() => {
+      const heading=document.querySelector('h1'), main=document.querySelector('main');
+      return heading.dataset.fit === 'fit' && heading.getBoundingClientRect().right <= main.getBoundingClientRect().right;
+    });
+    assert((await content.boundingBox()).width < a4Width-190, 'Readers can narrow the content too');
+    await contentEdge.focus(); await page.keyboard.press('Home');
+    for (const selector of ['main section','#core-pivot','figure']) {
+      assert(await page.locator(selector).evaluateAll(nodes => nodes.every(node => node.getBoundingClientRect().width <= document.querySelector('main').clientWidth+1)), `${selector} shares the reading width`);
+    }
     await page.locator('#phase-figure[data-interactive="ready"]').waitFor();
     assert.equal(await page.locator('figure [data-resize-edge="bottom"]').count(),3);
     const rain=page.locator('#phase-figure .publication-plot svg');
@@ -74,6 +96,8 @@ const assert = require('node:assert/strict');
     assert.equal(await page.locator('#phase-figure [data-point-detail]').count(),246);
     for(const width of [320,640,1280,1920]) {
       await page.setViewportSize({width,height:800}); await page.waitForTimeout(150);
+      const expectedWidth = Math.min(a4Width,await page.locator('.content-column').evaluate(element=>element.clientWidth));
+      assert(Math.abs((await content.boundingBox()).width-expectedWidth)<1, `${width} default fits available width`);
       const core=page.frameLocator('#core-pivot');
       await page.waitForFunction(() => {
         const frame=document.querySelector('#core-pivot');
@@ -98,6 +122,6 @@ const assert = require('node:assert/strict');
     await touch.waitForFunction(previous=>document.querySelector('#table-region').clientHeight>previous+40,natural);
     await touch.close();
     assert.deepEqual(errors,[]);
-    console.log('Panel resizing passes: border dragging, keyboard, plot redraw, content-fit tables, full-width overview and one document scroll surface.');
+    console.log('Panel resizing passes: A4 content default/reset, expansion, border dragging, keyboard, plot redraw, content-fit tables and one document scroll surface.');
   } finally {await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

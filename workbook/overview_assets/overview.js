@@ -1,4 +1,5 @@
 import { resizePanel } from './pivot/panel-resize.js';
+resizePanel(document.querySelector('main'), { label:'Publication content', resizeHeight:false });
 // Reuse the locked Pretext runtime for both tool and question navigation.
 for (const link of document.querySelectorAll('.contents a')) link.setAttribute('data-measure', '');
 const links = [...document.querySelectorAll('.contents a')];

@@ -165,7 +165,8 @@ acceptance criteria pass. Do not create a duplicate progress ledger.
 Owner amendment (2026-10-23): live tables and plots use draggable borders with
 keyboard/touch access, replacing height/width sliders. Render complete tables
 in document flow without nested scrolling or clipping; readable content sets
-the minimum height. Use available screen width for the overview and its plots.
+the minimum height. The overview starts at responsive A4 width; its content border
+can expand into available screen width (see `PROJECT.md`).
 This supersedes the earlier internal-scroll/size-slider rule.
 Never split table rows or columns across Next/Previous buttons. Use the project's
 existing table owner and preserve full values, keyboard access and responsive

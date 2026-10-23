@@ -28,11 +28,14 @@ try {
     if (prepared.size > 100) prepared.clear();
   }
   let scheduled = false;
-  new ResizeObserver(() => {
+  const observer = new ResizeObserver(() => {
     if (scheduled) return;
     scheduled = true;
     requestAnimationFrame(() => { scheduled = false; measure(); });
-  }).observe(document.querySelector('header'));
+  });
+  observer.observe(document.querySelector('header'));
+  const main = document.querySelector('main');
+  if (main) observer.observe(main);
   measure();
 } catch (error) {
   for (const region of regions) region.dataset.fit = 'unavailable';

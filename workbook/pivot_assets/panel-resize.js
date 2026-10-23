@@ -1,6 +1,6 @@
 // Shared border controls; content stays in document flow without clipping.
 let panelId = 0;
-export function resizePanel(panel, { label, width = panel, height = panel, setWidth, minimumHeight = 240, table = false, west = false } = {}) {
+export function resizePanel(panel, { label, width = panel, height = panel, setWidth, minimumHeight = 240, table = false, west = false, resizeHeight = true } = {}) {
   if (panel.dataset.resizable !== undefined) return;
   panel.dataset.resizable = '';
   if (!panel.id) panel.id = `resizable-panel-${++panelId}`;
@@ -19,7 +19,7 @@ export function resizePanel(panel, { label, width = panel, height = panel, setWi
     document.dispatchEvent(new Event('panel-resize'));
     document.dispatchEvent(new Event('pivot-layout'));
   };
-  for (const edge of [...(west ? ['left'] : []), 'right', 'bottom']) {
+  for (const edge of [...(west ? ['left'] : []), 'right', ...(resizeHeight ? ['bottom'] : [])]) {
     const axis = edge === 'bottom' ? 'height' : 'width';
     const handle = document.createElement('div');
     handle.className = `resize-edge resize-${edge}`; handle.dataset.resizeEdge = edge;

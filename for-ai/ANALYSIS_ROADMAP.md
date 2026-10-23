@@ -2,6 +2,29 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active amendment — A4 publication preview default
+
+Owner request (2026-10-23): start desktop publication content at A4 portrait width,
+excluding navigation, while retaining reader sizing. Use one responsive 210 CSS mm
+column for text, figures and the embedded explorer, with the shared border owner
+for whole-column resizing/reset. Keep individual sizing and phone reflow.
+
+- [x] Implement the default, accessible width border and text remeasurement on
+  content resizing; update the existing browser gate for A4, widening/narrowing,
+  reset and responsive containment.
+- [x] Production build and 71 workbook tests pass. Local overview, border,
+  exact-point and error-metric browser checks pass, including real Pretext,
+  phone/landscape, enlarged text and spacing. RTK remains unavailable; use the
+  documented bounded native-shell fallback.
+- [x] Local chart-layer (all 32 combinations), phase-explorer (all 32), table-copy
+  and visual desktop/phase/phone checks pass; self-review, whitespace and context
+  safety gates pass. Complete tables and original chart/data values are preserved.
+- [ ] Commit/push, follow the exact Pages deployment and check live behavior.
+  The broader goal stays open.
+
+Work started from clean main at `f13b249`. No data, scientific outputs or analysis
+methods change. Next action: publish the validated amendment and verify it live.
+
 ### Completed amendment — focused D3 controls for Segment 2
 
 Owner request (2026-10-23): use one supplied plotting toolbox and give Segment 2
