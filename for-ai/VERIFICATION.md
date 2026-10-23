@@ -43,12 +43,14 @@ consistent SVG colors/markers and exact exported summary CSV. Check the linked
 published-evidence page and its access ledger; retain contrary findings and
 avoid treating six pointwise CIs or matching published directions as replication.
 For Segment 0, verify fixed SOA values (300, 800, 1500, 2200, 2700 ms), no
-drag/drop controls, all 16 combinations of the four native Condition/Phase
-checkboxes, and empty results when either group is unchecked. Check mouse,
+drag/drop controls and all four states of the two Condition/Phase grouping
+checkboxes: 4 curves, 2 condition curves, 2 phase curves, or 1 pooled curve.
+Every state retains all source cells. Independently verify pooling within person
+before across-person mean/sample SD/n, including normalized scores. Check mouse,
 keyboard and touch selection, raw/baseline-benefit RT with normalization off, min–max and z-scores,
 Mean/Mean ± SD in both views, table/CSV mean-SD-n identity, and SD-aware chart
 extents/tooltips. Normalization references use each participant's complete retained AT trials
-across conditions/phases/SOAs before cell averaging/filtering; hiding series must
+across conditions/phases/SOAs before cell averaging/grouping; pooling factors must
 not renormalize scores. Independently compare trial-based mean/sample SD and
 minimum/maximum. Verify normalization data loads on demand.
 Verify dimensionless labels/CSV names and zero/undefined range as missing scores.

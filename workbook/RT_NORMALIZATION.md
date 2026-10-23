@@ -39,9 +39,9 @@ of this study's display.
 - With baseline correction off, scale uncorrected cell RTs. With it on, first
   form Baseline − AT RT for every retained trial, using the established
   participant × Condition × Phase baseline mean, and scale those benefits.
-- Estimate one reference distribution per participant before cohort/series
-  selection. Never standardize separately per condition, phase or SOA, and
-  never renormalize visible series.
+- Estimate one reference distribution per participant before cohort selection
+  or factor grouping. Never standardize separately per condition, phase or SOA, and
+  never renormalize when factors are pooled.
 - Omit missing trial values from estimation; retain missing cells. An empty or
   constant range, or zero/undefined SD, produces missing normalized scores.
   No new exclusions, trimming or imputation are introduced.

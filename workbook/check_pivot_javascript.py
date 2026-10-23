@@ -33,7 +33,7 @@ def validate(node):
     cases = []
     def add(name, rows, columns, values, aggregation, **extra):
         cases.append(dict(frame=name, settings=dict(rows=rows, columns=columns, values=values,
-                         aggregation=aggregation, totals=extra.pop("totals", True), cohort="Full release", filtersEnabled=False,
+                         aggregation=aggregation, totals=extra.pop("totals", True), cohort=extra.pop("cohort", "Full release"), filtersEnabled=False,
                          filters={}, **extra)))
     for aggregation in [*AGGREGATIONS, "Row count"]:
         for axes in [(["group"], ["phase"]), ([], []), (["group", "phase"], [])]:
@@ -78,10 +78,10 @@ def validate(node):
     for aggregation in ["Mean", "Minimum", "Maximum", "Standard deviation"]:
         add("benefit-edge", ["soa_ms"], [], ["baseline_benefit_ms"], aggregation)
     for value in ["reaction_time_ms", "baseline_benefit_ms", "reaction_time_norm", "baseline_benefit_norm", "reaction_time_z", "baseline_benefit_z"]:
-        for conditions in [[], ["Control"], ["Viscereality"], ["Control", "Viscereality"]]:
-            for phases in [[], ["Exhale"], ["Inhale"], ["Exhale", "Inhale"]]:
-                add("Participant-distance means", ["soa_ms"], ["condition", "phase"], [value], "Mean",
-                    participantSummary=True, totals=False, seriesFilters={"condition": conditions, "phase": phases})
+        for columns in [[], ["condition"], ["phase"], ["condition", "phase"]]:
+            for cohort in ["Full release", "Primary behavioural cohort", "Exclude P011", "Exclude P033"]:
+                add("Participant-distance means", ["soa_ms"], columns, [value], "Mean",
+                    participantSummary=True, totals=False, cohort=cohort)
     for value in ["reaction_time_norm", "baseline_benefit_norm", "reaction_time_z", "baseline_benefit_z"]:
         add("benefit-edge", ["soa_ms"], [], [value], "Mean", participantSummary=True, totals=False)
     add("benefit-edge", [], [], ["baseline_benefit_ms"], "Mean", rawRecords=True)

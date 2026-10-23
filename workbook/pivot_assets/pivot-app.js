@@ -24,7 +24,6 @@ if (coreView) {
   settings.values = ['baseline_benefit_ms'];
   settings.totals = false;
   settings.sdWhiskers = true;
-  settings.seriesFilters = { condition: ['Control', 'Viscereality'], phase: ['Exhale', 'Inhale'] };
   byId('totals').checked = false;
   byId('core-controls').hidden = false;
   byId('choose-values').textContent = 'Values: baseline_benefit_ms';
@@ -58,9 +57,8 @@ if (coreView) {
   byId('core-spread').onchange = () => {
     settings.sdWhiskers = byId('core-spread').value === 'sd'; labelTable(); renderTable(); drawChart();
   };
-  for (const checkbox of document.querySelectorAll('[data-series-field]')) checkbox.onchange = () => {
-    const field = checkbox.dataset.seriesField;
-    settings.seriesFilters[field] = [...document.querySelectorAll(`[data-series-field="${field}"]:checked`)].map(input => input.value);
+  for (const checkbox of document.querySelectorAll('[data-group-field]')) checkbox.onchange = () => {
+    settings.columns = [...document.querySelectorAll('[data-group-field]:checked')].map(input => input.dataset.groupField);
     update();
   };
 }
