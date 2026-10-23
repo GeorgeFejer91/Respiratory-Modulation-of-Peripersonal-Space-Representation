@@ -316,20 +316,23 @@ Normalization and baseline controls retain their existing definitions.
 - [x] Replace four level filters with two factor grouping controls.
 - [x] Verify four/two/two/one curves, participant pooling/SD/n, normalization,
   table/CSV identity, keyboard/touch and responsive rendering.
-- [ ] Commit/push and verify the exact live deployment.
+- [x] Commit/push and verify the exact live deployment.
 
-State: work is isolated on codex/segment0-pooling, based on main at ccf5750.
-The red browser check observed the original four controls instead of two.
-The generic system Python lacked statsmodels; a task-local environment now uses
-the pinned validation requirements. Production build, 67 workbook tests and
-270 independent JavaScript/pandas cases pass. Both production-browser scripts
-pass: every grouping state retains 800 cells/n=40, recomputes participant SD,
-preserves normalized pooling, exports CSV and supports keyboard/touch, actual
-Pretext, four/six viewports, 200% text and spacing. The phone UI was inspected;
-physical iPhone/Safari remains untested.
-Unrelated primary-checkout Segment 2 edits remain untouched.
-Next action: commit/integrate/publish, then verify the exact live deployment.
-The broader scientific publication goal stays open.
+State: implemented in 27e837e on codex/segment0-pooling, integrated into main,
+and included in deployed source 72d68a9. The red check observed four controls
+instead of the required two. Production build, 69 tests on the combined tree,
+270 independent JavaScript/pandas cases and independent source review pass.
+Both standard browser scripts pass locally and live: four/two/two/one curves,
+default 800 source cells and n=40, participant-level SD, pooled normalized means,
+CSV, keyboard/touch, actual Pretext, four/six viewports, 200% text and spacing.
+The phone controls were visually inspected; physical iPhone/Safari is untested.
+[Actions run 39880298506](https://github.com/GeorgeFejer91/Study5_Publication/actions/runs/39880298506)
+passed the full reference analyses, independent validation and Pages deployment.
+The served Segment 0 app, CSS and HTML bytes match that deployed Git revision.
+The isolated worktree stays clean; unrelated analysis changes were integrated
+through normal fast-forwards without editing another task's source.
+Next action: continue the wider question-led publication checklist, preserving
+these grouping and normalization contracts. The broader scientific goal stays open.
 
 ### Active amendment — fixed SOA, series selection and participant normalization
 
