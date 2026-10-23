@@ -22,6 +22,8 @@ class PhaseOverviewTests(unittest.TestCase):
             for name, digest in manifest[section].items():
                 self.assertEqual(sha256((prefix / name).read_bytes()).hexdigest(), digest, name)
         report = json.loads((folder / "results.json").read_text(encoding="utf-8"))
+        self.assertEqual(report['measure'], 'corrected_rt_ms')
+        self.assertIn('raw_reference', report)
         html = (root / "workbook/overview_assets/index.html").read_text(encoding="utf-8")
         section = html.split('<section id="blocks"', 1)[1].split('</section>', 1)[0]
         r = report["tests"]["linear_ms_per_block"]
@@ -51,6 +53,10 @@ class PhaseOverviewTests(unittest.TestCase):
             self.assertEqual((first["participant_id"], first["phase"]), (second["participant_id"], second["phase"]))
             np.testing.assert_allclose([first[k] for k in expected.columns], [second[k] for k in expected.columns], atol=1e-10)
         report = summarize(values)
+        self.assertEqual(report['primary_measure'], 'corrected_rt_ms')
+        for phase in ('Exhale','Inhale'):
+            self.assertAlmostEqual(report['corrected_phase_means'][phase]['mean'],
+                expected.xs(phase, level='phase').corrected_rt_ms.mean())
         self.assertAlmostEqual(report["phase_means"]["Exhale"]["mean"], 662.1920580095339)
         self.assertAlmostEqual(report["phase_means"]["Inhale"]["mean"], 680.661034801737)
         for row in values:
@@ -67,7 +73,7 @@ class PhaseOverviewTests(unittest.TestCase):
             for name, digest in manifest[section].items():
                 self.assertEqual(sha256((prefix/name).read_bytes()).hexdigest(), digest, name)
         svg = (folder/"phase_rt.svg").read_text(encoding="utf-8")
-        for label in ("Exhale", "Inhale", "Inhale − Exhale", "+18.47", "+20.63", "−2.16"):
+        for label in ("Exhale", "Inhale", "Inhale − Exhale", "+18.47", "+20.63", "−2.16", "Baseline-corrected RT"):
             self.assertIn(label, svg)
 
     def test_paired_phase_claims(self):

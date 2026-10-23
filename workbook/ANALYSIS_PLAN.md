@@ -3,9 +3,12 @@
 ## Segment 1 basic SOA check (2026-10-23)
 
 Before curve/reliability/experimental-effect questions, Segment 1 asks whether
-raw Audio–Tactile RT differs across the five SOAs. The exploratory, finite
+baseline-corrected Audio–Tactile RT differs across the five SOAs. The exploratory, finite
 specification is [results/pps_soa/SPECIFICATION.md](../results/pps_soa/SPECIFICATION.md).
-Reuse current cleaning, primary40 and complete participant cells; average the
+Use AT minus the retained participant × Condition × Phase baseline mean, pooling
+baseline SOAs, before aggregation. This is the owner's default for current and
+future RT analyses; raw values are explicit references. Keep negative values and
+an explicit zero reference. Reuse current cleaning, primary40 and complete participant cells; average the
 four Condition × Phase cells equally. One five-level within-person omnibus
 ANOVA uses the existing SOA main effect with always-Greenhouse–Geisser correction.
 Show participant means, marginal pointwise 95% t CIs, APA statistics and all

@@ -40,9 +40,13 @@ class SOATests(unittest.TestCase):
     def test_equal_cells_not_pooled_trials_and_interval(self):
         retained, _, _ = clean(self.people, self.trials)
         frame = pd.DataFrame(retained)
-        frame = frame[(frame.trial_type == 'Audio-Tactile') & ~frame.participant_id.isin(['P011','P033'])]
         frame['reaction_time_ms'] = pd.to_numeric(frame.reaction_time_ms)
-        cells = frame.groupby(['participant_id', 'condition', 'phase', 'soa_ms']).reaction_time_ms.mean()
+        base = frame[frame.trial_type == 'Baseline'].groupby(
+            ['participant_id','condition','phase']).reaction_time_ms.mean().rename('baseline_mean_ms')
+        frame = frame.join(base, on=['participant_id','condition','phase'])
+        frame['corrected_rt_ms'] = frame.reaction_time_ms-frame.baseline_mean_ms
+        frame = frame[(frame.trial_type == 'Audio-Tactile') & ~frame.participant_id.isin(['P011','P033'])]
+        cells = frame.groupby(['participant_id', 'condition', 'phase', 'soa_ms']).corrected_rt_ms.mean()
         reference = cells.groupby(['participant_id','soa_ms']).mean().unstack()
         reference.columns = reference.columns.astype(float)
         reference = reference.reindex(columns=[300,800,1500,2200,2700])
@@ -53,18 +57,23 @@ class SOATests(unittest.TestCase):
             low, high = stats.t.interval(.95, 39, loc=values.mean(), scale=stats.sem(values))
             np.testing.assert_allclose([record['ci_low_ms'],record['ci_high_ms']], [low,high])
         self.assertEqual(set(self.report['excluded_linkage']), {'P011','P033'})
+        self.assertEqual(self.report['measure'], 'corrected_rt_ms')
 
     def test_matched_baseline_translation_and_incomplete_cells(self):
         retained, _, _ = clean(self.people, self.trials)
         baseline = grouped_means([r for r in retained if r['trial_type']=='Baseline'],
                                  ('participant_id','condition','phase'))
-        corrected = self.cube.copy()
+        raw_report, raw_cube, _ = analyze(self.people, self.trials, baseline_correct=False)
+        corrected = raw_cube.copy()
         for i, pid in enumerate(self.report['participant_ids']):
             for ci, condition in enumerate(('Control','Viscereality')):
                 for pi, phase in enumerate(('Exhale','Inhale')):
                     corrected[i,ci,pi] -= baseline[pid,condition,phase]
+        np.testing.assert_allclose(self.cube, corrected, atol=1e-12)
         test = next(r for r in repeated_anova(corrected) if r['effect']=='SOA')
         np.testing.assert_allclose([test['F'],test['epsilon_GG'],test['p_GG']],
+            [self.report['anova'][k] for k in ('F','epsilon_GG','p_GG')], rtol=1e-10)
+        np.testing.assert_allclose([raw_report['anova'][k] for k in ('F','epsilon_GG','p_GG')],
             [self.report['anova'][k] for k in ('F','epsilon_GG','p_GG')], rtol=1e-10)
         removed = [r for r in self.trials if not (r['participant_id']=='P001' and
             r['trial_type']=='Audio-Tactile' and r['condition']=='Control' and
@@ -72,6 +81,11 @@ class SOATests(unittest.TestCase):
         report, _, _ = analyze(self.people, removed)
         self.assertIn('P001', report['incomplete_excluded'])
         self.assertEqual(report['anova']['n'], 39)
+        missing = [r for r in self.trials if not (r['participant_id']=='P001' and
+            r['trial_type']=='Baseline' and r['condition']=='Control' and r['phase']=='Exhale')]
+        report, _, _ = analyze(self.people, missing)
+        self.assertIn('P001', report['missing_baseline_excluded'])
+        self.assertNotIn('P001', report['participant_ids'])
 
     def test_saved_hashes_archive_and_portable_text_bytes(self):
         root = Path(__file__).resolve().parents[1]

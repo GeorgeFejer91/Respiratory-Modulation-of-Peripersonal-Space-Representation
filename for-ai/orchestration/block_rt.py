@@ -18,7 +18,7 @@ from scipy import stats
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "workbook"))
 from preparation import FILES, audit_release, load_pair
-from paper_analysis import clean
+from paper_analysis import clean, grouped_means
 
 OUT = ROOT / "results/block_rt"
 SEED = 20261023
@@ -69,11 +69,21 @@ def prepare(people, trials):
         assert b == (int(row["trial_index"])-1)//34 + 1
         assert row["condition"] == orders[row["participant_id"]].split("-")[int(row["part_number"])-1]
     groups = defaultdict(list)
+    baseline = grouped_means([r for r in retained if r["trial_type"] == "Baseline"],
+                             ("participant_id", "condition", "phase"))
     for row in retained:
         if row["trial_type"] == "Audio-Tactile":
-            groups[(row["participant_id"], block(row), row["condition"])].append(float(row["reaction_time_ms"]))
+            key = (row["participant_id"], row["condition"], row["phase"])
+            if key not in baseline:
+                raise ValueError(f"Missing matched baseline for {key}; no zero imputation")
+            groups[(row["participant_id"], block(row), row["condition"])].append(
+                (float(row["reaction_time_ms"]), baseline[key]))
     records = [dict(participant_id=pid, session_block=b, condition=c, condition_order=orders[pid],
-                    retained_trials=len(a), mean_rt_ms=float(np.mean(a))) for (pid, b, c), a in sorted(groups.items())]
+                    retained_trials=len(a), measure="corrected_rt_ms",
+                    raw_mean_rt_ms=float(np.mean([raw for raw, base in a])),
+                    baseline_mean_ms=float(np.mean([base for raw, base in a])),
+                    mean_rt_ms=float(np.mean([raw-base for raw, base in a])))
+               for (pid, b, c), a in sorted(groups.items())]
     return pd.DataFrame(records), quality, counts, retained
 
 
@@ -104,6 +114,10 @@ def build():
     audit_release(people, trials)
     frame, quality, counts, _ = prepare(people, trials)
     report, wide, slopes = analyze(frame, ("P011", "P033"))
+    raw_frame = frame.assign(mean_rt_ms=frame.raw_mean_rt_ms)
+    report["raw_reference"] = analyze(raw_frame, ("P011", "P033"))[0]
+    report["measure"] = "corrected_rt_ms"
+    report["correction"] = "AT minus retained participant × Condition × Phase baseline mean; baseline SOAs pooled, before block aggregation"
     report.update(classification="exploratory", execution="native Python; no browser execution",
                   cleaning_counts_full_release=counts, participant_quality=quality, bootstrap_seed=SEED)
     observed = frame[~frame.participant_id.isin(("P011", "P033"))]
@@ -142,10 +156,13 @@ def build():
         ax.errorbar(x, means, yerr=half, color="black", marker="o", capsize=3, lw=2,
                          label=f"Equal-person mean, N={len(wide)}")
         ax.axvline(6.5, color="#555555", ls=":", lw=1)
+        low, high = min(0., wide.to_numpy().min(), (means-half).min()), max(0., wide.to_numpy().max(), (means+half).max())
+        span = max(high-low, 1.)
+        ax.axhline(0, color="#555555", ls=":", lw=1)
         ax.set(xlabel="Chronological block (condition switch after block 6)", xticks=x, xlim=(.65, 12.35),
-               ylabel="Audio–Tactile RT (ms)", ylim=(0, wide.to_numpy().max()*1.07),
+               ylabel="AT − Baseline RT (ms)", ylim=(low-.05*span if low < 0 else 0, high+.08*span),
                title="Participant reaction times across consecutive conditions")
-        ax.legend(frameon=False, fontsize=10, loc="lower left")
+        ax.legend(frameon=False, fontsize=10, loc="upper right")
         for extension in ("png", "svg"):
             fig.savefig(OUT / f"block_rt.{extension}", dpi=220, facecolor="white", metadata={"Date": None} if extension == "svg" else None)
         svg = OUT / "block_rt.svg"
@@ -158,11 +175,11 @@ def build():
             ax.set_title(term.replace("_", " "), fontsize=9)
         fig.savefig(OUT / "diagnostics.png", dpi=160, facecolor="white")
         plt.close(fig)
-    lines = ["# Does average RT decline across blocks?", "", "**The analysis does not establish a systematic RT decline across the session.**", "",
-             "Exploratory native analysis; original cleaning and primary40. Both conditions occurred consecutively.", "",
+    lines = ["# Does baseline-corrected RT decline across blocks?", "", "**The analysis does not establish a systematic corrected-RT decline across the session.**", "",
+             "Exploratory native analysis of baseline-corrected RT (AT − Baseline); original cleaning and primary40. Both conditions occurred consecutively.", "",
              f"N = {len(wide)} participants, {report['retained_at']} retained AT trials. Incomplete-block exclusions: {report['incomplete_excluded'] or 'none'}.", "",
              "![Participant RT trajectories across 12 chronological blocks: blue solid Control segments, red dashed Viscereality segments, and black overall means](block_rt.png)", "",
-             "Blue solid lines are participant block means during Control; red dashed lines show Viscereality. Each person's segments use their actual condition in that part of the session and stop at the switch between blocks 6/7. Black points are equal-person means; intervals are pointwise marginal 95% t CIs, not paired-change CIs. The vertical dotted line marks the switch. No smoothing, normalization or baseline subtraction. Zero-based y-axis. Underlying observations and retained-trial counts: participant_blocks.csv. Owner-requested figure-only amendment: replace the order-group panel with condition-colored participant trajectories; statistical results are unchanged.", "",
+             "Blue solid lines are corrected participant block means during Control; red dashed lines show Viscereality. Subtract each trial's retained participant × condition × phase baseline mean (baseline SOAs pooled), then aggregate within person/block. Each person's segments stop at the switch between blocks 6/7. Black points are equal-person means with pointwise marginal 95% t CIs, not paired-change CIs. The vertical dotted line marks the switch. No smoothing or normalization. Negative values and an explicit zero reference are retained. Raw block means and matched baseline contributions remain in participant_blocks.csv; the complete raw three-test family is labelled raw_reference in results.json. This baseline-correction amendment supersedes the earlier raw primary result.", "",
              f"| Test | Mean coefficient | 95% t CI | t({len(wide)-1}) | Two-sided p | dz | Bootstrap 95% CI |", "| --- | ---: | --- | ---: | ---: | ---: | --- |"]
     for term, r in report["tests"].items():
         lines.append(f"| {term} | {r['mean_ms']:.3f} | [{r['ci_low_ms']:.3f}, {r['ci_high_ms']:.3f}] | {r['t']:.3f} | {r['p']:.6f} | {r['dz']:.3f} | [{r['bootstrap_ci_low']:.3f}, {r['bootstrap_ci_high']:.3f}] |")
@@ -177,7 +194,7 @@ def build():
         r = s["tests"][TERMS[0]]
         lines.append(f"- Excluding {s['excluded_linkage']}: n={r['n']}, linear slope {r['mean_ms']:.3f} ms/block, 95% CI [{r['ci_low_ms']:.3f}, {r['ci_high_ms']:.3f}], p={r['p']:.6f}. All three tests are retained in results.json.")
     lines += ["", "P008 has no retained AT responses in chronological block 7 (18 misses and two hits with missing RT) and is excluded only from complete-block inference; their other block means remain in participant_blocks.csv and the available40 table. P016 has a partial recorded session but usable RTs in every block and is retained. Complete-case inference does not correct informative missing responses or misses. Full42 descriptive means are in results.json; it is not 42 independent recordings. Original participant/trial exclusions and missingness counts are preserved there. Pooling retained trials can reflect changing phase/SOA composition; condition order, practice, carryover and fatigue are not causally separated. Block number is not elapsed time. These results concern overall RT, not a drift-diffusion parameter or a PPS boundary.", "",
-              "All three participant-coefficient Q–Q plots are in diagnostics.png. The linear and adjusted slopes show moderate tail deviations; quadratic coefficients include a strong lower-tail outlier (Shapiro p < .001), making that t approximation particularly uncertain. Bootstrap intervals also include zero. Shapiro p values, leave-one-out mean ranges and fixed-seed whole-person bootstrap CIs are retained in results.json. Normality screens do not establish independence or justify post hoc cleaning. No diagnostic-driven method switch. Specifications, code/data/output hashes and runtime versions accompany the results.", "",
+              "All three participant-coefficient Q–Q plots are in diagnostics.png. Quadratic coefficients retain a strong lower-tail outlier (Shapiro p < .001), making that t approximation particularly uncertain. All corrected coefficient bootstrap intervals include zero. Shapiro p values, leave-one-out mean ranges and fixed-seed whole-person bootstrap CIs are retained in results.json. Whole-person resampling preserves each participant's jointly estimated baseline contribution and block covariance; no extra trial-level baseline refit is claimed. Normality screens do not establish independence or justify post hoc cleaning. No diagnostic-driven method switch. Specifications, code/data/output hashes and runtime versions accompany the results.", "",
               "Reproduce: `.venv/Scripts/python.exe for-ai/orchestration/block_rt.py`; independently verify: add `--check`. Native saved outputs are displayed in Segment 3; the historical manuscript is unchanged."]
     (OUT / "RESULTS.md").write_text("\n".join(lines)+"\n", encoding="utf-8", newline="\n")
     source = ["for-ai/orchestration/block_rt.py", "workbook/paper_analysis.py", "workbook/preparation.py", "workbook/requirements.txt", "workbook/requirements-validation.txt"]
@@ -196,11 +213,18 @@ def check():
     frame, _, _, retained = prepare(people, trials)
     raw = pd.DataFrame(retained).query("trial_type == 'Audio-Tactile'").copy()
     raw["session_block"] = (raw.trial_index.astype(int)-1)//34 + 1
-    independent = raw.assign(rt=raw.reaction_time_ms.astype(float)).groupby(["participant_id", "session_block"]).rt.agg(["mean", "count"])
+    base = pd.DataFrame(retained)
+    base["reaction_time_ms"] = base.reaction_time_ms.astype(float)
+    base = base[base.trial_type == "Baseline"].groupby(["participant_id", "condition", "phase"]).reaction_time_ms.mean().rename("baseline")
+    raw = raw.join(base, on=["participant_id", "condition", "phase"])
+    raw["corrected"] = raw.reaction_time_ms.astype(float)-raw.baseline
+    independent = raw.groupby(["participant_id", "session_block"]).corrected.agg(["mean", "count"])
     for row in frame.itertuples():
         r = independent.loc[(row.participant_id, row.session_block)]
         np.testing.assert_allclose(row.mean_rt_ms, r["mean"], atol=1e-10)
         assert row.retained_trials == r["count"]
+        assert row.measure == "corrected_rt_ms"
+        np.testing.assert_allclose(row.mean_rt_ms, row.raw_mean_rt_ms-row.baseline_mean_ms, atol=1e-10)
     saved = json.loads((OUT / "results.json").read_text(encoding="utf-8"))
     _, wide, slopes = analyze(frame, ("P011", "P033"))
     x = np.arange(1., 13.) - 6.5

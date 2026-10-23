@@ -1,14 +1,17 @@
 # Segment 2: phase direction checked against literal trial labels
 
-Raw AT RT: Exhale **662.19 ms**, Inhale **680.66 ms**.
-The positive Inhale−Exhale contrast means slower raw RT during inhale.
+Primary baseline-corrected RT (AT − matched Baseline): Exhale **-17.57 ms**,
+Inhale **-19.73 ms**. The corrected phase contrast remains inconclusive.
+Raw AT RT is a labelled reference: Exhale 662.19 ms,
+Inhale 680.66 ms. Its positive Inhale−Exhale
+contrast means slower raw RT during inhale.
 It is reproduced directly from the released trial labels without a numeric
 phase index, and independently checked against the pandas participant cells.
 
-![Raw paired RTs and paired phase contrasts](phase_rt.svg)
+![Baseline-corrected participant pairs and paired phase contrasts](phase_rt.svg)
 
 Grey marks represent the 40 participants; black squares and whiskers are means
-and 95% t CIs (39 df). Panel A uses marginal phase-mean CIs. Panel B uses paired
+and 95% t CIs (39 df). Panel A uses corrected RT and marginal phase-mean CIs. Panel B uses paired
 phase-difference CIs: above zero means slower during inhale, below zero faster.
 All observations are retained in the axes. No normalization or smoothing.
 

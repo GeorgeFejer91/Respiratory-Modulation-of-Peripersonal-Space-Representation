@@ -5,7 +5,11 @@ simplest appropriate analysis, an observed-data graph and APA-style statistics.
 This is an exploratory initial phenomenon check, not a new registration claim.
 Specification written before running this extension.
 
-- Outcome: retained, unnormalized, uncorrected Audio–Tactile RT in milliseconds.
+- Owner clarification, 2026-10-23: baseline-corrected values are the default.
+  Outcome: retained Audio–Tactile RT minus the participant × Condition × Phase
+  mean of retained Baseline trials, pooling baseline SOAs. Apply subtraction
+  before averaging the four cells. No normalization. Raw RT is an explicit
+  reference, not the primary outcome. This supersedes the initial raw-RT choice.
 - Reuse `paper_analysis.clean`: recorded hits/responses, Catch false-alarm
   exclusion >30%, participant pooled AT/Baseline mean ±2.5 sample SD. No new
   trial filter, smoothing, cutoff or imputation. Keep partial sessions.
@@ -15,7 +19,9 @@ Specification written before running this extension.
 - Calculate each participant × Condition × Phase × SOA cell mean, then average
   the four Condition × Phase cells equally at each SOA. Use only participants
   with all 20 cells; list any incomplete exclusions. People, not trials, are the
-  independent units. Preserve all four cells in the source download.
+  independent units. Require all four matched baseline means; list unavailable
+  baseline exclusions, never impute zero. Preserve raw RT, matched baseline and
+  corrected RT for all four cells in the source download.
 - One primary omnibus null: the five population mean RTs at 300, 800, 1500,
   2200 and 2700 ms are equal. Use the existing repeated-measures ANOVA SOA main
   effect, equivalent to a one-factor five-level within-person ANOVA on those
@@ -24,7 +30,9 @@ Specification written before running this extension.
   or experimental interaction tests in this segment. P values are unadjusted.
 - Show every participant's five means, the equal-person mean and pointwise
   95% t confidence intervals (n−1 df). These are marginal mean intervals, not
-  within-person difference intervals or simultaneous bands. Start Y at zero.
+  within-person difference intervals or simultaneous bands. Retain negative
+  corrected values and all uncertainty; show an explicit zero reference. Start
+  Y at exactly zero only if all values/intervals are nonnegative.
   X uses actual SOA spacing; connecting segments are visual guides, not fits.
 - Report the prespecified descriptive endpoint contrast RT(2700) − RT(300),
   its paired 95% t CI, and all five M/SD/median/n summaries. No endpoint p test.

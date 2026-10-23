@@ -1,6 +1,7 @@
 # Segment 1: does RT depend on SOA?
 
-Exploratory basic phenomenon check. **F(2.52, 98.11) = 3.28, p = .031, η²ₚ = .078, εGG = .629** (Greenhouse–Geisser correction).
+Exploratory basic phenomenon check using **baseline-corrected RT (AT − Baseline)**.
+**F(2.52, 98.11) = 3.28, p = .031, η²ₚ = .078, εGG = .629** (Greenhouse–Geisser correction).
 N = 40 complete participants; 8478 retained AT trials;
 incomplete exclusions: none. P011/P033 excluded.
 The omnibus test supports different population mean RTs across SOAs. This is an SOA check, not proof
@@ -8,23 +9,28 @@ of a specifically spatial PPS mechanism, sigmoid or physiological boundary.
 
 **Figure 1**
 
-*Observed reaction times across stimulus onset asynchronies*
+*Baseline-corrected reaction times across stimulus onset asynchronies*
 
 ![Participant RT profiles and group means](soa_rt.svg)
 
 *Note.* Grey lines show each person's five means, averaging the four Condition ×
 Phase cells equally. Black points show the equal-person mean with pointwise
 marginal 95% t CIs (39 df), not within-person contrast CIs or simultaneous bands.
-No baseline correction, normalization or smoothing. Lines are visual guides.
-The y-axis starts at zero. [Full settings and limitations](SPECIFICATION.md).
+Subtract each participant × Condition × Phase retained baseline mean (all
+baseline SOAs pooled) before averaging. Negative values mean AT responses are
+faster than baseline. No normalization or smoothing. Lines are visual guides.
+The zero reference and all negative values are retained. Mean intervals describe
+the corrected participant scores and include their observed baseline-estimation
+variation; they are not conditional trial-level or separately refitted baseline
+intervals. [Full settings and limitations](SPECIFICATION.md).
 
 | SOA (ms) | M (ms) | SD (ms) | Median (ms) | n | 95% CI (ms) |
 | --- | --- | --- | --- | --- | --- |
-| 300 | 681.47 | 98.46 | 674.05 | 40 | [649.98, 712.96] |
-| 800 | 675.83 | 109.62 | 677.21 | 40 | [640.77, 710.89] |
-| 1500 | 667.93 | 111.32 | 659.10 | 40 | [632.33, 703.53] |
-| 2200 | 666.21 | 107.30 | 652.51 | 40 | [631.89, 700.53] |
-| 2700 | 665.69 | 110.70 | 660.80 | 40 | [630.29, 701.10] |
+| 300 | -8.60 | 46.58 | -3.23 | 40 | [-23.50, 6.29] |
+| 800 | -14.25 | 32.34 | -14.74 | 40 | [-24.60, -3.91] |
+| 1500 | -22.14 | 30.36 | -26.70 | 40 | [-31.85, -12.43] |
+| 2200 | -23.87 | 23.94 | -23.10 | 40 | [-31.52, -16.21] |
+| 2700 | -24.38 | 35.57 | -22.57 | 40 | [-35.76, -13.01] |
 
 The descriptive paired endpoint difference, RT(2700) − RT(300), is
 -15.78 ms, 95% CI [-31.95, 0.39].
@@ -54,6 +60,16 @@ complete `results.zip` includes cell values, settings, statistics and figures.
 Independent statsmodels/pandas/covariance checks are in `workbook/test_pps_soa.py`.
 Input, source and output hashes and actual runtime versions are in `manifest.json`.
 This is a basic SOA check; temporal expectancy/foreperiod explanations remain.
+
+## Raw-RT reference
+
+Raw AT RT is retained explicitly in `raw_reference` in results.json and alongside
+the matched baseline and corrected RT in participant_cells.csv. Subtracting one
+constant from all SOAs within each participant × condition × phase does not alter
+their SOA contrasts under equal-cell averaging. Thus the raw-reference omnibus
+statistics and paired endpoint contrast agree with the corrected analysis (within
+roundoff), while the means, SDs and marginal CIs differ. The graph and primary
+summaries above now use corrected values, as clarified by the owner.
 
 ## Software guidance
 

@@ -56,7 +56,9 @@ def summarize(rows):
         differences = [lookup[pid, "Inhale"][measure] - lookup[pid, "Exhale"][measure] for pid in ids]
         test = stats.ttest_1samp(differences, 0)
         contrasts[measure] = {**describe(differences), "t": float(test.statistic), "p": float(test.pvalue)}
-    return dict(phase_means={phase: describe([lookup[pid, phase]["reaction_time_ms"] for pid in ids]) for phase in PHASES},
+    return dict(primary_measure="corrected_rt_ms",
+                corrected_phase_means={phase: describe([lookup[pid, phase]["corrected_rt_ms"] for pid in ids]) for phase in PHASES},
+                phase_means={phase: describe([lookup[pid, phase]["reaction_time_ms"] for pid in ids]) for phase in PHASES},
                 contrasts=contrasts, direction="Inhale minus Exhale; positive = slower during inhale")
 
 
@@ -84,19 +86,22 @@ def build(root):
     (output/"results.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n", encoding="utf-8", newline="\n")
     lookup = {(r["participant_id"], r["phase"]): r for r in rows}
     ids = sorted({r["participant_id"] for r in rows})
-    raw = np.array([[lookup[pid, phase]["reaction_time_ms"] for phase in PHASES] for pid in ids])
+    corrected = np.array([[lookup[pid, phase]["corrected_rt_ms"] for phase in PHASES] for pid in ids])
     # Outline SVG glyphs so browsers need no locally installed plotting font.
     with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 14, "svg.fonttype": "path", "pdf.fonttype": 42,
                          "svg.hashsalt": "study5-phase-rt", "axes.spines.top": False, "axes.spines.right": False}):
         fig, axes = plt.subplots(2, 1, figsize=(4.6, 7.8), layout="constrained")
         ax = axes[0]
-        ax.plot([0, 1], raw.T, color="#666666", linewidth=.8, alpha=.8, marker=".", markersize=4)
-        means = [report["phase_means"][phase]["mean"] for phase in PHASES]
-        half = [report["phase_means"][phase]["ci_high"]-means[i] for i, phase in enumerate(PHASES)]
+        ax.plot([0, 1], corrected.T, color="#666666", linewidth=.8, alpha=.8, marker=".", markersize=4)
+        means = [report["corrected_phase_means"][phase]["mean"] for phase in PHASES]
+        half = [report["corrected_phase_means"][phase]["ci_high"]-means[i] for i, phase in enumerate(PHASES)]
         ax.errorbar([0, 1], means, yerr=half, color="black", marker="s", capsize=5, linewidth=2, zorder=3)
-        ax.set(title="A. Raw Audio–Tactile RT", ylabel="Reaction Time (ms)",
+        low, high = min(0., corrected.min(), min(np.array(means)-half)), max(0., corrected.max(), max(np.array(means)+half))
+        span = max(high-low, 1.)
+        ax.axhline(0, color="black", linestyle=":", linewidth=1)
+        ax.set(title="A. Baseline-corrected RT", ylabel="AT − Baseline RT (ms)",
                xticks=[0, 1], xticklabels=[f"{phase}\nMean {means[i]:.2f} ms" for i, phase in enumerate(PHASES)],
-               xlim=(-.4, 1.4), ylim=(0, max(raw.max(), max(np.array(means)+half))*1.08))
+               xlim=(-.4, 1.4), ylim=(low-.08*span if low < 0 else 0, high+.08*span))
         ax = axes[1]
         offsets = np.linspace(-.13, .13, len(ids))
         all_values = []
@@ -123,15 +128,18 @@ def build(root):
     table = "\n".join(f"| {MEASURES[m]} | {s['mean']:+.2f} | [{s['ci_low']:.2f}, {s['ci_high']:.2f}] | {s['t']:.3f} | {s['p']:.6f} |" for m, s in report["contrasts"].items())
     (output/"RESULTS.md").write_text(f"""# Segment 2: phase direction checked against literal trial labels
 
-Raw AT RT: Exhale **{means[0]:.2f} ms**, Inhale **{means[1]:.2f} ms**.
-The positive Inhale−Exhale contrast means slower raw RT during inhale.
+Primary baseline-corrected RT (AT − matched Baseline): Exhale **{means[0]:.2f} ms**,
+Inhale **{means[1]:.2f} ms**. The corrected phase contrast remains inconclusive.
+Raw AT RT is a labelled reference: Exhale {report['phase_means']['Exhale']['mean']:.2f} ms,
+Inhale {report['phase_means']['Inhale']['mean']:.2f} ms. Its positive Inhale−Exhale
+contrast means slower raw RT during inhale.
 It is reproduced directly from the released trial labels without a numeric
 phase index, and independently checked against the pandas participant cells.
 
-![Raw paired RTs and paired phase contrasts](phase_rt.svg)
+![Baseline-corrected participant pairs and paired phase contrasts](phase_rt.svg)
 
 Grey marks represent the 40 participants; black squares and whiskers are means
-and 95% t CIs (39 df). Panel A uses marginal phase-mean CIs. Panel B uses paired
+and 95% t CIs (39 df). Panel A uses corrected RT and marginal phase-mean CIs. Panel B uses paired
 phase-difference CIs: above zero means slower during inhale, below zero faster.
 All observations are retained in the axes. No normalization or smoothing.
 

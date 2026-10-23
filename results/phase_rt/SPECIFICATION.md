@@ -18,8 +18,10 @@ contrasts; it adds no model, cleaning choice or inferential comparison.
 - Corrected RT is AT minus that matched baseline. All phase differences are
   **Inhale minus Exhale**; positive means slower RT during inhale. Segment 0's
   Baseline-minus-AT benefit display has the opposite correction sign.
-- Panel A: raw AT participant pairs and phase means with marginal 95% t CIs.
-  Start the nonnegative raw RT axis at zero. Panel B: all participant phase
+- Owner clarification (2026-10-23): baseline-corrected values are primary.
+  Panel A: AT-minus-matched-Baseline participant pairs and corrected phase means
+  with marginal 95% t CIs, all negative values retained and an explicit zero
+  reference. Raw phase means remain a labelled audit reference. Panel B: all participant phase
   differences for raw AT, baseline, and AT-minus-baseline, with paired mean 95%
   t CIs, a visible zero reference, and all negative/positive observations retained.
   Horizontal offsets only separate points; they are deterministic, not data values.
