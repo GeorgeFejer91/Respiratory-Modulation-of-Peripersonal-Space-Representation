@@ -32,11 +32,37 @@ overview marks (SOA, raincloud, corrected pairs, blocks) expose exact data. The
 current exploratory heatmap also uses the shared HTML/SVG inspector. The original
 native statistical summaries and input data are unchanged. Phone/desktop renders
 were inspected; physical Safari and assistive technology remain untested.
-Next action: integrate current title/resizing updates, repeat affected gates, then
-publish and verify the exact live deployment. The wider publication goal is open.
+Integration with title/border resizing is verified locally: all 70 tests, 270
+Python/JavaScript comparisons, overview/point/pivot/layer/copy/border browser gates
+pass. The border gate includes HTML raincloud growth, Home reset and content
+minima; phone/desktop renders were inspected. Independent review confirms
+unchanged results and no remaining material findings after the caption correction.
+Next action: publish and verify the exact live deployment. The wider goal is open.
 
 
-### Active amendment — direct resizing and page flow
+### Scientific web-figure selection guide — 2026-10-23
+
+- [x] Add [data-to-plot and toolkit decision trees](visualization/README.md),
+  seven toolkit profiles and a commit-pinned [source inventory](visualization/catalog.json)
+  for Observable Plot, D3, D3 Graph Gallery, Vega-Lite, Plotly.js, Penrose and SVG.js.
+  Route future chart selection from the README and skill index; preserve approved
+  statistics, native live charts, existing owners and the lightweight startup path.
+- [x] Verify all seven inventories against non-truncated pinned source trees,
+  their tree hashes and 62 fetched-source SHA-256 receipts. All 49 local links/
+  anchors resolve; 26 reference URLs are accessible (one throttled HEAD request
+  was confirmed with browser fetch). JSON, context/safety and whitespace gates
+  pass. RTK is unavailable; bounded native shell output was used.
+- [x] Commit/push guide checkpoint `06167f8` on `main`; verify its full SHA
+  equals remote `refs/heads/main` and the working tree is clean.
+
+Scope: agent reference documentation only; no plotting runtime, plugin, model,
+served figure or publication-readiness status changes. Source publication is
+verified; chart runtime/build/deployment checks were not run for this protocol-only
+change. No external blocker remains for the guide. Next action: resume live-plot
+migration and the existing scientific acceptance checklist. The wider publication
+goal remains open.
+
+### Completed amendment — direct resizing and page flow
 
 Owner request (2026-10-23): remove table size sliders, drag table borders directly,
 eliminate nested scrolling and use available screen space across plot layouts.
@@ -45,7 +71,7 @@ This supersedes historical internal-scroll/size-control instructions below.
 - [x] Replace sliders with shared border handles for tables and plot surfaces,
   keyboard reset/arrows and pointer/touch capture. Tables grow with content;
   the desktop graph/table share width, and the overview uses screen width.
-- [ ] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
+- [x] Verify resize/reflow, enlarged text, emulated touch, data/CSV/selection,
   independent review, combined production build and exact live publication.
 
 Plan/state: reuse pivot/overview owners and pinned Pretext; actual borders alter
@@ -59,7 +85,17 @@ finding about stale stacked widths was fixed and regression-tested; final review
 has no further findings. Narrow cells show three significant digits while copy,
 CSV, full-value details and selected cell nodes retain full precision/identity.
 Physical Safari and assistive-technology coverage remain untested.
-Next action: integrate current main and publish under standing authority.
+Source ccdf710 was normally merged with the publication-title update and pushed
+as 63ede43. Actions run 39962510271 passed the full fixed analyses, independent
+numerical checks and Pages deployment. Live resize, overview/pivot, chart-layer
+and table-copy gates pass at the renamed publication URL. Shared resizer,
+overview/app JavaScript and CSS bytes match that exact Git revision. One initial
+evidence-link request failed during deployment propagation; direct HTTP checks
+and the complete repeated overview gate pass. This evidence-only update changes
+no served artifact. Next action: resume native-plot migration and the broader
+scientific/publication checklist, using the existing visualization-selection
+guide for the owner's toolkit suggestions. The resize worktree/branch is retained
+at the source checkpoint. Physical Safari and screen-reader checks remain unrun.
 The wider scientific/publication goal remains open.
 
 ### Publication-name rename — 2026-10-23

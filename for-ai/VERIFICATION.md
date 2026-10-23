@@ -10,6 +10,25 @@ Preserve unrelated work. Run `pwsh -NoProfile -File for-ai/scripts/check-context
 -ProjectRoot . -RequireRemote`; remote mismatch during intentional development
 must be reconciled by a normal validated push, never by resetting user work.
 
+## Visualization reference documentation
+
+For changes confined to `for-ai/visualization/` and its routing/state links:
+
+- Resolve all changed local Markdown links and anchors; parse `catalog.json`.
+- Check every selected toolkit has a source pin, declared extraction scope,
+  inventory and decision tree. Verify finite lists/counts against the pinned
+  source surfaces; distinguish marks/traces/elements from examples and arbitrary
+  compositions. Do not claim every possible plot or API property was enumerated.
+- For refreshed inventories, inspect the non-truncated GitHub source trees and
+  fetched source receipts, compare extracted IDs and verify source links. Review
+  the full diff for conflicting scientific rules or unrequested dependencies.
+- Run context/safety and whitespace gates, then verify the committed remote SHA
+  under `WORKFLOW.md`. These are documentation checks; do not claim chart runtime,
+  numerical parity, rendering or deployment from them. A protocol-only change
+  does not require a site rebuild under the current Pages path filter.
+
+Actual chart changes still require the applicable gates below.
+
 ## Workbook and data
 
 ### Living publication acceptance (D-0015)

@@ -22,6 +22,13 @@ Higher-priority instructions and the current user request always win.
 
 ## Project-specific routes
 
+Before choosing or changing a scientific web plot or visualization dependency,
+read [the visualization decision guide](visualization/README.md), then only the
+selected toolkit profile. Its seven source-linked inventories and per-tool
+decision trees distinguish built-in marks/traces, examples and custom
+compositions. They are reference guidance, not installed plotting runtimes or
+additional skills. Reuse the existing chart and approved analysis owners first.
+
 | Work | Skill | Policy |
 | --- | --- | --- |
 | Design or review statistical estimands and models | `statistical-analysis` | Conditional; distinguish preregistered and exploratory analyses. |
