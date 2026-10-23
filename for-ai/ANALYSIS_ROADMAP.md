@@ -2,7 +2,7 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Active amendment — baseline-corrected RT is the default
+### Completed amendment — baseline-corrected RT is the default
 
 Owner clarification (2026-10-23): current SOA, phase and block analyses and future
 RT analyses use AT minus the retained participant × Condition × Phase baseline
@@ -17,10 +17,23 @@ explicit reference; historical snapshots and Segment 0's benefit sign are retain
   95% CI [−1.321, 1.081], t(38)=−0.203, p=.840; raw p=.584 is labelled reference.
 - [x] Independently verify matched pooled baselines, all four SOA cells, missing
   baseline handling, invariance, block aggregation and 117 statsmodels coefficients;
-  all 67 workbook tests pass. Visually inspect all three corrected figures.
-- [ ] Finish production-page checks, authorized commit/push, exact CI/deployment
-  and live verification. Preserve unrelated ongoing phase-figure work in the
-  canonical checkout. Next action: rendered gate and publication.
+  all 69 workbook tests pass after integration. All three corrected figures were
+  visually inspected; 800 exported SOA cells and 503 block means independently
+  match trial-level subtraction of the pooled matched baseline.
+- [x] Finish production-page checks, authorized commit/push, exact CI/deployment
+  and live verification. Source `72d68a9` passed Actions run `39880298506`, including
+  the full fixed/reference analyses, independent validation and Pages deployment.
+  The live overview gate passes: corrected primary-measure labels in all three
+  segments, actual ZIP/CSV downloads matching source, 11 sections, four viewport
+  sizes, Pretext, keyboard/touch, 200% text/spacing and current Segment 0 grouping.
+  The initial run for `47d10fb` was superseded by the combined phase-audit update;
+  its labelled raw trial-group reference preserves the corrected primary display.
+  Native calculation remains distinct from browser display. Physical Safari is
+  untested. The managed worktree is clean and synchronized to deployed source;
+  this evidence-only update does not require a redundant site build.
+
+This clarification is complete. Next action: continue the remaining ordered
+measurement/publication questions using corrected RT by default.
 
 The initial raw-primary checkpoints below are historical; this amendment owns
 the current primary-measure choice. The wider publication goal remains open.
