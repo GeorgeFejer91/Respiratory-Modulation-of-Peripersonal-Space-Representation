@@ -2,11 +2,11 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
-### Active task — interactive preprocessing paper
+### Completed amendment — interactive preprocessing paper
 
 Owner request (2026-10-28): create a live-paper subpage explaining how data
 processing changes observations; introduction at most 1,500 words.
-Implement inline in the isolated preprocessing-paper worktree, starting at
+Implemented inline in the isolated preprocessing-paper worktree, starting at
 `3e90ce1`. Reuse the current cleaner, D3, point inspector, panel resize and
 pinned Pretext. This supersedes the proposed Section 2 pilot as the next task.
 
@@ -19,7 +19,7 @@ pinned Pretext. This supersedes the proposed Section 2 pilot as the next task.
 - [x] Verify actual Pretext, keyboard/touch, empty states, full tables,
   resizable charts, 320 px/landscape/wide layouts, enlarged/spaced text,
   introduction word count, production build and unchanged analysis references.
-- [ ] Review, commit/integrate/push, verify exact Pages deployment and live page.
+- [x] Review, commit/integrate/push, verify exact Pages deployment and live page.
 
 Scientific contract: canonical eligible AT/Baseline hits, within-person pooled
 mean ± 2.5 sample SD, then optional ≥200 ms sensitivity; baseline means use the
@@ -36,9 +36,17 @@ no-JavaScript views, keyboard/touch/resizing, eight viewport sizes (320–1920 p
 200% text, spacing and actual Pretext. Introduction: 223 words. Existing overview
 browser gate passes. Fresh review found missing SVG export key/context and narrow
 titles; both are fixed with regression checks. Desktop/phone renderings inspected.
-Production build, release audit and context/safety gates pass. Source integration/
-push and live verification pending. Browser coverage is Chromium emulation;
-physical devices, Safari and a screen-reader audit were not tested.
+Production build, release audit and context/safety gates pass. Source `ad31f31`
+was fast-forwarded into clean main and pushed; exact remote SHA was verified.
+[Pages run 40706924381](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/40706924381)
+passed the full fixed-analysis/numerical checks and deployed that exact source
+on 2026-10-28. The preprocessing and overview browser gates both pass against
+the public site. Public `preprocessing/data.json` matches the verified local build
+byte-for-byte, including all page/calculation source hashes. No task blocker remains.
+This final evidence checkpoint changes only the control plane; it does not trigger
+another Pages build. Browser coverage is Chromium emulation; physical devices,
+Safari and a screen-reader audit were not tested. Next: continue the remaining
+question-led sections and publication acceptance gates below when requested.
 No scientific result or historical manuscript/reference file changed. Overall
 publication acceptance remains open. Windows builds use Python `-X utf8` because
 the existing builder has locale-default Markdown reads.
