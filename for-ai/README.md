@@ -31,6 +31,7 @@ the easiest interpretation.
 | Scope, goals, boundaries, architecture, current state | [`PROJECT.md`](./PROJECT.md) |
 | Results-first questions, ordered checklist and progress | [`ANALYSIS_ROADMAP.md`](./ANALYSIS_ROADMAP.md) |
 | Which installed skills apply and in what order | [`SKILLS.md`](./SKILLS.md) |
+| Structure a live paper, explain preprocessing or assess multiverse templates | [`LIVE_PAPER_REFERENCES.md`](./LIVE_PAPER_REFERENCES.md) |
 | Choose a scientific web plot, library, SVG schematic or worked example | [`visualization/README.md`](./visualization/README.md), then only the selected toolkit profile |
 | Acceptance criteria, commands, gates, evidence limits | [`VERIFICATION.md`](./VERIFICATION.md) |
 | Session loop, updates, Git publication, handoff | [`WORKFLOW.md`](./WORKFLOW.md) |
