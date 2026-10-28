@@ -2,6 +2,35 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Living Papers assessment — 2026-10-28
+
+- [x] Review the [Living Papers article](https://living-papers.vercel.app/living-papers/),
+  [upstream toolkit](https://github.com/uwdata/living-papers),
+  [Quarto manuscripts](https://quarto.org/docs/manuscripts/) and their documented
+  limits against the current source, result manifests, browser-coverage inventory
+  and live overview. This is a design assessment, not framework qualification.
+- Recommendation, not an adopted migration: extend the existing publication
+  builder and chart owners first. Section 2 already combines narrative, evidence,
+  interaction and citations; Sections 4–10 largely remain question/evidence links.
+  Prioritize complete scientific explanations and claim-to-result provenance.
+- Next proposed bounded task: use Section 2 as a pilot with an approved default
+  view, explicit raw/corrected estimands, a restorable exploration state, linked
+  evidence and a static reading/export state. Preserve the overview's compact
+  scope and all existing scientific contracts. Then assess reuse for Sections 4–10.
+- For-AI integration should reuse PROJECT, VERIFICATION, WORKFLOW and this
+  checklist; public claim/run metadata belongs outside the control plane.
+  Consolidate superseded layout/state descriptions before adding more policy.
+  No new runtime, model, data release or framework decision is made by this review.
+
+Inspection began on clean main `abf6bfd`, tracking origin/main. The live overview
+and phase section were inspected in the browser; this was not a full interaction,
+accessibility, numerical-parity or deployment audit. Only this assessment checkpoint
+changes; the existing Pages path filter excludes it. The scientific identification,
+remaining browser migration, author review and publication-readiness gates stay open.
+Context/safety with remote matching and whitespace checks pass for this documentation
+checkpoint; existing oversized-roadmap and historical-binary warnings remain.
+No assessment blocker remains; framework build/runtime qualification was not run.
+
 ### Completed amendment — separate graph display and error controls
 
 Owner request (2026-10-23): style Condition/Phase like the combinable chart
