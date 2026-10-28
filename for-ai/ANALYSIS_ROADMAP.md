@@ -2,6 +2,47 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Active task — interactive preprocessing paper
+
+Owner request (2026-10-28): create a live-paper subpage explaining how data
+processing changes observations; introduction at most 1,500 words.
+Implement inline in the isolated preprocessing-paper worktree, starting at
+`3e90ce1`. Reuse the current cleaner, D3, point inspector, panel resize and
+pinned Pretext. This supersedes the proposed Section 2 pilot as the next task.
+
+- [x] Export audited released trial values and canonical eligibility/trim flags;
+  independently check filtering, baseline subtraction, participant weighting,
+  missingness and normalization in Python versus the browser engine.
+- [x] Build `/preprocessing/`: ordered stages, adjacent before/after views,
+  exclusion counts, distributions/SOA summaries, cohort/person controls,
+  restorable URL state, exact CSV/settings and SVG downloads; link from the paper.
+- [x] Verify actual Pretext, keyboard/touch, empty states, full tables,
+  resizable charts, 320 px/landscape/wide layouts, enlarged/spaced text,
+  introduction word count, production build and unchanged analysis references.
+- [ ] Review, commit/integrate/push, verify exact Pages deployment and live page.
+
+Scientific contract: canonical eligible AT/Baseline hits, within-person pooled
+mean ± 2.5 sample SD, then optional ≥200 ms sensitivity; baseline means use the
+retained participant × Condition × Phase cells. Descriptive normalization uses
+each person's retained corrected AT trials before display filters. No new fitting,
+inference, smoothing, imputation or modification of historical results.
+Primary40 remains the default. Distributions count trials; SOA summaries first
+average within person and retain all four Condition × Phase cells.
+
+Local evidence: 73 Python tests pass, including independent pandas reference
+comparisons for both cohorts/cutoffs and z/min–max transformations. The new
+browser gate passes all six stages, exports and source hash, restored/empty/error/
+no-JavaScript views, keyboard/touch/resizing, eight viewport sizes (320–1920 px),
+200% text, spacing and actual Pretext. Introduction: 223 words. Existing overview
+browser gate passes. Fresh review found missing SVG export key/context and narrow
+titles; both are fixed with regression checks. Desktop/phone renderings inspected.
+Production build, release audit and context/safety gates pass. Source integration/
+push and live verification pending. Browser coverage is Chromium emulation;
+physical devices, Safari and a screen-reader audit were not tested.
+No scientific result or historical manuscript/reference file changed. Overall
+publication acceptance remains open. Windows builds use Python `-X utf8` because
+the existing builder has locale-default Markdown reads.
+
 ### Living Papers assessment — 2026-10-28
 
 - [x] Review the [Living Papers article](https://living-papers.vercel.app/living-papers/),

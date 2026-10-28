@@ -226,6 +226,10 @@ def build(output, development=False):
     # Keep the executable notebook and its relative assets at the same level.
     shutil.copyfile(output / "index.html", output / "workbook.html")
     shutil.copytree(notebook.parent / "overview_assets", output, dirs_exist_ok=True)
+    from preprocessing_data import build_preprocessing
+    preprocessing = output / "preprocessing"
+    shutil.copytree(notebook.parent / "preprocessing_assets", preprocessing, dirs_exist_ok=True)
+    build_preprocessing(root, preprocessing, people, trials, sources)
     # Segment 1 displays a verified native result, without refitting in the page.
     soa_source = root / "results/pps_soa"
     soa_manifest = json.loads((soa_source / "manifest.json").read_text())

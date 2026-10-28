@@ -54,6 +54,16 @@ measurements. A policy-only edit does not establish runtime layout compliance.
 
 ### Living publication acceptance (D-0015)
 
+For `/preprocessing/`, run `test_preprocessing.py` with Node available, then
+`node workbook/check_preprocessing.cjs SITE_ROOT_URL` with Playwright against
+the production build and changed live deployment. Independently compare pandas
+eligibility/trim sets, retained matched baselines, both within-person normalization
+methods and filter independence, and equal-participant summaries. Check all six
+stages, counts, undefined scales, empty/error/no-JavaScript states, exact CSV/SVG
+and hashed settings, URL restoration, complete tables, keyboard/touch/resizing,
+real Pretext, eight viewport sizes, enlarged/spaced text and intro ≤1,500 words.
+Inspect desktop/phone renderings and preserve all archived result/source hashes.
+
 For new or revised live-page plots, inspect the rendered page and chart source:
 the chart must render from underlying data through HTML/inline SVG or
 JavaScript-driven canvas, rather than embed a pre-rendered plot image (including

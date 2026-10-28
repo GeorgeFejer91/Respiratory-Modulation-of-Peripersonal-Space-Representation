@@ -17,6 +17,14 @@ evidence must trace to the same declared data/code/result version. The ordered
 [analysis roadmap](ANALYSIS_ROADMAP.md) remains the single active checklist.
 Publication-ready is an acceptance goal, not a status conferred by hosting.
 
+The `/preprocessing/` companion explains changes to released observations, with
+an introduction capped at 1,500 words. `workbook/preprocessing_data.py` exports
+the canonical cleaner's eligibility/trim flags; `preprocessing_assets/engine.mjs`
+owns the descriptive browser transformations. Keep the primary40 default,
+ordered cleaning, retained matched baselines, full-person normalization references
+before display filters, complete audit/downloads and no-JavaScript default table.
+This page does not refit models or change the fixed publication results.
+
 Live-page plot rule (owner, 2026-10-23): render plots as native web charts from
 their underlying data, using HTML/inline SVG or JavaScript-driven canvas. Do not
 embed pre-rendered plot images as the live chart, including SVG files in image

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What preprocessing changes · Respiratory Modulation of PPS</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="../pivot/panel-resize.css"></head>
+<body>
+<a class="skip" href="#comparison">Skip to the comparison</a>
+<header><nav aria-label="Publication"><a href="../">Back to the paper</a><a href="../workbook.html">Run analyses</a><a href="../ANALYSIS_PLAN.md">Analysis methods</a></nav></header>
+<main>
+<h1>What preprocessing changes</h1>
+<section id="introduction" aria-label="Introduction">
+<p>Every reaction-time figure is the end of a sequence of choices. Which responses count? Which observations are excluded? What changes when we subtract a baseline or put participants on a common scale? This interactive companion follows the released Study 5 data through those steps, keeping the observations and their provenance visible.</p>
+<p>Select a step to compare its input with its output. The distribution shows individual audio–tactile trials; the SOA view averages trials within each participant, condition, phase and stimulus onset asynchrony before averaging across people. These answer different questions. Trial counts are not independent participant sample sizes, and the descriptive spread shown in the table is not a confidence interval.</p>
+<p>The default cohort excludes the two records with unresolved recording linkage, P011 and P033. You can inspect the full release or a single participant. Display selections do not redefine the outlier thresholds, baseline cells or normalization reference. Missing values remain missing, and every excluded observation remains available in the comparison download.</p>
+<p>These controls explain preprocessing; they do not select a new published analysis or refit a model. Baseline correction here means <strong>audio–tactile RT minus matched baseline RT</strong>: negative values indicate faster audio–tactile responses. This is the opposite display sign to the main page’s baseline-benefit explorer. An apparent change in a curve is not evidence of a physiological PPS boundary or an experimental effect.</p>
+</section>
+<form id="controls" aria-label="Preprocessing controls">
+<fieldset class="steps"><legend>1. Choose a processing step</legend>
+<div class="step-grid">
+<label><input type="radio" name="stage" value="0"><span data-fit>0 · Released records</span></label>
+<label><input type="radio" name="stage" value="1"><span data-fit>1 · Eligible responses</span></label>
+<label><input type="radio" name="stage" value="2" checked><span data-fit>2 · 2.5-SD filter</span></label>
+<label><input type="radio" name="stage" value="3"><span data-fit>3 · Minimum RT</span></label>
+<label><input type="radio" name="stage" value="4"><span data-fit>4 · Matched baseline</span></label>
+<label><input type="radio" name="stage" value="5"><span data-fit>5 · Normalize</span></label>
+</div></fieldset>
+<fieldset><legend>2. Choose what to inspect</legend><div class="settings">
+<label><span data-fit>Cohort</span><select id="cohort"><option value="primary40">Primary (40)</option><option value="full42">Full (42)</option></select></label>
+<label><span data-fit>Participant</span><select id="participant"><option value="all">All</option></select></label>
+<label><span data-fit>Condition</span><select id="condition"><option value="all">Both</option><option>Control</option><option>Viscereality</option></select></label>
+<label><span data-fit>Phase</span><select id="phase"><option value="all">Both</option><option>Exhale</option><option>Inhale</option></select></label>
+<label><span data-fit>Minimum RT sensitivity</span><select id="cutoff"><option value="none">Off</option><option value="200">RT ≥ 200 ms</option></select></label>
+<label><span data-fit>Normalization at step 5</span><select id="normalization"><option value="z">Z-score</option><option value="range">Min–max (0–1)</option></select></label>
+<label><span data-fit>Chart</span><select id="view"><option value="distribution">Distribution</option><option value="soa">SOA profiles</option></select></label>
+</div></fieldset>
+<div class="actions"><button type="button" id="reset" data-fit>Reset view</button><button type="button" id="share" data-fit>Copy link to this view</button></div>
+</form>
+<section id="comparison" tabindex="-1" aria-labelledby="step-title">
+<h2 id="step-title">2.5-SD filter</h2><p id="step-description"></p>
+<p id="status" role="status">Loading the audited released data…</p>
+<p id="scale-note"></p>
+<div class="comparison">
+<figure><figcaption><strong id="before-title">Before</strong></figcaption><p id="before-counts" class="counts"></p><div class="chart" id="before-chart"></div></figure>
+<figure><figcaption><strong id="after-title">After</strong></figcaption><p id="after-counts" class="counts"></p><div class="chart" id="after-chart"></div></figure>
+</div>
+<p id="chart-note"></p>
+<p class="help">Click or tap a bar or point for exact values. Keyboard: Tab to a chart, use arrows, then Enter; Esc closes. Drag the chart borders to resize; focused borders also accept arrow keys and Home.</p>
+<div class="actions"><button type="button" id="csv" disabled data-fit>Download trial comparison (CSV)</button><button type="button" id="summary-csv" disabled data-fit>Download summaries (CSV)</button><button type="button" id="settings" disabled data-fit>Download settings and provenance</button><button type="button" id="svg" disabled data-fit>Download both charts (SVG)</button></div>
+<h3>Participant-weighted SOA summaries</h3>
+<p>Each row is one condition × phase × SOA. Mean and sample SD describe participant cell means; n counts participants with a value. SD is undefined for n &lt; 2. Values from different units should not be subtracted.</p>
+<div id="table-panel"><table id="summary"><caption>Before and after the selected step</caption><thead><tr><th scope="col">Condition / phase / SOA</th><th scope="col">Before: mean · SD · n</th><th scope="col">After: mean · SD · n</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section aria-labelledby="pipeline-title"><h2 id="pipeline-title">The complete processing trail</h2><p>Counts below follow the selected cohort and display filters. “Rows” includes baseline and catch records where applicable; the charts show audio–tactile responses only. Baselines remain reference observations after correction, so subtraction does not count them as excluded trials.</p>
+<table id="audit"><caption>Records and available audio–tactile values at each step</caption><thead><tr><th scope="col">Step</th><th scope="col">Rows</th><th scope="col">AT values</th><th scope="col">Baseline rows</th></tr></thead><tbody></tbody></table></section>
+<details><summary>Methods, limits and source files</summary>
+<p>Eligibility requires an audio–tactile or baseline hit, a recorded response and a finite RT, after excluding participants with a catch false-alarm rate greater than 30%. The SD rule uses one mean and sample SD per participant across all eligible audio–tactile and baseline trials, both conditions and phases. It is a single inclusive ±2.5-SD pass, not an iterative filter. The optional ≥200 ms cutoff is applied afterward; the released 100–2000/200–2000 flags are not substituted for this cleaner.</p>
+<p>Baseline subtraction uses the mean retained baseline RT within participant × condition × phase, pooled over nominal SOA. At step 5, z-scores use the sample SD (n−1), and min–max uses the observed range of all retained corrected audio–tactile trials within each person. A missing reference or zero scale gives a missing value. Changing display filters does not recalculate these references. The normalization here is an explicitly descriptive view of corrected RT; it is not a new inferential pipeline.</p>
+<p>Histograms use 24 equal-width bins over the displayed full extent, including zero, with shared bins when units match. Bins include their lower edge and exclude their upper edge, except the last bin, which includes both. SOA lines connect observed summaries with gaps for missing cells; they are not fitted curves. Marginal participant spread omits baseline-estimation uncertainty and must not be read as paired-effect inference.</p>
+<p>The full release contains 42 participant records and 17,114 observed trial rows. The primary cohort excludes P011 and P033 because recording linkage is unresolved. The public data cannot verify physiological respiratory phase, waveform timing or acquisition-side labelling. This page does not resolve those limits.</p>
+<p><a href="../DATA_RELEASE.md">Data release and exclusions</a> · <a href="../ANALYSIS_PLAN.md">Analysis specification</a> · <a href="data.json" download>Audited page input (JSON)</a> · <a href="default-summary.html">Static default comparison</a> · <a href="https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/tree/main/workbook/preprocessing_assets">Page source</a></p>
+</details>
+<noscript><p>Interactive comparisons need JavaScript. Read the <a href="default-summary.html">static default comparison and exact summary table</a>, or download the released data from the methods links above.</p></noscript>
+</main>
+<footer><a href="../">Return to the living paper</a></footer>
+<script type="module" src="app.js"></script>
+</body></html>

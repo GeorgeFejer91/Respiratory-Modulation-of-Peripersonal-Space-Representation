@@ -7,6 +7,16 @@ tracked in the [publication roadmap](../for-ai/ANALYSIS_ROADMAP.md). Saved resul
 tables do not mean their producing models run here. Current-paper HTML authoring
 uses verified outputs, while the version-1.9 manuscript/reference stays historical.
 
+The [preprocessing companion](https://georgefejer91.github.io/Respiratory-Modulation-of-Peripersonal-Space-Representation/preprocessing/)
+compares adjacent steps: released records, eligible responses, the single
+within-person ±2.5 sample-SD filter, optional ≥200 ms cutoff, matched baseline
+subtraction, and descriptive normalization. Choose trial distributions or
+participant SOA profiles, inspect exact values, and download trial comparisons,
+participant summaries, settings/source hashes or both charts. A copied URL restores
+the view; the static default comparison works without JavaScript. The introduction
+is limited to 1,500 words. This page uses AT − Baseline (negative = faster AT),
+opposite to Segment 0's benefit sign, and leaves the fixed analyses unchanged.
+
 The development environment includes the HyperFormula, Handsontable and Univer
 integration skills, routed in [for-ai/SKILLS.md](../for-ai/SKILLS.md). Those
 instructions guide future formula/grid work; their runtime libraries have not

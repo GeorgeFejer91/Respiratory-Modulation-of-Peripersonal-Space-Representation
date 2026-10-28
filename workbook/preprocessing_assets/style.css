@@ -1,0 +1,53 @@
+:root { color-scheme:light; --ink:#243240; --muted:#465663; --line:#b9c5cd; --link:#175b9e; font:17px/1.6 Arial,sans-serif; color:var(--ink); background:#fff; }
+* { box-sizing:border-box; }
+[data-fit] { min-width:0; overflow-wrap:anywhere; }
+body { margin:0; overflow-wrap:anywhere; }
+a { color:var(--link); text-underline-offset:.17em; overflow-wrap:anywhere; }
+header,footer { padding:1rem max(1rem,calc((100% - 1160px)/2)); border-bottom:1px solid var(--line); }
+header nav,.actions { display:flex; flex-wrap:wrap; gap:.65rem 1.5rem; align-items:center; }
+main { max-width:1200px; margin:auto; padding:2rem 1.25rem; min-width:0; }
+h1 { font-size:2.1rem; line-height:1.2; max-width:25ch; margin:0 0 1.2rem; }
+h2 { line-height:1.3; margin:1.7rem 0 .5rem; }
+h3 { line-height:1.4; }
+p { margin:.65rem 0 1rem; }
+#introduction { max-width:78ch; }
+fieldset { border:0; border-top:1px solid var(--line); margin:1.5rem 0 1rem; padding:1rem 0; min-width:0; }
+legend { font-weight:bold; padding:0 1rem 0 0; }
+.step-grid,.settings { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem 1.3rem; align-content:space-between; }
+.step-grid label { display:flex; align-items:center; gap:.6rem; padding:.65rem; border:1px solid var(--line); cursor:pointer; min-width:0; }
+.step-grid label span { flex:1; }
+.step-grid label:has(:checked) { border-color:var(--link); background:#edf4fa; font-weight:bold; }
+input { accent-color:var(--link); width:1.1rem; height:1.1rem; flex-shrink:0; }
+.settings label { display:grid; grid-template-rows:auto auto; align-content:start; gap:.3rem; min-width:0; }
+select,button { font:inherit; line-height:1.4; padding:.55rem .65rem; border:1px solid #71818e; border-radius:2px; background:#fff; color:var(--ink); min-height:44px; max-width:100%; }
+select { width:100%; }
+button { cursor:pointer; white-space:normal; overflow-wrap:anywhere; }
+button:hover { background:#edf4fa; }
+button:disabled { color:#596773; background:#f2f4f5; cursor:wait; }
+:focus-visible { outline:3px solid #175b9e; outline-offset:3px; }
+.comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem; }
+figure { margin:0; min-width:0; border-top:2px solid var(--ink); padding-top:.8rem; }
+figcaption { font-size:1.1rem; }
+.counts,.help { color:var(--muted); }
+.chart { width:100%; min-height:320px; padding:0 12px 12px 0; }
+.chart svg { display:block; width:100%; }
+.chart svg [data-point-detail] { cursor:pointer; }
+.chart svg [data-point-detail]:focus { outline:2px solid #000; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:.92rem; }
+caption { text-align:left; font-weight:bold; padding:.6rem 0; }
+th,td { text-align:left; padding:.7rem .55rem; border-bottom:1px solid var(--line); overflow-wrap:anywhere; vertical-align:top; }
+thead th { background:#f2f4f5; }
+td small { display:block; color:var(--muted); }
+.number { font-variant-numeric:tabular-nums; }
+#table-panel { min-width:0; padding-right:12px; }
+#audit { margin-bottom:2rem; }
+#audit tr[aria-current] { background:#edf4fa; }
+#status { font-weight:bold; }
+#scale-note { color:var(--muted); }
+details { border-top:1px solid var(--line); padding:1rem 0; }
+summary { cursor:pointer; font-weight:bold; padding:.5rem 0; }
+.skip { position:absolute; top:-8rem; left:1rem; background:white; padding:1rem; z-index:20; }
+.skip:focus { top:0; }
+@media(max-width:850px) { .step-grid,.settings { grid-template-columns:repeat(2,minmax(0,1fr)); } .comparison { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:480px) { main { padding:1.5rem 1rem; } .step-grid,.settings { grid-template-columns:minmax(0,1fr); } h1 { font-size:1.8rem; } #summary thead { display:none; } #summary tr { display:grid; grid-template-columns:minmax(0,1fr); border-bottom:1px solid var(--line); } #summary td,#summary th { border:0; } #summary td::before { content:attr(data-label); display:block; font-weight:bold; } #audit { font-size:.85rem; } #audit th,#audit td { padding:.4rem .25rem; } }
+@media print { header,form,.actions,.help,.resize-edge,.skip { display:none; } main { max-width:none; padding:0; } .comparison { grid-template-columns:1fr; } figure { break-inside:avoid; } details { display:block; } }
