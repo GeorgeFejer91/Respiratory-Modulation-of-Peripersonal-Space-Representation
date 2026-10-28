@@ -15,7 +15,7 @@
 - [x] Validate 25 local documentation links, all 14 resource entries and retention
   of every supplied non-favicon URL after canonicalization. Context/safety and
   whitespace checks pass; review found no change to product or analysis owners.
-- [ ] Commit/integrate/push and verify remote SHA. No site or analysis change;
+- [x] Commit/integrate/push and verify remote SHA. No site or analysis change;
   no Pages redeployment is needed.
 
 Recommendation: retain the current framework and make `/preprocessing/` a more
@@ -25,7 +25,11 @@ its actual participant thresholds and exclusion reason. Subsequent baseline and
 normalization explanations can reuse that pattern. A formal multiverse remains
 a separate scientific specification task, not a label for the current controls.
 The broader publication goal stays open. This assessment began on clean
-`codex/preprocessing-paper`/main `a2c5b49`; verification/publication checkpoint pending.
+`codex/preprocessing-paper`/main `a2c5b49`. Source guide `32568fc` was integrated
+into main and pushed; exact origin/main equality was observed. No task blocker
+remains. This evidence checkpoint is also documentation-only; the served page
+remains the verified `ad31f31` deployment. No product-runtime checks were rerun
+for this documentation task, and external template runtimes remain unqualified.
 
 ### Completed amendment — interactive preprocessing paper
 
