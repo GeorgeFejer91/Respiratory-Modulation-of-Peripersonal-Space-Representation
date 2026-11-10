@@ -13,9 +13,15 @@
   questionnaire validation, the data audit and the Chromium overview gate pass.
   The browser gate covers keyboard and touch, the exact CSV, both detail levels,
   Pretext, 320–1920 CSS px, 200% text and spacing overrides.
-- [ ] Verify the exact Pages deployment and repeat the browser gate against
-  the public questionnaire section. The previous SFoRC-only deployment timed
-  out and the public page still served the earlier overview at preflight.
+- [x] Verify the exact Pages deployment and repeat the browser gate against
+  the public questionnaire section.
+
+Source `5abbff4` is on `main`. The [Pages workflow run](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/42881434644)
+passed the full analysis, independent validation and deployment. The served HTML
+matches the Windows build after line-ending normalization. The served CSS,
+JavaScript, questionnaire JSON and audited participant CSV match byte for byte.
+The live overview browser gate passes, including the two disclosure levels
+and exact CSV download. Physical-device Safari remains untested.
 
 ### Spatial-frame results on the live overview — 2026-11-10
 
@@ -31,8 +37,8 @@
   questionnaire validation, 270 JavaScript/Python parity cases, public-data
   audit, overview browser gate and panel resizing pass. Inspect desktop and
   phone renders and verify the mobile direct link.
-- [ ] Confirm the exact source revision deployed through the Pages workflow
-  and repeat the overview browser gate against the published section.
+- [x] Confirm the source containing the section deployed through the Pages
+  workflow and repeat the overview browser gate against the published section.
 
 This section uses 41 complete questionnaire pairs. The behavioral linkage and
 PPS-boundary questions remain open.
@@ -42,11 +48,10 @@ on `main`. CI passed the build, fixed analyses, independent validation and
 artifact upload on both full runs. The initial Pages deployment reached
 `syncing_files` and timed out. The deploy-only retry and one fresh run on the
 same source also reached the 10-minute limit, with empty Pages status responses.
-The new artifact contains `#spatial-frame`, and a fresh public request still
-serves the previous overview without that anchor. Pages deployment is the open
-gate. When deployment can proceed, run the existing workflow for the verified
-source, compare the served overview with the deployed artifact, and exercise the
-public deep link and overview browser gate. The wider publication goal stays open.
+The artifact contained `#spatial-frame` while the public URL still served the
+previous overview. The subsequent questionnaire detail release above deployed
+the SFoRC section and passed the live deep-link and overview browser checks.
+The wider publication goal stays open.
 
 ### Resource integration and structural review — 2026-10-28
 
