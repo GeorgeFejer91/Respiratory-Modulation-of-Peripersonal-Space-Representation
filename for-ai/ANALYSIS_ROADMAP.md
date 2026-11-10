@@ -2,6 +2,21 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Questionnaire detail levels in section 9
+
+- [x] Pair the archived pictographic SFoRC comparison with the eight baseline
+  MAIA-2 subscale means and available-score counts.
+- [x] Let readers expand original participant scores and then all 37 MAIA-2
+  item responses. Preserve the released strings, both SFoRC condition ratings
+  and missingness. Keep the audited CSV accessible.
+- [x] Verify the local production artifact. All 75 workbook tests, independent
+  questionnaire validation, the data audit and the Chromium overview gate pass.
+  The browser gate covers keyboard and touch, the exact CSV, both detail levels,
+  Pretext, 320–1920 CSS px, 200% text and spacing overrides.
+- [ ] Verify the exact Pages deployment and repeat the browser gate against
+  the public questionnaire section. The previous SFoRC-only deployment timed
+  out and the public page still served the earlier overview at preflight.
+
 ### Spatial-frame results on the live overview — 2026-11-10
 
 - [x] Document the investigator-confirmed SFoRC coding in the current

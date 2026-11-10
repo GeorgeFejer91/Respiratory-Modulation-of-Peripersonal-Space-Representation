@@ -1,4 +1,14 @@
-# Pivot frontend scope and evidence
+# Frontend scope and evidence
+
+The questionnaire expansion is scoped to overview section 9, the publication
+builder and its focused tests. The overview uses archived descriptive values and
+the drill-down uses exact strings from the audited participant release. The
+scientific engines, source CSVs, historical manuscript and result archives stay
+outside scope. The main checkout has broken refs and an empty index, so this
+change uses a clean isolated checkout of the current remote main. The prior
+Pages workflow completed its build but timed out during deployment.
+
+## Pivot frontend
 
 The linked-chart extension uses structured series/row metadata from the same
 worker result as the table, with SOA as the initial axis. No models, source CSVs,

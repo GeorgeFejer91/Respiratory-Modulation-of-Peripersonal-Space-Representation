@@ -7,6 +7,7 @@ try {
   const prepared = new Map();
   function measure() {
     for (const region of regions) {
+      if (!region.getClientRects().length) continue;
       const style = getComputedStyle(region);
       const text = region.textContent.trim();
       const font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
@@ -21,7 +22,8 @@ try {
       const stats = measureLineStats(handle, Math.max(1, width - inlinePadding - 2));
       const height = stats.lineCount * parseFloat(style.lineHeight);
       region.style.minHeight = `${Math.ceil(height + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth))}px`;
-      region.dataset.fit = stats.maxLineWidth <= width - inlinePadding && height <= region.clientHeight + 1 ? 'fit' : 'reflow';
+      const fits = stats.maxLineWidth <= width - inlinePadding && height <= region.clientHeight + 1;
+      region.dataset.fit = parseFloat(style.wordSpacing) ? 'browser-only' : fits ? 'fit' : 'reflow';
       region.dataset.naturalWidth = measureNaturalWidth(handle).toFixed(2);
       region.dataset.lines = String(stats.lineCount);
     }
@@ -35,6 +37,7 @@ try {
   }
   const observer = new ResizeObserver(scheduleMeasure);
   document.addEventListener('panel-resize', scheduleMeasure);
+  document.addEventListener('toggle', scheduleMeasure, true);
   observer.observe(document.querySelector('header'));
   const main = document.querySelector('main');
   if (main) observer.observe(main);

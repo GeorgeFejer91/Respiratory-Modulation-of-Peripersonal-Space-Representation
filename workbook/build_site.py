@@ -143,7 +143,7 @@ def render_spatial_frame(root):
                     f'<span class="spatial-bar {key}" style="--spatial-share:{count / total:.8%}"></span></span></li>')
     return f'''<section id="spatial-frame" aria-labelledby="spatial-frame-title">
 <h3 id="spatial-frame-title">Spatial frame of reference after Viscereality and Control</h3>
-<p>Participants completed the Spatial Frame of Reference Continuum (SFoRC) after each condition. The study investigator confirmed the same A–H (1–8) coding as in the Breathing Experience preprint. The categories run from body-centered to environment-encompassing, so higher codes indicate a more spatially extended sense of self. <a href="https://doi.org/10.21203/rs.3.rs-10842634/v1">Breathing Experience preprint, section 2.4.2 and Figure 7</a></p>
+<p>Participants completed the pictographic Spatial Frame of Reference Continuum (SFoRC) after each condition. The study investigator confirmed the same A–H (1–8) coding as in the Breathing Experience preprint. The categories run from body-centered to environment-encompassing, so higher codes indicate a more spatially extended sense of self. <a href="https://doi.org/10.21203/rs.3.rs-10842634/v1">Breathing Experience preprint, section 2.4.2 and Figure 7</a></p>
 <figure id="spatial-frame-figure" aria-labelledby="spatial-frame-caption">
 <figcaption id="spatial-frame-caption"><strong>Figure 4</strong><br><em>Paired spatial-frame ratings after Viscereality and Control</em></figcaption>
 <div data-live-chart="width">
@@ -154,6 +154,30 @@ def render_spatial_frame(root):
 <p>Of the {total} participants with both ratings, <strong>{spatial["higher"]} reported a more spatially extended frame after Viscereality</strong> than after Control, {spatial["lower"]} reported a less spatially extended frame, and {spatial["ties"]} selected the same category. One record lacked a complete pair. Among the {spatial["non_ties"]} non-tied pairs, {float(spatial["higher_fraction_non_ties"]):.1%} had higher Viscereality ratings (exact 95% CI {float(spatial["higher_fraction_ci_low"]):.1%}–{float(spatial["higher_fraction_ci_high"]):.1%}, two-sided exact sign test <em>p</em> = {float(spatial["p"]):.5f}). This exploratory comparison uses the ordering of the categories.</p>
 <p>Higher pre-experiment MAIA-2 Trusting scores were associated with a larger numerical rating difference (Viscereality minus Control, Spearman ρ = {float(trusting["rho"]):.3f}, pointwise 95% participant-bootstrap CI [{float(trusting["ci_low"]):.3f}, {float(trusting["ci_high"]):.3f}], unadjusted permutation <em>p</em> = {float(trusting["p"]):.5f}, <em>n</em> = {trusting["n"]}). This exploratory association uses numerical code steps and assumes comparable spacing between adjacent categories. The findings concern self-reported experience. A change in the behavioral PPS boundary and a mediation pathway remain unestablished.</p>
 </section>'''
+
+
+def questionnaire_view(root, people):
+    from questionnaires import SCALES
+
+    with zipfile.ZipFile(root / "results/browser-analysis/browser-results.zip") as archive:
+        summaries = list(csv.DictReader(archive.read("questionnaire_scales.csv").decode("utf-8").splitlines()))
+    scales = []
+    bars = []
+    for row in summaries:
+        field, label = row["field"], row["label"]
+        first, last = SCALES[field.removeprefix("maia2_")]
+        scales.append(dict(field=field, label=label, items=list(range(first, last + 1))))
+        mean, n = float(row["mean"]), int(row["n"])
+        bars.append(f'<li data-maia-field="{escape(field)}"><span data-measure>{escape(label)} '
+                    f'· {mean:.2f} (n = {n})</span>'
+                    f'<span class="spatial-track" aria-hidden="true">'
+                    f'<span class="spatial-bar" style="--spatial-share:{mean / 5:.8%}"></span></span></li>')
+    fields = ["participant_id", *(scale["field"] for scale in scales)]
+    for condition in ("control", "viscereality"):
+        fields.extend([f"spfrref_{condition}", f"spfrref_{condition}_ordinal"])
+    fields.extend(f"maia2_item_{item:02d}" for scale in scales for item in scale["items"])
+    participants = [{field: person[field] for field in fields} for person in people]
+    return "".join(bars), dict(scales=scales, participants=participants)
 
 
 def build(output, development=False):
@@ -286,7 +310,11 @@ def build(output, development=False):
     soa_result = json.loads((soa_source / "results.json").read_text())
     page = output / "index.html"
     overview = page.read_text(encoding="utf-8").replace("<!-- SOA_APA -->", escape(soa_result["apa"]))
-    page.write_text(overview.replace("<!-- SPATIAL_FRAME -->", render_spatial_frame(root)), encoding="utf-8")
+    maia_bars, questionnaire_data = questionnaire_view(root, people)
+    overview = overview.replace("<!-- SPATIAL_FRAME -->", render_spatial_frame(root))
+    page.write_text(overview.replace("<!-- MAIA_SUMMARY -->", maia_bars), encoding="utf-8")
+    (output / "questionnaire-data.json").write_text(
+        json.dumps(questionnaire_data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     # Segment 2 preserves the literal-label audit and its saved figure provenance.
     phase_source = root / "results/phase_rt"
     phase_manifest = json.loads((phase_source / "manifest.json").read_text(encoding="utf-8"))

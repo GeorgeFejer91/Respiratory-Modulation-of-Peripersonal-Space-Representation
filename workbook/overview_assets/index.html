@@ -56,6 +56,29 @@
 <section id="averages" aria-labelledby="averages-title"><h2 id="averages-title">8. How do the four average response curves differ?</h2><a href="results/bayesian_results.html">Analysis and evidence</a></section>
 <section id="questionnaires" aria-labelledby="questionnaires-title"><h2 id="questionnaires-title">9. What do the questionnaire and PPS results show?</h2>
 <!-- SPATIAL_FRAME -->
+<figure id="maia-summary" aria-labelledby="maia-summary-caption">
+  <figcaption id="maia-summary-caption"><strong>Baseline MAIA-2</strong><br>
+    Mean subscale scores on the 0–5 scale. Each n counts available scores.</figcaption>
+  <div data-live-chart="width"><ul class="spatial-directions maia-subscales" role="list"><!-- MAIA_SUMMARY --></ul></div>
+</figure>
+<details id="questionnaire-scores" hidden>
+  <summary><span data-measure>Original participant scores</span></summary>
+  <p id="questionnaire-status" role="status"></p>
+  <div id="questionnaire-record" hidden>
+    <label for="questionnaire-participant" data-measure>Participant</label>
+    <select id="questionnaire-participant"></select>
+    <div class="questionnaire-measures">
+      <div><h3>MAIA-2 subscale scores</h3><dl id="maia-scores"></dl></div>
+      <div><h3>Spatial frame of reference</h3><dl id="spatial-scores"></dl></div>
+    </div>
+    <details id="questionnaire-items">
+      <summary><span data-measure>All 37 MAIA-2 item responses</span></summary>
+      <p>Responses are shown as recorded on the 0–5 scale, before reverse scoring.</p>
+      <div id="maia-items"></div>
+    </details>
+  </div>
+</details>
+<p><a href="public/data/study5_participants.csv" download>Download the released participant scores and responses (CSV)</a></p>
 <a href="results/">Results and evidence</a> · <a href="literature_review/QUESTIONNAIRES.html">Questionnaire analysis rationale</a></section>
 <section id="reproducibility" aria-labelledby="reproducibility-title"><h2 id="reproducibility-title">10. Can the reported results be reproduced?</h2><a href="workbook.html">Analysis and evidence</a></section>
 <section id="references" aria-labelledby="references-title"><h2 id="references-title">11. References</h2>
@@ -68,4 +91,5 @@
 </main></div></div>
 <footer><nav aria-label="Methods and sources"><a href="DATA_RELEASE.md">Data and exclusions</a> · <a href="ANALYSIS_PLAN.md">Methods</a> · <a href="#references">References</a> · <a href="https://aspredicted.org/az9f89.pdf">Registration</a></nav></footer>
 <script type="module" src="overview.js"></script>
+<script type="module" src="questionnaires.js"></script>
 </body></html>

@@ -15,6 +15,30 @@ from preparation import load_pair, local_release_pair
 
 
 class PhaseOverviewTests(unittest.TestCase):
+    def test_questionnaire_view_preserves_released_scores_and_responses(self):
+        from build_site import questionnaire_view
+
+        root = Path(__file__).resolve().parents[1]
+        with (root / "data/raw/study5_participants.csv").open(encoding="utf-8", newline="") as source:
+            people = list(csv.DictReader(source))
+        html, payload = questionnaire_view(root, people)
+        scales = payload["scales"]
+        scores = [scale["field"] for scale in scales]
+        self.assertEqual(len(scores), 8)
+        self.assertEqual([item for scale in scales for item in scale["items"]], list(range(1, 38)))
+        item_fields = [f"maia2_item_{i:02d}" for i in range(1, 38)]
+        spatial = ["spfrref_control", "spfrref_control_ordinal",
+                   "spfrref_viscereality", "spfrref_viscereality_ordinal"]
+        fields = ["participant_id", *scores, *spatial, *item_fields]
+        self.assertEqual(payload["participants"], [{field: person[field] for field in fields} for person in people])
+        for field in scores:
+            values = [float(person[field]) for person in people if person[field]]
+            mean = sum(values) / len(values)
+            bar = html.split(f'data-maia-field="{field}"', 1)[1].split("</li>", 1)[0]
+            self.assertIn(f'· {mean:.2f} (n = {len(values)})', bar)
+            self.assertIn(f'--spatial-share:{mean / 5:.8%}', bar)
+        self.assertNotIn("<img", html)
+
     def test_spatial_frame_plot_matches_released_pairs(self):
         from build_site import render_spatial_frame
 

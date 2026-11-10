@@ -4,12 +4,57 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
+async function checkQuestionnaireDetails(page, base) {
+  const figure = page.getByRole('figure', { name: /Baseline MAIA-2/ });
+  assert.equal(await figure.getByRole('listitem').count(), 8);
+  const details = page.locator('#questionnaire-scores');
+  const trigger = details.locator(':scope > summary');
+  await page.waitForFunction(() => Number(document.querySelector('#questionnaire-scores summary span').dataset.naturalWidth) > 0);
+  const itemTrigger = details.locator('#questionnaire-items summary');
+  const chooser = details.getByRole('combobox', { name: 'Participant' });
+  assert(!await chooser.isVisible());
+  const [response] = await Promise.all([
+    page.waitForResponse(new URL('questionnaire-data.json', base).href),
+    trigger.press('Enter'),
+  ]);
+  const { scales, participants } = await response.json();
+  assert.equal(participants.length, 42);
+  await chooser.waitFor();
+  assert.equal(await chooser.locator('option').count(), participants.length);
+  assert.equal(await details.locator('#maia-items dd:visible').count(), 0);
+  await itemTrigger.press('Enter');
+  await details.locator('#maia-items dd').last().waitFor();
+  assert.equal(await details.locator('#maia-items dd').count(), 37);
+  const fields = [...scales.map(scale => scale.field), ...scales.flatMap(scale => scale.items)
+    .map(item => 'maia2_item_' + String(item).padStart(2, '0'))];
+  for (const person of [participants[0], participants.find(row => row.maia2_noticing === '')]) {
+    await chooser.selectOption(person.participant_id);
+    for (const field of fields) {
+      assert.equal(await details.locator(`[data-field="${field}"]`).innerText(), person[field] || 'Missing');
+    }
+    for (const field of ['spfrref_control', 'spfrref_viscereality']) {
+      assert.equal(await details.locator(`[data-field="${field}"]`).innerText(),
+        person[field] ? `${person[field]} (${person[field + '_ordinal']})` : 'Missing');
+    }
+  }
+  await chooser.selectOption(participants[0].participant_id);
+  assert.equal(await page.locator('#questionnaire-items[open]').count(), 1);
+  const [download] = await Promise.all([page.waitForEvent('download'),
+    page.getByRole('link', { name: 'Download the released participant scores and responses (CSV)' }).click()]);
+  assert.deepEqual(fs.readFileSync(await download.path()),
+    fs.readFileSync(path.join(__dirname, '../data/raw/study5_participants.csv')));
+}
+
 (async () => {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage();
     const base = process.argv[2] || 'http://127.0.0.1:8766/';
     const errors = [];
+    let questionnaireRequests = 0;
+    page.on('request', request => {
+      if (request.url() === new URL('questionnaire-data.json', base).href) questionnaireRequests++;
+    });
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base);
     await page.waitForFunction(() => document.querySelector('header [data-measure]').dataset.fit === 'fit');
@@ -42,7 +87,10 @@ const path = require('node:path');
     const noScriptPage = await noScript.newPage();
     await noScriptPage.goto(new URL('#spatial-frame', base).href);
     assert.equal(await noScriptPage.locator('#spatial-frame-figure .spatial-bar').count(), 3);
+    assert.equal(await noScriptPage.locator('#maia-summary .spatial-bar').count(), 8);
     await noScript.close();
+    assert.equal(questionnaireRequests, 0, 'Original values load on demand');
+    await checkQuestionnaireDetails(page, base);
     assert.match(await page.locator('#blocks-answer').innerText(), /no clear systematic RT decline/);
     assert.match(await page.locator('#blocks-answer').innerText(), /−0.12 ms per block.*p = .840/);
     await page.locator('#blocks-figure[data-interactive="ready"]').waitFor();
@@ -251,6 +299,12 @@ const path = require('node:path');
         assert(await spatialFigure.evaluate(figure => figure.scrollWidth <= figure.clientWidth + 1
           && [...figure.querySelectorAll('[data-measure]')].every(label => label.scrollHeight <= label.clientHeight + 1)),
         `${width} ${mode} spatial figure overflow`);
+        for (const region of ['#maia-summary', '#questionnaire-scores']) {
+          assert(await page.locator(region).evaluate(node => node.scrollWidth <= node.clientWidth + 1
+            && [...node.querySelectorAll('[data-measure]')].every(label =>
+              +label.dataset.naturalWidth > 0 && label.scrollHeight <= label.clientHeight + 1)),
+          `${width} ${mode} ${region} measurement or reflow failed`);
+        }
         assert.deepEqual(await page.locator('.contents a, header a').evaluateAll(links => links.filter(link => link.scrollWidth > link.clientWidth + 1 || link.scrollHeight > link.clientHeight + 1).map(link => link.textContent)), [], `${width} ${mode} clipped navigation`);
         await core.locator('body').evaluate((body, mode) => {
           body.style.fontSize = mode === 'large' ? '32px' : '16px';
@@ -303,8 +357,13 @@ const path = require('node:path');
     assert(await touchPage.locator('#spatial-frame-title').evaluate(title =>
       title.getBoundingClientRect().top >= document.querySelector('.contents').getBoundingClientRect().bottom),
     'The mobile deep link clears the sticky navigation');
+    await touchPage.locator('#questionnaire-scores > summary').tap();
+    await touchPage.getByRole('combobox', { name: 'Participant' }).waitFor();
+    await touchPage.locator('#questionnaire-items > summary').tap();
+    await touchPage.locator('#maia-items dd').last().waitFor();
+    assert.equal(await touchPage.locator('#maia-items dd:visible').count(), 37);
     await phone.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: paired spatial-frame chart and no-script fallback, Segment 3 graph and CSV, 12 sections, pivot grouping and pooling, keyboard/touch, normalization and export, Pretext, four viewports, 200% text and spacing.');
+    console.log('PASS: both questionnaire charts and no-script fallback, original scores/items/CSV, Segment 3 graph and CSV, 12 sections, pivot grouping and pooling, keyboard/touch, normalization and export, Pretext, four viewports, 200% text and spacing.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

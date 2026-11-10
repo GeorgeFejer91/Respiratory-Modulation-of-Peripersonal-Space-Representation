@@ -75,6 +75,11 @@ For changes to the question-led landing page, serve a production build and run
 section anchors, scroll tracking, evidence/tool links, keyboard skip access,
 actual Pretext measurements, narrow/wide layouts, 200% text and spacing overrides.
 Verify `/workbook.html` remains available with its existing relative assets.
+For section 9, the same browser gate checks both summary charts with scripting
+disabled, lazy detail loading, keyboard/touch disclosures, the participant
+selector, exact values and blanks, and the actual participant CSV download.
+`test_overview.py` compares the projected fields with every released participant
+record and checks that all eight rendered MAIA-2 means and counts match.
 For Segment 2, run `python -m unittest discover -s workbook -p 'test_overview.py' -v`
 to independently reproduce the paired primary40 phase contrasts from released
 participant cells and check the saved results and displayed rounding. Check its
