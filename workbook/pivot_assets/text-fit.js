@@ -28,11 +28,13 @@ try {
     if (prepared.size > 100) prepared.clear();
   }
   let scheduled = false;
-  const observer = new ResizeObserver(() => {
+  function scheduleMeasure() {
     if (scheduled) return;
     scheduled = true;
     requestAnimationFrame(() => { scheduled = false; measure(); });
-  });
+  }
+  const observer = new ResizeObserver(scheduleMeasure);
+  document.addEventListener('panel-resize', scheduleMeasure);
   observer.observe(document.querySelector('header'));
   const main = document.querySelector('main');
   if (main) observer.observe(main);

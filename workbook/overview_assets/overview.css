@@ -33,6 +33,18 @@ figure { margin: 0 0 20px; }
 figcaption { line-height: 1.5; }
 #soa-statistics { margin: 12px 0; font-weight: bold; }
 .figure-note { font-size: .9em; line-height: 1.6; }
+#spatial-frame { padding: 0; border: 0; }
+#spatial-frame-title { margin-bottom: 12px; }
+#spatial-frame-figure { max-width: 36rem; }
+#spatial-frame-figure .plot-panel { padding-bottom: 0; }
+.spatial-directions { list-style: none; padding: 0; margin: 12px 0 0; }
+.spatial-directions li + li { margin-top: 8px; }
+.spatial-directions [data-measure] { display: block; max-width: 100%; overflow-wrap: break-word; }
+.spatial-track, .spatial-bar { display: block; height: .65rem; }
+.spatial-track { background: #e5ebf0; }
+.spatial-bar { width: var(--spatial-share); background: #175b9e; }
+.spatial-bar.ties { background: #64748b; }
+.spatial-axis { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; font-size: .9em; }
 .soa-downloads { line-height: 2; }
 footer { padding: 24px; border-top: 1px solid #ccd5df; }
 @media (max-width: 800px) {
@@ -43,6 +55,7 @@ footer { padding: 24px; border-top: 1px solid #ccd5df; }
   .contents summary { display: flex; align-items: center; min-height: 56px; }
   .contents nav { overflow:visible; }
   .contents ol { margin: 0 0 8px; }
+  #spatial-frame { scroll-margin-top: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { .contents, header, .skip { display: none; } .reading-layout { display: block; } section { break-inside: avoid; } }

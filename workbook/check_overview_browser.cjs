@@ -13,13 +13,36 @@ const path = require('node:path');
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base);
     await page.waitForFunction(() => document.querySelector('header [data-measure]').dataset.fit === 'fit');
-    assert.equal(await page.locator('main section').count(), 12);
+    assert.equal(await page.locator('main > section').count(), 12);
     assert.equal(await page.locator('.contents a').count(), 12);
-    assert.equal(await page.locator('main section:not(#phase):not(#blocks) p').count(), 0, 'Keep other questions compact');
+    assert.equal(await page.locator('main > section:not(#phase):not(#blocks):not(#questionnaires) p').count(), 0, 'Keep other questions compact');
     assert.equal(await page.locator('main section h2').count(), 12);
     assert.deepEqual(await page.locator('main section h2').allTextContents().then(headings => headings.map(h => Number(h.split('.')[0]))), Array.from({length: 12}, (_, i) => i));
-    assert.equal(await page.locator('main section').nth(2).getAttribute('id'), 'phase');
-    assert.equal(await page.locator('main section').nth(3).getAttribute('id'), 'blocks');
+    assert.equal(await page.locator('main > section').nth(2).getAttribute('id'), 'phase');
+    assert.equal(await page.locator('main > section').nth(3).getAttribute('id'), 'blocks');
+    await page.getByRole('region', { name: 'Spatial frame of reference after Viscereality and Control' }).waitFor();
+    const spatialFigure = page.getByRole('figure', { name: /Paired spatial-frame ratings/ });
+    assert.equal(await spatialFigure.getByRole('listitem').count(), 3);
+    assert.deepEqual(await spatialFigure.getByRole('listitem').allTextContents(),
+      ['More spatially extended (22)', 'Same category (13)', 'Less spatially extended (6)']);
+    assert.match(await page.locator('#spatial-frame').innerText(), /exact 95% CI 59.0%–91.7%.*p = 0.00372/);
+    assert.match(await page.locator('#spatial-frame').innerText(), /Spearman ρ = 0.376/);
+    await page.waitForFunction(() => [...document.querySelectorAll('#spatial-frame [data-measure]')]
+      .every(label => Number(label.dataset.naturalWidth) > 0));
+    assert(await spatialFigure.locator('.spatial-bar').evaluateAll(bars => bars.every(bar => {
+      const count = Number(bar.closest('li').dataset.count);
+      return Math.abs(bar.getBoundingClientRect().width - bar.parentElement.clientWidth * count / 41) < 1;
+    })), 'Bar widths reproduce the plotted counts on a shared 0–41 scale');
+    const spatialResize = spatialFigure.getByRole('separator', { name: /^Figure 4 width/ });
+    const originalWidth = await spatialResize.getAttribute('aria-valuenow');
+    await spatialResize.press('ArrowLeft');
+    await page.waitForFunction(original => Number(document.querySelector('#spatial-frame-figure [role="separator"]').getAttribute('aria-valuenow')) < Number(original), originalWidth);
+    await spatialResize.press('Home');
+    const noScript = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 568 } });
+    const noScriptPage = await noScript.newPage();
+    await noScriptPage.goto(new URL('#spatial-frame', base).href);
+    assert.equal(await noScriptPage.locator('#spatial-frame-figure .spatial-bar').count(), 3);
+    await noScript.close();
     assert.match(await page.locator('#blocks-answer').innerText(), /no clear systematic RT decline/);
     assert.match(await page.locator('#blocks-answer').innerText(), /−0.12 ms per block.*p = .840/);
     await page.locator('#blocks-figure[data-interactive="ready"]').waitFor();
@@ -225,6 +248,9 @@ const path = require('node:path');
         assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${width} ${mode} page overflow`);
         assert(await page.locator('#phase-figure').evaluate(figure => figure.scrollWidth <= figure.clientWidth + 1), `${width} ${mode} phase figure overflow`);
         assert(await page.locator('#blocks-figure').evaluate(figure => figure.scrollWidth <= figure.clientWidth + 1), `${width} ${mode} block figure overflow`);
+        assert(await spatialFigure.evaluate(figure => figure.scrollWidth <= figure.clientWidth + 1
+          && [...figure.querySelectorAll('[data-measure]')].every(label => label.scrollHeight <= label.clientHeight + 1)),
+        `${width} ${mode} spatial figure overflow`);
         assert.deepEqual(await page.locator('.contents a, header a').evaluateAll(links => links.filter(link => link.scrollWidth > link.clientWidth + 1 || link.scrollHeight > link.clientHeight + 1).map(link => link.textContent)), [], `${width} ${mode} clipped navigation`);
         await core.locator('body').evaluate((body, mode) => {
           body.style.fontSize = mode === 'large' ? '32px' : '16px';
@@ -245,6 +271,10 @@ const path = require('node:path');
       await page.locator('.contents a[href="#blocks"]').click();
       await page.waitForFunction(() => document.querySelector('.contents a[href="#blocks"]').hasAttribute('aria-current'));
       assert.equal(new URL(page.url()).hash, '#blocks');
+      if (!await page.locator('.contents details').evaluate(menu => menu.open)) await page.locator('.contents summary').click();
+      await page.locator('.contents a[href="#questionnaires"]').click();
+      await page.waitForFunction(() => document.querySelector('.contents a[href="#questionnaires"]').hasAttribute('aria-current'));
+      assert.equal(new URL(page.url()).hash, '#questionnaires');
     }
     await page.goto(base);
     await page.keyboard.press('Tab');
@@ -255,7 +285,7 @@ const path = require('node:path');
     await page.screenshot({ path: '.for-ai-local/overview-desktop.png', fullPage: true });
     await page.setViewportSize({ width: 320, height: 568 });
     await page.screenshot({ path: '.for-ai-local/overview-phone.png', fullPage: true });
-    const phone = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+    const phone = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, reducedMotion: 'reduce' });
     const touchPage = await phone.newPage();
     touchPage.on('pageerror', error => errors.push(error.message));
     await touchPage.goto(new URL('#data', base).href);
@@ -268,8 +298,13 @@ const path = require('node:path');
     await touchCore.locator('#table-region[aria-busy="false"]').waitFor();
     assert((await touchCore.locator('#chart-y-label').innerText()).includes('(0–1)'));
     await touchCore.locator('#core-controls').screenshot({ path: '.for-ai-local/core-checkboxes-phone.png' });
+    await touchPage.goto(new URL('#spatial-frame', base).href);
+    await touchPage.locator('#spatial-frame-figure .resize-edge').waitFor();
+    assert(await touchPage.locator('#spatial-frame-title').evaluate(title =>
+      title.getBoundingClientRect().top >= document.querySelector('.contents').getBoundingClientRect().bottom),
+    'The mobile deep link clears the sticky navigation');
     await phone.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: Segment 3 condition-colored spaghetti graph, 12 sections, block navigation and CSV; fixed SOA, four Condition/Phase grouping states and participant-level pooling, native/touch/keyboard checkboxes, raw/corrected trial-based 0–1 and z-scores with CSV, linked summaries/SD/zero scale, cohort/style, embedded reflow/settings, links, navigation, Pretext, four viewports, 200% text and spacing.');
+    console.log('PASS: paired spatial-frame chart and no-script fallback, Segment 3 graph and CSV, 12 sections, pivot grouping and pooling, keyboard/touch, normalization and export, Pretext, four viewports, 200% text and spacing.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

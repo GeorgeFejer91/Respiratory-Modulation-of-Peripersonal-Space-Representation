@@ -38,9 +38,11 @@ as independent RT evidence. Exclusions cannot identify the correct mapping.
 MAIA-2 was completed once before the experiment. Spatial-frame ratings were given
 after each intervention, once per condition, not once per respiratory phase.
 Spatial delta is Viscereality minus Control. Numerical category changes assume
-comparable spacing. The administered pictogram anchor key is unavailable, so
-higher codes cannot be called more allocentric or egocentric. Physiological belt
-compliance, waveform timing and other absent source metadata remain unavailable.
+comparable spacing. The investigator confirmed the administered SFoRC coding
+matches the [Breathing Experience preprint](https://doi.org/10.21203/rs.3.rs-10842634/v1)
+(section 2.4.2 and Figure 7). The A–H (1–8) categories range from body-centered to
+environment-encompassing. Physiological belt compliance, waveform timing and
+other absent source metadata remain unavailable.
 
 ## 1. Can we obtain an individual sigmoid, and is it reliable?
 
@@ -258,10 +260,10 @@ are retained.
 ### Questionnaire-only findings
 
 Spatial codes are higher after Viscereality in **22** participants, lower in **6**,
-and unchanged in **13** (41 pairs). The exact paired sign test, excluding ties
-from its binomial denominator, gives **p = .00372**. The mean numerical change is
-**+0.756 category steps**. Its experiential direction cannot be named without the
-administered anchor key.
+and unchanged in **13** (41 pairs). Higher codes indicate a more spatially
+extended sense of self. Among the 28 non-tied pairs, **78.6%** rated their frame
+higher after Viscereality (exact 95% CI **59.0%–91.7%**, two-sided exact sign test
+**p = .00372**). The mean numerical change is **+0.756 category steps**.
 
 All eight MAIA-2 subscales are retained:
 

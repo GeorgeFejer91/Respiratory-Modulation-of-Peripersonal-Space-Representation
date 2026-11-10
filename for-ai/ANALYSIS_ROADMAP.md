@@ -2,6 +2,26 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### Spatial-frame results on the live overview — 2026-11-10
+
+- [x] Document the investigator-confirmed SFoRC coding in the current
+  [project contract](PROJECT.md#measurement-and-provenance-boundaries) and
+  [analysis plan](../workbook/ANALYSIS_PLAN.md#questionnaire-and-spatial-frame-exploration).
+- [x] Render the three paired direction counts in overview section 9
+  (anchor `#spatial-frame`) from the archived aggregate results. Verify the
+  counts, sign and exact interval against the released questionnaire pairs.
+  The chart uses the ordinal ordering, and the separate Trusting association
+  reports its numerical-step assumption and unadjusted uncertainty.
+- [x] Check the production build locally. The 74 workbook tests, independent
+  questionnaire validation, 270 JavaScript/Python parity cases, public-data
+  audit, overview browser gate and panel resizing pass. Inspect desktop and
+  phone renders and verify the mobile direct link.
+- [ ] Confirm the exact source revision deployed through the Pages workflow
+  and repeat the overview browser gate against the published section.
+
+This section uses 41 complete questionnaire pairs. The behavioral linkage and
+PPS-boundary questions remain open.
+
 ### Resource integration and structural review — 2026-10-28
 
 - [x] Check all 14 owner-supplied examples/tooling resources, correct their URLs

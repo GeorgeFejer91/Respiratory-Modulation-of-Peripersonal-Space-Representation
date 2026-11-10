@@ -146,10 +146,12 @@ pairs, report Viscereality higher/equal/lower than Control and an exact two-side
 binomial sign test among non-ties, with a Clopper–Pearson interval on the higher
 fraction among non-ties. This one exploratory condition comparison is a separate
 test family. Also report paired dominance (higher minus lower divided by all
-pairs), its participant-bootstrap interval, and counts by condition order. Do not
-label higher codes allocentric without the administered pictogram anchor key;
-that key is absent from the release. The overall paired comparison uses direction;
-the numerical-change extension below states its additional spacing assumption.
+pairs), its participant-bootstrap interval, and counts by condition order. The
+investigator confirmed that Study 5 used the A–H (1–8) coding in the
+[Breathing Experience preprint](https://doi.org/10.21203/rs.3.rs-10842634/v1)
+(section 2.4.2 and Figure 7). Higher codes indicate a more spatially extended
+sense of self. The overall paired comparison uses direction. The numerical-change
+extension below states its additional spacing assumption.
 
 The fixed exploratory association family has 33 comparisons: each of eight
 MAIA-2 dimensions versus Control rating, Viscereality rating, the direction of

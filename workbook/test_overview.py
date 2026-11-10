@@ -1,5 +1,6 @@
 """Check Segment 2 against released participant cells and saved native contrasts."""
 import csv
+from collections import Counter
 from pathlib import Path
 import unittest
 import json
@@ -14,6 +15,31 @@ from preparation import load_pair, local_release_pair
 
 
 class PhaseOverviewTests(unittest.TestCase):
+    def test_spatial_frame_plot_matches_released_pairs(self):
+        from build_site import render_spatial_frame
+
+        root = Path(__file__).resolve().parents[1]
+        with (root / "data/raw/study5_participants.csv").open(encoding="utf-8", newline="") as source:
+            pairs = [(row["spfrref_control"], row["spfrref_viscereality"])
+                     for row in csv.DictReader(source)]
+        directions = Counter((viscereality > control) - (viscereality < control)
+                             for control, viscereality in pairs if control and viscereality)
+        self.assertEqual(directions, {1: 22, 0: 13, -1: 6})
+        total = sum(directions.values())
+        self.assertEqual(total, 41)
+        sign_test = stats.binomtest(directions[1], directions[1] + directions[-1])
+        interval = sign_test.proportion_ci()
+
+        html = render_spatial_frame(root)
+        for count in directions.values():
+            self.assertIn(f'data-count="{count}"', html)
+            self.assertIn(f'--spatial-share:{count / total:.8%}', html)
+        self.assertIn(f'<em>p</em> = {sign_test.pvalue:.5f}', html)
+        self.assertIn(f'{interval.low:.1%}–{interval.high:.1%}', html)
+        self.assertIn('body-centered to environment-encompassing', html)
+        self.assertIn('10.21203/rs.3.rs-10842634/v1', html)
+        self.assertNotIn('<img', html)
+
     def test_block_segment_provenance_and_claims(self):
         root = Path(__file__).resolve().parents[1]
         folder = root / "results/block_rt"

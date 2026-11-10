@@ -378,10 +378,13 @@ Standalone MAIA–spatial analyses do not depend on the ambiguous RT mapping.
 MAIA-2 was measured once before the experiment. Spatial ratings were collected
 after each intervention, once per condition, not per respiratory phase. Use
 Viscereality minus Control for within-person changes. Numerical category deltas
-assume comparable spacing; retain ordinal rank/direction sensitivities. The
-administered pictogram anchor key is missing, so higher codes cannot be labelled
-more allocentric or egocentric. Trait moderation and post-intervention association
-do not establish causal mediation.
+assume comparable spacing and require ordinal rank/direction sensitivities. The
+investigator confirmed the administered SFoRC uses the same A–H (1–8) coding as
+the [Breathing Experience preprint](https://doi.org/10.21203/rs.3.rs-10842634/v1)
+(section 2.4.2 and Figure 7). Higher codes indicate a more spatially extended
+sense of self along the body-centered to environment-encompassing continuum.
+Trait moderation and post-intervention association do not establish causal
+mediation.
 
 The original trial-level sigmoid gate failed (0/168 cells at R²≥.70). Existing
 regularized fits, smoothing, common-plateau normalization and Bayesian priors cannot

@@ -59,8 +59,10 @@ subscale scores (41 × 8). This checks numerical agreement, not the language,
 wording or timing of the administered form. The project owner has since confirmed
 that MAIA-2 was administered once before the experiment and spatial-frame ratings
 after each intervention. This timing is owner-confirmed, not reconstructed from
-CSV timestamps; the administered MAIA language and spatial pictogram key remain
-unverified.
+CSV timestamps. The administered MAIA language remains unverified. The study
+investigator has since confirmed the A–H (1–8) spatial-frame coding matches the
+[Breathing Experience preprint](https://doi.org/10.21203/rs.3.rs-10842634/v1)
+(section 2.4.2 and Figure 7).
 
 Retain each subscale's n, missingness, mean/SD, median/IQR, range, floor/ceiling
 counts, alpha with a participant-bootstrap interval, and corrected item–rest
@@ -75,11 +77,11 @@ without assuming equal distances between pictures. Report ties, the higher
 fraction among non-ties with an exact binomial interval, and paired dominance
 `(higher − lower) / all pairs` with a whole-person bootstrap interval. Show
 order-stratified counts; these are descriptions, not a powered test of period
-or carryover effects. Higher A–H codes are **not labelled allocentric** until the
-administered anchor key is verified.
+or carryover effects. Higher A–H codes indicate a more spatially extended
+sense of self on the body-centered to environment-encompassing continuum.
 
 An ordinal regression could extend this analysis in a larger, well-documented
-design. Sparse categories, 41 pairs and the unverified anchor key make the exact
+design. Sparse categories and 41 pairs make the exact
 directional comparison useful here. It remains the single overall paired condition
 test and does not assume equal physical or psychological steps between categories.
 
@@ -253,7 +255,7 @@ evidence. The [evidence ledger](../analysis/questionnaire_literature_sources.jso
 records every URL, actual access, hashes, included claims and limitations.
 
 This bounded search is not an exhaustive survey through 2026. The next documentary
-needs are the original registration, administered pictogram key and MAIA
-language record. Administration timing is now owner-confirmed. Computation can
-be reviewed independently of the remaining
-unresolved construct and provenance questions.
+needs include the original registration, administered pictogram artwork and
+MAIA language record. The investigator confirmed administration timing and
+spatial-frame coding. Computation can be reviewed independently of the
+remaining construct and provenance questions.

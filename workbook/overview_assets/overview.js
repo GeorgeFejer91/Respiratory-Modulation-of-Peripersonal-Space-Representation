@@ -42,7 +42,8 @@ for (const figure of document.querySelectorAll('figure')) {
   if (!surface) continue;
   const panel = document.createElement('div'); panel.className = 'plot-panel';
   surface.before(panel); panel.append(surface);
-  resizePanel(panel,{label:figure.querySelector('figcaption strong')?.textContent || 'Figure'});
+  resizePanel(panel, { label: figure.querySelector('figcaption strong')?.textContent || 'Figure',
+    resizeHeight: surface.dataset.liveChart !== 'width' });
 }
 
 const coreFrame = document.getElementById('core-pivot');

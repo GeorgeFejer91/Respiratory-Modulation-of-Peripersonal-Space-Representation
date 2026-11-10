@@ -127,6 +127,35 @@ th{background:#edf3f8}code{overflow-wrap:anywhere}nav{font-size:15px}:focus-visi
         manuscript_updated=False), indent=2)+"\n")
 
 
+def render_spatial_frame(root):
+    """Render aggregate questionnaire results from the verified browser archive."""
+    with zipfile.ZipFile(root / "results/browser-analysis/browser-results.zip") as archive:
+        spatial, = csv.DictReader(archive.read("spatial_comparison.csv").decode("utf-8").splitlines())
+        associations = csv.DictReader(archive.read("questionnaire_delta_associations.csv").decode("utf-8").splitlines())
+        trusting, = (row for row in associations if row["x"] == "maia2_trusting" and row["y"] == "spfrref_delta")
+    total = int(spatial["n_pairs"])
+    bars = []
+    for key, label in (("higher", "More spatially extended"), ("ties", "Same category"),
+                       ("lower", "Less spatially extended")):
+        count = int(spatial[key])
+        bars.append(f'<li data-count="{count}"><span data-measure>{label} ({count})</span>'
+                    f'<span class="spatial-track" aria-hidden="true">'
+                    f'<span class="spatial-bar {key}" style="--spatial-share:{count / total:.8%}"></span></span></li>')
+    return f'''<section id="spatial-frame" aria-labelledby="spatial-frame-title">
+<h3 id="spatial-frame-title">Spatial frame of reference after Viscereality and Control</h3>
+<p>Participants completed the Spatial Frame of Reference Continuum (SFoRC) after each condition. The study investigator confirmed the same A–H (1–8) coding as in the Breathing Experience preprint. The categories run from body-centered to environment-encompassing, so higher codes indicate a more spatially extended sense of self. <a href="https://doi.org/10.21203/rs.3.rs-10842634/v1">Breathing Experience preprint, section 2.4.2 and Figure 7</a></p>
+<figure id="spatial-frame-figure" aria-labelledby="spatial-frame-caption">
+<figcaption id="spatial-frame-caption"><strong>Figure 4</strong><br><em>Paired spatial-frame ratings after Viscereality and Control</em></figcaption>
+<div data-live-chart="width">
+<ul class="spatial-directions" role="list">{''.join(bars)}</ul>
+<div class="spatial-axis" aria-hidden="true"><span>0</span><span>{total} pairs</span></div>
+</div>
+</figure>
+<p>Of the {total} participants with both ratings, <strong>{spatial["higher"]} reported a more spatially extended frame after Viscereality</strong> than after Control, {spatial["lower"]} reported a less spatially extended frame, and {spatial["ties"]} selected the same category. One record lacked a complete pair. Among the {spatial["non_ties"]} non-tied pairs, {float(spatial["higher_fraction_non_ties"]):.1%} had higher Viscereality ratings (exact 95% CI {float(spatial["higher_fraction_ci_low"]):.1%}–{float(spatial["higher_fraction_ci_high"]):.1%}, two-sided exact sign test <em>p</em> = {float(spatial["p"]):.5f}). This exploratory comparison uses the ordering of the categories.</p>
+<p>Higher pre-experiment MAIA-2 Trusting scores were associated with a larger numerical rating difference (Viscereality minus Control, Spearman ρ = {float(trusting["rho"]):.3f}, pointwise 95% participant-bootstrap CI [{float(trusting["ci_low"]):.3f}, {float(trusting["ci_high"]):.3f}], unadjusted permutation <em>p</em> = {float(trusting["p"]):.5f}, <em>n</em> = {trusting["n"]}). This exploratory association uses numerical code steps and assumes comparable spacing between adjacent categories. The findings concern self-reported experience. A change in the behavioral PPS boundary and a mediation pathway remain unestablished.</p>
+</section>'''
+
+
 def build(output, development=False):
     notebook = Path(__file__).resolve().with_name("data_preparation.py")
     root=notebook.parent.parent
@@ -256,7 +285,8 @@ def build(output, development=False):
             allowed.append((soa_target / name).resolve())
     soa_result = json.loads((soa_source / "results.json").read_text())
     page = output / "index.html"
-    page.write_text(page.read_text(encoding="utf-8").replace("<!-- SOA_APA -->", escape(soa_result["apa"])), encoding="utf-8")
+    overview = page.read_text(encoding="utf-8").replace("<!-- SOA_APA -->", escape(soa_result["apa"]))
+    page.write_text(overview.replace("<!-- SPATIAL_FRAME -->", render_spatial_frame(root)), encoding="utf-8")
     # Segment 2 preserves the literal-label audit and its saved figure provenance.
     phase_source = root / "results/phase_rt"
     phase_manifest = json.loads((phase_source / "manifest.json").read_text(encoding="utf-8"))
