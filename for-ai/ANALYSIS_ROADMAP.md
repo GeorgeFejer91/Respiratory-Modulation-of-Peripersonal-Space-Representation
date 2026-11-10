@@ -22,6 +22,17 @@
 This section uses 41 complete questionnaire pairs. The behavioral linkage and
 PPS-boundary questions remain open.
 
+Deployment checkpoint: source `da27a1dc04fad26e5a711be34de37c74ed2388c6` is
+on `main`. CI passed the build, fixed analyses, independent validation and
+artifact upload on both full runs. The initial Pages deployment reached
+`syncing_files` and timed out. The deploy-only retry and one fresh run on the
+same source also reached the 10-minute limit, with empty Pages status responses.
+The new artifact contains `#spatial-frame`, and a fresh public request still
+serves the previous overview without that anchor. Pages deployment is the open
+gate. When deployment can proceed, run the existing workflow for the verified
+source, compare the served overview with the deployed artifact, and exercise the
+public deep link and overview browser gate. The wider publication goal stays open.
+
 ### Resource integration and structural review — 2026-10-28
 
 - [x] Check all 14 owner-supplied examples/tooling resources, correct their URLs
