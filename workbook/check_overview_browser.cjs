@@ -58,13 +58,16 @@ async function checkQuestionnaireDetails(page, base) {
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base);
     await page.waitForFunction(() => document.querySelector('header [data-measure]').dataset.fit === 'fit');
-    assert.equal(await page.locator('main > section').count(), 12);
-    assert.equal(await page.locator('.contents a').count(), 12);
-    assert.equal(await page.locator('main > section:not(#phase):not(#blocks):not(#questionnaires) p').count(), 0, 'Keep other questions compact');
-    assert.equal(await page.locator('main section h2').count(), 12);
-    assert.deepEqual(await page.locator('main section h2').allTextContents().then(headings => headings.map(h => Number(h.split('.')[0]))), Array.from({length: 12}, (_, i) => i));
-    assert.equal(await page.locator('main > section').nth(2).getAttribute('id'), 'phase');
-    assert.equal(await page.locator('main > section').nth(3).getAttribute('id'), 'blocks');
+    const paperSections = ['abstract', 'introduction', 'methods', 'results', 'discussion', 'reproducibility', 'references'];
+    assert.deepEqual(await page.locator('main > section').evaluateAll(sections => sections.map(section => section.id)),
+      paperSections, 'The live overview has the full article in reading order');
+    assert.deepEqual(await page.locator('#results > section').evaluateAll(sections => sections.map(section => section.id)),
+      ['baseline', 'phase', 'blocks', 'shape', 'parameters', 'effects', 'sensitivity', 'averages', 'questionnaires', 'data']);
+    assert.equal(await page.locator('.article-header a[href="https://aspredicted.org/az9f89.pdf"]').count(), 1);
+    assert.match(await page.locator('.article-header').innerText(), /BIAL Foundation/);
+    assert.match(await page.locator('#article-citation').innerText(), /Fejer, G., Holzapfel, T., Gaebler, M., & Lenggenhager, B\. \(2026\)/);
+    assert.deepEqual(await page.locator('.contents a, main a[data-citation]').evaluateAll(links => links
+      .filter(link => !document.getElementById(link.hash.slice(1))).map(link => link.hash)), []);
     await page.getByRole('region', { name: 'Spatial frame of reference after Viscereality and Control' }).waitFor();
     const spatialFigure = page.getByRole('figure', { name: /Paired spatial-frame ratings/ });
     assert.equal(await spatialFigure.getByRole('listitem').count(), 3);
@@ -135,7 +138,7 @@ async function checkQuestionnaireDetails(page, base) {
       assert(await research.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `Research page ${width}px overflow`);
     }
     await research.close();
-    assert.equal(await page.locator('#baseline h2').innerText(), '1. Does reaction time differ across SOAs?');
+    assert.equal(await page.locator('#baseline-title').innerText(), 'Does reaction time differ across SOAs?');
     await page.locator('#soa-figure[data-interactive="ready"]').waitFor();
     const soa = await (await page.request.get(new URL('results/pps_soa/results.json', base).href)).json();
     assert.equal(await page.locator('#soa-statistics').innerText(), soa.apa);
@@ -364,6 +367,6 @@ async function checkQuestionnaireDetails(page, base) {
     assert.equal(await touchPage.locator('#maia-items dd:visible').count(), 37);
     await phone.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: both questionnaire charts and no-script fallback, original scores/items/CSV, Segment 3 graph and CSV, 12 sections, pivot grouping and pooling, keyboard/touch, normalization and export, Pretext, four viewports, 200% text and spacing.');
+    console.log('PASS: both questionnaire charts and no-script fallback, original scores/items/CSV, Segment 3 graph and CSV, complete article, pivot grouping and pooling, keyboard/touch, normalization and export, Pretext, four viewports, 200% text and spacing.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

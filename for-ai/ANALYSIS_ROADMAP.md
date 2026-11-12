@@ -2,6 +2,24 @@
 
 ## Active goal — GitHub Pages as the analysis workspace and living preprint
 
+### A4 living publication on the main page — 2026-11-12
+
+- [x] Check the archived manuscript byline, the BIAL Foundation grant and
+  AsPredicted record #264,685 against the sources.
+- [x] Give the main overview a publication title and author block, funding and
+  registration links above the abstract, the complete article structure, and
+  APA citations and references.
+- [x] Verify the production build, responsive A4 reading width, document
+  navigation, citations and existing interactive plots and exports. The 75
+  workbook tests, questionnaire and public-data checks, and Chromium overview,
+  citation and panel-resize gates pass.
+- [ ] Deploy the verified source and repeat the overview and citation checks
+  against the public page.
+
+The article distinguishes the planned raw-RT interaction, the later
+baseline-corrected analyses, and exploratory self-report comparisons. The
+publication page and the historical manuscript snapshots have separate roles.
+
 ### Questionnaire detail levels in section 9
 
 - [x] Pair the archived pictographic SFoRC comparison with the eight baseline

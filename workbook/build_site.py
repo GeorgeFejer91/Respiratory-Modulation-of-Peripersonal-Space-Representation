@@ -142,7 +142,7 @@ def render_spatial_frame(root):
                     f'<span class="spatial-track" aria-hidden="true">'
                     f'<span class="spatial-bar {key}" style="--spatial-share:{count / total:.8%}"></span></span></li>')
     return f'''<section id="spatial-frame" aria-labelledby="spatial-frame-title">
-<h3 id="spatial-frame-title">Spatial frame of reference after Viscereality and Control</h3>
+<h4 id="spatial-frame-title">Spatial frame of reference after Viscereality and Control</h4>
 <p>Participants completed the pictographic Spatial Frame of Reference Continuum (SFoRC) after each condition. The study investigator confirmed the same A–H (1–8) coding as in the Breathing Experience preprint. The categories run from body-centered to environment-encompassing, so higher codes indicate a more spatially extended sense of self. <a href="https://doi.org/10.21203/rs.3.rs-10842634/v1">Breathing Experience preprint, section 2.4.2 and Figure 7</a></p>
 <figure id="spatial-frame-figure" aria-labelledby="spatial-frame-caption">
 <figcaption id="spatial-frame-caption"><strong>Figure 4</strong><br><em>Paired spatial-frame ratings after Viscereality and Control</em></figcaption>
