@@ -13,8 +13,13 @@
   navigation, citations and existing interactive plots and exports. The 75
   workbook tests, questionnaire and public-data checks, and Chromium overview,
   citation and panel-resize gates pass.
-- [ ] Deploy the verified source and repeat the overview and citation checks
-  against the public page.
+- [x] Deploy the verified source and repeat the overview and citation checks
+  against the public page. [Pages run 43207436134](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43207436134)
+  passed the full build, fixed analyses, independent validation and deployment
+  for source 4bdad0a. The served HTML and tested chart assets match the verified
+  build. The live Chromium overview, citation, and panel-resize checks pass,
+  including mobile emulation, keyboard and touch, and enlarged text. Physical
+  Safari and author review for journal submission remain open.
 
 The article distinguishes the planned raw-RT interaction, the later
 baseline-corrected analyses, and exploratory self-report comparisons. The
