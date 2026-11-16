@@ -1270,9 +1270,14 @@ finding as a valid completion of a specified screen.
   No center or group transition localized. A few descriptive dispersion
   cells localized, with all free paired contrasts unresolved and better
   held-probe prediction under a constant distribution.
-- [ ] Compare reduced population and participant hierarchies, including the
+- [x] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
+  The [hierarchy report](../results/boundary_methods/HIERARCHY_RESULTS.md)
+  includes 45 qualified held probes, 32 recovery attempts and verified
+  population and participant geometry. No observed comparison supported
+  both group peaks at a 20 ms minimum span. The matched-width and
+  shared-location variants had similar held density.
 - [ ] Resolve the timing and recording inputs that can be recovered from
   source evidence. The task has only one sampled time per nominal distance.
   The current data cannot identify independent time and distance effects

@@ -30,7 +30,7 @@ def hierarchy(name, n, center, fixed_sd, random_sd):
     return pt.dot(beta+z*tau, DESIGN.T)
 
 
-def make_marginal_model(ids, at, baseline, prior_scale=1., cell_noise=False):
+def make_marginal_model(ids, at, baseline, prior_scale=1., cell_noise=False, family="logistic"):
     """Integrate independent Gaussian nuisance priors exactly, then draw conditionals.
 
     This is an explicitly different nuisance-pooling sensitivity, not a silent
@@ -51,11 +51,22 @@ def make_marginal_model(ids, at, baseline, prior_scale=1., cell_noise=False):
         base_rss = np.sum(ssb+nb*(yb-.6)**2, axis=-1)
         base_sum = syb-.6*nb_cp
         pm.Potential("likelihood_baseline", pt.sum(-.5*(nb_cp*pt.log(vb)+pt.log1p(.4**2*nb_cp/vb)+base_rss/vb-base_sum**2*base_variance/vb**2)))
-        midpoint = hierarchy("midpoint", len(ids), [.5, 0., 0., 0.], .5*prior_scale, .35*prior_scale)
-        width = pt.exp(hierarchy("log_width", len(ids), [np.log(1/6), 0., 0., 0.], .7*prior_scale, .5*prior_scale))
-        pm.Deterministic("midpoint_cm", 10+90*midpoint, dims=("participant", "cell"))
-        pm.Deterministic("sharpness_per_cm", 1/(360*width), dims=("participant", "cell"))
-        q = pm.math.sigmoid(((DISTANCES["registered"]-10)/90-midpoint[..., None])/width[..., None])-.5
+        if family == "logistic":
+            midpoint = hierarchy("midpoint", len(ids), [.5, 0., 0., 0.], .5*prior_scale, .35*prior_scale)
+            width = pt.exp(hierarchy("log_width", len(ids), [np.log(1/6), 0., 0., 0.], .7*prior_scale, .5*prior_scale))
+            pm.Deterministic("midpoint_cm", 10+90*midpoint, dims=("participant", "cell"))
+            pm.Deterministic("sharpness_per_cm", 1/(360*width), dims=("participant", "cell"))
+            q = pm.math.sigmoid(((DISTANCES["registered"]-10)/90-midpoint[..., None])/width[..., None])-.5
+        else:
+            distance = DISTANCES["registered"]
+            if family == "constant":
+                basis = np.zeros_like(distance)
+            elif family in ("linear", "log_distance"):
+                x = np.log(distance) if family == "log_distance" else distance
+                basis = (x-x.mean())/np.ptp(x)
+            else:
+                raise ValueError(family)
+            q = pt.broadcast_to(basis, na.shape)
         n = na.sum(-1)
         sq, sqq = pt.sum(na*q, -1), pt.sum(na*q*q, -1)
         offset_variance = base_variance+.2**2
@@ -79,10 +90,11 @@ def make_marginal_model(ids, at, baseline, prior_scale=1., cell_noise=False):
         pm.Deterministic("amplitude", amplitude, dims=("participant", "cell"))
         pm.Deterministic("corrected_intercept", delta, dims=("participant", "cell"))
         curve = pm.Deterministic("corrected_curve", delta[..., None]+amplitude[..., None]*q, dims=("participant", "cell", "distance"))
-        pm.Deterministic("population_midpoint_effect_cm", 90*model["beta_midpoint"][1:], dims="effect")
-        pm.Deterministic("population_log_sharpness_effect", -model["beta_log_width"][1:], dims="effect")
-        for metric in ("midpoint_cm", "sharpness_per_cm"):
-            pm.Deterministic(metric+"_effect", pt.dot(W[:3], model[metric].mean(0)), dims="effect")
+        if family == "logistic":
+            pm.Deterministic("population_midpoint_effect_cm", 90*model["beta_midpoint"][1:], dims="effect")
+            pm.Deterministic("population_log_sharpness_effect", -model["beta_log_width"][1:], dims="effect")
+            for metric in ("midpoint_cm", "sharpness_per_cm"):
+                pm.Deterministic(metric+"_effect", pt.dot(W[:3], model[metric].mean(0)), dims="effect")
         pm.Deterministic("mean_RT_effect_ms", 1000*pt.dot(W[:3], curve.mean((0, 2))), dims="effect")
         pm.Deterministic("far_minus_near_effect_ms", 1000*pt.dot(W[:3], (curve[..., -1]-curve[..., 0]).mean(0)), dims="effect")
     return model
