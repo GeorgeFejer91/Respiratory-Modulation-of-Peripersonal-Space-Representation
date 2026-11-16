@@ -1,0 +1,320 @@
+{
+  "seed": 20261116,
+  "checks": "256 independent SciPy PAVA comparisons, flat and reversed rejection, exact single-step moments, affine invariance",
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "cohorts": [
+    40
+  ],
+  "specs": {
+    "registered": {
+      "finite_individual_cells": 135,
+      "split_half_n": 169,
+      "split_half_rho": 0.04154194222067526,
+      "equal_phase_group_difference": {
+        "estimate_cm": -12.429000606868854,
+        "replicates": 999,
+        "finite": 989,
+        "ci_low": -32.70629155145294,
+        "ci_high": 18.712472138439786
+      },
+      "group_profile_contrasts": [
+        {
+          "effect": "Condition",
+          "estimate_cm": -4.174031785388475,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -22.358803396727932,
+          "ci_high": 16.916695253275407
+        },
+        {
+          "effect": "Phase",
+          "estimate_cm": 9.158816493282245,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -16.22026977274229,
+          "ci_high": 21.996766078706077
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "estimate_cm": -19.839071398410674,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -43.255105098161,
+          "ci_high": 47.46600963249795
+        },
+        {
+          "effect": "Phase within Control",
+          "estimate_cm": 19.07835219248758,
+          "replicates": 999,
+          "finite": 982,
+          "ci_low": -24.24862707318075,
+          "ci_high": 29.11454796711261
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "estimate_cm": -0.7607192059230883,
+          "replicates": 999,
+          "finite": 976,
+          "ci_low": -28.77100641398538,
+          "ci_high": 36.47861892922514
+        },
+        {
+          "effect": "Condition within Exhale",
+          "estimate_cm": 5.745503913816854,
+          "replicates": 999,
+          "finite": 995,
+          "ci_low": -32.452567210381964,
+          "ci_high": 22.437059605534092
+        },
+        {
+          "effect": "Condition within Inhale",
+          "estimate_cm": -14.093567484593812,
+          "replicates": 999,
+          "finite": 967,
+          "ci_low": -37.30244276465595,
+          "ci_high": 30.43634453716803
+        }
+      ],
+      "individual_contrasts": [
+        {
+          "effect": "Condition",
+          "paired_n": 21,
+          "conditional_mean_cm": -1.6400701722110709
+        },
+        {
+          "effect": "Phase",
+          "paired_n": 21,
+          "conditional_mean_cm": 2.036857812010972
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "paired_n": 21,
+          "conditional_mean_cm": 1.436803219774463
+        },
+        {
+          "effect": "Phase within Control",
+          "paired_n": 32,
+          "conditional_mean_cm": 3.169804330782317
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "paired_n": 27,
+          "conditional_mean_cm": 0.834980529172888
+        },
+        {
+          "effect": "Condition within Exhale",
+          "paired_n": 30,
+          "conditional_mean_cm": 1.113925316665959
+        },
+        {
+          "effect": "Condition within Inhale",
+          "paired_n": 26,
+          "conditional_mean_cm": 0.05931073290715142
+        }
+      ]
+    },
+    "trajectory": {
+      "finite_individual_cells": 135,
+      "split_half_n": 169,
+      "split_half_rho": 0.04434637760429616,
+      "equal_phase_group_difference": {
+        "estimate_cm": -12.535521553999061,
+        "replicates": 999,
+        "finite": 989,
+        "ci_low": -31.807295139150252,
+        "ci_high": 16.91275094922644
+      },
+      "group_profile_contrasts": [
+        {
+          "effect": "Condition",
+          "estimate_cm": -5.44485029310373,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -21.342233088519897,
+          "ci_high": 14.131192382571328
+        },
+        {
+          "effect": "Phase",
+          "estimate_cm": 5.761810117076962,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -16.430736922901282,
+          "ci_high": 18.750142489172656
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "estimate_cm": -20.109179995693516,
+          "replicates": 999,
+          "finite": 963,
+          "ci_low": -39.505760173552375,
+          "ci_high": 39.55759861952527
+        },
+        {
+          "effect": "Phase within Control",
+          "estimate_cm": 15.816400114923717,
+          "replicates": 999,
+          "finite": 982,
+          "ci_low": -22.557758159310175,
+          "ci_high": 25.8645090983963
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "estimate_cm": -4.2927798807697926,
+          "replicates": 999,
+          "finite": 976,
+          "ci_low": -28.756210304837474,
+          "ci_high": 29.43883604406929
+        },
+        {
+          "effect": "Condition within Exhale",
+          "estimate_cm": 4.609739704743028,
+          "replicates": 999,
+          "finite": 995,
+          "ci_low": -29.695920510533924,
+          "ci_high": 20.823317661099274
+        },
+        {
+          "effect": "Condition within Inhale",
+          "estimate_cm": -15.499440290950481,
+          "replicates": 999,
+          "finite": 967,
+          "ci_low": -34.650653095830954,
+          "ci_high": 24.04523703347247
+        }
+      ],
+      "individual_contrasts": [
+        {
+          "effect": "Condition",
+          "paired_n": 21,
+          "conditional_mean_cm": -1.9404603032574683
+        },
+        {
+          "effect": "Phase",
+          "paired_n": 21,
+          "conditional_mean_cm": 1.993636668131243
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "paired_n": 21,
+          "conditional_mean_cm": 1.2277462139917645
+        },
+        {
+          "effect": "Phase within Control",
+          "paired_n": 32,
+          "conditional_mean_cm": 2.6301910936507973
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "paired_n": 27,
+          "conditional_mean_cm": 0.633758505199016
+        },
+        {
+          "effect": "Condition within Exhale",
+          "paired_n": 30,
+          "conditional_mean_cm": 1.1430204410451348
+        },
+        {
+          "effect": "Condition within Inhale",
+          "paired_n": 26,
+          "conditional_mean_cm": -0.3562873277244026
+        }
+      ]
+    }
+  },
+  "simulation": [
+    {
+      "jump_ms": 0,
+      "generated": 40960,
+      "finite": 32649,
+      "median_cm": 54.459753088920664,
+      "percentile_cm": [
+        32.05559866362738,
+        76.98206919105276
+      ],
+      "mae_cm": null
+    },
+    {
+      "jump_ms": 80,
+      "generated": 40960,
+      "finite": 40727,
+      "median_cm": 47.77129745165631,
+      "percentile_cm": [
+        31.68102484228232,
+        70.31592817535824
+      ],
+      "mae_cm": 11.338240718220383
+    },
+    {
+      "jump_ms": 160,
+      "generated": 40960,
+      "finite": 40953,
+      "median_cm": 44.07914420962775,
+      "percentile_cm": [
+        33.758744342823455,
+        61.77886042243683
+      ],
+      "mae_cm": 7.382832032061605
+    }
+  ],
+  "log_rt_prediction": {
+    "arithmetic_mean_rt": {
+      "candidate_rmse": 54.455028490478256,
+      "constant_rmse": 48.02030226933635
+    },
+    "mean_log_rt": {
+      "candidate_rmse": 0.07441334976548337,
+      "constant_rmse": 0.06492968884545117
+    }
+  },
+  "pava_prediction": {
+    "candidate_rmse": 48.894366640345176,
+    "constant_rmse": 48.773272084362354
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1"
+  },
+  "sha256": {
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "results/boundary_methods/SPECIFICATION.md": "02b215ad6f9dea12701307dff74fb2be40ae114ae183aa82ee268277e338b87b",
+    "results/boundary_methods/spearman_karber.csv": "55f30e7b6901bc52ead1c030e03e6af1c8fe15132d2c0355b00221e761767b50",
+    "results/boundary_methods/fixed_extrema_rt_scales.csv": "4795a904300706f4e948f722322ecf23e8bac48f8a53579b39732ea8ed591410"
+  }
+}

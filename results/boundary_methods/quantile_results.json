@@ -1,0 +1,525 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "quantiles": {
+    "0.25": {
+      "simulation": [
+        {
+          "scenario": "flat",
+          "cases": 40960,
+          "generating_family_retained": 38952,
+          "unique_gap": 662,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 305
+        },
+        {
+          "scenario": "80_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38874,
+          "unique_gap": 3584,
+          "correct_unique_gap": 3188,
+          "positive_unique_gap": 3501
+        },
+        {
+          "scenario": "160_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38929,
+          "unique_gap": 12562,
+          "correct_unique_gap": 12390,
+          "positive_unique_gap": 12554
+        },
+        {
+          "scenario": "80_ms_linear",
+          "cases": 40960,
+          "generating_family_retained": 38945,
+          "unique_gap": 933,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 871
+        }
+      ],
+      "untestable_individual_cells": 0,
+      "axes": {
+        "registered": {
+          "unique_gaps": 5,
+          "unique_positive_gaps": 4,
+          "boundary_free_compatible": 151,
+          "group_compatibility": {
+            "Control Exhale": [
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "gap_3"
+            ],
+            "Viscereality Inhale": [
+              "gap_2",
+              "linear"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "gap_2",
+              "gap_3",
+              "linear"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 44.301830442617515,
+            "step": 47.24982380686374,
+            "linear": 49.749322730622275,
+            "log_distance": 53.60743054854479
+          }
+        },
+        "trajectory": {
+          "unique_gaps": 5,
+          "unique_positive_gaps": 4,
+          "boundary_free_compatible": 151,
+          "group_compatibility": {
+            "Control Exhale": [
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "gap_3"
+            ],
+            "Viscereality Inhale": [
+              "gap_2",
+              "linear"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "gap_2",
+              "gap_3",
+              "linear"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 44.301830442617515,
+            "step": 47.24982380686374,
+            "linear": 49.358588484062714,
+            "log_distance": 51.72325801554916
+          }
+        }
+      }
+    },
+    "0.5": {
+      "simulation": [
+        {
+          "scenario": "flat",
+          "cases": 40960,
+          "generating_family_retained": 38952,
+          "unique_gap": 662,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 305
+        },
+        {
+          "scenario": "80_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38874,
+          "unique_gap": 4207,
+          "correct_unique_gap": 3833,
+          "positive_unique_gap": 4136
+        },
+        {
+          "scenario": "160_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38929,
+          "unique_gap": 14300,
+          "correct_unique_gap": 14146,
+          "positive_unique_gap": 14292
+        },
+        {
+          "scenario": "80_ms_linear",
+          "cases": 40960,
+          "generating_family_retained": 38945,
+          "unique_gap": 943,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 889
+        }
+      ],
+      "untestable_individual_cells": 0,
+      "axes": {
+        "registered": {
+          "unique_gaps": 1,
+          "unique_positive_gaps": 0,
+          "boundary_free_compatible": 155,
+          "group_compatibility": {
+            "Control Exhale": [
+              "gap_3",
+              "linear"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 53.40129792287956,
+            "step": 57.05021648595444,
+            "linear": 61.993812436914006,
+            "log_distance": 65.26127663491253
+          }
+        },
+        "trajectory": {
+          "unique_gaps": 2,
+          "unique_positive_gaps": 0,
+          "boundary_free_compatible": 154,
+          "group_compatibility": {
+            "Control Exhale": [
+              "gap_3",
+              "linear"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 53.40129792287956,
+            "step": 57.05021648595444,
+            "linear": 60.64680877861644,
+            "log_distance": 62.73803012746129
+          }
+        }
+      }
+    },
+    "0.75": {
+      "simulation": [
+        {
+          "scenario": "flat",
+          "cases": 40960,
+          "generating_family_retained": 38952,
+          "unique_gap": 662,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 305
+        },
+        {
+          "scenario": "80_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38874,
+          "unique_gap": 3584,
+          "correct_unique_gap": 3188,
+          "positive_unique_gap": 3501
+        },
+        {
+          "scenario": "160_ms_step",
+          "cases": 40960,
+          "generating_family_retained": 38929,
+          "unique_gap": 12562,
+          "correct_unique_gap": 12390,
+          "positive_unique_gap": 12554
+        },
+        {
+          "scenario": "80_ms_linear",
+          "cases": 40960,
+          "generating_family_retained": 38945,
+          "unique_gap": 933,
+          "correct_unique_gap": null,
+          "positive_unique_gap": 871
+        }
+      ],
+      "untestable_individual_cells": 0,
+      "axes": {
+        "registered": {
+          "unique_gaps": 5,
+          "unique_positive_gaps": 2,
+          "boundary_free_compatible": 148,
+          "group_compatibility": {
+            "Control Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 68.19948978900345,
+            "step": 73.17612623276467,
+            "linear": 79.78099988372749,
+            "log_distance": 83.26633837657428
+          }
+        },
+        "trajectory": {
+          "unique_gaps": 5,
+          "unique_positive_gaps": 2,
+          "boundary_free_compatible": 148,
+          "group_compatibility": {
+            "Control Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Exhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality Inhale": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Control equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ],
+            "Viscereality equal phase": [
+              "flat",
+              "gap_1",
+              "gap_2",
+              "gap_3",
+              "gap_4",
+              "linear",
+              "log_distance"
+            ]
+          },
+          "held_distance_rmse_ms": {
+            "flat": 68.19948978900345,
+            "step": 73.17612623276467,
+            "linear": 78.47377257531512,
+            "log_distance": 80.64573503992754
+          }
+        }
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1"
+  },
+  "checks": "All observed bin quantiles agree with numpy.nanquantile.",
+  "sha256": {
+    "analysis/boundary_methods/quantile_screen.py": "3e48d5f84e4c6da2fb933db2d30a13c13be2f01799feb43a157406033e54ba3e",
+    "analysis/boundary_methods/change_point.py": "07542c4b3922f31714618ba34fa6a1a366036db23520bfcc7e35a41e991277f6",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "results/boundary_methods/QUANTILE_SPECIFICATION.md": "945283b01fbe4dfbe239bfd7968357112fc30263aedefeb87a451c5f20a0e716",
+    "results/boundary_methods/quantile_candidates.csv": "10a1519647c1a1c2796677e2af977fdb908fa2e4271fa3aeb13db59ad62481ca"
+  }
+}

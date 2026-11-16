@@ -1,0 +1,2095 @@
+{
+  "seed": 20261117,
+  "replicates": 96,
+  "cutoff_draws": 16384,
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "diagnostics": "Independent direct GLS, offset invariance, synthetic recovery and disconnected joint-set checks.",
+  "registered_recovery_people": {
+    "flat": {
+      "generator_midpoints_cm": [
+        46.000000000000014,
+        46.000000000000014,
+        46.000000000000014,
+        46.000000000000014
+      ],
+      "generator_widths_cm": [
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "fixed_true_shape_coverage": 0.9915364583333334,
+      "simultaneous_fixed_true_shape_coverage": 0.9953125,
+      "fraction_flat_compatible": 0.9786458333333333,
+      "midpoint_error_by_reduction": null
+    },
+    "80ms_null": {
+      "generator_midpoints_cm": [
+        46.000000000000014,
+        46.000000000000014,
+        46.000000000000014,
+        46.000000000000014
+      ],
+      "generator_widths_cm": [
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "fixed_true_shape_coverage": 0.9907552083333333,
+      "simultaneous_fixed_true_shape_coverage": 0.9955729166666667,
+      "fraction_flat_compatible": 0.67890625,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": -1.0189453125,
+            "rmse_cm": 48.14881715836849
+          },
+          "Phase": {
+            "bias_cm": -0.0955078125,
+            "rmse_cm": 48.650153158481935
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 1.320703125,
+            "rmse_cm": 96.86436736004886
+          },
+          "Phase within Control": {
+            "bias_cm": -0.755859375,
+            "rmse_cm": 68.56238177975223
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.56484375,
+            "rmse_cm": 68.73301565773359
+          },
+          "Condition within Exhale": {
+            "bias_cm": -1.679296875,
+            "rmse_cm": 69.74311962032527
+          },
+          "Condition within Inhale": {
+            "bias_cm": -0.35859374999999954,
+            "rmse_cm": 66.81217916784522
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": -0.9665039062500003,
+            "rmse_cm": 37.16739855218171
+          },
+          "Phase": {
+            "bias_cm": -0.5440429687500004,
+            "rmse_cm": 36.72578772316148
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.8490234374999994,
+            "rmse_cm": 74.50295158530214
+          },
+          "Phase within Control": {
+            "bias_cm": -0.9685546874999996,
+            "rmse_cm": 52.239200158531574
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -0.11953125000000024,
+            "rmse_cm": 52.382991820162864
+          },
+          "Condition within Exhale": {
+            "bias_cm": -1.391015625,
+            "rmse_cm": 52.717609835032825
+          },
+          "Condition within Inhale": {
+            "bias_cm": -0.5419921875000001,
+            "rmse_cm": 52.52646514868124
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Control": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Control": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          }
+        }
+      }
+    },
+    "160ms_shared_width_effect": {
+      "generator_midpoints_cm": [
+        46.000000000000014,
+        52.75000000000001,
+        59.50000000000001,
+        73.00000000000001
+      ],
+      "generator_widths_cm": [
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "fixed_true_shape_coverage": 0.9916666666666667,
+      "simultaneous_fixed_true_shape_coverage": 0.9921875,
+      "fraction_flat_compatible": 0.26393229166666665,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": 6.88798828125,
+            "rmse_cm": 44.55774006507771
+          },
+          "Phase": {
+            "bias_cm": 3.37001953125,
+            "rmse_cm": 43.097188297615844
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.642773437499989,
+            "rmse_cm": 82.83350470644788
+          },
+          "Phase within Control": {
+            "bias_cm": 3.0486328125000055,
+            "rmse_cm": 59.54905614609374
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 3.6914062499999942,
+            "rmse_cm": 59.99449925956754
+          },
+          "Condition within Exhale": {
+            "bias_cm": 6.566601562500006,
+            "rmse_cm": 60.52637878889563
+          },
+          "Condition within Inhale": {
+            "bias_cm": 7.209374999999994,
+            "rmse_cm": 61.13948495934317
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": 0.34335937499999986,
+            "rmse_cm": 28.248152248753367
+          },
+          "Phase": {
+            "bias_cm": 1.0271484374999997,
+            "rmse_cm": 27.980276081721833
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.8097656249999869,
+            "rmse_cm": 53.34267903142848
+          },
+          "Phase within Control": {
+            "bias_cm": 0.6222656250000062,
+            "rmse_cm": 37.30171012333081
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 1.432031249999993,
+            "rmse_cm": 39.96366880328619
+          },
+          "Condition within Exhale": {
+            "bias_cm": -0.061523437499993026,
+            "rmse_cm": 36.26222248148719
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.7482421874999934,
+            "rmse_cm": 41.27575722825234
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000014
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999995,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000005
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999995
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000014
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999995,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000005
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999995
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        }
+      }
+    },
+    "80ms_varying_width_effect": {
+      "generator_midpoints_cm": [
+        46.000000000000014,
+        52.75000000000001,
+        59.50000000000001,
+        73.00000000000001
+      ],
+      "generator_widths_cm": [
+        10.429512610599154,
+        18.036416764968223,
+        25.05428486221621,
+        34.802765878435416
+      ],
+      "fixed_true_shape_coverage": 0.9918619791666666,
+      "simultaneous_fixed_true_shape_coverage": 0.9953125,
+      "fraction_flat_compatible": 0.6984375,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": -7.41826171875,
+            "rmse_cm": 51.2889822923973
+          },
+          "Phase": {
+            "bias_cm": -5.59423828125,
+            "rmse_cm": 49.82646582668034
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -10.606054687500007,
+            "rmse_cm": 101.1933760936672
+          },
+          "Phase within Control": {
+            "bias_cm": -0.2912109374999951,
+            "rmse_cm": 66.78505158517417
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -10.897265625000005,
+            "rmse_cm": 75.00106639866863
+          },
+          "Condition within Exhale": {
+            "bias_cm": -2.115234374999995,
+            "rmse_cm": 69.31124604366163
+          },
+          "Condition within Inhale": {
+            "bias_cm": -12.721289062500004,
+            "rmse_cm": 74.68011960134956
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": -9.6744140625,
+            "rmse_cm": 40.38970985423608
+          },
+          "Phase": {
+            "bias_cm": -6.9087890625,
+            "rmse_cm": 39.20723187436216
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -10.973437500000012,
+            "rmse_cm": 79.56273689084922
+          },
+          "Phase within Control": {
+            "bias_cm": -1.4220703124999945,
+            "rmse_cm": 52.55662543346105
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -12.395507812500007,
+            "rmse_cm": 58.96888786748589
+          },
+          "Condition within Exhale": {
+            "bias_cm": -4.187695312499994,
+            "rmse_cm": 52.635657601780515
+          },
+          "Condition within Inhale": {
+            "bias_cm": -15.161132812500007,
+            "rmse_cm": 60.475279443985414
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000014
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999995,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000005
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999995
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000014
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999995,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000005
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999995
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        }
+      }
+    }
+  },
+  "registered_recovery_group": {
+    "flat": {
+      "simultaneous_fixed_true_shape_coverage": 1.0,
+      "midpoint_error_by_reduction": null
+    },
+    "80ms_null": {
+      "simultaneous_fixed_true_shape_coverage": 0.9583333333333334,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": 0.39843750000000017,
+            "rmse_cm": 16.70776508281404
+          },
+          "Phase": {
+            "bias_cm": 0.5156250000000004,
+            "rmse_cm": 16.783344841315156
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.5156250000000008,
+            "rmse_cm": 29.33820834253517
+          },
+          "Phase within Control": {
+            "bias_cm": 0.2578125000000006,
+            "rmse_cm": 24.08152656861687
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.7734375000000018,
+            "rmse_cm": 20.342237847026567
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.140625,
+            "rmse_cm": 21.874910714103496
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.6562500000000006,
+            "rmse_cm": 22.586552276742022
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": -1.160156250000001,
+            "rmse_cm": 8.526870441800439
+          },
+          "Phase": {
+            "bias_cm": 0.6679687500000012,
+            "rmse_cm": 7.496776651084785
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.21093750000000058,
+            "rmse_cm": 11.930217019191227
+          },
+          "Phase within Control": {
+            "bias_cm": 0.5625000000000011,
+            "rmse_cm": 7.3484692283495345
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.7734375000000013,
+            "rmse_cm": 11.382809818977035
+          },
+          "Condition within Exhale": {
+            "bias_cm": -1.2656250000000009,
+            "rmse_cm": 11.151128025899444
+          },
+          "Condition within Inhale": {
+            "bias_cm": -1.0546875,
+            "rmse_cm": 9.603771231917179
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Control": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Control": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.0,
+            "rmse_cm": 0.0
+          }
+        }
+      }
+    },
+    "160ms_shared_width_effect": {
+      "simultaneous_fixed_true_shape_coverage": 1.0,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": 0.6914062499999991,
+            "rmse_cm": 4.270001189256274
+          },
+          "Phase": {
+            "bias_cm": 0.8320312500000001,
+            "rmse_cm": 4.367683614486059
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.9609374999999858,
+            "rmse_cm": 7.722860747482112
+          },
+          "Phase within Control": {
+            "bias_cm": 0.3515625000000076,
+            "rmse_cm": 4.621409078949841
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 1.312499999999993,
+            "rmse_cm": 6.82767804601242
+          },
+          "Condition within Exhale": {
+            "bias_cm": 0.21093750000000688,
+            "rmse_cm": 4.6893746251499255
+          },
+          "Condition within Inhale": {
+            "bias_cm": 1.171874999999992,
+            "rmse_cm": 6.655589755987067
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": 0.234375,
+            "rmse_cm": 3.5686624332514287
+          },
+          "Phase": {
+            "bias_cm": -0.023437500000000038,
+            "rmse_cm": 3.866548242618991
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 0.5156249999999871,
+            "rmse_cm": 5.9263052359796635
+          },
+          "Phase within Control": {
+            "bias_cm": -0.2812499999999934,
+            "rmse_cm": 4.320644483176093
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 0.2343749999999932,
+            "rmse_cm": 5.36590800797032
+          },
+          "Condition within Exhale": {
+            "bias_cm": -0.023437499999992745,
+            "rmse_cm": 4.435078564693078
+          },
+          "Condition within Inhale": {
+            "bias_cm": 0.49218749999999384,
+            "rmse_cm": 4.83335578299384
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000013
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999993,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000007
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999993
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000013
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999993,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000007
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999993
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        }
+      }
+    },
+    "80ms_varying_width_effect": {
+      "simultaneous_fixed_true_shape_coverage": 0.9895833333333334,
+      "midpoint_error_by_reduction": {
+        "free": {
+          "Condition": {
+            "bias_cm": -7.417968750000003,
+            "rmse_cm": 34.004702972070646
+          },
+          "Phase": {
+            "bias_cm": 6.12890625,
+            "rmse_cm": 39.01121007760141
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": 5.320312499999988,
+            "rmse_cm": 68.65765104396596
+          },
+          "Phase within Control": {
+            "bias_cm": 3.468750000000007,
+            "rmse_cm": 23.71856472259652
+          },
+          "Phase within Viscereality": {
+            "bias_cm": 8.789062499999995,
+            "rmse_cm": 69.55656140419104
+          },
+          "Condition within Exhale": {
+            "bias_cm": -10.078124999999996,
+            "rmse_cm": 42.33349737501025
+          },
+          "Condition within Inhale": {
+            "bias_cm": -4.757812500000008,
+            "rmse_cm": 53.64187889955944
+          }
+        },
+        "shared_width": {
+          "Condition": {
+            "bias_cm": -4.441406249999998,
+            "rmse_cm": 11.165896564707646
+          },
+          "Phase": {
+            "bias_cm": 1.3476562500000007,
+            "rmse_cm": 13.541440302595216
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -10.992187500000014,
+            "rmse_cm": 22.571371178441957
+          },
+          "Phase within Control": {
+            "bias_cm": 6.843750000000007,
+            "rmse_cm": 17.04291458348601
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -4.148437500000007,
+            "rmse_cm": 18.193781131886798
+          },
+          "Condition within Exhale": {
+            "bias_cm": 1.0546875000000089,
+            "rmse_cm": 14.045614862831743
+          },
+          "Condition within Inhale": {
+            "bias_cm": -9.937500000000005,
+            "rmse_cm": 17.51595255046097
+          }
+        },
+        "shared_midpoint": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000013
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999993,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000007
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999993
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        },
+        "shared_both": {
+          "Condition": {
+            "bias_cm": -16.875,
+            "rmse_cm": 16.875
+          },
+          "Phase": {
+            "bias_cm": -10.125,
+            "rmse_cm": 10.125
+          },
+          "Condition \u00d7 Phase": {
+            "bias_cm": -6.750000000000014,
+            "rmse_cm": 6.750000000000013
+          },
+          "Phase within Control": {
+            "bias_cm": -6.749999999999993,
+            "rmse_cm": 6.749999999999992
+          },
+          "Phase within Viscereality": {
+            "bias_cm": -13.500000000000002,
+            "rmse_cm": 13.500000000000007
+          },
+          "Condition within Exhale": {
+            "bias_cm": -13.499999999999998,
+            "rmse_cm": 13.499999999999993
+          },
+          "Condition within Inhale": {
+            "bias_cm": -20.250000000000004,
+            "rmse_cm": 20.250000000000007
+          }
+        }
+      }
+    }
+  },
+  "prediction": {
+    "registered_pooled_cp": {
+      "individual_units": 40,
+      "held_person_cells_rmse_ms": {
+        "free": 189.13012864411044,
+        "shared_width": 187.9697646305145,
+        "shared_midpoint": 86.08504947480259,
+        "shared_both": 104.5681334922003,
+        "flat": 50.47465188932758,
+        "linear": 55.46011726638186,
+        "log_distance": 60.17922185897604
+      },
+      "held_group_profile_rmse_ms": {
+        "free": 202.36247558251208,
+        "shared_width": 267.506177389848,
+        "shared_midpoint": 8.886458644784774,
+        "shared_both": 119.14270776122433,
+        "flat": 11.585062110900159,
+        "linear": 10.236834279961677,
+        "log_distance": 13.182871382904697
+      }
+    },
+    "trajectory_pooled_cp": {
+      "individual_units": 40,
+      "held_person_cells_rmse_ms": {
+        "free": 183.97181079434944,
+        "shared_width": 189.72120721608326,
+        "shared_midpoint": 84.72720348984096,
+        "shared_both": 104.08292333042868,
+        "flat": 50.47465188932758,
+        "linear": 54.893144844959586,
+        "log_distance": 57.870915983931575
+      },
+      "held_group_profile_rmse_ms": {
+        "free": 237.59846114510643,
+        "shared_width": 271.20996708453856,
+        "shared_midpoint": 8.783768870714052,
+        "shared_both": 164.8690636083509,
+        "flat": 11.585062110900159,
+        "linear": 10.015089082707892,
+        "log_distance": 11.773969590161236
+      }
+    },
+    "registered_same_label": {
+      "individual_units": 39,
+      "held_person_cells_rmse_ms": {
+        "free": 230.24477553143208,
+        "shared_width": 234.73570320157054,
+        "shared_midpoint": 105.44712376305004,
+        "shared_both": 153.3388448114351,
+        "flat": 78.84602948012122,
+        "linear": 94.67303893793658,
+        "log_distance": 99.1739650634365
+      },
+      "held_group_profile_rmse_ms": {
+        "free": 149.69267171233784,
+        "shared_width": 149.43585580905557,
+        "shared_midpoint": 15.56437832728497,
+        "shared_both": 11.735380833225104,
+        "flat": 11.374515636932033,
+        "linear": 16.325478493577243,
+        "log_distance": 16.44515571276463
+      }
+    },
+    "trajectory_same_label": {
+      "individual_units": 39,
+      "held_person_cells_rmse_ms": {
+        "free": 208.93586020408245,
+        "shared_width": 214.60233441114312,
+        "shared_midpoint": 104.82432154067601,
+        "shared_both": 148.5896931074834,
+        "flat": 78.84602948012122,
+        "linear": 92.73354578785495,
+        "log_distance": 95.70279051056596
+      },
+      "held_group_profile_rmse_ms": {
+        "free": 122.43830284840786,
+        "shared_width": 122.34354806365188,
+        "shared_midpoint": 15.646930128067469,
+        "shared_both": 11.735736070402172,
+        "flat": 11.374515636932033,
+        "linear": 15.874089667131557,
+        "log_distance": 15.851380674404124
+      }
+    }
+  },
+  "posthoc_predictive_span_limits_ms": {
+    "registered": {
+      "80.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 51.052613631606356,
+          "shared_width": 51.099305142604614,
+          "shared_midpoint": 50.63021878850808,
+          "shared_both": 50.29489679622685,
+          "flat": 50.47465188932758,
+          "linear": 50.84507037315083,
+          "log_distance": 51.77368083081974
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 11.56323121704493,
+          "shared_width": 15.766350631078788,
+          "shared_midpoint": 8.886458644784774,
+          "shared_both": 11.49935087554705,
+          "flat": 11.585062110900159,
+          "linear": 10.236834279961677,
+          "log_distance": 13.182871382904697
+        }
+      },
+      "160.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 58.53286112447332,
+          "shared_width": 57.90569952630322,
+          "shared_midpoint": 53.87422304720841,
+          "shared_both": 53.28696865578785,
+          "flat": 50.47465188932758,
+          "linear": 53.5175395583215,
+          "log_distance": 55.67809780652858
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 27.69863646349637,
+          "shared_width": 41.798453906131726,
+          "shared_midpoint": 8.886458644784774,
+          "shared_both": 18.860241325592888,
+          "flat": 11.585062110900159,
+          "linear": 10.236834279961677,
+          "log_distance": 13.182871382904697
+        }
+      },
+      "320.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 79.1796529490272,
+          "shared_width": 76.77642498271682,
+          "shared_midpoint": 58.99754332391498,
+          "shared_both": 61.938090152637315,
+          "flat": 50.47465188932758,
+          "linear": 55.37060632946913,
+          "log_distance": 59.232890900894475
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 74.90566928697436,
+          "shared_width": 80.56981319686497,
+          "shared_midpoint": 8.886458644784774,
+          "shared_both": 44.787717432484776,
+          "flat": 11.585062110900159,
+          "linear": 10.236834279961677,
+          "log_distance": 13.182871382904697
+        }
+      }
+    },
+    "trajectory": {
+      "80.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 51.06707480704312,
+          "shared_width": 51.04608320416281,
+          "shared_midpoint": 50.90265745481069,
+          "shared_both": 50.308564459454594,
+          "flat": 50.47465188932758,
+          "linear": 50.74514403549073,
+          "log_distance": 51.39604757418388
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 18.79374965741036,
+          "shared_width": 19.436460398656884,
+          "shared_midpoint": 8.783768870714052,
+          "shared_both": 12.861391478687889,
+          "flat": 11.585062110900159,
+          "linear": 10.015089082707892,
+          "log_distance": 11.773969590161236
+        }
+      },
+      "160.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 58.608012004289556,
+          "shared_width": 58.82743590341952,
+          "shared_midpoint": 53.97134006671451,
+          "shared_both": 53.29478962721029,
+          "flat": 50.47465188932758,
+          "linear": 53.277490446012244,
+          "log_distance": 54.83988473561321
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 32.35713542463446,
+          "shared_width": 41.1742790837689,
+          "shared_midpoint": 8.783768870714052,
+          "shared_both": 24.484748924767764,
+          "flat": 11.585062110900159,
+          "linear": 10.015089082707892,
+          "log_distance": 11.773969590161236
+        }
+      },
+      "320.0": {
+        "held_person_cells_rmse_ms": {
+          "free": 78.30727914422924,
+          "shared_width": 79.95208767670204,
+          "shared_midpoint": 58.08795607215734,
+          "shared_both": 61.110733594149444,
+          "flat": 50.47465188932758,
+          "linear": 54.72845937489991,
+          "log_distance": 57.311786365044796
+        },
+        "held_group_profile_rmse_ms": {
+          "free": 49.31353690745593,
+          "shared_width": 90.85731320947083,
+          "shared_midpoint": 8.783768870714052,
+          "shared_both": 61.601260339548915,
+          "flat": 11.585062110900159,
+          "linear": 10.015089082707892,
+          "log_distance": 11.773969590161236
+        }
+      }
+    }
+  },
+  "descriptive_mean_of_paired_estimates": [
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 3.2624999999999984
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 17.2125
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": -17.6625
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 26.04375
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 8.381250000000003
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 12.09375
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": -5.56875
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 5.709374999999999
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 17.015625
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": -20.19375
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 27.1125
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 6.918750000000001
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 15.806249999999997
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": -4.387500000000001
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 2.999999999999999
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 10.95
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": -15.7
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 18.8
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 3.1000000000000023
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 10.85
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": -4.849999999999999
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 5.125
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 15.475
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": -19.65
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 25.3
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 5.65
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 14.95
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": -4.700000000000001
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition \u00d7 Phase",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Control",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Viscereality",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Exhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "pooled_cp",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Inhale",
+      "n": 40,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 5.509615384615385
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.25961538461538425
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": 3.5192307692307714
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": -1.4999999999999998
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": 2.01923076923077
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 3.7499999999999987
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 7.269230769230771
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 4.817307692307693
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": -1.9903846153846156
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": -5.01923076923077
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.5192307692307688
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": -4.5
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 7.326923076923078
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 2.3076923076923075
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "registered",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 5.128205128205129
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": -0.2564102564102564
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": -2.0512820512820507
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.7692307692307679
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": -1.2820512820512846
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 6.153846153846154
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "free",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 4.102564102564104
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 4.179487179487176
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": -1.8717948717948711
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": -5.076923076923077
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.6666666666666661
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": -4.410256410256411
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 6.717948717948716
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_width",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 1.6410256410256396
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_midpoint",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition \u00d7 Phase",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Control",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Phase within Viscereality",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Exhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    },
+    {
+      "axis": "trajectory",
+      "correction": "same_label",
+      "cohort": "primary40",
+      "model": "shared_both",
+      "effect": "Condition within Inhale",
+      "n": 39,
+      "conditional_mean_cm": 0.0
+    }
+  ],
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1"
+  },
+  "sha256": {
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "results/boundary_methods/PROFILE_SPECIFICATION.md": "9a2840a92df9e464b0574961eb1d8fbf923ee2a3b960c24afc00c64619d66269",
+    "results/boundary_methods/midpoint_profiles.csv": "f07193eb59428c08c61cc226b6b805f2b23035050285e6e9a95e52c316d27aef",
+    "results/boundary_methods/midpoint_reduction_contrasts.csv": "ce91f5c86be2fa42a1da4481f93782f0f1e8103c283d82562dff9f76623033df"
+  }
+}

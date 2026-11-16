@@ -1,0 +1,204 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "summaries": {
+    "registered": {
+      "unique_gaps": 13,
+      "unique_positive_gaps": 7,
+      "no_compatible": 3,
+      "boundary_free_compatible": 141,
+      "group_compatibility": {
+        "Control Exhale": [
+          "gap_3"
+        ],
+        "Control Inhale": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality Exhale": [
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality Inhale": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Control equal phase": [
+          "flat",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality equal phase": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ]
+      },
+      "held_distance_rmse_ms": {
+        "flat": 48.020302269336376,
+        "step": 49.98933528875944,
+        "linear": 53.635977622495176,
+        "log_distance": 57.45261113141128
+      }
+    },
+    "trajectory": {
+      "unique_gaps": 15,
+      "unique_positive_gaps": 9,
+      "no_compatible": 3,
+      "boundary_free_compatible": 139,
+      "group_compatibility": {
+        "Control Exhale": [
+          "gap_3",
+          "linear"
+        ],
+        "Control Inhale": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality Exhale": [
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality Inhale": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Control equal phase": [
+          "flat",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ],
+        "Viscereality equal phase": [
+          "flat",
+          "gap_1",
+          "gap_2",
+          "gap_3",
+          "gap_4",
+          "linear",
+          "log_distance"
+        ]
+      },
+      "held_distance_rmse_ms": {
+        "flat": 48.020302269336376,
+        "step": 49.98933528875944,
+        "linear": 52.95526355850464,
+        "log_distance": 55.291792613190644
+      }
+    }
+  },
+  "simulation": [
+    {
+      "scenario": "flat",
+      "cases": 40960,
+      "generating_family_retained": 38917,
+      "unique_gap": 674,
+      "correct_unique_gap": null,
+      "positive_unique_gap": 313
+    },
+    {
+      "scenario": "80_ms_step",
+      "cases": 40960,
+      "generating_family_retained": 38877,
+      "unique_gap": 6989,
+      "correct_unique_gap": 6700,
+      "positive_unique_gap": 6949
+    },
+    {
+      "scenario": "160_ms_step",
+      "cases": 40960,
+      "generating_family_retained": 38949,
+      "unique_gap": 20977,
+      "correct_unique_gap": 20868,
+      "positive_unique_gap": 20976
+    },
+    {
+      "scenario": "80_ms_linear",
+      "cases": 40960,
+      "generating_family_retained": 38890,
+      "unique_gap": 950,
+      "correct_unique_gap": null,
+      "positive_unique_gap": 922
+    }
+  ],
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1"
+  },
+  "checks": "All seven contrast projections match independent five-point GLS; shift invariance verified.",
+  "sha256": {
+    "analysis/boundary_methods/change_point.py": "07542c4b3922f31714618ba34fa6a1a366036db23520bfcc7e35a41e991277f6",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "results/boundary_methods/CHANGE_POINT_SPECIFICATION.md": "db9d21b10e1616d20db9297f201d879a249631adb004eab8c4b89410c5fde36b",
+    "results/boundary_methods/change_point_candidates.csv": "4bdbeb026b6245db57f3265a799d8c4b9dee7ea9b8eaa40209f3fbb95ed23399"
+  }
+}

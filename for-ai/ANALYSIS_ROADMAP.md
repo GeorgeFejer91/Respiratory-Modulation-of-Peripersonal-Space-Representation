@@ -1225,6 +1225,45 @@ AT − Baseline uncertainty. This is an exploratory extension, not a preregistra
 or a promise of a nonzero effect. Computational completion can yield an
 inconclusive or unidentifiable parameter comparison.
 
+### Boundary method audit and extension — 2026-11-16
+
+The owner requested an audit of every distinct defensible route to a
+participant-by-condition boundary and to condition-level boundary estimates.
+The [method registry](../literature_review/BOUNDARY_METHOD_AUDIT.md) records
+which routes have already been tried, which change the outcome, and which
+depend on missing design information. Treat a scientifically inconclusive
+finding as a valid completion of a specified screen.
+
+- [x] Screen all 94 PPS Kit catalogue sources and cross-check target methods
+  with the executable Study 5 analyses. Continue to review relevant sources
+  beyond the catalogue as distinct candidates arise.
+- [x] Run the Spearman–Kärber, mean-log-RT fixed-extrema sigmoid, discrete
+  change-point and quantile screens. The [native results](../results/boundary_methods/RESULTS.md)
+  retain conditional estimates, simulations, candidate compatibility and
+  held-distance prediction. The tested methods provide no stable paired
+  boundary comparison. Keep the apparent group steps from selected profiles
+  as sensitivity findings.
+- [x] Freeze and run calibrated midpoint sets and the four nonlinear
+  reductions with within-person or group shared shape. The
+  [native profile results](../results/boundary_methods/PROFILE_RESULTS.md)
+  include both axes, same-label and linkage sensitivities, matched recovery,
+  and prediction at four amplitude limits. Neither axis yielded a
+  localized participant midpoint. Sharing width improved simulated effect
+  recovery but did not resolve the observed group contrast.
+- [ ] Run calibrated continuous knots and monotone threshold sets. Then
+  compare reduced population and participant hierarchies, including the
+  baseline and session-time specifications, with joint recovery and
+  matched predictions. Report all conditional and unidentifiable cases.
+- [ ] Resolve the timing and recording inputs that can be recovered from
+  source evidence. The task has only one sampled time per nominal distance.
+  The current data cannot identify independent time and distance effects
+  without added assumptions or compatible external design evidence.
+
+This native checkpoint does not promote exploratory findings to the
+article. Its publication slice uses the audited public trial release and
+public citations. The full private catalogue ledger remains in research
+storage. This checklist extends Q10 and remains open.
+
 - [x] Q10.1 Record the target: six primary contrasts (three effects × two
   parameters), plus the established simple contrasts. Preserve the primary40
   cohort, fixed cleaning, all earlier results and unadjusted frequentist outputs.
