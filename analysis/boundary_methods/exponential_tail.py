@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import time
+from importlib.metadata import version
 from pathlib import Path
 
 import numpy as np
@@ -23,18 +24,24 @@ SHAPES = ("tail","center")
 TRUTH = np.array([48.,45.,58.,55.])
 
 
+def ex_parameters(mu, sd, tau, log_cdf, log_add, log):
+    """Return the normal-CDF shift and constant shared by a probe's trials."""
+    rate = sd/tau
+    offset = mu/tau+(rate**2)/2
+    log_normalizer = log_add(log_cdf(mu/sd), offset+log_cdf(-mu/sd-rate))
+    return rate, offset-log_normalizer-log(tau)
+
+
 def ex_logpdf(y, mu, sd, tau, log_cdf, log_add, log):
     """Log PDF conditioned on a positive response, in the same units as y."""
-    rate = sd/tau
-    scale_term = (rate**2)/2
-    a = (y-mu)/sd-rate
-    h = (mu-y)/tau+scale_term
-    log_normalizer = log_add(log_cdf(mu/sd), mu/tau+scale_term+log_cdf(-mu/sd-rate))
-    return h+log_cdf(a)-log_normalizer-log(tau)
+    rate, offset = ex_parameters(mu,sd,tau,log_cdf,log_add,log)
+    return offset-y/tau+log_cdf((y-mu)/sd-rate)
 
 
 def build(rt, model):
     i,c,d,_ = index = np.where(np.isfinite(rt))
+    counts = np.isfinite(rt).sum(axis=-1)
+    totals = np.nansum(rt,axis=-1)
     n = len(rt)
     shape = (n,4)
     with pm.Model() as graph:
@@ -61,8 +68,10 @@ def build(rt, model):
         trial_mu = pm.Deterministic("trial_mu",mu)
         trial_tau = pm.Deterministic("trial_tau",pt.exp(log_mean))
         log_cdf = lambda z: pm.logcdf(pm.Normal.dist(),z)
-        raw = ex_logpdf(rt[index],trial_mu[i,c,d],sd[i],trial_tau[i,c,d],log_cdf,pt.logaddexp,pt.log)
-        pm.Potential("positive_tail_likelihood",raw.sum())
+        rate, offset = ex_parameters(trial_mu,sd[:,None,None],trial_tau,log_cdf,pt.logaddexp,pt.log)
+        probe_terms = counts*offset-totals/trial_tau
+        trial_terms = log_cdf((rt[index]-trial_mu[i,c,d])/sd[i]-rate[i,c,d])
+        pm.Potential("positive_tail_likelihood",probe_terms.sum()+trial_terms.sum())
     return graph
 
 
@@ -128,23 +137,34 @@ def sample(args):
     gate = ndiv==0 and all(v["max_rhat"] is not None and v["max_rhat"]<=1.01 and
                            min(v["min_bulk"],v["min_tail"])>=400 for v in estimates.values())
     out = dict(model=args.model,scenario=args.scenario,held_probe_index=args.held,chains=args.chains,
-               warmup=args.tune,draws=args.draws,diagnostic_pass=gate,diagnostics=estimates,divergences=ndiv,
+               warmup=args.tune,draws=args.draws,target_accept=args.accept,cores=args.cores,
+               diagnostic_pass=gate,diagnostics=estimates,divergences=ndiv,
                input=audit,participant_order=ids.tolist(),seed=SEED,seconds=time.monotonic()-start,
+               runtime={name:version(name) for name in ("pymc","pytensor","nutpie","scipy","numpy")},
                source_sha256=source_sha)
     if args.model in SHAPES:
         cm = posterior["midpoint_cm"].values
         qs = lambda x: np.quantile(x,[.025,.5,.975],axis=(0,1)).tolist()
         change = posterior["trial_mu" if args.model=="center" else "trial_tau"].values
         span = (change[...,-1]-change[...,0])*1000
+        locations = qs(cm)
         out.update(prior_midpoint_fraction_inside=float(((before>=10)&(before<=100)).mean()),
                    posterior_midpoint_fraction_inside=float(((cm>=10)&(cm<=100)).mean()),
                    population_midpoint_contrasts_cm=qs(posterior["midpoint_fixed_cm"].values[...,1:]),
                    paired_fixed_sample_contrasts_cm=qs(cm.mean(-2)@W.T),
-                   group_component_span_ms=qs(span.mean(-2)),participant_midpoints_cm=qs(cm))
+                   width_cm=qs(posterior["width_cm"].values),
+                   group_component_span_ms=qs(span.mean(-2)),participant_component_span_ms=qs(span),
+                   participant_midpoints_cm=locations)
         if args.scenario=="shift":
-            out["recovery"] = dict(truth_cm=TRUTH.tolist(),condition_truth_cm=float(TRUTH@W[0]),
-                                   individual_midpoint_rmse_cm=float(np.sqrt(np.mean(
-                                       (np.asarray(out["participant_midpoints_cm"])[1]-TRUTH)**2))))
+            lo, med, hi = np.asarray(locations)
+            contrast_truth = TRUTH @ W.T
+            paired = np.asarray(out["paired_fixed_sample_contrasts_cm"])
+            out["recovery"] = dict(
+                truth_cm=TRUTH.tolist(), paired_truth_cm=contrast_truth.tolist(),
+                individual_midpoint_rmse_cm=float(np.sqrt(np.mean((med-TRUTH)**2))),
+                individual_interval_coverage=float(((lo<=TRUTH)&(TRUTH<=hi)).mean()),
+                paired_intervals_cover_truth=((paired[0]<=contrast_truth)&(contrast_truth<=paired[2])).tolist(),
+            )
     if args.held is not None:
         out["held_predictions"] = held_score(posterior,rt,args.held)
     LOCAL.mkdir(parents=True,exist_ok=True)
