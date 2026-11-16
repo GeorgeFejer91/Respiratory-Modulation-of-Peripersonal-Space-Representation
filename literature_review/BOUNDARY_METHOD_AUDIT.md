@@ -23,6 +23,12 @@ variant only when it changes an estimator, outcome, identification assumption
 or unit of generalization. Numerical optimization settings and arbitrary
 combinations of the same models do not add independent evidence.
 
+The [common monotone shift comparison](../results/boundary_methods/MONOTONE_SHIFT_RESULTS.md)
+keeps the function shape unspecified while testing relative horizontal
+displacement. All 2,048 estimable paired sets retained every shift,
+including under a shared RT level. Allowing displacement worsened
+group held-probe mean RT prediction in all four baseline and axis settings.
+
 | Method and source | Relation to Study 5 | Decision |
 | --- | --- | --- |
 | Fixed-extrema logistic and mean-RT comparisons in [Canzoneri et al. (2012)](https://doi.org/10.1371/journal.pone.0044306), Methods, and [Noel et al. (2018)](https://doi.org/10.1152/jn.00652.2017), equation 1 | Study 5 already ran fixed-extrema logistic, free logistic, probit, Gompertz and log-logistic on both nominal axes; tested means, medians, smoothing, directional and constrained curves | Covered. The Noel fixed-extrema median variant falls within existing choices. Different approaches or stimulus velocities require measurements Study 5 did not collect |

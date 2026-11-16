@@ -1270,6 +1270,10 @@ finding as a valid completion of a specified screen.
   for the observed-range half response and three absolute facilitation levels.
   No crossing or paired contrast was localized. Retain partial intervals and
   censoring directions. The isotonic prediction advantage depends on Baseline.
+- [x] Compare [relative shifts of a common monotone RT shape](../results/boundary_methods/MONOTONE_SHIFT_RESULTS.md).
+  All 2,048 estimable sets cover the real line. Free horizontal shifts
+  predicted worse than zero shift across both axes and reference rules.
+  All observed bands for paired curves admitted a common constant.
 - [x] Run the [baseline-confidence-limit line crossing](../results/boundary_methods/BASELINE_CROSSING_RESULTS.md)
   from Serino et al., Fig. 7, with reference uncertainty and ratio sets.
   No crossed-reference location or contrast was bounded within the probes.
