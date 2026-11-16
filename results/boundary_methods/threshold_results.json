@@ -1,0 +1,644 @@
+{
+  "seed": 20261119,
+  "replicates": 96,
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "prediction_rmse_ms": {
+    "registered_pooled_cp": {
+      "individual_profiles": {
+        "flat": 50.47465188932759,
+        "linear": 55.46011726638188,
+        "log_distance": 60.17922185897604,
+        "isotonic_interval_linear": 48.911658636805804
+      },
+      "group_profiles": {
+        "flat": 11.585062110900138,
+        "linear": 10.236834279961636,
+        "log_distance": 13.18287138290466,
+        "isotonic_interval_linear": 7.110148285573654
+      }
+    },
+    "trajectory_pooled_cp": {
+      "individual_profiles": {
+        "flat": 50.47465188932759,
+        "linear": 54.89314484495959,
+        "log_distance": 57.87091598393159,
+        "isotonic_interval_linear": 49.10686295889972
+      },
+      "group_profiles": {
+        "flat": 11.585062110900138,
+        "linear": 10.01508908270787,
+        "log_distance": 11.773969590161277,
+        "isotonic_interval_linear": 6.9779718140656914
+      }
+    },
+    "registered_same_label": {
+      "individual_profiles": {
+        "flat": 78.84602948012122,
+        "linear": 94.67303893793657,
+        "log_distance": 99.1739650634365,
+        "isotonic_interval_linear": 84.42902943937702
+      },
+      "group_profiles": {
+        "flat": 11.374515636932033,
+        "linear": 16.325478493577243,
+        "log_distance": 16.44515571276463,
+        "isotonic_interval_linear": 13.52563487152348
+      }
+    },
+    "trajectory_same_label": {
+      "individual_profiles": {
+        "flat": 78.84602948012122,
+        "linear": 92.73354578785495,
+        "log_distance": 95.70279051056598,
+        "isotonic_interval_linear": 84.54527738087124
+      },
+      "group_profiles": {
+        "flat": 11.374515636932033,
+        "linear": 15.874089667131555,
+        "log_distance": 15.851380674404123,
+        "isotonic_interval_linear": 13.531275752406943
+      }
+    }
+  },
+  "recovery": {
+    "flat_at_target": {
+      "observed_half": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 0.99921875,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "0ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 0.9997395833333333,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 0.9166666666666666,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "20ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "40ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      }
+    },
+    "flat_below_target": {
+      "observed_half": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 0.9986979166666666,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "0ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "20ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      },
+      "40ms": {
+        "individuals": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        },
+        "group": {
+          "true_crossing_fraction": 0.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": 0.0,
+          "correct_localization_fraction_when_unique": null,
+          "mean_measured_width_cm_when_unique": null,
+          "condition_effect": null
+        }
+      }
+    },
+    "linear": {
+      "observed_half": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0006510416666666666,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.0006076388888888889,
+          "mean_measured_width_cm_when_unique": 89.82217881944445,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.0,
+          "mean_measured_width_cm_when_unique": 90.0,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        }
+      },
+      "0ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.00034722222222222224,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.00034722222222222224,
+          "mean_measured_width_cm_when_unique": 89.55629340277778,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.9392361111111112,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.9392361111111112,
+          "mean_measured_width_cm_when_unique": 45.65972222222222,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.375
+          }
+        }
+      },
+      "20ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.00021701388888888888,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.00021701388888888888,
+          "mean_measured_width_cm_when_unique": 89.32816840277778,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.9652777777777778,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.9652777777777778,
+          "mean_measured_width_cm_when_unique": 43.53125,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.4583333333333333
+          }
+        }
+      },
+      "40ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.00026041666666666666,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.00026041666666666666,
+          "mean_measured_width_cm_when_unique": 87.88567708333333,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.8975694444444444,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.8975694444444444,
+          "mean_measured_width_cm_when_unique": 39.576388888888886,
+          "condition_effect": {
+            "true_shift_min_cm": 0.0,
+            "true_shift_max_cm": 0.0,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.14583333333333334
+          }
+        }
+      }
+    },
+    "strong_clipped_ramp": {
+      "observed_half": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.052083333333333336,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.052083333333333336,
+          "mean_measured_width_cm_when_unique": 87.0845920138889,
+          "condition_effect": {
+            "true_shift_min_cm": 11.775196367206679,
+            "true_shift_max_cm": 14.532054572947732,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0026041666666666665
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.11979166666666667,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.11979166666666667,
+          "mean_measured_width_cm_when_unique": 85.65451388888889,
+          "condition_effect": {
+            "true_shift_min_cm": 14.425875999808717,
+            "true_shift_max_cm": 14.425875999808717,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        }
+      },
+      "0ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.015017361111111112,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.015017361111111112,
+          "mean_measured_width_cm_when_unique": 84.35672743055555,
+          "condition_effect": {
+            "true_shift_min_cm": 9.973390101001865,
+            "true_shift_max_cm": 15.632314619423223,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.9982638888888888,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.9982638888888888,
+          "mean_measured_width_cm_when_unique": 33.97569444444444,
+          "condition_effect": {
+            "true_shift_min_cm": 12.866247787321317,
+            "true_shift_max_cm": 12.866247787321317,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.9791666666666666
+          }
+        }
+      },
+      "20ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.03446180555555556,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.03446180555555556,
+          "mean_measured_width_cm_when_unique": 85.38289930555555,
+          "condition_effect": {
+            "true_shift_min_cm": 11.404208877581748,
+            "true_shift_max_cm": 14.396351488777622,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0015625
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 1.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 1.0,
+          "mean_measured_width_cm_when_unique": 30.227430555555557,
+          "condition_effect": {
+            "true_shift_min_cm": 14.049516396266544,
+            "true_shift_max_cm": 14.049516396266544,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 1.0
+          }
+        }
+      },
+      "40ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.03446180555555556,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.03446180555555556,
+          "mean_measured_width_cm_when_unique": 84.88237847222223,
+          "condition_effect": {
+            "true_shift_min_cm": 12.195046920433516,
+            "true_shift_max_cm": 14.869421819912588,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0026041666666666665
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 1.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 1.0,
+          "mean_measured_width_cm_when_unique": 28.869791666666668,
+          "condition_effect": {
+            "true_shift_min_cm": 14.738067182881238,
+            "true_shift_max_cm": 14.738067182881238,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 1.0
+          }
+        }
+      }
+    },
+    "strong_logistic": {
+      "observed_half": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.04422743055555556,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.04422743055555556,
+          "mean_measured_width_cm_when_unique": 87.88485243055555,
+          "condition_effect": {
+            "true_shift_min_cm": 10.491296040816145,
+            "true_shift_max_cm": 13.562488992216071,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.00026041666666666666
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.1545138888888889,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.1545138888888889,
+          "mean_measured_width_cm_when_unique": 85.78472222222223,
+          "condition_effect": {
+            "true_shift_min_cm": 11.339465580429668,
+            "true_shift_max_cm": 11.339465580429668,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        }
+      },
+      "0ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.02651909722222222,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.02651909722222222,
+          "mean_measured_width_cm_when_unique": 84.49392361111111,
+          "condition_effect": {
+            "true_shift_min_cm": 10.852447164926385,
+            "true_shift_max_cm": 15.120627194654688,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 1.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 1.0,
+          "mean_measured_width_cm_when_unique": 34.701388888888886,
+          "condition_effect": {
+            "true_shift_min_cm": 12.560616662264536,
+            "true_shift_max_cm": 12.560616662264536,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 1.0
+          }
+        }
+      },
+      "20ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.027387152777777778,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.027387152777777778,
+          "mean_measured_width_cm_when_unique": 86.54995659722222,
+          "condition_effect": {
+            "true_shift_min_cm": 10.853456286549598,
+            "true_shift_max_cm": 14.561856940173037,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 1.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 1.0,
+          "mean_measured_width_cm_when_unique": 32.598958333333336,
+          "condition_effect": {
+            "true_shift_min_cm": 11.670209068496838,
+            "true_shift_max_cm": 11.670209068496838,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 1.0
+          }
+        }
+      },
+      "40ms": {
+        "individuals": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 0.013758680555555555,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 0.013758680555555555,
+          "mean_measured_width_cm_when_unique": 86.87443576388888,
+          "condition_effect": {
+            "true_shift_min_cm": 10.351857625488304,
+            "true_shift_max_cm": 13.560855753351884,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 0.0
+          }
+        },
+        "group": {
+          "true_crossing_fraction": 1.0,
+          "phase_joint_state_coverage": 1.0,
+          "localized_fraction": 1.0,
+          "wrong_localization_fraction_when_no_unique_crossing": null,
+          "correct_localization_fraction_when_unique": 1.0,
+          "mean_measured_width_cm_when_unique": 32.80381944444444,
+          "condition_effect": {
+            "true_shift_min_cm": 10.589463423520801,
+            "true_shift_max_cm": 10.589463423520801,
+            "joint_contains_truth_fraction": 1.0,
+            "jointly_localized_and_contains_truth_fraction": 1.0
+          }
+        }
+      }
+    }
+  },
+  "sha256": {
+    "analysis/boundary_methods/threshold.py": "befbc0c46c37eeae2a0fdda143780f11b3bd5d09261fe910fd1207a4d26c1738",
+    "analysis/boundary_methods/threshold_sets.py": "3134e9ec33a045276589682ab5c19ad168f1df1e2fbb0363757103c9c98b3d54",
+    "analysis/boundary_methods/threshold_bands.py": "499fa48a077b6c83b54d5c85ec93e1273f6037adabb0d7ebdb579e0e78f12526",
+    "analysis/boundary_methods/knot_grid.py": "a6aca279f7f1b97cc3fd71a44e528260573a5f70ed9b6d3176c9b0b59559061d",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "results/boundary_methods/THRESHOLD_SPECIFICATION.md": "77195cb55387ff7cff0dbb93c47ed8bf03facfc123cb8950a69e6698d2be72d7",
+    "results/boundary_methods/threshold_profiles.csv": "009275d6f8a5d704063e7b8724076e8595b756006c4d363d3ff7069a97a22381",
+    "results/boundary_methods/threshold_contrasts.csv": "0c96f121b29c9567679a1154574aca47b08eefb43cca728b2cbe849272ad864c"
+  }
+}

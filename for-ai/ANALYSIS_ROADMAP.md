@@ -1255,8 +1255,11 @@ finding as a valid completion of a specified screen.
   retain one individual phase-specific onset candidate under pooled Baseline
   on both axes. The same-label sensitivity did not localize that candidate.
   No group profile or paired knot comparison was resolved.
-- [ ] Run monotone threshold sets. Then compare reduced population and
-  participant hierarchies, including the
+- [x] Run [monotone threshold sets](../results/boundary_methods/THRESHOLD_RESULTS.md)
+  for the observed-range half response and three absolute facilitation levels.
+  No crossing or paired contrast was localized. Retain partial intervals and
+  censoring directions. The isotonic prediction advantage depends on Baseline.
+- [ ] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
 - [ ] Resolve the timing and recording inputs that can be recovered from
@@ -1274,6 +1277,11 @@ unit tests and the public data check. Its [workbook build and deploy](https://gi
 succeeded, and the live workbook returned HTTP 200. This audit publishes
 native results to the source tree. The browser analysis target uses the
 existing release workflow.
+
+The continuous knot source checkpoint, `9ac19ab`, passed its
+[workbook build and deployment](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43900137642).
+The live workbook returned HTTP 200. Independent GLS and linear-programming
+comparisons covered the continuous knot and monotone threshold engines.
 
 - [x] Q10.1 Record the target: six primary contrasts (three effects × two
   parameters), plus the established simple contrasts. Preserve the primary40
