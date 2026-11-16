@@ -1,0 +1,1921 @@
+participant,reference,axis,effect,available,undefined_possible,conditional_low_cm,conditional_high_cm,excludes_zero
+P000,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Condition,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Phase,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P001,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P002,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P003,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P004,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P005,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P006,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P007,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P008,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P009,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P010,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P012,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P013,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P014,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P015,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P016,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P017,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P018,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P019,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P020,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P021,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P022,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P023,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P024,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P025,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P026,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P027,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P028,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P029,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P030,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P031,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P032,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P034,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P035,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P036,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P037,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P038,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P039,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P040,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P041,pooled_cp,registered,Condition × Phase,True,True,-180.0,180.0,False
+P000,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Phase within Control,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P000,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P001,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P002,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P003,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P004,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P005,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P006,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P007,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P008,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P009,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P010,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P012,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P013,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P014,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P015,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P016,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P017,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P018,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P019,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P020,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P021,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P022,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P023,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P024,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P025,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P026,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P027,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P028,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P029,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P030,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P031,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P032,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P034,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P035,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P036,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P037,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P038,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P039,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P040,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P041,pooled_cp,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P000,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Condition,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Phase,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P001,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P002,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P003,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P004,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P005,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P006,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P007,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P008,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P009,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P010,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P012,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P013,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P014,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P015,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P016,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P017,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P018,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P019,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P020,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P021,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P022,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P023,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P024,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P025,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P026,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P027,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P028,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P029,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P030,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P031,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P032,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P034,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P035,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P036,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P037,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P038,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P039,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P040,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P041,pooled_cp,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P000,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P000,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P001,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P002,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P003,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P004,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P005,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P006,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P007,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P008,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P009,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P010,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P012,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P013,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P014,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P015,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P016,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P017,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P018,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P019,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P020,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P021,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P022,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P023,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P024,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P025,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P026,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P027,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P028,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P029,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P030,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P031,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P032,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P034,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P035,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P036,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P037,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P038,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P039,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P040,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P041,pooled_cp,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P000,same_label,registered,Condition,True,True,-90.0,90.0,False
+P001,same_label,registered,Condition,True,True,-90.0,90.0,False
+P002,same_label,registered,Condition,True,True,-90.0,90.0,False
+P003,same_label,registered,Condition,True,True,-90.0,90.0,False
+P004,same_label,registered,Condition,True,True,-90.0,90.0,False
+P005,same_label,registered,Condition,True,True,-90.0,90.0,False
+P006,same_label,registered,Condition,True,True,-90.0,90.0,False
+P007,same_label,registered,Condition,True,True,-90.0,90.0,False
+P008,same_label,registered,Condition,True,True,-90.0,90.0,False
+P009,same_label,registered,Condition,True,True,-90.0,90.0,False
+P010,same_label,registered,Condition,True,True,-90.0,90.0,False
+P012,same_label,registered,Condition,True,True,-90.0,90.0,False
+P013,same_label,registered,Condition,True,True,-90.0,90.0,False
+P014,same_label,registered,Condition,True,True,-90.0,90.0,False
+P015,same_label,registered,Condition,True,True,-90.0,90.0,False
+P016,same_label,registered,Condition,True,True,-90.0,90.0,False
+P017,same_label,registered,Condition,True,True,-90.0,90.0,False
+P018,same_label,registered,Condition,True,True,-90.0,90.0,False
+P019,same_label,registered,Condition,True,True,-90.0,90.0,False
+P020,same_label,registered,Condition,False,,,,False
+P021,same_label,registered,Condition,True,True,-90.0,90.0,False
+P022,same_label,registered,Condition,True,True,-90.0,90.0,False
+P023,same_label,registered,Condition,True,True,-90.0,90.0,False
+P024,same_label,registered,Condition,True,True,-90.0,90.0,False
+P025,same_label,registered,Condition,True,True,-90.0,90.0,False
+P026,same_label,registered,Condition,True,True,-90.0,90.0,False
+P027,same_label,registered,Condition,True,True,-90.0,90.0,False
+P028,same_label,registered,Condition,True,True,-90.0,90.0,False
+P029,same_label,registered,Condition,True,True,-90.0,90.0,False
+P030,same_label,registered,Condition,True,True,-90.0,90.0,False
+P031,same_label,registered,Condition,True,True,-90.0,90.0,False
+P032,same_label,registered,Condition,True,True,-90.0,90.0,False
+P034,same_label,registered,Condition,True,True,-90.0,90.0,False
+P035,same_label,registered,Condition,True,True,-90.0,90.0,False
+P036,same_label,registered,Condition,True,True,-90.0,90.0,False
+P037,same_label,registered,Condition,True,True,-90.0,90.0,False
+P038,same_label,registered,Condition,True,True,-90.0,90.0,False
+P039,same_label,registered,Condition,True,True,-90.0,90.0,False
+P040,same_label,registered,Condition,True,True,-90.0,90.0,False
+P041,same_label,registered,Condition,True,True,-90.0,90.0,False
+P000,same_label,registered,Phase,True,True,-90.0,90.0,False
+P001,same_label,registered,Phase,True,True,-90.0,90.0,False
+P002,same_label,registered,Phase,True,True,-90.0,90.0,False
+P003,same_label,registered,Phase,True,True,-90.0,90.0,False
+P004,same_label,registered,Phase,True,True,-90.0,90.0,False
+P005,same_label,registered,Phase,True,True,-90.0,90.0,False
+P006,same_label,registered,Phase,True,True,-90.0,90.0,False
+P007,same_label,registered,Phase,True,True,-90.0,90.0,False
+P008,same_label,registered,Phase,True,True,-90.0,90.0,False
+P009,same_label,registered,Phase,True,True,-90.0,90.0,False
+P010,same_label,registered,Phase,True,True,-90.0,90.0,False
+P012,same_label,registered,Phase,True,True,-90.0,90.0,False
+P013,same_label,registered,Phase,True,True,-90.0,90.0,False
+P014,same_label,registered,Phase,True,True,-90.0,90.0,False
+P015,same_label,registered,Phase,True,True,-90.0,90.0,False
+P016,same_label,registered,Phase,True,True,-90.0,90.0,False
+P017,same_label,registered,Phase,True,True,-90.0,90.0,False
+P018,same_label,registered,Phase,True,True,-90.0,90.0,False
+P019,same_label,registered,Phase,True,True,-90.0,90.0,False
+P020,same_label,registered,Phase,False,,,,False
+P021,same_label,registered,Phase,True,True,-90.0,90.0,False
+P022,same_label,registered,Phase,True,True,-90.0,90.0,False
+P023,same_label,registered,Phase,True,True,-90.0,90.0,False
+P024,same_label,registered,Phase,True,True,-90.0,90.0,False
+P025,same_label,registered,Phase,True,True,-90.0,90.0,False
+P026,same_label,registered,Phase,True,True,-90.0,90.0,False
+P027,same_label,registered,Phase,True,True,-90.0,90.0,False
+P028,same_label,registered,Phase,True,True,-90.0,90.0,False
+P029,same_label,registered,Phase,True,True,-90.0,90.0,False
+P030,same_label,registered,Phase,True,True,-90.0,90.0,False
+P031,same_label,registered,Phase,True,True,-90.0,90.0,False
+P032,same_label,registered,Phase,True,True,-90.0,90.0,False
+P034,same_label,registered,Phase,True,True,-90.0,90.0,False
+P035,same_label,registered,Phase,True,True,-90.0,90.0,False
+P036,same_label,registered,Phase,True,True,-90.0,90.0,False
+P037,same_label,registered,Phase,True,True,-90.0,90.0,False
+P038,same_label,registered,Phase,True,True,-90.0,90.0,False
+P039,same_label,registered,Phase,True,True,-90.0,90.0,False
+P040,same_label,registered,Phase,True,True,-90.0,90.0,False
+P041,same_label,registered,Phase,True,True,-90.0,90.0,False
+P000,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P001,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P002,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P003,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P004,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P005,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P006,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P007,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P008,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P009,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P010,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P012,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P013,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P014,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P015,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P016,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P017,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P018,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P019,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P020,same_label,registered,Condition × Phase,False,,,,False
+P021,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P022,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P023,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P024,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P025,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P026,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P027,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P028,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P029,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P030,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P031,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P032,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P034,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P035,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P036,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P037,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P038,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P039,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P040,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P041,same_label,registered,Condition × Phase,True,True,-180.0,180.0,False
+P000,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P001,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P002,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P003,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P004,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P005,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P006,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P007,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P008,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P009,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P010,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P012,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P013,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P014,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P015,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P016,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P017,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P018,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P019,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P020,same_label,registered,Phase within Control,False,,,,False
+P021,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P022,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P023,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P024,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P025,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P026,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P027,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P028,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P029,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P030,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P031,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P032,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P034,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P035,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P036,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P037,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P038,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P039,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P040,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P041,same_label,registered,Phase within Control,True,True,-90.0,90.0,False
+P000,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P001,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P002,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P003,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P004,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P005,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P006,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P007,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P008,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P009,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P010,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P012,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P013,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P014,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P015,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P016,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P017,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P018,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P019,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P020,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P021,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P022,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P023,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P024,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P025,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P026,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P027,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P028,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P029,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P030,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P031,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P032,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P034,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P035,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P036,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P037,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P038,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P039,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P040,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P041,same_label,registered,Phase within Viscereality,True,True,-90.0,90.0,False
+P000,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P001,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P002,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P003,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P004,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P005,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P006,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P007,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P008,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P009,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P010,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P012,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P013,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P014,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P015,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P016,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P017,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P018,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P019,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P020,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P021,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P022,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P023,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P024,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P025,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P026,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P027,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P028,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P029,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P030,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P031,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P032,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P034,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P035,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P036,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P037,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P038,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P039,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P040,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P041,same_label,registered,Condition within Exhale,True,True,-90.0,90.0,False
+P000,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P001,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P002,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P003,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P004,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P005,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P006,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P007,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P008,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P009,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P010,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P012,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P013,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P014,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P015,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P016,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P017,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P018,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P019,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P020,same_label,registered,Condition within Inhale,False,,,,False
+P021,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P022,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P023,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P024,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P025,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P026,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P027,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P028,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P029,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P030,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P031,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P032,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P034,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P035,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P036,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P037,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P038,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P039,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P040,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P041,same_label,registered,Condition within Inhale,True,True,-90.0,90.0,False
+P000,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P001,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P002,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P003,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P004,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P005,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P006,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P007,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P008,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P009,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P010,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P012,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P013,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P014,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P015,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P016,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P017,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P018,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P019,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P020,same_label,registered,Condition of equal-phase profiles,False,,,,False
+P021,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P022,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P023,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P024,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P025,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P026,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P027,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P028,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P029,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P030,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P031,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P032,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P034,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P035,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P036,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P037,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P038,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P039,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P040,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P041,same_label,registered,Condition of equal-phase profiles,True,True,-90.0,90.0,False
+P000,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Condition,False,,,,False
+P021,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Condition,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Phase,False,,,,False
+P021,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Phase,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P001,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P002,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P003,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P004,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P005,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P006,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P007,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P008,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P009,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P010,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P012,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P013,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P014,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P015,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P016,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P017,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P018,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P019,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P020,same_label,trajectory,Condition × Phase,False,,,,False
+P021,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P022,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P023,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P024,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P025,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P026,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P027,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P028,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P029,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P030,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P031,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P032,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P034,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P035,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P036,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P037,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P038,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P039,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P040,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P041,same_label,trajectory,Condition × Phase,True,True,-160.0,160.0,False
+P000,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Phase within Control,False,,,,False
+P021,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Phase within Control,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P021,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Phase within Viscereality,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P021,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Condition within Exhale,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Condition within Inhale,False,,,,False
+P021,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Condition within Inhale,True,True,-80.0,80.0,False
+P000,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P001,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P002,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P003,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P004,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P005,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P006,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P007,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P008,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P009,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P010,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P012,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P013,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P014,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P015,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P016,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P017,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P018,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P019,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P020,same_label,trajectory,Condition of equal-phase profiles,False,,,,False
+P021,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P022,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P023,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P024,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P025,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P026,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P027,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P028,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P029,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P030,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P031,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P032,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P034,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P035,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P036,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P037,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P038,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P039,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P040,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P041,same_label,trajectory,Condition of equal-phase profiles,True,True,-80.0,80.0,False
+P000,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Condition,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Phase,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P001,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P002,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P003,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P004,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P005,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P006,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P007,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P008,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P009,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P010,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P012,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P013,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P014,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P015,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P016,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P017,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P018,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P019,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P020,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P021,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P022,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P023,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P024,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P025,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P026,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P027,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P028,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P029,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P030,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P031,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P032,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P034,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P035,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P036,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P037,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P038,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P039,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P040,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P041,offset_exact,registered,Condition × Phase,True,True,-146.0,146.0,False
+P000,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Phase within Control,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Phase within Viscereality,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Condition within Exhale,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Condition within Inhale,True,True,-73.0,73.0,False
+P000,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P001,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P002,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P003,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P004,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P005,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P006,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P007,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P008,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P009,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P010,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P012,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P013,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P014,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P015,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P016,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P017,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P018,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P019,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P020,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P021,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P022,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P023,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P024,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P025,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P026,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P027,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P028,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P029,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P030,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P031,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P032,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P034,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P035,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P036,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P037,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P038,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P039,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P040,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P041,offset_exact,registered,Condition of equal-phase profiles,True,True,-73.0,73.0,False
+P000,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P001,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P002,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P003,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P004,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P005,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P006,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P007,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P008,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P009,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P010,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P012,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P013,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P014,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P015,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P016,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P017,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P018,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P019,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P020,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P021,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P022,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P023,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P024,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P025,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P026,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P027,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P028,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P029,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P030,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P031,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P032,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P034,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P035,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P036,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P037,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P038,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P039,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P040,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P041,offset_exact,trajectory,Condition,True,True,-63.333333333300004,63.3333333333,False
+P000,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P001,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P002,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P003,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P004,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P005,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P006,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P007,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P008,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P009,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P010,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P012,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P013,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P014,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P015,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P016,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P017,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P018,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P019,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P020,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P021,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P022,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P023,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P024,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P025,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P026,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P027,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P028,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P029,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P030,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P031,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P032,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P034,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P035,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P036,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P037,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P038,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P039,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P040,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P041,offset_exact,trajectory,Phase,True,True,-63.333333333300004,63.3333333333,False
+P000,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P001,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P002,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P003,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P004,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P005,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P006,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P007,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P008,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P009,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P010,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P012,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P013,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P014,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P015,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P016,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P017,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P018,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P019,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P020,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P021,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P022,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P023,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P024,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P025,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P026,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P027,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P028,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P029,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P030,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P031,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P032,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P034,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P035,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P036,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P037,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P038,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P039,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P040,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P041,offset_exact,trajectory,Condition × Phase,True,True,-126.66666666660001,126.6666666666,False
+P000,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P001,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P002,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P003,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P004,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P005,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P006,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P007,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P008,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P009,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P010,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P012,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P013,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P014,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P015,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P016,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P017,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P018,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P019,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P020,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P021,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P022,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P023,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P024,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P025,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P026,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P027,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P028,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P029,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P030,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P031,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P032,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P034,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P035,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P036,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P037,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P038,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P039,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P040,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P041,offset_exact,trajectory,Phase within Control,True,True,-63.3333333333,63.3333333333,False
+P000,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P001,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P002,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P003,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P004,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P005,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P006,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P007,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P008,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P009,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P010,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P012,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P013,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P014,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P015,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P016,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P017,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P018,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P019,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P020,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P021,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P022,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P023,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P024,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P025,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P026,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P027,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P028,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P029,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P030,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P031,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P032,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P034,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P035,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P036,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P037,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P038,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P039,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P040,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P041,offset_exact,trajectory,Phase within Viscereality,True,True,-63.3333333333,63.3333333333,False
+P000,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P001,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P002,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P003,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P004,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P005,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P006,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P007,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P008,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P009,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P010,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P012,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P013,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P014,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P015,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P016,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P017,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P018,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P019,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P020,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P021,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P022,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P023,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P024,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P025,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P026,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P027,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P028,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P029,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P030,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P031,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P032,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P034,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P035,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P036,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P037,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P038,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P039,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P040,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P041,offset_exact,trajectory,Condition within Exhale,True,True,-63.3333333333,63.3333333333,False
+P000,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P001,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P002,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P003,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P004,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P005,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P006,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P007,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P008,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P009,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P010,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P012,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P013,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P014,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P015,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P016,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P017,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P018,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P019,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P020,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P021,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P022,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P023,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P024,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P025,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P026,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P027,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P028,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P029,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P030,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P031,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P032,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P034,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P035,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P036,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P037,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P038,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P039,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P040,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P041,offset_exact,trajectory,Condition within Inhale,True,True,-63.3333333333,63.3333333333,False
+P000,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P001,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P002,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P003,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P004,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P005,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P006,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P007,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P008,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P009,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P010,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P012,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P013,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P014,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P015,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P016,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P017,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P018,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P019,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P020,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P021,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P022,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P023,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P024,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P025,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P026,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P027,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P028,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P029,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P030,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P031,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P032,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P034,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P035,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P036,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P037,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P038,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P039,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P040,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False
+P041,offset_exact,trajectory,Condition of equal-phase profiles,True,True,-63.3333333333,63.3333333333,False

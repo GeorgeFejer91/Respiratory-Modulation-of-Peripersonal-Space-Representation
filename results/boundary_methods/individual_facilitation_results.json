@@ -1,0 +1,2192 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "seed": 20261208,
+  "replicates": 96,
+  "profile_rows": 720,
+  "contrast_rows": 1920,
+  "simulation": {
+    "pooled_cp": [
+      {
+        "generator": "zero",
+        "truth_probe_indices": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3836,
+          3837,
+          3837,
+          3838,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.99479166666666
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.99479166666666
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 359.9895833333333
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 180.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.98958333333334
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.98958333333334
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 180.0
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 180.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.99479166666666
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.99479166666666
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 319.9895833333333
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 160.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.98958333333334
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.98958333333334
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 160.0
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 160.0
+            }
+          }
+        }
+      },
+      {
+        "generator": "constant_120ms",
+        "truth_probe_indices": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          1234,
+          1147,
+          1352,
+          1033,
+          746,
+          668
+        ],
+        "unique_incorrect": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 131.02265625
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 131.02265625
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 262.0453125
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 2796,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 129.546875
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 2916,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 132.4984375
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 2812,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 127.11276041666666
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 2985,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 134.93255208333332
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3277,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 153.27994791666666
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 114.47048611111568
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 114.47048611111568
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3225,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 228.94097222223135
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 2796,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 112.91666666667187
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 2916,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 116.02430555555948
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 2812,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 110.81163194444929
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 2985,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 118.12934027778206
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3277,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 135.06163194444753
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_40ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3838,
+          3836,
+          3839,
+          3838,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.72421875
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.72421875
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 359.4484375
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3838,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.87864583333334
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3836,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.56979166666667
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3837,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.70338541666666
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.74505208333332
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.99557291666667
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.72656249999974
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.72656249999974
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 319.4531249999995
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3838,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.88020833333317
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3836,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.57291666666637
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3837,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.70572916666643
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3838,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.7473958333331
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.9956597222222
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_120ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3839,
+          3839,
+          3839,
+          3840,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 167.97278645833333
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 167.97278645833333
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 335.94557291666666
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3227,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 173.88359375
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3114,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 162.06197916666667
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3065,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 165.95807291666668
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3244,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 169.9875
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3436,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 172.95182291666666
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 148.05078124999233
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 148.05078124999233
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3422,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 296.10156249998465
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3227,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 154.0060763888769
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3114,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 142.09548611110776
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3065,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.04947916665782
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3244,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 150.05208333332686
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3436,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 152.9887152777741
+            }
+          }
+        }
+      }
+    ],
+    "same_label": [
+      {
+        "generator": "zero",
+        "truth_probe_indices": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "available": [
+          3840,
+          3744,
+          3840,
+          3840,
+          3744,
+          3840
+        ],
+        "coverage": [
+          3836,
+          3744,
+          3834,
+          3839,
+          3744,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          2,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.99412393162393
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.99412393162393
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 359.98824786324786
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.9954594017094
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.99296875
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.99557291666667
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.99278846153845
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 180.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.9955484330484
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.9955484330484
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 319.9910968660968
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.9955484330484
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.9956597222222
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.9956597222222
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.9955484330484
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": null,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 160.0
+            }
+          }
+        }
+      },
+      {
+        "generator": "constant_120ms",
+        "truth_probe_indices": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "available": [
+          3840,
+          3744,
+          3840,
+          3840,
+          3744,
+          3840
+        ],
+        "coverage": [
+          3840,
+          3744,
+          3840,
+          3840,
+          3744,
+          3840
+        ],
+        "unique_correct": [
+          117,
+          262,
+          323,
+          205,
+          19,
+          60
+        ],
+        "unique_incorrect": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 172.85950854700855
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 172.85950854700855
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 345.7190170940171
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3678,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 174.41346153846155
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3715,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 171.49947916666667
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3770,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 172.9375
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3637,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 172.96260683760684
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3736,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.3795405982906
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 153.19088319088317
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 153.19088319088317
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3722,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 306.38176638176634
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3678,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 154.6599002849005
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3715,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 151.9079861111109
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3770,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 153.26215277777732
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3637,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 153.29237891737932
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3736,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.40259971509957
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_40ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "available": [
+          3840,
+          3744,
+          3840,
+          3840,
+          3744,
+          3840
+        ],
+        "coverage": [
+          3840,
+          3743,
+          3839,
+          3836,
+          3744,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          0,
+          0,
+          0,
+          4,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.97863247863248
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.97863247863248
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 359.95726495726495
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 180.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.95833333333334
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 179.96276041666667
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.9954594017094
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 180.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.97863247863248
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.97863247863248
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 319.95726495726495
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 160.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.95833333333334
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 159.96267361111114
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.9955484330484
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3744,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 160.0
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_120ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "available": [
+          3840,
+          3744,
+          3840,
+          3840,
+          3744,
+          3840
+        ],
+        "coverage": [
+          3840,
+          3743,
+          3840,
+          3837,
+          3744,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          0,
+          1,
+          0,
+          3,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 178.07438568376068
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 178.07438568376068
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 356.14877136752136
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3715,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.57772435897436
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3749,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 176.65677083333333
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3804,
+              "truth_cm": 23.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 177.68125
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3680,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 178.5269764957265
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3741,
+              "truth_cm": 23.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 179.6239316239316
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 158.08805199430063
+            },
+            "Phase": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 158.08805199430063
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3744,
+              "undefined_possible": 3732,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 316.17610398860126
+            },
+            "Phase within Control": {
+              "available": 3744,
+              "undefined_possible": 3715,
+              "truth_cm": 0.0,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.58600427350342
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3749,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 156.67534722222038
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3804,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 157.697916666665
+            },
+            "Condition within Inhale": {
+              "available": 3744,
+              "undefined_possible": 3680,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 158.53721509971405
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3744,
+              "undefined_possible": 3741,
+              "truth_cm": 23.333333333299997,
+              "truth_covered": 3744,
+              "finite_conditional": 3744,
+              "mean_conditional_width_cm": 159.6260683760682
+            }
+          }
+        }
+      }
+    ],
+    "offset_exact": [
+      {
+        "generator": "zero",
+        "truth_probe_indices": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3835,
+          3840,
+          3839,
+          3839,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.971484375
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.971484375
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 291.94296875
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.98098958333333
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.96197916666668
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.96197916666668
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.98098958333333
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.64192708326672
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.64192708326672
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 253.28385416653344
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.65017361104441
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.63368055548887
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.63368055548887
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.65017361104441
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": null,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            }
+          }
+        }
+      },
+      {
+        "generator": "constant_120ms",
+        "truth_probe_indices": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          449,
+          416,
+          493,
+          483,
+          60,
+          214
+        ],
+        "unique_incorrect": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 140.56302083333333
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 140.56302083333333
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 281.12604166666665
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3773,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 141.89375
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3770,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 139.23229166666667
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3782,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 140.79114583333333
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3776,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 140.33489583333332
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3832,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.18255208333332
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 121.94965277771365
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 121.94965277771365
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3831,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 243.8993055554273
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3773,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 123.10416666660181
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3770,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 120.79513888882526
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3782,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 122.14756944438012
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3776,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 121.75173611104698
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3832,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 125.95746527771144
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_40ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3836,
+          3839,
+          3840,
+          3838,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          2,
+          1,
+          0,
+          2,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 292.0
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666660007
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666660007
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 253.33333333320013
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3840,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            }
+          }
+        }
+      },
+      {
+        "generator": "step_120ms",
+        "truth_probe_indices": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "available": [
+          3840,
+          3840,
+          3840,
+          3840,
+          3840,
+          3840
+        ],
+        "coverage": [
+          3839,
+          3838,
+          3840,
+          3839,
+          3840,
+          3840
+        ],
+        "unique_correct": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "unique_incorrect": [
+          1,
+          2,
+          0,
+          1,
+          0,
+          0
+        ],
+        "paired_effects": {
+          "registered": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.99049479166666
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.99049479166666
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 291.9809895833333
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3804,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3829,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.98098958333333
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3827,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3805,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 145.98098958333333
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3837,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 146.0
+            }
+          },
+          "trajectory": {
+            "Condition": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.6584201388223
+            },
+            "Phase": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.6584201388223
+            },
+            "Condition \u00d7 Phase": {
+              "available": 3840,
+              "undefined_possible": 3839,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 253.3168402776446
+            },
+            "Phase within Control": {
+              "available": 3840,
+              "undefined_possible": 3804,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Phase within Viscereality": {
+              "available": 3840,
+              "undefined_possible": 3829,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.65017361104441
+            },
+            "Condition within Exhale": {
+              "available": 3840,
+              "undefined_possible": 3827,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            },
+            "Condition within Inhale": {
+              "available": 3840,
+              "undefined_possible": 3805,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.65017361104441
+            },
+            "Condition of equal-phase profiles": {
+              "available": 3840,
+              "undefined_possible": 3837,
+              "truth_cm": 0.0,
+              "truth_covered": 3840,
+              "finite_conditional": 3840,
+              "mean_conditional_width_cm": 126.66666666659995
+            }
+          }
+        }
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "sha256": {
+    "analysis/boundary_methods/individual_facilitation.py": "26a93593275fff384a6ecb2283c9cae7a91fa127e03fa3f4df67627d0d8bdc25",
+    "analysis/boundary_methods/cue_time.py": "3c9995e882945dac2ab2e4756af1e61208672ea2f69802528eee8da89f14b39b",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "analysis/boundary_methods/threshold_bands.py": "499fa48a077b6c83b54d5c85ec93e1273f6037adabb0d7ebdb579e0e78f12526",
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "analysis/baseline_effects/requirements.txt": "71edef027bb74eacb363b76cfc97334d297136effdabd72198f266e4adceedf0",
+    "results/boundary_methods/INDIVIDUAL_FACILITATION_SPECIFICATION.md": "48c7d0f2ed3c74752d3e2796ed63aa57910f15dcf655a015d23f2a94f37a166c",
+    "results/boundary_methods/individual_facilitation_profiles.csv": "9002846d4d4396e5e402f327dbffb30a0aabe21c3ce1e56022c8e9a95ab0341d",
+    "results/boundary_methods/individual_facilitation_contrasts.csv": "d623fe4098178782234790c68530db16b4f83b8c5609f8ac13b28d33074ba40a"
+  }
+}

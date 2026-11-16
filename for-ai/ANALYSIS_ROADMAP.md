@@ -1254,6 +1254,14 @@ finding as a valid completion of a specified screen.
   equal-phase selection changed from 73 to 100 to 27 cm under pooled,
   nominal and exact-offset matching. All 504 paired RT intervals included
   zero. Constant strong facilitation selected the outermost sampled probe.
+- [x] Project trial-mean uncertainty to each person's
+  [farthest facilitated probe](../results/boundary_methods/INDIVIDUAL_FACILITATION_RESULTS.md)
+  under the three tactile references. One of 718 estimable profiles
+  isolated an endpoint, at the 100 cm outer probe with nominal same-label
+  subtraction. All 1,908 estimable paired contrasts allowed an undefined
+  endpoint and their conditional ranges retained zero. The full export,
+  all probe omissions and the pooled Baseline projection passed independent
+  numerical checks.
 - [x] Freeze and run calibrated midpoint sets and the four nonlinear
   reductions with within-person or group shared shape. The
   [native profile results](../results/boundary_methods/PROFILE_RESULTS.md)
