@@ -50,9 +50,10 @@ grid limit and 17/160 had a midpoint outside the sampled SOAs, with
 overlap. In held-distance prediction, the sigmoid yielded RMSE 0.0744
 natural-log units versus 0.0649 for a training mean. The matched raw
 RT comparison yielded 54.46 versus 48.02 ms. The output reports
-location, range/bound flags and prediction. Parameter uncertainty
-for the log-latency sigmoid remains to be evaluated with a location
-profile that admits a boundary-free state.
+location, range/bound flags and prediction. The later unshifted
+lognormal center analysis profiled the same mean-log response with
+free level and amplitude and boundary-free alternatives. It found
+no bounded log-center transition. [Distribution results](DISTRIBUTION_RESULTS.md)
 
 ## Discrete change point
 
@@ -80,6 +81,8 @@ and repeated observations can affect real-world behavior.
 
 The [first detectable adjacent decrease](ADJACENT_RULE_RESULTS.md)
 applies a separate observed-gap rule with paired participant tests.
+The [farthest detectable facilitation](FACILITATION_EDGE_RESULTS.md)
+selects a sampled endpoint relative to tactile-only Baseline.
 
 ## Distributional RT profiles
 

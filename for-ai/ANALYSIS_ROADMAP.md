@@ -1249,6 +1249,11 @@ finding as a valid completion of a specified screen.
   The paired adjacent RT contrast was −3.38 ms with a 95% simultaneous
   interval from −27.66 to +20.89 ms. Leave-one-probe refits and paired
   participant resampling show sensitivity to probe and cohort choice.
+- [x] Apply the [farthest detectable facilitation](../results/boundary_methods/FACILITATION_EDGE_RESULTS.md)
+  rule with signed-rank/Holm and paired t/JZS evidence. The Viscereality
+  equal-phase selection changed from 73 to 100 to 27 cm under pooled,
+  nominal and exact-offset matching. All 504 paired RT intervals included
+  zero. Constant strong facilitation selected the outermost sampled probe.
 - [x] Freeze and run calibrated midpoint sets and the four nonlinear
   reductions with within-person or group shared shape. The
   [native profile results](../results/boundary_methods/PROFILE_RESULTS.md)
