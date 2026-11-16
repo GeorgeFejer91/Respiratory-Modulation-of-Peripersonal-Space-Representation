@@ -1250,8 +1250,13 @@ finding as a valid completion of a specified screen.
   and prediction at four amplitude limits. Neither axis yielded a
   localized participant midpoint. Sharing width improved simulated effect
   recovery but did not resolve the observed group contrast.
-- [ ] Run calibrated continuous knots and monotone threshold sets. Then
-  compare reduced population and participant hierarchies, including the
+- [x] Run calibrated continuous onset and saturation hinges and the free
+  broken-line knot. The [native knot results](../results/boundary_methods/KNOT_RESULTS.md)
+  retain one individual phase-specific onset candidate under pooled Baseline
+  on both axes. The same-label sensitivity did not localize that candidate.
+  No group profile or paired knot comparison was resolved.
+- [ ] Run monotone threshold sets. Then compare reduced population and
+  participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
 - [ ] Resolve the timing and recording inputs that can be recovered from
@@ -1263,6 +1268,12 @@ This native checkpoint does not promote exploratory findings to the
 article. Its publication slice uses the audited public trial release and
 public citations. The full private catalogue ledger remains in research
 storage. This checklist extends Q10 and remains open.
+
+The first public source checkpoint, `e92ec5e`, passed all 75 workbook
+unit tests and the public data check. Its [workbook build and deploy](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43898833096)
+succeeded, and the live workbook returned HTTP 200. This audit publishes
+native results to the source tree. The browser analysis target uses the
+existing release workflow.
 
 - [x] Q10.1 Record the target: six primary contrasts (three effects × two
   parameters), plus the established simple contrasts. Preserve the primary40

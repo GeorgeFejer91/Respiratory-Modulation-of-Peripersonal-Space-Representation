@@ -1,0 +1,459 @@
+{
+  "seed": 20261118,
+  "replicates": 96,
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "prediction_rmse_ms": {
+    "registered_pooled_cp": {
+      "individual_profiles": {
+        "flat": 50.47465188932759,
+        "linear": 55.46011726638188,
+        "log_distance": 60.17922185897604,
+        "160": {
+          "near_plateau": 53.06585769039065,
+          "far_plateau": 52.36820167827905,
+          "broken_line": 54.21211755517663
+        },
+        "320": {
+          "near_plateau": 55.737033577576575,
+          "far_plateau": 56.11003857911366,
+          "broken_line": 57.432454216182194
+        },
+        "640": {
+          "near_plateau": 57.26216787467056,
+          "far_plateau": 57.8478244454349,
+          "broken_line": 62.0213272838208
+        }
+      },
+      "group_profiles": {
+        "flat": 11.585062110900138,
+        "linear": 10.236834279961636,
+        "log_distance": 13.18287138290466,
+        "160": {
+          "near_plateau": 11.701933622854844,
+          "far_plateau": 9.627486462690104,
+          "broken_line": 11.100632313346605
+        },
+        "320": {
+          "near_plateau": 11.701933622854844,
+          "far_plateau": 9.627486462690104,
+          "broken_line": 11.100632313346605
+        },
+        "640": {
+          "near_plateau": 11.701933622854844,
+          "far_plateau": 9.627486462690104,
+          "broken_line": 11.100632313346605
+        }
+      }
+    },
+    "trajectory_pooled_cp": {
+      "individual_profiles": {
+        "flat": 50.47465188932759,
+        "linear": 54.89314484495959,
+        "log_distance": 57.87091598393159,
+        "160": {
+          "near_plateau": 52.19086613106459,
+          "far_plateau": 53.281259948961676,
+          "broken_line": 53.61172681771711
+        },
+        "320": {
+          "near_plateau": 53.045608567311426,
+          "far_plateau": 56.620687823306504,
+          "broken_line": 55.91752683867176
+        },
+        "640": {
+          "near_plateau": 53.51886204016433,
+          "far_plateau": 58.109188756915614,
+          "broken_line": 59.39419440734638
+        }
+      },
+      "group_profiles": {
+        "flat": 11.585062110900138,
+        "linear": 10.01508908270787,
+        "log_distance": 11.773969590161277,
+        "160": {
+          "near_plateau": 9.739022619025437,
+          "far_plateau": 9.575549662719844,
+          "broken_line": 9.407163737859177
+        },
+        "320": {
+          "near_plateau": 9.739022619025437,
+          "far_plateau": 9.575549662719844,
+          "broken_line": 9.407163737859177
+        },
+        "640": {
+          "near_plateau": 9.739022619025437,
+          "far_plateau": 9.575549662719844,
+          "broken_line": 9.407163737859177
+        }
+      }
+    },
+    "registered_same_label": {
+      "individual_profiles": {
+        "flat": 78.84602948012122,
+        "linear": 94.67303893793657,
+        "log_distance": 99.1739650634365,
+        "160": {
+          "near_plateau": 87.19039178830342,
+          "far_plateau": 84.00107348532018,
+          "broken_line": 93.85870008798258
+        },
+        "320": {
+          "near_plateau": 96.05178535865275,
+          "far_plateau": 89.14256469358018,
+          "broken_line": 96.73054827112509
+        },
+        "640": {
+          "near_plateau": 104.07720285378672,
+          "far_plateau": 93.10340489945676,
+          "broken_line": 104.42047577446597
+        }
+      },
+      "group_profiles": {
+        "flat": 11.374515636932033,
+        "linear": 16.325478493577243,
+        "log_distance": 16.44515571276463,
+        "160": {
+          "near_plateau": 15.465647363785038,
+          "far_plateau": 16.694717247207056,
+          "broken_line": 18.016531574247058
+        },
+        "320": {
+          "near_plateau": 15.465647363785038,
+          "far_plateau": 16.694717247207056,
+          "broken_line": 18.016531574247058
+        },
+        "640": {
+          "near_plateau": 15.465647363785038,
+          "far_plateau": 16.694717247207056,
+          "broken_line": 18.016531574247058
+        }
+      }
+    },
+    "trajectory_same_label": {
+      "individual_profiles": {
+        "flat": 78.84602948012122,
+        "linear": 92.73354578785495,
+        "log_distance": 95.70279051056598,
+        "160": {
+          "near_plateau": 85.70361333670593,
+          "far_plateau": 84.64748481089327,
+          "broken_line": 91.8544734186642
+        },
+        "320": {
+          "near_plateau": 92.64763408326431,
+          "far_plateau": 90.05989930478025,
+          "broken_line": 93.87319704684805
+        },
+        "640": {
+          "near_plateau": 96.39914986855148,
+          "far_plateau": 93.65924912940453,
+          "broken_line": 99.36254493703862
+        }
+      },
+      "group_profiles": {
+        "flat": 11.374515636932033,
+        "linear": 15.874089667131555,
+        "log_distance": 15.851380674404123,
+        "160": {
+          "near_plateau": 15.146943208540382,
+          "far_plateau": 16.56041069163521,
+          "broken_line": 17.737873178596292
+        },
+        "320": {
+          "near_plateau": 15.146943208540382,
+          "far_plateau": 16.56041069163521,
+          "broken_line": 17.933258356646352
+        },
+        "640": {
+          "near_plateau": 15.146943208540382,
+          "far_plateau": 16.56041069163521,
+          "broken_line": 17.933258356646352
+        }
+      }
+    }
+  },
+  "diagnostics": "Direct constrained GLS, edge rank deficiency, held-probe reconstruction, noiseless knots and offset invariance.",
+  "registered_recovery": {
+    "flat": {
+      "individuals": {
+        "near_plateau": {
+          "localized_fraction": 0.003515625
+        },
+        "far_plateau": {
+          "localized_fraction": 0.0031901041666666666
+        },
+        "broken_line": {
+          "localized_fraction": 0.0004557291666666667
+        }
+      },
+      "group": {
+        "near_plateau": {
+          "localized_fraction": 0.013020833333333334
+        },
+        "far_plateau": {
+          "localized_fraction": 0.010416666666666666
+        },
+        "broken_line": {
+          "localized_fraction": 0.0
+        }
+      }
+    },
+    "linear": {
+      "individuals": {
+        "near_plateau": {
+          "localized_fraction": 0.003841145833333333
+        },
+        "far_plateau": {
+          "localized_fraction": 0.0018880208333333333
+        },
+        "broken_line": {
+          "localized_fraction": 0.000390625
+        }
+      },
+      "group": {
+        "near_plateau": {
+          "localized_fraction": 0.0078125
+        },
+        "far_plateau": {
+          "localized_fraction": 0.0026041666666666665
+        },
+        "broken_line": {
+          "localized_fraction": 0.005208333333333333
+        }
+      }
+    },
+    "near_plateau": {
+      "individuals": {
+        "near_plateau": {
+          "localized_fraction": 0.19928385416666666,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.9916666666666667,
+          "complete_four_cell_coverage": 0.99453125,
+          "correctly_localized_fraction": 0.19609375,
+          "conditional_location_rmse_cm": 16.812330447565117,
+          "conditional_effect_rmse_cm": {
+            "Condition": 16.837923795241952,
+            "Phase": 15.995683194517673,
+            "Condition \u00d7 Phase": 32.4457786882593,
+            "Phase within Control": 21.444731651969875,
+            "Phase within Viscereality": 24.046029265504544,
+            "Condition within Exhale": 22.56977116216508,
+            "Condition within Inhale": 24.16611393046053
+          }
+        },
+        "far_plateau": {
+          "localized_fraction": 0.001171875
+        },
+        "broken_line": {
+          "localized_fraction": 0.019596354166666666
+        }
+      },
+      "group": {
+        "near_plateau": {
+          "localized_fraction": 0.984375,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.96875,
+          "complete_four_cell_coverage": 0.9583333333333334,
+          "correctly_localized_fraction": 0.96875,
+          "conditional_location_rmse_cm": 2.6040633312831187,
+          "conditional_effect_rmse_cm": {
+            "Condition": 2.8026865831436334,
+            "Phase": 2.6755353825605317,
+            "Condition \u00d7 Phase": 5.136896761015674,
+            "Phase within Control": 3.5260488983185287,
+            "Phase within Viscereality": 3.8830159026200253,
+            "Condition within Exhale": 2.8282061452447236,
+            "Condition within Inhale": 4.572221378425733
+          }
+        },
+        "far_plateau": {
+          "localized_fraction": 0.0
+        },
+        "broken_line": {
+          "localized_fraction": 0.9114583333333334
+        }
+      }
+    },
+    "far_plateau": {
+      "individuals": {
+        "near_plateau": {
+          "localized_fraction": 0.0009114583333333333
+        },
+        "far_plateau": {
+          "localized_fraction": 0.041796875,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.9920572916666667,
+          "complete_four_cell_coverage": 0.9924479166666667,
+          "correctly_localized_fraction": 0.039322916666666666,
+          "conditional_location_rmse_cm": 18.048645602175156,
+          "conditional_effect_rmse_cm": {
+            "Condition": 18.127544289813947,
+            "Phase": 17.606388962296254,
+            "Condition \u00d7 Phase": 35.017607624593694,
+            "Phase within Control": 25.605928980576625,
+            "Phase within Viscereality": 24.029621043620338,
+            "Condition within Exhale": 24.993402566977505,
+            "Condition within Inhale": 25.409879455800848
+          }
+        },
+        "broken_line": {
+          "localized_fraction": 0.014583333333333334
+        }
+      },
+      "group": {
+        "near_plateau": {
+          "localized_fraction": 0.0
+        },
+        "far_plateau": {
+          "localized_fraction": 0.9661458333333334,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.9895833333333334,
+          "complete_four_cell_coverage": 1.0,
+          "correctly_localized_fraction": 0.9609375,
+          "conditional_location_rmse_cm": 3.183461493929734,
+          "conditional_effect_rmse_cm": {
+            "Condition": 2.9240472094912113,
+            "Phase": 3.3581601485535706,
+            "Condition \u00d7 Phase": 6.089967843374326,
+            "Phase within Control": 5.112596779850073,
+            "Phase within Viscereality": 3.8677755234759936,
+            "Condition within Exhale": 4.590819643593071,
+            "Condition within Inhale": 3.816848612839305
+          }
+        },
+        "broken_line": {
+          "localized_fraction": 0.890625
+        }
+      }
+    },
+    "broken_line": {
+      "individuals": {
+        "near_plateau": {
+          "localized_fraction": 0.2752604166666667
+        },
+        "far_plateau": {
+          "localized_fraction": 0.024479166666666666
+        },
+        "broken_line": {
+          "localized_fraction": 0.083203125,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.9968098958333333,
+          "complete_four_cell_coverage": 0.9984375,
+          "correctly_localized_fraction": 0.08268229166666667,
+          "conditional_location_rmse_cm": 12.24678518615532,
+          "conditional_effect_rmse_cm": {
+            "Condition": 13.027400660482883,
+            "Phase": 11.972941770317634,
+            "Condition \u00d7 Phase": 23.783792954271718,
+            "Phase within Control": 15.775403207340405,
+            "Phase within Viscereality": 17.907365148521965,
+            "Condition within Exhale": 17.616058606661507,
+            "Condition within Inhale": 17.66168787941851
+          }
+        }
+      },
+      "group": {
+        "near_plateau": {
+          "localized_fraction": 0.0
+        },
+        "far_plateau": {
+          "localized_fraction": 0.0
+        },
+        "broken_line": {
+          "localized_fraction": 0.9921875,
+          "truth_cm": [
+            46.0,
+            49.60000000000001,
+            56.800000000000004,
+            60.400000000000006
+          ],
+          "true_location_coverage": 0.9973958333333334,
+          "complete_four_cell_coverage": 1.0,
+          "correctly_localized_fraction": 0.9921875,
+          "conditional_location_rmse_cm": 2.7485933902634634,
+          "conditional_effect_rmse_cm": {
+            "Condition": 2.6897229178857813,
+            "Phase": 2.9988930249343677,
+            "Condition \u00d7 Phase": 4.860523377168347,
+            "Phase within Control": 4.470598393951305,
+            "Phase within Viscereality": 3.132540901568566,
+            "Condition within Exhale": 3.614669187260896,
+            "Condition within Inhale": 3.6353444357676277
+          }
+        }
+      }
+    }
+  },
+  "sha256": {
+    "analysis/boundary_methods/knot.py": "587efa08b446e4141f1713981ae8293e56bd17e09091a639d7259ce27925e15e",
+    "analysis/boundary_methods/knot_grid.py": "a6aca279f7f1b97cc3fd71a44e528260573a5f70ed9b6d3176c9b0b59559061d",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "results/boundary_methods/KNOT_SPECIFICATION.md": "bcd584e33d38c3b4bb5609fe4a9c96b1ea734589390eae2cc4cd44e26c194af8",
+    "results/boundary_methods/knot_profiles.csv": "c49ed6a04eecba56559e757567119d5693e8d2f03b535162f6a4bd3556b4bed1",
+    "results/boundary_methods/knot_contrasts.csv": "6543800c46e7257be2a33a94e6904ec2deb94eb9bbbbfdb97358eb4786900d53"
+  }
+}
