@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 import pymc as pm
 import pytensor.tensor as pt
+from filelock import FileLock
 from scipy.special import expit, log_ndtr, logsumexp
 
 from reduced_hierarchy import diagnostic
@@ -106,13 +107,8 @@ def held_score(posterior, rt, held):
                 target_trials=int(np.isfinite(y).sum()))
 
 
-def sample(args):
+def fit_receipt(args, ids, rt, audit):
     source_sha = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-    ids,rt,_,audit = load_data()
-    keep = cohort_mask(ids,"primary40")
-    ids,rt = ids[keep],rt[keep]/1000
-    if np.any(np.isfinite(rt) & (rt<=0)):
-        raise ValueError("The positive RT likelihood needs strictly positive retained hits.")
     if args.scenario != "observed":
         rt = simulate(rt,args.scenario)
     train = rt.copy()
@@ -167,10 +163,39 @@ def sample(args):
             )
     if args.held is not None:
         out["held_predictions"] = held_score(posterior,rt,args.held)
+    return out
+
+
+def sample(args):
+    ids, rt, _, audit = load_data()
+    keep = cohort_mask(ids,"primary40")
+    ids, rt = ids[keep], rt[keep]/1000
+    if np.any(np.isfinite(rt)&(rt<=0)):
+        raise ValueError("The positive RT likelihood needs strictly positive retained hits.")
+    if args.check_only:
+        fit_receipt(args,ids,rt,audit)
+        return
     LOCAL.mkdir(parents=True,exist_ok=True)
     tag = f"{args.model}_{args.scenario}_hold{args.held}_{args.draws}x{args.chains}"
-    (LOCAL/f"{tag}.json").write_text(json.dumps(out,indent=2,allow_nan=False)+"\n",encoding="utf8",newline="\n")
-    print(f"{tag}: gate {gate}, {ndiv} divergences, {out['seconds']:.1f} s.")
+    receipt = LOCAL/f"{tag}.json"
+    expected = dict(model=args.model,scenario=args.scenario,held_probe_index=args.held,
+                    chains=args.chains,warmup=args.tune,draws=args.draws,target_accept=args.accept,
+                    seed=SEED,participant_order=ids.tolist())
+    # Different queues can reach the same fold while its first worker is sampling.
+    with FileLock(receipt.with_suffix(".lock"),preserve_lock_file=True,fallback_to_soft=False):
+        if receipt.exists():
+            out = json.loads(receipt.read_text(encoding="utf8"))
+            release_ok = out["input"]["input_sha256"]==audit["input_sha256"]
+            out.setdefault("target_accept",.95)  # Older initial receipts used the CLI default.
+            if not release_ok or any(out.get(k)!=v for k,v in expected.items()):
+                raise ValueError(f"Existing fit has different settings or data in {receipt.name}")
+            print(f"Reused {receipt.name} after checking its settings and released data.")
+            return
+        out = fit_receipt(args,ids,rt,audit)
+        temp = receipt.with_suffix(".tmp")
+        temp.write_text(json.dumps(out,indent=2,allow_nan=False)+"\n",encoding="utf8",newline="\n")
+        temp.replace(receipt)
+    print(f"{tag}: gate {out['diagnostic_pass']}, {out['divergences']} divergences, {out['seconds']:.1f} s.")
 
 
 if __name__ == "__main__":
