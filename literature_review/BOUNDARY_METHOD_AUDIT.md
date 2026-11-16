@@ -89,6 +89,72 @@ locations. Flat predictions had the lowest held group RMSE under
 both Baseline rules. Physical distance and elapsed time remain
 aliased. [Holmes et al. (2020)](https://doi.org/10.1007/s00221-020-05771-5)
 
-The [initial numerical report](../results/boundary_methods/RESULTS.md) and
-[profile report](../results/boundary_methods/PROFILE_RESULTS.md) record the
-completed batches. The ongoing checklist is in the [analysis roadmap](../for-ai/ANALYSIS_ROADMAP.md).
+## Individual condition profiles with equal phase weighting
+
+These analyses average the exhale and inhale profiles within each
+condition, then estimate one location for each participant and
+condition. The same 80 participant-condition profiles are evaluated
+under multiple rules or calibrations. The counts index those repeated
+evaluations. Every estimable evaluation below remained unresolved.
+Where a fit supplies a point estimate, it depends on the chosen
+response model.
+
+| Target | Estimable evaluations | Localized | Unavailable variance |
+| --- | ---: | ---: | ---: |
+| [Absolute sigmoid midpoint](../results/boundary_methods/midpoint_profiles.csv) | 318 | 0 | 2 |
+| [Continuous onset, saturation or free knot](../results/boundary_methods/knot_profiles.csv) | 954 | 0 | 6 |
+| [Monotone RT threshold crossing](../results/boundary_methods/threshold_profiles.csv) | 1,272 | 0 | 8 |
+| [Linear crossing of a tactile-only reference](../results/boundary_methods/baseline_crossing_profiles.csv) | 954 | 0 | 6 |
+| [Lognormal center or dispersion transition](../results/boundary_methods/distribution_profiles.csv) | 640 | 0 | 0 |
+| [Recorded-response threshold crossing](../results/boundary_methods/response_threshold_profiles.csv) | 1,280 | 0 | 0 |
+| [Midpoint with interpolated Baseline after cue alignment](../results/boundary_methods/cue_time_interpolated_profiles.csv) | 158 | 0 | 2 |
+| [Farthest facilitated probe](../results/boundary_methods/individual_facilitation_profiles.csv) | 239 | 0 | 1 |
+
+A location of an equal-phase profile can differ from the mean of two
+phase-specific locations. Likewise, the location of an equal-person
+group mean can differ from the mean of participant locations. See the
+[hierarchy analysis](../results/boundary_methods/HIERARCHY_RESULTS.md)
+for contrasts of latent midpoints and derivative peaks of group RT curves,
+and the [first numerical screens](../results/boundary_methods/RESULTS.md)
+for model-dependent point estimates and their prediction and recovery tests.
+
+## Group estimates and participant phase estimates
+
+The group detection rules describe outcomes at the measured probes.
+In raw RTs, Control and Viscereality exhale each selected the 50–73 cm
+gap as the first detectable decrease. The paired RT
+change across that gap was −3.38 ms with a 95% simultaneous interval
+of −27.66 to 20.89 ms. Across the pooled, same-label and exact
+cue-time references, the farthest facilitated equal-phase
+Viscereality probe was 73, 100 and 27 cm, respectively.
+[Adjacent-delay analysis](../results/boundary_methods/ADJACENT_RULE_RESULTS.md) ·
+[Group farthest-probe analysis](../results/boundary_methods/FACILITATION_EDGE_RESULTS.md)
+
+Individual phase estimates included a near-plateau onset under
+pooled Baseline, an outermost facilitated probe under same-label
+subtraction, and an in-range interval under a shared recorded-response
+model. The knot and farthest-probe results lost localization after a
+change of reference or after omission of the farthest probe,
+respectively. The shared-response interval was identical to the
+latency-only interval. The lognormal
+dispersion analysis found two phase cells that localized under both
+distance mappings and both support choices. All tested paired
+dispersion contrasts were unresolved, and the constant distribution
+scored best on held probes.
+[Knots](../results/boundary_methods/KNOT_RESULTS.md) ·
+[Individual farthest probe](../results/boundary_methods/INDIVIDUAL_FACILITATION_RESULTS.md) ·
+[Joint recorded responses](../results/boundary_methods/JOINT_RECORDED_RESULTS.md) ·
+[Distribution profiles](../results/boundary_methods/DISTRIBUTION_RESULTS.md)
+
+The shape-based analyses did not establish a condition shift.
+In the Gaussian hierarchy, holding a person's midpoint constant
+across cells yielded held scores similar to the freely varying
+midpoint models. Group derivative peaks did not qualify in pairs
+when the minimum fitted span was 20 ms. With a common unspecified
+monotone shape, every horizontal shift remained compatible in the
+estimable comparisons. These results leave the size and direction of
+a relative boundary uncertain.
+[Gaussian hierarchy](../results/boundary_methods/HIERARCHY_RESULTS.md) ·
+[Monotone shift](../results/boundary_methods/MONOTONE_SHIFT_RESULTS.md)
+
+The ongoing checklist is in the [analysis roadmap](../for-ai/ANALYSIS_ROADMAP.md).
