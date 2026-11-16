@@ -1259,6 +1259,9 @@ finding as a valid completion of a specified screen.
   for the observed-range half response and three absolute facilitation levels.
   No crossing or paired contrast was localized. Retain partial intervals and
   censoring directions. The isotonic prediction advantage depends on Baseline.
+- [x] Run the [baseline-confidence-limit line crossing](../results/boundary_methods/BASELINE_CROSSING_RESULTS.md)
+  from Serino et al., Fig. 7, with reference uncertainty and ratio sets.
+  No crossed-reference location or contrast was bounded within the probes.
 - [ ] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
@@ -1282,6 +1285,8 @@ The continuous knot source checkpoint, `9ac19ab`, passed its
 [workbook build and deployment](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43900137642).
 The live workbook returned HTTP 200. Independent GLS and linear-programming
 comparisons covered the continuous knot and monotone threshold engines.
+The monotone threshold checkpoint, `6fad341`, passed its
+[workbook build and deployment](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43901964449).
 
 - [x] Q10.1 Record the target: six primary contrasts (three effects × two
   parameters), plus the established simple contrasts. Preserve the primary40

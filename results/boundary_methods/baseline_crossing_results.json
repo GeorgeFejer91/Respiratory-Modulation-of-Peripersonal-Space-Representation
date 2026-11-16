@@ -1,0 +1,476 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "seed": 20261120,
+  "refits": 499,
+  "recovery_draws": 96,
+  "fixtures": "Known crossing recovery, paired translation invariance, direct GLS and disconnected interval union.",
+  "prediction_rmse_ms": {
+    "registered_pooled_mean": {
+      "individual": {
+        "flat": 50.47465188932759,
+        "linear": 55.46011726638188,
+        "log_distance": 60.17922185897604,
+        "linear_equal_weight": 53.63597762249518
+      },
+      "group": {
+        "flat": 11.585062110900138,
+        "linear": 10.236834279961636,
+        "log_distance": 13.18287138290466,
+        "linear_equal_weight": 7.897692126269113
+      }
+    },
+    "trajectory_pooled_mean": {
+      "individual": {
+        "flat": 50.47465188932759,
+        "linear": 54.89314484495959,
+        "log_distance": 57.87091598393159,
+        "linear_equal_weight": 52.95526355850465
+      },
+      "group": {
+        "flat": 11.585062110900138,
+        "linear": 10.01508908270787,
+        "log_distance": 11.773969590161277,
+        "linear_equal_weight": 8.278778094757202
+      }
+    },
+    "registered_same_label_zero": {
+      "individual": {
+        "flat": 78.84602948012122,
+        "linear": 94.67303893793657,
+        "log_distance": 99.1739650634365,
+        "linear_equal_weight": 91.85236007606801
+      },
+      "group": {
+        "flat": 11.374515636932033,
+        "linear": 16.325478493577243,
+        "log_distance": 16.44515571276463,
+        "linear_equal_weight": 16.562352554442015
+      }
+    },
+    "trajectory_same_label_zero": {
+      "individual": {
+        "flat": 78.84602948012122,
+        "linear": 92.73354578785495,
+        "log_distance": 95.70279051056598,
+        "linear_equal_weight": 89.9772946542553
+      },
+      "group": {
+        "flat": 11.374515636932033,
+        "linear": 15.874089667131555,
+        "log_distance": 15.851380674404123,
+        "linear_equal_weight": 16.07405587651742
+      }
+    }
+  },
+  "recovery": {
+    "flat_baseline_sd_x1": {
+      "pooled_mean": {
+        "individuals": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        },
+        "group": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        }
+      },
+      "pooled_lower95": {
+        "individuals": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 42.736159546158824,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        },
+        "group": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 38.53335801219007,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        }
+      },
+      "fastest_delay_lower95": {
+        "individuals": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 121.56110578075254,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        },
+        "group": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 42.4384493215541,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        }
+      },
+      "same_label_zero": {
+        "individuals": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        },
+        "group": {
+          "phase_cell_coverage": null,
+          "joint_coverage": null,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": null,
+          "condition_effect_jointly_localized_and_contains_all_locations": null
+        }
+      }
+    },
+    "shallow_outside_baseline_sd_x1": {
+      "pooled_mean": {
+        "individuals": {
+          "phase_cell_coverage": 0.9992838541666667,
+          "joint_coverage": 0.9994791666666667,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 120.7240381800441,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 43.04643316129766,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "pooled_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 0.9987630208333333,
+          "joint_coverage": 0.9986979166666666,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 42.65140726223558,
+          "median_condition_absolute_error_cm": 291.2013276989926,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 38.69578877420764,
+          "median_condition_absolute_error_cm": 129.71333924150375,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "fastest_delay_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 0.9998697916666667,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 120.93496794222159,
+          "median_condition_absolute_error_cm": 874.391549492698,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 42.320237065686804,
+          "median_condition_absolute_error_cm": 204.13799538598983,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "same_label_zero": {
+        "individuals": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 84.96637799400338,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 0.9973958333333334,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.0,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": null,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 96.48883135342305,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      }
+    },
+    "steep_shift_baseline_sd_x1": {
+      "pooled_mean": {
+        "individuals": {
+          "phase_cell_coverage": 0.9997395833333333,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.16276041666666666,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 8.832018243805402,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.021354166666666667
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.9348958333333334,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 3.174107136178301,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.40625
+        }
+      },
+      "pooled_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 0.9999348958333333,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.9522786458333333,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.10473781363232379,
+          "mean_margin_ms": 42.641088179917475,
+          "median_condition_absolute_error_cm": 9.233926867786968,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0033854166666666668
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.5703125,
+          "mean_margin_ms": 38.44680705568851,
+          "median_condition_absolute_error_cm": 2.790067548266485,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "fastest_delay_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.36790364583333335,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.0,
+          "mean_margin_ms": 122.11524414891092,
+          "median_condition_absolute_error_cm": 19.21942837457495,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.0078125,
+          "mean_margin_ms": 42.73411455302679,
+          "median_condition_absolute_error_cm": 3.443074399443753,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "same_label_zero": {
+        "individuals": {
+          "phase_cell_coverage": 0.9999348958333333,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.022786458333333332,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 9.63218065984298,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 0.9973958333333334,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.984375,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 1.8080764820676984,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.96875
+        }
+      }
+    },
+    "steep_shift_baseline_sd_x1.75": {
+      "pooled_mean": {
+        "individuals": {
+          "phase_cell_coverage": 0.9999348958333333,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.04388020833333333,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 13.919478850113125,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.21875,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 4.24136767192139,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "pooled_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.6522786458333333,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.03084140133745883,
+          "mean_margin_ms": 74.64806370130127,
+          "median_condition_absolute_error_cm": 15.190019060977928,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.7265625,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.017921146953405017,
+          "mean_margin_ms": 67.87544823538033,
+          "median_condition_absolute_error_cm": 3.947895217535686,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "fastest_delay_lower95": {
+        "individuals": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.12877604166666667,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.0,
+          "mean_margin_ms": 214.05083738794593,
+          "median_condition_absolute_error_cm": 32.30692842422058,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 0.6770833333333334,
+          "false_localization_when_no_design_crossing": 0.0,
+          "correct_localization_of_inside": 0.0,
+          "mean_margin_ms": 73.19688734435027,
+          "median_condition_absolute_error_cm": 5.202119782681119,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        }
+      },
+      "same_label_zero": {
+        "individuals": {
+          "phase_cell_coverage": 0.9996744791666666,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.0037109375,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 17.20222585267958,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.0
+        },
+        "group": {
+          "phase_cell_coverage": 1.0,
+          "joint_coverage": 1.0,
+          "noiseless_target_inside": 1.0,
+          "false_localization_when_no_design_crossing": null,
+          "correct_localization_of_inside": 0.5260416666666666,
+          "mean_margin_ms": 0.0,
+          "median_condition_absolute_error_cm": 4.547367756130045,
+          "condition_effect_jointly_localized_and_contains_all_locations": 0.010416666666666666
+        }
+      }
+    }
+  },
+  "sha256": {
+    "analysis/boundary_methods/baseline_crossing.py": "73c08dcab318c9012460bcdcafe3167364c1f2888ad5f45d32e2d5ac719111b3",
+    "analysis/boundary_methods/crossing_ratio.py": "7b96c3052d5aebc5c9e77d273ea89e5df15ee961da8d84064296a98e5b071c77",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "analysis/boundary_methods/knot_grid.py": "a6aca279f7f1b97cc3fd71a44e528260573a5f70ed9b6d3176c9b0b59559061d",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "results/boundary_methods/BASELINE_CROSSING_SPECIFICATION.md": "f107661e666dedff04978b9e42e51f8025330fcfe28d067ec24a376b5074271a",
+    "results/boundary_methods/baseline_crossing_profiles.csv": "23e1e7e0abd54cf15dec637b801eb418966dc0345a75eeea199b86160572c823",
+    "results/boundary_methods/baseline_crossing_contrasts.csv": "8b8c2db6b8f18db7a9a1182b5da3a1fce1ec1bdc56458cbc12506435bc4f87b9",
+    "results/boundary_methods/baseline_crossing_refits.csv": "f0fff1370a4f1d55c6df180a8e7879b00adf156a418f704d9289cac127739322"
+  }
+}
