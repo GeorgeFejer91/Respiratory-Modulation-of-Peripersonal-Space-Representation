@@ -78,6 +78,9 @@ in about 95% of simulations by design under the known-variance Gaussian
 approximation. Estimated observational variances, model misspecification
 and repeated observations can affect real-world behavior.
 
+The [first detectable adjacent decrease](ADJACENT_RULE_RESULTS.md)
+applies a separate observed-gap rule with paired participant tests.
+
 ## Distributional RT profiles
 
 The [quantile specification](QUANTILE_SPECIFICATION.md) applies the discrete

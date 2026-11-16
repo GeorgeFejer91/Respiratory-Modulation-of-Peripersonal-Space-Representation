@@ -1,0 +1,3891 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "seed": 20261130,
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "profiles": [
+    "Control Exhale",
+    "Control Inhale",
+    "Viscereality Exhale",
+    "Viscereality Inhale",
+    "Control equal phase",
+    "Viscereality equal phase"
+  ],
+  "bootstrap_replicates": 999,
+  "observed": [
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Control Exhale",
+      "participants": 40,
+      "gap": {
+        "probe_indices": [
+          2,
+          3
+        ],
+        "registered": [
+          50.0,
+          73.0
+        ],
+        "trajectory": [
+          60.0,
+          83.3333333333
+        ]
+      },
+      "adjacent_differences_ms": [
+        -8.053229017047649,
+        4.157946074010468,
+        20.063346525120522,
+        -1.0393911508885723
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.027574326388238465,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -35.593605464925346,
+          19.48714743083005
+        ],
+        [
+          -14.939685824359916,
+          23.255577972380852
+        ],
+        [
+          -0.30814521432848707,
+          40.434838264569535
+        ],
+        [
+          -25.95207198795671,
+          23.873289686179564
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        304,
+        1,
+        36,
+        639,
+        19
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Control Inhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.28856888528496,
+        -2.5626497188831308,
+        5.296239682350996,
+        13.784596913724837
+      ],
+      "adjusted_one_sided_p": [
+        0.9821301999252653,
+        1.0,
+        1.0,
+        0.35331631471906505
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -14.634436858147243,
+          25.211574628717162
+        ],
+        [
+          -26.218110134290402,
+          21.092810696524143
+        ],
+        [
+          -17.82802800879118,
+          28.420507373493173
+        ],
+        [
+          -12.44997331027794,
+          40.019167137727614
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        789,
+        25,
+        8,
+        18,
+        159
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Viscereality Exhale",
+      "participants": 40,
+      "gap": {
+        "probe_indices": [
+          2,
+          3
+        ],
+        "registered": [
+          50.0,
+          73.0
+        ],
+        "trajectory": [
+          60.0,
+          83.3333333333
+        ]
+      },
+      "adjacent_differences_ms": [
+        0.3629201432849015,
+        -7.702574887879665,
+        16.678855245171114,
+        4.864645214524069
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.03487859409552115,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -24.69281283927706,
+          25.418653125846866
+        ],
+        [
+          -29.872900199926818,
+          14.46775042416749
+        ],
+        [
+          -0.9131198054228946,
+          34.27083029576512
+        ],
+        [
+          -17.435234067114003,
+          27.164524496162137
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        353,
+        18,
+        0,
+        556,
+        72
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            4
+          ],
+          "registered": [
+            50.0,
+            100.0
+          ],
+          "trajectory": [
+            60.0,
+            100.0
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Viscereality Inhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        4.4706865111139376,
+        13.000383205554257,
+        -10.467473488020506,
+        4.977374972642657
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.4387831254792378,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -15.751859464410954,
+          24.693232486638827
+        ],
+        [
+          -14.275387596734557,
+          40.276154007843076
+        ],
+        [
+          -37.90331013331448,
+          16.968363157273462
+        ],
+        [
+          -14.96940997781536,
+          24.924159923100675
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        800,
+        33,
+        103,
+        2,
+        61
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Control equal phase",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        -1.382330065881358,
+        0.7976481775636671,
+        12.679793103735758,
+        6.372602881418132
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.06261884364395466,
+        0.8308062597292387
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -15.54527854432982,
+          12.780618412567103
+        ],
+        [
+          -12.745031066928032,
+          14.340327422055367
+        ],
+        [
+          -2.1864038708009197,
+          27.545990078272435
+        ],
+        [
+          -13.900842253410804,
+          26.646048016247068
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        419,
+        0,
+        13,
+        449,
+        118
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "profile": "Viscereality equal phase",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        2.4168033271994345,
+        2.6489041588372855,
+        3.105690878575318,
+        4.921010093583339
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        0.7348210796384591
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -17.004042795077062,
+          21.837649449475933
+        ],
+        [
+          -14.626533944594993,
+          19.924342262269565
+        ],
+        [
+          -12.114026880827069,
+          18.325408637977706
+        ],
+        [
+          -9.211121969704303,
+          19.053142156870983
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        792,
+        28,
+        13,
+        63,
+        103
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Control Exhale",
+      "participants": 41,
+      "gap": {
+        "probe_indices": [
+          2,
+          3
+        ],
+        "registered": [
+          50.0,
+          73.0
+        ],
+        "trajectory": [
+          60.0,
+          83.3333333333
+        ]
+      },
+      "adjacent_differences_ms": [
+        -6.766971398745672,
+        3.4849880396850077,
+        21.282791879644563,
+        -3.446412652751601
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.016930956516834336,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -33.804952955755205,
+          20.271010158263863
+        ],
+        [
+          -15.201631127392606,
+          22.17160720676262
+        ],
+        [
+          1.1836478260191612,
+          41.381935933269965
+        ],
+        [
+          -28.517954428350123,
+          21.62512912284692
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        235,
+        0,
+        20,
+        742,
+        2
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Control Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.235632615355615,
+        -0.8147802135445174,
+        4.272606341983234,
+        12.763243108733768
+      ],
+      "adjusted_one_sided_p": [
+        0.9690178893057814,
+        1.0,
+        1.0,
+        0.4025808023862142
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -14.172407946745793,
+          24.643673177457025
+        ],
+        [
+          -24.307377706754398,
+          22.677817279665366
+        ],
+        [
+          -18.411949119491297,
+          26.957161803457765
+        ],
+        [
+          -12.93183206542507,
+          38.458318282892606
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        807,
+        22,
+        9,
+        17,
+        144
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality Exhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        -0.5947120553318056,
+        -6.406170622321623,
+        15.422460401792954,
+        4.313438051124738
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.05202892943525917,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -25.130387394755843,
+          23.940963284092234
+        ],
+        [
+          -28.267491383394116,
+          15.455150138750872
+        ],
+        [
+          -2.026634742668058,
+          32.871555546253965
+        ],
+        [
+          -17.457281093245193,
+          26.08415719549467
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        402,
+        10,
+        3,
+        535,
+        49
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            4
+          ],
+          "registered": [
+            50.0,
+            100.0
+          ],
+          "trajectory": [
+            60.0,
+            100.0
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        3.230578611483417,
+        13.485468710025835,
+        -10.762982264735454,
+        4.358008103391211
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.3846776211905759,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -16.73403535884894,
+          23.19519258181577
+        ],
+        [
+          -13.114887229152941,
+          40.08582464920461
+        ],
+        [
+          -37.5001590188258,
+          15.974194489354888
+        ],
+        [
+          -15.140124403543194,
+          23.856140610325614
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        804,
+        16,
+        129,
+        0,
+        50
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Control equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        -0.7656693916950403,
+        1.3351039130702425,
+        12.777699110813897,
+        4.65841522799108
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.0525546632061426,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -14.656157009864366,
+          13.124818226474286
+        ],
+        [
+          -11.931885264802274,
+          14.602093090942757
+        ],
+        [
+          -1.7061355226629136,
+          27.26153374429071
+        ],
+        [
+          -15.593110987062966,
+          24.909941443045128
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        413,
+        1,
+        23,
+        498,
+        64
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        1.317933278075823,
+        3.539649043852095,
+        2.329739068528762,
+        4.335723077257953
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        0.835547897682571
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -17.817551222205992,
+          20.45341777835764
+        ],
+        [
+          -13.449354040070613,
+          20.5286521277748
+        ],
+        [
+          -12.634490020568116,
+          17.29396815762564
+        ],
+        [
+          -9.515638748291273,
+          18.18708490280718
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        848,
+        16,
+        22,
+        38,
+        75
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Control Exhale",
+      "participants": 41,
+      "gap": {
+        "probe_indices": [
+          2,
+          3
+        ],
+        "registered": [
+          50.0,
+          73.0
+        ],
+        "trajectory": [
+          60.0,
+          83.3333333333
+        ]
+      },
+      "adjacent_differences_ms": [
+        -8.805589284924537,
+        5.165069340498018,
+        18.72440311393872,
+        -1.4465974273266191
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.9525821880431771,
+        0.039311666218162365,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -35.705508204291206,
+          18.094329634442133
+        ],
+        [
+          -13.624048439088302,
+          23.954187120084338
+        ],
+        [
+          -1.4267088606471212,
+          38.875515088524565
+        ],
+        [
+          -25.73808657158558,
+          22.84489171693234
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        374,
+        1,
+        50,
+        561,
+        13
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Control Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        4.028512635064902,
+        -1.697978045522837,
+        4.616250096602597,
+        12.950419753227488
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        0.3882141129530574
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -15.65691428954215,
+          23.713939559671957
+        ],
+        [
+          -24.852139759369138,
+          21.45618366832346
+        ],
+        [
+          -17.97984558061171,
+          27.212345773816907
+        ],
+        [
+          -12.698373872379848,
+          38.599213378834826
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        799,
+        17,
+        5,
+        19,
+        159
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality Exhale",
+      "participants": 41,
+      "gap": {
+        "probe_indices": [
+          2,
+          3
+        ],
+        "registered": [
+          50.0,
+          73.0
+        ],
+        "trajectory": [
+          60.0,
+          83.3333333333
+        ]
+      },
+      "adjacent_differences_ms": [
+        1.4439058308470598,
+        -8.086251923134634,
+        17.980849167498796,
+        2.313622825699756
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.020647058991363054,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -23.126806425909145,
+          26.014618087603267
+        ],
+        [
+          -29.70627958039902,
+          13.53377573412975
+        ],
+        [
+          0.5088974054216351,
+          35.45280092957596
+        ],
+        [
+          -20.411045879580783,
+          25.038291530980295
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        308,
+        15,
+        2,
+        648,
+        26
+      ],
+      "delete_one_probe_gap": [
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        },
+        null,
+        {
+          "probe_indices": [
+            2,
+            4
+          ],
+          "registered": [
+            50.0,
+            100.0
+          ],
+          "trajectory": [
+            60.0,
+            100.0
+          ]
+        },
+        {
+          "probe_indices": [
+            2,
+            3
+          ],
+          "registered": [
+            50.0,
+            73.0
+          ],
+          "trajectory": [
+            60.0,
+            83.3333333333
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        4.43769859177413,
+        14.368666542004156,
+        -11.106626019354817,
+        4.170831458897492
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.33733427652031445,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -15.261827361332188,
+          24.137224544880446
+        ],
+        [
+          -12.44137597970057,
+          41.17870906370888
+        ],
+        [
+          -37.88486669397206,
+          15.671614655262424
+        ],
+        [
+          -15.374072075992292,
+          23.715734993787276
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        774,
+        31,
+        136,
+        2,
+        56
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Control equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        -2.388538324929828,
+        1.7335456474875894,
+        11.670326605270654,
+        5.751911162950433
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.0891703502941023,
+        0.9042886488128211
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -16.433857454412514,
+          11.65678080455286
+        ],
+        [
+          -11.683961824295451,
+          15.151053119270632
+        ],
+        [
+          -3.0499971362283844,
+          26.390650346769693
+        ],
+        [
+          -14.063630940634399,
+          25.567453266535267
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        475,
+        0,
+        29,
+        398,
+        97
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        {
+          "probe_indices": [
+            1,
+            3
+          ],
+          "registered": [
+            27.0,
+            73.0
+          ],
+          "trajectory": [
+            36.6666666667,
+            83.3333333333
+          ]
+        },
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        2.940802211310611,
+        3.1412073094347486,
+        3.437111574072004,
+        3.2422271422985998
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -16.027162433398296,
+          21.90876685601952
+        ],
+        [
+          -13.736467340805625,
+          20.01888195967512
+        ],
+        [
+          -11.414156012490439,
+          18.28837916063445
+        ],
+        [
+          -11.207653923730385,
+          17.692108208327586
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        818,
+        31,
+        22,
+        71,
+        57
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Control Exhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        16.44369709931098,
+        -7.120834188455501,
+        12.42541395304568,
+        -19.697517108386673
+      ],
+      "adjusted_one_sided_p": [
+        0.49601367891612247,
+        1.0,
+        0.9221497530740422,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -20.276442536003607,
+          53.16383673462557
+        ],
+        [
+          -50.31225500707612,
+          36.07058663016511
+        ],
+        [
+          -31.286135255552953,
+          56.13696316164432
+        ],
+        [
+          -52.500643430761926,
+          13.105609213988576
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        856,
+        88,
+        6,
+        49,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Control Inhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        27.95231417496184,
+        -26.8267384352418,
+        5.449822310245933,
+        6.124314452398321
+      ],
+      "adjusted_one_sided_p": [
+        0.21010727436486998,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -16.16158134249608,
+          72.06620969241976
+        ],
+        [
+          -79.800771890173,
+          26.147295019689388
+        ],
+        [
+          -40.07766017007072,
+          50.97730479056259
+        ],
+        [
+          -42.195885770527084,
+          54.44451467532373
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        737,
+        207,
+        0,
+        37,
+        18
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Viscereality Exhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.6590694169489195,
+        -0.18265015973340723,
+        6.499958868810589,
+        -8.660222122267328
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -33.059239454179185,
+          44.37737828807702
+        ],
+        [
+          -30.148615351464855,
+          29.783315031998043
+        ],
+        [
+          -25.538948734521725,
+          38.5388664721429
+        ],
+        [
+          -42.399109332365946,
+          25.07866508783129
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        932,
+        21,
+        15,
+        28,
+        3
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Viscereality Inhale",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.442510880902313,
+        13.381442847663092,
+        -6.153016215684902,
+        -27.63930268719484
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.7579863949512909,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -33.00693339704459,
+          43.891955158849214
+        ],
+        [
+          -25.99986709079531,
+          52.762752786121496
+        ],
+        [
+          -53.85668419009652,
+          41.55065175872672
+        ],
+        [
+          -70.31026900585135,
+          15.031663631461672
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        900,
+        16,
+        78,
+        5,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Control equal phase",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        22.19800563713641,
+        -16.97378631184865,
+        8.937618131645806,
+        -6.786601327994177
+      ],
+      "adjusted_one_sided_p": [
+        0.13416125086584954,
+        1.0,
+        0.6003663172408463,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -8.663765736540583,
+          53.059777010813406
+        ],
+        [
+          -45.816373462111834,
+          11.868800838414536
+        ],
+        [
+          -13.354281485733782,
+          31.229517749025394
+        ],
+        [
+          -39.69184987122728,
+          26.118647215238923
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        641,
+        229,
+        0,
+        127,
+        2
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "profile": "Viscereality equal phase",
+      "participants": 40,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.550790148925614,
+        6.599396343964843,
+        0.17347132656284642,
+        -18.149762404731085
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.9241174075595295,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -22.801442168165774,
+          33.903022466017006
+        ],
+        [
+          -16.668119723061963,
+          29.866912410991645
+        ],
+        [
+          -27.055951821130805,
+          27.4028944742565
+        ],
+        [
+          -43.61896121697853,
+          7.319436407516367
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        883,
+        35,
+        66,
+        15,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Control Exhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        17.154419934287137,
+        -12.506504899306181,
+        15.044564980059349,
+        -19.163690009660318
+      ],
+      "adjusted_one_sided_p": [
+        0.4351547237962046,
+        1.0,
+        0.7340035343762665,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -18.66395206434162,
+          52.9727919329159
+        ],
+        [
+          -56.87619559545647,
+          31.863185796844114
+        ],
+        [
+          -28.083665452951095,
+          58.17279541306979
+        ],
+        [
+          -51.14860920610434,
+          12.8212291867837
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        828,
+        84,
+        2,
+        85,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Control Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        27.536847532113548,
+        -23.858606603487935,
+        5.231386141555533,
+        2.6475203822363493
+      ],
+      "adjusted_one_sided_p": [
+        0.2032321444853062,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -15.449447759555397,
+          70.52314282378249
+        ],
+        [
+          -76.04282693948534,
+          28.325613732509467
+        ],
+        [
+          -39.12186424365127,
+          49.58463652676233
+        ],
+        [
+          -45.29300046216019,
+          50.58804122663289
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        740,
+        221,
+        0,
+        29,
+        9
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality Exhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        6.942994553120894,
+        2.7092030961950524,
+        5.205650928920899,
+        -8.725456911598577
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -30.922795555325504,
+          44.80878466156729
+        ],
+        [
+          -27.445608926848337,
+          32.86401511923844
+        ],
+        [
+          -26.187414699739506,
+          36.598716557581305
+        ],
+        [
+          -41.59187575137356,
+          24.140961928176402
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        930,
+        24,
+        22,
+        22,
+        1
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        7.960000760870452,
+        12.803575677936891,
+        -7.752942649448684,
+        -25.398100182629108
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.7764782019471121,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -30.069116267872992,
+          45.98911778961389
+        ],
+        [
+          -25.58860556256022,
+          51.195756918434
+        ],
+        [
+          -54.4104567565181,
+          38.90457145762073
+        ],
+        [
+          -67.37641457622898,
+          16.580214210970766
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        891,
+        32,
+        74,
+        2,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Control equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        22.345633733200348,
+        -18.18255575139706,
+        10.13797556080744,
+        -8.258084813711985
+      ],
+      "adjusted_one_sided_p": [
+        0.11789196475109841,
+        1.0,
+        0.46782327223920545,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -7.720144542772491,
+          52.41141200917319
+        ],
+        [
+          -46.456254814624046,
+          10.091143311829924
+        ],
+        [
+          -11.802990526738714,
+          32.07894164835359
+        ],
+        [
+          -40.542250852569424,
+          24.026081225145457
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        569,
+        250,
+        0,
+        179,
+        1
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "profile": "Viscereality equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        7.45149765699567,
+        7.7563893870659735,
+        -1.2736458602638916,
+        -17.061778547113843
+      ],
+      "adjusted_one_sided_p": [
+        0.9827033564467638,
+        0.7604988619457662,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -20.61110293312471,
+          35.51409824711605
+        ],
+        [
+          -15.110286247314967,
+          30.623065021446912
+        ],
+        [
+          -28.067297543573794,
+          25.520005823046013
+        ],
+        [
+          -42.03470582118763,
+          7.911148726959944
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        855,
+        43,
+        96,
+        5,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Control Exhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        17.464582535913145,
+        -4.059756931826501,
+        10.986582718418548,
+        -19.493549580983306
+      ],
+      "adjusted_one_sided_p": [
+        0.4203407358911748,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -18.405048354047594,
+          53.334213425873884
+        ],
+        [
+          -46.88880124089979,
+          38.76928737724679
+        ],
+        [
+          -31.760037097326418,
+          53.73320253416351
+        ],
+        [
+          -51.45242867094092,
+          12.465329508974303
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        824,
+        120,
+        5,
+        50,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Control Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        29.920784462391943,
+        -26.423918256604466,
+        3.5668998148740814,
+        7.5420140999008005
+      ],
+      "adjusted_one_sided_p": [
+        0.15615893952350954,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -13.359142613341312,
+          73.2007115381252
+        ],
+        [
+          -78.03813380621364,
+          25.190297293004704
+        ],
+        [
+          -41.055310004142896,
+          48.189109633891064
+        ],
+        [
+          -39.67386618743174,
+          54.75789438723335
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        697,
+        255,
+        0,
+        30,
+        17
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality Exhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        6.632831951494882,
+        -5.737544871284626,
+        9.263633190561698,
+        -8.395597340275591
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        0.9077312827120265,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -31.16964176910793,
+          44.4353056720977
+        ],
+        [
+          -38.34451682376422,
+          26.86942708119497
+        ],
+        [
+          -22.772604117230266,
+          41.29987049835366
+        ],
+        [
+          -41.26886130612287,
+          24.477666625571686
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        920,
+        20,
+        4,
+        54,
+        1
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality Inhale",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        5.576063830592053,
+        15.368887331053426,
+        -6.088456322767231,
+        -30.292593900293564
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        0.6106217193526419,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -31.88022402891474,
+          43.03235169009885
+        ],
+        [
+          -23.344158522266692,
+          54.08193318437354
+        ],
+        [
+          -52.5582152072807,
+          40.381302561746246
+        ],
+        [
+          -72.43495682168752,
+          11.849769021100396
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        867,
+        21,
+        104,
+        7,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Control equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        23.692683499152547,
+        -15.241837594215484,
+        7.276741266646314,
+        -5.9757677405412535
+      ],
+      "adjusted_one_sided_p": [
+        0.0951102390368062,
+        1.0,
+        0.7903848255400039,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -6.623766405165675,
+          54.00913340347077
+        ],
+        [
+          -43.70107994373099,
+          13.217404755300022
+        ],
+        [
+          -14.868715319378417,
+          29.422197852671047
+        ],
+        [
+          -38.099763085279704,
+          26.1482276041972
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        606,
+        315,
+        0,
+        78,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "profile": "Viscereality equal phase",
+      "participants": 41,
+      "gap": null,
+      "adjacent_differences_ms": [
+        6.10444789104347,
+        4.8156712298844,
+        1.587588433897236,
+        -19.344095620284577
+      ],
+      "adjusted_one_sided_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "simultaneous_intervals_ms": [
+        [
+          -21.5521823364342,
+          33.76107811852114
+        ],
+        [
+          -18.325088543998703,
+          27.956431003767506
+        ],
+        [
+          -25.194005094797575,
+          28.369181962592044
+        ],
+        [
+          -44.35025051037072,
+          5.662059269801567
+        ]
+      ],
+      "bootstrap_counts_none_then_near_to_far": [
+        902,
+        37,
+        37,
+        23,
+        0
+      ],
+      "delete_one_probe_gap": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "primary40",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 115,
+          "control_only": 238,
+          "viscereality_only": 189,
+          "same_gap": 386,
+          "different_gaps": 71
+        },
+        "Inhale": {
+          "neither": 650,
+          "control_only": 150,
+          "viscereality_only": 139,
+          "same_gap": 14,
+          "different_gaps": 46
+        },
+        "equal_phase": {
+          "neither": 330,
+          "control_only": 462,
+          "viscereality_only": 89,
+          "same_gap": 42,
+          "different_gaps": 76
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            3.799133393080782,
+            1.8512559812736307,
+            -9.57410222516046,
+            -1.4515927878347674
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -18.470009105811886,
+              26.068275891973453
+            ],
+            [
+              -21.310129492278154,
+              25.012641454825417
+            ],
+            [
+              -32.53929670328564,
+              13.39109225296472
+            ],
+            [
+              -23.991406929633193,
+              21.08822135396366
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            8.724782135080822,
+            6.991181150270163,
+            -20.95671778798057,
+            7.468358911365999
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -14.48000433264868,
+              31.929568602810324
+            ],
+            [
+              -19.167873298581114,
+              33.15023559912144
+            ],
+            [
+              -48.76760698353897,
+              6.85417140757783
+            ],
+            [
+              -16.684970347404303,
+              31.621688170136302
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -9.234031534503574,
+            27.42355388632753,
+            -12.379221890422096,
+            -14.711258306494821
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -53.873061601911324,
+              35.40499853290418
+            ],
+            [
+              -17.822677941932643,
+              72.6697857145877
+            ],
+            [
+              -48.88671977122505,
+              24.128275990380864
+            ],
+            [
+              -54.67175901919314,
+              25.2492424062035
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            13.34179790233261,
+            -6.720595792893599,
+            -14.767106842769525,
+            14.823988064613411
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -25.496849693516502,
+              52.18044549818172
+            ],
+            [
+              -40.11197280409762,
+              26.670781218310424
+            ],
+            [
+              -46.63313285702471,
+              17.09891917148566
+            ],
+            [
+              -16.380793173457036,
+              46.028769302683855
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            4.107766367829036,
+            20.702958093433924,
+            -27.14632873319162,
+            0.11272975811858998
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -19.657863975815427,
+              27.8733967114735
+            ],
+            [
+              -15.035242028283161,
+              56.441158215151006
+            ],
+            [
+              -61.75624353390273,
+              7.46358606751949
+            ],
+            [
+              -31.374554422230908,
+              31.600013938468088
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            8.41614916033255,
+            -11.860520961890133,
+            -3.3844912799494096,
+            5.904036365412641
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -28.339649814985172,
+              45.171948135650275
+            ],
+            [
+              -43.634660566553755,
+              19.913618642773486
+            ],
+            [
+              -27.66251026372208,
+              20.893527703823263
+            ],
+            [
+              -23.124140313543165,
+              34.932213044368446
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            -0.8178823741710218,
+            15.56303292443739,
+            -15.763713170371503,
+            -8.807221941082181
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -26.05995359737839,
+              24.424188849036348
+            ],
+            [
+              -17.405351231001422,
+              48.531417079876206
+            ],
+            [
+              -49.40560386959071,
+              17.878177528847708
+            ],
+            [
+              -39.982086983191685,
+              22.367643101027326
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P011",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 89,
+          "control_only": 313,
+          "viscereality_only": 146,
+          "same_gap": 401,
+          "different_gaps": 50
+        },
+        "Inhale": {
+          "neither": 658,
+          "control_only": 146,
+          "viscereality_only": 149,
+          "same_gap": 12,
+          "different_gaps": 34
+        },
+        "equal_phase": {
+          "neither": 359,
+          "control_only": 489,
+          "viscereality_only": 54,
+          "same_gap": 31,
+          "different_gaps": 66
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            2.0836026697708503,
+            2.2045451307818644,
+            -10.447960042285152,
+            -0.3226921507331042
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -20.06863248181009,
+              24.235837821351794
+            ],
+            [
+              -20.376512728374657,
+              24.785602989938383
+            ],
+            [
+              -32.935455955538416,
+              12.03953587096811
+            ],
+            [
+              -22.477013932505166,
+              21.831629631038957
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            7.913947340458255,
+            7.795935539558966,
+            -21.597814102094866,
+            8.12711290687592
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -14.78975275316704,
+              30.617647434083548
+            ],
+            [
+              -17.773112610595085,
+              33.364983689713014
+            ],
+            [
+              -48.741014254148396,
+              5.545386049958669
+            ],
+            [
+              -15.464319347094152,
+              31.71854516084599
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -8.177313347286066,
+            24.191407585576993,
+            -9.175257128867084,
+            -16.165085709218893
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -51.7491774744959,
+              35.39455077992377
+            ],
+            [
+              -20.687695605789333,
+              69.07051077694332
+            ],
+            [
+              -45.71234184983689,
+              27.361827592102717
+            ],
+            [
+              -55.277013599109246,
+              22.94684218067146
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            12.002604014101287,
+            -4.299768253229526,
+            -17.010185537661325,
+            16.20965576148537
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -25.993006063809837,
+              49.99821409201241
+            ],
+            [
+              -37.437839083674405,
+              28.838302577215355
+            ],
+            [
+              -48.601377879619385,
+              14.581006804296734
+            ],
+            [
+              -14.403101942883985,
+              46.82241346585472
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            3.825290666815223,
+            19.89163933234746,
+            -26.18544266652841,
+            0.04457005226647486
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -19.3372498339571,
+              26.987831167587547
+            ],
+            [
+              -14.986543818110135,
+              54.769822482805054
+            ],
+            [
+              -59.99346649750604,
+              7.6225811644492225
+            ],
+            [
+              -30.628575677392302,
+              30.717715781925254
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            6.172259343413867,
+            -9.891158662006632,
+            -5.860331477851607,
+            7.759850703876339
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -30.11045371254657,
+              42.4549723993743
+            ],
+            [
+              -41.26894755072232,
+              21.48663022670905
+            ],
+            [
+              -30.380861669499932,
+              18.66019871379672
+            ],
+            [
+              -20.93092589663323,
+              36.450627304385904
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            -2.005054003872198,
+            14.300248923570352,
+            -15.035588606718688,
+            -8.405235005342556
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -26.7893524502824,
+              22.77924444253801
+            ],
+            [
+              -17.984572032460868,
+              46.58506987960157
+            ],
+            [
+              -47.86237376718316,
+              17.791196553745777
+            ],
+            [
+              -38.79172438651728,
+              21.981254375832165
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "raw_or_pooled",
+      "cohort": "exclude_P033",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 119,
+          "control_only": 189,
+          "viscereality_only": 255,
+          "same_gap": 388,
+          "different_gaps": 48
+        },
+        "Inhale": {
+          "neither": 646,
+          "control_only": 128,
+          "viscereality_only": 153,
+          "same_gap": 15,
+          "different_gaps": 57
+        },
+        "equal_phase": {
+          "neither": 396,
+          "control_only": 422,
+          "viscereality_only": 79,
+          "same_gap": 24,
+          "different_gaps": 78
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            5.329340536240427,
+            1.4076616619471722,
+            -8.23321503119867,
+            -2.509684020651808
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -16.7298081321179,
+              27.388489204598752
+            ],
+            [
+              -21.18429565665121,
+              23.999618980545556
+            ],
+            [
+              -30.877516666958435,
+              14.411086604561097
+            ],
+            [
+              -24.64008031286368,
+              19.620712271560066
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            7.913947340458252,
+            7.795935539558966,
+            -21.597814102094866,
+            8.12711290687592
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -14.789752753167035,
+              30.617647434083537
+            ],
+            [
+              -17.773112610595085,
+              33.364983689713014
+            ],
+            [
+              -48.741014254148396,
+              5.545386049958669
+            ],
+            [
+              -15.464319347094152,
+              31.71854516084599
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -9.840309159062368,
+            29.317965851159652,
+            -14.979322169517495,
+            -12.539808547356367
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -53.3533211112959,
+              33.67270279317117
+            ],
+            [
+              -15.035301785318648,
+              73.67123348763795
+            ],
+            [
+              -51.18676069871016,
+              21.22811635967517
+            ],
+            [
+              -51.87862714127137,
+              26.799010046558642
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            12.834101919989441,
+            -6.863047386020856,
+            -14.108153017336122,
+            14.397017180554105
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -25.022989679194993,
+              50.69119351917388
+            ],
+            [
+              -39.39263816412334,
+              25.666543392081632
+            ],
+            [
+              -45.197540002512895,
+              16.98123396784065
+            ],
+            [
+              -16.020926260012665,
+              44.814960621120875
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            2.9937927609270703,
+            22.454918465138785,
+            -29.08747518685362,
+            1.8572086331977344
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -20.339610679444203,
+              26.327196201298346
+            ],
+            [
+              -12.658958356361826,
+              57.5687952866394
+            ],
+            [
+              -63.182136767479875,
+              5.007186393772631
+            ],
+            [
+              -29.15297344650434,
+              32.86739071289981
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            10.249495115771598,
+            -13.251321263632654,
+            -0.7435539464399243,
+            3.7602202530263753
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -25.875049476086804,
+              46.374039707630004
+            ],
+            [
+              -44.41643892086465,
+              17.913796393599345
+            ],
+            [
+              -25.38165856427034,
+              23.89455067139049
+            ],
+            [
+              -25.06757621191226,
+              32.58801671796501
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            0.4091859567092284,
+            16.06664458752699,
+            -15.722876115957417,
+            -8.779588294329994
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -24.388403897022776,
+              25.206775810441236
+            ],
+            [
+              -16.07576800702112,
+              48.2090571820751
+            ],
+            [
+              -48.49453912542371,
+              17.04878689350887
+            ],
+            [
+              -39.147965848279725,
+              21.58878925961974
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "primary40",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 800,
+          "control_only": 132,
+          "viscereality_only": 56,
+          "same_gap": 4,
+          "different_gaps": 7
+        },
+        "Inhale": {
+          "neither": 671,
+          "control_only": 229,
+          "viscereality_only": 66,
+          "same_gap": 4,
+          "different_gaps": 29
+        },
+        "equal_phase": {
+          "neither": 571,
+          "control_only": 312,
+          "viscereality_only": 70,
+          "same_gap": 14,
+          "different_gaps": 32
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            -16.647215488210797,
+            23.573182655813493,
+            -8.764146805082962,
+            -11.363161076736905
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -52.0214082652292,
+              18.726977288807603
+            ],
+            [
+              -13.265803317343835,
+              60.41216862897082
+            ],
+            [
+              -41.32738239309424,
+              23.79908878292831
+            ],
+            [
+              -56.240428140369886,
+              33.514105986896084
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            5.646029269802122,
+            -3.070905619694899,
+            -9.814283363647627,
+            3.421375497928744
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -27.467739951917025,
+              38.759798491521266
+            ],
+            [
+              -50.0558133416835,
+              43.91400210229371
+            ],
+            [
+              -57.06876819333794,
+              37.44020146604269
+            ],
+            [
+              -33.711389891740254,
+              40.55414088759774
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -11.725175611697459,
+            33.2699972541828,
+            -5.677383441695734,
+            -44.80091212571249
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -93.27893477089455,
+              69.82858354749965
+            ],
+            [
+              -59.82066536270456,
+              126.36065987107015
+            ],
+            [
+              -107.18316357868406,
+              95.82839669529258
+            ],
+            [
+              -122.98780406305247,
+              33.38597981162747
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            11.508617075650855,
+            -19.705904246786304,
+            -6.975591642799751,
+            25.821831560785
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -41.207728926703616,
+              64.22496307800533
+            ],
+            [
+              -97.2682325482793,
+              57.85642405470669
+            ],
+            [
+              -84.30079604742612,
+              70.3496127618266
+            ],
+            [
+              -24.085604412653254,
+              75.72926753422325
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            -0.21655853604660819,
+            13.564093007396503,
+            -12.652975084495491,
+            -18.979080564927507
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -52.55715563616341,
+              52.1240385640702
+            ],
+            [
+              -38.706205145230875,
+              65.83439116002388
+            ],
+            [
+              -72.97293146238857,
+              47.6669812933976
+            ],
+            [
+              -76.62912307086327,
+              38.670961941008265
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            -10.78462768236206,
+            6.938184028722094,
+            -5.925455084235091,
+            11.037294986119345
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -58.620032751053486,
+              37.05077738632937
+            ],
+            [
+              -49.75870212122239,
+              63.635070178666574
+            ],
+            [
+              -59.53243681581754,
+              47.68152664734736
+            ],
+            [
+              -37.477164334760204,
+              59.55175430699889
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            -22.509803294059523,
+            40.2081812829049,
+            -11.602838525930835,
+            -33.763617139593144
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -82.00727271641139,
+              36.98766612829235
+            ],
+            [
+              -21.699981419494627,
+              102.11634398530444
+            ],
+            [
+              -77.92577448446436,
+              54.720097432602685
+            ],
+            [
+              -102.54501339188391,
+              35.01777911269763
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P011",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 765,
+          "control_only": 165,
+          "viscereality_only": 63,
+          "same_gap": 4,
+          "different_gaps": 2
+        },
+        "Inhale": {
+          "neither": 666,
+          "control_only": 225,
+          "viscereality_only": 74,
+          "same_gap": 6,
+          "different_gaps": 28
+        },
+        "equal_phase": {
+          "neither": 497,
+          "control_only": 358,
+          "viscereality_only": 72,
+          "same_gap": 13,
+          "different_gaps": 59
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            -14.89413607620467,
+            25.938945138463037,
+            -11.411621421071331,
+            -8.803693733401856
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -49.65687281100841,
+              19.868600658599075
+            ],
+            [
+              -10.476551808654708,
+              62.354442085580786
+            ],
+            [
+              -43.879469084654254,
+              21.056226242511592
+            ],
+            [
+              -53.029529733023594,
+              35.42214226621988
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            5.69971690278798,
+            -0.6288645612199573,
+            -11.385886208436709,
+            2.569283560433069
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -26.55762008027833,
+              37.95705388585429
+            ],
+            [
+              -46.841739631019436,
+              45.584010508579524
+            ],
+            [
+              -57.60097014403615,
+              34.82919772716273
+            ],
+            [
+              -33.6713638881584,
+              38.809931009024545
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -9.365421390076843,
+            21.446474285923582,
+            -3.1454147398657573,
+            -38.4838536629272
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -89.04859949881508,
+              70.31775671866139
+            ],
+            [
+              -74.3644003433691,
+              117.25734891521627
+            ],
+            [
+              -102.2465300170448,
+              95.95570053731329
+            ],
+            [
+              -116.41960892583623,
+              39.451901599981824
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            10.382427597826405,
+            -11.352101704181758,
+            -9.813178838503823,
+            21.811210391896665
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -41.05443289841287,
+              61.81928809406568
+            ],
+            [
+              -90.00396992245267,
+              67.29976651408914
+            ],
+            [
+              -85.50258489121367,
+              65.87622721420604
+            ],
+            [
+              -27.923965111685092,
+              71.54638589547842
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            1.017006207749557,
+            10.09437258174184,
+            -12.958593578369582,
+            -16.672643271030534
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -50.07140145507609,
+              52.10541387057521
+            ],
+            [
+              -41.62607906772227,
+              61.81482423120596
+            ],
+            [
+              -71.72335599878083,
+              45.806168842041664
+            ],
+            [
+              -73.15425396702739,
+              39.808967424966326
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            -10.211425381166244,
+            15.215707995501234,
+            -9.83891405113845,
+            10.438233098061742
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -56.83332101730717,
+              36.41047025497468
+            ],
+            [
+              -44.106641807598265,
+              74.53805779860073
+            ],
+            [
+              -63.052789243292516,
+              43.37496114101561
+            ],
+            [
+              -36.847003755891095,
+              57.72346995201458
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            -19.57684677124309,
+            36.66218228142483,
+            -12.984328791004218,
+            -28.04562056486546
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -78.0405022730485,
+              38.88680873056232
+            ],
+            [
+              -24.35336900072621,
+              97.67773356357588
+            ],
+            [
+              -77.69229797127961,
+              51.72364038927118
+            ],
+            [
+              -96.69652361498184,
+              40.605282485250925
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "correction": "same_label",
+      "cohort": "exclude_P033",
+      "paired_bootstrap_states": {
+        "Exhale": {
+          "neither": 758,
+          "control_only": 162,
+          "viscereality_only": 66,
+          "same_gap": 9,
+          "different_gaps": 4
+        },
+        "Inhale": {
+          "neither": 609,
+          "control_only": 258,
+          "viscereality_only": 88,
+          "same_gap": 2,
+          "different_gaps": 42
+        },
+        "equal_phase": {
+          "neither": 549,
+          "control_only": 353,
+          "viscereality_only": 57,
+          "same_gap": 17,
+          "different_gaps": 23
+        }
+      },
+      "paired_rt_adjacent_effects": [
+        {
+          "effect": "Condition",
+          "adjacent_effects_ms": [
+            -17.588235608109077,
+            20.057508824099884,
+            -5.689152832749086,
+            -13.368327879743322
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -52.135006449000116,
+              16.958535232781966
+            ],
+            [
+              -16.98788316162164,
+              57.102900809821406
+            ],
+            [
+              -38.41375525695467,
+              27.035449591456498
+            ],
+            [
+              -57.39801492763819,
+              30.661359168151545
+            ]
+          ]
+        },
+        {
+          "effect": "Phase",
+          "adjacent_effects_ms": [
+            5.69971690278798,
+            -0.6288645612199573,
+            -11.385886208436704,
+            2.569283560433069
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -26.55762008027833,
+              37.95705388585429
+            ],
+            [
+              -46.841739631019436,
+              45.584010508579524
+            ],
+            [
+              -57.60097014403614,
+              34.829197727162736
+            ],
+            [
+              -33.6713638881584,
+              38.809931009024545
+            ]
+          ]
+        },
+        {
+          "effect": "Condition \u00d7 Phase",
+          "adjacent_effects_ms": [
+            -13.512970047381609,
+            43.470593527115994,
+            -7.932406609784453,
+            -48.932560240902085
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -93.09423863626208,
+              66.06829854149885
+            ],
+            [
+              -51.055435144825935,
+              137.99662219905792
+            ],
+            [
+              -106.98774719425222,
+              91.12293397468332
+            ],
+            [
+              -125.85946825822424,
+              27.994347776420078
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Control",
+          "adjacent_effects_ms": [
+            12.456201926478789,
+            -22.364161324777957,
+            -7.419682903544474,
+            27.035563680884106
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -38.95601915490889,
+              63.86842300786647
+            ],
+            [
+              -98.23902320950454,
+              53.51070055994863
+            ],
+            [
+              -82.75324275567415,
+              67.91387694858521
+            ],
+            [
+              -21.68418899042351,
+              75.75531635219173
+            ]
+          ]
+        },
+        {
+          "effect": "Phase within Viscereality",
+          "adjacent_effects_ms": [
+            -1.0567681209028272,
+            21.106432202338056,
+            -15.352089513328934,
+            -21.896996560017968
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -52.090524175738494,
+              49.97698793393285
+            ],
+            [
+              -33.49988635743897,
+              75.71275076211508
+            ],
+            [
+              -74.53403756767275,
+              43.829858541014886
+            ],
+            [
+              -78.5717646952789,
+              34.777771575242966
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Exhale",
+          "adjacent_effects_ms": [
+            -10.831750584418266,
+            -1.6777879394581239,
+            -1.7229495278568487,
+            11.097952240707713
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -57.42969437517863,
+              35.766193206342095
+            ],
+            [
+              -61.32894230887289,
+              57.97336642995665
+            ],
+            [
+              -55.08742147592072,
+              51.641522420207025
+            ],
+            [
+              -36.16158024253725,
+              58.35748472395267
+            ]
+          ]
+        },
+        {
+          "effect": "Condition within Inhale",
+          "adjacent_effects_ms": [
+            -24.34472063179988,
+            41.79280558765789,
+            -9.655356137641318,
+            -37.83460800019435
+          ],
+          "simultaneous_intervals_ms": [
+            [
+              -82.50122964538306,
+              33.811788381783295
+            ],
+            [
+              -18.655907925469627,
+              102.24151910078541
+            ],
+            [
+              -74.46286025947434,
+              55.1521479841917
+            ],
+            [
+              -105.67735161429806,
+              30.00813561390936
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "recovery": [
+    {
+      "correction": "raw_or_pooled",
+      "amplitude_ms": 0.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        86,
+        96,
+        92,
+        82,
+        94,
+        90
+      ],
+      "none_counts": [
+        86,
+        96,
+        92,
+        82,
+        94,
+        90
+      ],
+      "wrong_gap_counts": [
+        10,
+        0,
+        4,
+        14,
+        2,
+        6
+      ],
+      "both_conditions_correct": 88,
+      "any_gap": 26
+    },
+    {
+      "correction": "raw_or_pooled",
+      "amplitude_ms": 40.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        95,
+        90,
+        96,
+        79,
+        92,
+        95
+      ],
+      "none_counts": [
+        0,
+        5,
+        0,
+        15,
+        0,
+        0
+      ],
+      "wrong_gap_counts": [
+        1,
+        1,
+        0,
+        2,
+        4,
+        1
+      ],
+      "both_conditions_correct": 91,
+      "any_gap": 96
+    },
+    {
+      "correction": "raw_or_pooled",
+      "amplitude_ms": 120.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        96,
+        96,
+        95,
+        94,
+        94,
+        93
+      ],
+      "none_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "wrong_gap_counts": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        3
+      ],
+      "both_conditions_correct": 91,
+      "any_gap": 96
+    },
+    {
+      "correction": "same_label",
+      "amplitude_ms": 0.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        91,
+        92,
+        91,
+        92,
+        92,
+        92
+      ],
+      "none_counts": [
+        91,
+        92,
+        91,
+        92,
+        92,
+        92
+      ],
+      "wrong_gap_counts": [
+        5,
+        4,
+        5,
+        4,
+        4,
+        4
+      ],
+      "both_conditions_correct": 88,
+      "any_gap": 22
+    },
+    {
+      "correction": "same_label",
+      "amplitude_ms": 40.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        56,
+        33,
+        81,
+        51,
+        86,
+        91
+      ],
+      "none_counts": [
+        39,
+        60,
+        15,
+        43,
+        10,
+        4
+      ],
+      "wrong_gap_counts": [
+        1,
+        3,
+        0,
+        2,
+        0,
+        1
+      ],
+      "both_conditions_correct": 82,
+      "any_gap": 96
+    },
+    {
+      "correction": "same_label",
+      "amplitude_ms": 120.0,
+      "replicates": 96,
+      "correct_state_counts": [
+        95,
+        93,
+        96,
+        93,
+        93,
+        95
+      ],
+      "none_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "wrong_gap_counts": [
+        1,
+        3,
+        0,
+        3,
+        3,
+        1
+      ],
+      "both_conditions_correct": 92,
+      "any_gap": 96
+    }
+  ],
+  "sha256": {
+    "analysis/boundary_methods/adjacent_rule.py": "fe3a1d18a454febd5e37887cfcfd945b8c70daca4a53ac344298095c530a5d96",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/baseline_effects/requirements.txt": "71edef027bb74eacb363b76cfc97334d297136effdabd72198f266e4adceedf0",
+    "results/boundary_methods/ADJACENT_RULE_SPECIFICATION.md": "9d2a5bac1c1f6b07b26b17eee5ff2e61f4e749869fe0e25afe212b4d10b650a4"
+  }
+}

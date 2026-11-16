@@ -1243,6 +1243,12 @@ finding as a valid completion of a specified screen.
   held-distance prediction. The tested methods provide no stable paired
   boundary comparison. Keep the apparent group steps from selected profiles
   as sensitivity findings.
+- [x] Apply the [first detectable adjacent decrease](../results/boundary_methods/ADJACENT_RULE_RESULTS.md).
+  Both raw exhale conditions selected the same 50–73 cm registered gap.
+  Same-label subtraction selected no gap across the three linkage cohorts.
+  The paired adjacent RT contrast was −3.38 ms with a 95% simultaneous
+  interval from −27.66 to +20.89 ms. Leave-one-probe refits and paired
+  participant resampling show sensitivity to probe and cohort choice.
 - [x] Freeze and run calibrated midpoint sets and the four nonlinear
   reductions with within-person or group shared shape. The
   [native profile results](../results/boundary_methods/PROFILE_RESULTS.md)
