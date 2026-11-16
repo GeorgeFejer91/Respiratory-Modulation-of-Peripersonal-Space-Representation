@@ -1266,6 +1266,12 @@ finding as a valid completion of a specified screen.
   alongside conditional hit RT. No outcome transition or contrast localized.
   The release provides no shared defensible censoring time. This covers the
   response component of the two-part recorded-outcome analysis.
+- [x] Fit a [shared sigmoid for recorded misses and hit latency](../results/boundary_methods/JOINT_RECORDED_RESULTS.md).
+  The one within-range participant phase interval matched the RT-only
+  interval on both maps. All paired intervals included zero. Group
+  prediction favored a sigmoid for latency with boundary-free miss
+  rates. The native report includes prior and linkage sensitivities
+  and 96 matched simulated cohorts.
 - [x] Fit [positive-support lognormal center and dispersion sensitivities](../results/boundary_methods/DISTRIBUTION_RESULTS.md).
   No center or group transition localized. A few descriptive dispersion
   cells localized, with all free paired contrasts unresolved and better
