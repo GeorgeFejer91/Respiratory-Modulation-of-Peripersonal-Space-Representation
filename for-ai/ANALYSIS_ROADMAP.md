@@ -1299,6 +1299,11 @@ finding as a valid completion of a specified screen.
   No center or group transition localized. A few descriptive dispersion
   cells localized, with all free paired contrasts unresolved and better
   held-probe prediction under a constant distribution.
+- [x] Run the [ex-Gaussian center and tail sensitivity](../results/boundary_methods/EXPONENTIAL_TAIL_RESULTS.md).
+  Verified 36 attempts for 26 targets. The tail model exceeded the flat
+  held score by 0.00154 log units per trial. Its paired condition midpoint
+  interval was −62.77 to +64.95 cm. The full-data and 50 cm center fits
+  exhausted their diagnostic budget. Both tail recovery generators qualified.
 - [x] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
@@ -1322,10 +1327,11 @@ finding as a valid completion of a specified screen.
   four-point interpolation. The mapping from the verified waveform subset
   to deidentified rows and the wider offset prevalence remain unverified.
 
-This native checkpoint does not promote exploratory findings to the
-article. Its publication slice uses the audited public trial release and
-public citations. The full private catalogue ledger remains in research
-storage. This checklist extends Q10 and remains open.
+The declared release-based boundary analyses are complete. The
+[method audit](../literature_review/BOUNDARY_METHOD_AUDIT.md) records
+the participant and group evidence. The native publication uses the
+audited public trial release and public citations. The full private
+catalogue ledger remains in research storage.
 
 The first public source checkpoint, `e92ec5e`, passed all 75 workbook
 unit tests and the public data check. Its [workbook build and deploy](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43898833096)
@@ -1375,11 +1381,11 @@ The tactile-baseline crossing checkpoint, `a450c9f`, passed its
   and population/cohort target. Assess practically meaningful effects only with
   justified thresholds; add Bayes factors only with explicit proper hypothesis
   priors and stable calculations. Posterior probabilities are not p values.
-- [ ] Q10.6 Check null/known-effect recovery across repeated simulations, prior
+- [x] Q10.6 Check null/known-effect recovery across repeated simulations, prior
   sensitivity, posterior prediction and matched held-out targets. A narrow
   interval or imposed visible S does not establish parameter identification;
   retain failed diagnostic gates and their consequences for interpretation.
-- [ ] Q10.7 Compile the complete evidence table and classify each parameter
+- [x] Q10.7 Compile the complete evidence table and classify each parameter
   effect as supported under the stated model, model-dependent, inconclusive or
   not identifiable. Distinguish RT-location/curve effects from boundary/sharpness
   effects. Stop after the declared scope and report all outcomes.
@@ -1406,12 +1412,10 @@ time control. A positive quadratic RT component is supported in that sensitivity
 but it is not a PPS effect or a causal fatigue diagnosis. Both visible95 models
 have 0/600 AT mean-profile discrepancy tails: imposed S geometry has poor average-
 profile adequacy despite converged sampling. Early blocks do not rule out fatigue.
-Q10.2–.4 and .6–.7 remain PARTIAL: this bounded batch is complete, while reduced
-boundary-only/sharpness-only models, repeated Bayesian recovery/coverage and the
-broader scientific evidence classification remain open. Next action: establish
-the requested last-30 cohort's public IDs and freeze its membership before any
-refit. Reduced models and recovery budgets remain later open items; do not select
-another cleaning/shape variant by significance. Source timing/linkage remains unresolved.
+The [method audit](../literature_review/BOUNDARY_METHOD_AUDIT.md) records
+the completed reduced models, recovery runs and scientific evidence
+classification. Q10.3 and Q10.8 retain source timing and collection-order
+gaps. The last-30 refit requires verified cohort membership before fitting.
 Questionnaire follow-ups, browser integration and manuscript updates were not run
 for this native amendment; earlier inputs and numerical results are unchanged.
 Publication: the audited native source/results have been pushed normally to

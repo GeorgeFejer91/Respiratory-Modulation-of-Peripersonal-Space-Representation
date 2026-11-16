@@ -43,14 +43,14 @@ group held-probe mean RT prediction in all four baseline and axis settings.
 
 ## Finite follow-up registry
 
-| Family | Next adjudication |
+| Family | Completed analysis and limits |
 | --- | --- |
 | Reduced or shared nonlinear structure | The [GLS reductions](../results/boundary_methods/PROFILE_RESULTS.md) implement shared width, shared midpoint and both. The [hierarchical comparisons](../results/boundary_methods/HIERARCHY_RESULTS.md) add population and participant sharing under a marginal trial likelihood. All 45 held-probe fits and 32 recovery attempts are recorded. Condition-level peak differences remained unresolved and predicted responses could not distinguish factorial midpoint and width variation |
 | Profile likelihood and weak identification | Ran [absolute calibrated midpoint profiles](../results/boundary_methods/PROFILE_RESULTS.md). They admit non-identification and boundary-free alternatives and retain disconnected sets, outside-range values and zero amplitude. The [paired mixed likelihood](../results/boundary_methods/MIXED_PROFILE_RESULTS.md) integrates discrete random midpoints and selects population shape by maximum marginal likelihood. Condition support reached both search limits. The zero-shift model scored highest on held data across both maps and lattices |
 | Continuous change points | Ran [near and far plateau hinges and a free broken line](../results/boundary_methods/KNOT_RESULTS.md). One exploratory participant–condition–phase cell supported a near-plateau knot on both mappings under pooled Baseline. No knot or paired difference was robust to the timing-unverified same-label sensitivity. Group curves retained boundary-free references |
 | Crossing of a fitted line with the lower confidence limit of tactile-only RT in [Serino et al. (2015)](https://doi.org/10.1038/srep18603), Fig. 7 | A baseline-calibrated operational trunk boundary. The crossing moves with uncertainty in tactile-only RT or selection of the fastest Baseline delay. The Noel et al. conference abstract cannot establish an equivalent fit | [Ran](../results/boundary_methods/BASELINE_CROSSING_RESULTS.md) four reference rules with uncertainty-aware ratio sets, refits and recovery. No observed crossing or paired contrast localized |
 | Monotone partial identification | Ran [compatible location and censoring sets](../results/boundary_methods/THRESHOLD_RESULTS.md) for the observed-range half response and 0, 20 and 40 ms of facilitation. No observed crossing or paired contrast localized. Isotonic interpolation improved held-distance prediction under pooled Baseline and lost that advantage with same-label subtraction. A monotone spline, GAM or Gaussian process adds assumptions about smoothness between the probes |
-| Distribution and selection | The [two-part observed-outcome comparison](../results/boundary_methods/RESPONSE_RESULTS.md) adds miss and miss-or-slow boundaries. No observed outcome or paired contrast localized. The [shared recorded-response likelihood](../results/boundary_methods/JOINT_RECORDED_RESULTS.md) gave the same single within-range participant phase interval as RT only. Group held prediction favored a latency-only sigmoid and all paired intervals included zero. The [lognormal center and dispersion sensitivity](../results/boundary_methods/DISTRIBUTION_RESULTS.md) found three exploratory dispersion cells with no supported paired boundary. A common censoring deadline remains unverified |
+| Distribution and selection | The [two-part observed-outcome comparison](../results/boundary_methods/RESPONSE_RESULTS.md) adds miss and miss-or-slow boundaries. No observed outcome or paired contrast localized. The [shared recorded-response likelihood](../results/boundary_methods/JOINT_RECORDED_RESULTS.md) gave the same single within-range participant phase interval as RT only. Group held prediction favored a latency-only sigmoid and all paired intervals included zero. The [lognormal center and dispersion sensitivity](../results/boundary_methods/DISTRIBUTION_RESULTS.md) found three exploratory dispersion cells with no supported paired boundary. The [ex-Gaussian sensitivity](../results/boundary_methods/EXPONENTIAL_TAIL_RESULTS.md) compared a Gaussian center and exponential tail. A common censoring deadline remains unverified |
 | Condition-level estimands and sensitivities | Compare the location of each group's equal-person average curve with the average of latent participant locations under valid partial pooling. Hold both phases and apply the existing pairing and recording-linkage sensitivities. Check stability under the alternative axis, timing-unverified same-label baseline, session-time covariates and retained-trial counts. Keep the nominated last-30 sensitivity pending verified recruitment order |
 | Mechanistic separation | Time and distance are aliased along the trajectory. The documented +500 ms cue-offset sensitivity leaves two exact Baseline matches, which identify an endpoint difference. Its four-point interpolation leaves every tested midpoint compatible. Additional source-waveform links could verify how widely the offset applies. Independent space and time effects require design variation. [Timing sensitivity](../results/boundary_methods/CUE_TIME_RESULTS.md) |
 
@@ -156,5 +156,14 @@ estimable comparisons. These results leave the size and direction of
 a relative boundary uncertain.
 [Gaussian hierarchy](../results/boundary_methods/HIERARCHY_RESULTS.md) ·
 [Monotone shift](../results/boundary_methods/MONOTONE_SHIFT_RESULTS.md)
+
+The ex-Gaussian tail model improved held log density by 0.00154
+per trial over the matched flat distribution. Its paired condition
+midpoint estimate was +1.48 cm with a 95% credible interval from
+−62.77 to +64.95 cm. Zero of 160 participant phase-cell midpoint
+intervals fit inside the measured range. The Gaussian-center
+model's full-data and 50 cm held fits reached the diagnostic budget
+with unresolved midpoint mixing.
+[Ex-Gaussian fit report](../results/boundary_methods/EXPONENTIAL_TAIL_RESULTS.md)
 
 The ongoing checklist is in the [analysis roadmap](../for-ai/ANALYSIS_ROADMAP.md).
