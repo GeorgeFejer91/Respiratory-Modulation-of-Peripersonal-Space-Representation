@@ -1,0 +1,517 @@
+axis,cohort,participant,cell,status,conditional_midpoint_cm,conditional_fitted_span_ms,intervals_cm,compatible_points,tested_points,compatible_references,first_probe_cm,last_probe_cm
+registered,primary40,P000,Control Exhale,unresolved,79.92500000000001,-215.27720401458572,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P000,Control Inhale,unresolved,59.850000000000016,-59.40388100214974,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P000,Viscereality Exhale,unresolved,149.27500000000003,-211.05716213755215,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P000,Viscereality Inhale,unresolved,147.45000000000005,136.2444572867471,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P000,Control equal phase,unresolved,68.97500000000002,-95.20850122605903,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P000,Viscereality equal phase,unresolved,47.07500000000001,26.376490639785747,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Control Exhale,unresolved,134.675,58.13742785116874,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Control Inhale,unresolved,47.07500000000001,113.58422460425477,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Viscereality Exhale,unresolved,48.900000000000006,-113.63884941385285,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Viscereality Inhale,unresolved,41.60000000000001,63.482677681347376,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Control equal phase,unresolved,-46.0,79.46494520332524,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P001,Viscereality equal phase,unresolved,141.97500000000002,27.456150914535055,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Control Exhale,unresolved,-46.0,365.32946184326494,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Control Inhale,unresolved,143.8,163.29615167195314,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Viscereality Exhale,unresolved,63.5,92.44926107866762,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Viscereality Inhale,unresolved,59.850000000000016,-68.20320541911522,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Control equal phase,unresolved,-38.7,212.02120428961652,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P002,Viscereality equal phase,unresolved,141.97500000000002,38.82082324535864,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Control Exhale,unresolved,140.15000000000003,-116.02297304740492,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Control Inhale,unresolved,39.775000000000006,-79.25843776510077,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Viscereality Exhale,unresolved,141.97500000000002,-155.06127317514114,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Viscereality Inhale,unresolved,78.10000000000002,-143.00857156226684,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Control equal phase,unresolved,140.15000000000003,-55.25457446960843,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P003,Viscereality equal phase,unresolved,138.32500000000005,-131.27146714324186,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Control Exhale,unresolved,67.15,69.6445120370089,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Control Inhale,unresolved,48.900000000000006,56.44835984114852,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Viscereality Exhale,unresolved,173.0,42.79333063430553,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Viscereality Inhale,unresolved,173.0,15.579339951173697,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Control equal phase,unresolved,52.55000000000001,56.000399457673076,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P004,Viscereality equal phase,unresolved,173.0,31.95322189144404,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Control Exhale,unresolved,-46.0,21.02799805192344,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Control Inhale,unresolved,138.32500000000005,77.92079816047261,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Viscereality Exhale,unresolved,58.025000000000006,43.94315390536088,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Viscereality Inhale,unresolved,39.775000000000006,61.55222043109339,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Control equal phase,unresolved,138.32500000000005,46.03204842532487,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P005,Viscereality equal phase,unresolved,52.55000000000001,44.52627307201463,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Control Exhale,unresolved,141.97500000000002,-135.67469166787083,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Control Inhale,unresolved,50.72500000000001,-126.50609563560143,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Viscereality Exhale,unresolved,-46.0,-73.3617723754028,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Viscereality Inhale,unresolved,132.85000000000002,-54.13549178948541,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Control equal phase,unresolved,-46.0,-67.75417749501416,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P006,Viscereality equal phase,unresolved,140.15000000000003,-42.418549929846264,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Control Exhale,unresolved,140.15000000000003,-113.37944425512953,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Control Inhale,unresolved,129.20000000000005,36.020287286222924,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Viscereality Exhale,unresolved,140.15000000000003,-82.85720491339185,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Viscereality Inhale,unresolved,-38.7,-88.49022106341036,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Control equal phase,unresolved,140.15000000000003,-32.759253663917875,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P007,Viscereality equal phase,unresolved,-46.0,-48.832262839862814,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Control Exhale,unresolved,-46.0,-72.02431790171879,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Control Inhale,unresolved,140.15000000000003,59.26388004171016,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Viscereality Exhale,unresolved,61.675000000000004,-46.64675912357566,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Viscereality Inhale,unresolved,138.32500000000005,119.37008992321974,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Control equal phase,unresolved,-46.0,-49.94187786614825,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P008,Viscereality equal phase,unresolved,140.15000000000003,53.62656772115442,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Control Exhale,unresolved,-46.0,50.593223366483436,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Control Inhale,unresolved,-46.0,-18.262151358566367,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Viscereality Exhale,unresolved,52.55000000000001,51.753866161591745,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Viscereality Inhale,unresolved,-46.0,37.627083783824006,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Control equal phase,unresolved,52.55000000000001,18.81020714836105,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P009,Viscereality equal phase,unresolved,-46.0,39.71801653221482,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Control Exhale,unresolved,25.175000000000008,122.418092927591,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Control Inhale,unresolved,50.72500000000001,200.77428599121222,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Viscereality Exhale,unresolved,143.8,-57.35365073714765,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Viscereality Inhale,unresolved,61.675000000000004,-91.31164758834709,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Control equal phase,unresolved,48.900000000000006,163.6540453151249,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P010,Viscereality equal phase,unresolved,70.80000000000001,-39.81104526732516,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Control Exhale,unresolved,37.95000000000001,104.10963796904937,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Control Inhale,unresolved,-46.0,52.99679040128269,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Viscereality Exhale,unresolved,50.72500000000001,56.24542183634131,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Viscereality Inhale,unresolved,140.15000000000003,-68.71215210622742,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Control equal phase,unresolved,-9.5,79.53218033177856,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P012,Viscereality equal phase,unresolved,140.15000000000003,-32.965549902615315,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Control Exhale,unresolved,-46.0,247.8043401966659,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Control Inhale,unresolved,140.15000000000003,-99.86569004454752,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Viscereality Exhale,unresolved,41.60000000000001,131.78605458923428,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Viscereality Inhale,unresolved,140.15000000000003,-127.69448560180908,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Control equal phase,unresolved,-46.0,175.78746761336023,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P013,Viscereality equal phase,unresolved,143.8,-95.4935076337575,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Control Exhale,unresolved,-46.0,-110.02967156683428,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Control Inhale,unresolved,-46.0,-106.54465659689517,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Viscereality Exhale,unresolved,76.275,107.39187870899984,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Viscereality Inhale,unresolved,173.0,-194.41539722074688,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Control equal phase,unresolved,-46.0,-93.94834860291975,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P014,Viscereality equal phase,unresolved,-38.7,-92.53188540229166,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Control Exhale,unresolved,52.55000000000001,40.55223932420682,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Control Inhale,unresolved,76.275,59.11459404664528,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Viscereality Exhale,unresolved,47.07500000000001,59.820206255002404,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Viscereality Inhale,unresolved,-46.0,76.01114145029774,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Control equal phase,unresolved,74.45000000000002,41.05946429826317,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P015,Viscereality equal phase,unresolved,-46.0,61.58974499194255,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Control Exhale,unresolved,58.025000000000006,-118.0253871815908,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Control Inhale,unresolved,74.45000000000002,85.82658325036509,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Viscereality Exhale,unresolved,173.0,310.3257718036156,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Viscereality Inhale,unresolved,-46.0,115.96911636772153,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Control equal phase,unresolved,47.07500000000001,-27.563782991907516,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P016,Viscereality equal phase,unresolved,-42.349999999999994,162.203644967821,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Control Exhale,unresolved,173.0,47.82124375005165,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Control Inhale,unresolved,78.10000000000002,-49.92211683716911,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Viscereality Exhale,unresolved,54.375,80.10520249508706,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Viscereality Inhale,unresolved,41.60000000000001,-58.409389298228284,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Control equal phase,unresolved,-46.0,35.4338662795781,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P017,Viscereality equal phase,unresolved,61.675000000000004,20.985688195346736,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Control Exhale,unresolved,138.32500000000005,49.23565970685883,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Control Inhale,unresolved,61.675000000000004,-28.98653126222519,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Viscereality Exhale,unresolved,-46.0,-56.53583216665558,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Viscereality Inhale,unresolved,50.72500000000001,72.12155355829981,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Control equal phase,unresolved,61.675000000000004,-37.36895108712607,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P018,Viscereality equal phase,unresolved,143.8,-15.823347983445936,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Control Exhale,unresolved,-46.0,-105.6009957945542,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Control Inhale,unresolved,-38.7,-43.85842529553407,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Viscereality Exhale,unresolved,173.0,144.95759421476492,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Viscereality Inhale,unresolved,61.675000000000004,-50.20319763372508,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Control equal phase,unresolved,-46.0,-71.95831503232938,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P019,Viscereality equal phase,unresolved,138.32500000000005,67.15557020167935,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P020,Control Exhale,unresolved,-46.0,357.0754172074435,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P020,Control Inhale,variance_unavailable,,,,,,,,
+registered,primary40,P020,Viscereality Exhale,unresolved,61.675000000000004,-163.9278831645054,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P020,Viscereality Inhale,unresolved,141.97500000000002,-183.64361000522825,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P020,Control equal phase,variance_unavailable,,,,,,,,
+registered,primary40,P020,Viscereality equal phase,unresolved,70.80000000000001,-77.2272433312972,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Control Exhale,unresolved,173.0,98.5865196057033,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Control Inhale,unresolved,-44.175,-193.601185829367,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Viscereality Exhale,unresolved,-46.0,-103.28631371222811,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Viscereality Inhale,unresolved,173.0,290.6415204386364,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Control equal phase,unresolved,48.900000000000006,-54.782726821490094,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P021,Viscereality equal phase,unresolved,-46.0,89.52759637168892,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Control Exhale,unresolved,-46.0,-15.983422139588013,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Control Inhale,unresolved,63.5,-17.117147597403296,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Viscereality Exhale,unresolved,58.025000000000006,77.74647254028692,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Viscereality Inhale,unresolved,-46.0,86.92477094864986,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Control equal phase,unresolved,138.32500000000005,-6.6185956130868435,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P022,Viscereality equal phase,unresolved,48.900000000000006,80.55209699921191,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Control Exhale,unresolved,138.32500000000005,-269.0242062937641,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Control Inhale,unresolved,141.97500000000002,-152.21617773537218,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Viscereality Exhale,unresolved,16.050000000000004,-25.42327647487572,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Viscereality Inhale,unresolved,63.5,-162.85521573057017,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Control equal phase,unresolved,140.15000000000003,-211.65126270341585,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P023,Viscereality equal phase,unresolved,63.5,-126.48164842053906,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Control Exhale,unresolved,140.15000000000003,-19.367117828664163,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Control Inhale,unresolved,140.15000000000003,88.83781774720421,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Viscereality Exhale,unresolved,141.97500000000002,-53.94996424259415,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Viscereality Inhale,unresolved,152.925,-77.35633778581891,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Control equal phase,unresolved,138.32500000000005,36.31471599519957,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P024,Viscereality equal phase,unresolved,138.32500000000005,-50.53657891844892,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Control Exhale,unresolved,48.900000000000006,73.29935152507373,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Control Inhale,unresolved,61.675000000000004,-22.349273097554363,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Viscereality Exhale,unresolved,-46.0,-226.28375684499147,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Viscereality Inhale,unresolved,173.0,146.28821288470976,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Control equal phase,unresolved,-46.0,36.50466782338068,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P025,Viscereality equal phase,unresolved,-46.0,-44.58878717863613,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Control Exhale,unresolved,30.650000000000002,87.41812203108282,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Control Inhale,unresolved,-46.0,-63.95565783007678,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Viscereality Exhale,unresolved,70.80000000000001,-96.50726624544089,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Viscereality Inhale,unresolved,-46.0,-64.98729841224299,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Control equal phase,unresolved,50.72500000000001,21.162972507684913,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P026,Viscereality equal phase,unresolved,-46.0,-75.46211870874406,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Control Exhale,unresolved,-46.0,-116.1739165110556,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Control Inhale,unresolved,-46.0,-40.960045974384,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Viscereality Exhale,unresolved,39.775000000000006,302.60900244916843,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Viscereality Inhale,unresolved,-36.875,-43.91854840655795,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Control equal phase,unresolved,-46.0,-70.97408765957226,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P027,Viscereality equal phase,unresolved,47.07500000000001,147.54936115477204,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Control Exhale,unresolved,-46.0,-69.19909967597661,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Control Inhale,unresolved,47.07500000000001,-107.35810806891817,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Viscereality Exhale,unresolved,47.07500000000001,95.08198047923932,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Viscereality Inhale,unresolved,-46.0,65.17622017329572,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Control equal phase,unresolved,43.42500000000001,-88.88446515650168,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P028,Viscereality equal phase,unresolved,45.25,76.50772528810384,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Control Exhale,unresolved,48.900000000000006,56.41339270896676,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Control Inhale,unresolved,59.850000000000016,-46.784271840185376,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Viscereality Exhale,unresolved,17.875,-77.20194933188598,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Viscereality Inhale,unresolved,48.900000000000006,86.79030835497461,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Control equal phase,unresolved,140.15000000000003,22.934253888630924,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P029,Viscereality equal phase,unresolved,140.15000000000003,-29.40261223252782,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Control Exhale,unresolved,61.675000000000004,-56.04131596222343,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Control Inhale,unresolved,56.20000000000001,-30.460786804552548,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Viscereality Exhale,unresolved,143.8,29.10453839395641,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Viscereality Inhale,unresolved,136.5,78.7331772773386,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Control equal phase,unresolved,59.850000000000016,-43.31171503143311,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P030,Viscereality equal phase,unresolved,141.97500000000002,56.63699373307519,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Control Exhale,unresolved,48.900000000000006,-62.604823029214344,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Control Inhale,unresolved,68.97500000000002,-65.83067075479552,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Viscereality Exhale,unresolved,-38.7,-11.256253824875287,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Viscereality Inhale,unresolved,74.45000000000002,-18.90145694819623,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Control equal phase,unresolved,52.55000000000001,-60.48676596704809,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P031,Viscereality equal phase,unresolved,76.275,-13.078852544119165,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Control Exhale,unresolved,48.900000000000006,147.00803385850872,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Control Inhale,unresolved,173.0,-118.99043344574231,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Viscereality Exhale,unresolved,167.525,209.20449134600025,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Viscereality Inhale,unresolved,-46.0,-75.33195131293849,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Control equal phase,unresolved,59.850000000000016,46.14674624699117,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P032,Viscereality equal phase,unresolved,74.45000000000002,116.01510472106997,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Control Exhale,unresolved,-46.0,-131.73310984204247,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Control Inhale,unresolved,173.0,185.94642542448992,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Viscereality Exhale,unresolved,138.32500000000005,-89.22008006447467,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Viscereality Inhale,unresolved,138.32500000000005,199.62636277545127,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Control equal phase,unresolved,78.10000000000002,110.57832114135431,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P034,Viscereality equal phase,unresolved,173.0,81.17346968349703,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Control Exhale,unresolved,140.15000000000003,64.03424395421999,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Control Inhale,unresolved,63.5,-54.836561937167474,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Viscereality Exhale,unresolved,76.275,156.28824103074894,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Viscereality Inhale,unresolved,78.10000000000002,-50.35451779940761,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Control equal phase,unresolved,61.675000000000004,-20.672975012778686,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P035,Viscereality equal phase,unresolved,76.275,49.768650614509056,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Control Exhale,unresolved,140.15000000000003,35.72146245168341,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Control Inhale,unresolved,65.32500000000002,-68.78732947646405,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Viscereality Exhale,unresolved,143.8,66.07545094132246,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Viscereality Inhale,unresolved,50.72500000000001,-95.83886721964255,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Control equal phase,unresolved,50.72500000000001,-44.78744215844236,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P036,Viscereality equal phase,unresolved,48.900000000000006,-39.032484983075996,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Control Exhale,unresolved,-46.0,-68.16723176937002,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Control Inhale,unresolved,141.97500000000002,114.32444376770879,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Viscereality Exhale,unresolved,-46.0,-211.8787328707297,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Viscereality Inhale,unresolved,61.675000000000004,81.658326276325,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Control equal phase,unresolved,143.8,57.64046193470781,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P037,Viscereality equal phase,unresolved,-46.0,-123.07348079090272,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Control Exhale,unresolved,140.15000000000003,74.15141414421068,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Control Inhale,unresolved,72.625,50.46116216402896,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Viscereality Exhale,unresolved,-42.349999999999994,54.67463974219813,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Viscereality Inhale,unresolved,-46.0,31.890720056310037,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Control equal phase,unresolved,132.85000000000002,60.174395938456044,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P038,Viscereality equal phase,unresolved,-38.7,42.98084701046919,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Control Exhale,unresolved,45.25,23.147489021900373,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Control Inhale,unresolved,173.0,-116.24774904966753,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Viscereality Exhale,unresolved,72.625,88.09078134808026,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Viscereality Inhale,unresolved,74.45000000000002,57.95312342943157,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Control equal phase,unresolved,141.97500000000002,-47.21467065615584,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P039,Viscereality equal phase,unresolved,72.625,70.6749170600997,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Control Exhale,unresolved,-46.0,176.8177561225562,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Control Inhale,unresolved,74.45000000000002,155.14078335468824,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Viscereality Exhale,unresolved,79.92500000000001,80.15171912052756,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Viscereality Inhale,unresolved,72.625,112.89117648310842,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Control equal phase,unresolved,-14.974999999999994,103.78740054512816,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P040,Viscereality equal phase,unresolved,74.45000000000002,110.0080746200329,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Control Exhale,unresolved,54.375,166.49643563331466,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Control Inhale,unresolved,-42.349999999999994,138.10382370063203,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Viscereality Exhale,unresolved,74.45000000000002,44.244339927174344,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Viscereality Inhale,unresolved,140.15000000000003,42.19785901516996,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Control equal phase,unresolved,8.75,136.51998455858063,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,P041,Viscereality equal phase,unresolved,140.15000000000003,42.199592901385806,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Control Exhale,unresolved,45.25,34.50527630863309,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Control Inhale,unresolved,-46.0,12.209468120606939,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Viscereality Exhale,unresolved,59.850000000000016,18.4625117560103,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Viscereality Inhale,unresolved,-46.0,6.7880451707882346,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Control equal phase,unresolved,-46.0,19.56745655374959,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,primary40,equal_participant_group,Viscereality equal phase,unresolved,34.300000000000004,14.853579828948828,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Control Exhale,unresolved,47.07500000000001,30.28501260956584,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Control Inhale,unresolved,-38.7,13.851830185206083,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Viscereality Exhale,unresolved,54.375,21.999208410698497,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Viscereality Inhale,unresolved,-38.7,8.866454669763105,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Control equal phase,unresolved,-46.0,18.411452525519113,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P011,equal_participant_group,Viscereality equal phase,unresolved,-24.099999999999994,16.956441772651694,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Control Exhale,unresolved,45.25,37.90877271335227,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Control Inhale,unresolved,-46.0,14.396823508694828,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Viscereality Exhale,unresolved,61.675000000000004,15.694959706998208,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Viscereality Inhale,unresolved,-38.7,8.45690482498292,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Control equal phase,unresolved,-46.0,22.579685237744833,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+registered,exclude_P033,equal_participant_group,Viscereality equal phase,unresolved,28.82500000000001,12.78941154751348,"[[-46.0, 173.0]]",121,121,flat linear log_distance,27.0,100.0
+trajectory,primary40,P000,Control Exhale,unresolved,87.33333333334,-217.10780466861328,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P000,Control Inhale,unresolved,69.91666666668252,-59.28007671533594,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P000,Viscereality Exhale,unresolved,141.16666666664503,-211.05866632859886,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P000,Viscereality Inhale,unresolved,141.16666666664503,136.24385699063612,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P000,Control equal phase,unresolved,79.41666666667751,-95.13268626016809,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P000,Viscereality equal phase,unresolved,57.25000000002251,26.31734695672762,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Control Exhale,unresolved,137.99999999998,58.13839566419313,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Control Inhale,unresolved,58.83333333335501,113.54740549011412,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Viscereality Exhale,unresolved,58.83333333335501,-113.49896812483898,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Viscereality Inhale,unresolved,50.91666666669251,63.41122070657691,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Control equal phase,unresolved,-26.666666666599994,78.17238184070133,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P001,Viscereality equal phase,unresolved,142.74999999997752,27.456138961749122,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Control Exhale,unresolved,-26.666666666599994,364.92228813281383,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Control Inhale,unresolved,144.33333333331,163.2948715319408,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Viscereality Exhale,unresolved,74.66666666668002,93.2640214456026,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Viscereality Inhale,unresolved,69.91666666668252,-68.16127687526283,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Control equal phase,unresolved,-23.499999999934992,212.02115095881263,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P002,Viscereality equal phase,unresolved,141.16666666664503,38.82035104959026,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Control Exhale,unresolved,142.74999999997752,-116.02206794434312,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Control Inhale,unresolved,47.750000000027505,-79.26858403225148,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Viscereality Exhale,unresolved,144.33333333331,-155.06350594218137,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Viscereality Inhale,unresolved,88.91666666667251,-143.00295097882247,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Control equal phase,unresolved,141.16666666664503,-55.25441766863272,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P003,Viscereality equal phase,unresolved,141.16666666664503,-131.2733726854378,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Control Exhale,unresolved,81.00000000001,69.43489924688772,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Control Inhale,unresolved,58.83333333335501,56.46777556087836,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Viscereality Exhale,unresolved,163.3333333333,37.99063670416958,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Viscereality Inhale,unresolved,163.3333333333,15.206182807391938,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Control equal phase,unresolved,63.583333333352506,56.151139160794216,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P004,Viscereality equal phase,unresolved,163.3333333333,29.399587959819268,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Control Exhale,unresolved,-23.499999999934992,21.02801969714717,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Control Inhale,unresolved,142.74999999997752,77.92100159427042,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Viscereality Exhale,unresolved,69.91666666668252,43.725341407798176,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Viscereality Inhale,unresolved,24.000000000040007,61.6988115827287,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Control equal phase,unresolved,141.16666666664503,46.03223202581976,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P005,Viscereality equal phase,unresolved,62.00000000002001,44.464599791307236,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Control Exhale,unresolved,142.74999999997752,-135.67697462519658,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Control Inhale,unresolved,60.416666666687505,-126.85593946325903,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Viscereality Exhale,unresolved,-23.499999999934992,-73.36223280776143,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Viscereality Inhale,unresolved,137.99999999998,-54.136761646378886,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Control equal phase,unresolved,-26.666666666599994,-61.26414816079762,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P006,Viscereality equal phase,unresolved,142.74999999997752,-42.41849941010106,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Control Exhale,unresolved,141.16666666664503,-113.38027857429636,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Control Inhale,unresolved,141.16666666664503,35.22728044313395,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Viscereality Exhale,unresolved,144.33333333331,-82.85586648951539,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Viscereality Inhale,unresolved,-23.499999999934992,-88.49015507960138,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Control equal phase,unresolved,142.74999999997752,-32.75902853379577,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P007,Viscereality equal phase,unresolved,-26.666666666599994,-48.83228151319539,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Control Exhale,unresolved,-23.499999999934992,-72.02438469583393,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Control Inhale,unresolved,141.16666666664503,59.26365299027556,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Viscereality Exhale,unresolved,73.08333333334751,-46.62962101186235,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Viscereality Inhale,unresolved,139.5833333333125,119.37211004501228,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Control equal phase,unresolved,-23.499999999934992,-49.94191840526666,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P008,Viscereality equal phase,unresolved,141.16666666664503,53.62636999509023,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Control Exhale,unresolved,-20.333333333269998,50.36687217319691,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Control Inhale,unresolved,-23.499999999934992,-18.262230465404432,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Viscereality Exhale,unresolved,62.00000000002001,51.679667172364695,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Viscereality Inhale,unresolved,-23.499999999934992,37.62722403146742,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Control equal phase,unresolved,62.00000000002001,18.783781123982724,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P009,Viscereality equal phase,unresolved,-23.499999999934992,39.71801051281843,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Control Exhale,unresolved,12.916666666712505,122.52504842656947,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Control Inhale,unresolved,62.00000000002001,202.9231675575764,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Viscereality Exhale,unresolved,141.16666666664503,-57.35437953252852,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Viscereality Inhale,unresolved,71.500000000015,-91.19128924123999,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Control equal phase,unresolved,58.83333333335501,162.8531246750123,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P010,Viscereality equal phase,unresolved,81.00000000001,-39.48599978616901,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Control Exhale,unresolved,44.5833333333625,104.12271231281704,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Control Inhale,unresolved,-26.666666666599994,51.96392617023618,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Viscereality Exhale,unresolved,62.00000000002001,55.53334688729386,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Viscereality Inhale,unresolved,136.4166666666475,-68.71337343867944,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Control equal phase,unresolved,-21.916666666602495,78.77056742642193,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P012,Viscereality equal phase,unresolved,141.16666666664503,-32.965072174976285,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Control Exhale,unresolved,-26.666666666599994,247.0032345775616,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Control Inhale,unresolved,142.74999999997752,-99.86619865320401,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Viscereality Exhale,unresolved,54.083333333357515,131.71107647158126,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Viscereality Inhale,unresolved,142.74999999997752,-127.69331923500019,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Control equal phase,unresolved,-26.666666666599994,175.78741789652335,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P013,Viscereality equal phase,unresolved,142.74999999997752,-95.49222751204985,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Control Exhale,unresolved,-26.666666666599994,-103.41348135020729,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Control Inhale,unresolved,-23.499999999934992,-106.54448889036911,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Viscereality Exhale,unresolved,87.33333333334,107.35106411971543,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Viscereality Inhale,unresolved,163.3333333333,-171.14939846862998,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Control equal phase,unresolved,-26.666666666599994,-93.21891626942023,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P014,Viscereality equal phase,unresolved,-23.499999999934992,-92.53181530806916,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Control Exhale,unresolved,62.00000000002001,40.400928992238825,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Control Inhale,unresolved,85.7500000000075,59.011877651001214,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Viscereality Exhale,unresolved,57.25000000002251,59.861820142123705,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Viscereality Inhale,unresolved,-23.499999999934992,76.011271948205,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Control equal phase,unresolved,84.166666666675,40.92546828329214,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P015,Viscereality equal phase,unresolved,-26.666666666599994,61.589706403214606,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Control Exhale,unresolved,73.08333333334751,-117.19380145369101,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Control Inhale,unresolved,84.166666666675,85.68378176359847,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Viscereality Exhale,unresolved,163.3333333333,294.90180679812573,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Viscereality Inhale,unresolved,-23.499999999934992,115.96971228995915,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Control equal phase,unresolved,57.25000000002251,-27.564910941606865,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P016,Viscereality equal phase,unresolved,1.8333333333849993,162.20370437017667,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Control Exhale,unresolved,163.3333333333,46.09526304538639,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Control Inhale,unresolved,87.33333333334,-49.89482364866561,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Viscereality Exhale,unresolved,63.583333333352506,80.59974869426574,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Viscereality Inhale,unresolved,54.083333333357515,-58.38739825954447,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Control equal phase,unresolved,-26.666666666599994,35.433878807211734,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P017,Viscereality equal phase,unresolved,73.08333333334751,20.978793927973577,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Control Exhale,unresolved,141.16666666664503,49.23408694220069,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Control Inhale,unresolved,71.500000000015,-29.01674139170776,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Viscereality Exhale,unresolved,-26.666666666599994,-55.877830757211996,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Viscereality Inhale,unresolved,60.416666666687505,73.3305571774732,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Control equal phase,unresolved,71.500000000015,-37.432305529463505,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P018,Viscereality equal phase,unresolved,142.74999999997752,-15.823189137890092,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Control Exhale,unresolved,-26.666666666599994,-105.6009894176105,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Control Inhale,unresolved,-26.666666666599994,-43.85841068429737,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Viscereality Exhale,unresolved,112.66666666666,144.04800416661553,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Viscereality Inhale,unresolved,73.08333333334751,-50.22246953333313,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Control equal phase,unresolved,-23.499999999934992,-71.95831942901539,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P019,Viscereality equal phase,unresolved,141.16666666664503,67.15552694030015,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P020,Control Exhale,unresolved,-26.666666666599994,290.5464463443943,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P020,Control Inhale,variance_unavailable,,,,,,,,
+trajectory,primary40,P020,Viscereality Exhale,unresolved,71.500000000015,-163.91151742348188,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P020,Viscereality Inhale,unresolved,142.74999999997752,-183.6429932601956,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P020,Control equal phase,variance_unavailable,,,,,,,,
+trajectory,primary40,P020,Viscereality equal phase,unresolved,81.00000000001,-77.37996207725678,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Control Exhale,unresolved,163.3333333333,95.57360991050217,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Control Inhale,unresolved,-26.666666666599994,-186.30611945311597,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Viscereality Exhale,unresolved,-26.666666666599994,-86.63131989110502,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Viscereality Inhale,unresolved,163.3333333333,276.4228684269107,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Control equal phase,unresolved,58.83333333335501,-54.74552683809063,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P021,Viscereality equal phase,unresolved,-26.666666666599994,77.13807321423458,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Control Exhale,unresolved,-23.499999999934992,-15.98346818323873,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Control Inhale,unresolved,73.08333333334751,-17.07827118424177,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Viscereality Exhale,unresolved,69.91666666668252,77.25396736704779,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Viscereality Inhale,unresolved,-21.916666666602495,86.92467132330702,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Control equal phase,unresolved,139.5833333333125,-6.618674961629662,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P022,Viscereality equal phase,unresolved,58.83333333335501,80.51538563658784,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Control Exhale,unresolved,141.16666666664503,-269.0237140584793,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Control Inhale,unresolved,141.16666666664503,-152.2152223176646,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Viscereality Exhale,unresolved,-26.666666666599994,-25.456720944959493,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Viscereality Inhale,unresolved,73.08333333334751,-162.6686694107531,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Control equal phase,unresolved,142.74999999997752,-211.65095486713514,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P023,Viscereality equal phase,unresolved,74.66666666668002,-126.35502583054421,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Control Exhale,unresolved,136.4166666666475,-19.36735235107228,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Control Inhale,unresolved,141.16666666664503,88.83843832906828,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Viscereality Exhale,unresolved,141.16666666664503,-53.94988361298587,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Viscereality Inhale,unresolved,163.3333333333,-74.0146600761,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Control equal phase,unresolved,139.5833333333125,36.31499593998413,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P024,Viscereality equal phase,unresolved,142.74999999997752,-50.53683608526354,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Control Exhale,unresolved,58.83333333335501,73.31527436858073,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Control Inhale,unresolved,71.500000000015,-22.36363175645369,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Viscereality Exhale,unresolved,-26.666666666599994,-220.6407246667819,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Viscereality Inhale,unresolved,163.3333333333,142.3684163693336,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Control equal phase,unresolved,-26.666666666599994,36.504637749028554,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P025,Viscereality equal phase,unresolved,-23.499999999934992,-44.58877226260831,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Control Exhale,unresolved,31.916666666702504,87.41455082778255,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Control Inhale,unresolved,-26.666666666599994,-61.00109965885279,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Viscereality Exhale,unresolved,82.58333333334251,-97.58250347875037,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Viscereality Inhale,unresolved,-26.666666666599994,-64.98728215453428,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Control equal phase,unresolved,62.00000000002001,20.539497736663165,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P026,Viscereality equal phase,unresolved,-26.666666666599994,-68.93164545074532,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Control Exhale,unresolved,-26.666666666599994,-114.40148462376449,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Control Inhale,unresolved,-23.499999999934992,-40.96002493081146,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Viscereality Exhale,unresolved,50.91666666669251,302.54798488497136,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Viscereality Inhale,unresolved,-23.499999999934992,-43.918643156464334,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Control equal phase,unresolved,-26.666666666599994,-70.97395043339898,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P027,Viscereality equal phase,unresolved,57.25000000002251,147.44427649158717,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Control Exhale,unresolved,-26.666666666599994,-69.19906440922934,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Control Inhale,unresolved,57.25000000002251,-106.7841713452172,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Viscereality Exhale,unresolved,58.83333333335501,95.10768163904713,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Viscereality Inhale,unresolved,-23.499999999934992,65.17627891980447,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Control equal phase,unresolved,55.666666666690006,-89.23019142208949,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P028,Viscereality equal phase,unresolved,54.083333333357515,76.28627499874464,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Control Exhale,unresolved,58.83333333335501,56.36349621118371,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Control Inhale,unresolved,71.500000000015,-46.738749105294346,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Viscereality Exhale,unresolved,-26.666666666599994,-77.23599637424677,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Viscereality Inhale,unresolved,58.83333333335501,86.73423586315462,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Control equal phase,unresolved,142.74999999997752,22.93355185923558,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P029,Viscereality equal phase,unresolved,141.16666666664503,-29.40254587814812,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Control Exhale,unresolved,71.500000000015,-55.98295489590775,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Control Inhale,unresolved,65.16666666668502,-30.53889502417319,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Viscereality Exhale,unresolved,144.33333333331,29.104107760296007,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Viscereality Inhale,unresolved,139.5833333333125,78.73307408112024,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Control equal phase,unresolved,71.500000000015,-43.23252840898806,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P030,Viscereality equal phase,unresolved,141.16666666664503,56.63704118729903,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Control Exhale,unresolved,58.83333333335501,-62.58242782331814,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Control Inhale,unresolved,79.41666666667751,-65.74992605082561,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Viscereality Exhale,unresolved,-26.666666666599994,-11.256248105040738,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Viscereality Inhale,unresolved,84.166666666675,-18.935221850523426,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Control equal phase,unresolved,62.00000000002001,-60.40912813754056,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P031,Viscereality equal phase,unresolved,85.7500000000075,-13.052640032560907,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Control Exhale,unresolved,58.83333333335501,147.18431709268097,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Control Inhale,unresolved,163.3333333333,-114.92901281194418,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Viscereality Exhale,unresolved,163.3333333333,202.99938785436245,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Viscereality Inhale,unresolved,-21.916666666602495,-75.33225557709316,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Control equal phase,unresolved,69.91666666668252,46.14833890778028,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P032,Viscereality equal phase,unresolved,84.166666666675,116.21435621333337,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Control Exhale,unresolved,-23.499999999934992,-131.73333170431388,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Control Inhale,unresolved,163.3333333333,170.3168142189675,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Viscereality Exhale,unresolved,142.74999999997752,-89.21945871465832,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Viscereality Inhale,unresolved,139.5833333333125,199.6272053036732,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Control equal phase,unresolved,87.33333333334,110.53589202775211,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P034,Viscereality equal phase,unresolved,163.3333333333,77.8325918777268,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Control Exhale,unresolved,141.16666666664503,64.03425165715615,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Control Inhale,unresolved,73.08333333334751,-54.73943454324876,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Viscereality Exhale,unresolved,85.7500000000075,156.3692354761891,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Viscereality Inhale,unresolved,87.33333333334,-50.325234765867734,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Control equal phase,unresolved,71.500000000015,-20.684175635008742,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P035,Viscereality equal phase,unresolved,87.33333333334,49.75936720316079,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Control Exhale,unresolved,141.16666666664503,35.721169009616304,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Control Inhale,unresolved,77.83333333334501,-68.42113075434717,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Viscereality Exhale,unresolved,141.16666666664503,66.07531636387709,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Viscereality Inhale,unresolved,60.416666666687505,-95.91822190723627,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Control equal phase,unresolved,60.416666666687505,-45.31261176801724,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P036,Viscereality equal phase,unresolved,58.83333333335501,-39.02686827678432,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Control Exhale,unresolved,-23.499999999934992,-68.16743724694972,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Control Inhale,unresolved,141.16666666664503,114.32163147681979,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Viscereality Exhale,unresolved,-23.499999999934992,-211.87879272455083,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Viscereality Inhale,unresolved,71.500000000015,81.58429642793779,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Control equal phase,unresolved,145.9166666666425,57.639631126590665,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P037,Viscereality equal phase,unresolved,-23.499999999934992,-123.07379768870237,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Control Exhale,unresolved,141.16666666664503,74.15109439048052,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Control Inhale,unresolved,84.166666666675,50.630291297824286,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Viscereality Exhale,unresolved,-23.499999999934992,54.67457869448306,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Viscereality Inhale,unresolved,-26.666666666599994,31.890792154781387,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Control equal phase,unresolved,139.5833333333125,60.17498642850885,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P038,Viscereality equal phase,unresolved,-23.499999999934992,42.980851125416216,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Control Exhale,unresolved,50.91666666669251,23.227819419196653,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Control Inhale,unresolved,139.5833333333125,-110.46842651036916,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Viscereality Exhale,unresolved,100.0,88.28887381534315,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Viscereality Inhale,unresolved,84.166666666675,58.39111322297786,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Control equal phase,unresolved,120.58333333332251,-46.2371241990352,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P039,Viscereality equal phase,unresolved,84.166666666675,69.97281443987062,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Control Exhale,unresolved,-23.499999999934992,176.8177590159666,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Control Inhale,unresolved,84.166666666675,155.44968853840484,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Viscereality Exhale,unresolved,93.66666666667001,80.26403717458467,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Viscereality Inhale,unresolved,82.58333333334251,111.95487038681755,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Control equal phase,unresolved,3.4166666667175107,103.78718028027235,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P040,Viscereality equal phase,unresolved,84.166666666675,109.81709352129883,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Control Exhale,unresolved,73.08333333334751,166.55714658000468,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Control Inhale,unresolved,-23.499999999934992,138.1043353516996,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Viscereality Exhale,unresolved,85.7500000000075,44.01839419080651,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Viscereality Inhale,unresolved,141.16666666664503,42.19757381539411,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Control equal phase,unresolved,-26.666666666599994,136.63841301281346,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,P041,Viscereality equal phase,unresolved,139.5833333333125,42.20007067976668,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Control Exhale,unresolved,57.25000000002251,34.63676362585733,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Control Inhale,unresolved,-23.499999999934992,12.209501374921617,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Viscereality Exhale,unresolved,69.91666666668252,18.41932523490438,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Viscereality Inhale,unresolved,-23.499999999934992,6.788061034558097,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Control equal phase,unresolved,22.416666666707506,19.54212685141052,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,primary40,equal_participant_group,Viscereality equal phase,unresolved,-21.916666666602495,14.763378098649921,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Control Exhale,unresolved,55.666666666690006,30.264909593397945,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Control Inhale,unresolved,-23.499999999934992,13.851862565212786,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Viscereality Exhale,unresolved,63.583333333352506,21.769788087267184,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Viscereality Inhale,unresolved,1.8333333333849993,8.866476170188665,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Control equal phase,unresolved,-23.499999999934992,18.411419734310762,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P011,equal_participant_group,Viscereality equal phase,unresolved,-20.333333333269998,16.693510589579454,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Control Exhale,unresolved,57.25000000002251,38.030534692626105,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Control Inhale,unresolved,-23.499999999934992,14.39687063654597,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Viscereality Exhale,unresolved,71.500000000015,15.669117583271559,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Viscereality Inhale,unresolved,-21.916666666602495,8.456921263955223,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Control equal phase,unresolved,-26.666666666599994,22.579652797448787,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0
+trajectory,exclude_P033,equal_participant_group,Viscereality equal phase,unresolved,-23.499999999934992,12.753608531132686,"[[-26.666666666599994, 163.3333333333]]",121,121,flat linear log_distance,36.6666666667,100.0

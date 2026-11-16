@@ -1274,6 +1274,10 @@ finding as a valid completion of a specified screen.
   source evidence. The task has only one sampled time per nominal distance.
   The current data cannot identify independent time and distance effects
   without added assumptions or compatible external design evidence.
+  The [+500 ms offset sensitivity](../results/boundary_methods/CUE_TIME_RESULTS.md)
+  yields two exact Baseline matches and zero localized midpoints under
+  four-point interpolation. The mapping from the verified waveform subset
+  to deidentified rows and the wider offset prevalence remain unverified.
 
 This native checkpoint does not promote exploratory findings to the
 article. Its publication slice uses the audited public trial release and

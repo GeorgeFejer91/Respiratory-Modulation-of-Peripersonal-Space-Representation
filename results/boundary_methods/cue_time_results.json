@@ -1,0 +1,223 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "exact_group_contrasts_ms": [
+    {
+      "contrast": "Control Exhale",
+      "mean_ms": 28.76211473006024,
+      "low_ms": -13.062544260253205,
+      "high_ms": 70.58677372037369
+    },
+    {
+      "contrast": "Control Inhale",
+      "mean_ms": 15.07142607840585,
+      "low_ms": -14.386447898829353,
+      "high_ms": 44.52930005564105
+    },
+    {
+      "contrast": "Viscereality Exhale",
+      "mean_ms": 16.478103197265273,
+      "low_ms": -19.421971098728935,
+      "high_ms": 52.378177493259486
+    },
+    {
+      "contrast": "Viscereality Inhale",
+      "mean_ms": 13.177625974409228,
+      "low_ms": -18.56363314457822,
+      "high_ms": 44.918885093396675
+    },
+    {
+      "contrast": "Condition",
+      "mean_ms": -7.088905818395796,
+      "low_ms": -44.817224140935856,
+      "high_ms": 30.639412504144268
+    },
+    {
+      "contrast": "Phase",
+      "mean_ms": -8.495582937255215,
+      "low_ms": -47.498803546710946,
+      "high_ms": 30.507637672200516
+    },
+    {
+      "contrast": "Condition \u00d7 Phase",
+      "mean_ms": 10.390211428798342,
+      "low_ms": -50.18771007371048,
+      "high_ms": 70.96813293130717
+    },
+    {
+      "contrast": "Phase within Control",
+      "mean_ms": -13.690688651654389,
+      "low_ms": -59.90072341002777,
+      "high_ms": 32.51934610671899
+    },
+    {
+      "contrast": "Phase within Viscereality",
+      "mean_ms": -3.300477222856043,
+      "low_ms": -55.66437136979406,
+      "high_ms": 49.06341692408197
+    },
+    {
+      "contrast": "Condition within Exhale",
+      "mean_ms": -12.28401153279497,
+      "low_ms": -66.61017934767202,
+      "high_ms": 42.04215628208208
+    },
+    {
+      "contrast": "Condition within Inhale",
+      "mean_ms": -1.893800103996621,
+      "low_ms": -43.49141763464016,
+      "high_ms": 39.70381742664692
+    }
+  ],
+  "interpolated_AT_soas": [
+    2200,
+    1500,
+    800,
+    300
+  ],
+  "baseline_soas": [
+    2700,
+    2200,
+    1500,
+    800
+  ],
+  "operator": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.7142857142857143,
+      0.2857142857142857,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.7142857142857143,
+      0.2857142857142857
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "predictions_ms": {
+    "registered": {
+      "individual": {
+        "free": 84.26902905645701,
+        "shared_width": 86.84191775700987,
+        "shared_midpoint": 80.85626487118539,
+        "shared_both": 78.3637406031983,
+        "flat": 71.8356590640901,
+        "linear": 83.4105993247522,
+        "log_distance": 83.98179513803306
+      },
+      "group": {
+        "free": 61.53498354873224,
+        "shared_width": 62.45613400437012,
+        "shared_midpoint": 31.282096531106404,
+        "shared_both": 30.485263721328078,
+        "flat": 12.31744361281121,
+        "linear": 13.289612572133567,
+        "log_distance": 12.37987554811536
+      }
+    },
+    "trajectory": {
+      "individual": {
+        "free": 85.52384596426717,
+        "shared_width": 87.03948285457116,
+        "shared_midpoint": 81.36945248053527,
+        "shared_both": 78.25022587476634,
+        "flat": 71.8356590640901,
+        "linear": 83.24442663067018,
+        "log_distance": 84.20304058046527
+      },
+      "group": {
+        "free": 71.69543560579515,
+        "shared_width": 72.23357451252437,
+        "shared_midpoint": 34.7076027283293,
+        "shared_both": 35.39794544174176,
+        "flat": 12.31744361281121,
+        "linear": 12.450465885509201,
+        "log_distance": 12.52163795650478
+      }
+    }
+  },
+  "seed": 20261123,
+  "simulation_cohorts": 96,
+  "recovery_by_span_ms": {
+    "0": {
+      "people": {
+        "localized_fraction": 0.0,
+        "shape_coverage": 1.0,
+        "flat_compatible_fraction": 1.0
+      },
+      "group": {
+        "localized_fraction": 0.0026041666666666665,
+        "shape_coverage": 0.9791666666666666,
+        "flat_compatible_fraction": 0.9479166666666666
+      }
+    },
+    "160": {
+      "people": {
+        "localized_fraction": 0.0,
+        "shape_coverage": 1.0,
+        "flat_compatible_fraction": 0.9321933962264156
+      },
+      "group": {
+        "localized_fraction": 0.234375,
+        "shape_coverage": 0.9791666666666666,
+        "flat_compatible_fraction": 0.0
+      }
+    }
+  },
+  "sha256": {
+    "analysis/boundary_methods/cue_time.py": "3c9995e882945dac2ab2e4756af1e61208672ea2f69802528eee8da89f14b39b",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "results/boundary_methods/CUE_TIME_SPECIFICATION.md": "9179db7093a0372a7f292fe6491224ab6c85237ab9321d1070cbac316ef0f4eb",
+    "results/boundary_methods/cue_time_exact_pairs.csv": "1097682b49d30ca9d08550072a224d619cc5e49949194ddff9130ba90268540b",
+    "results/boundary_methods/cue_time_interpolated_profiles.csv": "ca9294ba56ec7423fb368a4cd7b175b4aa04f02a5a0ad46363e961053b590730"
+  }
+}
