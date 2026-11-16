@@ -1,0 +1,148 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "seed": 20261124,
+  "replicates": 96,
+  "recovery": {
+    "flat": {
+      "log_location": {
+        "participant": {
+          "localized_fraction": 0.0017578125000000007,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        },
+        "group": {
+          "localized_fraction": 0.005208333333333333,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        }
+      },
+      "log_scale": {
+        "participant": {
+          "localized_fraction": 0.002083333333333334,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        },
+        "group": {
+          "localized_fraction": 0.0026041666666666665,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        }
+      }
+    },
+    "location": {
+      "log_location": {
+        "participant": {
+          "localized_fraction": 0.004296874999999998,
+          "conditional_truth_in_set": 0.9915364583333335,
+          "conditional_point_condition_rmse_cm": 47.824927153384785
+        },
+        "group": {
+          "localized_fraction": 0.23697916666666666,
+          "conditional_truth_in_set": 0.984375,
+          "conditional_point_condition_rmse_cm": 10.536557453397672
+        }
+      },
+      "log_scale": {
+        "participant": {
+          "localized_fraction": 0.002994791666666667,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        },
+        "group": {
+          "localized_fraction": 0.0026041666666666665,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        }
+      }
+    },
+    "scale": {
+      "log_location": {
+        "participant": {
+          "localized_fraction": 0.0014973958333333339,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        },
+        "group": {
+          "localized_fraction": 0.0026041666666666665,
+          "conditional_truth_in_set": null,
+          "conditional_point_condition_rmse_cm": null
+        }
+      },
+      "log_scale": {
+        "participant": {
+          "localized_fraction": 0.0034505208333333332,
+          "conditional_truth_in_set": 0.9879557291666664,
+          "conditional_point_condition_rmse_cm": 55.48466849049385
+        },
+        "group": {
+          "localized_fraction": 0.026041666666666668,
+          "conditional_truth_in_set": 0.9817708333333334,
+          "conditional_point_condition_rmse_cm": 34.99839561054907
+        }
+      }
+    },
+    "truths": {
+      "midpoints_cm": [
+        55.0,
+        46.000000000000014,
+        64.0,
+        59.50000000000001
+      ],
+      "condition_effect_cm": 11.249999999999996
+    }
+  },
+  "support_shifts_ms": [
+    0,
+    150
+  ],
+  "python": "3.12.10",
+  "numpy": "2.4.2",
+  "scipy": "1.17.0",
+  "sha256": {
+    "analysis/baseline_effects/baseline_effects.py": "752af4f6d9c084fcbf7dbe4a4b3c8ac2b7e63e3bb657fb8b1a6bbfd306f8a5b2",
+    "analysis/boundary_methods/distribution.py": "7d7127ac8156c09d2e5e8b6b095da4e051c57cd856d4c1b7d4a250e570deebc5",
+    "analysis/boundary_methods/profile.py": "7ec831a75f15088faffb8763c8ddd9387cb2500b36cc1e0b1185073fcca405e5",
+    "analysis/boundary_methods/profile_grid.py": "382091c1a74901d4899e2dcb0ed9ab36760141d47ab995dfd87f313d3872d0f6",
+    "analysis/boundary_methods/screen.py": "b6e00a0ad1acabfe104fe9a4f4d93ccdd8df7a4cbb7815290dba5eaa863bee85",
+    "results/boundary_methods/distribution_contrasts.csv": "0a72719c4cea0be2ea3ccbf1e84fec8cf74e04659b9cb0c10713715041b14757",
+    "results/boundary_methods/distribution_prediction.csv": "0594b7da19907744409dec2c7741b0413546677b6e9f4bb7998962addf4b6156",
+    "results/boundary_methods/distribution_profiles.csv": "614ad8fb501145118c1600185b9cf11fca40934a2eeba233d4b1271c59e1557c",
+    "results/boundary_methods/DISTRIBUTION_SPECIFICATION.md": "ece4effa592d0ce67b9f4fc7cd7aac3bb9eb36326404442efe2a9056382a094d"
+  }
+}

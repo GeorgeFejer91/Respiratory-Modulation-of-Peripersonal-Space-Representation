@@ -1266,7 +1266,10 @@ finding as a valid completion of a specified screen.
   alongside conditional hit RT. No outcome transition or contrast localized.
   The release provides no shared defensible censoring time. This covers the
   response component of the two-part recorded-outcome analysis.
-- [ ] Complete a positive-support RT location and distribution-tail sensitivity.
+- [x] Fit [positive-support lognormal center and dispersion sensitivities](../results/boundary_methods/DISTRIBUTION_RESULTS.md).
+  No center or group transition localized. A few descriptive dispersion
+  cells localized, with all free paired contrasts unresolved and better
+  held-probe prediction under a constant distribution.
 - [ ] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
