@@ -1262,6 +1262,11 @@ finding as a valid completion of a specified screen.
 - [x] Run the [baseline-confidence-limit line crossing](../results/boundary_methods/BASELINE_CROSSING_RESULTS.md)
   from Serino et al., Fig. 7, with reference uncertainty and ratio sets.
   No crossed-reference location or contrast was bounded within the probes.
+- [x] Run [observed hit and response-speed boundaries](../results/boundary_methods/RESPONSE_RESULTS.md)
+  alongside conditional hit RT. No outcome transition or contrast localized.
+  The release provides no shared defensible censoring time. This covers the
+  response component of the two-part recorded-outcome analysis.
+- [ ] Complete a positive-support RT location and distribution-tail sensitivity.
 - [ ] Compare reduced population and participant hierarchies, including the
   baseline and session-time specifications, with joint recovery and
   matched predictions. Report all conditional and unidentifiable cases.
@@ -1287,6 +1292,8 @@ The live workbook returned HTTP 200. Independent GLS and linear-programming
 comparisons covered the continuous knot and monotone threshold engines.
 The monotone threshold checkpoint, `6fad341`, passed its
 [workbook build and deployment](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43901964449).
+The tactile-baseline crossing checkpoint, `a450c9f`, passed its
+[workbook build and deployment](https://github.com/GeorgeFejer91/Respiratory-Modulation-of-Peripersonal-Space-Representation/actions/runs/43905432996).
 
 - [x] Q10.1 Record the target: six primary contrasts (three effects × two
   parameters), plus the established simple contrasts. Preserve the primary40
