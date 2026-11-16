@@ -33,7 +33,7 @@ combinations of the same models do not add independent evidence.
 | Family | Next adjudication |
 | --- | --- |
 | Reduced or shared nonlinear structure | The [GLS reductions](../results/boundary_methods/PROFILE_RESULTS.md) implement shared width, shared midpoint and both. The [hierarchical comparisons](../results/boundary_methods/HIERARCHY_RESULTS.md) add population and participant sharing under a marginal trial likelihood. All 45 held-probe fits and 32 recovery attempts are recorded. Condition-level peak differences remained unresolved and predicted responses could not distinguish factorial midpoint and width variation |
-| Profile likelihood and weak identification | Ran [absolute calibrated midpoint profiles](../results/boundary_methods/PROFILE_RESULTS.md). They admit non-identification and boundary-free alternatives, and retain disconnected sets, outside-range values and zero amplitude. Point-local Wald intervals would not cover these shapes |
+| Profile likelihood and weak identification | Ran [absolute calibrated midpoint profiles](../results/boundary_methods/PROFILE_RESULTS.md). They admit non-identification and boundary-free alternatives and retain disconnected sets, outside-range values and zero amplitude. The [paired mixed likelihood](../results/boundary_methods/MIXED_PROFILE_RESULTS.md) integrates discrete random midpoints and selects population shape by maximum marginal likelihood. Condition support reached both search limits. The zero-shift model scored highest on held data across both maps and lattices |
 | Continuous change points | Ran [near and far plateau hinges and a free broken line](../results/boundary_methods/KNOT_RESULTS.md). One exploratory participant–condition–phase cell supported a near-plateau knot on both mappings under pooled Baseline. No knot or paired difference was robust to the timing-unverified same-label sensitivity. Group curves retained boundary-free references |
 | Crossing of a fitted line with the lower confidence limit of tactile-only RT in [Serino et al. (2015)](https://doi.org/10.1038/srep18603), Fig. 7 | A baseline-calibrated operational trunk boundary. The crossing moves with uncertainty in tactile-only RT or selection of the fastest Baseline delay. The Noel et al. conference abstract cannot establish an equivalent fit | [Ran](../results/boundary_methods/BASELINE_CROSSING_RESULTS.md) four reference rules with uncertainty-aware ratio sets, refits and recovery. No observed crossing or paired contrast localized |
 | Monotone partial identification | Ran [compatible location and censoring sets](../results/boundary_methods/THRESHOLD_RESULTS.md) for the observed-range half response and 0, 20 and 40 ms of facilitation. No observed crossing or paired contrast localized. Isotonic interpolation improved held-distance prediction under pooled Baseline and lost that advantage with same-label subtraction. A monotone spline, GAM or Gaussian process adds assumptions about smoothness between the probes |
@@ -52,6 +52,29 @@ probability was 0.126 across cohorts. All 18 group monotone
 zero-crossing sets were unresolved. The probe tests use the five-probe
 Bonferroni allocation within each profile. Absolute cue timing remains
 uncertain for the nominal Baseline labels.
+
+An operational d′ analysis used each participant phase cell's pooled
+audio-only catch false-alarm rate. In the primary40 sample, 24 of 1,917
+catches were false alarms, and 11 of those had a recorded time. All
+catches lack a distance bin. The log-linear estimator used the
+inverse-normal transforms of the hit and false-alarm proportions
+with a half-count correction. The false-alarm term is a common
+offset across a cell's probes. All 18 group profiles across the
+three cohort choices admitted a flat curve and retained unresolved
+monotone half-range crossings. The pooled catch rate measures
+trial-level false alarms across the trajectory.
+[Bassolino et al. (2010)](https://doi.org/10.1016/j.neuropsychologia.2009.11.009) ·
+[Hautus (1995)](https://doi.org/10.3758/BF03203619)
+
+A sensitivity motivated by the 16 ms expectancy correction in
+Holmes et al. adds `16 × (SOA − 300) / 2400` ms to retained AT
+latencies. The offset assumes a linear effect over the nominal SOAs
+and cancels from raw paired RT differences. Both distance maps and
+both Baseline rules yielded zero localized participant phase
+midpoints. Every group profile retained all 121 tested midpoint
+locations. Flat predictions had the lowest held group RMSE under
+both Baseline rules. Physical distance and elapsed time remain
+aliased. [Holmes et al. (2020)](https://doi.org/10.1007/s00221-020-05771-5)
 
 The [initial numerical report](../results/boundary_methods/RESULTS.md) and
 [profile report](../results/boundary_methods/PROFILE_RESULTS.md) record the

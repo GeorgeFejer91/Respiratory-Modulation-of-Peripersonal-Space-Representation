@@ -1,0 +1,8006 @@
+{
+  "input": {
+    "counts_full42": {
+      "participants_input": 42,
+      "trial_rows_input": 17114,
+      "planned_trials": 17136,
+      "participants_excluded_catch": 0,
+      "partial_sessions": 1,
+      "recorded_hits_before_trim": 13694,
+      "removed_2_5_sd": 382,
+      "removed_cutoff": 0,
+      "retained_at": 8916,
+      "retained_baseline": 4396,
+      "missing_hit_rt": 105,
+      "missing_at_hit_rt": 80
+    },
+    "input_sha256": {
+      "study5_participants.csv": "5f4aac1802f86ec8945a2676c47299b18c5e1e5bb2fdd0edb9cbdcbd79022b6d",
+      "study5_pps_trials.csv": "45e53d49c436474df7c9674b54fb796e3fd95ed641a6b71e807ff3ca32e25d1d"
+    },
+    "cell_order": [
+      "Control Exhale",
+      "Control Inhale",
+      "Viscereality Exhale",
+      "Viscereality Inhale"
+    ],
+    "distance_order_cm": [
+      10.0,
+      27.0,
+      50.0,
+      73.0,
+      100.0
+    ],
+    "primary40_counts": {
+      "AT": 8478,
+      "Baseline": 4192
+    }
+  },
+  "seed": 20261129,
+  "replicates": 32,
+  "calibrated_phase_deviance": 35.75905050682468,
+  "calibrated_shape_deviance": 36.49433779149422,
+  "calibration": [
+    {
+      "generator": "flat",
+      "replicate": 0,
+      "phase_improvement": [
+        -0.9084532180868337,
+        4.262072021553195
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 1,
+      "phase_improvement": [
+        -0.8471238625229489,
+        3.1486056117769294
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 2,
+      "phase_improvement": [
+        -3.1834184188819563,
+        0.7114883659705811
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 3,
+      "phase_improvement": [
+        2.5261950085159697,
+        0.8910577310462031
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 4,
+      "phase_improvement": [
+        2.123961102131034,
+        -3.5299929552747926
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 5,
+      "phase_improvement": [
+        10.389743516480848,
+        0.58335591251398
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 6,
+      "phase_improvement": [
+        6.605718517031164,
+        -2.8275740909598426
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 7,
+      "phase_improvement": [
+        -1.3020418589367182,
+        0.5976368332812854
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 8,
+      "phase_improvement": [
+        -2.6442821209607246,
+        -2.4363308125552976
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 9,
+      "phase_improvement": [
+        -2.9547342601508717,
+        -0.35345195027593945
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 10,
+      "phase_improvement": [
+        -0.947804227740562,
+        0.7810520775888108
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 11,
+      "phase_improvement": [
+        -1.5469791893365255,
+        5.577212804344072
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 12,
+      "phase_improvement": [
+        -1.2822828248436053,
+        -1.6724623613981748
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 13,
+      "phase_improvement": [
+        -2.4633603586275967,
+        -2.2248382672987645
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 14,
+      "phase_improvement": [
+        -2.5351787577701543,
+        2.509508969988019
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 15,
+      "phase_improvement": [
+        -3.955036497141009,
+        -3.6333523149869507
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 16,
+      "phase_improvement": [
+        -3.8655599639769207,
+        -1.0775449426073465
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 17,
+      "phase_improvement": [
+        -2.0224103313644264,
+        -3.4523162112286627
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 18,
+      "phase_improvement": [
+        -0.5697387128802802,
+        3.2266242462410446
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 19,
+      "phase_improvement": [
+        -2.9403439452917155,
+        -3.859166762595123
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 20,
+      "phase_improvement": [
+        -0.5950733113240858,
+        -4.131211033902218
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 21,
+      "phase_improvement": [
+        -0.07868895456613245,
+        -2.5489832138164275
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 22,
+      "phase_improvement": [
+        -0.04692820999389369,
+        6.417040393063871
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 23,
+      "phase_improvement": [
+        -2.244992660268508,
+        -2.3913573068148253
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 24,
+      "phase_improvement": [
+        -2.9508273719475255,
+        4.059873548450469
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 25,
+      "phase_improvement": [
+        -1.3080253472949153,
+        0.11290335916964978
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 26,
+      "phase_improvement": [
+        -2.259188485321829,
+        -4.000796625607109
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 27,
+      "phase_improvement": [
+        -2.805169855375425,
+        0.74219106731789
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 28,
+      "phase_improvement": [
+        -1.5647964293470977,
+        1.370741277851721
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 29,
+      "phase_improvement": [
+        3.4959210776678447,
+        -2.0687627270554003
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 30,
+      "phase_improvement": [
+        0.4316586542672667,
+        -2.335356585196223
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 31,
+      "phase_improvement": [
+        -4.140376567110252,
+        -4.139056249394798
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 0,
+      "phase_improvement": [
+        16.73017471282583,
+        45.59834196975498
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 1,
+      "phase_improvement": [
+        30.63265311769146,
+        26.018552199574515
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 2,
+      "phase_improvement": [
+        33.93589869316793,
+        18.79076545666385
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 3,
+      "phase_improvement": [
+        20.801383757931035,
+        20.9034406391861
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 4,
+      "phase_improvement": [
+        25.748371847090766,
+        21.52984886903323
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 5,
+      "phase_improvement": [
+        20.82195192797826,
+        22.290038341900072
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 6,
+      "phase_improvement": [
+        24.750190707203274,
+        21.563996509822573
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 7,
+      "phase_improvement": [
+        20.459844303256887,
+        17.900160620738006
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 8,
+      "phase_improvement": [
+        19.026659043798645,
+        20.038824004933304
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 9,
+      "phase_improvement": [
+        28.82303154101328,
+        19.05885654262329
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 10,
+      "phase_improvement": [
+        18.78369315856071,
+        35.75905050682468
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 11,
+      "phase_improvement": [
+        24.446755977878638,
+        12.438963899099235
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 12,
+      "phase_improvement": [
+        21.207839188678008,
+        15.623947706101262
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 13,
+      "phase_improvement": [
+        12.398498748447764,
+        20.116026104290995
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 14,
+      "phase_improvement": [
+        20.93440715045699,
+        20.605018909820956
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 15,
+      "phase_improvement": [
+        17.938951069876566,
+        21.29715130302111
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 16,
+      "phase_improvement": [
+        24.818497113631565,
+        21.953390209322606
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 17,
+      "phase_improvement": [
+        27.50628455531296,
+        25.387035485029628
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 18,
+      "phase_improvement": [
+        22.12462777656583,
+        28.54453876875641
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 19,
+      "phase_improvement": [
+        18.572308184755002,
+        35.622798821806555
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 20,
+      "phase_improvement": [
+        22.329262750859925,
+        26.438811220599746
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 21,
+      "phase_improvement": [
+        22.789587067519733,
+        22.937217003508067
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 22,
+      "phase_improvement": [
+        16.944093747034003,
+        26.272489907673844
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 23,
+      "phase_improvement": [
+        34.59835633686998,
+        23.988016689543656
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 24,
+      "phase_improvement": [
+        23.30069539991655,
+        14.573447770101211
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 25,
+      "phase_improvement": [
+        25.398651490133943,
+        14.915931368901056
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 26,
+      "phase_improvement": [
+        32.273115030493955,
+        14.293865117950645
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 27,
+      "phase_improvement": [
+        23.82244591635208,
+        29.438067725066958
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 28,
+      "phase_improvement": [
+        16.7333030083596,
+        11.724283285749607
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 29,
+      "phase_improvement": [
+        28.72561569810705,
+        22.013066708113
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 30,
+      "phase_improvement": [
+        32.56366257874424,
+        20.866703497034905
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 31,
+      "phase_improvement": [
+        28.396390404448084,
+        28.08376150864933
+      ]
+    },
+    {
+      "generator": "weak",
+      "replicate": 0,
+      "phase_improvement": [
+        23.54222931343429,
+        37.07194818748667
+      ],
+      "max_truth_deviance": 21.41044841673147
+    },
+    {
+      "generator": "weak",
+      "replicate": 1,
+      "phase_improvement": [
+        16.532849613723556,
+        31.687384787937845
+      ],
+      "max_truth_deviance": 22.13784870704785
+    },
+    {
+      "generator": "weak",
+      "replicate": 2,
+      "phase_improvement": [
+        31.659674165823617,
+        25.126078762404177
+      ],
+      "max_truth_deviance": 17.492355555614267
+    },
+    {
+      "generator": "weak",
+      "replicate": 3,
+      "phase_improvement": [
+        34.550180647584966,
+        29.46770925711644
+      ],
+      "max_truth_deviance": 32.17634389600198
+    },
+    {
+      "generator": "weak",
+      "replicate": 4,
+      "phase_improvement": [
+        25.268446743615186,
+        32.72487202842967
+      ],
+      "max_truth_deviance": 19.698694174533102
+    },
+    {
+      "generator": "weak",
+      "replicate": 5,
+      "phase_improvement": [
+        20.658986107277997,
+        28.890524331653523
+      ],
+      "max_truth_deviance": 18.21120815556378
+    },
+    {
+      "generator": "weak",
+      "replicate": 6,
+      "phase_improvement": [
+        28.876444208483917,
+        29.11850392208953
+      ],
+      "max_truth_deviance": 27.280398545243315
+    },
+    {
+      "generator": "weak",
+      "replicate": 7,
+      "phase_improvement": [
+        21.209543303957616,
+        22.80376557943373
+      ],
+      "max_truth_deviance": 20.788872236818406
+    },
+    {
+      "generator": "weak",
+      "replicate": 8,
+      "phase_improvement": [
+        24.813138885946955,
+        39.18576182726474
+      ],
+      "max_truth_deviance": 26.98434614020789
+    },
+    {
+      "generator": "weak",
+      "replicate": 9,
+      "phase_improvement": [
+        27.301610222058116,
+        38.3652841071098
+      ],
+      "max_truth_deviance": 16.981399826660436
+    },
+    {
+      "generator": "weak",
+      "replicate": 10,
+      "phase_improvement": [
+        21.923266926474298,
+        35.39631385379016
+      ],
+      "max_truth_deviance": 23.62136041608028
+    },
+    {
+      "generator": "weak",
+      "replicate": 11,
+      "phase_improvement": [
+        26.43179038972221,
+        26.03653102690123
+      ],
+      "max_truth_deviance": 25.49888578806258
+    },
+    {
+      "generator": "weak",
+      "replicate": 12,
+      "phase_improvement": [
+        27.197602187571647,
+        31.36384653088544
+      ],
+      "max_truth_deviance": 23.153523583486276
+    },
+    {
+      "generator": "weak",
+      "replicate": 13,
+      "phase_improvement": [
+        19.880403458736964,
+        15.422456121643336
+      ],
+      "max_truth_deviance": 15.196552261200395
+    },
+    {
+      "generator": "weak",
+      "replicate": 14,
+      "phase_improvement": [
+        14.764552371803347,
+        29.497093798153855
+      ],
+      "max_truth_deviance": 26.363851063938455
+    },
+    {
+      "generator": "weak",
+      "replicate": 15,
+      "phase_improvement": [
+        37.061754816401844,
+        27.2286896709561
+      ],
+      "max_truth_deviance": 24.682360739543583
+    },
+    {
+      "generator": "weak",
+      "replicate": 16,
+      "phase_improvement": [
+        28.594888917004027,
+        23.228926509217672
+      ],
+      "max_truth_deviance": 21.075929258198357
+    },
+    {
+      "generator": "weak",
+      "replicate": 17,
+      "phase_improvement": [
+        23.0580785893585,
+        35.245942197458135
+      ],
+      "max_truth_deviance": 28.725696056301786
+    },
+    {
+      "generator": "weak",
+      "replicate": 18,
+      "phase_improvement": [
+        36.08582284270733,
+        21.32482290877033
+      ],
+      "max_truth_deviance": 33.45316283268767
+    },
+    {
+      "generator": "weak",
+      "replicate": 19,
+      "phase_improvement": [
+        26.82705096157224,
+        33.32780536122573
+      ],
+      "max_truth_deviance": 28.79118736775854
+    },
+    {
+      "generator": "weak",
+      "replicate": 20,
+      "phase_improvement": [
+        23.720444824703918,
+        21.08793867930308
+      ],
+      "max_truth_deviance": 21.235428164446148
+    },
+    {
+      "generator": "weak",
+      "replicate": 21,
+      "phase_improvement": [
+        22.48343501311956,
+        24.123196698853917
+      ],
+      "max_truth_deviance": 25.57809630967904
+    },
+    {
+      "generator": "weak",
+      "replicate": 22,
+      "phase_improvement": [
+        37.42848835349196,
+        31.460444875473968
+      ],
+      "max_truth_deviance": 26.65738594288041
+    },
+    {
+      "generator": "weak",
+      "replicate": 23,
+      "phase_improvement": [
+        29.487904357139087,
+        28.447461941052552
+      ],
+      "max_truth_deviance": 21.747462729484596
+    },
+    {
+      "generator": "weak",
+      "replicate": 24,
+      "phase_improvement": [
+        21.02847787492874,
+        21.61690297483119
+      ],
+      "max_truth_deviance": 15.515430904586083
+    },
+    {
+      "generator": "weak",
+      "replicate": 25,
+      "phase_improvement": [
+        19.99437141897397,
+        27.022316961365505
+      ],
+      "max_truth_deviance": 15.281212873290315
+    },
+    {
+      "generator": "weak",
+      "replicate": 26,
+      "phase_improvement": [
+        34.49443980986007,
+        30.450433660331328
+      ],
+      "max_truth_deviance": 32.81765455961249
+    },
+    {
+      "generator": "weak",
+      "replicate": 27,
+      "phase_improvement": [
+        21.264905343330156,
+        36.35897355850648
+      ],
+      "max_truth_deviance": 23.827260520963137
+    },
+    {
+      "generator": "weak",
+      "replicate": 28,
+      "phase_improvement": [
+        16.891086835831175,
+        28.884877471350137
+      ],
+      "max_truth_deviance": 26.54723863868321
+    },
+    {
+      "generator": "weak",
+      "replicate": 29,
+      "phase_improvement": [
+        30.5039162151852,
+        33.51175438445762
+      ],
+      "max_truth_deviance": 23.522200715255167
+    },
+    {
+      "generator": "weak",
+      "replicate": 30,
+      "phase_improvement": [
+        28.411482450609583,
+        24.674493646873543
+      ],
+      "max_truth_deviance": 27.392176513671984
+    },
+    {
+      "generator": "weak",
+      "replicate": 31,
+      "phase_improvement": [
+        23.0445059812173,
+        35.91116111101792
+      ],
+      "max_truth_deviance": 19.588747008594964
+    },
+    {
+      "generator": "strong",
+      "replicate": 0,
+      "phase_improvement": [
+        34.672563231462846,
+        80.35622961579611
+      ],
+      "max_truth_deviance": 11.630678000580247
+    },
+    {
+      "generator": "strong",
+      "replicate": 1,
+      "phase_improvement": [
+        69.73795829097207,
+        77.3470950646938
+      ],
+      "max_truth_deviance": 17.755781869666862
+    },
+    {
+      "generator": "strong",
+      "replicate": 2,
+      "phase_improvement": [
+        87.49512449437225,
+        86.19944457258407
+      ],
+      "max_truth_deviance": 22.895991874886477
+    },
+    {
+      "generator": "strong",
+      "replicate": 3,
+      "phase_improvement": [
+        50.040021367908594,
+        72.79040975271118
+      ],
+      "max_truth_deviance": 17.399795692729185
+    },
+    {
+      "generator": "strong",
+      "replicate": 4,
+      "phase_improvement": [
+        35.164610277573956,
+        111.56403238288249
+      ],
+      "max_truth_deviance": 23.88363360270887
+    },
+    {
+      "generator": "strong",
+      "replicate": 5,
+      "phase_improvement": [
+        114.59234525801548,
+        70.52924345874499
+      ],
+      "max_truth_deviance": 30.66221544547716
+    },
+    {
+      "generator": "strong",
+      "replicate": 6,
+      "phase_improvement": [
+        59.0765721375119,
+        60.381152364193895
+      ],
+      "max_truth_deviance": 21.536274974708704
+    },
+    {
+      "generator": "strong",
+      "replicate": 7,
+      "phase_improvement": [
+        83.43785400269144,
+        43.03452557872561
+      ],
+      "max_truth_deviance": 20.14718833773395
+    },
+    {
+      "generator": "strong",
+      "replicate": 8,
+      "phase_improvement": [
+        97.90629507568838,
+        67.34859227881088
+      ],
+      "max_truth_deviance": 25.025555043663644
+    },
+    {
+      "generator": "strong",
+      "replicate": 9,
+      "phase_improvement": [
+        92.65363410719237,
+        48.3779326425024
+      ],
+      "max_truth_deviance": 25.816540475893817
+    },
+    {
+      "generator": "strong",
+      "replicate": 10,
+      "phase_improvement": [
+        93.24841893874554,
+        68.61707004770597
+      ],
+      "max_truth_deviance": 20.716649793208035
+    },
+    {
+      "generator": "strong",
+      "replicate": 11,
+      "phase_improvement": [
+        92.63279734290427,
+        75.83677026254873
+      ],
+      "max_truth_deviance": 28.729924419830695
+    },
+    {
+      "generator": "strong",
+      "replicate": 12,
+      "phase_improvement": [
+        77.55240223007422,
+        61.485982531795344
+      ],
+      "max_truth_deviance": 24.84485650833085
+    },
+    {
+      "generator": "strong",
+      "replicate": 13,
+      "phase_improvement": [
+        102.02251778861546,
+        86.88528750427349
+      ],
+      "max_truth_deviance": 28.9830079241583
+    },
+    {
+      "generator": "strong",
+      "replicate": 14,
+      "phase_improvement": [
+        94.79393529068648,
+        81.58410824537805
+      ],
+      "max_truth_deviance": 25.24014372720876
+    },
+    {
+      "generator": "strong",
+      "replicate": 15,
+      "phase_improvement": [
+        70.0289402839644,
+        80.72810759930644
+      ],
+      "max_truth_deviance": 24.146272691142713
+    },
+    {
+      "generator": "strong",
+      "replicate": 16,
+      "phase_improvement": [
+        85.09110300490056,
+        118.96239317494064
+      ],
+      "max_truth_deviance": 29.75700382300238
+    },
+    {
+      "generator": "strong",
+      "replicate": 17,
+      "phase_improvement": [
+        108.07112744497272,
+        91.90889952358793
+      ],
+      "max_truth_deviance": 30.11204652537117
+    },
+    {
+      "generator": "strong",
+      "replicate": 18,
+      "phase_improvement": [
+        90.21536451852171,
+        47.448377598256684
+      ],
+      "max_truth_deviance": 20.98852976902299
+    },
+    {
+      "generator": "strong",
+      "replicate": 19,
+      "phase_improvement": [
+        93.3482287317006,
+        89.76029598209061
+      ],
+      "max_truth_deviance": 25.284231773830925
+    },
+    {
+      "generator": "strong",
+      "replicate": 20,
+      "phase_improvement": [
+        85.87762999729603,
+        71.60473633856691
+      ],
+      "max_truth_deviance": 25.27692598319618
+    },
+    {
+      "generator": "strong",
+      "replicate": 21,
+      "phase_improvement": [
+        72.9378983786919,
+        63.431249931423736
+      ],
+      "max_truth_deviance": 19.48473787089597
+    },
+    {
+      "generator": "strong",
+      "replicate": 22,
+      "phase_improvement": [
+        94.94316426041951,
+        61.29570152123733
+      ],
+      "max_truth_deviance": 25.863787034655616
+    },
+    {
+      "generator": "strong",
+      "replicate": 23,
+      "phase_improvement": [
+        39.833336120865624,
+        64.34845994891475
+      ],
+      "max_truth_deviance": 21.309749209975053
+    },
+    {
+      "generator": "strong",
+      "replicate": 24,
+      "phase_improvement": [
+        96.48120106342958,
+        75.12544863945732
+      ],
+      "max_truth_deviance": 24.284992378209154
+    },
+    {
+      "generator": "strong",
+      "replicate": 25,
+      "phase_improvement": [
+        34.636851913451665,
+        111.54932144579152
+      ],
+      "max_truth_deviance": 36.49433779149422
+    },
+    {
+      "generator": "strong",
+      "replicate": 26,
+      "phase_improvement": [
+        94.57527572691015,
+        70.99130904125377
+      ],
+      "max_truth_deviance": 22.159929716259285
+    },
+    {
+      "generator": "strong",
+      "replicate": 27,
+      "phase_improvement": [
+        47.36456195476512,
+        104.74869344736408
+      ],
+      "max_truth_deviance": 32.07090588017172
+    },
+    {
+      "generator": "strong",
+      "replicate": 28,
+      "phase_improvement": [
+        84.30718020684935,
+        119.70570010002893
+      ],
+      "max_truth_deviance": 38.5641345153299
+    },
+    {
+      "generator": "strong",
+      "replicate": 29,
+      "phase_improvement": [
+        88.23925142589997,
+        103.62903870088576
+      ],
+      "max_truth_deviance": 23.471475216830186
+    },
+    {
+      "generator": "strong",
+      "replicate": 30,
+      "phase_improvement": [
+        91.6745542157023,
+        88.33353342931241
+      ],
+      "max_truth_deviance": 22.999767441423955
+    },
+    {
+      "generator": "strong",
+      "replicate": 31,
+      "phase_improvement": [
+        96.04500957773007,
+        67.6251161599248
+      ],
+      "max_truth_deviance": 21.848768262178055
+    }
+  ],
+  "evaluation": [
+    {
+      "generator": "flat",
+      "replicate": 0,
+      "phase_improvement": [
+        1.212782148237693,
+        -2.7187929738356615
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 1,
+      "phase_improvement": [
+        -2.9697637886170014,
+        5.866238030783279
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 2,
+      "phase_improvement": [
+        -4.164265715387501,
+        8.09113079400231
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 3,
+      "phase_improvement": [
+        -4.197803206639037,
+        7.524442491572245
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 4,
+      "phase_improvement": [
+        -1.6268778993508022,
+        -3.7875911238761546
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 5,
+      "phase_improvement": [
+        -1.8853796630373836,
+        -1.4103786376945209
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 6,
+      "phase_improvement": [
+        -3.074979227730182,
+        -3.8706547555466386
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 7,
+      "phase_improvement": [
+        -0.22839224954304882,
+        2.008365436690383
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 8,
+      "phase_improvement": [
+        0.16402032535916078,
+        -1.9845463077958811
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 9,
+      "phase_improvement": [
+        4.092711502059501,
+        -4.204004724140759
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 10,
+      "phase_improvement": [
+        -1.0088004803046715,
+        -3.2459096587631393
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 11,
+      "phase_improvement": [
+        -0.15888474286794008,
+        -2.3907853072646503
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 12,
+      "phase_improvement": [
+        -1.8170392320644169,
+        -2.8141374276497118
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 13,
+      "phase_improvement": [
+        1.5000092365144155,
+        -0.6934300570460437
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 14,
+      "phase_improvement": [
+        0.8631467359964518,
+        -3.4483397030676315
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 15,
+      "phase_improvement": [
+        -4.28976786476278,
+        -0.6799900436590178
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 16,
+      "phase_improvement": [
+        -3.6803801098553777,
+        -3.895612913768673
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 17,
+      "phase_improvement": [
+        -1.1554649035892908,
+        -2.034140181629027
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 18,
+      "phase_improvement": [
+        -3.1256334045383483,
+        -2.270291676585657
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 19,
+      "phase_improvement": [
+        -4.271483911086307,
+        0.11620308768715404
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 20,
+      "phase_improvement": [
+        -2.5686669213196183,
+        -1.5249488691160877
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 21,
+      "phase_improvement": [
+        -3.993193507457363,
+        -4.006533336516441
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 22,
+      "phase_improvement": [
+        -0.601358556305513,
+        5.073085949101369
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 23,
+      "phase_improvement": [
+        0.19472531481005717,
+        -0.5945242939242235
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 24,
+      "phase_improvement": [
+        2.0574061755210096,
+        -4.129942175887209
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 25,
+      "phase_improvement": [
+        1.2868616264704542,
+        -2.714984240490139
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 26,
+      "phase_improvement": [
+        -0.9192824429137545,
+        0.47272360404713254
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 27,
+      "phase_improvement": [
+        2.564597753761973,
+        -3.5269740250409995
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 28,
+      "phase_improvement": [
+        -3.655212169234801,
+        -1.4885558417054199
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 29,
+      "phase_improvement": [
+        0.3340447966957072,
+        5.397447877423929
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 30,
+      "phase_improvement": [
+        1.4126074134032933,
+        5.387551584998164
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "flat",
+      "replicate": 31,
+      "phase_improvement": [
+        -3.080758850221173,
+        -0.30275833408632025
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 0,
+      "phase_improvement": [
+        21.310374672012586,
+        29.742868367534356
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 1,
+      "phase_improvement": [
+        21.326048080227338,
+        30.024968635645564
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 2,
+      "phase_improvement": [
+        22.69510950950189,
+        21.31116515552003
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 3,
+      "phase_improvement": [
+        18.89776641715116,
+        27.51391390169465
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 4,
+      "phase_improvement": [
+        15.828435349183565,
+        18.431652683443644
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 5,
+      "phase_improvement": [
+        21.86391794409201,
+        24.200662748937248
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 6,
+      "phase_improvement": [
+        9.099529193787475,
+        23.28752894301124
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 7,
+      "phase_improvement": [
+        28.62445254636623,
+        16.629274199059637
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 8,
+      "phase_improvement": [
+        29.800962523562703,
+        15.214236202246866
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 9,
+      "phase_improvement": [
+        23.124085702357206,
+        35.326047353590184
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 10,
+      "phase_improvement": [
+        15.161383287596891,
+        21.12713772817642
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 11,
+      "phase_improvement": [
+        19.333853541380904,
+        12.977031678702133
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 12,
+      "phase_improvement": [
+        22.52398958704316,
+        13.45078752739073
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 13,
+      "phase_improvement": [
+        25.270864466161584,
+        21.893697326235724
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 14,
+      "phase_improvement": [
+        33.185686440257996,
+        27.085013379332395
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 15,
+      "phase_improvement": [
+        17.541844744273476,
+        31.101250060641632
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 16,
+      "phase_improvement": [
+        20.42350531602142,
+        23.668956850529867
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 17,
+      "phase_improvement": [
+        34.34861924070083,
+        16.124487314205908
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 18,
+      "phase_improvement": [
+        25.171109551785776,
+        20.571897357009675
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 19,
+      "phase_improvement": [
+        20.891985093381663,
+        26.388469485897986
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 20,
+      "phase_improvement": [
+        15.123128044214354,
+        25.645419267391844
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 21,
+      "phase_improvement": [
+        15.137765774607033,
+        36.964703968345475
+      ],
+      "selected": [
+        false,
+        true
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 22,
+      "phase_improvement": [
+        29.18190741298531,
+        27.5372234390029
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 23,
+      "phase_improvement": [
+        28.328643402287526,
+        18.954374478705176
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 24,
+      "phase_improvement": [
+        24.97415597818781,
+        13.853212350587
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 25,
+      "phase_improvement": [
+        20.094041195002774,
+        30.762703601800695
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 26,
+      "phase_improvement": [
+        34.566076873520615,
+        21.343666657357062
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 27,
+      "phase_improvement": [
+        25.0681600482294,
+        29.637810876916774
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 28,
+      "phase_improvement": [
+        31.58527027605669,
+        36.81442759138645
+      ],
+      "selected": [
+        false,
+        true
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 29,
+      "phase_improvement": [
+        19.305376294543294,
+        19.59480523529419
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 30,
+      "phase_improvement": [
+        17.544469309887972,
+        20.884908969444496
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "affine",
+      "replicate": 31,
+      "phase_improvement": [
+        10.886626054454155,
+        20.330380595163206
+      ],
+      "selected": [
+        false,
+        false
+      ]
+    },
+    {
+      "generator": "weak",
+      "replicate": 0,
+      "phase_improvement": [
+        29.972265475460063,
+        28.616789896811497
+      ],
+      "max_truth_deviance": 26.134617200069442,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        31.5,
+        -9.0,
+        36.0,
+        -27.0,
+        9.0,
+        13.5,
+        49.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 23.088552358257544,
+      "conditional_person_interval_inclusion": 0.075
+    },
+    {
+      "generator": "weak",
+      "replicate": 1,
+      "phase_improvement": [
+        16.31910557260062,
+        30.275829146256
+      ],
+      "max_truth_deviance": 17.126357267136882,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        31.5,
+        -9.0,
+        27.0,
+        -22.5,
+        4.5,
+        18.0,
+        45.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 22.194171532183848,
+      "conditional_person_interval_inclusion": 0.03125
+    },
+    {
+      "generator": "weak",
+      "replicate": 2,
+      "phase_improvement": [
+        33.6870464419203,
+        32.48395425286253
+      ],
+      "max_truth_deviance": 33.87618180631898,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        -11.25,
+        -6.75,
+        -139.5,
+        63.0,
+        -76.5,
+        58.5,
+        -81.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 38.52693862740719,
+      "conditional_person_interval_inclusion": 0.00625
+    },
+    {
+      "generator": "weak",
+      "replicate": 3,
+      "phase_improvement": [
+        34.66605345065136,
+        37.14539053976068
+      ],
+      "max_truth_deviance": 25.097529518477586,
+      "selected": [
+        false,
+        true
+      ],
+      "effect_error_cm": [
+        18.0,
+        0.0,
+        -9.0,
+        4.5,
+        -4.5,
+        22.5,
+        13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 17.002021938581304,
+      "conditional_person_interval_inclusion": 0.125
+    },
+    {
+      "generator": "weak",
+      "replicate": 4,
+      "phase_improvement": [
+        22.72694494237203,
+        24.285151773162852
+      ],
+      "max_truth_deviance": 16.364882345637852,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        22.5,
+        -9.0,
+        -18.0,
+        0.0,
+        -18.0,
+        31.5,
+        13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 20.998660671576175,
+      "conditional_person_interval_inclusion": 0.46875
+    },
+    {
+      "generator": "weak",
+      "replicate": 5,
+      "phase_improvement": [
+        21.985533950183708,
+        21.7168020662898
+      ],
+      "max_truth_deviance": 19.075471641884178,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 13.851669574459246,
+      "conditional_person_interval_inclusion": 0.9875
+    },
+    {
+      "generator": "weak",
+      "replicate": 6,
+      "phase_improvement": [
+        40.88489361878737,
+        28.897526740091962
+      ],
+      "max_truth_deviance": 37.50720014475064,
+      "selected": [
+        true,
+        false
+      ],
+      "effect_error_cm": [
+        54.0,
+        -4.5,
+        -27.0,
+        9.0,
+        -18.0,
+        67.5,
+        40.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 33.929522543059754,
+      "conditional_person_interval_inclusion": 0.03125
+    },
+    {
+      "generator": "weak",
+      "replicate": 7,
+      "phase_improvement": [
+        35.4661765864721,
+        25.663667782139328
+      ],
+      "max_truth_deviance": 31.469001479366398,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        6.75,
+        38.25,
+        -13.5,
+        45.0,
+        31.5,
+        13.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 21.604686991484048,
+      "conditional_person_interval_inclusion": 0.06875
+    },
+    {
+      "generator": "weak",
+      "replicate": 8,
+      "phase_improvement": [
+        35.66544690974251,
+        19.761108104492905
+      ],
+      "max_truth_deviance": 23.63468120112657,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        13.5,
+        -22.5,
+        -36.0,
+        -4.5,
+        -40.5,
+        31.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 21.392755783208482,
+      "conditional_person_interval_inclusion": 0.525
+    },
+    {
+      "generator": "weak",
+      "replicate": 9,
+      "phase_improvement": [
+        20.75620646837433,
+        29.858236765012407
+      ],
+      "max_truth_deviance": 14.682146547886987,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        22.5,
+        4.5,
+        27.0,
+        -9.0,
+        18.0,
+        9.0,
+        36.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 19.40747278756304,
+      "conditional_person_interval_inclusion": 0.4875
+    },
+    {
+      "generator": "weak",
+      "replicate": 10,
+      "phase_improvement": [
+        30.113717660599832,
+        21.482016573837427
+      ],
+      "max_truth_deviance": 23.58645456186423,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        18.0,
+        0.0,
+        9.0,
+        -4.5,
+        4.5,
+        13.5,
+        22.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 17.844642053008517,
+      "conditional_person_interval_inclusion": 0.38125
+    },
+    {
+      "generator": "weak",
+      "replicate": 11,
+      "phase_improvement": [
+        25.24988054818732,
+        33.65453951270774
+      ],
+      "max_truth_deviance": 24.121147020835906,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        -2.25,
+        38.25,
+        -40.5,
+        58.5,
+        18.0,
+        18.0,
+        -22.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 27.721607096270592,
+      "conditional_person_interval_inclusion": 0.04375
+    },
+    {
+      "generator": "weak",
+      "replicate": 12,
+      "phase_improvement": [
+        29.04522651741445,
+        30.69375442438286
+      ],
+      "max_truth_deviance": 22.1855126719247,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        0.0,
+        27.0,
+        27.0,
+        13.5,
+        40.5,
+        -13.5,
+        13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 17.573061770789973,
+      "conditional_person_interval_inclusion": 0.1125
+    },
+    {
+      "generator": "weak",
+      "replicate": 13,
+      "phase_improvement": [
+        19.406760238539846,
+        28.722228661483314
+      ],
+      "max_truth_deviance": 14.453166340574171,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        0.0,
+        -4.5,
+        54.0,
+        -31.5,
+        22.5,
+        -27.0,
+        27.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 20.218725850062857,
+      "conditional_person_interval_inclusion": 0.525
+    },
+    {
+      "generator": "weak",
+      "replicate": 14,
+      "phase_improvement": [
+        22.652189809117772,
+        43.241832741384314
+      ],
+      "max_truth_deviance": 32.02449216561217,
+      "selected": [
+        false,
+        true
+      ],
+      "effect_error_cm": [
+        54.0,
+        4.5,
+        36.0,
+        -13.5,
+        22.5,
+        36.0,
+        72.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 32.51619788659185,
+      "conditional_person_interval_inclusion": 0.35
+    },
+    {
+      "generator": "weak",
+      "replicate": 15,
+      "phase_improvement": [
+        20.619279745337735,
+        27.36323527376635
+      ],
+      "max_truth_deviance": 21.279869061369936,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        0.0,
+        -13.5,
+        36.0,
+        -31.5,
+        4.5,
+        -18.0,
+        18.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 18.20276421316279,
+      "conditional_person_interval_inclusion": 0.08125
+    },
+    {
+      "generator": "weak",
+      "replicate": 16,
+      "phase_improvement": [
+        25.833516945636802,
+        23.881025294697793
+      ],
+      "max_truth_deviance": 18.68738725909361,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        27.0,
+        13.5,
+        -9.0,
+        18.0,
+        9.0,
+        31.5,
+        22.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 20.12461179749811,
+      "conditional_person_interval_inclusion": 0.50625
+    },
+    {
+      "generator": "weak",
+      "replicate": 17,
+      "phase_improvement": [
+        32.043471915892496,
+        38.20659443199156
+      ],
+      "max_truth_deviance": 30.750614471009612,
+      "selected": [
+        false,
+        true
+      ],
+      "effect_error_cm": [
+        6.75,
+        -2.25,
+        -40.5,
+        18.0,
+        -22.5,
+        27.0,
+        -13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 33.95189611789009,
+      "conditional_person_interval_inclusion": 0.01875
+    },
+    {
+      "generator": "weak",
+      "replicate": 18,
+      "phase_improvement": [
+        20.341291234095024,
+        27.099842348000948
+      ],
+      "max_truth_deviance": 24.52140461266754,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        11.25,
+        6.75,
+        -13.5,
+        13.5,
+        0.0,
+        18.0,
+        4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 13.787562329868178,
+      "conditional_person_interval_inclusion": 0.38125
+    },
+    {
+      "generator": "weak",
+      "replicate": 19,
+      "phase_improvement": [
+        34.77209446868892,
+        31.836666520928247
+      ],
+      "max_truth_deviance": 32.362198930329214,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        -15.75,
+        -11.25,
+        4.5,
+        -13.5,
+        -9.0,
+        -18.0,
+        -13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 34.583458835113646,
+      "conditional_person_interval_inclusion": 0.075
+    },
+    {
+      "generator": "weak",
+      "replicate": 20,
+      "phase_improvement": [
+        35.92497034857479,
+        32.27390296957083
+      ],
+      "max_truth_deviance": 20.279337900701194,
+      "selected": [
+        true,
+        false
+      ],
+      "effect_error_cm": [
+        22.5,
+        31.5,
+        -72.0,
+        67.5,
+        -4.5,
+        58.5,
+        -13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 29.602681466380712,
+      "conditional_person_interval_inclusion": 0.0125
+    },
+    {
+      "generator": "weak",
+      "replicate": 21,
+      "phase_improvement": [
+        23.933919818418417,
+        30.255608694041257
+      ],
+      "max_truth_deviance": 36.84641461740739,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        40.5,
+        31.5,
+        45.0,
+        9.0,
+        54.0,
+        18.0,
+        63.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 29.61977802077524,
+      "conditional_person_interval_inclusion": 0.025
+    },
+    {
+      "generator": "weak",
+      "replicate": 22,
+      "phase_improvement": [
+        32.536704406483295,
+        19.7627591921605
+      ],
+      "max_truth_deviance": 18.531578510761392,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        22.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        22.5,
+        22.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 19.42051106433608,
+      "conditional_person_interval_inclusion": 0.10625
+    },
+    {
+      "generator": "weak",
+      "replicate": 23,
+      "phase_improvement": [
+        28.466550166505385,
+        26.037135204376227
+      ],
+      "max_truth_deviance": 18.64598281334156,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        31.5,
+        0.0,
+        -9.0,
+        4.5,
+        -4.5,
+        36.0,
+        27.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 20.57243301119243,
+      "conditional_person_interval_inclusion": 0.45625
+    },
+    {
+      "generator": "weak",
+      "replicate": 24,
+      "phase_improvement": [
+        26.10081432428433,
+        39.95571113284177
+      ],
+      "max_truth_deviance": 26.84072457927641,
+      "selected": [
+        false,
+        true
+      ],
+      "effect_error_cm": [
+        15.75,
+        6.75,
+        67.5,
+        -27.0,
+        40.5,
+        -18.0,
+        49.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 25.515436504202707,
+      "conditional_person_interval_inclusion": 0.03125
+    },
+    {
+      "generator": "weak",
+      "replicate": 25,
+      "phase_improvement": [
+        30.17005006404679,
+        31.550783819766366
+      ],
+      "max_truth_deviance": 31.032085220394492,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        29.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        31.5,
+        27.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 21.13683100656293,
+      "conditional_person_interval_inclusion": 0.05
+    },
+    {
+      "generator": "weak",
+      "replicate": 26,
+      "phase_improvement": [
+        27.14623891330575,
+        20.929056099555055
+      ],
+      "max_truth_deviance": 26.27510646552355,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        -9.0,
+        9.0,
+        9.0,
+        4.5,
+        13.5,
+        -13.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 16.05245308356327,
+      "conditional_person_interval_inclusion": 0.38125
+    },
+    {
+      "generator": "weak",
+      "replicate": 27,
+      "phase_improvement": [
+        27.712700875263636,
+        23.77530049045845
+      ],
+      "max_truth_deviance": 27.410658779457208,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        0.0,
+        9.0,
+        45.0,
+        -13.5,
+        31.5,
+        -22.5,
+        22.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 18.58124053985632,
+      "conditional_person_interval_inclusion": 0.05
+    },
+    {
+      "generator": "weak",
+      "replicate": 28,
+      "phase_improvement": [
+        21.955404690671003,
+        30.968826364257893
+      ],
+      "max_truth_deviance": 20.777901048856165,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        18.0,
+        -9.0,
+        -27.0,
+        4.5,
+        -22.5,
+        31.5,
+        4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 18.126120655010546,
+      "conditional_person_interval_inclusion": 0.13125
+    },
+    {
+      "generator": "weak",
+      "replicate": 29,
+      "phase_improvement": [
+        36.98098914404818,
+        29.622175844539015
+      ],
+      "max_truth_deviance": 32.65733360169315,
+      "selected": [
+        true,
+        false
+      ],
+      "effect_error_cm": [
+        -6.75,
+        -29.25,
+        40.5,
+        -49.5,
+        -9.0,
+        -27.0,
+        13.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 29.058991723733293,
+      "conditional_person_interval_inclusion": 0.05625
+    },
+    {
+      "generator": "weak",
+      "replicate": 30,
+      "phase_improvement": [
+        25.379427952871538,
+        20.866023266742104
+      ],
+      "max_truth_deviance": 22.08082772336138,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        20.25,
+        -15.75,
+        -22.5,
+        -4.5,
+        -27.0,
+        31.5,
+        9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 19.673030396967317,
+      "conditional_person_interval_inclusion": 0.30625
+    },
+    {
+      "generator": "weak",
+      "replicate": 31,
+      "phase_improvement": [
+        24.7668875867289,
+        29.335347889491004
+      ],
+      "max_truth_deviance": 17.731647705079013,
+      "selected": [
+        false,
+        false
+      ],
+      "effect_error_cm": [
+        2.25,
+        2.25,
+        -22.5,
+        13.5,
+        -9.0,
+        13.5,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 27.358556705352715,
+      "conditional_person_interval_inclusion": 0.025
+    },
+    {
+      "generator": "strong",
+      "replicate": 0,
+      "phase_improvement": [
+        69.42630562790737,
+        61.37856369958536
+      ],
+      "max_truth_deviance": 18.635662333625987,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -9.0,
+        0.0,
+        -9.0,
+        -9.0,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.359777989899204,
+      "conditional_person_interval_inclusion": 0.85625
+    },
+    {
+      "generator": "strong",
+      "replicate": 1,
+      "phase_improvement": [
+        82.72251887725997,
+        95.5693494739844
+      ],
+      "max_truth_deviance": 30.090233384117255,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        -9.0,
+        4.5,
+        -4.5,
+        0.0,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.208521868356506,
+      "conditional_person_interval_inclusion": 0.8625
+    },
+    {
+      "generator": "strong",
+      "replicate": 2,
+      "phase_improvement": [
+        76.48696472835627,
+        90.30843661256495
+      ],
+      "max_truth_deviance": 19.41861759477024,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 8.358379029453019,
+      "conditional_person_interval_inclusion": 0.94375
+    },
+    {
+      "generator": "strong",
+      "replicate": 3,
+      "phase_improvement": [
+        90.37486478017672,
+        42.66521925371899
+      ],
+      "max_truth_deviance": 28.439570655515126,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.137492293461928,
+      "conditional_person_interval_inclusion": 0.83125
+    },
+    {
+      "generator": "strong",
+      "replicate": 4,
+      "phase_improvement": [
+        44.520425450669336,
+        86.64560762289193
+      ],
+      "max_truth_deviance": 32.732173328539375,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -6.75,
+        -4.5,
+        -4.5,
+        -9.0,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.897442851565247,
+      "conditional_person_interval_inclusion": 0.88125
+    },
+    {
+      "generator": "strong",
+      "replicate": 5,
+      "phase_improvement": [
+        66.63650852991441,
+        65.01928962984766
+      ],
+      "max_truth_deviance": 14.082300493870207,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 11.84192763024669,
+      "conditional_person_interval_inclusion": 0.85625
+    },
+    {
+      "generator": "strong",
+      "replicate": 6,
+      "phase_improvement": [
+        95.38719008828775,
+        89.5496083911562
+      ],
+      "max_truth_deviance": 29.374493164108117,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        0.0,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        0.0,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.884647186419958,
+      "conditional_person_interval_inclusion": 0.9125
+    },
+    {
+      "generator": "strong",
+      "replicate": 7,
+      "phase_improvement": [
+        109.00677195300705,
+        87.64109730121572
+      ],
+      "max_truth_deviance": 29.46216500841001,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        0.0,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        0.0,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.099969059358548,
+      "conditional_person_interval_inclusion": 0.8375
+    },
+    {
+      "generator": "strong",
+      "replicate": 8,
+      "phase_improvement": [
+        64.52395354144392,
+        67.90339726496086
+      ],
+      "max_truth_deviance": 17.53373132436809,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.505355776935877,
+      "conditional_person_interval_inclusion": 0.86875
+    },
+    {
+      "generator": "strong",
+      "replicate": 9,
+      "phase_improvement": [
+        59.644216343835524,
+        107.1099000667341
+      ],
+      "max_truth_deviance": 30.961565161591807,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 8.786530885394987,
+      "conditional_person_interval_inclusion": 0.83125
+    },
+    {
+      "generator": "strong",
+      "replicate": 10,
+      "phase_improvement": [
+        47.9332595687174,
+        86.66795352571808
+      ],
+      "max_truth_deviance": 16.900481002766355,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.432820807432666,
+      "conditional_person_interval_inclusion": 0.7875
+    },
+    {
+      "generator": "strong",
+      "replicate": 11,
+      "phase_improvement": [
+        85.50910689591547,
+        45.155423105770296
+      ],
+      "max_truth_deviance": 19.12251183669241,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.014051530804558,
+      "conditional_person_interval_inclusion": 0.86875
+    },
+    {
+      "generator": "strong",
+      "replicate": 12,
+      "phase_improvement": [
+        102.94641393845086,
+        125.89258858423591
+      ],
+      "max_truth_deviance": 26.929820535850467,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.385494126576395,
+      "conditional_person_interval_inclusion": 0.8
+    },
+    {
+      "generator": "strong",
+      "replicate": 13,
+      "phase_improvement": [
+        101.89986588082775,
+        138.2869353294277
+      ],
+      "max_truth_deviance": 38.585798574710225,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.545941546018392,
+      "conditional_person_interval_inclusion": 0.775
+    },
+    {
+      "generator": "strong",
+      "replicate": 14,
+      "phase_improvement": [
+        106.62801335783206,
+        84.11816080777544
+      ],
+      "max_truth_deviance": 28.530113886578874,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 7.858912138457842,
+      "conditional_person_interval_inclusion": 0.925
+    },
+    {
+      "generator": "strong",
+      "replicate": 15,
+      "phase_improvement": [
+        63.24152190064751,
+        70.58746337586672
+      ],
+      "max_truth_deviance": 22.21207447668121,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        -9.0,
+        0.0,
+        -9.0,
+        0.0,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 11.75611542985182,
+      "conditional_person_interval_inclusion": 0.76875
+    },
+    {
+      "generator": "strong",
+      "replicate": 16,
+      "phase_improvement": [
+        66.35553295732507,
+        56.4164855162544
+      ],
+      "max_truth_deviance": 15.132692557932842,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        2.25,
+        2.25,
+        -4.5,
+        4.5,
+        0.0,
+        4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.070039966835868,
+      "conditional_person_interval_inclusion": 0.9
+    },
+    {
+      "generator": "strong",
+      "replicate": 17,
+      "phase_improvement": [
+        35.3084439114964,
+        95.00624501115453
+      ],
+      "max_truth_deviance": 26.638565300040682,
+      "selected": [
+        false,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 8.74321165247645,
+      "conditional_person_interval_inclusion": 0.9
+    },
+    {
+      "generator": "strong",
+      "replicate": 18,
+      "phase_improvement": [
+        98.4086421610341,
+        95.58216178447856
+      ],
+      "max_truth_deviance": 28.46788879409405,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 8.901018200183618,
+      "conditional_person_interval_inclusion": 0.83125
+    },
+    {
+      "generator": "strong",
+      "replicate": 19,
+      "phase_improvement": [
+        76.62843486810061,
+        75.37837038162661
+      ],
+      "max_truth_deviance": 19.502237779534425,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.263334982607505,
+      "conditional_person_interval_inclusion": 0.89375
+    },
+    {
+      "generator": "strong",
+      "replicate": 20,
+      "phase_improvement": [
+        80.00242445245794,
+        44.82436887394215
+      ],
+      "max_truth_deviance": 22.75218465962098,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 12.282609657560563,
+      "conditional_person_interval_inclusion": 0.4375
+    },
+    {
+      "generator": "strong",
+      "replicate": 21,
+      "phase_improvement": [
+        57.24443954134449,
+        69.04230809267028
+      ],
+      "max_truth_deviance": 21.92133509482892,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.249237776537337,
+      "conditional_person_interval_inclusion": 0.875
+    },
+    {
+      "generator": "strong",
+      "replicate": 22,
+      "phase_improvement": [
+        70.87595035788445,
+        108.3944937322317
+      ],
+      "max_truth_deviance": 31.0450618863224,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -6.75,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.961174629530394,
+      "conditional_person_interval_inclusion": 0.84375
+    },
+    {
+      "generator": "strong",
+      "replicate": 23,
+      "phase_improvement": [
+        63.62904423200598,
+        67.68024793999166
+      ],
+      "max_truth_deviance": 16.459925400373777,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -6.75,
+        -2.25,
+        -4.5,
+        0.0,
+        -4.5,
+        -4.5,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.505355776935877,
+      "conditional_person_interval_inclusion": 0.81875
+    },
+    {
+      "generator": "strong",
+      "replicate": 24,
+      "phase_improvement": [
+        57.04402146088705,
+        100.88728918875631
+      ],
+      "max_truth_deviance": 27.563444937167787,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        -9.0,
+        4.5,
+        -4.5,
+        0.0,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.028081191482496,
+      "conditional_person_interval_inclusion": 0.86875
+    },
+    {
+      "generator": "strong",
+      "replicate": 25,
+      "phase_improvement": [
+        86.45959475121617,
+        86.98380292813499
+      ],
+      "max_truth_deviance": 26.745495494771603,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        -4.5,
+        -9.0,
+        0.0,
+        -9.0,
+        0.0,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.41242529850835,
+      "conditional_person_interval_inclusion": 0.9
+    },
+    {
+      "generator": "strong",
+      "replicate": 26,
+      "phase_improvement": [
+        107.15597420669155,
+        95.27313172704771
+      ],
+      "max_truth_deviance": 28.782611845188057,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        -9.0,
+        4.5,
+        -4.5,
+        0.0,
+        -9.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.028081191482496,
+      "conditional_person_interval_inclusion": 0.9375
+    },
+    {
+      "generator": "strong",
+      "replicate": 27,
+      "phase_improvement": [
+        70.55793094909131,
+        93.58498756023982
+      ],
+      "max_truth_deviance": 25.338730627153836,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -6.75,
+        -4.5,
+        -4.5,
+        -9.0,
+        0.0,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.999715905422285,
+      "conditional_person_interval_inclusion": 0.825
+    },
+    {
+      "generator": "strong",
+      "replicate": 28,
+      "phase_improvement": [
+        48.292396819420446,
+        128.00179295710223
+      ],
+      "max_truth_deviance": 31.832125865155376,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 8.626630280706367,
+      "conditional_person_interval_inclusion": 0.93125
+    },
+    {
+      "generator": "strong",
+      "replicate": 29,
+      "phase_improvement": [
+        49.41572464769888,
+        129.408871204771
+      ],
+      "max_truth_deviance": 35.9210719871312,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -4.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.5,
+        -4.5
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.953595300174277,
+      "conditional_person_interval_inclusion": 0.78125
+    },
+    {
+      "generator": "strong",
+      "replicate": 30,
+      "phase_improvement": [
+        43.213189736951335,
+        105.8314507835862
+      ],
+      "max_truth_deviance": 27.727255164824328,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        -2.25,
+        4.5,
+        -4.5,
+        0.0,
+        -4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 10.965143637910085,
+      "conditional_person_interval_inclusion": 0.81875
+    },
+    {
+      "generator": "strong",
+      "replicate": 31,
+      "phase_improvement": [
+        102.1797359342313,
+        51.448198851727284
+      ],
+      "max_truth_deviance": 33.33950429537799,
+      "selected": [
+        true,
+        true
+      ],
+      "effect_error_cm": [
+        -2.25,
+        2.25,
+        4.5,
+        0.0,
+        4.5,
+        -4.5,
+        0.0
+      ],
+      "effects_cover_truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "person_rmse_cm": 9.910221995495359,
+      "conditional_person_interval_inclusion": 0.85
+    }
+  ],
+  "expanded": {
+    "calibrated_phase_deviance": 35.75905050682468,
+    "calibrated_shape_deviance": 36.49433779149422,
+    "calibration": [
+      {
+        "generator": "flat",
+        "replicate": 0,
+        "phase_improvement": [
+          -0.4539402207965395,
+          4.677733319040726
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 1,
+        "phase_improvement": [
+          -0.8120795746899603,
+          3.287479176209672
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 2,
+        "phase_improvement": [
+          -3.1408025499636096,
+          0.727244388802319
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 3,
+        "phase_improvement": [
+          2.748305451996657,
+          0.8901360859322267
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 4,
+        "phase_improvement": [
+          2.123961102131034,
+          -3.1400569972824997
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 5,
+        "phase_improvement": [
+          10.389731459191353,
+          1.216320486362747
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 6,
+        "phase_improvement": [
+          6.605718517031164,
+          -2.63320628346537
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 7,
+        "phase_improvement": [
+          -1.3020418589367182,
+          0.5963849644895163
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 8,
+        "phase_improvement": [
+          -2.6442821209607246,
+          -2.436329722503615
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 9,
+        "phase_improvement": [
+          -2.8482301258773077,
+          -0.35345195027593945
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 10,
+        "phase_improvement": [
+          -0.9187451864445393,
+          0.9820295389677085
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 11,
+        "phase_improvement": [
+          -1.406214652402923,
+          5.577212804344072
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 12,
+        "phase_improvement": [
+          -0.8093740043100297,
+          -1.6724623613981748
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 13,
+        "phase_improvement": [
+          -2.4500491756857627,
+          -1.9786196902568918
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 14,
+        "phase_improvement": [
+          -2.5167449420323464,
+          2.509508969988019
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 15,
+        "phase_improvement": [
+          -3.7797035244793733,
+          -3.229870260871394
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 16,
+        "phase_improvement": [
+          -3.8655599639769207,
+          -0.13222619950147418
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 17,
+        "phase_improvement": [
+          -2.0224103313644264,
+          -3.1935951725654377
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 18,
+        "phase_improvement": [
+          -0.5697387128802802,
+          4.5614335027134985
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 19,
+        "phase_improvement": [
+          -2.187403041030848,
+          -3.859166762595123
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 20,
+        "phase_improvement": [
+          -0.5950733113240858,
+          -4.090078483681282
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 21,
+        "phase_improvement": [
+          0.971024063303048,
+          -2.5458634908536624
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 22,
+        "phase_improvement": [
+          1.0143119746999218,
+          6.417040393063871
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 23,
+        "phase_improvement": [
+          -2.240993575432185,
+          -1.583191517936939
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 24,
+        "phase_improvement": [
+          -2.9508273719475255,
+          4.143909671437996
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 25,
+        "phase_improvement": [
+          -1.0050389335656291,
+          0.11290335916964978
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 26,
+        "phase_improvement": [
+          -2.0169910051372426,
+          -3.5033856313239085
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 27,
+        "phase_improvement": [
+          -2.805169855375425,
+          0.74219106731789
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 28,
+        "phase_improvement": [
+          -1.5647964293470977,
+          1.396888706191021
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 29,
+        "phase_improvement": [
+          3.4959210776678447,
+          -2.0687627270554003
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 30,
+        "phase_improvement": [
+          0.5193532796292857,
+          -2.335356585196223
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 31,
+        "phase_improvement": [
+          -4.140376567110252,
+          -4.081094710932575
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 0,
+        "phase_improvement": [
+          16.73017471282583,
+          45.59834196975498
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 1,
+        "phase_improvement": [
+          30.63265311769146,
+          26.018552199574515
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 2,
+        "phase_improvement": [
+          33.93589869316793,
+          18.79076545666385
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 3,
+        "phase_improvement": [
+          20.801383757931035,
+          20.9034406391861
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 4,
+        "phase_improvement": [
+          25.748371847090766,
+          21.52984886903323
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 5,
+        "phase_improvement": [
+          20.82195192797826,
+          22.290038341900072
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 6,
+        "phase_improvement": [
+          24.750190707203274,
+          21.563996509822573
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 7,
+        "phase_improvement": [
+          20.459844303256887,
+          17.900160620738006
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 8,
+        "phase_improvement": [
+          19.026659043798645,
+          20.038824004933304
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 9,
+        "phase_improvement": [
+          28.82303154101328,
+          19.05885654262329
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 10,
+        "phase_improvement": [
+          18.78369315856071,
+          35.75905050682468
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 11,
+        "phase_improvement": [
+          24.446755977878638,
+          12.438963899099235
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 12,
+        "phase_improvement": [
+          21.207839188678008,
+          15.623947706101262
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 13,
+        "phase_improvement": [
+          12.398498748447764,
+          20.116026104290995
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 14,
+        "phase_improvement": [
+          20.93440715045699,
+          20.605018909820956
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 15,
+        "phase_improvement": [
+          17.938951069876566,
+          21.29715130302111
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 16,
+        "phase_improvement": [
+          24.818497113631565,
+          21.953390209322606
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 17,
+        "phase_improvement": [
+          27.50628455531296,
+          25.387035485029628
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 18,
+        "phase_improvement": [
+          22.12462777656583,
+          28.54453876875641
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 19,
+        "phase_improvement": [
+          18.572308184755002,
+          35.622798821806555
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 20,
+        "phase_improvement": [
+          22.329262750859925,
+          26.438811220599746
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 21,
+        "phase_improvement": [
+          22.789587067519733,
+          22.937217003508067
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 22,
+        "phase_improvement": [
+          16.944093747034003,
+          26.272489907673844
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 23,
+        "phase_improvement": [
+          34.59835633686998,
+          23.988016689543656
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 24,
+        "phase_improvement": [
+          23.30069539991655,
+          14.573447770101211
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 25,
+        "phase_improvement": [
+          25.398651490133943,
+          14.915931368901056
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 26,
+        "phase_improvement": [
+          32.273115030493955,
+          14.293865117950645
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 27,
+        "phase_improvement": [
+          23.82244591635208,
+          29.438067725066958
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 28,
+        "phase_improvement": [
+          16.7333030083596,
+          11.724283285749607
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 29,
+        "phase_improvement": [
+          28.72561569810705,
+          22.013066708113
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 30,
+        "phase_improvement": [
+          32.56366257874424,
+          20.866703497033086
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 31,
+        "phase_improvement": [
+          28.396390404448084,
+          28.08376150864933
+        ]
+      },
+      {
+        "generator": "weak",
+        "replicate": 0,
+        "phase_improvement": [
+          23.54222931343429,
+          37.07194818748667
+        ],
+        "max_truth_deviance": 21.41044841673147
+      },
+      {
+        "generator": "weak",
+        "replicate": 1,
+        "phase_improvement": [
+          16.532849613723556,
+          31.687384787937845
+        ],
+        "max_truth_deviance": 22.13784870704785
+      },
+      {
+        "generator": "weak",
+        "replicate": 2,
+        "phase_improvement": [
+          31.659674165823617,
+          25.126078762404177
+        ],
+        "max_truth_deviance": 17.492355555614267
+      },
+      {
+        "generator": "weak",
+        "replicate": 3,
+        "phase_improvement": [
+          34.550180647584966,
+          29.46770925711644
+        ],
+        "max_truth_deviance": 32.17634389600198
+      },
+      {
+        "generator": "weak",
+        "replicate": 4,
+        "phase_improvement": [
+          25.26844674361473,
+          32.72487202842922
+        ],
+        "max_truth_deviance": 19.698694174532648
+      },
+      {
+        "generator": "weak",
+        "replicate": 5,
+        "phase_improvement": [
+          20.658986107277997,
+          28.890524331653523
+        ],
+        "max_truth_deviance": 18.21120815556378
+      },
+      {
+        "generator": "weak",
+        "replicate": 6,
+        "phase_improvement": [
+          28.876444208483917,
+          29.11850392208953
+        ],
+        "max_truth_deviance": 27.280398545243315
+      },
+      {
+        "generator": "weak",
+        "replicate": 7,
+        "phase_improvement": [
+          21.209543303957616,
+          22.80376557943373
+        ],
+        "max_truth_deviance": 20.788872236818406
+      },
+      {
+        "generator": "weak",
+        "replicate": 8,
+        "phase_improvement": [
+          24.813138885946955,
+          39.18576182726474
+        ],
+        "max_truth_deviance": 26.98434614020789
+      },
+      {
+        "generator": "weak",
+        "replicate": 9,
+        "phase_improvement": [
+          27.301610222058116,
+          38.3652841071098
+        ],
+        "max_truth_deviance": 16.981399826660436
+      },
+      {
+        "generator": "weak",
+        "replicate": 10,
+        "phase_improvement": [
+          21.923266926474298,
+          35.39631385379016
+        ],
+        "max_truth_deviance": 23.62136041608028
+      },
+      {
+        "generator": "weak",
+        "replicate": 11,
+        "phase_improvement": [
+          26.43179038972221,
+          26.03653102690123
+        ],
+        "max_truth_deviance": 25.49888578806258
+      },
+      {
+        "generator": "weak",
+        "replicate": 12,
+        "phase_improvement": [
+          27.197602187571647,
+          31.36384653088544
+        ],
+        "max_truth_deviance": 23.153523583486276
+      },
+      {
+        "generator": "weak",
+        "replicate": 13,
+        "phase_improvement": [
+          19.88040345873651,
+          15.42245612164379
+        ],
+        "max_truth_deviance": 15.19655226119994
+      },
+      {
+        "generator": "weak",
+        "replicate": 14,
+        "phase_improvement": [
+          14.764552371803347,
+          29.497093798153855
+        ],
+        "max_truth_deviance": 26.363851063938455
+      },
+      {
+        "generator": "weak",
+        "replicate": 15,
+        "phase_improvement": [
+          37.061754816401844,
+          27.2286896709561
+        ],
+        "max_truth_deviance": 24.682360739543583
+      },
+      {
+        "generator": "weak",
+        "replicate": 16,
+        "phase_improvement": [
+          28.594888917004027,
+          23.228926509217672
+        ],
+        "max_truth_deviance": 21.075929258198357
+      },
+      {
+        "generator": "weak",
+        "replicate": 17,
+        "phase_improvement": [
+          23.0580785893585,
+          35.245942197458135
+        ],
+        "max_truth_deviance": 28.725696056301786
+      },
+      {
+        "generator": "weak",
+        "replicate": 18,
+        "phase_improvement": [
+          36.08582284270733,
+          21.32482290877033
+        ],
+        "max_truth_deviance": 33.45316283268767
+      },
+      {
+        "generator": "weak",
+        "replicate": 19,
+        "phase_improvement": [
+          26.82705096157224,
+          33.32780536122573
+        ],
+        "max_truth_deviance": 28.79118736775854
+      },
+      {
+        "generator": "weak",
+        "replicate": 20,
+        "phase_improvement": [
+          23.720444824703918,
+          21.08793867930308
+        ],
+        "max_truth_deviance": 21.235428164446148
+      },
+      {
+        "generator": "weak",
+        "replicate": 21,
+        "phase_improvement": [
+          22.48343501311956,
+          24.123196698853917
+        ],
+        "max_truth_deviance": 25.57809630967904
+      },
+      {
+        "generator": "weak",
+        "replicate": 22,
+        "phase_improvement": [
+          37.42848835349196,
+          31.460444875473968
+        ],
+        "max_truth_deviance": 26.65738594288041
+      },
+      {
+        "generator": "weak",
+        "replicate": 23,
+        "phase_improvement": [
+          29.487904357139087,
+          28.447461941052552
+        ],
+        "max_truth_deviance": 21.747462729484596
+      },
+      {
+        "generator": "weak",
+        "replicate": 24,
+        "phase_improvement": [
+          21.02847787492874,
+          21.61690297483119
+        ],
+        "max_truth_deviance": 15.515430904586083
+      },
+      {
+        "generator": "weak",
+        "replicate": 25,
+        "phase_improvement": [
+          19.99437141897397,
+          27.022316961365505
+        ],
+        "max_truth_deviance": 15.281212873290315
+      },
+      {
+        "generator": "weak",
+        "replicate": 26,
+        "phase_improvement": [
+          34.49443980986007,
+          30.450433660331328
+        ],
+        "max_truth_deviance": 32.81765455961249
+      },
+      {
+        "generator": "weak",
+        "replicate": 27,
+        "phase_improvement": [
+          21.264905343330156,
+          36.35897355850648
+        ],
+        "max_truth_deviance": 23.827260520963137
+      },
+      {
+        "generator": "weak",
+        "replicate": 28,
+        "phase_improvement": [
+          16.891086835831175,
+          28.884877471350137
+        ],
+        "max_truth_deviance": 26.54723863868321
+      },
+      {
+        "generator": "weak",
+        "replicate": 29,
+        "phase_improvement": [
+          30.5039162151852,
+          33.51175438445762
+        ],
+        "max_truth_deviance": 23.522200715255167
+      },
+      {
+        "generator": "weak",
+        "replicate": 30,
+        "phase_improvement": [
+          28.411482450608673,
+          24.674493646873543
+        ],
+        "max_truth_deviance": 27.392176513671075
+      },
+      {
+        "generator": "weak",
+        "replicate": 31,
+        "phase_improvement": [
+          23.0445059812173,
+          35.91116111101792
+        ],
+        "max_truth_deviance": 19.588747008594964
+      },
+      {
+        "generator": "strong",
+        "replicate": 0,
+        "phase_improvement": [
+          34.672563231462846,
+          80.35622961579611
+        ],
+        "max_truth_deviance": 11.630678000580247
+      },
+      {
+        "generator": "strong",
+        "replicate": 1,
+        "phase_improvement": [
+          69.73795829097207,
+          77.3470950646938
+        ],
+        "max_truth_deviance": 17.755781869666862
+      },
+      {
+        "generator": "strong",
+        "replicate": 2,
+        "phase_improvement": [
+          87.49512449437225,
+          86.19944457258407
+        ],
+        "max_truth_deviance": 22.895991874886477
+      },
+      {
+        "generator": "strong",
+        "replicate": 3,
+        "phase_improvement": [
+          50.040021367908594,
+          72.79040975271118
+        ],
+        "max_truth_deviance": 17.399795692729185
+      },
+      {
+        "generator": "strong",
+        "replicate": 4,
+        "phase_improvement": [
+          35.164610277573956,
+          111.56403238288249
+        ],
+        "max_truth_deviance": 23.88363360270887
+      },
+      {
+        "generator": "strong",
+        "replicate": 5,
+        "phase_improvement": [
+          114.59234525801548,
+          70.52924345874499
+        ],
+        "max_truth_deviance": 30.66221544547716
+      },
+      {
+        "generator": "strong",
+        "replicate": 6,
+        "phase_improvement": [
+          59.0765721375119,
+          60.381152364193895
+        ],
+        "max_truth_deviance": 21.536274974708704
+      },
+      {
+        "generator": "strong",
+        "replicate": 7,
+        "phase_improvement": [
+          83.43785400269144,
+          43.03452557872561
+        ],
+        "max_truth_deviance": 20.14718833773395
+      },
+      {
+        "generator": "strong",
+        "replicate": 8,
+        "phase_improvement": [
+          97.90629507568838,
+          67.34859227881088
+        ],
+        "max_truth_deviance": 25.025555043663644
+      },
+      {
+        "generator": "strong",
+        "replicate": 9,
+        "phase_improvement": [
+          92.65363410719237,
+          48.3779326425024
+        ],
+        "max_truth_deviance": 25.816540475893817
+      },
+      {
+        "generator": "strong",
+        "replicate": 10,
+        "phase_improvement": [
+          93.24841893874554,
+          68.61707004770597
+        ],
+        "max_truth_deviance": 20.716649793208035
+      },
+      {
+        "generator": "strong",
+        "replicate": 11,
+        "phase_improvement": [
+          92.63279734290427,
+          75.83677026254873
+        ],
+        "max_truth_deviance": 28.729924419830695
+      },
+      {
+        "generator": "strong",
+        "replicate": 12,
+        "phase_improvement": [
+          77.55240223007422,
+          61.485982531795344
+        ],
+        "max_truth_deviance": 24.84485650833085
+      },
+      {
+        "generator": "strong",
+        "replicate": 13,
+        "phase_improvement": [
+          102.02251778861546,
+          86.88528750427349
+        ],
+        "max_truth_deviance": 28.9830079241583
+      },
+      {
+        "generator": "strong",
+        "replicate": 14,
+        "phase_improvement": [
+          94.79393529068648,
+          81.58410824537805
+        ],
+        "max_truth_deviance": 25.24014372720876
+      },
+      {
+        "generator": "strong",
+        "replicate": 15,
+        "phase_improvement": [
+          70.0289402839644,
+          80.72810759930644
+        ],
+        "max_truth_deviance": 24.146272691142713
+      },
+      {
+        "generator": "strong",
+        "replicate": 16,
+        "phase_improvement": [
+          85.09110300490056,
+          118.96239317494064
+        ],
+        "max_truth_deviance": 29.75700382300238
+      },
+      {
+        "generator": "strong",
+        "replicate": 17,
+        "phase_improvement": [
+          108.07112744497272,
+          91.90889952358793
+        ],
+        "max_truth_deviance": 30.11204652537117
+      },
+      {
+        "generator": "strong",
+        "replicate": 18,
+        "phase_improvement": [
+          90.21536451852171,
+          47.448377598256684
+        ],
+        "max_truth_deviance": 20.98852976902299
+      },
+      {
+        "generator": "strong",
+        "replicate": 19,
+        "phase_improvement": [
+          93.3482287317006,
+          89.76029598209061
+        ],
+        "max_truth_deviance": 25.284231773830925
+      },
+      {
+        "generator": "strong",
+        "replicate": 20,
+        "phase_improvement": [
+          85.87762999729603,
+          71.60473633856691
+        ],
+        "max_truth_deviance": 25.27692598319618
+      },
+      {
+        "generator": "strong",
+        "replicate": 21,
+        "phase_improvement": [
+          72.9378983786919,
+          63.431249931423736
+        ],
+        "max_truth_deviance": 19.48473787089597
+      },
+      {
+        "generator": "strong",
+        "replicate": 22,
+        "phase_improvement": [
+          94.94316426041951,
+          61.29570152123733
+        ],
+        "max_truth_deviance": 25.863787034655616
+      },
+      {
+        "generator": "strong",
+        "replicate": 23,
+        "phase_improvement": [
+          39.833336120865624,
+          64.34845994891475
+        ],
+        "max_truth_deviance": 21.309749209975053
+      },
+      {
+        "generator": "strong",
+        "replicate": 24,
+        "phase_improvement": [
+          96.48120106342958,
+          75.12544863945732
+        ],
+        "max_truth_deviance": 24.284992378209154
+      },
+      {
+        "generator": "strong",
+        "replicate": 25,
+        "phase_improvement": [
+          34.636851913451665,
+          111.54932144579152
+        ],
+        "max_truth_deviance": 36.49433779149422
+      },
+      {
+        "generator": "strong",
+        "replicate": 26,
+        "phase_improvement": [
+          94.57527572691015,
+          70.99130904125377
+        ],
+        "max_truth_deviance": 22.159929716259285
+      },
+      {
+        "generator": "strong",
+        "replicate": 27,
+        "phase_improvement": [
+          47.36456195476512,
+          104.74869344736408
+        ],
+        "max_truth_deviance": 32.07090588017172
+      },
+      {
+        "generator": "strong",
+        "replicate": 28,
+        "phase_improvement": [
+          84.30718020684935,
+          119.70570010002893
+        ],
+        "max_truth_deviance": 38.5641345153299
+      },
+      {
+        "generator": "strong",
+        "replicate": 29,
+        "phase_improvement": [
+          88.23925142589997,
+          103.62903870088576
+        ],
+        "max_truth_deviance": 23.471475216830186
+      },
+      {
+        "generator": "strong",
+        "replicate": 30,
+        "phase_improvement": [
+          91.6745542157023,
+          88.33353342931241
+        ],
+        "max_truth_deviance": 22.999767441423955
+      },
+      {
+        "generator": "strong",
+        "replicate": 31,
+        "phase_improvement": [
+          96.04500957773007,
+          67.6251161599248
+        ],
+        "max_truth_deviance": 21.848768262178055
+      }
+    ],
+    "evaluation": [
+      {
+        "generator": "flat",
+        "replicate": 0,
+        "phase_improvement": [
+          1.212782148237693,
+          -2.466609196098034
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 1,
+        "phase_improvement": [
+          -2.92559497381626,
+          5.866238030783279
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 2,
+        "phase_improvement": [
+          -3.6500750177769987,
+          8.09113079400231
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 3,
+        "phase_improvement": [
+          -4.0706786143855425,
+          7.524442491572245
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 4,
+        "phase_improvement": [
+          -1.6268778993508022,
+          -3.7875911238761546
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 5,
+        "phase_improvement": [
+          -1.7974026381084514,
+          -1.341848084281537
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 6,
+        "phase_improvement": [
+          -2.978987742886602,
+          -3.5244222903083937
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 7,
+        "phase_improvement": [
+          -0.22839224954304882,
+          2.008365436690383
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 8,
+        "phase_improvement": [
+          0.343135772095593,
+          -1.4863152121715757
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 9,
+        "phase_improvement": [
+          4.092783872732525,
+          -4.153955474654595
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 10,
+        "phase_improvement": [
+          -0.7324524740206471,
+          -3.158406344830837
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 11,
+        "phase_improvement": [
+          -0.15888474286794008,
+          -2.3907853072646503
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 12,
+        "phase_improvement": [
+          -1.8073436837476038,
+          -2.2283135453667455
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 13,
+        "phase_improvement": [
+          1.6168991864547024,
+          -0.6934300570460437
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 14,
+        "phase_improvement": [
+          0.9124811330907505,
+          -3.258957976817328
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 15,
+        "phase_improvement": [
+          -4.040687668402825,
+          -0.6799900436590178
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 16,
+        "phase_improvement": [
+          -3.179060894284703,
+          -3.707120618298177
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 17,
+        "phase_improvement": [
+          -0.87000511219685,
+          -2.0231932399333346
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 18,
+        "phase_improvement": [
+          -2.71675949613973,
+          -2.213119557994105
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 19,
+        "phase_improvement": [
+          -4.263917459755248,
+          0.7446720498082868
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 20,
+        "phase_improvement": [
+          -1.7254328545209319,
+          -1.4913713715232007
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 21,
+        "phase_improvement": [
+          -3.6424185136766027,
+          -4.006533336516441
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 22,
+        "phase_improvement": [
+          -0.601358556305513,
+          5.155787924049946
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 23,
+        "phase_improvement": [
+          0.19472937028285742,
+          -0.20738117118162336
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 24,
+        "phase_improvement": [
+          2.0574061755210096,
+          -4.091332071463512
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 25,
+        "phase_improvement": [
+          1.2868616264704542,
+          -2.714984225416174
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 26,
+        "phase_improvement": [
+          -0.9192824429137545,
+          2.0191822957631302
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 27,
+        "phase_improvement": [
+          2.6561281340091227,
+          -3.2539272972112485
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 28,
+        "phase_improvement": [
+          -3.448637187850636,
+          -1.104656853355209
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 29,
+        "phase_improvement": [
+          0.3340447966957072,
+          5.450106604346274
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 30,
+        "phase_improvement": [
+          1.457890616203258,
+          5.387551584998164
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "flat",
+        "replicate": 31,
+        "phase_improvement": [
+          -2.9564556809591522,
+          -0.30275833408632025
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 0,
+        "phase_improvement": [
+          21.310374672012586,
+          29.742868367534356
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 1,
+        "phase_improvement": [
+          21.326048080227338,
+          30.024968635645564
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 2,
+        "phase_improvement": [
+          22.69510950950189,
+          21.31116515552003
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 3,
+        "phase_improvement": [
+          18.89776641715116,
+          27.51391390169465
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 4,
+        "phase_improvement": [
+          15.828435349183565,
+          18.431652683443644
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 5,
+        "phase_improvement": [
+          21.86391794409201,
+          24.200662748937248
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 6,
+        "phase_improvement": [
+          9.099529193787475,
+          23.28752894301124
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 7,
+        "phase_improvement": [
+          28.62445254636623,
+          16.629274199059637
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 8,
+        "phase_improvement": [
+          29.800962523562703,
+          15.214236202246866
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 9,
+        "phase_improvement": [
+          23.124085702357206,
+          35.326047353590184
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 10,
+        "phase_improvement": [
+          15.161383287596891,
+          21.12713772817642
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 11,
+        "phase_improvement": [
+          19.333853541380904,
+          12.977031678702133
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 12,
+        "phase_improvement": [
+          22.52398958704316,
+          13.45078752739073
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 13,
+        "phase_improvement": [
+          25.27086446616113,
+          21.893697326235724
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 14,
+        "phase_improvement": [
+          33.185686440257996,
+          27.085013379332395
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 15,
+        "phase_improvement": [
+          17.541844744273476,
+          31.101250060641632
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 16,
+        "phase_improvement": [
+          20.42350531602142,
+          23.668956850529867
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 17,
+        "phase_improvement": [
+          34.34861924070083,
+          16.124487314205908
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 18,
+        "phase_improvement": [
+          25.17110955178532,
+          20.571897357009675
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 19,
+        "phase_improvement": [
+          20.891985093381663,
+          26.388469485897986
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 20,
+        "phase_improvement": [
+          15.123128044214354,
+          25.645419267391844
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 21,
+        "phase_improvement": [
+          15.137765774607033,
+          36.964703968345475
+        ],
+        "selected": [
+          false,
+          true
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 22,
+        "phase_improvement": [
+          29.18190741298531,
+          27.5372234390029
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 23,
+        "phase_improvement": [
+          28.328643402287526,
+          18.954374478705176
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 24,
+        "phase_improvement": [
+          24.97415597818781,
+          13.853212350587
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 25,
+        "phase_improvement": [
+          20.094041195002774,
+          30.762703601800695
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 26,
+        "phase_improvement": [
+          34.566076873520615,
+          21.343666657357062
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 27,
+        "phase_improvement": [
+          25.0681600482294,
+          29.637810876916774
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 28,
+        "phase_improvement": [
+          31.58527027605669,
+          36.81442759138645
+        ],
+        "selected": [
+          false,
+          true
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 29,
+        "phase_improvement": [
+          19.305376294543294,
+          19.59480523529419
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 30,
+        "phase_improvement": [
+          17.544469309887063,
+          20.884908969444496
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "affine",
+        "replicate": 31,
+        "phase_improvement": [
+          10.886626054454155,
+          20.330380595163206
+        ],
+        "selected": [
+          false,
+          false
+        ]
+      },
+      {
+        "generator": "weak",
+        "replicate": 0,
+        "phase_improvement": [
+          29.972265475460063,
+          28.616789896811497
+        ],
+        "max_truth_deviance": 26.134617200068988,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          31.5,
+          -9.0,
+          36.0,
+          -27.0,
+          9.0,
+          13.5,
+          49.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 23.088552358257544,
+        "conditional_person_interval_inclusion": 0.075
+      },
+      {
+        "generator": "weak",
+        "replicate": 1,
+        "phase_improvement": [
+          16.31910557260062,
+          30.275829146256
+        ],
+        "max_truth_deviance": 17.126357267136882,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          31.5,
+          -9.0,
+          27.0,
+          -22.5,
+          4.5,
+          18.0,
+          45.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 22.194171532183848,
+        "conditional_person_interval_inclusion": 0.03125
+      },
+      {
+        "generator": "weak",
+        "replicate": 2,
+        "phase_improvement": [
+          33.6870464419203,
+          32.48395425286253
+        ],
+        "max_truth_deviance": 33.87618180631898,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          -11.25,
+          -6.75,
+          -139.5,
+          63.0,
+          -76.5,
+          58.5,
+          -81.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 38.52693862740719,
+        "conditional_person_interval_inclusion": 0.00625
+      },
+      {
+        "generator": "weak",
+        "replicate": 3,
+        "phase_improvement": [
+          34.66605345065136,
+          37.14539053976068
+        ],
+        "max_truth_deviance": 25.097529518477586,
+        "selected": [
+          false,
+          true
+        ],
+        "effect_error_cm": [
+          18.0,
+          0.0,
+          -9.0,
+          4.5,
+          -4.5,
+          22.5,
+          13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 17.002021938581304,
+        "conditional_person_interval_inclusion": 0.125
+      },
+      {
+        "generator": "weak",
+        "replicate": 4,
+        "phase_improvement": [
+          22.72694494237203,
+          24.285151773162397
+        ],
+        "max_truth_deviance": 16.364882345637398,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          22.5,
+          -9.0,
+          -18.0,
+          0.0,
+          -18.0,
+          31.5,
+          13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 20.998660671576175,
+        "conditional_person_interval_inclusion": 0.46875
+      },
+      {
+        "generator": "weak",
+        "replicate": 5,
+        "phase_improvement": [
+          21.985533950183708,
+          21.7168020662898
+        ],
+        "max_truth_deviance": 19.075471641884178,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 13.851669574459246,
+        "conditional_person_interval_inclusion": 0.9875
+      },
+      {
+        "generator": "weak",
+        "replicate": 6,
+        "phase_improvement": [
+          40.88489361878737,
+          28.897526740091962
+        ],
+        "max_truth_deviance": 37.50720014475064,
+        "selected": [
+          true,
+          false
+        ],
+        "effect_error_cm": [
+          54.0,
+          -4.5,
+          -27.0,
+          9.0,
+          -18.0,
+          67.5,
+          40.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 33.929522543059754,
+        "conditional_person_interval_inclusion": 0.03125
+      },
+      {
+        "generator": "weak",
+        "replicate": 7,
+        "phase_improvement": [
+          35.4661765864721,
+          25.663667782139328
+        ],
+        "max_truth_deviance": 31.469001479366398,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          6.75,
+          38.25,
+          -13.5,
+          45.0,
+          31.5,
+          13.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 21.604686991484048,
+        "conditional_person_interval_inclusion": 0.06875
+      },
+      {
+        "generator": "weak",
+        "replicate": 8,
+        "phase_improvement": [
+          35.66544690974251,
+          19.761108104492905
+        ],
+        "max_truth_deviance": 23.63468120112657,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          13.5,
+          -22.5,
+          -36.0,
+          -4.5,
+          -40.5,
+          31.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 21.392755783208482,
+        "conditional_person_interval_inclusion": 0.525
+      },
+      {
+        "generator": "weak",
+        "replicate": 9,
+        "phase_improvement": [
+          20.75620646837433,
+          29.858236765012407
+        ],
+        "max_truth_deviance": 14.682146547886987,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          22.5,
+          4.5,
+          27.0,
+          -9.0,
+          18.0,
+          9.0,
+          36.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 19.40747278756304,
+        "conditional_person_interval_inclusion": 0.4875
+      },
+      {
+        "generator": "weak",
+        "replicate": 10,
+        "phase_improvement": [
+          30.113717660599832,
+          21.482016573837427
+        ],
+        "max_truth_deviance": 23.58645456186423,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          18.0,
+          0.0,
+          9.0,
+          -4.5,
+          4.5,
+          13.5,
+          22.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 17.844642053008517,
+        "conditional_person_interval_inclusion": 0.38125
+      },
+      {
+        "generator": "weak",
+        "replicate": 11,
+        "phase_improvement": [
+          25.24988054818732,
+          33.65453951270774
+        ],
+        "max_truth_deviance": 24.121147020835906,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          -2.25,
+          38.25,
+          -40.5,
+          58.5,
+          18.0,
+          18.0,
+          -22.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 27.721607096270592,
+        "conditional_person_interval_inclusion": 0.04375
+      },
+      {
+        "generator": "weak",
+        "replicate": 12,
+        "phase_improvement": [
+          29.04522651741445,
+          30.69375442438286
+        ],
+        "max_truth_deviance": 22.1855126719247,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          0.0,
+          27.0,
+          27.0,
+          13.5,
+          40.5,
+          -13.5,
+          13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 17.573061770789973,
+        "conditional_person_interval_inclusion": 0.1125
+      },
+      {
+        "generator": "weak",
+        "replicate": 13,
+        "phase_improvement": [
+          19.406760238537572,
+          28.722228661483314
+        ],
+        "max_truth_deviance": 14.453166340574171,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          0.0,
+          -4.5,
+          54.0,
+          -31.5,
+          22.5,
+          -27.0,
+          27.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 20.218725850062857,
+        "conditional_person_interval_inclusion": 0.525
+      },
+      {
+        "generator": "weak",
+        "replicate": 14,
+        "phase_improvement": [
+          22.652189809117772,
+          43.241832741384314
+        ],
+        "max_truth_deviance": 32.02449216561217,
+        "selected": [
+          false,
+          true
+        ],
+        "effect_error_cm": [
+          54.0,
+          4.5,
+          36.0,
+          -13.5,
+          22.5,
+          36.0,
+          72.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 32.51619788659185,
+        "conditional_person_interval_inclusion": 0.35
+      },
+      {
+        "generator": "weak",
+        "replicate": 15,
+        "phase_improvement": [
+          20.619279745337735,
+          27.36323527376635
+        ],
+        "max_truth_deviance": 21.279869061369936,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          0.0,
+          -13.5,
+          36.0,
+          -31.5,
+          4.5,
+          -18.0,
+          18.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 18.20276421316279,
+        "conditional_person_interval_inclusion": 0.08125
+      },
+      {
+        "generator": "weak",
+        "replicate": 16,
+        "phase_improvement": [
+          25.833516945636802,
+          23.881025294697793
+        ],
+        "max_truth_deviance": 18.68738725909361,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          27.0,
+          13.5,
+          -9.0,
+          18.0,
+          9.0,
+          31.5,
+          22.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 20.12461179749811,
+        "conditional_person_interval_inclusion": 0.50625
+      },
+      {
+        "generator": "weak",
+        "replicate": 17,
+        "phase_improvement": [
+          32.043471915892496,
+          38.20659443199156
+        ],
+        "max_truth_deviance": 30.750614471009612,
+        "selected": [
+          false,
+          true
+        ],
+        "effect_error_cm": [
+          6.75,
+          -2.25,
+          -40.5,
+          18.0,
+          -22.5,
+          27.0,
+          -13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 33.95189611789009,
+        "conditional_person_interval_inclusion": 0.01875
+      },
+      {
+        "generator": "weak",
+        "replicate": 18,
+        "phase_improvement": [
+          20.341291234095024,
+          27.099842348000948
+        ],
+        "max_truth_deviance": 24.52140461266754,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          11.25,
+          6.75,
+          -13.5,
+          13.5,
+          0.0,
+          18.0,
+          4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 13.787562329868178,
+        "conditional_person_interval_inclusion": 0.38125
+      },
+      {
+        "generator": "weak",
+        "replicate": 19,
+        "phase_improvement": [
+          34.77209446868892,
+          31.836666520928247
+        ],
+        "max_truth_deviance": 32.362198930329214,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          -15.75,
+          -11.25,
+          4.5,
+          -13.5,
+          -9.0,
+          -18.0,
+          -13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 34.583458835113646,
+        "conditional_person_interval_inclusion": 0.075
+      },
+      {
+        "generator": "weak",
+        "replicate": 20,
+        "phase_improvement": [
+          35.92497034857479,
+          32.27390296957083
+        ],
+        "max_truth_deviance": 20.279337900701194,
+        "selected": [
+          true,
+          false
+        ],
+        "effect_error_cm": [
+          22.5,
+          31.5,
+          -72.0,
+          67.5,
+          -4.5,
+          58.5,
+          -13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 29.602681466380712,
+        "conditional_person_interval_inclusion": 0.0125
+      },
+      {
+        "generator": "weak",
+        "replicate": 21,
+        "phase_improvement": [
+          23.933919818418417,
+          30.255608694041257
+        ],
+        "max_truth_deviance": 36.84641461740739,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          40.5,
+          31.5,
+          45.0,
+          9.0,
+          54.0,
+          18.0,
+          63.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 29.61977802077524,
+        "conditional_person_interval_inclusion": 0.025
+      },
+      {
+        "generator": "weak",
+        "replicate": 22,
+        "phase_improvement": [
+          32.536704406483295,
+          19.7627591921605
+        ],
+        "max_truth_deviance": 18.531578510761392,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          22.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          22.5,
+          22.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 19.42051106433608,
+        "conditional_person_interval_inclusion": 0.10625
+      },
+      {
+        "generator": "weak",
+        "replicate": 23,
+        "phase_improvement": [
+          28.466550166505385,
+          26.037135204376227
+        ],
+        "max_truth_deviance": 18.64598281334156,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          31.5,
+          0.0,
+          -9.0,
+          4.5,
+          -4.5,
+          36.0,
+          27.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 20.57243301119243,
+        "conditional_person_interval_inclusion": 0.45625
+      },
+      {
+        "generator": "weak",
+        "replicate": 24,
+        "phase_improvement": [
+          26.10081432428433,
+          39.95571113284177
+        ],
+        "max_truth_deviance": 26.84072457927641,
+        "selected": [
+          false,
+          true
+        ],
+        "effect_error_cm": [
+          15.75,
+          6.75,
+          67.5,
+          -27.0,
+          40.5,
+          -18.0,
+          49.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 25.515436504202707,
+        "conditional_person_interval_inclusion": 0.03125
+      },
+      {
+        "generator": "weak",
+        "replicate": 25,
+        "phase_improvement": [
+          30.17005006404679,
+          31.550783819766366
+        ],
+        "max_truth_deviance": 31.032085220394492,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          29.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          31.5,
+          27.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 21.13683100656293,
+        "conditional_person_interval_inclusion": 0.05
+      },
+      {
+        "generator": "weak",
+        "replicate": 26,
+        "phase_improvement": [
+          27.14623891330575,
+          20.929056099555055
+        ],
+        "max_truth_deviance": 26.27510646552355,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          -9.0,
+          9.0,
+          9.0,
+          4.5,
+          13.5,
+          -13.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 16.05245308356327,
+        "conditional_person_interval_inclusion": 0.38125
+      },
+      {
+        "generator": "weak",
+        "replicate": 27,
+        "phase_improvement": [
+          27.712700875263636,
+          23.77530049045845
+        ],
+        "max_truth_deviance": 27.410658779457208,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          0.0,
+          9.0,
+          45.0,
+          -13.5,
+          31.5,
+          -22.5,
+          22.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 18.58124053985632,
+        "conditional_person_interval_inclusion": 0.05
+      },
+      {
+        "generator": "weak",
+        "replicate": 28,
+        "phase_improvement": [
+          21.955404690671003,
+          30.968826364257893
+        ],
+        "max_truth_deviance": 20.777901048856165,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          18.0,
+          -9.0,
+          -27.0,
+          4.5,
+          -22.5,
+          31.5,
+          4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 18.126120655010546,
+        "conditional_person_interval_inclusion": 0.13125
+      },
+      {
+        "generator": "weak",
+        "replicate": 29,
+        "phase_improvement": [
+          36.98098914404818,
+          29.622175844539015
+        ],
+        "max_truth_deviance": 32.65733360169315,
+        "selected": [
+          true,
+          false
+        ],
+        "effect_error_cm": [
+          -6.75,
+          -29.25,
+          40.5,
+          -49.5,
+          -9.0,
+          -27.0,
+          13.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 29.058991723733293,
+        "conditional_person_interval_inclusion": 0.05625
+      },
+      {
+        "generator": "weak",
+        "replicate": 30,
+        "phase_improvement": [
+          25.379427952871538,
+          20.866023266742104
+        ],
+        "max_truth_deviance": 22.08082772336138,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          20.25,
+          -15.75,
+          -22.5,
+          -4.5,
+          -27.0,
+          31.5,
+          9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 19.673030396967317,
+        "conditional_person_interval_inclusion": 0.30625
+      },
+      {
+        "generator": "weak",
+        "replicate": 31,
+        "phase_improvement": [
+          24.7668875867289,
+          29.335347889491004
+        ],
+        "max_truth_deviance": 17.731647705079013,
+        "selected": [
+          false,
+          false
+        ],
+        "effect_error_cm": [
+          2.25,
+          2.25,
+          -22.5,
+          13.5,
+          -9.0,
+          13.5,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 27.358556705352715,
+        "conditional_person_interval_inclusion": 0.025
+      },
+      {
+        "generator": "strong",
+        "replicate": 0,
+        "phase_improvement": [
+          69.42630562790737,
+          61.37856369958536
+        ],
+        "max_truth_deviance": 18.635662333625987,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -9.0,
+          0.0,
+          -9.0,
+          -9.0,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.359777989899204,
+        "conditional_person_interval_inclusion": 0.85625
+      },
+      {
+        "generator": "strong",
+        "replicate": 1,
+        "phase_improvement": [
+          82.72251887725997,
+          95.5693494739844
+        ],
+        "max_truth_deviance": 30.090233384117255,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          -9.0,
+          4.5,
+          -4.5,
+          0.0,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.208521868356506,
+        "conditional_person_interval_inclusion": 0.8625
+      },
+      {
+        "generator": "strong",
+        "replicate": 2,
+        "phase_improvement": [
+          76.48696472835627,
+          90.30843661256495
+        ],
+        "max_truth_deviance": 19.41861759477024,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 8.358379029453019,
+        "conditional_person_interval_inclusion": 0.94375
+      },
+      {
+        "generator": "strong",
+        "replicate": 3,
+        "phase_improvement": [
+          90.37486478017672,
+          42.66521925371899
+        ],
+        "max_truth_deviance": 28.439570655515126,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.137492293461928,
+        "conditional_person_interval_inclusion": 0.83125
+      },
+      {
+        "generator": "strong",
+        "replicate": 4,
+        "phase_improvement": [
+          44.520425450669336,
+          86.64560762289193
+        ],
+        "max_truth_deviance": 32.732173328539375,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -6.75,
+          -4.5,
+          -4.5,
+          -9.0,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.897442851565247,
+        "conditional_person_interval_inclusion": 0.88125
+      },
+      {
+        "generator": "strong",
+        "replicate": 5,
+        "phase_improvement": [
+          66.63650852991441,
+          65.01928962984766
+        ],
+        "max_truth_deviance": 14.082300493870207,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 11.84192763024669,
+        "conditional_person_interval_inclusion": 0.85625
+      },
+      {
+        "generator": "strong",
+        "replicate": 6,
+        "phase_improvement": [
+          95.38719008828775,
+          89.5496083911562
+        ],
+        "max_truth_deviance": 29.374493164108117,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          0.0,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          0.0,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.884647186419958,
+        "conditional_person_interval_inclusion": 0.9125
+      },
+      {
+        "generator": "strong",
+        "replicate": 7,
+        "phase_improvement": [
+          109.00677195300705,
+          87.64109730121572
+        ],
+        "max_truth_deviance": 29.46216500841001,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          0.0,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          0.0,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.099969059358548,
+        "conditional_person_interval_inclusion": 0.8375
+      },
+      {
+        "generator": "strong",
+        "replicate": 8,
+        "phase_improvement": [
+          64.52395354144392,
+          67.90339726496086
+        ],
+        "max_truth_deviance": 17.53373132436809,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.505355776935877,
+        "conditional_person_interval_inclusion": 0.86875
+      },
+      {
+        "generator": "strong",
+        "replicate": 9,
+        "phase_improvement": [
+          59.644216343835524,
+          107.1099000667341
+        ],
+        "max_truth_deviance": 30.961565161591807,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 8.786530885394987,
+        "conditional_person_interval_inclusion": 0.83125
+      },
+      {
+        "generator": "strong",
+        "replicate": 10,
+        "phase_improvement": [
+          47.9332595687174,
+          86.66795352571808
+        ],
+        "max_truth_deviance": 16.900481002766355,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.432820807432666,
+        "conditional_person_interval_inclusion": 0.7875
+      },
+      {
+        "generator": "strong",
+        "replicate": 11,
+        "phase_improvement": [
+          85.50910689591547,
+          45.155423105770296
+        ],
+        "max_truth_deviance": 19.12251183669241,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.014051530804558,
+        "conditional_person_interval_inclusion": 0.86875
+      },
+      {
+        "generator": "strong",
+        "replicate": 12,
+        "phase_improvement": [
+          102.94641393845086,
+          125.89258858423591
+        ],
+        "max_truth_deviance": 26.929820535850467,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.385494126576395,
+        "conditional_person_interval_inclusion": 0.8
+      },
+      {
+        "generator": "strong",
+        "replicate": 13,
+        "phase_improvement": [
+          101.89986588082775,
+          138.2869353294277
+        ],
+        "max_truth_deviance": 38.585798574710225,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.545941546018392,
+        "conditional_person_interval_inclusion": 0.775
+      },
+      {
+        "generator": "strong",
+        "replicate": 14,
+        "phase_improvement": [
+          106.62801335783206,
+          84.11816080777544
+        ],
+        "max_truth_deviance": 28.530113886578874,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 7.858912138457842,
+        "conditional_person_interval_inclusion": 0.925
+      },
+      {
+        "generator": "strong",
+        "replicate": 15,
+        "phase_improvement": [
+          63.24152190064751,
+          70.58746337586672
+        ],
+        "max_truth_deviance": 22.21207447668121,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          -9.0,
+          0.0,
+          -9.0,
+          0.0,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 11.75611542985182,
+        "conditional_person_interval_inclusion": 0.76875
+      },
+      {
+        "generator": "strong",
+        "replicate": 16,
+        "phase_improvement": [
+          66.35553295732507,
+          56.4164855162544
+        ],
+        "max_truth_deviance": 15.132692557932842,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          2.25,
+          2.25,
+          -4.5,
+          4.5,
+          0.0,
+          4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.070039966835868,
+        "conditional_person_interval_inclusion": 0.9
+      },
+      {
+        "generator": "strong",
+        "replicate": 17,
+        "phase_improvement": [
+          35.3084439114964,
+          95.00624501115453
+        ],
+        "max_truth_deviance": 26.638565300040682,
+        "selected": [
+          false,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 8.74321165247645,
+        "conditional_person_interval_inclusion": 0.9
+      },
+      {
+        "generator": "strong",
+        "replicate": 18,
+        "phase_improvement": [
+          98.408642161035,
+          95.58216178447856
+        ],
+        "max_truth_deviance": 28.46788879409496,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 8.901018200183618,
+        "conditional_person_interval_inclusion": 0.83125
+      },
+      {
+        "generator": "strong",
+        "replicate": 19,
+        "phase_improvement": [
+          76.62843486810061,
+          75.37837038162661
+        ],
+        "max_truth_deviance": 19.502237779534425,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.263334982607505,
+        "conditional_person_interval_inclusion": 0.89375
+      },
+      {
+        "generator": "strong",
+        "replicate": 20,
+        "phase_improvement": [
+          80.00242445245794,
+          44.82436887394215
+        ],
+        "max_truth_deviance": 22.75218465962098,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 12.282609657560563,
+        "conditional_person_interval_inclusion": 0.4375
+      },
+      {
+        "generator": "strong",
+        "replicate": 21,
+        "phase_improvement": [
+          57.24443954134449,
+          69.04230809267028
+        ],
+        "max_truth_deviance": 21.92133509482892,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.249237776537337,
+        "conditional_person_interval_inclusion": 0.875
+      },
+      {
+        "generator": "strong",
+        "replicate": 22,
+        "phase_improvement": [
+          70.87595035788445,
+          108.3944937322317
+        ],
+        "max_truth_deviance": 31.0450618863224,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -6.75,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.961174629530394,
+        "conditional_person_interval_inclusion": 0.84375
+      },
+      {
+        "generator": "strong",
+        "replicate": 23,
+        "phase_improvement": [
+          63.62904423200598,
+          67.68024793999166
+        ],
+        "max_truth_deviance": 16.459925400373777,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -6.75,
+          -2.25,
+          -4.5,
+          0.0,
+          -4.5,
+          -4.5,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.505355776935877,
+        "conditional_person_interval_inclusion": 0.81875
+      },
+      {
+        "generator": "strong",
+        "replicate": 24,
+        "phase_improvement": [
+          57.04402146088705,
+          100.88728918875631
+        ],
+        "max_truth_deviance": 27.563444937167787,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          -9.0,
+          4.5,
+          -4.5,
+          0.0,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.028081191482496,
+        "conditional_person_interval_inclusion": 0.86875
+      },
+      {
+        "generator": "strong",
+        "replicate": 25,
+        "phase_improvement": [
+          86.45959475121617,
+          86.98380292813499
+        ],
+        "max_truth_deviance": 26.745495494771603,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          -4.5,
+          -9.0,
+          0.0,
+          -9.0,
+          0.0,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.41242529850835,
+        "conditional_person_interval_inclusion": 0.9
+      },
+      {
+        "generator": "strong",
+        "replicate": 26,
+        "phase_improvement": [
+          107.15597420669155,
+          95.27313172704771
+        ],
+        "max_truth_deviance": 28.782611845188057,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          -9.0,
+          4.5,
+          -4.5,
+          0.0,
+          -9.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.028081191482496,
+        "conditional_person_interval_inclusion": 0.9375
+      },
+      {
+        "generator": "strong",
+        "replicate": 27,
+        "phase_improvement": [
+          70.55793094909131,
+          93.58498756023982
+        ],
+        "max_truth_deviance": 25.338730627153836,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -6.75,
+          -4.5,
+          -4.5,
+          -9.0,
+          0.0,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.999715905422285,
+        "conditional_person_interval_inclusion": 0.825
+      },
+      {
+        "generator": "strong",
+        "replicate": 28,
+        "phase_improvement": [
+          48.292396819420446,
+          128.00179295710223
+        ],
+        "max_truth_deviance": 31.832125865155376,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 8.626630280706367,
+        "conditional_person_interval_inclusion": 0.93125
+      },
+      {
+        "generator": "strong",
+        "replicate": 29,
+        "phase_improvement": [
+          49.41572464769888,
+          129.408871204771
+        ],
+        "max_truth_deviance": 35.9210719871312,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -4.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -4.5,
+          -4.5
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.953595300174277,
+        "conditional_person_interval_inclusion": 0.78125
+      },
+      {
+        "generator": "strong",
+        "replicate": 30,
+        "phase_improvement": [
+          43.213189736951335,
+          105.8314507835862
+        ],
+        "max_truth_deviance": 27.727255164824328,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          -2.25,
+          4.5,
+          -4.5,
+          0.0,
+          -4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 10.965143637910085,
+        "conditional_person_interval_inclusion": 0.81875
+      },
+      {
+        "generator": "strong",
+        "replicate": 31,
+        "phase_improvement": [
+          102.1797359342313,
+          51.448198851727284
+        ],
+        "max_truth_deviance": 33.33950429537799,
+        "selected": [
+          true,
+          true
+        ],
+        "effect_error_cm": [
+          -2.25,
+          2.25,
+          4.5,
+          0.0,
+          4.5,
+          -4.5,
+          0.0
+        ],
+        "effects_cover_truth": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "person_rmse_cm": 9.910221995495359,
+        "conditional_person_interval_inclusion": 0.85
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "sha256": {
+    "results/boundary_methods/mixed_profile_effects.csv": "12c8e87065e772c6b5013eff815a070cc31306a0f199a3061f4e3dcf0a0a1aa2",
+    "results/boundary_methods/mixed_profile_participants.csv": "5e17e78c3161260a09b02533dcda87f59e772abb385e393a753f5765be12ab47",
+    "results/boundary_methods/mixed_profile_geometry.csv": "701cba5ca1e4518f6437785c54e59150fc0af83a52e5aa29f014aaeebd31b0d7",
+    "results/boundary_methods/mixed_profile_held_probes.csv": "104048922094189f6f93db93269b7bcfb7adf4ad2d4bb86a9eda6fba9cc3ff60",
+    "analysis/boundary_methods/mixed_profile.py": "31d02dea6acedfdf66d34148aacb07b2254f40d0f1f726658fad15dbc41bcab2",
+    "analysis/boundary_methods/joint_recorded.py": "e5aea432e635bd90bd47e650602faa8f82c3d0cdbe464cdd590a0789eac8e1d1",
+    "results/boundary_methods/MIXED_PROFILE_SPECIFICATION.md": "ba1017ec2458ba6b48fb6edbaf8d5a54adfd13c1924bef31c3c26a9441c02d09",
+    "analysis/baseline_effects/requirements.txt": "71edef027bb74eacb363b76cfc97334d297136effdabd72198f266e4adceedf0"
+  }
+}

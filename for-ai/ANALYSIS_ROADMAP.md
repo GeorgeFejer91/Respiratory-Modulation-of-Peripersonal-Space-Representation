@@ -1284,6 +1284,12 @@ finding as a valid completion of a specified screen.
   population and participant geometry. No observed comparison supported
   both group peaks at a 20 ms minimum span. The matched-width and
   shared-location variants had similar held density.
+- [x] Profile [paired midpoint shifts by marginal likelihood](../results/boundary_methods/MIXED_PROFILE_RESULTS.md).
+  The zero-shift model had the best pooled held score on both distance
+  maps and both lattices. Free-shift support reached both search limits.
+  The inhale point moved with the lower bound. Separate wide-lattice
+  calibration yielded one exhale shape-selection result on the
+  registered map and the paired shift remained unresolved.
 - [ ] Resolve the timing and recording inputs that can be recovered from
   source evidence. The task has only one sampled time per nominal distance.
   The current data cannot identify independent time and distance effects

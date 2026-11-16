@@ -1,0 +1,53 @@
+axis,grid,quantity,point_cm,lower_cm,upper_cm
+registered,primary,Control Exhale,32.5,-44.0,154.0
+registered,primary,Control Inhale,118.0,-44.0,154.0
+registered,primary,Viscereality Exhale,28.0,-134.0,244.0
+registered,primary,Viscereality Inhale,28.0,-134.0,244.0
+registered,primary,Control equal phase,75.25,-44.0,154.0
+registered,primary,Viscereality equal phase,28.0,-134.0,244.0
+registered,primary,Condition,-47.25,-90.0,90.0
+registered,primary,Phase,42.75,-288.0,288.0
+registered,primary,Condition × Phase,-85.5,-180.0,180.0
+registered,primary,Phase within Control,85.5,-198.0,198.0
+registered,primary,Phase within Viscereality,0.0,-378.0,378.0
+registered,primary,Condition within Exhale,-4.5,-90.0,90.0
+registered,primary,Condition within Inhale,-90.0,-90.0,90.0
+registered,expanded,Control Exhale,28.0,-71.0,181.0
+registered,expanded,Control Inhale,118.0,-71.0,181.0
+registered,expanded,Viscereality Exhale,14.5,-188.0,298.0
+registered,expanded,Viscereality Inhale,1.0,-188.0,298.0
+registered,expanded,Control equal phase,73.0,-71.0,181.0
+registered,expanded,Viscereality equal phase,7.75,-188.0,298.0
+registered,expanded,Condition,-65.25,-117.0,117.0
+registered,expanded,Phase,38.25,-369.0,369.0
+registered,expanded,Condition × Phase,-103.5,-234.0,234.0
+registered,expanded,Phase within Control,90.0,-252.0,252.0
+registered,expanded,Phase within Viscereality,-13.5,-486.0,486.0
+registered,expanded,Condition within Exhale,-13.5,-117.0,117.0
+registered,expanded,Condition within Inhale,-117.0,-117.0,117.0
+trajectory,primary,Control Exhale,108.0,-28.0,148.0
+trajectory,primary,Control Inhale,124.0,-28.0,148.0
+trajectory,primary,Viscereality Exhale,112.0,-108.0,228.0
+trajectory,primary,Viscereality Inhale,44.0,-108.0,228.0
+trajectory,primary,Control equal phase,116.0,-28.0,148.0
+trajectory,primary,Viscereality equal phase,78.0,-108.0,228.0
+trajectory,primary,Condition,-38.0,-80.0,80.0
+trajectory,primary,Phase,-26.0,-256.0,256.0
+trajectory,primary,Condition × Phase,-84.0,-160.0,160.0
+trajectory,primary,Phase within Control,16.0,-176.0,176.0
+trajectory,primary,Phase within Viscereality,-68.0,-336.0,336.0
+trajectory,primary,Condition within Exhale,4.0,-80.0,80.0
+trajectory,primary,Condition within Inhale,-80.0,-80.0,80.0
+trajectory,expanded,Control Exhale,116.0,-52.0,172.0
+trajectory,expanded,Control Inhale,116.0,-52.0,172.0
+trajectory,expanded,Viscereality Exhale,112.0,-156.0,276.0
+trajectory,expanded,Viscereality Inhale,12.0,-156.0,276.0
+trajectory,expanded,Control equal phase,116.0,-52.0,172.0
+trajectory,expanded,Viscereality equal phase,62.0,-156.0,276.0
+trajectory,expanded,Condition,-54.0,-104.0,104.0
+trajectory,expanded,Phase,-50.0,-328.0,328.0
+trajectory,expanded,Condition × Phase,-100.0,-208.0,208.0
+trajectory,expanded,Phase within Control,0.0,-224.0,224.0
+trajectory,expanded,Phase within Viscereality,-100.0,-432.0,432.0
+trajectory,expanded,Condition within Exhale,-4.0,-104.0,104.0
+trajectory,expanded,Condition within Inhale,-104.0,-104.0,104.0
