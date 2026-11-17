@@ -150,6 +150,7 @@ acceptance criteria pass. Do not create a duplicate progress ledger.
 | Scope | Required route |
 | --- | --- |
 | Shell output in every project | `rtk`; use supported compact commands, with raw reads for editing, parsers, hashes, and exact evidence |
+| Token use in every project | `saia-task-router` before delegation or subagent spawn. Use local tools for deterministic work and offload only provider-authorized inputs. Continue in the current agent if SAIA is unavailable. |
 | Lifecycle in every project | Use installed `gsd-help` when available; otherwise the nested `gsd-core-workflow` guide is the documented fallback. Reuse the existing roadmap/state owner. |
 | Engineering in every project | Use installed `superpowers-using-superpowers` when available; otherwise the nested `superpowers-workflow` guide is the documented fallback. Preserve similarly named local skills. |
 | Coding and review | `ponytail`, then the affected domain skill |
